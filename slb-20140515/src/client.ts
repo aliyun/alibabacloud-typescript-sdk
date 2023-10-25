@@ -66,10 +66,12 @@ export class AddAccessControlListEntryResponseBody extends $tea.Model {
 
 export class AddAccessControlListEntryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddAccessControlListEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -77,6 +79,7 @@ export class AddAccessControlListEntryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddAccessControlListEntryResponseBody,
     };
   }
@@ -150,10 +153,12 @@ export class AddBackendServersResponseBody extends $tea.Model {
 
 export class AddBackendServersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddBackendServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -161,6 +166,7 @@ export class AddBackendServersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddBackendServersResponseBody,
     };
   }
@@ -234,10 +240,12 @@ export class AddListenerWhiteListItemResponseBody extends $tea.Model {
 
 export class AddListenerWhiteListItemResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddListenerWhiteListItemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -245,6 +253,7 @@ export class AddListenerWhiteListItemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddListenerWhiteListItemResponseBody,
     };
   }
@@ -312,10 +321,12 @@ export class AddTagsResponseBody extends $tea.Model {
 
 export class AddTagsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -323,6 +334,7 @@ export class AddTagsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddTagsResponseBody,
     };
   }
@@ -396,10 +408,12 @@ export class AddVServerGroupBackendServersResponseBody extends $tea.Model {
 
 export class AddVServerGroupBackendServersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddVServerGroupBackendServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -407,6 +421,7 @@ export class AddVServerGroupBackendServersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddVServerGroupBackendServersResponseBody,
     };
   }
@@ -425,6 +440,7 @@ export class CreateAccessControlListRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: CreateAccessControlListRequestTag[];
   static names(): { [key: string]: string } {
     return {
       aclName: 'AclName',
@@ -435,6 +451,7 @@ export class CreateAccessControlListRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
@@ -448,6 +465,7 @@ export class CreateAccessControlListRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': CreateAccessControlListRequestTag },
     };
   }
 
@@ -480,10 +498,12 @@ export class CreateAccessControlListResponseBody extends $tea.Model {
 
 export class CreateAccessControlListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAccessControlListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -491,6 +511,7 @@ export class CreateAccessControlListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAccessControlListResponseBody,
     };
   }
@@ -570,10 +591,12 @@ export class CreateDomainExtensionResponseBody extends $tea.Model {
 
 export class CreateDomainExtensionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateDomainExtensionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -581,6 +604,7 @@ export class CreateDomainExtensionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateDomainExtensionResponseBody,
     };
   }
@@ -599,6 +623,7 @@ export class CreateLoadBalancerRequest extends $tea.Model {
   clientToken?: string;
   deleteProtection?: string;
   duration?: number;
+  instanceChargeType?: string;
   internetChargeType?: string;
   loadBalancerName?: string;
   loadBalancerSpec?: string;
@@ -614,6 +639,7 @@ export class CreateLoadBalancerRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   slaveZoneId?: string;
+  tag?: CreateLoadBalancerRequestTag[];
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -626,6 +652,7 @@ export class CreateLoadBalancerRequest extends $tea.Model {
       clientToken: 'ClientToken',
       deleteProtection: 'DeleteProtection',
       duration: 'Duration',
+      instanceChargeType: 'InstanceChargeType',
       internetChargeType: 'InternetChargeType',
       loadBalancerName: 'LoadBalancerName',
       loadBalancerSpec: 'LoadBalancerSpec',
@@ -641,6 +668,7 @@ export class CreateLoadBalancerRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       slaveZoneId: 'SlaveZoneId',
+      tag: 'Tag',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -656,6 +684,7 @@ export class CreateLoadBalancerRequest extends $tea.Model {
       clientToken: 'string',
       deleteProtection: 'string',
       duration: 'number',
+      instanceChargeType: 'string',
       internetChargeType: 'string',
       loadBalancerName: 'string',
       loadBalancerSpec: 'string',
@@ -671,6 +700,7 @@ export class CreateLoadBalancerRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       slaveZoneId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateLoadBalancerRequestTag },
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -729,10 +759,12 @@ export class CreateLoadBalancerResponseBody extends $tea.Model {
 
 export class CreateLoadBalancerResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateLoadBalancerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -740,6 +772,7 @@ export class CreateLoadBalancerResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateLoadBalancerResponseBody,
     };
   }
@@ -782,6 +815,7 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
   scheduler?: string;
   stickySession?: string;
   stickySessionType?: string;
+  tag?: CreateLoadBalancerHTTPListenerRequestTag[];
   unhealthyThreshold?: number;
   VServerGroupId?: string;
   XForwardedFor?: string;
@@ -822,6 +856,7 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
       scheduler: 'Scheduler',
       stickySession: 'StickySession',
       stickySessionType: 'StickySessionType',
+      tag: 'Tag',
       unhealthyThreshold: 'UnhealthyThreshold',
       VServerGroupId: 'VServerGroupId',
       XForwardedFor: 'XForwardedFor',
@@ -865,6 +900,7 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
       scheduler: 'string',
       stickySession: 'string',
       stickySessionType: 'string',
+      tag: { 'type': 'array', 'itemType': CreateLoadBalancerHTTPListenerRequestTag },
       unhealthyThreshold: 'number',
       VServerGroupId: 'string',
       XForwardedFor: 'string',
@@ -900,10 +936,12 @@ export class CreateLoadBalancerHTTPListenerResponseBody extends $tea.Model {
 
 export class CreateLoadBalancerHTTPListenerResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateLoadBalancerHTTPListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -911,6 +949,7 @@ export class CreateLoadBalancerHTTPListenerResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateLoadBalancerHTTPListenerResponseBody,
     };
   }
@@ -955,6 +994,7 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
   stickySession?: string;
   stickySessionType?: string;
   TLSCipherPolicy?: string;
+  tag?: CreateLoadBalancerHTTPSListenerRequestTag[];
   unhealthyThreshold?: number;
   VServerGroupId?: string;
   XForwardedFor?: string;
@@ -997,6 +1037,7 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       stickySession: 'StickySession',
       stickySessionType: 'StickySessionType',
       TLSCipherPolicy: 'TLSCipherPolicy',
+      tag: 'Tag',
       unhealthyThreshold: 'UnhealthyThreshold',
       VServerGroupId: 'VServerGroupId',
       XForwardedFor: 'XForwardedFor',
@@ -1042,6 +1083,7 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       stickySession: 'string',
       stickySessionType: 'string',
       TLSCipherPolicy: 'string',
+      tag: { 'type': 'array', 'itemType': CreateLoadBalancerHTTPSListenerRequestTag },
       unhealthyThreshold: 'number',
       VServerGroupId: 'string',
       XForwardedFor: 'string',
@@ -1077,10 +1119,12 @@ export class CreateLoadBalancerHTTPSListenerResponseBody extends $tea.Model {
 
 export class CreateLoadBalancerHTTPSListenerResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateLoadBalancerHTTPSListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1088,6 +1132,7 @@ export class CreateLoadBalancerHTTPSListenerResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateLoadBalancerHTTPSListenerResponseBody,
     };
   }
@@ -1111,6 +1156,7 @@ export class CreateLoadBalancerTCPListenerRequest extends $tea.Model {
   healthCheckConnectTimeout?: number;
   healthCheckDomain?: string;
   healthCheckHttpCode?: string;
+  healthCheckSwitch?: string;
   healthCheckType?: string;
   healthCheckURI?: string;
   healthyThreshold?: number;
@@ -1120,10 +1166,12 @@ export class CreateLoadBalancerTCPListenerRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   persistenceTimeout?: number;
+  proxyProtocolV2Enabled?: boolean;
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   scheduler?: string;
+  tag?: CreateLoadBalancerTCPListenerRequestTag[];
   unhealthyThreshold?: number;
   VServerGroupId?: string;
   healthCheckInterval?: number;
@@ -1142,6 +1190,7 @@ export class CreateLoadBalancerTCPListenerRequest extends $tea.Model {
       healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckSwitch: 'HealthCheckSwitch',
       healthCheckType: 'HealthCheckType',
       healthCheckURI: 'HealthCheckURI',
       healthyThreshold: 'HealthyThreshold',
@@ -1151,10 +1200,12 @@ export class CreateLoadBalancerTCPListenerRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       persistenceTimeout: 'PersistenceTimeout',
+      proxyProtocolV2Enabled: 'ProxyProtocolV2Enabled',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       scheduler: 'Scheduler',
+      tag: 'Tag',
       unhealthyThreshold: 'UnhealthyThreshold',
       VServerGroupId: 'VServerGroupId',
       healthCheckInterval: 'healthCheckInterval',
@@ -1176,6 +1227,7 @@ export class CreateLoadBalancerTCPListenerRequest extends $tea.Model {
       healthCheckConnectTimeout: 'number',
       healthCheckDomain: 'string',
       healthCheckHttpCode: 'string',
+      healthCheckSwitch: 'string',
       healthCheckType: 'string',
       healthCheckURI: 'string',
       healthyThreshold: 'number',
@@ -1185,10 +1237,12 @@ export class CreateLoadBalancerTCPListenerRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       persistenceTimeout: 'number',
+      proxyProtocolV2Enabled: 'boolean',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       scheduler: 'string',
+      tag: { 'type': 'array', 'itemType': CreateLoadBalancerTCPListenerRequestTag },
       unhealthyThreshold: 'number',
       VServerGroupId: 'string',
       healthCheckInterval: 'number',
@@ -1221,10 +1275,12 @@ export class CreateLoadBalancerTCPListenerResponseBody extends $tea.Model {
 
 export class CreateLoadBalancerTCPListenerResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateLoadBalancerTCPListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1232,6 +1288,7 @@ export class CreateLoadBalancerTCPListenerResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateLoadBalancerTCPListenerResponseBody,
     };
   }
@@ -1250,16 +1307,19 @@ export class CreateLoadBalancerUDPListenerRequest extends $tea.Model {
   description?: string;
   healthCheckConnectPort?: number;
   healthCheckConnectTimeout?: number;
+  healthCheckSwitch?: string;
   healthyThreshold?: number;
   listenerPort?: number;
   loadBalancerId?: string;
   masterSlaveServerGroupId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  proxyProtocolV2Enabled?: boolean;
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   scheduler?: string;
+  tag?: CreateLoadBalancerUDPListenerRequestTag[];
   unhealthyThreshold?: number;
   VServerGroupId?: string;
   healthCheckExp?: string;
@@ -1275,16 +1335,19 @@ export class CreateLoadBalancerUDPListenerRequest extends $tea.Model {
       description: 'Description',
       healthCheckConnectPort: 'HealthCheckConnectPort',
       healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
+      healthCheckSwitch: 'HealthCheckSwitch',
       healthyThreshold: 'HealthyThreshold',
       listenerPort: 'ListenerPort',
       loadBalancerId: 'LoadBalancerId',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      proxyProtocolV2Enabled: 'ProxyProtocolV2Enabled',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       scheduler: 'Scheduler',
+      tag: 'Tag',
       unhealthyThreshold: 'UnhealthyThreshold',
       VServerGroupId: 'VServerGroupId',
       healthCheckExp: 'healthCheckExp',
@@ -1303,16 +1366,19 @@ export class CreateLoadBalancerUDPListenerRequest extends $tea.Model {
       description: 'string',
       healthCheckConnectPort: 'number',
       healthCheckConnectTimeout: 'number',
+      healthCheckSwitch: 'string',
       healthyThreshold: 'number',
       listenerPort: 'number',
       loadBalancerId: 'string',
       masterSlaveServerGroupId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      proxyProtocolV2Enabled: 'boolean',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       scheduler: 'string',
+      tag: { 'type': 'array', 'itemType': CreateLoadBalancerUDPListenerRequestTag },
       unhealthyThreshold: 'number',
       VServerGroupId: 'string',
       healthCheckExp: 'string',
@@ -1347,10 +1413,12 @@ export class CreateLoadBalancerUDPListenerResponseBody extends $tea.Model {
 
 export class CreateLoadBalancerUDPListenerResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateLoadBalancerUDPListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1358,6 +1426,7 @@ export class CreateLoadBalancerUDPListenerResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateLoadBalancerUDPListenerResponseBody,
     };
   }
@@ -1376,6 +1445,7 @@ export class CreateMasterSlaveServerGroupRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: CreateMasterSlaveServerGroupRequestTag[];
   static names(): { [key: string]: string } {
     return {
       loadBalancerId: 'LoadBalancerId',
@@ -1386,6 +1456,7 @@ export class CreateMasterSlaveServerGroupRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
@@ -1399,6 +1470,7 @@ export class CreateMasterSlaveServerGroupRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': CreateMasterSlaveServerGroupRequestTag },
     };
   }
 
@@ -1434,10 +1506,12 @@ export class CreateMasterSlaveServerGroupResponseBody extends $tea.Model {
 
 export class CreateMasterSlaveServerGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateMasterSlaveServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1445,6 +1519,7 @@ export class CreateMasterSlaveServerGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateMasterSlaveServerGroupResponseBody,
     };
   }
@@ -1521,10 +1596,12 @@ export class CreateRulesResponseBody extends $tea.Model {
 
 export class CreateRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1532,6 +1609,7 @@ export class CreateRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateRulesResponseBody,
     };
   }
@@ -1605,10 +1683,12 @@ export class CreateTLSCipherPolicyResponseBody extends $tea.Model {
 
 export class CreateTLSCipherPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateTLSCipherPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1616,6 +1696,7 @@ export class CreateTLSCipherPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateTLSCipherPolicyResponseBody,
     };
   }
@@ -1633,6 +1714,7 @@ export class CreateVServerGroupRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: CreateVServerGroupRequestTag[];
   VServerGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1643,6 +1725,7 @@ export class CreateVServerGroupRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
       VServerGroupName: 'VServerGroupName',
     };
   }
@@ -1656,6 +1739,7 @@ export class CreateVServerGroupRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': CreateVServerGroupRequestTag },
       VServerGroupName: 'string',
     };
   }
@@ -1692,10 +1776,12 @@ export class CreateVServerGroupResponseBody extends $tea.Model {
 
 export class CreateVServerGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateVServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1703,6 +1789,7 @@ export class CreateVServerGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateVServerGroupResponseBody,
     };
   }
@@ -1767,10 +1854,12 @@ export class DeleteAccessControlListResponseBody extends $tea.Model {
 
 export class DeleteAccessControlListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAccessControlListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1778,7 +1867,92 @@ export class DeleteAccessControlListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAccessControlListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessLogsDownloadAttributeRequest extends $tea.Model {
+  loadBalancerId?: string;
+  logsDownloadAttributes?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tags?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      logsDownloadAttributes: 'LogsDownloadAttributes',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      logsDownloadAttributes: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tags: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessLogsDownloadAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessLogsDownloadAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteAccessLogsDownloadAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAccessLogsDownloadAttributeResponseBody,
     };
   }
 
@@ -1842,10 +2016,12 @@ export class DeleteCACertificateResponseBody extends $tea.Model {
 
 export class DeleteCACertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteCACertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1853,6 +2029,7 @@ export class DeleteCACertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteCACertificateResponseBody,
     };
   }
@@ -1917,10 +2094,12 @@ export class DeleteDomainExtensionResponseBody extends $tea.Model {
 
 export class DeleteDomainExtensionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDomainExtensionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1928,6 +2107,7 @@ export class DeleteDomainExtensionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDomainExtensionResponseBody,
     };
   }
@@ -1992,10 +2172,12 @@ export class DeleteLoadBalancerResponseBody extends $tea.Model {
 
 export class DeleteLoadBalancerResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteLoadBalancerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2003,6 +2185,7 @@ export class DeleteLoadBalancerResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteLoadBalancerResponseBody,
     };
   }
@@ -2073,10 +2256,12 @@ export class DeleteLoadBalancerListenerResponseBody extends $tea.Model {
 
 export class DeleteLoadBalancerListenerResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteLoadBalancerListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2084,6 +2269,7 @@ export class DeleteLoadBalancerListenerResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteLoadBalancerListenerResponseBody,
     };
   }
@@ -2148,10 +2334,12 @@ export class DeleteMasterSlaveServerGroupResponseBody extends $tea.Model {
 
 export class DeleteMasterSlaveServerGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteMasterSlaveServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2159,6 +2347,7 @@ export class DeleteMasterSlaveServerGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteMasterSlaveServerGroupResponseBody,
     };
   }
@@ -2223,10 +2412,12 @@ export class DeleteRulesResponseBody extends $tea.Model {
 
 export class DeleteRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2234,6 +2425,7 @@ export class DeleteRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteRulesResponseBody,
     };
   }
@@ -2298,10 +2490,12 @@ export class DeleteServerCertificateResponseBody extends $tea.Model {
 
 export class DeleteServerCertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteServerCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2309,6 +2503,7 @@ export class DeleteServerCertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteServerCertificateResponseBody,
     };
   }
@@ -2373,10 +2568,12 @@ export class DeleteTLSCipherPolicyResponseBody extends $tea.Model {
 
 export class DeleteTLSCipherPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteTLSCipherPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2384,6 +2581,7 @@ export class DeleteTLSCipherPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteTLSCipherPolicyResponseBody,
     };
   }
@@ -2448,10 +2646,12 @@ export class DeleteVServerGroupResponseBody extends $tea.Model {
 
 export class DeleteVServerGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteVServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2459,6 +2659,7 @@ export class DeleteVServerGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteVServerGroupResponseBody,
     };
   }
@@ -2473,6 +2674,8 @@ export class DescribeAccessControlListAttributeRequest extends $tea.Model {
   aclId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  page?: number;
+  pageSize?: number;
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2482,6 +2685,8 @@ export class DescribeAccessControlListAttributeRequest extends $tea.Model {
       aclId: 'AclId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      page: 'Page',
+      pageSize: 'PageSize',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -2494,6 +2699,8 @@ export class DescribeAccessControlListAttributeRequest extends $tea.Model {
       aclId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      page: 'number',
+      pageSize: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -2510,18 +2717,24 @@ export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
   aclId?: string;
   aclName?: string;
   addressIPVersion?: string;
+  createTime?: string;
   relatedListeners?: DescribeAccessControlListAttributeResponseBodyRelatedListeners;
   requestId?: string;
   resourceGroupId?: string;
+  tags?: DescribeAccessControlListAttributeResponseBodyTags;
+  totalAclEntry?: number;
   static names(): { [key: string]: string } {
     return {
       aclEntrys: 'AclEntrys',
       aclId: 'AclId',
       aclName: 'AclName',
       addressIPVersion: 'AddressIPVersion',
+      createTime: 'CreateTime',
       relatedListeners: 'RelatedListeners',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      totalAclEntry: 'TotalAclEntry',
     };
   }
 
@@ -2531,9 +2744,12 @@ export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
       aclId: 'string',
       aclName: 'string',
       addressIPVersion: 'string',
+      createTime: 'string',
       relatedListeners: DescribeAccessControlListAttributeResponseBodyRelatedListeners,
       requestId: 'string',
       resourceGroupId: 'string',
+      tags: DescribeAccessControlListAttributeResponseBodyTags,
+      totalAclEntry: 'number',
     };
   }
 
@@ -2544,10 +2760,12 @@ export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
 
 export class DescribeAccessControlListAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAccessControlListAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2555,6 +2773,7 @@ export class DescribeAccessControlListAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAccessControlListAttributeResponseBody,
     };
   }
@@ -2575,6 +2794,7 @@ export class DescribeAccessControlListsRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: DescribeAccessControlListsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       aclName: 'AclName',
@@ -2587,6 +2807,7 @@ export class DescribeAccessControlListsRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
@@ -2602,6 +2823,7 @@ export class DescribeAccessControlListsRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeAccessControlListsRequestTag },
     };
   }
 
@@ -2646,10 +2868,12 @@ export class DescribeAccessControlListsResponseBody extends $tea.Model {
 
 export class DescribeAccessControlListsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAccessControlListsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2657,7 +2881,110 @@ export class DescribeAccessControlListsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAccessControlListsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessLogsDownloadAttributeRequest extends $tea.Model {
+  loadBalancerId?: string;
+  logType?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tags?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      logType: 'LogType',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      logType: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tags: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessLogsDownloadAttributeResponseBody extends $tea.Model {
+  logsDownloadAttributes?: DescribeAccessLogsDownloadAttributeResponseBodyLogsDownloadAttributes;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      logsDownloadAttributes: 'LogsDownloadAttributes',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logsDownloadAttributes: DescribeAccessLogsDownloadAttributeResponseBodyLogsDownloadAttributes,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessLogsDownloadAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAccessLogsDownloadAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAccessLogsDownloadAttributeResponseBody,
     };
   }
 
@@ -2727,10 +3054,12 @@ export class DescribeAvailableResourceResponseBody extends $tea.Model {
 
 export class DescribeAvailableResourceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAvailableResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2738,6 +3067,7 @@ export class DescribeAvailableResourceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAvailableResourceResponseBody,
     };
   }
@@ -2755,6 +3085,7 @@ export class DescribeCACertificatesRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: DescribeCACertificatesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       CACertificateId: 'CACertificateId',
@@ -2764,6 +3095,7 @@ export class DescribeCACertificatesRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
@@ -2776,6 +3108,7 @@ export class DescribeCACertificatesRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeCACertificatesRequestTag },
     };
   }
 
@@ -2808,10 +3141,12 @@ export class DescribeCACertificatesResponseBody extends $tea.Model {
 
 export class DescribeCACertificatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeCACertificatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2819,6 +3154,7 @@ export class DescribeCACertificatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeCACertificatesResponseBody,
     };
   }
@@ -2898,10 +3234,12 @@ export class DescribeDomainExtensionAttributeResponseBody extends $tea.Model {
 
 export class DescribeDomainExtensionAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainExtensionAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2909,6 +3247,7 @@ export class DescribeDomainExtensionAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainExtensionAttributeResponseBody,
     };
   }
@@ -2982,10 +3321,12 @@ export class DescribeDomainExtensionsResponseBody extends $tea.Model {
 
 export class DescribeDomainExtensionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainExtensionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2993,6 +3334,7 @@ export class DescribeDomainExtensionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainExtensionsResponseBody,
     };
   }
@@ -3066,10 +3408,12 @@ export class DescribeHealthStatusResponseBody extends $tea.Model {
 
 export class DescribeHealthStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeHealthStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3077,7 +3421,95 @@ export class DescribeHealthStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeHealthStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHighDefinationMonitorRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tags?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tags: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHighDefinationMonitorResponseBody extends $tea.Model {
+  logProject?: string;
+  logStore?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logProject: 'LogProject',
+      logStore: 'LogStore',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logProject: 'string',
+      logStore: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHighDefinationMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeHighDefinationMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeHighDefinationMonitorResponseBody,
     };
   }
 
@@ -3153,10 +3585,12 @@ export class DescribeListenerAccessControlAttributeResponseBody extends $tea.Mod
 
 export class DescribeListenerAccessControlAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeListenerAccessControlAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3164,6 +3598,7 @@ export class DescribeListenerAccessControlAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeListenerAccessControlAttributeResponseBody,
     };
   }
@@ -3219,6 +3654,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
   deleteProtection?: string;
   endTime?: string;
   endTimeStamp?: number;
+  instanceChargeType?: string;
   internetChargeType?: string;
   listenerPorts?: DescribeLoadBalancerAttributeResponseBodyListenerPorts;
   listenerPortsAndProtocal?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal;
@@ -3240,6 +3676,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
   requestId?: string;
   resourceGroupId?: string;
   slaveZoneId?: string;
+  tags?: DescribeLoadBalancerAttributeResponseBodyTags;
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -3255,6 +3692,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
       deleteProtection: 'DeleteProtection',
       endTime: 'EndTime',
       endTimeStamp: 'EndTimeStamp',
+      instanceChargeType: 'InstanceChargeType',
       internetChargeType: 'InternetChargeType',
       listenerPorts: 'ListenerPorts',
       listenerPortsAndProtocal: 'ListenerPortsAndProtocal',
@@ -3276,6 +3714,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       slaveZoneId: 'SlaveZoneId',
+      tags: 'Tags',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -3294,6 +3733,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
       deleteProtection: 'string',
       endTime: 'string',
       endTimeStamp: 'number',
+      instanceChargeType: 'string',
       internetChargeType: 'string',
       listenerPorts: DescribeLoadBalancerAttributeResponseBodyListenerPorts,
       listenerPortsAndProtocal: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal,
@@ -3315,6 +3755,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
       requestId: 'string',
       resourceGroupId: 'string',
       slaveZoneId: 'string',
+      tags: DescribeLoadBalancerAttributeResponseBodyTags,
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -3327,10 +3768,12 @@ export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
 
 export class DescribeLoadBalancerAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeLoadBalancerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3338,6 +3781,7 @@ export class DescribeLoadBalancerAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeLoadBalancerAttributeResponseBody,
     };
   }
@@ -3407,6 +3851,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
   idleTimeout?: number;
   listenerForward?: string;
   listenerPort?: number;
+  loadBalancerId?: string;
   requestId?: string;
   requestTimeout?: number;
   rules?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules;
@@ -3415,6 +3860,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
   status?: string;
   stickySession?: string;
   stickySessionType?: string;
+  tags?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyTags;
   unhealthyThreshold?: number;
   VServerGroupId?: string;
   XForwardedFor?: string;
@@ -3445,6 +3891,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
       idleTimeout: 'IdleTimeout',
       listenerForward: 'ListenerForward',
       listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
       requestId: 'RequestId',
       requestTimeout: 'RequestTimeout',
       rules: 'Rules',
@@ -3453,6 +3900,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
       status: 'Status',
       stickySession: 'StickySession',
       stickySessionType: 'StickySessionType',
+      tags: 'Tags',
       unhealthyThreshold: 'UnhealthyThreshold',
       VServerGroupId: 'VServerGroupId',
       XForwardedFor: 'XForwardedFor',
@@ -3486,6 +3934,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
       idleTimeout: 'number',
       listenerForward: 'string',
       listenerPort: 'number',
+      loadBalancerId: 'string',
       requestId: 'string',
       requestTimeout: 'number',
       rules: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules,
@@ -3494,6 +3943,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
       status: 'string',
       stickySession: 'string',
       stickySessionType: 'string',
+      tags: DescribeLoadBalancerHTTPListenerAttributeResponseBodyTags,
       unhealthyThreshold: 'number',
       VServerGroupId: 'string',
       XForwardedFor: 'string',
@@ -3510,10 +3960,12 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
 
 export class DescribeLoadBalancerHTTPListenerAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeLoadBalancerHTTPListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3521,6 +3973,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponse extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeLoadBalancerHTTPListenerAttributeResponseBody,
     };
   }
@@ -3591,6 +4044,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
   healthyThreshold?: number;
   idleTimeout?: number;
   listenerPort?: number;
+  loadBalancerId?: string;
   requestId?: string;
   requestTimeout?: number;
   rules?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules;
@@ -3601,6 +4055,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
   stickySession?: string;
   stickySessionType?: string;
   TLSCipherPolicy?: string;
+  tags?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyTags;
   unhealthyThreshold?: number;
   VServerGroupId?: string;
   XForwardedFor?: string;
@@ -3638,6 +4093,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
       healthyThreshold: 'HealthyThreshold',
       idleTimeout: 'IdleTimeout',
       listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
       requestId: 'RequestId',
       requestTimeout: 'RequestTimeout',
       rules: 'Rules',
@@ -3648,6 +4104,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
       stickySession: 'StickySession',
       stickySessionType: 'StickySessionType',
       TLSCipherPolicy: 'TLSCipherPolicy',
+      tags: 'Tags',
       unhealthyThreshold: 'UnhealthyThreshold',
       VServerGroupId: 'VServerGroupId',
       XForwardedFor: 'XForwardedFor',
@@ -3688,6 +4145,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
       healthyThreshold: 'number',
       idleTimeout: 'number',
       listenerPort: 'number',
+      loadBalancerId: 'string',
       requestId: 'string',
       requestTimeout: 'number',
       rules: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules,
@@ -3698,6 +4156,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
       stickySession: 'string',
       stickySessionType: 'string',
       TLSCipherPolicy: 'string',
+      tags: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyTags,
       unhealthyThreshold: 'number',
       VServerGroupId: 'string',
       XForwardedFor: 'string',
@@ -3720,10 +4179,12 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
 
 export class DescribeLoadBalancerHTTPSListenerAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeLoadBalancerHTTPSListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3731,6 +4192,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponse extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeLoadBalancerHTTPSListenerAttributeResponseBody,
     };
   }
@@ -3741,6 +4203,8 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponse extends $tea.Mod
 }
 
 export class DescribeLoadBalancerListenersRequest extends $tea.Model {
+  description?: string;
+  listenerPort?: number;
   listenerProtocol?: string;
   loadBalancerId?: string[];
   maxResults?: number;
@@ -3750,8 +4214,11 @@ export class DescribeLoadBalancerListenersRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: DescribeLoadBalancerListenersRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
+      listenerPort: 'ListenerPort',
       listenerProtocol: 'ListenerProtocol',
       loadBalancerId: 'LoadBalancerId',
       maxResults: 'MaxResults',
@@ -3761,11 +4228,14 @@ export class DescribeLoadBalancerListenersRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
+      listenerPort: 'number',
       listenerProtocol: 'string',
       loadBalancerId: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
@@ -3775,6 +4245,7 @@ export class DescribeLoadBalancerListenersRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeLoadBalancerListenersRequestTag },
     };
   }
 
@@ -3816,10 +4287,12 @@ export class DescribeLoadBalancerListenersResponseBody extends $tea.Model {
 
 export class DescribeLoadBalancerListenersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeLoadBalancerListenersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3827,6 +4300,7 @@ export class DescribeLoadBalancerListenersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeLoadBalancerListenersResponseBody,
     };
   }
@@ -3894,12 +4368,15 @@ export class DescribeLoadBalancerTCPListenerAttributeResponseBody extends $tea.M
   healthCheckURI?: string;
   healthyThreshold?: number;
   listenerPort?: number;
+  loadBalancerId?: string;
   masterSlaveServerGroupId?: string;
   persistenceTimeout?: number;
+  proxyProtocolV2Enabled?: boolean;
   requestId?: string;
   scheduler?: string;
   status?: string;
   synProxy?: string;
+  tags?: DescribeLoadBalancerTCPListenerAttributeResponseBodyTags;
   unhealthyThreshold?: number;
   VServerGroupId?: string;
   static names(): { [key: string]: string } {
@@ -3924,12 +4401,15 @@ export class DescribeLoadBalancerTCPListenerAttributeResponseBody extends $tea.M
       healthCheckURI: 'HealthCheckURI',
       healthyThreshold: 'HealthyThreshold',
       listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
       persistenceTimeout: 'PersistenceTimeout',
+      proxyProtocolV2Enabled: 'ProxyProtocolV2Enabled',
       requestId: 'RequestId',
       scheduler: 'Scheduler',
       status: 'Status',
       synProxy: 'SynProxy',
+      tags: 'Tags',
       unhealthyThreshold: 'UnhealthyThreshold',
       VServerGroupId: 'VServerGroupId',
     };
@@ -3957,12 +4437,15 @@ export class DescribeLoadBalancerTCPListenerAttributeResponseBody extends $tea.M
       healthCheckURI: 'string',
       healthyThreshold: 'number',
       listenerPort: 'number',
+      loadBalancerId: 'string',
       masterSlaveServerGroupId: 'string',
       persistenceTimeout: 'number',
+      proxyProtocolV2Enabled: 'boolean',
       requestId: 'string',
       scheduler: 'string',
       status: 'string',
       synProxy: 'string',
+      tags: DescribeLoadBalancerTCPListenerAttributeResponseBodyTags,
       unhealthyThreshold: 'number',
       VServerGroupId: 'string',
     };
@@ -3975,10 +4458,12 @@ export class DescribeLoadBalancerTCPListenerAttributeResponseBody extends $tea.M
 
 export class DescribeLoadBalancerTCPListenerAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeLoadBalancerTCPListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3986,6 +4471,7 @@ export class DescribeLoadBalancerTCPListenerAttributeResponse extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeLoadBalancerTCPListenerAttributeResponseBody,
     };
   }
@@ -4047,10 +4533,13 @@ export class DescribeLoadBalancerUDPListenerAttributeResponseBody extends $tea.M
   healthCheckReq?: string;
   healthyThreshold?: number;
   listenerPort?: number;
+  loadBalancerId?: string;
   masterSlaveServerGroupId?: string;
+  proxyProtocolV2Enabled?: boolean;
   requestId?: string;
   scheduler?: string;
   status?: string;
+  tags?: DescribeLoadBalancerUDPListenerAttributeResponseBodyTags;
   unhealthyThreshold?: number;
   VServerGroupId?: string;
   static names(): { [key: string]: string } {
@@ -4069,10 +4558,13 @@ export class DescribeLoadBalancerUDPListenerAttributeResponseBody extends $tea.M
       healthCheckReq: 'HealthCheckReq',
       healthyThreshold: 'HealthyThreshold',
       listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      proxyProtocolV2Enabled: 'ProxyProtocolV2Enabled',
       requestId: 'RequestId',
       scheduler: 'Scheduler',
       status: 'Status',
+      tags: 'Tags',
       unhealthyThreshold: 'UnhealthyThreshold',
       VServerGroupId: 'VServerGroupId',
     };
@@ -4094,10 +4586,13 @@ export class DescribeLoadBalancerUDPListenerAttributeResponseBody extends $tea.M
       healthCheckReq: 'string',
       healthyThreshold: 'number',
       listenerPort: 'number',
+      loadBalancerId: 'string',
       masterSlaveServerGroupId: 'string',
+      proxyProtocolV2Enabled: 'boolean',
       requestId: 'string',
       scheduler: 'string',
       status: 'string',
+      tags: DescribeLoadBalancerUDPListenerAttributeResponseBodyTags,
       unhealthyThreshold: 'number',
       VServerGroupId: 'string',
     };
@@ -4110,10 +4605,12 @@ export class DescribeLoadBalancerUDPListenerAttributeResponseBody extends $tea.M
 
 export class DescribeLoadBalancerUDPListenerAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeLoadBalancerUDPListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4121,6 +4618,7 @@ export class DescribeLoadBalancerUDPListenerAttributeResponse extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeLoadBalancerUDPListenerAttributeResponseBody,
     };
   }
@@ -4152,6 +4650,7 @@ export class DescribeLoadBalancersRequest extends $tea.Model {
   serverId?: string;
   serverIntranetAddress?: string;
   slaveZoneId?: string;
+  tag?: DescribeLoadBalancersRequestTag[];
   tags?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -4178,6 +4677,7 @@ export class DescribeLoadBalancersRequest extends $tea.Model {
       serverId: 'ServerId',
       serverIntranetAddress: 'ServerIntranetAddress',
       slaveZoneId: 'SlaveZoneId',
+      tag: 'Tag',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -4207,6 +4707,7 @@ export class DescribeLoadBalancersRequest extends $tea.Model {
       serverId: 'string',
       serverIntranetAddress: 'string',
       slaveZoneId: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeLoadBalancersRequestTag },
       tags: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -4251,10 +4752,12 @@ export class DescribeLoadBalancersResponseBody extends $tea.Model {
 
 export class DescribeLoadBalancersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeLoadBalancersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4262,6 +4765,7 @@ export class DescribeLoadBalancersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeLoadBalancersResponseBody,
     };
   }
@@ -4306,28 +4810,34 @@ export class DescribeMasterSlaveServerGroupAttributeRequest extends $tea.Model {
 }
 
 export class DescribeMasterSlaveServerGroupAttributeResponseBody extends $tea.Model {
+  createTime?: string;
   loadBalancerId?: string;
   masterSlaveBackendServers?: DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServers;
   masterSlaveServerGroupId?: string;
   masterSlaveServerGroupName?: string;
   requestId?: string;
+  tags?: DescribeMasterSlaveServerGroupAttributeResponseBodyTags;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       loadBalancerId: 'LoadBalancerId',
       masterSlaveBackendServers: 'MasterSlaveBackendServers',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
       masterSlaveServerGroupName: 'MasterSlaveServerGroupName',
       requestId: 'RequestId',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
       loadBalancerId: 'string',
       masterSlaveBackendServers: DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServers,
       masterSlaveServerGroupId: 'string',
       masterSlaveServerGroupName: 'string',
       requestId: 'string',
+      tags: DescribeMasterSlaveServerGroupAttributeResponseBodyTags,
     };
   }
 
@@ -4338,10 +4848,12 @@ export class DescribeMasterSlaveServerGroupAttributeResponseBody extends $tea.Mo
 
 export class DescribeMasterSlaveServerGroupAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeMasterSlaveServerGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4349,6 +4861,7 @@ export class DescribeMasterSlaveServerGroupAttributeResponse extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeMasterSlaveServerGroupAttributeResponseBody,
     };
   }
@@ -4359,6 +4872,7 @@ export class DescribeMasterSlaveServerGroupAttributeResponse extends $tea.Model 
 }
 
 export class DescribeMasterSlaveServerGroupsRequest extends $tea.Model {
+  description?: string;
   includeListener?: boolean;
   loadBalancerId?: string;
   ownerAccount?: string;
@@ -4366,8 +4880,10 @@ export class DescribeMasterSlaveServerGroupsRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: DescribeMasterSlaveServerGroupsRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       includeListener: 'IncludeListener',
       loadBalancerId: 'LoadBalancerId',
       ownerAccount: 'OwnerAccount',
@@ -4375,11 +4891,13 @@ export class DescribeMasterSlaveServerGroupsRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       includeListener: 'boolean',
       loadBalancerId: 'string',
       ownerAccount: 'string',
@@ -4387,6 +4905,7 @@ export class DescribeMasterSlaveServerGroupsRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeMasterSlaveServerGroupsRequestTag },
     };
   }
 
@@ -4419,10 +4938,12 @@ export class DescribeMasterSlaveServerGroupsResponseBody extends $tea.Model {
 
 export class DescribeMasterSlaveServerGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeMasterSlaveServerGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4430,6 +4951,7 @@ export class DescribeMasterSlaveServerGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeMasterSlaveServerGroupsResponseBody,
     };
   }
@@ -4497,10 +5019,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4508,6 +5032,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -4638,10 +5163,12 @@ export class DescribeRuleAttributeResponseBody extends $tea.Model {
 
 export class DescribeRuleAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRuleAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4649,6 +5176,7 @@ export class DescribeRuleAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRuleAttributeResponseBody,
     };
   }
@@ -4722,10 +5250,12 @@ export class DescribeRulesResponseBody extends $tea.Model {
 
 export class DescribeRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4733,6 +5263,7 @@ export class DescribeRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRulesResponseBody,
     };
   }
@@ -4750,6 +5281,7 @@ export class DescribeServerCertificatesRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   serverCertificateId?: string;
+  tag?: DescribeServerCertificatesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       ownerAccount: 'OwnerAccount',
@@ -4759,6 +5291,7 @@ export class DescribeServerCertificatesRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       serverCertificateId: 'ServerCertificateId',
+      tag: 'Tag',
     };
   }
 
@@ -4771,6 +5304,7 @@ export class DescribeServerCertificatesRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       serverCertificateId: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeServerCertificatesRequestTag },
     };
   }
 
@@ -4803,10 +5337,12 @@ export class DescribeServerCertificatesResponseBody extends $tea.Model {
 
 export class DescribeServerCertificatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeServerCertificatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4814,6 +5350,7 @@ export class DescribeServerCertificatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeServerCertificatesResponseBody,
     };
   }
@@ -4902,10 +5439,12 @@ export class DescribeTagsResponseBody extends $tea.Model {
 
 export class DescribeTagsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4913,6 +5452,7 @@ export class DescribeTagsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeTagsResponseBody,
     };
   }
@@ -4958,15 +5498,19 @@ export class DescribeVServerGroupAttributeRequest extends $tea.Model {
 
 export class DescribeVServerGroupAttributeResponseBody extends $tea.Model {
   backendServers?: DescribeVServerGroupAttributeResponseBodyBackendServers;
+  createTime?: string;
   loadBalancerId?: string;
   requestId?: string;
+  tags?: DescribeVServerGroupAttributeResponseBodyTags;
   VServerGroupId?: string;
   VServerGroupName?: string;
   static names(): { [key: string]: string } {
     return {
       backendServers: 'BackendServers',
+      createTime: 'CreateTime',
       loadBalancerId: 'LoadBalancerId',
       requestId: 'RequestId',
+      tags: 'Tags',
       VServerGroupId: 'VServerGroupId',
       VServerGroupName: 'VServerGroupName',
     };
@@ -4975,8 +5519,10 @@ export class DescribeVServerGroupAttributeResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backendServers: DescribeVServerGroupAttributeResponseBodyBackendServers,
+      createTime: 'string',
       loadBalancerId: 'string',
       requestId: 'string',
+      tags: DescribeVServerGroupAttributeResponseBodyTags,
       VServerGroupId: 'string',
       VServerGroupName: 'string',
     };
@@ -4989,10 +5535,12 @@ export class DescribeVServerGroupAttributeResponseBody extends $tea.Model {
 
 export class DescribeVServerGroupAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeVServerGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5000,6 +5548,7 @@ export class DescribeVServerGroupAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeVServerGroupAttributeResponseBody,
     };
   }
@@ -5010,6 +5559,7 @@ export class DescribeVServerGroupAttributeResponse extends $tea.Model {
 }
 
 export class DescribeVServerGroupsRequest extends $tea.Model {
+  description?: string;
   includeListener?: boolean;
   includeRule?: boolean;
   loadBalancerId?: string;
@@ -5018,8 +5568,10 @@ export class DescribeVServerGroupsRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: DescribeVServerGroupsRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       includeListener: 'IncludeListener',
       includeRule: 'IncludeRule',
       loadBalancerId: 'LoadBalancerId',
@@ -5028,11 +5580,13 @@ export class DescribeVServerGroupsRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       includeListener: 'boolean',
       includeRule: 'boolean',
       loadBalancerId: 'string',
@@ -5041,6 +5595,7 @@ export class DescribeVServerGroupsRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeVServerGroupsRequestTag },
     };
   }
 
@@ -5073,10 +5628,12 @@ export class DescribeVServerGroupsResponseBody extends $tea.Model {
 
 export class DescribeVServerGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeVServerGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5084,6 +5641,7 @@ export class DescribeVServerGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeVServerGroupsResponseBody,
     };
   }
@@ -5148,10 +5706,12 @@ export class DescribeZonesResponseBody extends $tea.Model {
 
 export class DescribeZonesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5159,7 +5719,95 @@ export class DescribeZonesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeZonesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableHighDefinationMonitorRequest extends $tea.Model {
+  logProject?: string;
+  logStore?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tags?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logProject: 'LogProject',
+      logStore: 'LogStore',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logProject: 'string',
+      logStore: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tags: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableHighDefinationMonitorResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableHighDefinationMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableHighDefinationMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableHighDefinationMonitorResponseBody,
     };
   }
 
@@ -5247,10 +5895,12 @@ export class ListTLSCipherPoliciesResponseBody extends $tea.Model {
 
 export class ListTLSCipherPoliciesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTLSCipherPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5258,6 +5908,7 @@ export class ListTLSCipherPoliciesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTLSCipherPoliciesResponseBody,
     };
   }
@@ -5337,10 +5988,12 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 
 export class ListTagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5348,7 +6001,182 @@ export class ListTagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyHighDefinationMonitorRequest extends $tea.Model {
+  logProject?: string;
+  logStore?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      logProject: 'LogProject',
+      logStore: 'LogStore',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logProject: 'string',
+      logStore: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyHighDefinationMonitorResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyHighDefinationMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyHighDefinationMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyHighDefinationMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyLoadBalancerInstanceChargeTypeRequest extends $tea.Model {
+  bandwidth?: number;
+  instanceChargeType?: string;
+  internetChargeType?: string;
+  loadBalancerId?: string;
+  loadBalancerSpec?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      instanceChargeType: 'InstanceChargeType',
+      internetChargeType: 'InternetChargeType',
+      loadBalancerId: 'LoadBalancerId',
+      loadBalancerSpec: 'LoadBalancerSpec',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      instanceChargeType: 'string',
+      internetChargeType: 'string',
+      loadBalancerId: 'string',
+      loadBalancerSpec: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyLoadBalancerInstanceChargeTypeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyLoadBalancerInstanceChargeTypeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyLoadBalancerInstanceChargeTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyLoadBalancerInstanceChargeTypeResponseBody,
     };
   }
 
@@ -5421,10 +6249,12 @@ export class ModifyLoadBalancerInstanceSpecResponseBody extends $tea.Model {
 
 export class ModifyLoadBalancerInstanceSpecResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyLoadBalancerInstanceSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5432,6 +6262,7 @@ export class ModifyLoadBalancerInstanceSpecResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyLoadBalancerInstanceSpecResponseBody,
     };
   }
@@ -5508,10 +6339,12 @@ export class ModifyLoadBalancerInternetSpecResponseBody extends $tea.Model {
 
 export class ModifyLoadBalancerInternetSpecResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyLoadBalancerInternetSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5519,6 +6352,7 @@ export class ModifyLoadBalancerInternetSpecResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyLoadBalancerInternetSpecResponseBody,
     };
   }
@@ -5598,10 +6432,12 @@ export class ModifyLoadBalancerPayTypeResponseBody extends $tea.Model {
 
 export class ModifyLoadBalancerPayTypeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyLoadBalancerPayTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5609,6 +6445,7 @@ export class ModifyLoadBalancerPayTypeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyLoadBalancerPayTypeResponseBody,
     };
   }
@@ -5685,10 +6522,12 @@ export class ModifyVServerGroupBackendServersResponseBody extends $tea.Model {
 
 export class ModifyVServerGroupBackendServersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyVServerGroupBackendServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5696,7 +6535,98 @@ export class ModifyVServerGroupBackendServersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyVServerGroupBackendServersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourceGroupRequest extends $tea.Model {
+  newResourceGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  accessKeyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newResourceGroupId: 'NewResourceGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      accessKeyId: 'access_key_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newResourceGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      accessKeyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourceGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: MoveResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MoveResourceGroupResponseBody,
     };
   }
 
@@ -5763,10 +6693,12 @@ export class RemoveAccessControlListEntryResponseBody extends $tea.Model {
 
 export class RemoveAccessControlListEntryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveAccessControlListEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5774,6 +6706,7 @@ export class RemoveAccessControlListEntryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveAccessControlListEntryResponseBody,
     };
   }
@@ -5847,10 +6780,12 @@ export class RemoveBackendServersResponseBody extends $tea.Model {
 
 export class RemoveBackendServersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveBackendServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5858,6 +6793,7 @@ export class RemoveBackendServersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveBackendServersResponseBody,
     };
   }
@@ -5931,10 +6867,12 @@ export class RemoveListenerWhiteListItemResponseBody extends $tea.Model {
 
 export class RemoveListenerWhiteListItemResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveListenerWhiteListItemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5942,6 +6880,7 @@ export class RemoveListenerWhiteListItemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveListenerWhiteListItemResponseBody,
     };
   }
@@ -6009,10 +6948,12 @@ export class RemoveTagsResponseBody extends $tea.Model {
 
 export class RemoveTagsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6020,6 +6961,7 @@ export class RemoveTagsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveTagsResponseBody,
     };
   }
@@ -6093,10 +7035,12 @@ export class RemoveVServerGroupBackendServersResponseBody extends $tea.Model {
 
 export class RemoveVServerGroupBackendServersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveVServerGroupBackendServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6104,6 +7048,7 @@ export class RemoveVServerGroupBackendServersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveVServerGroupBackendServersResponseBody,
     };
   }
@@ -6151,18 +7096,15 @@ export class SetAccessControlListAttributeRequest extends $tea.Model {
 }
 
 export class SetAccessControlListAttributeResponseBody extends $tea.Model {
-  aclId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      aclId: 'AclId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      aclId: 'string',
       requestId: 'string',
     };
   }
@@ -6174,10 +7116,12 @@ export class SetAccessControlListAttributeResponseBody extends $tea.Model {
 
 export class SetAccessControlListAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetAccessControlListAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6185,7 +7129,92 @@ export class SetAccessControlListAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetAccessControlListAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAccessLogsDownloadAttributeRequest extends $tea.Model {
+  loadBalancerId?: string;
+  logsDownloadAttributes?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tags?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      logsDownloadAttributes: 'LogsDownloadAttributes',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      logsDownloadAttributes: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tags: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAccessLogsDownloadAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAccessLogsDownloadAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetAccessLogsDownloadAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetAccessLogsDownloadAttributeResponseBody,
     };
   }
 
@@ -6258,10 +7287,12 @@ export class SetBackendServersResponseBody extends $tea.Model {
 
 export class SetBackendServersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetBackendServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6269,6 +7300,7 @@ export class SetBackendServersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetBackendServersResponseBody,
     };
   }
@@ -6336,10 +7368,12 @@ export class SetCACertificateNameResponseBody extends $tea.Model {
 
 export class SetCACertificateNameResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetCACertificateNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6347,6 +7381,7 @@ export class SetCACertificateNameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetCACertificateNameResponseBody,
     };
   }
@@ -6414,10 +7449,12 @@ export class SetDomainExtensionAttributeResponseBody extends $tea.Model {
 
 export class SetDomainExtensionAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetDomainExtensionAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6425,6 +7462,7 @@ export class SetDomainExtensionAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetDomainExtensionAttributeResponseBody,
     };
   }
@@ -6498,10 +7536,12 @@ export class SetListenerAccessControlStatusResponseBody extends $tea.Model {
 
 export class SetListenerAccessControlStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetListenerAccessControlStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6509,6 +7549,7 @@ export class SetListenerAccessControlStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetListenerAccessControlStatusResponseBody,
     };
   }
@@ -6576,10 +7617,12 @@ export class SetLoadBalancerDeleteProtectionResponseBody extends $tea.Model {
 
 export class SetLoadBalancerDeleteProtectionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetLoadBalancerDeleteProtectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6587,6 +7630,7 @@ export class SetLoadBalancerDeleteProtectionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetLoadBalancerDeleteProtectionResponseBody,
     };
   }
@@ -6741,10 +7785,12 @@ export class SetLoadBalancerHTTPListenerAttributeResponseBody extends $tea.Model
 
 export class SetLoadBalancerHTTPListenerAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetLoadBalancerHTTPListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6752,6 +7798,7 @@ export class SetLoadBalancerHTTPListenerAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetLoadBalancerHTTPListenerAttributeResponseBody,
     };
   }
@@ -6918,10 +7965,12 @@ export class SetLoadBalancerHTTPSListenerAttributeResponseBody extends $tea.Mode
 
 export class SetLoadBalancerHTTPSListenerAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetLoadBalancerHTTPSListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6929,6 +7978,7 @@ export class SetLoadBalancerHTTPSListenerAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetLoadBalancerHTTPSListenerAttributeResponseBody,
     };
   }
@@ -6999,10 +8049,12 @@ export class SetLoadBalancerModificationProtectionResponseBody extends $tea.Mode
 
 export class SetLoadBalancerModificationProtectionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetLoadBalancerModificationProtectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7010,6 +8062,7 @@ export class SetLoadBalancerModificationProtectionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetLoadBalancerModificationProtectionResponseBody,
     };
   }
@@ -7077,10 +8130,12 @@ export class SetLoadBalancerNameResponseBody extends $tea.Model {
 
 export class SetLoadBalancerNameResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetLoadBalancerNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7088,6 +8143,7 @@ export class SetLoadBalancerNameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetLoadBalancerNameResponseBody,
     };
   }
@@ -7155,10 +8211,12 @@ export class SetLoadBalancerStatusResponseBody extends $tea.Model {
 
 export class SetLoadBalancerStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetLoadBalancerStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7166,6 +8224,7 @@ export class SetLoadBalancerStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetLoadBalancerStatusResponseBody,
     };
   }
@@ -7189,6 +8248,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
   healthCheckDomain?: string;
   healthCheckHttpCode?: string;
   healthCheckInterval?: number;
+  healthCheckSwitch?: string;
   healthCheckType?: string;
   healthCheckURI?: string;
   healthyThreshold?: number;
@@ -7199,6 +8259,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   persistenceTimeout?: number;
+  proxyProtocolV2Enabled?: boolean;
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -7222,6 +8283,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckHttpCode: 'HealthCheckHttpCode',
       healthCheckInterval: 'HealthCheckInterval',
+      healthCheckSwitch: 'HealthCheckSwitch',
       healthCheckType: 'HealthCheckType',
       healthCheckURI: 'HealthCheckURI',
       healthyThreshold: 'HealthyThreshold',
@@ -7232,6 +8294,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       persistenceTimeout: 'PersistenceTimeout',
+      proxyProtocolV2Enabled: 'ProxyProtocolV2Enabled',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -7258,6 +8321,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
       healthCheckDomain: 'string',
       healthCheckHttpCode: 'string',
       healthCheckInterval: 'number',
+      healthCheckSwitch: 'string',
       healthCheckType: 'string',
       healthCheckURI: 'string',
       healthyThreshold: 'number',
@@ -7268,6 +8332,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       persistenceTimeout: 'number',
+      proxyProtocolV2Enabled: 'boolean',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -7305,10 +8370,12 @@ export class SetLoadBalancerTCPListenerAttributeResponseBody extends $tea.Model 
 
 export class SetLoadBalancerTCPListenerAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetLoadBalancerTCPListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7316,6 +8383,7 @@ export class SetLoadBalancerTCPListenerAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetLoadBalancerTCPListenerAttributeResponseBody,
     };
   }
@@ -7334,6 +8402,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
   healthCheckConnectPort?: number;
   healthCheckConnectTimeout?: number;
   healthCheckInterval?: number;
+  healthCheckSwitch?: string;
   healthyThreshold?: number;
   listenerPort?: number;
   loadBalancerId?: string;
@@ -7341,6 +8410,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
   masterSlaveServerGroupId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  proxyProtocolV2Enabled?: boolean;
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -7360,6 +8430,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
       healthCheckConnectPort: 'HealthCheckConnectPort',
       healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
       healthCheckInterval: 'HealthCheckInterval',
+      healthCheckSwitch: 'HealthCheckSwitch',
       healthyThreshold: 'HealthyThreshold',
       listenerPort: 'ListenerPort',
       loadBalancerId: 'LoadBalancerId',
@@ -7367,6 +8438,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      proxyProtocolV2Enabled: 'ProxyProtocolV2Enabled',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -7389,6 +8461,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
       healthCheckConnectPort: 'number',
       healthCheckConnectTimeout: 'number',
       healthCheckInterval: 'number',
+      healthCheckSwitch: 'string',
       healthyThreshold: 'number',
       listenerPort: 'number',
       loadBalancerId: 'string',
@@ -7396,6 +8469,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
       masterSlaveServerGroupId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      proxyProtocolV2Enabled: 'boolean',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -7434,10 +8508,12 @@ export class SetLoadBalancerUDPListenerAttributeResponseBody extends $tea.Model 
 
 export class SetLoadBalancerUDPListenerAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetLoadBalancerUDPListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7445,6 +8521,7 @@ export class SetLoadBalancerUDPListenerAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetLoadBalancerUDPListenerAttributeResponseBody,
     };
   }
@@ -7560,10 +8637,12 @@ export class SetRuleResponseBody extends $tea.Model {
 
 export class SetRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7571,6 +8650,7 @@ export class SetRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetRuleResponseBody,
     };
   }
@@ -7638,10 +8718,12 @@ export class SetServerCertificateNameResponseBody extends $tea.Model {
 
 export class SetServerCertificateNameResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetServerCertificateNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7649,6 +8731,7 @@ export class SetServerCertificateNameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetServerCertificateNameResponseBody,
     };
   }
@@ -7725,10 +8808,12 @@ export class SetTLSCipherPolicyAttributeResponseBody extends $tea.Model {
 
 export class SetTLSCipherPolicyAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetTLSCipherPolicyAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7736,6 +8821,7 @@ export class SetTLSCipherPolicyAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetTLSCipherPolicyAttributeResponseBody,
     };
   }
@@ -7815,10 +8901,12 @@ export class SetVServerGroupAttributeResponseBody extends $tea.Model {
 
 export class SetVServerGroupAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetVServerGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7826,6 +8914,7 @@ export class SetVServerGroupAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetVServerGroupAttributeResponseBody,
     };
   }
@@ -7896,10 +8985,12 @@ export class StartLoadBalancerListenerResponseBody extends $tea.Model {
 
 export class StartLoadBalancerListenerResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartLoadBalancerListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7907,6 +8998,7 @@ export class StartLoadBalancerListenerResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartLoadBalancerListenerResponseBody,
     };
   }
@@ -7977,10 +9069,12 @@ export class StopLoadBalancerListenerResponseBody extends $tea.Model {
 
 export class StopLoadBalancerListenerResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopLoadBalancerListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7988,6 +9082,7 @@ export class StopLoadBalancerListenerResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopLoadBalancerListenerResponseBody,
     };
   }
@@ -8058,10 +9153,12 @@ export class TagResourcesResponseBody extends $tea.Model {
 
 export class TagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8069,6 +9166,7 @@ export class TagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TagResourcesResponseBody,
     };
   }
@@ -8142,10 +9240,12 @@ export class UntagResourcesResponseBody extends $tea.Model {
 
 export class UntagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8153,6 +9253,7 @@ export class UntagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UntagResourcesResponseBody,
     };
   }
@@ -8171,6 +9272,7 @@ export class UploadCACertificateRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: UploadCACertificateRequestTag[];
   static names(): { [key: string]: string } {
     return {
       CACertificate: 'CACertificate',
@@ -8181,6 +9283,7 @@ export class UploadCACertificateRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
@@ -8194,6 +9297,7 @@ export class UploadCACertificateRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': UploadCACertificateRequestTag },
     };
   }
 
@@ -8250,10 +9354,12 @@ export class UploadCACertificateResponseBody extends $tea.Model {
 
 export class UploadCACertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UploadCACertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8261,6 +9367,7 @@ export class UploadCACertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UploadCACertificateResponseBody,
     };
   }
@@ -8283,6 +9390,7 @@ export class UploadServerCertificateRequest extends $tea.Model {
   resourceOwnerId?: number;
   serverCertificate?: string;
   serverCertificateName?: string;
+  tag?: UploadServerCertificateRequestTag[];
   static names(): { [key: string]: string } {
     return {
       aliCloudCertificateId: 'AliCloudCertificateId',
@@ -8297,6 +9405,7 @@ export class UploadServerCertificateRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       serverCertificate: 'ServerCertificate',
       serverCertificateName: 'ServerCertificateName',
+      tag: 'Tag',
     };
   }
 
@@ -8314,6 +9423,7 @@ export class UploadServerCertificateRequest extends $tea.Model {
       resourceOwnerId: 'number',
       serverCertificate: 'string',
       serverCertificateName: 'string',
+      tag: { 'type': 'array', 'itemType': UploadServerCertificateRequestTag },
     };
   }
 
@@ -8385,10 +9495,12 @@ export class UploadServerCertificateResponseBody extends $tea.Model {
 
 export class UploadServerCertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UploadServerCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8396,6 +9508,7 @@ export class UploadServerCertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UploadServerCertificateResponseBody,
     };
   }
@@ -8502,6 +9615,160 @@ export class AddVServerGroupBackendServersResponseBodyBackendServers extends $te
   }
 }
 
+export class CreateAccessControlListRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLoadBalancerRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLoadBalancerHTTPListenerRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLoadBalancerHTTPSListenerRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLoadBalancerTCPListenerRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLoadBalancerUDPListenerRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMasterSlaveServerGroupRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServersMasterSlaveBackendServer extends $tea.Model {
   description?: string;
   port?: number;
@@ -8588,6 +9855,28 @@ export class CreateRulesResponseBodyRules extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       rule: { 'type': 'array', 'itemType': CreateRulesResponseBodyRulesRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVServerGroupRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -8734,17 +10023,125 @@ export class DescribeAccessControlListAttributeResponseBodyRelatedListeners exte
   }
 }
 
+export class DescribeAccessControlListAttributeResponseBodyTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListAttributeResponseBodyTags extends $tea.Model {
+  tag?: DescribeAccessControlListAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeAccessControlListAttributeResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListsResponseBodyAclsAclTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListsResponseBodyAclsAclTags extends $tea.Model {
+  tag?: DescribeAccessControlListsResponseBodyAclsAclTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeAccessControlListsResponseBodyAclsAclTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAccessControlListsResponseBodyAclsAcl extends $tea.Model {
   aclId?: string;
   aclName?: string;
   addressIPVersion?: string;
+  createTime?: string;
   resourceGroupId?: string;
+  tags?: DescribeAccessControlListsResponseBodyAclsAclTags;
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
       aclName: 'AclName',
       addressIPVersion: 'AddressIPVersion',
+      createTime: 'CreateTime',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -8753,7 +10150,9 @@ export class DescribeAccessControlListsResponseBodyAclsAcl extends $tea.Model {
       aclId: 'string',
       aclName: 'string',
       addressIPVersion: 'string',
+      createTime: 'string',
       resourceGroupId: 'string',
+      tags: DescribeAccessControlListsResponseBodyAclsAclTags,
     };
   }
 
@@ -8773,6 +10172,56 @@ export class DescribeAccessControlListsResponseBodyAcls extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acl: { 'type': 'array', 'itemType': DescribeAccessControlListsResponseBodyAclsAcl },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessLogsDownloadAttributeResponseBodyLogsDownloadAttributesLogsDownloadAttribute extends $tea.Model {
+  loadBalancerId?: string;
+  logProject?: string;
+  logStore?: string;
+  logType?: string;
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      logProject: 'LogProject',
+      logStore: 'LogStore',
+      logType: 'LogType',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      logProject: 'string',
+      logStore: 'string',
+      logType: 'string',
+      region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessLogsDownloadAttributeResponseBodyLogsDownloadAttributes extends $tea.Model {
+  logsDownloadAttribute?: DescribeAccessLogsDownloadAttributeResponseBodyLogsDownloadAttributesLogsDownloadAttribute[];
+  static names(): { [key: string]: string } {
+    return {
+      logsDownloadAttribute: 'LogsDownloadAttribute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logsDownloadAttribute: { 'type': 'array', 'itemType': DescribeAccessLogsDownloadAttributeResponseBodyLogsDownloadAttributesLogsDownloadAttribute },
     };
   }
 
@@ -8866,6 +10315,69 @@ export class DescribeAvailableResourceResponseBodyAvailableResources extends $te
   }
 }
 
+export class DescribeCACertificatesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCACertificatesResponseBodyCACertificatesCACertificateTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCACertificatesResponseBodyCACertificatesCACertificateTags extends $tea.Model {
+  tag?: DescribeCACertificatesResponseBodyCACertificatesCACertificateTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeCACertificatesResponseBodyCACertificatesCACertificateTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCACertificatesResponseBodyCACertificatesCACertificate extends $tea.Model {
   CACertificateId?: string;
   CACertificateName?: string;
@@ -8877,6 +10389,7 @@ export class DescribeCACertificatesResponseBodyCACertificatesCACertificate exten
   fingerprint?: string;
   regionId?: string;
   resourceGroupId?: string;
+  tags?: DescribeCACertificatesResponseBodyCACertificatesCACertificateTags;
   static names(): { [key: string]: string } {
     return {
       CACertificateId: 'CACertificateId',
@@ -8889,6 +10402,7 @@ export class DescribeCACertificatesResponseBodyCACertificatesCACertificate exten
       fingerprint: 'Fingerprint',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -8904,6 +10418,7 @@ export class DescribeCACertificatesResponseBodyCACertificatesCACertificate exten
       fingerprint: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      tags: DescribeCACertificatesResponseBodyCACertificatesCACertificateTags,
     };
   }
 
@@ -9031,12 +10546,14 @@ export class DescribeHealthStatusResponseBodyBackendServers extends $tea.Model {
 export class DescribeLoadBalancerAttributeResponseBodyBackendServersBackendServer extends $tea.Model {
   description?: string;
   serverId?: string;
+  serverIp?: string;
   type?: string;
   weight?: number;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       serverId: 'ServerId',
+      serverIp: 'ServerIp',
       type: 'Type',
       weight: 'Weight',
     };
@@ -9046,6 +10563,7 @@ export class DescribeLoadBalancerAttributeResponseBodyBackendServersBackendServe
     return {
       description: 'string',
       serverId: 'string',
+      serverIp: 'string',
       type: 'string',
       weight: 'number',
     };
@@ -9185,6 +10703,47 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol e
   }
 }
 
+export class DescribeLoadBalancerAttributeResponseBodyTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerAttributeResponseBodyTags extends $tea.Model {
+  tag?: DescribeLoadBalancerAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeLoadBalancerAttributeResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRulesRule extends $tea.Model {
   domain?: string;
   ruleId?: string;
@@ -9227,6 +10786,47 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules extends 
   static types(): { [key: string]: any } {
     return {
       rule: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPListenerAttributeResponseBodyRulesRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyTags extends $tea.Model {
+  tag?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPListenerAttributeResponseBodyTagsTag },
     };
   }
 
@@ -9321,6 +10921,69 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules extends
   static types(): { [key: string]: any } {
     return {
       rule: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRulesRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyTags extends $tea.Model {
+  tag?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPSListenerAttributeResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -9557,6 +11220,7 @@ export class DescribeLoadBalancerListenersResponseBodyListenersTCPListenerConfig
   healthyThreshold?: number;
   masterSlaveServerGroupId?: string;
   persistenceTimeout?: number;
+  proxyProtocolV2Enabled?: string;
   unhealthyThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9575,6 +11239,7 @@ export class DescribeLoadBalancerListenersResponseBodyListenersTCPListenerConfig
       healthyThreshold: 'HealthyThreshold',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
       persistenceTimeout: 'PersistenceTimeout',
+      proxyProtocolV2Enabled: 'ProxyProtocolV2Enabled',
       unhealthyThreshold: 'UnhealthyThreshold',
     };
   }
@@ -9596,7 +11261,30 @@ export class DescribeLoadBalancerListenersResponseBodyListenersTCPListenerConfig
       healthyThreshold: 'number',
       masterSlaveServerGroupId: 'string',
       persistenceTimeout: 'number',
+      proxyProtocolV2Enabled: 'string',
       unhealthyThreshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersResponseBodyListenersTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -9616,6 +11304,7 @@ export class DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig
   healthCheckReq?: string;
   healthyThreshold?: number;
   masterSlaveServerGroupId?: string;
+  proxyProtocolV2Enabled?: string;
   unhealthyThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9629,6 +11318,7 @@ export class DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig
       healthCheckReq: 'HealthCheckReq',
       healthyThreshold: 'HealthyThreshold',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      proxyProtocolV2Enabled: 'ProxyProtocolV2Enabled',
       unhealthyThreshold: 'UnhealthyThreshold',
     };
   }
@@ -9645,6 +11335,7 @@ export class DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig
       healthCheckReq: 'string',
       healthyThreshold: 'number',
       masterSlaveServerGroupId: 'string',
+      proxyProtocolV2Enabled: 'string',
       unhealthyThreshold: 'number',
     };
   }
@@ -9669,6 +11360,7 @@ export class DescribeLoadBalancerListenersResponseBodyListeners extends $tea.Mod
   scheduler?: string;
   status?: string;
   TCPListenerConfig?: DescribeLoadBalancerListenersResponseBodyListenersTCPListenerConfig;
+  tags?: DescribeLoadBalancerListenersResponseBodyListenersTags[];
   UDPListenerConfig?: DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig;
   VServerGroupId?: string;
   static names(): { [key: string]: string } {
@@ -9687,6 +11379,7 @@ export class DescribeLoadBalancerListenersResponseBodyListeners extends $tea.Mod
       scheduler: 'Scheduler',
       status: 'Status',
       TCPListenerConfig: 'TCPListenerConfig',
+      tags: 'Tags',
       UDPListenerConfig: 'UDPListenerConfig',
       VServerGroupId: 'VServerGroupId',
     };
@@ -9708,8 +11401,113 @@ export class DescribeLoadBalancerListenersResponseBodyListeners extends $tea.Mod
       scheduler: 'string',
       status: 'string',
       TCPListenerConfig: DescribeLoadBalancerListenersResponseBodyListenersTCPListenerConfig,
+      tags: { 'type': 'array', 'itemType': DescribeLoadBalancerListenersResponseBodyListenersTags },
       UDPListenerConfig: DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig,
       VServerGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerTCPListenerAttributeResponseBodyTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerTCPListenerAttributeResponseBodyTags extends $tea.Model {
+  tag?: DescribeLoadBalancerTCPListenerAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeLoadBalancerTCPListenerAttributeResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerUDPListenerAttributeResponseBodyTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerUDPListenerAttributeResponseBodyTags extends $tea.Model {
+  tag?: DescribeLoadBalancerUDPListenerAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeLoadBalancerUDPListenerAttributeResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancersRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -9767,6 +11565,7 @@ export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer extends 
   createTime?: string;
   createTimeStamp?: number;
   deleteProtection?: string;
+  instanceChargeType?: string;
   internetChargeType?: string;
   internetChargeTypeAlias?: string;
   loadBalancerId?: string;
@@ -9794,6 +11593,7 @@ export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer extends 
       createTime: 'CreateTime',
       createTimeStamp: 'CreateTimeStamp',
       deleteProtection: 'DeleteProtection',
+      instanceChargeType: 'InstanceChargeType',
       internetChargeType: 'InternetChargeType',
       internetChargeTypeAlias: 'InternetChargeTypeAlias',
       loadBalancerId: 'LoadBalancerId',
@@ -9824,6 +11624,7 @@ export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer extends 
       createTime: 'string',
       createTimeStamp: 'number',
       deleteProtection: 'string',
+      instanceChargeType: 'string',
       internetChargeType: 'string',
       internetChargeTypeAlias: 'string',
       loadBalancerId: 'string',
@@ -9922,6 +11723,69 @@ export class DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBacke
   }
 }
 
+export class DescribeMasterSlaveServerGroupAttributeResponseBodyTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMasterSlaveServerGroupAttributeResponseBodyTags extends $tea.Model {
+  tag?: DescribeMasterSlaveServerGroupAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeMasterSlaveServerGroupAttributeResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMasterSlaveServerGroupsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjectsListenersListener extends $tea.Model {
   port?: number;
   protocol?: string;
@@ -9982,23 +11846,70 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsM
   }
 }
 
+export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupTags extends $tea.Model {
+  tag?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroup extends $tea.Model {
   associatedObjects?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects;
+  createTime?: string;
   masterSlaveServerGroupId?: string;
   masterSlaveServerGroupName?: string;
+  tags?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupTags;
   static names(): { [key: string]: string } {
     return {
       associatedObjects: 'AssociatedObjects',
+      createTime: 'CreateTime',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
       masterSlaveServerGroupName: 'MasterSlaveServerGroupName',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       associatedObjects: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects,
+      createTime: 'string',
       masterSlaveServerGroupId: 'string',
       masterSlaveServerGroupName: 'string',
+      tags: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupTags,
     };
   }
 
@@ -10165,6 +12076,28 @@ export class DescribeRulesResponseBodyRules extends $tea.Model {
   }
 }
 
+export class DescribeServerCertificatesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames extends $tea.Model {
   subjectAlternativeName?: string[];
   static names(): { [key: string]: string } {
@@ -10176,6 +12109,47 @@ export class DescribeServerCertificatesResponseBodyServerCertificatesServerCerti
   static types(): { [key: string]: any } {
     return {
       subjectAlternativeName: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateTags extends $tea.Model {
+  tag?: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateTagsTag },
     };
   }
 
@@ -10199,6 +12173,7 @@ export class DescribeServerCertificatesResponseBodyServerCertificatesServerCerti
   serverCertificateId?: string;
   serverCertificateName?: string;
   subjectAlternativeNames?: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames;
+  tags?: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateTags;
   static names(): { [key: string]: string } {
     return {
       aliCloudCertificateId: 'AliCloudCertificateId',
@@ -10215,6 +12190,7 @@ export class DescribeServerCertificatesResponseBodyServerCertificatesServerCerti
       serverCertificateId: 'ServerCertificateId',
       serverCertificateName: 'ServerCertificateName',
       subjectAlternativeNames: 'SubjectAlternativeNames',
+      tags: 'Tags',
     };
   }
 
@@ -10234,6 +12210,7 @@ export class DescribeServerCertificatesResponseBodyServerCertificatesServerCerti
       serverCertificateId: 'string',
       serverCertificateName: 'string',
       subjectAlternativeNames: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames,
+      tags: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateTags,
     };
   }
 
@@ -10309,6 +12286,7 @@ export class DescribeVServerGroupAttributeResponseBodyBackendServersBackendServe
   description?: string;
   port?: number;
   serverId?: string;
+  serverIp?: string;
   type?: string;
   weight?: number;
   static names(): { [key: string]: string } {
@@ -10316,6 +12294,7 @@ export class DescribeVServerGroupAttributeResponseBodyBackendServersBackendServe
       description: 'Description',
       port: 'Port',
       serverId: 'ServerId',
+      serverIp: 'ServerIp',
       type: 'Type',
       weight: 'Weight',
     };
@@ -10326,6 +12305,7 @@ export class DescribeVServerGroupAttributeResponseBodyBackendServersBackendServe
       description: 'string',
       port: 'number',
       serverId: 'string',
+      serverIp: 'string',
       type: 'string',
       weight: 'number',
     };
@@ -10347,6 +12327,69 @@ export class DescribeVServerGroupAttributeResponseBodyBackendServers extends $te
   static types(): { [key: string]: any } {
     return {
       backendServer: { 'type': 'array', 'itemType': DescribeVServerGroupAttributeResponseBodyBackendServersBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVServerGroupAttributeResponseBodyTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVServerGroupAttributeResponseBodyTags extends $tea.Model {
+  tag?: DescribeVServerGroupAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeVServerGroupAttributeResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVServerGroupsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -10465,15 +12508,60 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociate
   }
 }
 
+export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupTags extends $tea.Model {
+  tag?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroup extends $tea.Model {
   associatedObjects?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjects;
+  createTime?: string;
   serverCount?: number;
+  tags?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupTags;
   VServerGroupId?: string;
   VServerGroupName?: string;
   static names(): { [key: string]: string } {
     return {
       associatedObjects: 'AssociatedObjects',
+      createTime: 'CreateTime',
       serverCount: 'ServerCount',
+      tags: 'Tags',
       VServerGroupId: 'VServerGroupId',
       VServerGroupName: 'VServerGroupName',
     };
@@ -10482,7 +12570,9 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroup extends 
   static types(): { [key: string]: any } {
     return {
       associatedObjects: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjects,
+      createTime: 'string',
       serverCount: 'number',
+      tags: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupTags,
       VServerGroupId: 'string',
       VServerGroupName: 'string',
     };
@@ -10991,6 +13081,50 @@ export class TagResourcesRequestTag extends $tea.Model {
   }
 }
 
+export class UploadCACertificateRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadServerCertificateRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadServerCertificateResponseBodySubjectAlternativeNames extends $tea.Model {
   subjectAlternativeName?: string[];
   static names(): { [key: string]: string } {
@@ -11024,13 +13158,12 @@ export default class Client extends OpenApi {
       'cn-shenzhen': "slb.aliyuncs.com",
       'cn-hongkong': "slb.aliyuncs.com",
       'ap-southeast-1': "slb.aliyuncs.com",
-      'us-west-1': "slb.aliyuncs.com",
       'us-east-1': "slb.aliyuncs.com",
+      'us-west-1': "slb.aliyuncs.com",
       'cn-shanghai-finance-1': "slb.aliyuncs.com",
       'cn-shenzhen-finance-1': "slb.aliyuncs.com",
       'cn-north-2-gov-1': "slb.aliyuncs.com",
       'ap-northeast-2-pop': "slb.aliyuncs.com",
-      'cn-beijing-finance-1': "slb.aliyuncs.com",
       'cn-beijing-finance-pop': "slb.aliyuncs.com",
       'cn-beijing-gov-1': "slb.aliyuncs.com",
       'cn-beijing-nu16-b01': "slb.aliyuncs.com",
@@ -11055,6 +13188,7 @@ export default class Client extends OpenApi {
       'cn-shenzhen-su18-b01': "slb.aliyuncs.com",
       'cn-wuhan': "slb.aliyuncs.com",
       'cn-yushanfang': "slb.aliyuncs.com",
+      'cn-zhangbei': "slb.aliyuncs.com",
       'cn-zhangbei-na61-b01': "slb.aliyuncs.com",
       'cn-zhangjiakou-na62-a01': "slb.aliyuncs.com",
       'cn-zhengzhou-nebula-1': "slb.aliyuncs.com",
@@ -11078,6 +13212,15 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * Each network ACL can contain one or more IP addresses or CIDR blocks. Take note of the following limits on network ACLs:
+    * *   The number of IP entries that can be added to a network ACL with each Alibaba Cloud account at a time: 50
+    * *   The maximum number of IP entries that each network ACL can contain: 300
+    *
+    * @param request AddAccessControlListEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddAccessControlListEntryResponse
+   */
   async addAccessControlListEntryWithOptions(request: AddAccessControlListEntryRequest, runtime: $Util.RuntimeOptions): Promise<AddAccessControlListEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11126,11 +13269,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AddAccessControlListEntryResponse>(await this.callApi(params, req, runtime), new AddAccessControlListEntryResponse({}));
   }
 
+  /**
+    * Each network ACL can contain one or more IP addresses or CIDR blocks. Take note of the following limits on network ACLs:
+    * *   The number of IP entries that can be added to a network ACL with each Alibaba Cloud account at a time: 50
+    * *   The maximum number of IP entries that each network ACL can contain: 300
+    *
+    * @param request AddAccessControlListEntryRequest
+    * @return AddAccessControlListEntryResponse
+   */
   async addAccessControlListEntry(request: AddAccessControlListEntryRequest): Promise<AddAccessControlListEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addAccessControlListEntryWithOptions(request, runtime);
   }
 
+  /**
+    * >  If multiple identical Elastic Compute Service (ECS) instances are specified in a request, only the first ECS instance is added. The other ECS instances are ignored. If the backend server that you add is the same as one of the existing backend servers that are already associated with the listener, an error message is returned.
+    *
+    * @param request AddBackendServersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddBackendServersResponse
+   */
   async addBackendServersWithOptions(request: AddBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<AddBackendServersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11179,6 +13337,12 @@ export default class Client extends OpenApi {
     return $tea.cast<AddBackendServersResponse>(await this.callApi(params, req, runtime), new AddBackendServersResponse({}));
   }
 
+  /**
+    * >  If multiple identical Elastic Compute Service (ECS) instances are specified in a request, only the first ECS instance is added. The other ECS instances are ignored. If the backend server that you add is the same as one of the existing backend servers that are already associated with the listener, an error message is returned.
+    *
+    * @param request AddBackendServersRequest
+    * @return AddBackendServersResponse
+   */
   async addBackendServers(request: AddBackendServersRequest): Promise<AddBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addBackendServersWithOptions(request, runtime);
@@ -11245,6 +13409,18 @@ export default class Client extends OpenApi {
     return await this.addListenerWhiteListItemWithOptions(request, runtime);
   }
 
+  /**
+    * # Limits
+    * Before you call this API, note the following limits:
+    * *   You can add up to 10 tags to each SLB instance.
+    * *   You can add up to five pairs of tags at a time.
+    * *   All the tags and keys added to an SLB instance must be unique.
+    * *   If you add a tag of which the key is the same as that of an existing tag, but the value is different, the new tag overwrites the existing one.
+    *
+    * @param request AddTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddTagsResponse
+   */
   async addTagsWithOptions(request: AddTagsRequest, runtime: $Util.RuntimeOptions): Promise<AddTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11293,6 +13469,17 @@ export default class Client extends OpenApi {
     return $tea.cast<AddTagsResponse>(await this.callApi(params, req, runtime), new AddTagsResponse({}));
   }
 
+  /**
+    * # Limits
+    * Before you call this API, note the following limits:
+    * *   You can add up to 10 tags to each SLB instance.
+    * *   You can add up to five pairs of tags at a time.
+    * *   All the tags and keys added to an SLB instance must be unique.
+    * *   If you add a tag of which the key is the same as that of an existing tag, but the value is different, the new tag overwrites the existing one.
+    *
+    * @param request AddTagsRequest
+    * @return AddTagsResponse
+   */
   async addTags(request: AddTagsRequest): Promise<AddTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTagsWithOptions(request, runtime);
@@ -11351,6 +13538,16 @@ export default class Client extends OpenApi {
     return await this.addVServerGroupBackendServersWithOptions(request, runtime);
   }
 
+  /**
+    * You can create multiple ACLs. Each ACL can contain one or more IP addresses or CIDR blocks. Before you create an ACL, take note of the following limits:
+    * *   An account can have a maximum of 50 ACLs in each region.
+    * *   You can add a maximum of 50 IP addresses or CIDR blocks at a time within an account.
+    * *   Each ACL can contain a maximum of 300 IP addresses or CIDR blocks.
+    *
+    * @param request CreateAccessControlListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAccessControlListResponse
+   */
   async createAccessControlListWithOptions(request: CreateAccessControlListRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessControlListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11386,6 +13583,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11403,6 +13604,15 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccessControlListResponse>(await this.callApi(params, req, runtime), new CreateAccessControlListResponse({}));
   }
 
+  /**
+    * You can create multiple ACLs. Each ACL can contain one or more IP addresses or CIDR blocks. Before you create an ACL, take note of the following limits:
+    * *   An account can have a maximum of 50 ACLs in each region.
+    * *   You can add a maximum of 50 IP addresses or CIDR blocks at a time within an account.
+    * *   Each ACL can contain a maximum of 300 IP addresses or CIDR blocks.
+    *
+    * @param request CreateAccessControlListRequest
+    * @return CreateAccessControlListResponse
+   */
   async createAccessControlList(request: CreateAccessControlListRequest): Promise<CreateAccessControlListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccessControlListWithOptions(request, runtime);
@@ -11469,6 +13679,15 @@ export default class Client extends OpenApi {
     return await this.createDomainExtensionWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you create a CLB instance, call the [DescribeAvailableResource](~~DescribeAvailableResource~~) operation to query the resources available for purchase in the region where you want to create the CLB instance.
+    * *   After a CLB instance is created, you are charged for using the CLB instance.
+    * *   The pay-as-you-go billing method supports the pay-by-specification and pay-by-LCU metering methods.
+    *
+    * @param request CreateLoadBalancerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLoadBalancerResponse
+   */
   async createLoadBalancerWithOptions(request: CreateLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11502,6 +13721,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.duration)) {
       query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.instanceChargeType)) {
+      query["InstanceChargeType"] = request.instanceChargeType;
     }
 
     if (!Util.isUnset(request.internetChargeType)) {
@@ -11564,6 +13787,10 @@ export default class Client extends OpenApi {
       query["SlaveZoneId"] = request.slaveZoneId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }
@@ -11589,11 +13816,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLoadBalancerResponse>(await this.callApi(params, req, runtime), new CreateLoadBalancerResponse({}));
   }
 
+  /**
+    * *   Before you create a CLB instance, call the [DescribeAvailableResource](~~DescribeAvailableResource~~) operation to query the resources available for purchase in the region where you want to create the CLB instance.
+    * *   After a CLB instance is created, you are charged for using the CLB instance.
+    * *   The pay-as-you-go billing method supports the pay-by-specification and pay-by-LCU metering methods.
+    *
+    * @param request CreateLoadBalancerRequest
+    * @return CreateLoadBalancerResponse
+   */
   async createLoadBalancer(request: CreateLoadBalancerRequest): Promise<CreateLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLoadBalancerWithOptions(request, runtime);
   }
 
+  /**
+    * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~StartLoadBalancerListener~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+    * ## Prerequisites
+    * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~StartLoadBalancerListener~~).
+    *
+    * @param request CreateLoadBalancerHTTPListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLoadBalancerHTTPListenerResponse
+   */
   async createLoadBalancerHTTPListenerWithOptions(request: CreateLoadBalancerHTTPListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerHTTPListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11725,6 +13969,10 @@ export default class Client extends OpenApi {
       query["StickySessionType"] = request.stickySessionType;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.unhealthyThreshold)) {
       query["UnhealthyThreshold"] = request.unhealthyThreshold;
     }
@@ -11766,11 +14014,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLoadBalancerHTTPListenerResponse>(await this.callApi(params, req, runtime), new CreateLoadBalancerHTTPListenerResponse({}));
   }
 
+  /**
+    * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~StartLoadBalancerListener~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+    * ## Prerequisites
+    * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~StartLoadBalancerListener~~).
+    *
+    * @param request CreateLoadBalancerHTTPListenerRequest
+    * @return CreateLoadBalancerHTTPListenerResponse
+   */
   async createLoadBalancerHTTPListener(request: CreateLoadBalancerHTTPListenerRequest): Promise<CreateLoadBalancerHTTPListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLoadBalancerHTTPListenerWithOptions(request, runtime);
   }
 
+  /**
+    * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+    * ## Prerequisites
+    * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://www.alibabacloud.com/help/en/server-load-balancer/latest/createloadbalancer-2).
+    *
+    * @param request CreateLoadBalancerHTTPSListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLoadBalancerHTTPSListenerResponse
+   */
   async createLoadBalancerHTTPSListenerWithOptions(request: CreateLoadBalancerHTTPSListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerHTTPSListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11910,6 +14175,10 @@ export default class Client extends OpenApi {
       query["TLSCipherPolicy"] = request.TLSCipherPolicy;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.unhealthyThreshold)) {
       query["UnhealthyThreshold"] = request.unhealthyThreshold;
     }
@@ -11951,11 +14220,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLoadBalancerHTTPSListenerResponse>(await this.callApi(params, req, runtime), new CreateLoadBalancerHTTPSListenerResponse({}));
   }
 
+  /**
+    * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+    * ## Prerequisites
+    * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://www.alibabacloud.com/help/en/server-load-balancer/latest/createloadbalancer-2).
+    *
+    * @param request CreateLoadBalancerHTTPSListenerRequest
+    * @return CreateLoadBalancerHTTPSListenerResponse
+   */
   async createLoadBalancerHTTPSListener(request: CreateLoadBalancerHTTPSListenerRequest): Promise<CreateLoadBalancerHTTPSListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLoadBalancerHTTPSListenerWithOptions(request, runtime);
   }
 
+  /**
+    * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
+    *
+    * @param request CreateLoadBalancerTCPListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLoadBalancerTCPListenerResponse
+   */
   async createLoadBalancerTCPListenerWithOptions(request: CreateLoadBalancerTCPListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerTCPListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12011,6 +14295,10 @@ export default class Client extends OpenApi {
       query["HealthCheckHttpCode"] = request.healthCheckHttpCode;
     }
 
+    if (!Util.isUnset(request.healthCheckSwitch)) {
+      query["HealthCheckSwitch"] = request.healthCheckSwitch;
+    }
+
     if (!Util.isUnset(request.healthCheckType)) {
       query["HealthCheckType"] = request.healthCheckType;
     }
@@ -12047,6 +14335,10 @@ export default class Client extends OpenApi {
       query["PersistenceTimeout"] = request.persistenceTimeout;
     }
 
+    if (!Util.isUnset(request.proxyProtocolV2Enabled)) {
+      query["ProxyProtocolV2Enabled"] = request.proxyProtocolV2Enabled;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -12061,6 +14353,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.scheduler)) {
       query["Scheduler"] = request.scheduler;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.unhealthyThreshold)) {
@@ -12092,11 +14388,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLoadBalancerTCPListenerResponse>(await this.callApi(params, req, runtime), new CreateLoadBalancerTCPListenerResponse({}));
   }
 
+  /**
+    * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
+    *
+    * @param request CreateLoadBalancerTCPListenerRequest
+    * @return CreateLoadBalancerTCPListenerResponse
+   */
   async createLoadBalancerTCPListener(request: CreateLoadBalancerTCPListenerRequest): Promise<CreateLoadBalancerTCPListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLoadBalancerTCPListenerWithOptions(request, runtime);
   }
 
+  /**
+    * UDP listeners of Classic Load Balancer (CLB) instances in a classic network cannot pass client IP addresses to backend servers.
+    * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
+    *
+    * @param request CreateLoadBalancerUDPListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLoadBalancerUDPListenerResponse
+   */
   async createLoadBalancerUDPListenerWithOptions(request: CreateLoadBalancerUDPListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerUDPListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12132,6 +14442,10 @@ export default class Client extends OpenApi {
       query["HealthCheckConnectTimeout"] = request.healthCheckConnectTimeout;
     }
 
+    if (!Util.isUnset(request.healthCheckSwitch)) {
+      query["HealthCheckSwitch"] = request.healthCheckSwitch;
+    }
+
     if (!Util.isUnset(request.healthyThreshold)) {
       query["HealthyThreshold"] = request.healthyThreshold;
     }
@@ -12156,6 +14470,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.proxyProtocolV2Enabled)) {
+      query["ProxyProtocolV2Enabled"] = request.proxyProtocolV2Enabled;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -12170,6 +14488,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.scheduler)) {
       query["Scheduler"] = request.scheduler;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.unhealthyThreshold)) {
@@ -12209,6 +14531,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLoadBalancerUDPListenerResponse>(await this.callApi(params, req, runtime), new CreateLoadBalancerUDPListenerResponse({}));
   }
 
+  /**
+    * UDP listeners of Classic Load Balancer (CLB) instances in a classic network cannot pass client IP addresses to backend servers.
+    * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
+    *
+    * @param request CreateLoadBalancerUDPListenerRequest
+    * @return CreateLoadBalancerUDPListenerResponse
+   */
   async createLoadBalancerUDPListener(request: CreateLoadBalancerUDPListenerRequest): Promise<CreateLoadBalancerUDPListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLoadBalancerUDPListenerWithOptions(request, runtime);
@@ -12247,6 +14576,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -12420,6 +14753,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.VServerGroupName)) {
       query["VServerGroupName"] = request.VServerGroupName;
     }
@@ -12446,6 +14783,13 @@ export default class Client extends OpenApi {
     return await this.createVServerGroupWithOptions(request, runtime);
   }
 
+  /**
+    * You can delete an ACL only if it is not associated with a listener.
+    *
+    * @param request DeleteAccessControlListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAccessControlListResponse
+   */
   async deleteAccessControlListWithOptions(request: DeleteAccessControlListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessControlListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12490,11 +14834,81 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccessControlListResponse>(await this.callApi(params, req, runtime), new DeleteAccessControlListResponse({}));
   }
 
+  /**
+    * You can delete an ACL only if it is not associated with a listener.
+    *
+    * @param request DeleteAccessControlListRequest
+    * @return DeleteAccessControlListResponse
+   */
   async deleteAccessControlList(request: DeleteAccessControlListRequest): Promise<DeleteAccessControlListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccessControlListWithOptions(request, runtime);
   }
 
+  async deleteAccessLogsDownloadAttributeWithOptions(request: DeleteAccessLogsDownloadAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessLogsDownloadAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.logsDownloadAttributes)) {
+      query["LogsDownloadAttributes"] = request.logsDownloadAttributes;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAccessLogsDownloadAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAccessLogsDownloadAttributeResponse>(await this.callApi(params, req, runtime), new DeleteAccessLogsDownloadAttributeResponse({}));
+  }
+
+  async deleteAccessLogsDownloadAttribute(request: DeleteAccessLogsDownloadAttributeRequest): Promise<DeleteAccessLogsDownloadAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAccessLogsDownloadAttributeWithOptions(request, runtime);
+  }
+
+  /**
+    * You cannot delete a CA certificate that is in use.
+    *
+    * @param request DeleteCACertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteCACertificateResponse
+   */
   async deleteCACertificateWithOptions(request: DeleteCACertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCACertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12539,6 +14953,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCACertificateResponse>(await this.callApi(params, req, runtime), new DeleteCACertificateResponse({}));
   }
 
+  /**
+    * You cannot delete a CA certificate that is in use.
+    *
+    * @param request DeleteCACertificateRequest
+    * @return DeleteCACertificateResponse
+   */
   async deleteCACertificate(request: DeleteCACertificateRequest): Promise<DeleteCACertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCACertificateWithOptions(request, runtime);
@@ -12593,6 +15013,13 @@ export default class Client extends OpenApi {
     return await this.deleteDomainExtensionWithOptions(request, runtime);
   }
 
+  /**
+    * > The listeners and tags of the SLB instance are deleted along with the SLB instance.
+    *
+    * @param request DeleteLoadBalancerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteLoadBalancerResponse
+   */
   async deleteLoadBalancerWithOptions(request: DeleteLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoadBalancerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12637,11 +15064,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLoadBalancerResponse>(await this.callApi(params, req, runtime), new DeleteLoadBalancerResponse({}));
   }
 
+  /**
+    * > The listeners and tags of the SLB instance are deleted along with the SLB instance.
+    *
+    * @param request DeleteLoadBalancerRequest
+    * @return DeleteLoadBalancerResponse
+   */
   async deleteLoadBalancer(request: DeleteLoadBalancerRequest): Promise<DeleteLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLoadBalancerWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can delete only listeners that are in the **stopped** or **running** state.
+    *
+    * @param request DeleteLoadBalancerListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteLoadBalancerListenerResponse
+   */
   async deleteLoadBalancerListenerWithOptions(request: DeleteLoadBalancerListenerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoadBalancerListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12694,6 +15134,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLoadBalancerListenerResponse>(await this.callApi(params, req, runtime), new DeleteLoadBalancerListenerResponse({}));
   }
 
+  /**
+    * >  You can delete only listeners that are in the **stopped** or **running** state.
+    *
+    * @param request DeleteLoadBalancerListenerRequest
+    * @return DeleteLoadBalancerListenerResponse
+   */
   async deleteLoadBalancerListener(request: DeleteLoadBalancerListenerRequest): Promise<DeleteLoadBalancerListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLoadBalancerListenerWithOptions(request, runtime);
@@ -12748,6 +15194,14 @@ export default class Client extends OpenApi {
     return await this.deleteMasterSlaveServerGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * The RuleIds parameter is required. You can specify up to 10 forwarding rules in each request.
+    *
+    * @param request DeleteRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRulesResponse
+   */
   async deleteRulesWithOptions(request: DeleteRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12792,11 +15246,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRulesResponse>(await this.callApi(params, req, runtime), new DeleteRulesResponse({}));
   }
 
+  /**
+    * ## Limits
+    * The RuleIds parameter is required. You can specify up to 10 forwarding rules in each request.
+    *
+    * @param request DeleteRulesRequest
+    * @return DeleteRulesResponse
+   */
   async deleteRules(request: DeleteRulesRequest): Promise<DeleteRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRulesWithOptions(request, runtime);
   }
 
+  /**
+    * >  You cannot delete server certificates that are in use.
+    *
+    * @param request DeleteServerCertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteServerCertificateResponse
+   */
   async deleteServerCertificateWithOptions(request: DeleteServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServerCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12841,6 +15309,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServerCertificateResponse>(await this.callApi(params, req, runtime), new DeleteServerCertificateResponse({}));
   }
 
+  /**
+    * >  You cannot delete server certificates that are in use.
+    *
+    * @param request DeleteServerCertificateRequest
+    * @return DeleteServerCertificateResponse
+   */
   async deleteServerCertificate(request: DeleteServerCertificateRequest): Promise<DeleteServerCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteServerCertificateWithOptions(request, runtime);
@@ -12963,6 +15437,14 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -13040,6 +15522,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -13062,6 +15548,78 @@ export default class Client extends OpenApi {
     return await this.describeAccessControlListsWithOptions(request, runtime);
   }
 
+  async describeAccessLogsDownloadAttributeWithOptions(request: DescribeAccessLogsDownloadAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessLogsDownloadAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.logType)) {
+      query["LogType"] = request.logType;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAccessLogsDownloadAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAccessLogsDownloadAttributeResponse>(await this.callApi(params, req, runtime), new DescribeAccessLogsDownloadAttributeResponse({}));
+  }
+
+  async describeAccessLogsDownloadAttribute(request: DescribeAccessLogsDownloadAttributeRequest): Promise<DescribeAccessLogsDownloadAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAccessLogsDownloadAttributeWithOptions(request, runtime);
+  }
+
+  /**
+    * > Only the available resources and zones are returned.
+    *
+    * @param request DescribeAvailableResourceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAvailableResourceResponse
+   */
   async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13110,11 +15668,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableResourceResponse>(await this.callApi(params, req, runtime), new DescribeAvailableResourceResponse({}));
   }
 
+  /**
+    * > Only the available resources and zones are returned.
+    *
+    * @param request DescribeAvailableResourceRequest
+    * @return DescribeAvailableResourceResponse
+   */
   async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableResourceWithOptions(request, runtime);
   }
 
+  /**
+    * > To ensure data confidentiality, only the certificate fingerprint and name are returned. The certificate content is not returned.
+    *
+    * @param request DescribeCACertificatesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCACertificatesResponse
+   */
   async describeCACertificatesWithOptions(request: DescribeCACertificatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCACertificatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13146,6 +15717,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -13163,6 +15738,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCACertificatesResponse>(await this.callApi(params, req, runtime), new DescribeCACertificatesResponse({}));
   }
 
+  /**
+    * > To ensure data confidentiality, only the certificate fingerprint and name are returned. The certificate content is not returned.
+    *
+    * @param request DescribeCACertificatesRequest
+    * @return DescribeCACertificatesResponse
+   */
   async describeCACertificates(request: DescribeCACertificatesRequest): Promise<DescribeCACertificatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCACertificatesWithOptions(request, runtime);
@@ -13331,6 +15912,55 @@ export default class Client extends OpenApi {
     return await this.describeHealthStatusWithOptions(request, runtime);
   }
 
+  async describeHighDefinationMonitorWithOptions(request: DescribeHighDefinationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHighDefinationMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeHighDefinationMonitor",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHighDefinationMonitorResponse>(await this.callApi(params, req, runtime), new DescribeHighDefinationMonitorResponse({}));
+  }
+
+  async describeHighDefinationMonitor(request: DescribeHighDefinationMonitorRequest): Promise<DescribeHighDefinationMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeHighDefinationMonitorWithOptions(request, runtime);
+  }
+
   async describeListenerAccessControlAttributeWithOptions(request: DescribeListenerAccessControlAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeListenerAccessControlAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13388,6 +16018,13 @@ export default class Client extends OpenApi {
     return await this.describeListenerAccessControlAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * >  If backend servers are deployed in a vServer group, you can call the [DescribeVServerGroupAttribute](~~35224~~) operation to query the backend servers.
+    *
+    * @param request DescribeLoadBalancerAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeLoadBalancerAttributeResponse
+   */
   async describeLoadBalancerAttributeWithOptions(request: DescribeLoadBalancerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13432,11 +16069,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLoadBalancerAttributeResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerAttributeResponse({}));
   }
 
+  /**
+    * >  If backend servers are deployed in a vServer group, you can call the [DescribeVServerGroupAttribute](~~35224~~) operation to query the backend servers.
+    *
+    * @param request DescribeLoadBalancerAttributeRequest
+    * @return DescribeLoadBalancerAttributeResponse
+   */
   async describeLoadBalancerAttribute(request: DescribeLoadBalancerAttributeRequest): Promise<DescribeLoadBalancerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadBalancerAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+    * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
+    *
+    * @param request DescribeLoadBalancerHTTPListenerAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeLoadBalancerHTTPListenerAttributeResponse
+   */
   async describeLoadBalancerHTTPListenerAttributeWithOptions(request: DescribeLoadBalancerHTTPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerHTTPListenerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13485,11 +16136,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLoadBalancerHTTPListenerAttributeResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerHTTPListenerAttributeResponse({}));
   }
 
+  /**
+    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+    * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
+    *
+    * @param request DescribeLoadBalancerHTTPListenerAttributeRequest
+    * @return DescribeLoadBalancerHTTPListenerAttributeResponse
+   */
   async describeLoadBalancerHTTPListenerAttribute(request: DescribeLoadBalancerHTTPListenerAttributeRequest): Promise<DescribeLoadBalancerHTTPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadBalancerHTTPListenerAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+    * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
+    *
+    * @param request DescribeLoadBalancerHTTPSListenerAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeLoadBalancerHTTPSListenerAttributeResponse
+   */
   async describeLoadBalancerHTTPSListenerAttributeWithOptions(request: DescribeLoadBalancerHTTPSListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerHTTPSListenerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13538,14 +16204,41 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLoadBalancerHTTPSListenerAttributeResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerHTTPSListenerAttributeResponse({}));
   }
 
+  /**
+    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+    * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
+    *
+    * @param request DescribeLoadBalancerHTTPSListenerAttributeRequest
+    * @return DescribeLoadBalancerHTTPSListenerAttributeResponse
+   */
   async describeLoadBalancerHTTPSListenerAttribute(request: DescribeLoadBalancerHTTPSListenerAttributeRequest): Promise<DescribeLoadBalancerHTTPSListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadBalancerHTTPSListenerAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
+    * *   One or more listeners are added to the CLB instance. For more information, see the following topics:
+    *     *   [CreateLoadBalancerUDPListener](~~CreateLoadBalancerUDPListener~~)
+    *     *   [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~)
+    *     *   [CreateLoadBalancerHTTPListener](~~CreateLoadBalancerHTTPListener~~)
+    *     *   [CreateLoadBalancerHTTPSListener](~~CreateLoadBalancerHTTPSListener~~)
+    *
+    * @param request DescribeLoadBalancerListenersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeLoadBalancerListenersResponse
+   */
   async describeLoadBalancerListenersWithOptions(request: DescribeLoadBalancerListenersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerListenersResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
     if (!Util.isUnset(request.listenerProtocol)) {
       query["ListenerProtocol"] = request.listenerProtocol;
     }
@@ -13582,6 +16275,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -13599,6 +16296,17 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLoadBalancerListenersResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerListenersResponse({}));
   }
 
+  /**
+    * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
+    * *   One or more listeners are added to the CLB instance. For more information, see the following topics:
+    *     *   [CreateLoadBalancerUDPListener](~~CreateLoadBalancerUDPListener~~)
+    *     *   [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~)
+    *     *   [CreateLoadBalancerHTTPListener](~~CreateLoadBalancerHTTPListener~~)
+    *     *   [CreateLoadBalancerHTTPSListener](~~CreateLoadBalancerHTTPSListener~~)
+    *
+    * @param request DescribeLoadBalancerListenersRequest
+    * @return DescribeLoadBalancerListenersResponse
+   */
   async describeLoadBalancerListeners(request: DescribeLoadBalancerListenersRequest): Promise<DescribeLoadBalancerListenersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadBalancerListenersWithOptions(request, runtime);
@@ -13797,6 +16505,10 @@ export default class Client extends OpenApi {
       query["SlaveZoneId"] = request.slaveZoneId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.tags)) {
       query["Tags"] = request.tags;
     }
@@ -13883,6 +16595,10 @@ export default class Client extends OpenApi {
   async describeMasterSlaveServerGroupsWithOptions(request: DescribeMasterSlaveServerGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMasterSlaveServerGroupsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!Util.isUnset(request.includeListener)) {
       query["IncludeListener"] = request.includeListener;
     }
@@ -13909,6 +16625,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -14088,6 +16808,13 @@ export default class Client extends OpenApi {
     return await this.describeRulesWithOptions(request, runtime);
   }
 
+  /**
+    * >  For security reasons, only fingerprints and names of the server certificates are returned. The content of the server certificates and private keys is not returned.
+    *
+    * @param request DescribeServerCertificatesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeServerCertificatesResponse
+   */
   async describeServerCertificatesWithOptions(request: DescribeServerCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServerCertificatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14119,6 +16846,10 @@ export default class Client extends OpenApi {
       query["ServerCertificateId"] = request.serverCertificateId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -14136,11 +16867,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServerCertificatesResponse>(await this.callApi(params, req, runtime), new DescribeServerCertificatesResponse({}));
   }
 
+  /**
+    * >  For security reasons, only fingerprints and names of the server certificates are returned. The content of the server certificates and private keys is not returned.
+    *
+    * @param request DescribeServerCertificatesRequest
+    * @return DescribeServerCertificatesResponse
+   */
   async describeServerCertificates(request: DescribeServerCertificatesRequest): Promise<DescribeServerCertificatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeServerCertificatesWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   You can query tags by instance ID, tag key, and tag value. If the operation is successful, the system returns all tags that match the specified conditions.
+    * *   The logical relationship among the specified conditions is AND. Only tags that match all the specified conditions are returned.
+    * *   If the Tagkey parameter is set and the Tagvalue parameter is not set, all tags that contain the specified tag key are returned.
+    * *   If you set the Tagvalue parameter in a request, you must also set the Tagkey parameter in the request.
+    * *   If you set both the Tagkey and Tagvalue parameters, only tags that contain the specified keys and values are returned.
+    *
+    * @param request DescribeTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTagsResponse
+   */
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14201,6 +16950,17 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   You can query tags by instance ID, tag key, and tag value. If the operation is successful, the system returns all tags that match the specified conditions.
+    * *   The logical relationship among the specified conditions is AND. Only tags that match all the specified conditions are returned.
+    * *   If the Tagkey parameter is set and the Tagvalue parameter is not set, all tags that contain the specified tag key are returned.
+    * *   If you set the Tagvalue parameter in a request, you must also set the Tagkey parameter in the request.
+    * *   If you set both the Tagkey and Tagvalue parameters, only tags that contain the specified keys and values are returned.
+    *
+    * @param request DescribeTagsRequest
+    * @return DescribeTagsResponse
+   */
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagsWithOptions(request, runtime);
@@ -14258,6 +17018,10 @@ export default class Client extends OpenApi {
   async describeVServerGroupsWithOptions(request: DescribeVServerGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVServerGroupsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!Util.isUnset(request.includeListener)) {
       query["IncludeListener"] = request.includeListener;
     }
@@ -14288,6 +17052,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -14357,6 +17125,63 @@ export default class Client extends OpenApi {
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  async enableHighDefinationMonitorWithOptions(request: EnableHighDefinationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<EnableHighDefinationMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.logProject)) {
+      query["LogProject"] = request.logProject;
+    }
+
+    if (!Util.isUnset(request.logStore)) {
+      query["LogStore"] = request.logStore;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableHighDefinationMonitor",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableHighDefinationMonitorResponse>(await this.callApi(params, req, runtime), new EnableHighDefinationMonitorResponse({}));
+  }
+
+  async enableHighDefinationMonitor(request: EnableHighDefinationMonitorRequest): Promise<EnableHighDefinationMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableHighDefinationMonitorWithOptions(request, runtime);
+  }
+
   async listTLSCipherPoliciesWithOptions(request: ListTLSCipherPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListTLSCipherPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14422,6 +17247,16 @@ export default class Client extends OpenApi {
     return await this.listTLSCipherPoliciesWithOptions(request, runtime);
   }
 
+  /**
+    * *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
+    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you set only **Tag.N.Value**, an error message is returned.
+    * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+    *
+    * @param request ListTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14478,9 +17313,151 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+    * *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
+    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you set only **Tag.N.Value**, an error message is returned.
+    * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+    *
+    * @param request ListTagResourcesRequest
+    * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  async modifyHighDefinationMonitorWithOptions(request: ModifyHighDefinationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHighDefinationMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.logProject)) {
+      query["LogProject"] = request.logProject;
+    }
+
+    if (!Util.isUnset(request.logStore)) {
+      query["LogStore"] = request.logStore;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyHighDefinationMonitor",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyHighDefinationMonitorResponse>(await this.callApi(params, req, runtime), new ModifyHighDefinationMonitorResponse({}));
+  }
+
+  async modifyHighDefinationMonitor(request: ModifyHighDefinationMonitorRequest): Promise<ModifyHighDefinationMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyHighDefinationMonitorWithOptions(request, runtime);
+  }
+
+  /**
+    * > *   For pay-as-you-go CLB instances, you can only change the metering method from pay-by-specification to pay-by-LCU. You cannot change the metering method from pay-by-LCU to pay-by-specification.
+    * >*   This operation can change the metering method of only one instance at a time.
+    *
+    * @param request ModifyLoadBalancerInstanceChargeTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyLoadBalancerInstanceChargeTypeResponse
+   */
+  async modifyLoadBalancerInstanceChargeTypeWithOptions(request: ModifyLoadBalancerInstanceChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoadBalancerInstanceChargeTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.instanceChargeType)) {
+      query["InstanceChargeType"] = request.instanceChargeType;
+    }
+
+    if (!Util.isUnset(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.loadBalancerSpec)) {
+      query["LoadBalancerSpec"] = request.loadBalancerSpec;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyLoadBalancerInstanceChargeType",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyLoadBalancerInstanceChargeTypeResponse>(await this.callApi(params, req, runtime), new ModifyLoadBalancerInstanceChargeTypeResponse({}));
+  }
+
+  /**
+    * > *   For pay-as-you-go CLB instances, you can only change the metering method from pay-by-specification to pay-by-LCU. You cannot change the metering method from pay-by-LCU to pay-by-specification.
+    * >*   This operation can change the metering method of only one instance at a time.
+    *
+    * @param request ModifyLoadBalancerInstanceChargeTypeRequest
+    * @return ModifyLoadBalancerInstanceChargeTypeResponse
+   */
+  async modifyLoadBalancerInstanceChargeType(request: ModifyLoadBalancerInstanceChargeTypeRequest): Promise<ModifyLoadBalancerInstanceChargeTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyLoadBalancerInstanceChargeTypeWithOptions(request, runtime);
   }
 
   async modifyLoadBalancerInstanceSpecWithOptions(request: ModifyLoadBalancerInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoadBalancerInstanceSpecResponse> {
@@ -14540,6 +17517,15 @@ export default class Client extends OpenApi {
     return await this.modifyLoadBalancerInstanceSpecWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   If you modify only the maximum bandwidth of a pay-by-bandwidth CLB instance, the new bandwidth immediately takes effect.
+    * *   If you modify the metering method (for example, switch from pay-by-bandwidth to pay-by-data-transfer), the new metering method and the other changes specified in the operation take effect at 00:00:00 the next day.
+    *
+    * @param request ModifyLoadBalancerInternetSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyLoadBalancerInternetSpecResponse
+   */
   async modifyLoadBalancerInternetSpecWithOptions(request: ModifyLoadBalancerInternetSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoadBalancerInternetSpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14596,6 +17582,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyLoadBalancerInternetSpecResponse>(await this.callApi(params, req, runtime), new ModifyLoadBalancerInternetSpecResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   If you modify only the maximum bandwidth of a pay-by-bandwidth CLB instance, the new bandwidth immediately takes effect.
+    * *   If you modify the metering method (for example, switch from pay-by-bandwidth to pay-by-data-transfer), the new metering method and the other changes specified in the operation take effect at 00:00:00 the next day.
+    *
+    * @param request ModifyLoadBalancerInternetSpecRequest
+    * @return ModifyLoadBalancerInternetSpecResponse
+   */
   async modifyLoadBalancerInternetSpec(request: ModifyLoadBalancerInternetSpecRequest): Promise<ModifyLoadBalancerInternetSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLoadBalancerInternetSpecWithOptions(request, runtime);
@@ -14666,6 +17660,13 @@ export default class Client extends OpenApi {
     return await this.modifyLoadBalancerPayTypeWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to replace the backend servers in a specified vServer group. To modify the configurations of the backend servers, such as their weights, you can call the [SetVServerGroupAttribute](~~35217~~) operation.
+    *
+    * @param request ModifyVServerGroupBackendServersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVServerGroupBackendServersResponse
+   */
   async modifyVServerGroupBackendServersWithOptions(request: ModifyVServerGroupBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVServerGroupBackendServersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14718,9 +17719,80 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVServerGroupBackendServersResponse>(await this.callApi(params, req, runtime), new ModifyVServerGroupBackendServersResponse({}));
   }
 
+  /**
+    * You can call this operation to replace the backend servers in a specified vServer group. To modify the configurations of the backend servers, such as their weights, you can call the [SetVServerGroupAttribute](~~35217~~) operation.
+    *
+    * @param request ModifyVServerGroupBackendServersRequest
+    * @return ModifyVServerGroupBackendServersResponse
+   */
   async modifyVServerGroupBackendServers(request: ModifyVServerGroupBackendServersRequest): Promise<ModifyVServerGroupBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVServerGroupBackendServersWithOptions(request, runtime);
+  }
+
+  async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.accessKeyId)) {
+      query["access_key_id"] = request.accessKeyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "MoveResourceGroup",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
+  }
+
+  async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
   async removeAccessControlListEntryWithOptions(request: RemoveAccessControlListEntryRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAccessControlListEntryResponse> {
@@ -14776,6 +17848,13 @@ export default class Client extends OpenApi {
     return await this.removeAccessControlListEntryWithOptions(request, runtime);
   }
 
+  /**
+    * >  If the backend servers that you want to remove are not in the server list of the Classic Load Balancer (CLB) instance, the request fails. However, the system does not report an error.
+    *
+    * @param request RemoveBackendServersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveBackendServersResponse
+   */
   async removeBackendServersWithOptions(request: RemoveBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveBackendServersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14824,6 +17903,12 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveBackendServersResponse>(await this.callApi(params, req, runtime), new RemoveBackendServersResponse({}));
   }
 
+  /**
+    * >  If the backend servers that you want to remove are not in the server list of the Classic Load Balancer (CLB) instance, the request fails. However, the system does not report an error.
+    *
+    * @param request RemoveBackendServersRequest
+    * @return RemoveBackendServersResponse
+   */
   async removeBackendServers(request: RemoveBackendServersRequest): Promise<RemoveBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeBackendServersWithOptions(request, runtime);
@@ -14943,6 +18028,13 @@ export default class Client extends OpenApi {
     return await this.removeTagsWithOptions(request, runtime);
   }
 
+  /**
+    * >  If one or more backend servers specified by the **BackendServers** parameter do not exist in the specified vServer group, these backend servers are ignored and no error message is returned.
+    *
+    * @param request RemoveVServerGroupBackendServersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveVServerGroupBackendServersResponse
+   */
   async removeVServerGroupBackendServersWithOptions(request: RemoveVServerGroupBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveVServerGroupBackendServersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14991,6 +18083,12 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveVServerGroupBackendServersResponse>(await this.callApi(params, req, runtime), new RemoveVServerGroupBackendServersResponse({}));
   }
 
+  /**
+    * >  If one or more backend servers specified by the **BackendServers** parameter do not exist in the specified vServer group, these backend servers are ignored and no error message is returned.
+    *
+    * @param request RemoveVServerGroupBackendServersRequest
+    * @return RemoveVServerGroupBackendServersResponse
+   */
   async removeVServerGroupBackendServers(request: RemoveVServerGroupBackendServersRequest): Promise<RemoveVServerGroupBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeVServerGroupBackendServersWithOptions(request, runtime);
@@ -15047,6 +18145,63 @@ export default class Client extends OpenApi {
   async setAccessControlListAttribute(request: SetAccessControlListAttributeRequest): Promise<SetAccessControlListAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setAccessControlListAttributeWithOptions(request, runtime);
+  }
+
+  async setAccessLogsDownloadAttributeWithOptions(request: SetAccessLogsDownloadAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetAccessLogsDownloadAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.logsDownloadAttributes)) {
+      query["LogsDownloadAttributes"] = request.logsDownloadAttributes;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetAccessLogsDownloadAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetAccessLogsDownloadAttributeResponse>(await this.callApi(params, req, runtime), new SetAccessLogsDownloadAttributeResponse({}));
+  }
+
+  async setAccessLogsDownloadAttribute(request: SetAccessLogsDownloadAttributeRequest): Promise<SetAccessLogsDownloadAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setAccessLogsDownloadAttributeWithOptions(request, runtime);
   }
 
   async setBackendServersWithOptions(request: SetBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<SetBackendServersResponse> {
@@ -15155,6 +18310,13 @@ export default class Client extends OpenApi {
     return await this.setCACertificateNameWithOptions(request, runtime);
   }
 
+  /**
+    * >  You cannot replace an additional certificate for a listener that is added to a shared-resource Server Load Balancer (SLB) instance.
+    *
+    * @param request SetDomainExtensionAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDomainExtensionAttributeResponse
+   */
   async setDomainExtensionAttributeWithOptions(request: SetDomainExtensionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainExtensionAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15203,6 +18365,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDomainExtensionAttributeResponse>(await this.callApi(params, req, runtime), new SetDomainExtensionAttributeResponse({}));
   }
 
+  /**
+    * >  You cannot replace an additional certificate for a listener that is added to a shared-resource Server Load Balancer (SLB) instance.
+    *
+    * @param request SetDomainExtensionAttributeRequest
+    * @return SetDomainExtensionAttributeResponse
+   */
   async setDomainExtensionAttribute(request: SetDomainExtensionAttributeRequest): Promise<SetDomainExtensionAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDomainExtensionAttributeWithOptions(request, runtime);
@@ -15322,6 +18490,15 @@ export default class Client extends OpenApi {
     return await this.setLoadBalancerDeleteProtectionWithOptions(request, runtime);
   }
 
+  /**
+    * ### Prerequisites
+    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+    * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
+    *
+    * @param request SetLoadBalancerHTTPListenerAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetLoadBalancerHTTPListenerAttributeResponse
+   */
   async setLoadBalancerHTTPListenerAttributeWithOptions(request: SetLoadBalancerHTTPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerHTTPListenerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15486,11 +18663,27 @@ export default class Client extends OpenApi {
     return $tea.cast<SetLoadBalancerHTTPListenerAttributeResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerHTTPListenerAttributeResponse({}));
   }
 
+  /**
+    * ### Prerequisites
+    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+    * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
+    *
+    * @param request SetLoadBalancerHTTPListenerAttributeRequest
+    * @return SetLoadBalancerHTTPListenerAttributeResponse
+   */
   async setLoadBalancerHTTPListenerAttribute(request: SetLoadBalancerHTTPListenerAttributeRequest): Promise<SetLoadBalancerHTTPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setLoadBalancerHTTPListenerAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+    * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
+    *
+    * @param request SetLoadBalancerHTTPSListenerAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetLoadBalancerHTTPSListenerAttributeResponse
+   */
   async setLoadBalancerHTTPSListenerAttributeWithOptions(request: SetLoadBalancerHTTPSListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerHTTPSListenerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15671,6 +18864,13 @@ export default class Client extends OpenApi {
     return $tea.cast<SetLoadBalancerHTTPSListenerAttributeResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerHTTPSListenerAttributeResponse({}));
   }
 
+  /**
+    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+    * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
+    *
+    * @param request SetLoadBalancerHTTPSListenerAttributeRequest
+    * @return SetLoadBalancerHTTPSListenerAttributeResponse
+   */
   async setLoadBalancerHTTPSListenerAttribute(request: SetLoadBalancerHTTPSListenerAttributeRequest): Promise<SetLoadBalancerHTTPSListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setLoadBalancerHTTPSListenerAttributeWithOptions(request, runtime);
@@ -15839,6 +19039,14 @@ export default class Client extends OpenApi {
     return await this.setLoadBalancerStatusWithOptions(request, runtime);
   }
 
+  /**
+    * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
+    * *   A TCP listener is created. For more information, see [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~).
+    *
+    * @param request SetLoadBalancerTCPListenerAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetLoadBalancerTCPListenerAttributeResponse
+   */
   async setLoadBalancerTCPListenerAttributeWithOptions(request: SetLoadBalancerTCPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerTCPListenerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15894,6 +19102,10 @@ export default class Client extends OpenApi {
       query["HealthCheckInterval"] = request.healthCheckInterval;
     }
 
+    if (!Util.isUnset(request.healthCheckSwitch)) {
+      query["HealthCheckSwitch"] = request.healthCheckSwitch;
+    }
+
     if (!Util.isUnset(request.healthCheckType)) {
       query["HealthCheckType"] = request.healthCheckType;
     }
@@ -15932,6 +19144,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.persistenceTimeout)) {
       query["PersistenceTimeout"] = request.persistenceTimeout;
+    }
+
+    if (!Util.isUnset(request.proxyProtocolV2Enabled)) {
+      query["ProxyProtocolV2Enabled"] = request.proxyProtocolV2Enabled;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -15983,11 +19199,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SetLoadBalancerTCPListenerAttributeResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerTCPListenerAttributeResponse({}));
   }
 
+  /**
+    * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
+    * *   A TCP listener is created. For more information, see [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~).
+    *
+    * @param request SetLoadBalancerTCPListenerAttributeRequest
+    * @return SetLoadBalancerTCPListenerAttributeResponse
+   */
   async setLoadBalancerTCPListenerAttribute(request: SetLoadBalancerTCPListenerAttributeRequest): Promise<SetLoadBalancerTCPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setLoadBalancerTCPListenerAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+    * *   A UDP listener is created. For more information, see [CreateLoadBalancerUDPListener](~~27595~~).
+    *
+    * @param request SetLoadBalancerUDPListenerAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetLoadBalancerUDPListenerAttributeResponse
+   */
   async setLoadBalancerUDPListenerAttributeWithOptions(request: SetLoadBalancerUDPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerUDPListenerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16023,6 +19254,10 @@ export default class Client extends OpenApi {
       query["HealthCheckInterval"] = request.healthCheckInterval;
     }
 
+    if (!Util.isUnset(request.healthCheckSwitch)) {
+      query["HealthCheckSwitch"] = request.healthCheckSwitch;
+    }
+
     if (!Util.isUnset(request.healthyThreshold)) {
       query["HealthyThreshold"] = request.healthyThreshold;
     }
@@ -16049,6 +19284,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.proxyProtocolV2Enabled)) {
+      query["ProxyProtocolV2Enabled"] = request.proxyProtocolV2Enabled;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -16104,6 +19343,13 @@ export default class Client extends OpenApi {
     return $tea.cast<SetLoadBalancerUDPListenerAttributeResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerUDPListenerAttributeResponse({}));
   }
 
+  /**
+    * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+    * *   A UDP listener is created. For more information, see [CreateLoadBalancerUDPListener](~~27595~~).
+    *
+    * @param request SetLoadBalancerUDPListenerAttributeRequest
+    * @return SetLoadBalancerUDPListenerAttributeResponse
+   */
   async setLoadBalancerUDPListenerAttribute(request: SetLoadBalancerUDPListenerAttributeRequest): Promise<SetLoadBalancerUDPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setLoadBalancerUDPListenerAttributeWithOptions(request, runtime);
@@ -16340,6 +19586,15 @@ export default class Client extends OpenApi {
     return await this.setTLSCipherPolicyAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * This operation allows you to modify only the name of a vServer group and the weights of the backend servers in the vServer group.
+    * *   If you want to modify backend servers in a specified vServer group, call the [ModifyVServerGroupBackendServers](~~35220~~) operation.
+    * *   If you want to add backend servers to a specified vServer group, call the [AddVServerGroupBackendServers](~~35218~~) operation.
+    *
+    * @param request SetVServerGroupAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetVServerGroupAttributeResponse
+   */
   async setVServerGroupAttributeWithOptions(request: SetVServerGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetVServerGroupAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16392,11 +19647,29 @@ export default class Client extends OpenApi {
     return $tea.cast<SetVServerGroupAttributeResponse>(await this.callApi(params, req, runtime), new SetVServerGroupAttributeResponse({}));
   }
 
+  /**
+    * This operation allows you to modify only the name of a vServer group and the weights of the backend servers in the vServer group.
+    * *   If you want to modify backend servers in a specified vServer group, call the [ModifyVServerGroupBackendServers](~~35220~~) operation.
+    * *   If you want to add backend servers to a specified vServer group, call the [AddVServerGroupBackendServers](~~35218~~) operation.
+    *
+    * @param request SetVServerGroupAttributeRequest
+    * @return SetVServerGroupAttributeResponse
+   */
   async setVServerGroupAttribute(request: SetVServerGroupAttributeRequest): Promise<SetVServerGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setVServerGroupAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, note the following items:
+    * *   You can call the operation only when the listener is in the Stopped state.
+    * *   After the operation is called, the status of the listener changes to Starting.
+    * *   You cannot call this operation when the SLB instance to which the listener is bound is in the Locked state.
+    *
+    * @param request StartLoadBalancerListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartLoadBalancerListenerResponse
+   */
   async startLoadBalancerListenerWithOptions(request: StartLoadBalancerListenerRequest, runtime: $Util.RuntimeOptions): Promise<StartLoadBalancerListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16449,11 +19722,30 @@ export default class Client extends OpenApi {
     return $tea.cast<StartLoadBalancerListenerResponse>(await this.callApi(params, req, runtime), new StartLoadBalancerListenerResponse({}));
   }
 
+  /**
+    * When you call this operation, note the following items:
+    * *   You can call the operation only when the listener is in the Stopped state.
+    * *   After the operation is called, the status of the listener changes to Starting.
+    * *   You cannot call this operation when the SLB instance to which the listener is bound is in the Locked state.
+    *
+    * @param request StartLoadBalancerListenerRequest
+    * @return StartLoadBalancerListenerResponse
+   */
   async startLoadBalancerListener(request: StartLoadBalancerListenerRequest): Promise<StartLoadBalancerListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startLoadBalancerListenerWithOptions(request, runtime);
   }
 
+  /**
+    * Before you make this API call, note the following:
+    * *   After the API call is successfully made, the listener enters the stopped state.
+    * *   If the Server Load Balancer (SLB) instance to which the listener to be stopped belongs is in the locked state, this API call cannot be made.
+    * >  If you stop the listener, your services will be disrupted. Exercise caution when you perform this action.
+    *
+    * @param request StopLoadBalancerListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopLoadBalancerListenerResponse
+   */
   async stopLoadBalancerListenerWithOptions(request: StopLoadBalancerListenerRequest, runtime: $Util.RuntimeOptions): Promise<StopLoadBalancerListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16506,11 +19798,27 @@ export default class Client extends OpenApi {
     return $tea.cast<StopLoadBalancerListenerResponse>(await this.callApi(params, req, runtime), new StopLoadBalancerListenerResponse({}));
   }
 
+  /**
+    * Before you make this API call, note the following:
+    * *   After the API call is successfully made, the listener enters the stopped state.
+    * *   If the Server Load Balancer (SLB) instance to which the listener to be stopped belongs is in the locked state, this API call cannot be made.
+    * >  If you stop the listener, your services will be disrupted. Exercise caution when you perform this action.
+    *
+    * @param request StopLoadBalancerListenerRequest
+    * @return StopLoadBalancerListenerResponse
+   */
   async stopLoadBalancerListener(request: StopLoadBalancerListenerRequest): Promise<StopLoadBalancerListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopLoadBalancerListenerWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can add at most 20 tags to each instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+    *
+    * @param request TagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16563,6 +19871,12 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+    * >  You can add at most 20 tags to each instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
@@ -16629,6 +19943,13 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * You can upload only one CA certificate at a time. After a CA certificate is uploaded, the certificate ID, name, and fingerprint are returned.
+    *
+    * @param request UploadCACertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UploadCACertificateResponse
+   */
   async uploadCACertificateWithOptions(request: UploadCACertificateRequest, runtime: $Util.RuntimeOptions): Promise<UploadCACertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16664,6 +19985,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16681,11 +20006,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadCACertificateResponse>(await this.callApi(params, req, runtime), new UploadCACertificateResponse({}));
   }
 
+  /**
+    * You can upload only one CA certificate at a time. After a CA certificate is uploaded, the certificate ID, name, and fingerprint are returned.
+    *
+    * @param request UploadCACertificateRequest
+    * @return UploadCACertificateResponse
+   */
   async uploadCACertificate(request: UploadCACertificateRequest): Promise<UploadCACertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadCACertificateWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can upload only one server certificate and its private key in each call.
+    * *   After a server certificate and its private key are uploaded, the fingerprints of all server certificates that belong to your Alibaba Cloud account are returned.
+    *
+    * @param request UploadServerCertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UploadServerCertificateResponse
+   */
   async uploadServerCertificateWithOptions(request: UploadServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<UploadServerCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16737,6 +20076,10 @@ export default class Client extends OpenApi {
       query["ServerCertificateName"] = request.serverCertificateName;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16754,6 +20097,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadServerCertificateResponse>(await this.callApi(params, req, runtime), new UploadServerCertificateResponse({}));
   }
 
+  /**
+    * *   You can upload only one server certificate and its private key in each call.
+    * *   After a server certificate and its private key are uploaded, the fingerprints of all server certificates that belong to your Alibaba Cloud account are returned.
+    *
+    * @param request UploadServerCertificateRequest
+    * @return UploadServerCertificateResponse
+   */
   async uploadServerCertificate(request: UploadServerCertificateRequest): Promise<UploadServerCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadServerCertificateWithOptions(request, runtime);
