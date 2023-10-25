@@ -1864,12 +1864,14 @@ export class UpgradeDBInstanceEngineVersionRequest extends $tea.Model {
   engineVersion?: string;
   regionId?: string;
   resourceOwnerId?: number;
+  switchTimeMode?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
       engineVersion: 'EngineVersion',
       regionId: 'RegionId',
       resourceOwnerId: 'ResourceOwnerId',
+      switchTimeMode: 'SwitchTimeMode',
     };
   }
 
@@ -1879,6 +1881,7 @@ export class UpgradeDBInstanceEngineVersionRequest extends $tea.Model {
       engineVersion: 'string',
       regionId: 'string',
       resourceOwnerId: 'number',
+      switchTimeMode: 'string',
     };
   }
 
