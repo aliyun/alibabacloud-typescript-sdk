@@ -1211,6 +1211,102 @@ export class StartExecutionResponse extends $tea.Model {
   }
 }
 
+export class StartSyncExecutionRequest extends $tea.Model {
+  executionName?: string;
+  flowName?: string;
+  input?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executionName: 'ExecutionName',
+      flowName: 'FlowName',
+      input: 'Input',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executionName: 'string',
+      flowName: 'string',
+      input: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartSyncExecutionResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  flowName?: string;
+  name?: string;
+  output?: string;
+  requestId?: string;
+  startedTime?: string;
+  status?: string;
+  stoppedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      flowName: 'FlowName',
+      name: 'Name',
+      output: 'Output',
+      requestId: 'RequestId',
+      startedTime: 'StartedTime',
+      status: 'Status',
+      stoppedTime: 'StoppedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      flowName: 'string',
+      name: 'string',
+      output: 'string',
+      requestId: 'string',
+      startedTime: 'string',
+      status: 'string',
+      stoppedTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartSyncExecutionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartSyncExecutionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartSyncExecutionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopExecutionRequest extends $tea.Model {
   cause?: string;
   error?: string;
@@ -1707,6 +1803,15 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * ## [](#)Usage notes
+    * *   The number of flows that each user can create is restricted by resources. For more information, see [Limits](~~122093~~). If you want to create more flows, submit a ticket.
+    * *   At the user level, flows are distinguished by name. The name of a flow within one account must be unique.
+    *
+    * @param request CreateFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateFlowResponse
+   */
   async createFlowWithOptions(request: CreateFlowRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1761,6 +1866,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFlowResponse>(await this.callApi(params, req, runtime), new CreateFlowResponse({}));
   }
 
+  /**
+    * ## [](#)Usage notes
+    * *   The number of flows that each user can create is restricted by resources. For more information, see [Limits](~~122093~~). If you want to create more flows, submit a ticket.
+    * *   At the user level, flows are distinguished by name. The name of a flow within one account must be unique.
+    *
+    * @param request CreateFlowRequest
+    * @return CreateFlowResponse
+   */
   async createFlow(request: CreateFlowRequest): Promise<CreateFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFlowWithOptions(request, runtime);
@@ -1821,6 +1934,14 @@ export default class Client extends OpenApi {
     return await this.createScheduleWithOptions(request, runtime);
   }
 
+  /**
+    * ## [](#)Usage notes
+    * A delete operation is asynchronous. If this operation is successful, the system returns a successful response. If an existing flow is pending to be deleted, a new flow of the same name will not be affected by the existing one. After you delete a flow, you cannot query its historical executions. All executions in progress will stop after their most recent steps are complete.
+    *
+    * @param request DeleteFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteFlowResponse
+   */
   async deleteFlowWithOptions(request: DeleteFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -1841,6 +1962,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFlowResponse>(await this.callApi(params, req, runtime), new DeleteFlowResponse({}));
   }
 
+  /**
+    * ## [](#)Usage notes
+    * A delete operation is asynchronous. If this operation is successful, the system returns a successful response. If an existing flow is pending to be deleted, a new flow of the same name will not be affected by the existing one. After you delete a flow, you cannot query its historical executions. All executions in progress will stop after their most recent steps are complete.
+    *
+    * @param request DeleteFlowRequest
+    * @return DeleteFlowResponse
+   */
   async deleteFlow(request: DeleteFlowRequest): Promise<DeleteFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFlowWithOptions(request, runtime);
@@ -1971,6 +2099,14 @@ export default class Client extends OpenApi {
     return await this.getExecutionHistoryWithOptions(request, runtime);
   }
 
+  /**
+    * ## [](#)Usage notes
+    * After you delete a flow, you cannot query its historical executions, even if you create a flow of the same name.
+    *
+    * @param request ListExecutionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListExecutionsResponse
+   */
   async listExecutionsWithOptions(request: ListExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutionsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -1991,6 +2127,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExecutionsResponse>(await this.callApi(params, req, runtime), new ListExecutionsResponse({}));
   }
 
+  /**
+    * ## [](#)Usage notes
+    * After you delete a flow, you cannot query its historical executions, even if you create a flow of the same name.
+    *
+    * @param request ListExecutionsRequest
+    * @return ListExecutionsResponse
+   */
   async listExecutions(request: ListExecutionsRequest): Promise<ListExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExecutionsWithOptions(request, runtime);
@@ -2046,6 +2189,14 @@ export default class Client extends OpenApi {
     return await this.listSchedulesWithOptions(request, runtime);
   }
 
+  /**
+    * ## [](#)Usage notes
+    * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task fails to be executed.
+    *
+    * @param request ReportTaskFailedRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReportTaskFailedResponse
+   */
   async reportTaskFailedWithOptions(request: ReportTaskFailedRequest, runtime: $Util.RuntimeOptions): Promise<ReportTaskFailedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2084,11 +2235,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ReportTaskFailedResponse>(await this.callApi(params, req, runtime), new ReportTaskFailedResponse({}));
   }
 
+  /**
+    * ## [](#)Usage notes
+    * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task fails to be executed.
+    *
+    * @param request ReportTaskFailedRequest
+    * @return ReportTaskFailedResponse
+   */
   async reportTaskFailed(request: ReportTaskFailedRequest): Promise<ReportTaskFailedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reportTaskFailedWithOptions(request, runtime);
   }
 
+  /**
+    * ## [](#)Usage notes
+    * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task is successfully executed.
+    *
+    * @param request ReportTaskSucceededRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReportTaskSucceededResponse
+   */
   async reportTaskSucceededWithOptions(request: ReportTaskSucceededRequest, runtime: $Util.RuntimeOptions): Promise<ReportTaskSucceededResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2123,11 +2289,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ReportTaskSucceededResponse>(await this.callApi(params, req, runtime), new ReportTaskSucceededResponse({}));
   }
 
+  /**
+    * ## [](#)Usage notes
+    * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task is successfully executed.
+    *
+    * @param request ReportTaskSucceededRequest
+    * @return ReportTaskSucceededResponse
+   */
   async reportTaskSucceeded(request: ReportTaskSucceededRequest): Promise<ReportTaskSucceededResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reportTaskSucceededWithOptions(request, runtime);
   }
 
+  /**
+    * ## [](#)Usage notes
+    * *   The flow is created.
+    * *   If you do not specify an execution, the system automatically generates an execution and starts the execution.
+    * *   If an ongoing execution has the same name as that of the execution to be started, the system directly returns the ongoing execution.
+    * *   If the ongoing execution with the same name has ended (succeeded or failed), the `ExecutionAlreadyExists` error is returned.
+    * *   If no execution with the same name exists, the system starts a new execution.
+    *
+    * @param request StartExecutionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartExecutionResponse
+   */
   async startExecutionWithOptions(request: StartExecutionRequest, runtime: $Util.RuntimeOptions): Promise<StartExecutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2170,11 +2355,73 @@ export default class Client extends OpenApi {
     return $tea.cast<StartExecutionResponse>(await this.callApi(params, req, runtime), new StartExecutionResponse({}));
   }
 
+  /**
+    * ## [](#)Usage notes
+    * *   The flow is created.
+    * *   If you do not specify an execution, the system automatically generates an execution and starts the execution.
+    * *   If an ongoing execution has the same name as that of the execution to be started, the system directly returns the ongoing execution.
+    * *   If the ongoing execution with the same name has ended (succeeded or failed), the `ExecutionAlreadyExists` error is returned.
+    * *   If no execution with the same name exists, the system starts a new execution.
+    *
+    * @param request StartExecutionRequest
+    * @return StartExecutionResponse
+   */
   async startExecution(request: StartExecutionRequest): Promise<StartExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startExecutionWithOptions(request, runtime);
   }
 
+  async startSyncExecutionWithOptions(request: StartSyncExecutionRequest, runtime: $Util.RuntimeOptions): Promise<StartSyncExecutionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.executionName)) {
+      body["ExecutionName"] = request.executionName;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    if (!Util.isUnset(request.input)) {
+      body["Input"] = request.input;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartSyncExecution",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartSyncExecutionResponse>(await this.callApi(params, req, runtime), new StartSyncExecutionResponse({}));
+  }
+
+  async startSyncExecution(request: StartSyncExecutionRequest): Promise<StartSyncExecutionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startSyncExecutionWithOptions(request, runtime);
+  }
+
+  /**
+    * ## [](#)Usage notes
+    * The flow must be in progress.
+    *
+    * @param request StopExecutionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopExecutionResponse
+   */
   async stopExecutionWithOptions(request: StopExecutionRequest, runtime: $Util.RuntimeOptions): Promise<StopExecutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2217,6 +2464,13 @@ export default class Client extends OpenApi {
     return $tea.cast<StopExecutionResponse>(await this.callApi(params, req, runtime), new StopExecutionResponse({}));
   }
 
+  /**
+    * ## [](#)Usage notes
+    * The flow must be in progress.
+    *
+    * @param request StopExecutionRequest
+    * @return StopExecutionResponse
+   */
   async stopExecution(request: StopExecutionRequest): Promise<StopExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopExecutionWithOptions(request, runtime);
