@@ -411,6 +411,7 @@ export class CustomContainerConfig extends $tea.Model {
   healthCheckConfig?: CustomHealthCheckConfig;
   image?: string;
   port?: number;
+  resolvedImageUri?: string;
   static names(): { [key: string]: string } {
     return {
       accelerationInfo: 'accelerationInfo',
@@ -421,6 +422,7 @@ export class CustomContainerConfig extends $tea.Model {
       healthCheckConfig: 'healthCheckConfig',
       image: 'image',
       port: 'port',
+      resolvedImageUri: 'resolvedImageUri',
     };
   }
 
@@ -434,6 +436,7 @@ export class CustomContainerConfig extends $tea.Model {
       healthCheckConfig: CustomHealthCheckConfig,
       image: 'string',
       port: 'number',
+      resolvedImageUri: 'string',
     };
   }
 
@@ -711,6 +714,9 @@ export class Function extends $tea.Model {
   instanceLifecycleConfig?: InstanceLifecycleConfig;
   internetAccess?: boolean;
   lastModifiedTime?: string;
+  lastUpdateStatus?: string;
+  lastUpdateStatusReason?: string;
+  lastUpdateStatusReasonCode?: string;
   layers?: FunctionLayer[];
   logConfig?: LogConfig;
   memorySize?: number;
@@ -718,6 +724,9 @@ export class Function extends $tea.Model {
   ossMountConfig?: OSSMountConfig;
   role?: string;
   runtime?: string;
+  state?: string;
+  stateReason?: string;
+  stateReasonCode?: string;
   timeout?: number;
   tracingConfig?: TracingConfig;
   vpcConfig?: VPCConfig;
@@ -742,6 +751,9 @@ export class Function extends $tea.Model {
       instanceLifecycleConfig: 'instanceLifecycleConfig',
       internetAccess: 'internetAccess',
       lastModifiedTime: 'lastModifiedTime',
+      lastUpdateStatus: 'lastUpdateStatus',
+      lastUpdateStatusReason: 'lastUpdateStatusReason',
+      lastUpdateStatusReasonCode: 'lastUpdateStatusReasonCode',
       layers: 'layers',
       logConfig: 'logConfig',
       memorySize: 'memorySize',
@@ -749,6 +761,9 @@ export class Function extends $tea.Model {
       ossMountConfig: 'ossMountConfig',
       role: 'role',
       runtime: 'runtime',
+      state: 'state',
+      stateReason: 'stateReason',
+      stateReasonCode: 'stateReasonCode',
       timeout: 'timeout',
       tracingConfig: 'tracingConfig',
       vpcConfig: 'vpcConfig',
@@ -776,6 +791,9 @@ export class Function extends $tea.Model {
       instanceLifecycleConfig: InstanceLifecycleConfig,
       internetAccess: 'boolean',
       lastModifiedTime: 'string',
+      lastUpdateStatus: 'string',
+      lastUpdateStatusReason: 'string',
+      lastUpdateStatusReasonCode: 'string',
       layers: { 'type': 'array', 'itemType': FunctionLayer },
       logConfig: LogConfig,
       memorySize: 'number',
@@ -783,6 +801,9 @@ export class Function extends $tea.Model {
       ossMountConfig: OSSMountConfig,
       role: 'string',
       runtime: 'string',
+      state: 'string',
+      stateReason: 'string',
+      stateReasonCode: 'string',
       timeout: 'number',
       tracingConfig: TracingConfig,
       vpcConfig: VPCConfig,
