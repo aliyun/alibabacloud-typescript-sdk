@@ -1291,6 +1291,7 @@ export class ChangeCheckConfigRequest extends $tea.Model {
   addedCheck?: ChangeCheckConfigRequestAddedCheck[];
   configRequirementIds?: ChangeCheckConfigRequestConfigRequirementIds;
   configStandardIds?: ChangeCheckConfigRequestConfigStandardIds;
+  configure?: string;
   cycleDays?: number[];
   enableAddCheck?: boolean;
   enableAutoCheck?: boolean;
@@ -1299,11 +1300,13 @@ export class ChangeCheckConfigRequest extends $tea.Model {
   removedCheck?: ChangeCheckConfigRequestRemovedCheck[];
   standardIds?: number[];
   startTime?: number;
+  vendors?: string[];
   static names(): { [key: string]: string } {
     return {
       addedCheck: 'AddedCheck',
       configRequirementIds: 'ConfigRequirementIds',
       configStandardIds: 'ConfigStandardIds',
+      configure: 'Configure',
       cycleDays: 'CycleDays',
       enableAddCheck: 'EnableAddCheck',
       enableAutoCheck: 'EnableAutoCheck',
@@ -1312,6 +1315,7 @@ export class ChangeCheckConfigRequest extends $tea.Model {
       removedCheck: 'RemovedCheck',
       standardIds: 'StandardIds',
       startTime: 'StartTime',
+      vendors: 'Vendors',
     };
   }
 
@@ -1320,6 +1324,7 @@ export class ChangeCheckConfigRequest extends $tea.Model {
       addedCheck: { 'type': 'array', 'itemType': ChangeCheckConfigRequestAddedCheck },
       configRequirementIds: ChangeCheckConfigRequestConfigRequirementIds,
       configStandardIds: ChangeCheckConfigRequestConfigStandardIds,
+      configure: 'string',
       cycleDays: { 'type': 'array', 'itemType': 'number' },
       enableAddCheck: 'boolean',
       enableAutoCheck: 'boolean',
@@ -1328,6 +1333,7 @@ export class ChangeCheckConfigRequest extends $tea.Model {
       removedCheck: { 'type': 'array', 'itemType': ChangeCheckConfigRequestRemovedCheck },
       standardIds: { 'type': 'array', 'itemType': 'number' },
       startTime: 'number',
+      vendors: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1340,6 +1346,7 @@ export class ChangeCheckConfigShrinkRequest extends $tea.Model {
   addedCheck?: ChangeCheckConfigShrinkRequestAddedCheck[];
   configRequirementIdsShrink?: string;
   configStandardIdsShrink?: string;
+  configure?: string;
   cycleDays?: number[];
   enableAddCheck?: boolean;
   enableAutoCheck?: boolean;
@@ -1348,11 +1355,13 @@ export class ChangeCheckConfigShrinkRequest extends $tea.Model {
   removedCheck?: ChangeCheckConfigShrinkRequestRemovedCheck[];
   standardIds?: number[];
   startTime?: number;
+  vendors?: string[];
   static names(): { [key: string]: string } {
     return {
       addedCheck: 'AddedCheck',
       configRequirementIdsShrink: 'ConfigRequirementIds',
       configStandardIdsShrink: 'ConfigStandardIds',
+      configure: 'Configure',
       cycleDays: 'CycleDays',
       enableAddCheck: 'EnableAddCheck',
       enableAutoCheck: 'EnableAutoCheck',
@@ -1361,6 +1370,7 @@ export class ChangeCheckConfigShrinkRequest extends $tea.Model {
       removedCheck: 'RemovedCheck',
       standardIds: 'StandardIds',
       startTime: 'StartTime',
+      vendors: 'Vendors',
     };
   }
 
@@ -1369,6 +1379,7 @@ export class ChangeCheckConfigShrinkRequest extends $tea.Model {
       addedCheck: { 'type': 'array', 'itemType': ChangeCheckConfigShrinkRequestAddedCheck },
       configRequirementIdsShrink: 'string',
       configStandardIdsShrink: 'string',
+      configure: 'string',
       cycleDays: { 'type': 'array', 'itemType': 'number' },
       enableAddCheck: 'boolean',
       enableAutoCheck: 'boolean',
@@ -1377,6 +1388,7 @@ export class ChangeCheckConfigShrinkRequest extends $tea.Model {
       removedCheck: { 'type': 'array', 'itemType': ChangeCheckConfigShrinkRequestRemovedCheck },
       standardIds: { 'type': 'array', 'itemType': 'number' },
       startTime: 'number',
+      vendors: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -67027,6 +67039,10 @@ export default class Client extends OpenApi {
       query["ConfigStandardIds"] = request.configStandardIdsShrink;
     }
 
+    if (!Util.isUnset(request.configure)) {
+      query["Configure"] = request.configure;
+    }
+
     if (!Util.isUnset(request.cycleDays)) {
       query["CycleDays"] = request.cycleDays;
     }
@@ -67057,6 +67073,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.vendors)) {
+      query["Vendors"] = request.vendors;
     }
 
     let req = new $OpenApi.OpenApiRequest({
