@@ -734,6 +734,7 @@ export class ExtendClusterRequest extends $tea.Model {
   ignoreFailedNodeTasks?: boolean;
   ipAllocationPolicy?: ExtendClusterRequestIpAllocationPolicy[];
   nodeGroups?: ExtendClusterRequestNodeGroups[];
+  vSwitchZoneId?: string;
   vpdSubnets?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -741,6 +742,7 @@ export class ExtendClusterRequest extends $tea.Model {
       ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
       ipAllocationPolicy: 'IpAllocationPolicy',
       nodeGroups: 'NodeGroups',
+      vSwitchZoneId: 'VSwitchZoneId',
       vpdSubnets: 'VpdSubnets',
     };
   }
@@ -751,6 +753,7 @@ export class ExtendClusterRequest extends $tea.Model {
       ignoreFailedNodeTasks: 'boolean',
       ipAllocationPolicy: { 'type': 'array', 'itemType': ExtendClusterRequestIpAllocationPolicy },
       nodeGroups: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroups },
+      vSwitchZoneId: 'string',
       vpdSubnets: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -765,6 +768,7 @@ export class ExtendClusterShrinkRequest extends $tea.Model {
   ignoreFailedNodeTasks?: boolean;
   ipAllocationPolicyShrink?: string;
   nodeGroupsShrink?: string;
+  vSwitchZoneId?: string;
   vpdSubnetsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -772,6 +776,7 @@ export class ExtendClusterShrinkRequest extends $tea.Model {
       ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
       ipAllocationPolicyShrink: 'IpAllocationPolicy',
       nodeGroupsShrink: 'NodeGroups',
+      vSwitchZoneId: 'VSwitchZoneId',
       vpdSubnetsShrink: 'VpdSubnets',
     };
   }
@@ -782,6 +787,7 @@ export class ExtendClusterShrinkRequest extends $tea.Model {
       ignoreFailedNodeTasks: 'boolean',
       ipAllocationPolicyShrink: 'string',
       nodeGroupsShrink: 'string',
+      vSwitchZoneId: 'string',
       vpdSubnetsShrink: 'string',
     };
   }
@@ -1882,11 +1888,15 @@ export class CreateClusterRequestNetworksVpdInfo extends $tea.Model {
 export class CreateClusterRequestNetworks extends $tea.Model {
   ipAllocationPolicy?: CreateClusterRequestNetworksIpAllocationPolicy[];
   newVpdInfo?: CreateClusterRequestNetworksNewVpdInfo;
+  securityGroupId?: string;
+  vSwitchZoneId?: string;
   vpdInfo?: CreateClusterRequestNetworksVpdInfo;
   static names(): { [key: string]: string } {
     return {
       ipAllocationPolicy: 'IpAllocationPolicy',
       newVpdInfo: 'NewVpdInfo',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchZoneId: 'VSwitchZoneId',
       vpdInfo: 'VpdInfo',
     };
   }
@@ -1895,6 +1905,8 @@ export class CreateClusterRequestNetworks extends $tea.Model {
     return {
       ipAllocationPolicy: { 'type': 'array', 'itemType': CreateClusterRequestNetworksIpAllocationPolicy },
       newVpdInfo: CreateClusterRequestNetworksNewVpdInfo,
+      securityGroupId: 'string',
+      vSwitchZoneId: 'string',
       vpdInfo: CreateClusterRequestNetworksVpdInfo,
     };
   }
@@ -2395,11 +2407,13 @@ export class ExtendClusterRequestNodeGroups extends $tea.Model {
   nodeGroupId?: string;
   nodes?: ExtendClusterRequestNodeGroupsNodes[];
   userData?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       nodeGroupId: 'NodeGroupId',
       nodes: 'Nodes',
       userData: 'UserData',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -2408,6 +2422,7 @@ export class ExtendClusterRequestNodeGroups extends $tea.Model {
       nodeGroupId: 'string',
       nodes: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroupsNodes },
       userData: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -3108,6 +3123,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nodeGroupsShrink)) {
       body["NodeGroups"] = request.nodeGroupsShrink;
+    }
+
+    if (!Util.isUnset(request.vSwitchZoneId)) {
+      body["VSwitchZoneId"] = request.vSwitchZoneId;
     }
 
     if (!Util.isUnset(request.vpdSubnetsShrink)) {
