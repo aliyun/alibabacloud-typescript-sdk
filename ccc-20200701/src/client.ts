@@ -3173,6 +3173,81 @@ export class ExportDoNotCallNumbersResponse extends $tea.Model {
   }
 }
 
+export class GetAccessChannelOfStagingRequest extends $tea.Model {
+  searchPattern?: string;
+  static names(): { [key: string]: string } {
+    return {
+      searchPattern: 'SearchPattern',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchPattern: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessChannelOfStagingResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetAccessChannelOfStagingResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetAccessChannelOfStagingResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessChannelOfStagingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAccessChannelOfStagingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccessChannelOfStagingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAudioFileRequest extends $tea.Model {
   audioResourceId?: string;
   instanceId?: string;
@@ -4519,10 +4594,12 @@ export class GetLoginDetailsResponse extends $tea.Model {
 
 export class GetMonoRecordingRequest extends $tea.Model {
   contactId?: string;
+  expireSeconds?: number;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       contactId: 'ContactId',
+      expireSeconds: 'ExpireSeconds',
       instanceId: 'InstanceId',
     };
   }
@@ -4530,6 +4607,7 @@ export class GetMonoRecordingRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       contactId: 'string',
+      expireSeconds: 'number',
       instanceId: 'string',
     };
   }
@@ -7727,6 +7805,99 @@ export class ListHistoricalAgentReportResponse extends $tea.Model {
   }
 }
 
+export class ListHistoricalAgentSkillGroupReportRequest extends $tea.Model {
+  agentIdList?: string;
+  endTime?: number;
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  skillGroupIdList?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentIdList: 'AgentIdList',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      skillGroupIdList: 'SkillGroupIdList',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentIdList: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      skillGroupIdList: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoricalAgentSkillGroupReportResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListHistoricalAgentSkillGroupReportResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListHistoricalAgentSkillGroupReportResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoricalAgentSkillGroupReportResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListHistoricalAgentSkillGroupReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListHistoricalAgentSkillGroupReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHistoricalSkillGroupReportRequest extends $tea.Model {
   endTime?: number;
   instanceId?: string;
@@ -8052,6 +8223,96 @@ export class ListIntervalAgentReportResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListIntervalAgentReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervalAgentSkillGroupReportRequest extends $tea.Model {
+  agentId?: string;
+  endTime?: number;
+  instanceId?: string;
+  interval?: string;
+  skillGroupId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'AgentId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      interval: 'Interval',
+      skillGroupId: 'SkillGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      interval: 'string',
+      skillGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervalAgentSkillGroupReportResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListIntervalAgentSkillGroupReportResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListIntervalAgentSkillGroupReportResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervalAgentSkillGroupReportResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListIntervalAgentSkillGroupReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIntervalAgentSkillGroupReportResponseBody,
     };
   }
 
@@ -10316,6 +10577,102 @@ export class ListUsersResponse extends $tea.Model {
   }
 }
 
+export class ListVoicemailsRequest extends $tea.Model {
+  caller?: string;
+  contactId?: string;
+  endTime?: number;
+  instanceId?: string;
+  name?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      caller: 'Caller',
+      contactId: 'ContactId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caller: 'string',
+      contactId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVoicemailsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListVoicemailsResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListVoicemailsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVoicemailsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListVoicemailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVoicemailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MakeCallRequest extends $tea.Model {
   callee?: string;
   caller?: string;
@@ -11493,6 +11850,84 @@ export class PollUserStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PollUserStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ProcessAliMeCallbackOfStagingRequest extends $tea.Model {
+  data?: string;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ProcessAliMeCallbackOfStagingResponseBody extends $tea.Model {
+  code?: string;
+  data?: ProcessAliMeCallbackOfStagingResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ProcessAliMeCallbackOfStagingResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ProcessAliMeCallbackOfStagingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ProcessAliMeCallbackOfStagingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ProcessAliMeCallbackOfStagingResponseBody,
     };
   }
 
@@ -14579,6 +15014,99 @@ export class UnregisterDeviceResponse extends $tea.Model {
   }
 }
 
+export class UpdateCampaignRequest extends $tea.Model {
+  callableTime?: string;
+  campaignId?: string;
+  contactFlowId?: string;
+  endTime?: string;
+  instanceId?: string;
+  name?: string;
+  startTime?: string;
+  strategyParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callableTime: 'CallableTime',
+      campaignId: 'CampaignId',
+      contactFlowId: 'ContactFlowId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      startTime: 'StartTime',
+      strategyParameters: 'StrategyParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callableTime: 'string',
+      campaignId: 'string',
+      contactFlowId: 'string',
+      endTime: 'string',
+      instanceId: 'string',
+      name: 'string',
+      startTime: 'string',
+      strategyParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCampaignResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCampaignResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateCampaignResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCampaignResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateConfigItemsRequest extends $tea.Model {
   configItems?: string;
   instanceId?: string;
@@ -14695,6 +15223,7 @@ export class AnswerCallResponseBodyDataCallContextChannelContexts extends $tea.M
   callType?: string;
   channelId?: string;
   channelState?: string;
+  channelVariables?: string;
   destination?: string;
   jobId?: string;
   originator?: string;
@@ -14709,6 +15238,7 @@ export class AnswerCallResponseBodyDataCallContextChannelContexts extends $tea.M
       callType: 'CallType',
       channelId: 'ChannelId',
       channelState: 'ChannelState',
+      channelVariables: 'ChannelVariables',
       destination: 'Destination',
       jobId: 'JobId',
       originator: 'Originator',
@@ -14726,6 +15256,7 @@ export class AnswerCallResponseBodyDataCallContextChannelContexts extends $tea.M
       callType: 'string',
       channelId: 'string',
       channelState: 'string',
+      channelVariables: 'string',
       destination: 'string',
       jobId: 'string',
       originator: 'string',
@@ -16051,6 +16582,25 @@ export class EndConferenceResponseBodyData extends $tea.Model {
       callContext: EndConferenceResponseBodyDataCallContext,
       contextId: 'number',
       userContext: EndConferenceResponseBodyDataUserContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessChannelOfStagingResponseBodyData extends $tea.Model {
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      token: 'string',
     };
   }
 
@@ -18630,28 +19180,34 @@ export class LaunchSurveyResponseBodyData extends $tea.Model {
 }
 
 export class ListAgentStateLogsResponseBodyData extends $tea.Model {
+  breakCode?: string;
   duration?: number;
   outboundScenario?: boolean;
   startTime?: number;
   state?: string;
   stateCode?: string;
+  workMode?: string;
   static names(): { [key: string]: string } {
     return {
+      breakCode: 'BreakCode',
       duration: 'Duration',
       outboundScenario: 'OutboundScenario',
       startTime: 'StartTime',
       state: 'State',
       stateCode: 'StateCode',
+      workMode: 'WorkMode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      breakCode: 'string',
       duration: 'number',
       outboundScenario: 'boolean',
       startTime: 'number',
       state: 'string',
       stateCode: 'string',
+      workMode: 'string',
     };
   }
 
@@ -19247,6 +19803,7 @@ export class ListCallDetailRecordsResponseBodyDataList extends $tea.Model {
   dialingTime?: number;
   earlyMediaState?: string;
   establishedTime?: number;
+  heldTime?: number;
   instanceId?: string;
   ivrTime?: number;
   queueTime?: number;
@@ -19282,6 +19839,7 @@ export class ListCallDetailRecordsResponseBodyDataList extends $tea.Model {
       dialingTime: 'DialingTime',
       earlyMediaState: 'EarlyMediaState',
       establishedTime: 'EstablishedTime',
+      heldTime: 'HeldTime',
       instanceId: 'InstanceId',
       ivrTime: 'IvrTime',
       queueTime: 'QueueTime',
@@ -19320,6 +19878,7 @@ export class ListCallDetailRecordsResponseBodyDataList extends $tea.Model {
       dialingTime: 'number',
       earlyMediaState: 'string',
       establishedTime: 'number',
+      heldTime: 'number',
       instanceId: 'string',
       ivrTime: 'number',
       queueTime: 'number',
@@ -20106,12 +20665,40 @@ export class ListHistoricalAgentReportResponseBodyDataListOutbound extends $tea.
   }
 }
 
+export class ListHistoricalAgentReportResponseBodyDataListOverallBreakCodeDetailList extends $tea.Model {
+  breakCode?: string;
+  count?: number;
+  duration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      breakCode: 'BreakCode',
+      count: 'Count',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakCode: 'string',
+      count: 'number',
+      duration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHistoricalAgentReportResponseBodyDataListOverall extends $tea.Model {
   averageBreakTime?: number;
   averageHoldTime?: number;
   averageReadyTime?: number;
   averageTalkTime?: number;
   averageWorkTime?: number;
+  breakCodeDetailList?: ListHistoricalAgentReportResponseBodyDataListOverallBreakCodeDetailList[];
+  firstCheckInTime?: number;
+  lastCheckOutTime?: number;
   maxBreakTime?: number;
   maxHoldTime?: number;
   maxReadyTime?: number;
@@ -20126,6 +20713,11 @@ export class ListHistoricalAgentReportResponseBodyDataListOverall extends $tea.M
   totalCalls?: number;
   totalHoldTime?: number;
   totalLoggedInTime?: number;
+  totalOffSiteOnlineTime?: number;
+  totalOfficePhoneOnlineTime?: number;
+  totalOnSiteOnlineTime?: number;
+  totalOutboundScenarioReadyTime?: number;
+  totalOutboundScenarioTime?: number;
   totalReadyTime?: number;
   totalTalkTime?: number;
   totalWorkTime?: number;
@@ -20136,6 +20728,9 @@ export class ListHistoricalAgentReportResponseBodyDataListOverall extends $tea.M
       averageReadyTime: 'AverageReadyTime',
       averageTalkTime: 'AverageTalkTime',
       averageWorkTime: 'AverageWorkTime',
+      breakCodeDetailList: 'BreakCodeDetailList',
+      firstCheckInTime: 'FirstCheckInTime',
+      lastCheckOutTime: 'LastCheckOutTime',
       maxBreakTime: 'MaxBreakTime',
       maxHoldTime: 'MaxHoldTime',
       maxReadyTime: 'MaxReadyTime',
@@ -20150,6 +20745,11 @@ export class ListHistoricalAgentReportResponseBodyDataListOverall extends $tea.M
       totalCalls: 'TotalCalls',
       totalHoldTime: 'TotalHoldTime',
       totalLoggedInTime: 'TotalLoggedInTime',
+      totalOffSiteOnlineTime: 'TotalOffSiteOnlineTime',
+      totalOfficePhoneOnlineTime: 'TotalOfficePhoneOnlineTime',
+      totalOnSiteOnlineTime: 'TotalOnSiteOnlineTime',
+      totalOutboundScenarioReadyTime: 'TotalOutboundScenarioReadyTime',
+      totalOutboundScenarioTime: 'TotalOutboundScenarioTime',
       totalReadyTime: 'TotalReadyTime',
       totalTalkTime: 'TotalTalkTime',
       totalWorkTime: 'TotalWorkTime',
@@ -20163,6 +20763,9 @@ export class ListHistoricalAgentReportResponseBodyDataListOverall extends $tea.M
       averageReadyTime: 'number',
       averageTalkTime: 'number',
       averageWorkTime: 'number',
+      breakCodeDetailList: { 'type': 'array', 'itemType': ListHistoricalAgentReportResponseBodyDataListOverallBreakCodeDetailList },
+      firstCheckInTime: 'number',
+      lastCheckOutTime: 'number',
       maxBreakTime: 'number',
       maxHoldTime: 'number',
       maxReadyTime: 'number',
@@ -20177,6 +20780,11 @@ export class ListHistoricalAgentReportResponseBodyDataListOverall extends $tea.M
       totalCalls: 'number',
       totalHoldTime: 'number',
       totalLoggedInTime: 'number',
+      totalOffSiteOnlineTime: 'number',
+      totalOfficePhoneOnlineTime: 'number',
+      totalOnSiteOnlineTime: 'number',
+      totalOutboundScenarioReadyTime: 'number',
+      totalOutboundScenarioTime: 'number',
       totalReadyTime: 'number',
       totalTalkTime: 'number',
       totalWorkTime: 'number',
@@ -20245,6 +20853,494 @@ export class ListHistoricalAgentReportResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       list: { 'type': 'array', 'itemType': ListHistoricalAgentReportResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoricalAgentSkillGroupReportResponseBodyDataListBack2Back extends $tea.Model {
+  agentAnswerRate?: number;
+  answerRate?: number;
+  averageCustomerRingTime?: number;
+  averageRingTime?: number;
+  averageTalkTime?: number;
+  callsAnswered?: number;
+  callsCustomerHandled?: number;
+  callsDialed?: number;
+  customerHandleRate?: number;
+  maxCustomerRingTime?: number;
+  maxRingTime?: number;
+  maxTalkTime?: number;
+  totalCustomerRingTime?: number;
+  totalRingTime?: number;
+  totalTalkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentAnswerRate: 'AgentAnswerRate',
+      answerRate: 'AnswerRate',
+      averageCustomerRingTime: 'AverageCustomerRingTime',
+      averageRingTime: 'AverageRingTime',
+      averageTalkTime: 'AverageTalkTime',
+      callsAnswered: 'CallsAnswered',
+      callsCustomerHandled: 'CallsCustomerHandled',
+      callsDialed: 'CallsDialed',
+      customerHandleRate: 'CustomerHandleRate',
+      maxCustomerRingTime: 'MaxCustomerRingTime',
+      maxRingTime: 'MaxRingTime',
+      maxTalkTime: 'MaxTalkTime',
+      totalCustomerRingTime: 'TotalCustomerRingTime',
+      totalRingTime: 'TotalRingTime',
+      totalTalkTime: 'TotalTalkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentAnswerRate: 'number',
+      answerRate: 'number',
+      averageCustomerRingTime: 'number',
+      averageRingTime: 'number',
+      averageTalkTime: 'number',
+      callsAnswered: 'number',
+      callsCustomerHandled: 'number',
+      callsDialed: 'number',
+      customerHandleRate: 'number',
+      maxCustomerRingTime: 'number',
+      maxRingTime: 'number',
+      maxTalkTime: 'number',
+      totalCustomerRingTime: 'number',
+      totalRingTime: 'number',
+      totalTalkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInbound extends $tea.Model {
+  averageHoldTime?: number;
+  averageRingTime?: number;
+  averageTalkTime?: number;
+  averageWorkTime?: number;
+  callsAttendedTransferIn?: number;
+  callsAttendedTransferOut?: number;
+  callsBlindTransferIn?: number;
+  callsBlindTransferOut?: number;
+  callsHandled?: number;
+  callsHold?: number;
+  callsOffered?: number;
+  callsRinged?: number;
+  handleRate?: number;
+  maxHoldTime?: number;
+  maxRingTime?: number;
+  maxTalkTime?: number;
+  maxWorkTime?: number;
+  satisfactionIndex?: number;
+  satisfactionRate?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  totalHoldTime?: number;
+  totalRingTime?: number;
+  totalTalkTime?: number;
+  totalWorkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      averageHoldTime: 'AverageHoldTime',
+      averageRingTime: 'AverageRingTime',
+      averageTalkTime: 'AverageTalkTime',
+      averageWorkTime: 'AverageWorkTime',
+      callsAttendedTransferIn: 'CallsAttendedTransferIn',
+      callsAttendedTransferOut: 'CallsAttendedTransferOut',
+      callsBlindTransferIn: 'CallsBlindTransferIn',
+      callsBlindTransferOut: 'CallsBlindTransferOut',
+      callsHandled: 'CallsHandled',
+      callsHold: 'CallsHold',
+      callsOffered: 'CallsOffered',
+      callsRinged: 'CallsRinged',
+      handleRate: 'HandleRate',
+      maxHoldTime: 'MaxHoldTime',
+      maxRingTime: 'MaxRingTime',
+      maxTalkTime: 'MaxTalkTime',
+      maxWorkTime: 'MaxWorkTime',
+      satisfactionIndex: 'SatisfactionIndex',
+      satisfactionRate: 'SatisfactionRate',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      totalHoldTime: 'TotalHoldTime',
+      totalRingTime: 'TotalRingTime',
+      totalTalkTime: 'TotalTalkTime',
+      totalWorkTime: 'TotalWorkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageHoldTime: 'number',
+      averageRingTime: 'number',
+      averageTalkTime: 'number',
+      averageWorkTime: 'number',
+      callsAttendedTransferIn: 'number',
+      callsAttendedTransferOut: 'number',
+      callsBlindTransferIn: 'number',
+      callsBlindTransferOut: 'number',
+      callsHandled: 'number',
+      callsHold: 'number',
+      callsOffered: 'number',
+      callsRinged: 'number',
+      handleRate: 'number',
+      maxHoldTime: 'number',
+      maxRingTime: 'number',
+      maxTalkTime: 'number',
+      maxWorkTime: 'number',
+      satisfactionIndex: 'number',
+      satisfactionRate: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      totalHoldTime: 'number',
+      totalRingTime: 'number',
+      totalTalkTime: 'number',
+      totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInternal extends $tea.Model {
+  averageTalkTime?: number;
+  callsAnswered?: number;
+  callsDialed?: number;
+  callsHandled?: number;
+  callsOffered?: number;
+  callsTalk?: number;
+  maxTalkTime?: number;
+  totalTalkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      averageTalkTime: 'AverageTalkTime',
+      callsAnswered: 'CallsAnswered',
+      callsDialed: 'CallsDialed',
+      callsHandled: 'CallsHandled',
+      callsOffered: 'CallsOffered',
+      callsTalk: 'CallsTalk',
+      maxTalkTime: 'MaxTalkTime',
+      totalTalkTime: 'TotalTalkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageTalkTime: 'number',
+      callsAnswered: 'number',
+      callsDialed: 'number',
+      callsHandled: 'number',
+      callsOffered: 'number',
+      callsTalk: 'number',
+      maxTalkTime: 'number',
+      totalTalkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoricalAgentSkillGroupReportResponseBodyDataListOutbound extends $tea.Model {
+  answerRate?: number;
+  averageDialingTime?: number;
+  averageHoldTime?: number;
+  averageRingTime?: number;
+  averageTalkTime?: number;
+  averageWorkTime?: number;
+  callsAnswered?: number;
+  callsAttendedTransferIn?: number;
+  callsAttendedTransferOut?: number;
+  callsBlindTransferIn?: number;
+  callsBlindTransferOut?: number;
+  callsDialed?: number;
+  callsHold?: number;
+  callsRinged?: number;
+  maxDialingTime?: number;
+  maxHoldTime?: number;
+  maxRingTime?: number;
+  maxTalkTime?: number;
+  maxWorkTime?: number;
+  satisfactionIndex?: number;
+  satisfactionRate?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  totalDialingTime?: number;
+  totalHoldTime?: number;
+  totalRingTime?: number;
+  totalTalkTime?: number;
+  totalWorkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      answerRate: 'AnswerRate',
+      averageDialingTime: 'AverageDialingTime',
+      averageHoldTime: 'AverageHoldTime',
+      averageRingTime: 'AverageRingTime',
+      averageTalkTime: 'AverageTalkTime',
+      averageWorkTime: 'AverageWorkTime',
+      callsAnswered: 'CallsAnswered',
+      callsAttendedTransferIn: 'CallsAttendedTransferIn',
+      callsAttendedTransferOut: 'CallsAttendedTransferOut',
+      callsBlindTransferIn: 'CallsBlindTransferIn',
+      callsBlindTransferOut: 'CallsBlindTransferOut',
+      callsDialed: 'CallsDialed',
+      callsHold: 'CallsHold',
+      callsRinged: 'CallsRinged',
+      maxDialingTime: 'MaxDialingTime',
+      maxHoldTime: 'MaxHoldTime',
+      maxRingTime: 'MaxRingTime',
+      maxTalkTime: 'MaxTalkTime',
+      maxWorkTime: 'MaxWorkTime',
+      satisfactionIndex: 'SatisfactionIndex',
+      satisfactionRate: 'SatisfactionRate',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      totalDialingTime: 'TotalDialingTime',
+      totalHoldTime: 'TotalHoldTime',
+      totalRingTime: 'TotalRingTime',
+      totalTalkTime: 'TotalTalkTime',
+      totalWorkTime: 'TotalWorkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerRate: 'number',
+      averageDialingTime: 'number',
+      averageHoldTime: 'number',
+      averageRingTime: 'number',
+      averageTalkTime: 'number',
+      averageWorkTime: 'number',
+      callsAnswered: 'number',
+      callsAttendedTransferIn: 'number',
+      callsAttendedTransferOut: 'number',
+      callsBlindTransferIn: 'number',
+      callsBlindTransferOut: 'number',
+      callsDialed: 'number',
+      callsHold: 'number',
+      callsRinged: 'number',
+      maxDialingTime: 'number',
+      maxHoldTime: 'number',
+      maxRingTime: 'number',
+      maxTalkTime: 'number',
+      maxWorkTime: 'number',
+      satisfactionIndex: 'number',
+      satisfactionRate: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      totalDialingTime: 'number',
+      totalHoldTime: 'number',
+      totalRingTime: 'number',
+      totalTalkTime: 'number',
+      totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoricalAgentSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList extends $tea.Model {
+  breakCode?: string;
+  count?: number;
+  duration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      breakCode: 'BreakCode',
+      count: 'Count',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakCode: 'string',
+      count: 'number',
+      duration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoricalAgentSkillGroupReportResponseBodyDataListOverall extends $tea.Model {
+  averageBreakTime?: number;
+  averageHoldTime?: number;
+  averageReadyTime?: number;
+  averageTalkTime?: number;
+  averageWorkTime?: number;
+  breakCodeDetailList?: ListHistoricalAgentSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList[];
+  firstCheckInTime?: number;
+  lastCheckOutTime?: number;
+  maxBreakTime?: number;
+  maxHoldTime?: number;
+  maxReadyTime?: number;
+  maxTalkTime?: number;
+  maxWorkTime?: number;
+  occupancyRate?: number;
+  satisfactionIndex?: number;
+  satisfactionRate?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  totalBreakTime?: number;
+  totalCalls?: number;
+  totalHoldTime?: number;
+  totalLoggedInTime?: number;
+  totalOutboundScenarioReadyTime?: number;
+  totalOutboundScenarioTime?: number;
+  totalReadyTime?: number;
+  totalTalkTime?: number;
+  totalWorkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      averageBreakTime: 'AverageBreakTime',
+      averageHoldTime: 'AverageHoldTime',
+      averageReadyTime: 'AverageReadyTime',
+      averageTalkTime: 'AverageTalkTime',
+      averageWorkTime: 'AverageWorkTime',
+      breakCodeDetailList: 'BreakCodeDetailList',
+      firstCheckInTime: 'FirstCheckInTime',
+      lastCheckOutTime: 'LastCheckOutTime',
+      maxBreakTime: 'MaxBreakTime',
+      maxHoldTime: 'MaxHoldTime',
+      maxReadyTime: 'MaxReadyTime',
+      maxTalkTime: 'MaxTalkTime',
+      maxWorkTime: 'MaxWorkTime',
+      occupancyRate: 'OccupancyRate',
+      satisfactionIndex: 'SatisfactionIndex',
+      satisfactionRate: 'SatisfactionRate',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      totalBreakTime: 'TotalBreakTime',
+      totalCalls: 'TotalCalls',
+      totalHoldTime: 'TotalHoldTime',
+      totalLoggedInTime: 'TotalLoggedInTime',
+      totalOutboundScenarioReadyTime: 'TotalOutboundScenarioReadyTime',
+      totalOutboundScenarioTime: 'TotalOutboundScenarioTime',
+      totalReadyTime: 'TotalReadyTime',
+      totalTalkTime: 'TotalTalkTime',
+      totalWorkTime: 'TotalWorkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageBreakTime: 'number',
+      averageHoldTime: 'number',
+      averageReadyTime: 'number',
+      averageTalkTime: 'number',
+      averageWorkTime: 'number',
+      breakCodeDetailList: { 'type': 'array', 'itemType': ListHistoricalAgentSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList },
+      firstCheckInTime: 'number',
+      lastCheckOutTime: 'number',
+      maxBreakTime: 'number',
+      maxHoldTime: 'number',
+      maxReadyTime: 'number',
+      maxTalkTime: 'number',
+      maxWorkTime: 'number',
+      occupancyRate: 'number',
+      satisfactionIndex: 'number',
+      satisfactionRate: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      totalBreakTime: 'number',
+      totalCalls: 'number',
+      totalHoldTime: 'number',
+      totalLoggedInTime: 'number',
+      totalOutboundScenarioReadyTime: 'number',
+      totalOutboundScenarioTime: 'number',
+      totalReadyTime: 'number',
+      totalTalkTime: 'number',
+      totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoricalAgentSkillGroupReportResponseBodyDataList extends $tea.Model {
+  agentId?: string;
+  agentName?: string;
+  back2Back?: ListHistoricalAgentSkillGroupReportResponseBodyDataListBack2Back;
+  displayId?: string;
+  inbound?: ListHistoricalAgentSkillGroupReportResponseBodyDataListInbound;
+  internal?: ListHistoricalAgentSkillGroupReportResponseBodyDataListInternal;
+  outbound?: ListHistoricalAgentSkillGroupReportResponseBodyDataListOutbound;
+  overall?: ListHistoricalAgentSkillGroupReportResponseBodyDataListOverall;
+  skillGroupId?: string;
+  skillGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'AgentId',
+      agentName: 'AgentName',
+      back2Back: 'Back2Back',
+      displayId: 'DisplayId',
+      inbound: 'Inbound',
+      internal: 'Internal',
+      outbound: 'Outbound',
+      overall: 'Overall',
+      skillGroupId: 'SkillGroupId',
+      skillGroupName: 'SkillGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      agentName: 'string',
+      back2Back: ListHistoricalAgentSkillGroupReportResponseBodyDataListBack2Back,
+      displayId: 'string',
+      inbound: ListHistoricalAgentSkillGroupReportResponseBodyDataListInbound,
+      internal: ListHistoricalAgentSkillGroupReportResponseBodyDataListInternal,
+      outbound: ListHistoricalAgentSkillGroupReportResponseBodyDataListOutbound,
+      overall: ListHistoricalAgentSkillGroupReportResponseBodyDataListOverall,
+      skillGroupId: 'string',
+      skillGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoricalAgentSkillGroupReportResponseBodyData extends $tea.Model {
+  list?: ListHistoricalAgentSkillGroupReportResponseBodyDataList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListHistoricalAgentSkillGroupReportResponseBodyDataList },
       pageNumber: 'number',
       pageSize: 'number',
       totalCount: 'number',
@@ -21175,12 +22271,38 @@ export class ListIntervalAgentReportResponseBodyDataOutbound extends $tea.Model 
   }
 }
 
+export class ListIntervalAgentReportResponseBodyDataOverallBreakCodeDetailList extends $tea.Model {
+  breakCode?: string;
+  count?: number;
+  duration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      breakCode: 'BreakCode',
+      count: 'Count',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakCode: 'string',
+      count: 'number',
+      duration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
   averageBreakTime?: number;
   averageHoldTime?: number;
   averageReadyTime?: number;
   averageTalkTime?: number;
   averageWorkTime?: number;
+  breakCodeDetailList?: ListIntervalAgentReportResponseBodyDataOverallBreakCodeDetailList[];
   firstCheckInTime?: number;
   lastCheckoutTime?: number;
   maxBreakTime?: number;
@@ -21197,6 +22319,11 @@ export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
   totalCalls?: number;
   totalHoldTime?: number;
   totalLoggedInTime?: number;
+  totalOffSiteOnlineTime?: number;
+  totalOfficePhoneOnlineTime?: number;
+  totalOnSiteOnlineTime?: number;
+  totalOutboundScenarioReadyTime?: number;
+  totalOutboundScenarioTime?: number;
   totalReadyTime?: number;
   totalTalkTime?: number;
   totalWorkTime?: number;
@@ -21207,6 +22334,7 @@ export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
       averageReadyTime: 'AverageReadyTime',
       averageTalkTime: 'AverageTalkTime',
       averageWorkTime: 'AverageWorkTime',
+      breakCodeDetailList: 'BreakCodeDetailList',
       firstCheckInTime: 'FirstCheckInTime',
       lastCheckoutTime: 'LastCheckoutTime',
       maxBreakTime: 'MaxBreakTime',
@@ -21223,6 +22351,11 @@ export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
       totalCalls: 'TotalCalls',
       totalHoldTime: 'TotalHoldTime',
       totalLoggedInTime: 'TotalLoggedInTime',
+      totalOffSiteOnlineTime: 'TotalOffSiteOnlineTime',
+      totalOfficePhoneOnlineTime: 'TotalOfficePhoneOnlineTime',
+      totalOnSiteOnlineTime: 'TotalOnSiteOnlineTime',
+      totalOutboundScenarioReadyTime: 'TotalOutboundScenarioReadyTime',
+      totalOutboundScenarioTime: 'TotalOutboundScenarioTime',
       totalReadyTime: 'TotalReadyTime',
       totalTalkTime: 'TotalTalkTime',
       totalWorkTime: 'TotalWorkTime',
@@ -21236,6 +22369,7 @@ export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
       averageReadyTime: 'number',
       averageTalkTime: 'number',
       averageWorkTime: 'number',
+      breakCodeDetailList: { 'type': 'array', 'itemType': ListIntervalAgentReportResponseBodyDataOverallBreakCodeDetailList },
       firstCheckInTime: 'number',
       lastCheckoutTime: 'number',
       maxBreakTime: 'number',
@@ -21252,6 +22386,11 @@ export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
       totalCalls: 'number',
       totalHoldTime: 'number',
       totalLoggedInTime: 'number',
+      totalOffSiteOnlineTime: 'number',
+      totalOfficePhoneOnlineTime: 'number',
+      totalOnSiteOnlineTime: 'number',
+      totalOutboundScenarioReadyTime: 'number',
+      totalOutboundScenarioTime: 'number',
       totalReadyTime: 'number',
       totalTalkTime: 'number',
       totalWorkTime: 'number',
@@ -21282,6 +22421,454 @@ export class ListIntervalAgentReportResponseBodyData extends $tea.Model {
       inbound: ListIntervalAgentReportResponseBodyDataInbound,
       outbound: ListIntervalAgentReportResponseBodyDataOutbound,
       overall: ListIntervalAgentReportResponseBodyDataOverall,
+      statsTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervalAgentSkillGroupReportResponseBodyDataBack2Back extends $tea.Model {
+  agentAnswerRate?: number;
+  answerRate?: number;
+  averageCustomerRingTime?: number;
+  averageRingTime?: number;
+  averageTalkTime?: number;
+  callsAnswered?: number;
+  callsCustomerHandled?: number;
+  callsDialed?: number;
+  customerHandleRate?: number;
+  maxCustomerRingTime?: number;
+  maxRingTime?: number;
+  maxTalkTime?: number;
+  totalCustomerRingTime?: number;
+  totalRingTime?: number;
+  totalTalkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentAnswerRate: 'AgentAnswerRate',
+      answerRate: 'AnswerRate',
+      averageCustomerRingTime: 'AverageCustomerRingTime',
+      averageRingTime: 'AverageRingTime',
+      averageTalkTime: 'AverageTalkTime',
+      callsAnswered: 'CallsAnswered',
+      callsCustomerHandled: 'CallsCustomerHandled',
+      callsDialed: 'CallsDialed',
+      customerHandleRate: 'CustomerHandleRate',
+      maxCustomerRingTime: 'MaxCustomerRingTime',
+      maxRingTime: 'MaxRingTime',
+      maxTalkTime: 'MaxTalkTime',
+      totalCustomerRingTime: 'TotalCustomerRingTime',
+      totalRingTime: 'TotalRingTime',
+      totalTalkTime: 'TotalTalkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentAnswerRate: 'number',
+      answerRate: 'number',
+      averageCustomerRingTime: 'number',
+      averageRingTime: 'number',
+      averageTalkTime: 'number',
+      callsAnswered: 'number',
+      callsCustomerHandled: 'number',
+      callsDialed: 'number',
+      customerHandleRate: 'number',
+      maxCustomerRingTime: 'number',
+      maxRingTime: 'number',
+      maxTalkTime: 'number',
+      totalCustomerRingTime: 'number',
+      totalRingTime: 'number',
+      totalTalkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervalAgentSkillGroupReportResponseBodyDataInbound extends $tea.Model {
+  averageHoldTime?: number;
+  averageRingTime?: number;
+  averageTalkTime?: number;
+  averageWorkTime?: number;
+  callsAttendedTransferIn?: number;
+  callsAttendedTransferOut?: number;
+  callsBlindTransferIn?: number;
+  callsBlindTransferOut?: number;
+  callsHandled?: number;
+  callsHold?: number;
+  callsOffered?: number;
+  callsRinged?: number;
+  handleRate?: number;
+  maxHoldTime?: number;
+  maxRingTime?: number;
+  maxTalkTime?: number;
+  maxWorkTime?: number;
+  satisfactionIndex?: number;
+  satisfactionRate?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  totalHoldTime?: number;
+  totalRingTime?: number;
+  totalTalkTime?: number;
+  totalWorkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      averageHoldTime: 'AverageHoldTime',
+      averageRingTime: 'AverageRingTime',
+      averageTalkTime: 'AverageTalkTime',
+      averageWorkTime: 'AverageWorkTime',
+      callsAttendedTransferIn: 'CallsAttendedTransferIn',
+      callsAttendedTransferOut: 'CallsAttendedTransferOut',
+      callsBlindTransferIn: 'CallsBlindTransferIn',
+      callsBlindTransferOut: 'CallsBlindTransferOut',
+      callsHandled: 'CallsHandled',
+      callsHold: 'CallsHold',
+      callsOffered: 'CallsOffered',
+      callsRinged: 'CallsRinged',
+      handleRate: 'HandleRate',
+      maxHoldTime: 'MaxHoldTime',
+      maxRingTime: 'MaxRingTime',
+      maxTalkTime: 'MaxTalkTime',
+      maxWorkTime: 'MaxWorkTime',
+      satisfactionIndex: 'SatisfactionIndex',
+      satisfactionRate: 'SatisfactionRate',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      totalHoldTime: 'TotalHoldTime',
+      totalRingTime: 'TotalRingTime',
+      totalTalkTime: 'TotalTalkTime',
+      totalWorkTime: 'TotalWorkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageHoldTime: 'number',
+      averageRingTime: 'number',
+      averageTalkTime: 'number',
+      averageWorkTime: 'number',
+      callsAttendedTransferIn: 'number',
+      callsAttendedTransferOut: 'number',
+      callsBlindTransferIn: 'number',
+      callsBlindTransferOut: 'number',
+      callsHandled: 'number',
+      callsHold: 'number',
+      callsOffered: 'number',
+      callsRinged: 'number',
+      handleRate: 'number',
+      maxHoldTime: 'number',
+      maxRingTime: 'number',
+      maxTalkTime: 'number',
+      maxWorkTime: 'number',
+      satisfactionIndex: 'number',
+      satisfactionRate: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      totalHoldTime: 'number',
+      totalRingTime: 'number',
+      totalTalkTime: 'number',
+      totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervalAgentSkillGroupReportResponseBodyDataInternal extends $tea.Model {
+  averageTalkTime?: number;
+  callsAnswered?: number;
+  callsDialed?: number;
+  callsHandled?: number;
+  callsOffered?: number;
+  callsTalk?: number;
+  maxTalkTime?: number;
+  totalTalkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      averageTalkTime: 'AverageTalkTime',
+      callsAnswered: 'CallsAnswered',
+      callsDialed: 'CallsDialed',
+      callsHandled: 'CallsHandled',
+      callsOffered: 'CallsOffered',
+      callsTalk: 'CallsTalk',
+      maxTalkTime: 'MaxTalkTime',
+      totalTalkTime: 'TotalTalkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageTalkTime: 'number',
+      callsAnswered: 'number',
+      callsDialed: 'number',
+      callsHandled: 'number',
+      callsOffered: 'number',
+      callsTalk: 'number',
+      maxTalkTime: 'number',
+      totalTalkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervalAgentSkillGroupReportResponseBodyDataOutbound extends $tea.Model {
+  answerRate?: number;
+  averageDialingTime?: number;
+  averageHoldTime?: number;
+  averageRingTime?: number;
+  averageTalkTime?: number;
+  averageWorkTime?: number;
+  callsAnswered?: number;
+  callsAttendedTransferIn?: number;
+  callsAttendedTransferOut?: number;
+  callsBlindTransferIn?: number;
+  callsBlindTransferOut?: number;
+  callsDialed?: number;
+  callsHold?: number;
+  callsRinged?: number;
+  maxDialingTime?: number;
+  maxHoldTime?: number;
+  maxRingTime?: number;
+  maxTalkTime?: number;
+  maxWorkTime?: number;
+  satisfactionIndex?: number;
+  satisfactionRate?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  totalDialingTime?: number;
+  totalHoldTime?: number;
+  totalRingTime?: number;
+  totalTalkTime?: number;
+  totalWorkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      answerRate: 'AnswerRate',
+      averageDialingTime: 'AverageDialingTime',
+      averageHoldTime: 'AverageHoldTime',
+      averageRingTime: 'AverageRingTime',
+      averageTalkTime: 'AverageTalkTime',
+      averageWorkTime: 'AverageWorkTime',
+      callsAnswered: 'CallsAnswered',
+      callsAttendedTransferIn: 'CallsAttendedTransferIn',
+      callsAttendedTransferOut: 'CallsAttendedTransferOut',
+      callsBlindTransferIn: 'CallsBlindTransferIn',
+      callsBlindTransferOut: 'CallsBlindTransferOut',
+      callsDialed: 'CallsDialed',
+      callsHold: 'CallsHold',
+      callsRinged: 'CallsRinged',
+      maxDialingTime: 'MaxDialingTime',
+      maxHoldTime: 'MaxHoldTime',
+      maxRingTime: 'MaxRingTime',
+      maxTalkTime: 'MaxTalkTime',
+      maxWorkTime: 'MaxWorkTime',
+      satisfactionIndex: 'SatisfactionIndex',
+      satisfactionRate: 'SatisfactionRate',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      totalDialingTime: 'TotalDialingTime',
+      totalHoldTime: 'TotalHoldTime',
+      totalRingTime: 'TotalRingTime',
+      totalTalkTime: 'TotalTalkTime',
+      totalWorkTime: 'TotalWorkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerRate: 'number',
+      averageDialingTime: 'number',
+      averageHoldTime: 'number',
+      averageRingTime: 'number',
+      averageTalkTime: 'number',
+      averageWorkTime: 'number',
+      callsAnswered: 'number',
+      callsAttendedTransferIn: 'number',
+      callsAttendedTransferOut: 'number',
+      callsBlindTransferIn: 'number',
+      callsBlindTransferOut: 'number',
+      callsDialed: 'number',
+      callsHold: 'number',
+      callsRinged: 'number',
+      maxDialingTime: 'number',
+      maxHoldTime: 'number',
+      maxRingTime: 'number',
+      maxTalkTime: 'number',
+      maxWorkTime: 'number',
+      satisfactionIndex: 'number',
+      satisfactionRate: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      totalDialingTime: 'number',
+      totalHoldTime: 'number',
+      totalRingTime: 'number',
+      totalTalkTime: 'number',
+      totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervalAgentSkillGroupReportResponseBodyDataOverallBreakCodeDetailList extends $tea.Model {
+  breakCode?: string;
+  count?: number;
+  duration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      breakCode: 'BreakCode',
+      count: 'Count',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakCode: 'string',
+      count: 'number',
+      duration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervalAgentSkillGroupReportResponseBodyDataOverall extends $tea.Model {
+  averageBreakTime?: number;
+  averageHoldTime?: number;
+  averageReadyTime?: number;
+  averageTalkTime?: number;
+  averageWorkTime?: number;
+  breakCodeDetailList?: ListIntervalAgentSkillGroupReportResponseBodyDataOverallBreakCodeDetailList[];
+  firstCheckInTime?: number;
+  lastCheckoutTime?: number;
+  maxBreakTime?: number;
+  maxHoldTime?: number;
+  maxReadyTime?: number;
+  maxTalkTime?: number;
+  maxWorkTime?: number;
+  occupancyRate?: number;
+  satisfactionIndex?: number;
+  satisfactionRate?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  totalBreakTime?: number;
+  totalCalls?: number;
+  totalHoldTime?: number;
+  totalLoggedInTime?: number;
+  totalOutboundScenarioReadyTime?: number;
+  totalOutboundScenarioTime?: number;
+  totalReadyTime?: number;
+  totalTalkTime?: number;
+  totalWorkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      averageBreakTime: 'AverageBreakTime',
+      averageHoldTime: 'AverageHoldTime',
+      averageReadyTime: 'AverageReadyTime',
+      averageTalkTime: 'AverageTalkTime',
+      averageWorkTime: 'AverageWorkTime',
+      breakCodeDetailList: 'BreakCodeDetailList',
+      firstCheckInTime: 'FirstCheckInTime',
+      lastCheckoutTime: 'LastCheckoutTime',
+      maxBreakTime: 'MaxBreakTime',
+      maxHoldTime: 'MaxHoldTime',
+      maxReadyTime: 'MaxReadyTime',
+      maxTalkTime: 'MaxTalkTime',
+      maxWorkTime: 'MaxWorkTime',
+      occupancyRate: 'OccupancyRate',
+      satisfactionIndex: 'SatisfactionIndex',
+      satisfactionRate: 'SatisfactionRate',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      totalBreakTime: 'TotalBreakTime',
+      totalCalls: 'TotalCalls',
+      totalHoldTime: 'TotalHoldTime',
+      totalLoggedInTime: 'TotalLoggedInTime',
+      totalOutboundScenarioReadyTime: 'TotalOutboundScenarioReadyTime',
+      totalOutboundScenarioTime: 'TotalOutboundScenarioTime',
+      totalReadyTime: 'TotalReadyTime',
+      totalTalkTime: 'TotalTalkTime',
+      totalWorkTime: 'TotalWorkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageBreakTime: 'number',
+      averageHoldTime: 'number',
+      averageReadyTime: 'number',
+      averageTalkTime: 'number',
+      averageWorkTime: 'number',
+      breakCodeDetailList: { 'type': 'array', 'itemType': ListIntervalAgentSkillGroupReportResponseBodyDataOverallBreakCodeDetailList },
+      firstCheckInTime: 'number',
+      lastCheckoutTime: 'number',
+      maxBreakTime: 'number',
+      maxHoldTime: 'number',
+      maxReadyTime: 'number',
+      maxTalkTime: 'number',
+      maxWorkTime: 'number',
+      occupancyRate: 'number',
+      satisfactionIndex: 'number',
+      satisfactionRate: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      totalBreakTime: 'number',
+      totalCalls: 'number',
+      totalHoldTime: 'number',
+      totalLoggedInTime: 'number',
+      totalOutboundScenarioReadyTime: 'number',
+      totalOutboundScenarioTime: 'number',
+      totalReadyTime: 'number',
+      totalTalkTime: 'number',
+      totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervalAgentSkillGroupReportResponseBodyData extends $tea.Model {
+  back2Back?: ListIntervalAgentSkillGroupReportResponseBodyDataBack2Back;
+  inbound?: ListIntervalAgentSkillGroupReportResponseBodyDataInbound;
+  internal?: ListIntervalAgentSkillGroupReportResponseBodyDataInternal;
+  outbound?: ListIntervalAgentSkillGroupReportResponseBodyDataOutbound;
+  overall?: ListIntervalAgentSkillGroupReportResponseBodyDataOverall;
+  statsTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      back2Back: 'Back2Back',
+      inbound: 'Inbound',
+      internal: 'Internal',
+      outbound: 'Outbound',
+      overall: 'Overall',
+      statsTime: 'StatsTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      back2Back: ListIntervalAgentSkillGroupReportResponseBodyDataBack2Back,
+      inbound: ListIntervalAgentSkillGroupReportResponseBodyDataInbound,
+      internal: ListIntervalAgentSkillGroupReportResponseBodyDataInternal,
+      outbound: ListIntervalAgentSkillGroupReportResponseBodyDataOutbound,
+      overall: ListIntervalAgentSkillGroupReportResponseBodyDataOverall,
       statsTime: 'number',
     };
   }
@@ -24044,6 +25631,77 @@ export class ListUsersResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListVoicemailsResponseBodyDataList extends $tea.Model {
+  callee?: string;
+  caller?: string;
+  cdrStartTime?: number;
+  contactId?: string;
+  duration?: number;
+  instanceId?: string;
+  name?: string;
+  recordingDuration?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callee: 'Callee',
+      caller: 'Caller',
+      cdrStartTime: 'CdrStartTime',
+      contactId: 'ContactId',
+      duration: 'Duration',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      recordingDuration: 'RecordingDuration',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callee: 'string',
+      caller: 'string',
+      cdrStartTime: 'number',
+      contactId: 'string',
+      duration: 'number',
+      instanceId: 'string',
+      name: 'string',
+      recordingDuration: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVoicemailsResponseBodyData extends $tea.Model {
+  list?: ListVoicemailsResponseBodyDataList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListVoicemailsResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MakeCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
   callType?: string;
   channelFlags?: string;
@@ -24762,6 +26420,25 @@ export class PollUserStatusResponseBodyData extends $tea.Model {
   }
 }
 
+export class ProcessAliMeCallbackOfStagingResponseBodyData extends $tea.Model {
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReadyForServiceResponseBodyData extends $tea.Model {
   breakCode?: string;
   deviceId?: string;
@@ -24963,6 +26640,7 @@ export class ReleaseCallResponseBodyDataCallContextChannelContexts extends $tea.
   callType?: string;
   channelId?: string;
   channelState?: string;
+  channelVariables?: string;
   destination?: string;
   jobId?: string;
   originator?: string;
@@ -24976,6 +26654,7 @@ export class ReleaseCallResponseBodyDataCallContextChannelContexts extends $tea.
       callType: 'CallType',
       channelId: 'ChannelId',
       channelState: 'ChannelState',
+      channelVariables: 'ChannelVariables',
       destination: 'Destination',
       jobId: 'JobId',
       originator: 'Originator',
@@ -24992,6 +26671,7 @@ export class ReleaseCallResponseBodyDataCallContextChannelContexts extends $tea.
       callType: 'string',
       channelId: 'string',
       channelState: 'string',
+      channelVariables: 'string',
       destination: 'string',
       jobId: 'string',
       originator: 'string',
@@ -28048,6 +29728,31 @@ export default class Client extends OpenApi {
     return await this.exportDoNotCallNumbersWithOptions(request, runtime);
   }
 
+  async getAccessChannelOfStagingWithOptions(request: GetAccessChannelOfStagingRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessChannelOfStagingResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAccessChannelOfStaging",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccessChannelOfStagingResponse>(await this.callApi(params, req, runtime), new GetAccessChannelOfStagingResponse({}));
+  }
+
+  async getAccessChannelOfStaging(request: GetAccessChannelOfStagingRequest): Promise<GetAccessChannelOfStagingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAccessChannelOfStagingWithOptions(request, runtime);
+  }
+
   async getAudioFileWithOptions(request: GetAudioFileRequest, runtime: $Util.RuntimeOptions): Promise<GetAudioFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28622,6 +30327,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.contactId)) {
       query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.expireSeconds)) {
+      query["ExpireSeconds"] = request.expireSeconds;
     }
 
     if (!Util.isUnset(request.instanceId)) {
@@ -30120,6 +31829,61 @@ export default class Client extends OpenApi {
     return await this.listHistoricalAgentReportWithOptions(request, runtime);
   }
 
+  async listHistoricalAgentSkillGroupReportWithOptions(request: ListHistoricalAgentSkillGroupReportRequest, runtime: $Util.RuntimeOptions): Promise<ListHistoricalAgentSkillGroupReportResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.skillGroupIdList)) {
+      query["SkillGroupIdList"] = request.skillGroupIdList;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.agentIdList)) {
+      body["AgentIdList"] = request.agentIdList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListHistoricalAgentSkillGroupReport",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHistoricalAgentSkillGroupReportResponse>(await this.callApi(params, req, runtime), new ListHistoricalAgentSkillGroupReportResponse({}));
+  }
+
+  async listHistoricalAgentSkillGroupReport(request: ListHistoricalAgentSkillGroupReportRequest): Promise<ListHistoricalAgentSkillGroupReportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listHistoricalAgentSkillGroupReportWithOptions(request, runtime);
+  }
+
   async listHistoricalSkillGroupReportWithOptions(request: ListHistoricalSkillGroupReportRequest, runtime: $Util.RuntimeOptions): Promise<ListHistoricalSkillGroupReportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30280,6 +32044,31 @@ export default class Client extends OpenApi {
   async listIntervalAgentReport(request: ListIntervalAgentReportRequest): Promise<ListIntervalAgentReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIntervalAgentReportWithOptions(request, runtime);
+  }
+
+  async listIntervalAgentSkillGroupReportWithOptions(request: ListIntervalAgentSkillGroupReportRequest, runtime: $Util.RuntimeOptions): Promise<ListIntervalAgentSkillGroupReportResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIntervalAgentSkillGroupReport",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIntervalAgentSkillGroupReportResponse>(await this.callApi(params, req, runtime), new ListIntervalAgentSkillGroupReportResponse({}));
+  }
+
+  async listIntervalAgentSkillGroupReport(request: ListIntervalAgentSkillGroupReportRequest): Promise<ListIntervalAgentSkillGroupReportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIntervalAgentSkillGroupReportWithOptions(request, runtime);
   }
 
   async listIntervalInstanceReportWithOptions(request: ListIntervalInstanceReportRequest, runtime: $Util.RuntimeOptions): Promise<ListIntervalInstanceReportResponse> {
@@ -31394,6 +33183,63 @@ export default class Client extends OpenApi {
     return await this.listUsersWithOptions(request, runtime);
   }
 
+  async listVoicemailsWithOptions(request: ListVoicemailsRequest, runtime: $Util.RuntimeOptions): Promise<ListVoicemailsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.caller)) {
+      query["Caller"] = request.caller;
+    }
+
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVoicemails",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVoicemailsResponse>(await this.callApi(params, req, runtime), new ListVoicemailsResponse({}));
+  }
+
+  async listVoicemails(request: ListVoicemailsRequest): Promise<ListVoicemailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVoicemailsWithOptions(request, runtime);
+  }
+
   async makeCallWithOptions(request: MakeCallRequest, runtime: $Util.RuntimeOptions): Promise<MakeCallResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31982,6 +33828,39 @@ export default class Client extends OpenApi {
   async pollUserStatus(request: PollUserStatusRequest): Promise<PollUserStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pollUserStatusWithOptions(request, runtime);
+  }
+
+  async processAliMeCallbackOfStagingWithOptions(request: ProcessAliMeCallbackOfStagingRequest, runtime: $Util.RuntimeOptions): Promise<ProcessAliMeCallbackOfStagingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.data)) {
+      query["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ProcessAliMeCallbackOfStaging",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ProcessAliMeCallbackOfStagingResponse>(await this.callApi(params, req, runtime), new ProcessAliMeCallbackOfStagingResponse({}));
+  }
+
+  async processAliMeCallbackOfStaging(request: ProcessAliMeCallbackOfStagingRequest): Promise<ProcessAliMeCallbackOfStagingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.processAliMeCallbackOfStagingWithOptions(request, runtime);
   }
 
   async publishContactFlowWithOptions(request: PublishContactFlowRequest, runtime: $Util.RuntimeOptions): Promise<PublishContactFlowResponse> {
@@ -33478,6 +35357,63 @@ export default class Client extends OpenApi {
   async unregisterDevice(request: UnregisterDeviceRequest): Promise<UnregisterDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unregisterDeviceWithOptions(request, runtime);
+  }
+
+  async updateCampaignWithOptions(request: UpdateCampaignRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCampaignResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callableTime)) {
+      query["CallableTime"] = request.callableTime;
+    }
+
+    if (!Util.isUnset(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!Util.isUnset(request.contactFlowId)) {
+      query["ContactFlowId"] = request.contactFlowId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.strategyParameters)) {
+      query["StrategyParameters"] = request.strategyParameters;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCampaign",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCampaignResponse>(await this.callApi(params, req, runtime), new UpdateCampaignResponse({}));
+  }
+
+  async updateCampaign(request: UpdateCampaignRequest): Promise<UpdateCampaignResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCampaignWithOptions(request, runtime);
   }
 
   async updateConfigItemsWithOptions(request: UpdateConfigItemsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConfigItemsResponse> {
