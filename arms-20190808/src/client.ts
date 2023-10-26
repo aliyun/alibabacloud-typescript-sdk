@@ -182,6 +182,7 @@ export class GrafanaWorkspaceAccount extends $tea.Model {
   aliyunUserName?: string;
   gmtCreate?: number;
   orgs?: GrafanaWorkspaceUserOrg[];
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'accountId',
@@ -190,6 +191,7 @@ export class GrafanaWorkspaceAccount extends $tea.Model {
       aliyunUserName: 'aliyunUserName',
       gmtCreate: 'gmtCreate',
       orgs: 'orgs',
+      type: 'type',
     };
   }
 
@@ -201,6 +203,7 @@ export class GrafanaWorkspaceAccount extends $tea.Model {
       aliyunUserName: 'string',
       gmtCreate: 'number',
       orgs: { 'type': 'array', 'itemType': GrafanaWorkspaceUserOrg },
+      type: 'string',
     };
   }
 
@@ -2859,6 +2862,351 @@ export class CreateDispatchRuleResponse extends $tea.Model {
   }
 }
 
+export class CreateEnvCustomJobRequest extends $tea.Model {
+  aliyunLang?: string;
+  configYaml?: string;
+  customJobName?: string;
+  environmentId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      configYaml: 'ConfigYaml',
+      customJobName: 'CustomJobName',
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      configYaml: 'string',
+      customJobName: 'string',
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnvCustomJobResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnvCustomJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateEnvCustomJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEnvCustomJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnvPodMonitorRequest extends $tea.Model {
+  aliyunLang?: string;
+  configYaml?: string;
+  dryRun?: boolean;
+  environmentId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      configYaml: 'ConfigYaml',
+      dryRun: 'DryRun',
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      configYaml: 'string',
+      dryRun: 'boolean',
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnvPodMonitorResponseBody extends $tea.Model {
+  code?: number;
+  data?: CreateEnvPodMonitorResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: CreateEnvPodMonitorResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnvPodMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateEnvPodMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEnvPodMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnvServiceMonitorRequest extends $tea.Model {
+  aliyunLang?: string;
+  configYaml?: string;
+  dryRun?: boolean;
+  environmentId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      configYaml: 'ConfigYaml',
+      dryRun: 'DryRun',
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      configYaml: 'string',
+      dryRun: 'boolean',
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnvServiceMonitorResponseBody extends $tea.Model {
+  code?: number;
+  data?: CreateEnvServiceMonitorResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: CreateEnvServiceMonitorResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnvServiceMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateEnvServiceMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEnvServiceMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnvironmentRequest extends $tea.Model {
+  aliyunLang?: string;
+  bindResourceId?: string;
+  environmentName?: string;
+  environmentSubType?: string;
+  environmentType?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tags?: CreateEnvironmentRequestTags[];
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      bindResourceId: 'BindResourceId',
+      environmentName: 'EnvironmentName',
+      environmentSubType: 'EnvironmentSubType',
+      environmentType: 'EnvironmentType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      bindResourceId: 'string',
+      environmentName: 'string',
+      environmentSubType: 'string',
+      environmentType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': CreateEnvironmentRequestTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnvironmentResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnvironmentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateEnvironmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEnvironmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIntegrationRequest extends $tea.Model {
   autoRecover?: boolean;
   description?: string;
@@ -5186,6 +5534,402 @@ export class DeleteDispatchRuleResponse extends $tea.Model {
   }
 }
 
+export class DeleteEnvCustomJobRequest extends $tea.Model {
+  customJobName?: string;
+  environmentId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customJobName: 'CustomJobName',
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customJobName: 'string',
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvCustomJobResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvCustomJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteEnvCustomJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEnvCustomJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvPodMonitorRequest extends $tea.Model {
+  environmentId?: string;
+  namespace?: string;
+  podMonitorName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      namespace: 'Namespace',
+      podMonitorName: 'PodMonitorName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      namespace: 'string',
+      podMonitorName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvPodMonitorResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvPodMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteEnvPodMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEnvPodMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvServiceMonitorRequest extends $tea.Model {
+  environmentId?: string;
+  namespace?: string;
+  regionId?: string;
+  serviceMonitorName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+      serviceMonitorName: 'ServiceMonitorName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      namespace: 'string',
+      regionId: 'string',
+      serviceMonitorName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvServiceMonitorResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvServiceMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteEnvServiceMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEnvServiceMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvironmentRequest extends $tea.Model {
+  environmentId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvironmentResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvironmentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteEnvironmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEnvironmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvironmentFeatureRequest extends $tea.Model {
+  environmentId?: string;
+  featureName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      featureName: 'FeatureName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      featureName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvironmentFeatureResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvironmentFeatureResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteEnvironmentFeatureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEnvironmentFeatureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteEventBridgeIntegrationRequest extends $tea.Model {
   id?: number;
   static names(): { [key: string]: string } {
@@ -6875,6 +7619,324 @@ export class DescribeDispatchRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDispatchRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvCustomJobRequest extends $tea.Model {
+  customJobName?: string;
+  encryptYaml?: boolean;
+  environmentId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customJobName: 'CustomJobName',
+      encryptYaml: 'EncryptYaml',
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customJobName: 'string',
+      encryptYaml: 'boolean',
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvCustomJobResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeEnvCustomJobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeEnvCustomJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvCustomJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEnvCustomJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEnvCustomJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvPodMonitorRequest extends $tea.Model {
+  environmentId?: string;
+  namespace?: string;
+  podMonitorName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      namespace: 'Namespace',
+      podMonitorName: 'PodMonitorName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      namespace: 'string',
+      podMonitorName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvPodMonitorResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeEnvPodMonitorResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeEnvPodMonitorResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvPodMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEnvPodMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEnvPodMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvServiceMonitorRequest extends $tea.Model {
+  environmentId?: string;
+  namespace?: string;
+  regionId?: string;
+  serviceMonitorName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+      serviceMonitorName: 'ServiceMonitorName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      namespace: 'string',
+      regionId: 'string',
+      serviceMonitorName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvServiceMonitorResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeEnvServiceMonitorResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeEnvServiceMonitorResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvServiceMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEnvServiceMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEnvServiceMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvironmentRequest extends $tea.Model {
+  environmentId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvironmentResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeEnvironmentResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeEnvironmentResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvironmentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEnvironmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEnvironmentResponseBody,
     };
   }
 
@@ -9764,6 +10826,84 @@ export class ImportAppAlertRulesResponse extends $tea.Model {
   }
 }
 
+export class InitEnvironmentRequest extends $tea.Model {
+  aliyunLang?: string;
+  environmentId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitEnvironmentResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitEnvironmentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InitEnvironmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InitEnvironmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InstallCmsExporterRequest extends $tea.Model {
   clusterId?: string;
   cmsArgs?: string;
@@ -10598,6 +11738,234 @@ export class ListDispatchRuleResponse extends $tea.Model {
   }
 }
 
+export class ListEnvCustomJobsRequest extends $tea.Model {
+  encryptYaml?: boolean;
+  environmentId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encryptYaml: 'EncryptYaml',
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encryptYaml: 'boolean',
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvCustomJobsResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListEnvCustomJobsResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListEnvCustomJobsResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvCustomJobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListEnvCustomJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEnvCustomJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvPodMonitorsRequest extends $tea.Model {
+  environmentId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvPodMonitorsResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListEnvPodMonitorsResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListEnvPodMonitorsResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvPodMonitorsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListEnvPodMonitorsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEnvPodMonitorsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvServiceMonitorsRequest extends $tea.Model {
+  environmentId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvServiceMonitorsResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListEnvServiceMonitorsResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListEnvServiceMonitorsResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvServiceMonitorsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListEnvServiceMonitorsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEnvServiceMonitorsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEscalationPoliciesRequest extends $tea.Model {
   name?: string;
   page?: number;
@@ -10734,6 +12102,121 @@ export class ListEventBridgeIntegrationsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListEventBridgeIntegrationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGrafanaWorkspaceRequest extends $tea.Model {
+  aliyunLang?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tags?: ListGrafanaWorkspaceRequestTags[];
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListGrafanaWorkspaceRequestTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGrafanaWorkspaceShrinkRequest extends $tea.Model {
+  aliyunLang?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGrafanaWorkspaceResponseBody extends $tea.Model {
+  code?: number;
+  data?: GrafanaWorkspace[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': GrafanaWorkspace },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGrafanaWorkspaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListGrafanaWorkspaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGrafanaWorkspaceResponseBody,
     };
   }
 
@@ -13050,6 +14533,87 @@ export class RemoveSourcesFromPrometheusGlobalViewResponse extends $tea.Model {
   }
 }
 
+export class RestartEnvironmentFeatureRequest extends $tea.Model {
+  environmentId?: string;
+  featureName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      featureName: 'FeatureName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      featureName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartEnvironmentFeatureResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartEnvironmentFeatureResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RestartEnvironmentFeatureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RestartEnvironmentFeatureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveTraceAppConfigRequest extends $tea.Model {
   pid?: string;
   settings?: SaveTraceAppConfigRequestSettings[];
@@ -15248,6 +16812,354 @@ export class UpdateDispatchRuleResponse extends $tea.Model {
   }
 }
 
+export class UpdateEnvCustomJobRequest extends $tea.Model {
+  aliyunLang?: string;
+  configYaml?: string;
+  customJobName?: string;
+  environmentId?: string;
+  regionId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      configYaml: 'ConfigYaml',
+      customJobName: 'CustomJobName',
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      configYaml: 'string',
+      customJobName: 'string',
+      environmentId: 'string',
+      regionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnvCustomJobResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnvCustomJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateEnvCustomJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEnvCustomJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnvPodMonitorRequest extends $tea.Model {
+  aliyunLang?: string;
+  configYaml?: string;
+  dryRun?: boolean;
+  environmentId?: string;
+  namespace?: string;
+  podMonitorName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      configYaml: 'ConfigYaml',
+      dryRun: 'DryRun',
+      environmentId: 'EnvironmentId',
+      namespace: 'Namespace',
+      podMonitorName: 'PodMonitorName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      configYaml: 'string',
+      dryRun: 'boolean',
+      environmentId: 'string',
+      namespace: 'string',
+      podMonitorName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnvPodMonitorResponseBody extends $tea.Model {
+  code?: number;
+  data?: UpdateEnvPodMonitorResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: UpdateEnvPodMonitorResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnvPodMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateEnvPodMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEnvPodMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnvServiceMonitorRequest extends $tea.Model {
+  aliyunLang?: string;
+  configYaml?: string;
+  dryRun?: boolean;
+  environmentId?: string;
+  namespace?: string;
+  regionId?: string;
+  serviceMonitorName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      configYaml: 'ConfigYaml',
+      dryRun: 'DryRun',
+      environmentId: 'EnvironmentId',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+      serviceMonitorName: 'ServiceMonitorName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      configYaml: 'string',
+      dryRun: 'boolean',
+      environmentId: 'string',
+      namespace: 'string',
+      regionId: 'string',
+      serviceMonitorName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnvServiceMonitorResponseBody extends $tea.Model {
+  code?: number;
+  data?: UpdateEnvServiceMonitorResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: UpdateEnvServiceMonitorResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnvServiceMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateEnvServiceMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEnvServiceMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnvironmentRequest extends $tea.Model {
+  aliyunLang?: string;
+  environmentId?: string;
+  environmentName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      environmentId: 'EnvironmentId',
+      environmentName: 'EnvironmentName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      environmentId: 'string',
+      environmentName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnvironmentResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnvironmentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateEnvironmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEnvironmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateIntegrationRequest extends $tea.Model {
   autoRecover?: boolean;
   description?: string;
@@ -16440,6 +18352,84 @@ export class ChangeResourceGroupResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateEnvPodMonitorResponseBodyData extends $tea.Model {
+  matchedMsg?: string;
+  matchedTargetCount?: string;
+  namespace?: string;
+  podMonitorName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      matchedMsg: 'MatchedMsg',
+      matchedTargetCount: 'MatchedTargetCount',
+      namespace: 'Namespace',
+      podMonitorName: 'PodMonitorName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchedMsg: 'string',
+      matchedTargetCount: 'string',
+      namespace: 'string',
+      podMonitorName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnvServiceMonitorResponseBodyData extends $tea.Model {
+  matchedMsg?: string;
+  matchedTargetCount?: number;
+  namespace?: string;
+  serviceMonitorName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      matchedMsg: 'MatchedMsg',
+      matchedTargetCount: 'MatchedTargetCount',
+      namespace: 'Namespace',
+      serviceMonitorName: 'ServiceMonitorName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchedMsg: 'string',
+      matchedTargetCount: 'number',
+      namespace: 'string',
+      serviceMonitorName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnvironmentRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIntegrationResponseBodyIntegration extends $tea.Model {
   autoRecover?: boolean;
   description?: string;
@@ -16740,6 +18730,7 @@ export class CreateOrUpdateAlertRuleResponseBodyAlertRule extends $tea.Model {
   level?: string;
   message?: string;
   metricsType?: string;
+  notifyMode?: string;
   notifyStrategy?: string;
   pids?: string[];
   promQL?: string;
@@ -16767,6 +18758,7 @@ export class CreateOrUpdateAlertRuleResponseBodyAlertRule extends $tea.Model {
       level: 'Level',
       message: 'Message',
       metricsType: 'MetricsType',
+      notifyMode: 'NotifyMode',
       notifyStrategy: 'NotifyStrategy',
       pids: 'Pids',
       promQL: 'PromQL',
@@ -16797,6 +18789,7 @@ export class CreateOrUpdateAlertRuleResponseBodyAlertRule extends $tea.Model {
       level: 'string',
       message: 'string',
       metricsType: 'string',
+      notifyMode: 'string',
       notifyStrategy: 'string',
       pids: { 'type': 'array', 'itemType': 'string' },
       promQL: 'string',
@@ -18150,12 +20143,18 @@ export class CreateTimingSyntheticTaskRequestCommonSettingCustomHost extends $te
 export class CreateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
   customHost?: CreateTimingSyntheticTaskRequestCommonSettingCustomHost;
   ipType?: number;
+  isOpenTrace?: boolean;
   monitorSamples?: number;
+  traceClientType?: number;
+  xtraceRegion?: string;
   static names(): { [key: string]: string } {
     return {
       customHost: 'CustomHost',
       ipType: 'IpType',
+      isOpenTrace: 'IsOpenTrace',
       monitorSamples: 'MonitorSamples',
+      traceClientType: 'TraceClientType',
+      xtraceRegion: 'XtraceRegion',
     };
   }
 
@@ -18163,7 +20162,10 @@ export class CreateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
     return {
       customHost: CreateTimingSyntheticTaskRequestCommonSettingCustomHost,
       ipType: 'number',
+      isOpenTrace: 'boolean',
       monitorSamples: 'number',
+      traceClientType: 'number',
+      xtraceRegion: 'string',
     };
   }
 
@@ -19019,6 +21021,206 @@ export class DescribeDispatchRuleResponseBodyDispatchRule extends $tea.Model {
       notifyRules: { 'type': 'array', 'itemType': DescribeDispatchRuleResponseBodyDispatchRuleNotifyRules },
       ruleId: 'number',
       state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvCustomJobResponseBodyData extends $tea.Model {
+  configYaml?: string;
+  customJobName?: string;
+  environmentId?: string;
+  regionId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configYaml: 'ConfigYaml',
+      customJobName: 'CustomJobName',
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configYaml: 'string',
+      customJobName: 'string',
+      environmentId: 'string',
+      regionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvPodMonitorResponseBodyData extends $tea.Model {
+  configYaml?: string;
+  environmentId?: string;
+  namespace?: string;
+  podMonitorName?: string;
+  regionId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configYaml: 'ConfigYaml',
+      environmentId: 'EnvironmentId',
+      namespace: 'Namespace',
+      podMonitorName: 'PodMonitorName',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configYaml: 'string',
+      environmentId: 'string',
+      namespace: 'string',
+      podMonitorName: 'string',
+      regionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvServiceMonitorResponseBodyData extends $tea.Model {
+  configYaml?: string;
+  environmentId?: string;
+  namespace?: string;
+  regionId?: string;
+  serviceMonitorName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configYaml: 'ConfigYaml',
+      environmentId: 'EnvironmentId',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+      serviceMonitorName: 'ServiceMonitorName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configYaml: 'string',
+      environmentId: 'string',
+      namespace: 'string',
+      regionId: 'string',
+      serviceMonitorName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvironmentResponseBodyDataTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvironmentResponseBodyData extends $tea.Model {
+  bindResourceId?: string;
+  bindResourceProfile?: string;
+  bindResourceStatus?: string;
+  bindResourceStoreDuration?: string;
+  bindResourceType?: string;
+  bindVpcCidr?: string;
+  environmentId?: string;
+  environmentName?: string;
+  environmentType?: string;
+  grafaDataSourceName?: string;
+  grafanaDatasourceUid?: string;
+  grafanaFolderTitle?: string;
+  grafanaFolderUid?: string;
+  grafanaFolderUrl?: string;
+  prometheusInstanceId?: string;
+  prometheusInstanceName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tags?: DescribeEnvironmentResponseBodyDataTags[];
+  userId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindResourceId: 'BindResourceId',
+      bindResourceProfile: 'BindResourceProfile',
+      bindResourceStatus: 'BindResourceStatus',
+      bindResourceStoreDuration: 'BindResourceStoreDuration',
+      bindResourceType: 'BindResourceType',
+      bindVpcCidr: 'BindVpcCidr',
+      environmentId: 'EnvironmentId',
+      environmentName: 'EnvironmentName',
+      environmentType: 'EnvironmentType',
+      grafaDataSourceName: 'GrafaDataSourceName',
+      grafanaDatasourceUid: 'GrafanaDatasourceUid',
+      grafanaFolderTitle: 'GrafanaFolderTitle',
+      grafanaFolderUid: 'GrafanaFolderUid',
+      grafanaFolderUrl: 'GrafanaFolderUrl',
+      prometheusInstanceId: 'PrometheusInstanceId',
+      prometheusInstanceName: 'PrometheusInstanceName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      userId: 'UserId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindResourceId: 'string',
+      bindResourceProfile: 'string',
+      bindResourceStatus: 'string',
+      bindResourceStoreDuration: 'string',
+      bindResourceType: 'string',
+      bindVpcCidr: 'string',
+      environmentId: 'string',
+      environmentName: 'string',
+      environmentType: 'string',
+      grafaDataSourceName: 'string',
+      grafanaDatasourceUid: 'string',
+      grafanaFolderTitle: 'string',
+      grafanaFolderUid: 'string',
+      grafanaFolderUrl: 'string',
+      prometheusInstanceId: 'string',
+      prometheusInstanceName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeEnvironmentResponseBodyDataTags },
+      userId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -21415,12 +23617,18 @@ export class GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost exten
 export class GetTimingSyntheticTaskResponseBodyDataCommonSetting extends $tea.Model {
   customHost?: GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost;
   ipType?: number;
+  isOpenTrace?: boolean;
   monitorSamples?: number;
+  traceClientType?: number;
+  xtraceRegion?: string;
   static names(): { [key: string]: string } {
     return {
       customHost: 'CustomHost',
       ipType: 'IpType',
+      isOpenTrace: 'IsOpenTrace',
       monitorSamples: 'MonitorSamples',
+      traceClientType: 'TraceClientType',
+      xtraceRegion: 'XtraceRegion',
     };
   }
 
@@ -21428,7 +23636,10 @@ export class GetTimingSyntheticTaskResponseBodyDataCommonSetting extends $tea.Mo
     return {
       customHost: GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost,
       ipType: 'number',
+      isOpenTrace: 'boolean',
       monitorSamples: 'number',
+      traceClientType: 'number',
+      xtraceRegion: 'string',
     };
   }
 
@@ -22881,6 +25092,243 @@ export class ListDispatchRuleResponseBodyDispatchRules extends $tea.Model {
   }
 }
 
+export class ListEnvCustomJobsResponseBodyDataScrapeConfigs extends $tea.Model {
+  jobName?: string;
+  metricsPath?: string;
+  scrapeDiscoverys?: string[];
+  scrapeInterval?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobName: 'JobName',
+      metricsPath: 'MetricsPath',
+      scrapeDiscoverys: 'ScrapeDiscoverys',
+      scrapeInterval: 'ScrapeInterval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobName: 'string',
+      metricsPath: 'string',
+      scrapeDiscoverys: { 'type': 'array', 'itemType': 'string' },
+      scrapeInterval: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvCustomJobsResponseBodyData extends $tea.Model {
+  addonName?: string;
+  addonReleaseName?: string;
+  addonVersion?: string;
+  configYaml?: string;
+  creationTimestamp?: string;
+  customJobName?: string;
+  environmentId?: string;
+  regionId?: string;
+  scrapeConfigs?: ListEnvCustomJobsResponseBodyDataScrapeConfigs[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonName: 'AddonName',
+      addonReleaseName: 'AddonReleaseName',
+      addonVersion: 'AddonVersion',
+      configYaml: 'ConfigYaml',
+      creationTimestamp: 'CreationTimestamp',
+      customJobName: 'CustomJobName',
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+      scrapeConfigs: 'ScrapeConfigs',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonName: 'string',
+      addonReleaseName: 'string',
+      addonVersion: 'string',
+      configYaml: 'string',
+      creationTimestamp: 'string',
+      customJobName: 'string',
+      environmentId: 'string',
+      regionId: 'string',
+      scrapeConfigs: { 'type': 'array', 'itemType': ListEnvCustomJobsResponseBodyDataScrapeConfigs },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvPodMonitorsResponseBodyDataEndpoints extends $tea.Model {
+  interval?: string;
+  matchedTargetCount?: number;
+  path?: string;
+  port?: string;
+  targetPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interval: 'Interval',
+      matchedTargetCount: 'MatchedTargetCount',
+      path: 'Path',
+      port: 'Port',
+      targetPort: 'TargetPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interval: 'string',
+      matchedTargetCount: 'number',
+      path: 'string',
+      port: 'string',
+      targetPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvPodMonitorsResponseBodyData extends $tea.Model {
+  addonName?: string;
+  addonReleaseName?: string;
+  addonVersion?: string;
+  configYaml?: string;
+  creationTimestamp?: string;
+  endpoints?: ListEnvPodMonitorsResponseBodyDataEndpoints[];
+  environmentId?: string;
+  namespace?: string;
+  podMonitorName?: string;
+  regionId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonName: 'AddonName',
+      addonReleaseName: 'AddonReleaseName',
+      addonVersion: 'AddonVersion',
+      configYaml: 'ConfigYaml',
+      creationTimestamp: 'CreationTimestamp',
+      endpoints: 'Endpoints',
+      environmentId: 'EnvironmentId',
+      namespace: 'Namespace',
+      podMonitorName: 'PodMonitorName',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonName: 'string',
+      addonReleaseName: 'string',
+      addonVersion: 'string',
+      configYaml: 'string',
+      creationTimestamp: 'string',
+      endpoints: { 'type': 'array', 'itemType': ListEnvPodMonitorsResponseBodyDataEndpoints },
+      environmentId: 'string',
+      namespace: 'string',
+      podMonitorName: 'string',
+      regionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvServiceMonitorsResponseBodyDataEndpoints extends $tea.Model {
+  interval?: string;
+  matchedTargetCount?: number;
+  path?: string;
+  port?: string;
+  targetPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interval: 'Interval',
+      matchedTargetCount: 'MatchedTargetCount',
+      path: 'Path',
+      port: 'Port',
+      targetPort: 'TargetPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interval: 'string',
+      matchedTargetCount: 'number',
+      path: 'string',
+      port: 'string',
+      targetPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvServiceMonitorsResponseBodyData extends $tea.Model {
+  addonName?: string;
+  addonReleaseName?: string;
+  addonVersion?: string;
+  configYaml?: string;
+  creationTimestamp?: string;
+  endpoints?: ListEnvServiceMonitorsResponseBodyDataEndpoints[];
+  environmentId?: string;
+  matchedServiceCount?: number;
+  namespace?: string;
+  regionId?: string;
+  serviceMonitorName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonName: 'AddonName',
+      addonReleaseName: 'AddonReleaseName',
+      addonVersion: 'AddonVersion',
+      configYaml: 'ConfigYaml',
+      creationTimestamp: 'CreationTimestamp',
+      endpoints: 'Endpoints',
+      environmentId: 'EnvironmentId',
+      matchedServiceCount: 'MatchedServiceCount',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+      serviceMonitorName: 'ServiceMonitorName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonName: 'string',
+      addonReleaseName: 'string',
+      addonVersion: 'string',
+      configYaml: 'string',
+      creationTimestamp: 'string',
+      endpoints: { 'type': 'array', 'itemType': ListEnvServiceMonitorsResponseBodyDataEndpoints },
+      environmentId: 'string',
+      matchedServiceCount: 'number',
+      namespace: 'string',
+      regionId: 'string',
+      serviceMonitorName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEscalationPoliciesResponseBodyPageBeanEscalationPolicies extends $tea.Model {
   id?: number;
   name?: string;
@@ -22984,11 +25432,34 @@ export class ListEventBridgeIntegrationsResponseBodyPageBean extends $tea.Model 
   }
 }
 
+export class ListGrafanaWorkspaceRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInsightsEventsResponseBodyInsightsEvents extends $tea.Model {
   date?: number;
   desc?: string;
   level?: string;
   pid?: string;
+  problemId?: string;
   title?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -22997,6 +25468,7 @@ export class ListInsightsEventsResponseBodyInsightsEvents extends $tea.Model {
       desc: 'Desc',
       level: 'Level',
       pid: 'Pid',
+      problemId: 'ProblemId',
       title: 'Title',
       type: 'Type',
     };
@@ -23008,6 +25480,7 @@ export class ListInsightsEventsResponseBodyInsightsEvents extends $tea.Model {
       desc: 'string',
       level: 'string',
       pid: 'string',
+      problemId: 'string',
       title: 'string',
       type: 'string',
     };
@@ -25733,6 +28206,50 @@ export class UntagResourcesRequestTags extends $tea.Model {
   }
 }
 
+export class UpdateEnvPodMonitorResponseBodyData extends $tea.Model {
+  matchedMsg?: string;
+  matchedTargetCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      matchedMsg: 'MatchedMsg',
+      matchedTargetCount: 'MatchedTargetCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchedMsg: 'string',
+      matchedTargetCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnvServiceMonitorResponseBodyData extends $tea.Model {
+  matchedMsg?: string;
+  matchedTargetCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      matchedMsg: 'MatchedMsg',
+      matchedTargetCount: 'MatchedTargetCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchedMsg: 'string',
+      matchedTargetCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateIntegrationResponseBodyIntegration extends $tea.Model {
   apiEndpoint?: string;
   autoRecover?: boolean;
@@ -26065,12 +28582,18 @@ export class UpdateTimingSyntheticTaskRequestCommonSettingCustomHost extends $te
 export class UpdateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
   customHost?: UpdateTimingSyntheticTaskRequestCommonSettingCustomHost;
   ipType?: number;
+  isOpenTrace?: boolean;
   monitorSamples?: number;
+  traceClientType?: number;
+  xtraceRegion?: string;
   static names(): { [key: string]: string } {
     return {
       customHost: 'CustomHost',
       ipType: 'IpType',
+      isOpenTrace: 'IsOpenTrace',
       monitorSamples: 'MonitorSamples',
+      traceClientType: 'TraceClientType',
+      xtraceRegion: 'XtraceRegion',
     };
   }
 
@@ -26078,7 +28601,10 @@ export class UpdateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
     return {
       customHost: UpdateTimingSyntheticTaskRequestCommonSettingCustomHost,
       ipType: 'number',
+      isOpenTrace: 'boolean',
       monitorSamples: 'number',
+      traceClientType: 'number',
+      xtraceRegion: 'string',
     };
   }
 
@@ -27542,6 +30068,204 @@ export default class Client extends OpenApi {
     return await this.createDispatchRuleWithOptions(request, runtime);
   }
 
+  async createEnvCustomJobWithOptions(request: CreateEnvCustomJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnvCustomJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.customJobName)) {
+      query["CustomJobName"] = request.customJobName;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configYaml)) {
+      body["ConfigYaml"] = request.configYaml;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEnvCustomJob",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEnvCustomJobResponse>(await this.callApi(params, req, runtime), new CreateEnvCustomJobResponse({}));
+  }
+
+  async createEnvCustomJob(request: CreateEnvCustomJobRequest): Promise<CreateEnvCustomJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createEnvCustomJobWithOptions(request, runtime);
+  }
+
+  async createEnvPodMonitorWithOptions(request: CreateEnvPodMonitorRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnvPodMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configYaml)) {
+      body["ConfigYaml"] = request.configYaml;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEnvPodMonitor",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEnvPodMonitorResponse>(await this.callApi(params, req, runtime), new CreateEnvPodMonitorResponse({}));
+  }
+
+  async createEnvPodMonitor(request: CreateEnvPodMonitorRequest): Promise<CreateEnvPodMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createEnvPodMonitorWithOptions(request, runtime);
+  }
+
+  async createEnvServiceMonitorWithOptions(request: CreateEnvServiceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnvServiceMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configYaml)) {
+      body["ConfigYaml"] = request.configYaml;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEnvServiceMonitor",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEnvServiceMonitorResponse>(await this.callApi(params, req, runtime), new CreateEnvServiceMonitorResponse({}));
+  }
+
+  async createEnvServiceMonitor(request: CreateEnvServiceMonitorRequest): Promise<CreateEnvServiceMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createEnvServiceMonitorWithOptions(request, runtime);
+  }
+
+  async createEnvironmentWithOptions(request: CreateEnvironmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnvironmentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.bindResourceId)) {
+      query["BindResourceId"] = request.bindResourceId;
+    }
+
+    if (!Util.isUnset(request.environmentName)) {
+      query["EnvironmentName"] = request.environmentName;
+    }
+
+    if (!Util.isUnset(request.environmentSubType)) {
+      query["EnvironmentSubType"] = request.environmentSubType;
+    }
+
+    if (!Util.isUnset(request.environmentType)) {
+      query["EnvironmentType"] = request.environmentType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEnvironment",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEnvironmentResponse>(await this.callApi(params, req, runtime), new CreateEnvironmentResponse({}));
+  }
+
+  async createEnvironment(request: CreateEnvironmentRequest): Promise<CreateEnvironmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createEnvironmentWithOptions(request, runtime);
+  }
+
   async createIntegrationWithOptions(request: CreateIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateIntegrationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28957,6 +31681,195 @@ export default class Client extends OpenApi {
     return await this.deleteDispatchRuleWithOptions(request, runtime);
   }
 
+  async deleteEnvCustomJobWithOptions(request: DeleteEnvCustomJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnvCustomJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.customJobName)) {
+      query["CustomJobName"] = request.customJobName;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEnvCustomJob",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEnvCustomJobResponse>(await this.callApi(params, req, runtime), new DeleteEnvCustomJobResponse({}));
+  }
+
+  async deleteEnvCustomJob(request: DeleteEnvCustomJobRequest): Promise<DeleteEnvCustomJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEnvCustomJobWithOptions(request, runtime);
+  }
+
+  async deleteEnvPodMonitorWithOptions(request: DeleteEnvPodMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnvPodMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.podMonitorName)) {
+      query["PodMonitorName"] = request.podMonitorName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEnvPodMonitor",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEnvPodMonitorResponse>(await this.callApi(params, req, runtime), new DeleteEnvPodMonitorResponse({}));
+  }
+
+  async deleteEnvPodMonitor(request: DeleteEnvPodMonitorRequest): Promise<DeleteEnvPodMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEnvPodMonitorWithOptions(request, runtime);
+  }
+
+  async deleteEnvServiceMonitorWithOptions(request: DeleteEnvServiceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnvServiceMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceMonitorName)) {
+      query["ServiceMonitorName"] = request.serviceMonitorName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEnvServiceMonitor",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEnvServiceMonitorResponse>(await this.callApi(params, req, runtime), new DeleteEnvServiceMonitorResponse({}));
+  }
+
+  async deleteEnvServiceMonitor(request: DeleteEnvServiceMonitorRequest): Promise<DeleteEnvServiceMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEnvServiceMonitorWithOptions(request, runtime);
+  }
+
+  async deleteEnvironmentWithOptions(request: DeleteEnvironmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnvironmentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEnvironment",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEnvironmentResponse>(await this.callApi(params, req, runtime), new DeleteEnvironmentResponse({}));
+  }
+
+  async deleteEnvironment(request: DeleteEnvironmentRequest): Promise<DeleteEnvironmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEnvironmentWithOptions(request, runtime);
+  }
+
+  async deleteEnvironmentFeatureWithOptions(request: DeleteEnvironmentFeatureRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnvironmentFeatureResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.featureName)) {
+      query["FeatureName"] = request.featureName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEnvironmentFeature",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEnvironmentFeatureResponse>(await this.callApi(params, req, runtime), new DeleteEnvironmentFeatureResponse({}));
+  }
+
+  async deleteEnvironmentFeature(request: DeleteEnvironmentFeatureRequest): Promise<DeleteEnvironmentFeatureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEnvironmentFeatureWithOptions(request, runtime);
+  }
+
   async deleteEventBridgeIntegrationWithOptions(request: DeleteEventBridgeIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEventBridgeIntegrationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -29763,6 +32676,162 @@ export default class Client extends OpenApi {
   async describeDispatchRule(request: DescribeDispatchRuleRequest): Promise<DescribeDispatchRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDispatchRuleWithOptions(request, runtime);
+  }
+
+  async describeEnvCustomJobWithOptions(request: DescribeEnvCustomJobRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnvCustomJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.customJobName)) {
+      query["CustomJobName"] = request.customJobName;
+    }
+
+    if (!Util.isUnset(request.encryptYaml)) {
+      query["EncryptYaml"] = request.encryptYaml;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEnvCustomJob",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEnvCustomJobResponse>(await this.callApi(params, req, runtime), new DescribeEnvCustomJobResponse({}));
+  }
+
+  async describeEnvCustomJob(request: DescribeEnvCustomJobRequest): Promise<DescribeEnvCustomJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEnvCustomJobWithOptions(request, runtime);
+  }
+
+  async describeEnvPodMonitorWithOptions(request: DescribeEnvPodMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnvPodMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.podMonitorName)) {
+      query["PodMonitorName"] = request.podMonitorName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEnvPodMonitor",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEnvPodMonitorResponse>(await this.callApi(params, req, runtime), new DescribeEnvPodMonitorResponse({}));
+  }
+
+  async describeEnvPodMonitor(request: DescribeEnvPodMonitorRequest): Promise<DescribeEnvPodMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEnvPodMonitorWithOptions(request, runtime);
+  }
+
+  async describeEnvServiceMonitorWithOptions(request: DescribeEnvServiceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnvServiceMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceMonitorName)) {
+      query["ServiceMonitorName"] = request.serviceMonitorName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEnvServiceMonitor",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEnvServiceMonitorResponse>(await this.callApi(params, req, runtime), new DescribeEnvServiceMonitorResponse({}));
+  }
+
+  async describeEnvServiceMonitor(request: DescribeEnvServiceMonitorRequest): Promise<DescribeEnvServiceMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEnvServiceMonitorWithOptions(request, runtime);
+  }
+
+  async describeEnvironmentWithOptions(request: DescribeEnvironmentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnvironmentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEnvironment",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEnvironmentResponse>(await this.callApi(params, req, runtime), new DescribeEnvironmentResponse({}));
+  }
+
+  async describeEnvironment(request: DescribeEnvironmentRequest): Promise<DescribeEnvironmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEnvironmentWithOptions(request, runtime);
   }
 
   async describeIMRobotsWithOptions(request: DescribeIMRobotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIMRobotsResponse> {
@@ -31187,6 +34256,43 @@ export default class Client extends OpenApi {
     return await this.importAppAlertRulesWithOptions(request, runtime);
   }
 
+  async initEnvironmentWithOptions(request: InitEnvironmentRequest, runtime: $Util.RuntimeOptions): Promise<InitEnvironmentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InitEnvironment",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InitEnvironmentResponse>(await this.callApi(params, req, runtime), new InitEnvironmentResponse({}));
+  }
+
+  async initEnvironment(request: InitEnvironmentRequest): Promise<InitEnvironmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.initEnvironmentWithOptions(request, runtime);
+  }
+
   async installCmsExporterWithOptions(request: InstallCmsExporterRequest, runtime: $Util.RuntimeOptions): Promise<InstallCmsExporterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31711,6 +34817,109 @@ export default class Client extends OpenApi {
     return await this.listDispatchRuleWithOptions(request, runtime);
   }
 
+  async listEnvCustomJobsWithOptions(request: ListEnvCustomJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvCustomJobsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.encryptYaml)) {
+      query["EncryptYaml"] = request.encryptYaml;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEnvCustomJobs",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEnvCustomJobsResponse>(await this.callApi(params, req, runtime), new ListEnvCustomJobsResponse({}));
+  }
+
+  async listEnvCustomJobs(request: ListEnvCustomJobsRequest): Promise<ListEnvCustomJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEnvCustomJobsWithOptions(request, runtime);
+  }
+
+  async listEnvPodMonitorsWithOptions(request: ListEnvPodMonitorsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvPodMonitorsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEnvPodMonitors",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEnvPodMonitorsResponse>(await this.callApi(params, req, runtime), new ListEnvPodMonitorsResponse({}));
+  }
+
+  async listEnvPodMonitors(request: ListEnvPodMonitorsRequest): Promise<ListEnvPodMonitorsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEnvPodMonitorsWithOptions(request, runtime);
+  }
+
+  async listEnvServiceMonitorsWithOptions(request: ListEnvServiceMonitorsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvServiceMonitorsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEnvServiceMonitors",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEnvServiceMonitorsResponse>(await this.callApi(params, req, runtime), new ListEnvServiceMonitorsResponse({}));
+  }
+
+  async listEnvServiceMonitors(request: ListEnvServiceMonitorsRequest): Promise<ListEnvServiceMonitorsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEnvServiceMonitorsWithOptions(request, runtime);
+  }
+
   async listEscalationPoliciesWithOptions(request: ListEscalationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListEscalationPoliciesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -31759,6 +34968,53 @@ export default class Client extends OpenApi {
   async listEventBridgeIntegrations(request: ListEventBridgeIntegrationsRequest): Promise<ListEventBridgeIntegrationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEventBridgeIntegrationsWithOptions(request, runtime);
+  }
+
+  async listGrafanaWorkspaceWithOptions(tmpReq: ListGrafanaWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<ListGrafanaWorkspaceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListGrafanaWorkspaceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGrafanaWorkspace",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGrafanaWorkspaceResponse>(await this.callApi(params, req, runtime), new ListGrafanaWorkspaceResponse({}));
+  }
+
+  async listGrafanaWorkspace(request: ListGrafanaWorkspaceRequest): Promise<ListGrafanaWorkspaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGrafanaWorkspaceWithOptions(request, runtime);
   }
 
   async listInsightsEventsWithOptions(request: ListInsightsEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListInsightsEventsResponse> {
@@ -32928,6 +36184,43 @@ export default class Client extends OpenApi {
   async removeSourcesFromPrometheusGlobalView(request: RemoveSourcesFromPrometheusGlobalViewRequest): Promise<RemoveSourcesFromPrometheusGlobalViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeSourcesFromPrometheusGlobalViewWithOptions(request, runtime);
+  }
+
+  async restartEnvironmentFeatureWithOptions(request: RestartEnvironmentFeatureRequest, runtime: $Util.RuntimeOptions): Promise<RestartEnvironmentFeatureResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.featureName)) {
+      query["FeatureName"] = request.featureName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RestartEnvironmentFeature",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RestartEnvironmentFeatureResponse>(await this.callApi(params, req, runtime), new RestartEnvironmentFeatureResponse({}));
+  }
+
+  async restartEnvironmentFeature(request: RestartEnvironmentFeatureRequest): Promise<RestartEnvironmentFeatureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.restartEnvironmentFeatureWithOptions(request, runtime);
   }
 
   async saveTraceAppConfigWithOptions(request: SaveTraceAppConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveTraceAppConfigResponse> {
@@ -34272,6 +37565,208 @@ export default class Client extends OpenApi {
   async updateDispatchRule(request: UpdateDispatchRuleRequest): Promise<UpdateDispatchRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDispatchRuleWithOptions(request, runtime);
+  }
+
+  async updateEnvCustomJobWithOptions(request: UpdateEnvCustomJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnvCustomJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.customJobName)) {
+      query["CustomJobName"] = request.customJobName;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configYaml)) {
+      body["ConfigYaml"] = request.configYaml;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEnvCustomJob",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEnvCustomJobResponse>(await this.callApi(params, req, runtime), new UpdateEnvCustomJobResponse({}));
+  }
+
+  async updateEnvCustomJob(request: UpdateEnvCustomJobRequest): Promise<UpdateEnvCustomJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateEnvCustomJobWithOptions(request, runtime);
+  }
+
+  async updateEnvPodMonitorWithOptions(request: UpdateEnvPodMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnvPodMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.podMonitorName)) {
+      query["PodMonitorName"] = request.podMonitorName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configYaml)) {
+      body["ConfigYaml"] = request.configYaml;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEnvPodMonitor",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEnvPodMonitorResponse>(await this.callApi(params, req, runtime), new UpdateEnvPodMonitorResponse({}));
+  }
+
+  async updateEnvPodMonitor(request: UpdateEnvPodMonitorRequest): Promise<UpdateEnvPodMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateEnvPodMonitorWithOptions(request, runtime);
+  }
+
+  async updateEnvServiceMonitorWithOptions(request: UpdateEnvServiceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnvServiceMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceMonitorName)) {
+      query["ServiceMonitorName"] = request.serviceMonitorName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configYaml)) {
+      body["ConfigYaml"] = request.configYaml;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEnvServiceMonitor",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEnvServiceMonitorResponse>(await this.callApi(params, req, runtime), new UpdateEnvServiceMonitorResponse({}));
+  }
+
+  async updateEnvServiceMonitor(request: UpdateEnvServiceMonitorRequest): Promise<UpdateEnvServiceMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateEnvServiceMonitorWithOptions(request, runtime);
+  }
+
+  async updateEnvironmentWithOptions(request: UpdateEnvironmentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnvironmentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.environmentName)) {
+      query["EnvironmentName"] = request.environmentName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEnvironment",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEnvironmentResponse>(await this.callApi(params, req, runtime), new UpdateEnvironmentResponse({}));
+  }
+
+  async updateEnvironment(request: UpdateEnvironmentRequest): Promise<UpdateEnvironmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateEnvironmentWithOptions(request, runtime);
   }
 
   async updateIntegrationWithOptions(request: UpdateIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIntegrationResponse> {
