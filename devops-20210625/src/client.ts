@@ -11586,6 +11586,62 @@ export class ListWorkItemWorkFlowStatusResponse extends $tea.Model {
   }
 }
 
+export class ListWorkitemAttachmentsResponseBody extends $tea.Model {
+  attachments?: ListWorkitemAttachmentsResponseBodyAttachments[];
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      attachments: 'attachments',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachments: { 'type': 'array', 'itemType': ListWorkitemAttachmentsResponseBodyAttachments },
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkitemAttachmentsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListWorkitemAttachmentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWorkitemAttachmentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkitemEstimateResponseBody extends $tea.Model {
   code?: number;
   errorCode?: string;
@@ -24737,6 +24793,43 @@ export class ListWorkItemWorkFlowStatusResponseBodyStatuses extends $tea.Model {
   }
 }
 
+export class ListWorkitemAttachmentsResponseBodyAttachments extends $tea.Model {
+  creator?: string;
+  fileIdentifier?: string;
+  fileName?: string;
+  fileSuffix?: string;
+  gmtCreate?: number;
+  size?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creator: 'creator',
+      fileIdentifier: 'fileIdentifier',
+      fileName: 'fileName',
+      fileSuffix: 'fileSuffix',
+      gmtCreate: 'gmtCreate',
+      size: 'size',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creator: 'string',
+      fileIdentifier: 'string',
+      fileName: 'string',
+      fileSuffix: 'string',
+      gmtCreate: 'number',
+      size: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkitemEstimateResponseBodyWorkitemTimeEstimateRecordUser extends $tea.Model {
   identifier?: string;
   name?: string;
@@ -32786,6 +32879,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listWorkItemWorkFlowStatusWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listWorkitemAttachmentsWithOptions(organizationId: string, workitemIdentifier: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkitemAttachmentsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWorkitemAttachments",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitem/${OpenApiUtil.getEncodeParam(workitemIdentifier)}/attachments`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWorkitemAttachmentsResponse>(await this.callApi(params, req, runtime), new ListWorkitemAttachmentsResponse({}));
+  }
+
+  async listWorkitemAttachments(organizationId: string, workitemIdentifier: string): Promise<ListWorkitemAttachmentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkitemAttachmentsWithOptions(organizationId, workitemIdentifier, headers, runtime);
   }
 
   async listWorkitemEstimateWithOptions(organizationId: string, workitemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkitemEstimateResponse> {
