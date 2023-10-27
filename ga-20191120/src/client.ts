@@ -13718,6 +13718,53 @@ export class CreateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides
   }
 }
 
+export class CreateEndpointGroupsRequestEndpointGroupConfigurationsSystemTag extends $tea.Model {
+  key?: string;
+  scope?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      scope: 'Scope',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      scope: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEndpointGroupsRequestEndpointGroupConfigurationsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEndpointGroupsRequestEndpointGroupConfigurations extends $tea.Model {
   enableClientIPPreservationProxyProtocol?: boolean;
   enableClientIPPreservationToa?: boolean;
@@ -13733,6 +13780,8 @@ export class CreateEndpointGroupsRequestEndpointGroupConfigurations extends $tea
   healthCheckPort?: number;
   healthCheckProtocol?: string;
   portOverrides?: CreateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides[];
+  systemTag?: CreateEndpointGroupsRequestEndpointGroupConfigurationsSystemTag[];
+  tag?: CreateEndpointGroupsRequestEndpointGroupConfigurationsTag[];
   thresholdCount?: number;
   trafficPercentage?: number;
   static names(): { [key: string]: string } {
@@ -13751,6 +13800,8 @@ export class CreateEndpointGroupsRequestEndpointGroupConfigurations extends $tea
       healthCheckPort: 'HealthCheckPort',
       healthCheckProtocol: 'HealthCheckProtocol',
       portOverrides: 'PortOverrides',
+      systemTag: 'SystemTag',
+      tag: 'Tag',
       thresholdCount: 'ThresholdCount',
       trafficPercentage: 'TrafficPercentage',
     };
@@ -13772,6 +13823,8 @@ export class CreateEndpointGroupsRequestEndpointGroupConfigurations extends $tea
       healthCheckPort: 'number',
       healthCheckProtocol: 'string',
       portOverrides: { 'type': 'array', 'itemType': CreateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides },
+      systemTag: { 'type': 'array', 'itemType': CreateEndpointGroupsRequestEndpointGroupConfigurationsSystemTag },
+      tag: { 'type': 'array', 'itemType': CreateEndpointGroupsRequestEndpointGroupConfigurationsTag },
       thresholdCount: 'number',
       trafficPercentage: 'number',
     };
@@ -14169,11 +14222,13 @@ export class CreateListenerRequestCustomRoutingEndpointGroupConfigurations exten
 
 export class CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurations extends $tea.Model {
   endpoint?: string;
+  subAddress?: string;
   type?: string;
   weight?: number;
   static names(): { [key: string]: string } {
     return {
       endpoint: 'Endpoint',
+      subAddress: 'SubAddress',
       type: 'Type',
       weight: 'Weight',
     };
@@ -14182,6 +14237,7 @@ export class CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurati
   static types(): { [key: string]: any } {
     return {
       endpoint: 'string',
+      subAddress: 'string',
       type: 'string',
       weight: 'number',
     };
@@ -27296,8 +27352,7 @@ export default class Client extends OpenApi {
     * *   This operation is applicable only to **managed** Global Accelerator (GA) instances.
     * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you cannot change the mode of the instance to managed mode.
     * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you can obtain all operation permissions on the instance.
-    *     **
-    *     **Warning** If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.
+    *   <warning>If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.></warning>
     *
     * @param request UpdateServiceManagedControlRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27347,8 +27402,7 @@ export default class Client extends OpenApi {
     * *   This operation is applicable only to **managed** Global Accelerator (GA) instances.
     * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you cannot change the mode of the instance to managed mode.
     * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you can obtain all operation permissions on the instance.
-    *     **
-    *     **Warning** If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.
+    *   <warning>If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.></warning>
     *
     * @param request UpdateServiceManagedControlRequest
     * @return UpdateServiceManagedControlResponse
