@@ -12097,6 +12097,90 @@ export class ModifyApiGroupResponse extends $tea.Model {
   }
 }
 
+export class ModifyApiGroupNetworkPolicyRequest extends $tea.Model {
+  groupId?: string;
+  httpsPolicy?: string;
+  innerDomainEnable?: boolean;
+  internetEnable?: boolean;
+  internetIPV6Enable?: boolean;
+  securityToken?: string;
+  vpcIntranetEnable?: boolean;
+  vpcSlbIntranetEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      httpsPolicy: 'HttpsPolicy',
+      innerDomainEnable: 'InnerDomainEnable',
+      internetEnable: 'InternetEnable',
+      internetIPV6Enable: 'InternetIPV6Enable',
+      securityToken: 'SecurityToken',
+      vpcIntranetEnable: 'VpcIntranetEnable',
+      vpcSlbIntranetEnable: 'VpcSlbIntranetEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      httpsPolicy: 'string',
+      innerDomainEnable: 'boolean',
+      internetEnable: 'boolean',
+      internetIPV6Enable: 'boolean',
+      securityToken: 'string',
+      vpcIntranetEnable: 'boolean',
+      vpcSlbIntranetEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApiGroupNetworkPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApiGroupNetworkPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyApiGroupNetworkPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApiGroupNetworkPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyApiGroupVpcWhitelistRequest extends $tea.Model {
   groupId?: string;
   securityToken?: string;
@@ -31980,6 +32064,63 @@ export default class Client extends OpenApi {
   async modifyApiGroup(request: ModifyApiGroupRequest): Promise<ModifyApiGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyApiGroupWithOptions(request, runtime);
+  }
+
+  async modifyApiGroupNetworkPolicyWithOptions(request: ModifyApiGroupNetworkPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiGroupNetworkPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.httpsPolicy)) {
+      query["HttpsPolicy"] = request.httpsPolicy;
+    }
+
+    if (!Util.isUnset(request.innerDomainEnable)) {
+      query["InnerDomainEnable"] = request.innerDomainEnable;
+    }
+
+    if (!Util.isUnset(request.internetEnable)) {
+      query["InternetEnable"] = request.internetEnable;
+    }
+
+    if (!Util.isUnset(request.internetIPV6Enable)) {
+      query["InternetIPV6Enable"] = request.internetIPV6Enable;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.vpcIntranetEnable)) {
+      query["VpcIntranetEnable"] = request.vpcIntranetEnable;
+    }
+
+    if (!Util.isUnset(request.vpcSlbIntranetEnable)) {
+      query["VpcSlbIntranetEnable"] = request.vpcSlbIntranetEnable;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApiGroupNetworkPolicy",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApiGroupNetworkPolicyResponse>(await this.callApi(params, req, runtime), new ModifyApiGroupNetworkPolicyResponse({}));
+  }
+
+  async modifyApiGroupNetworkPolicy(request: ModifyApiGroupNetworkPolicyRequest): Promise<ModifyApiGroupNetworkPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApiGroupNetworkPolicyWithOptions(request, runtime);
   }
 
   async modifyApiGroupVpcWhitelistWithOptions(request: ModifyApiGroupVpcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiGroupVpcWhitelistResponse> {
