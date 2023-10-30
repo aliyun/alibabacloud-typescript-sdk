@@ -184,11 +184,14 @@ export class CreateInstanceRequest extends $tea.Model {
   chargeType?: string;
   diskSize?: number;
   diskType?: string;
+  dryRun?: boolean;
   instanceClass?: string;
   instanceName?: string;
+  isolationOptimization?: string;
   obVersion?: string;
   period?: number;
   periodUnit?: string;
+  replicaMode?: string;
   resourceGroupId?: string;
   series?: string;
   zones?: string;
@@ -199,11 +202,14 @@ export class CreateInstanceRequest extends $tea.Model {
       chargeType: 'ChargeType',
       diskSize: 'DiskSize',
       diskType: 'DiskType',
+      dryRun: 'DryRun',
       instanceClass: 'InstanceClass',
       instanceName: 'InstanceName',
+      isolationOptimization: 'IsolationOptimization',
       obVersion: 'ObVersion',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      replicaMode: 'ReplicaMode',
       resourceGroupId: 'ResourceGroupId',
       series: 'Series',
       zones: 'Zones',
@@ -217,11 +223,14 @@ export class CreateInstanceRequest extends $tea.Model {
       chargeType: 'string',
       diskSize: 'number',
       diskType: 'string',
+      dryRun: 'boolean',
       instanceClass: 'string',
       instanceName: 'string',
+      isolationOptimization: 'string',
       obVersion: 'string',
       period: 'number',
       periodUnit: 'string',
+      replicaMode: 'string',
       resourceGroupId: 'string',
       series: 'string',
       zones: 'string',
@@ -1187,8 +1196,10 @@ export class CreateTenantRequest extends $tea.Model {
   cpu?: number;
   description?: string;
   instanceId?: string;
+  logDisk?: number;
   memory?: number;
   primaryZone?: string;
+  readOnlyZoneList?: string;
   tenantMode?: string;
   tenantName?: string;
   timeZone?: string;
@@ -1201,8 +1212,10 @@ export class CreateTenantRequest extends $tea.Model {
       cpu: 'Cpu',
       description: 'Description',
       instanceId: 'InstanceId',
+      logDisk: 'LogDisk',
       memory: 'Memory',
       primaryZone: 'PrimaryZone',
+      readOnlyZoneList: 'ReadOnlyZoneList',
       tenantMode: 'TenantMode',
       tenantName: 'TenantName',
       timeZone: 'TimeZone',
@@ -1218,8 +1231,10 @@ export class CreateTenantRequest extends $tea.Model {
       cpu: 'number',
       description: 'string',
       instanceId: 'string',
+      logDisk: 'number',
       memory: 'number',
       primaryZone: 'string',
+      readOnlyZoneList: 'string',
       tenantMode: 'string',
       tenantName: 'string',
       timeZone: 'string',
@@ -1589,10 +1604,12 @@ export class DeleteDatabasesResponse extends $tea.Model {
 
 export class DeleteInstancesRequest extends $tea.Model {
   backupRetainMode?: string;
+  dryRun?: boolean;
   instanceIds?: string;
   static names(): { [key: string]: string } {
     return {
       backupRetainMode: 'BackupRetainMode',
+      dryRun: 'DryRun',
       instanceIds: 'InstanceIds',
     };
   }
@@ -1600,6 +1617,7 @@ export class DeleteInstancesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backupRetainMode: 'string',
+      dryRun: 'boolean',
       instanceIds: 'string',
     };
   }
@@ -1610,15 +1628,18 @@ export class DeleteInstancesRequest extends $tea.Model {
 }
 
 export class DeleteInstancesResponseBody extends $tea.Model {
+  data?: DeleteInstancesResponseBodyData;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      data: 'Data',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      data: DeleteInstancesResponseBodyData,
       requestId: 'string',
     };
   }
@@ -2532,6 +2553,7 @@ export class DescribeCharsetResponse extends $tea.Model {
 
 export class DescribeDatabasesRequest extends $tea.Model {
   databaseName?: string;
+  instanceId?: string;
   pageNumber?: number;
   pageSize?: number;
   searchKey?: string;
@@ -2540,6 +2562,7 @@ export class DescribeDatabasesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       databaseName: 'DatabaseName',
+      instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       searchKey: 'SearchKey',
@@ -2551,6 +2574,7 @@ export class DescribeDatabasesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       databaseName: 'string',
+      instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       searchKey: 'string',
@@ -2749,7 +2773,7 @@ export class DescribeInstanceCreatableZoneResponse extends $tea.Model {
   }
 }
 
-export class DescribeInstanceSecurityConfigsRequest extends $tea.Model {
+export class DescribeInstanceSSLRequest extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2759,6 +2783,75 @@ export class DescribeInstanceSecurityConfigsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSSLResponseBody extends $tea.Model {
+  instanceSSL?: DescribeInstanceSSLResponseBodyInstanceSSL;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceSSL: 'InstanceSSL',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceSSL: DescribeInstanceSSLResponseBodyInstanceSSL,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSSLResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceSSLResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceSSLResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSecurityConfigsRequest extends $tea.Model {
+  checkId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkId: 'CheckId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkId: 'string',
       instanceId: 'string',
     };
   }
@@ -3092,6 +3185,96 @@ export class DescribeInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMetricsDataRequest extends $tea.Model {
+  endTime?: string;
+  groupByLabels?: string;
+  instanceId?: string;
+  labels?: string;
+  limit?: string;
+  metrics?: string;
+  sortMetricKey?: string;
+  sortOrder?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      groupByLabels: 'GroupByLabels',
+      instanceId: 'InstanceId',
+      labels: 'Labels',
+      limit: 'Limit',
+      metrics: 'Metrics',
+      sortMetricKey: 'SortMetricKey',
+      sortOrder: 'SortOrder',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      groupByLabels: 'string',
+      instanceId: 'string',
+      labels: 'string',
+      limit: 'string',
+      metrics: 'string',
+      sortMetricKey: 'string',
+      sortOrder: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMetricsDataResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMetricsDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeMetricsDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeMetricsDataResponseBody,
     };
   }
 
@@ -5577,10 +5760,12 @@ export class DescribeTenantMetricsResponse extends $tea.Model {
 }
 
 export class DescribeTenantSecurityConfigsRequest extends $tea.Model {
+  checkId?: string;
   instanceId?: string;
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      checkId: 'CheckId',
       instanceId: 'InstanceId',
       tenantId: 'TenantId',
     };
@@ -5588,6 +5773,7 @@ export class DescribeTenantSecurityConfigsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      checkId: 'string',
       instanceId: 'string',
       tenantId: 'string',
     };
@@ -7437,10 +7623,12 @@ export class ModifyInstanceNameResponse extends $tea.Model {
 }
 
 export class ModifyInstanceNodeNumRequest extends $tea.Model {
+  dryRun?: boolean;
   instanceId?: string;
   nodeNum?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       instanceId: 'InstanceId',
       nodeNum: 'NodeNum',
     };
@@ -7448,6 +7636,7 @@ export class ModifyInstanceNodeNumRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       instanceId: 'string',
       nodeNum: 'string',
     };
@@ -7507,11 +7696,13 @@ export class ModifyInstanceNodeNumResponse extends $tea.Model {
 
 export class ModifyInstanceSpecRequest extends $tea.Model {
   diskSize?: number;
+  dryRun?: boolean;
   instanceClass?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       diskSize: 'DiskSize',
+      dryRun: 'DryRun',
       instanceClass: 'InstanceClass',
       instanceId: 'InstanceId',
     };
@@ -7520,6 +7711,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       diskSize: 'number',
+      dryRun: 'boolean',
       instanceClass: 'string',
       instanceId: 'string',
     };
@@ -7793,6 +7985,81 @@ export class ModifySecurityIpsResponse extends $tea.Model {
   }
 }
 
+export class ModifyTenantEncryptionRequest extends $tea.Model {
+  encryptionKeyId?: string;
+  encryptionType?: string;
+  instanceId?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encryptionKeyId: 'EncryptionKeyId',
+      encryptionType: 'EncryptionType',
+      instanceId: 'InstanceId',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encryptionKeyId: 'string',
+      encryptionType: 'string',
+      instanceId: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTenantEncryptionResponseBody extends $tea.Model {
+  requestId?: string;
+  tenantEncryption?: ModifyTenantEncryptionResponseBodyTenantEncryption;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tenantEncryption: 'TenantEncryption',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tenantEncryption: ModifyTenantEncryptionResponseBodyTenantEncryption,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTenantEncryptionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyTenantEncryptionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyTenantEncryptionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyTenantPrimaryZoneRequest extends $tea.Model {
   instanceId?: string;
   masterIntranetAddressZone?: string;
@@ -7874,13 +8141,17 @@ export class ModifyTenantPrimaryZoneResponse extends $tea.Model {
 export class ModifyTenantResourceRequest extends $tea.Model {
   cpu?: number;
   instanceId?: string;
+  logDisk?: number;
   memory?: number;
+  readOnlyZoneList?: string;
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
       cpu: 'Cpu',
       instanceId: 'InstanceId',
+      logDisk: 'LogDisk',
       memory: 'Memory',
+      readOnlyZoneList: 'ReadOnlyZoneList',
       tenantId: 'TenantId',
     };
   }
@@ -7889,7 +8160,9 @@ export class ModifyTenantResourceRequest extends $tea.Model {
     return {
       cpu: 'number',
       instanceId: 'string',
+      logDisk: 'number',
       memory: 'number',
+      readOnlyZoneList: 'string',
       tenantId: 'string',
     };
   }
@@ -9894,11 +10167,13 @@ export class DataExtraInfoSubDbsValueTables extends $tea.Model {
 }
 
 export class CreateInstanceResponseBodyData extends $tea.Model {
+  dryRunResult?: boolean;
   instanceId?: string;
   orderId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRunResult: 'DryRunResult',
       instanceId: 'InstanceId',
       orderId: 'OrderId',
       resourceGroupId: 'ResourceGroupId',
@@ -9907,6 +10182,7 @@ export class CreateInstanceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRunResult: 'boolean',
       instanceId: 'string',
       orderId: 'string',
       resourceGroupId: 'string',
@@ -11345,6 +11621,25 @@ export class CreateTenantUserResponseBodyTenantUser extends $tea.Model {
   }
 }
 
+export class DeleteInstancesResponseBodyData extends $tea.Model {
+  dryRunResult?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dryRunResult: 'DryRunResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dryRunResult: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteOmsOpenAPIProjectResponseBodyErrorDetail extends $tea.Model {
   code?: string;
   level?: string;
@@ -11555,11 +11850,13 @@ export class DescribeAvailableCpuResourceResponseBodyData extends $tea.Model {
 export class DescribeAvailableMemResourceResponseBodyData extends $tea.Model {
   maxMem?: number;
   minMem?: number;
+  safeMem?: string;
   usedMem?: number;
   static names(): { [key: string]: string } {
     return {
       maxMem: 'MaxMem',
       minMem: 'MinMem',
+      safeMem: 'SafeMem',
       usedMem: 'UsedMem',
     };
   }
@@ -11568,6 +11865,7 @@ export class DescribeAvailableMemResourceResponseBodyData extends $tea.Model {
     return {
       maxMem: 'number',
       minMem: 'number',
+      safeMem: 'string',
       usedMem: 'number',
     };
   }
@@ -11659,6 +11957,7 @@ export class DescribeDatabasesResponseBodyDatabases extends $tea.Model {
   status?: string;
   tables?: DescribeDatabasesResponseBodyDatabasesTables[];
   tenantId?: string;
+  tenantName?: string;
   users?: DescribeDatabasesResponseBodyDatabasesUsers[];
   static names(): { [key: string]: string } {
     return {
@@ -11674,6 +11973,7 @@ export class DescribeDatabasesResponseBodyDatabases extends $tea.Model {
       status: 'Status',
       tables: 'Tables',
       tenantId: 'TenantId',
+      tenantName: 'TenantName',
       users: 'Users',
     };
   }
@@ -11692,6 +11992,7 @@ export class DescribeDatabasesResponseBodyDatabases extends $tea.Model {
       status: 'string',
       tables: { 'type': 'array', 'itemType': DescribeDatabasesResponseBodyDatabasesTables },
       tenantId: 'string',
+      tenantName: 'string',
       users: { 'type': 'array', 'itemType': DescribeDatabasesResponseBodyDatabasesUsers },
     };
   }
@@ -11832,10 +12133,16 @@ export class DescribeInstanceResponseBodyInstanceResourceDiskSize extends $tea.M
 }
 
 export class DescribeInstanceResponseBodyInstanceResourceLogDiskSize extends $tea.Model {
+  logAssignedSize?: string;
+  maxLogAssignedObServer?: string[];
+  maxLogAssignedPercent?: string;
   totalDiskSize?: number;
   unitDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
+      logAssignedSize: 'LogAssignedSize',
+      maxLogAssignedObServer: 'MaxLogAssignedObServer',
+      maxLogAssignedPercent: 'MaxLogAssignedPercent',
       totalDiskSize: 'TotalDiskSize',
       unitDiskSize: 'UnitDiskSize',
     };
@@ -11843,6 +12150,9 @@ export class DescribeInstanceResponseBodyInstanceResourceLogDiskSize extends $te
 
   static types(): { [key: string]: any } {
     return {
+      logAssignedSize: 'string',
+      maxLogAssignedObServer: { 'type': 'array', 'itemType': 'string' },
+      maxLogAssignedPercent: 'string',
       totalDiskSize: 'number',
       unitDiskSize: 'number',
     };
@@ -11941,6 +12251,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
   autoRenewal?: boolean;
   autoUpgradeObVersion?: boolean;
   availableZones?: string[];
+  cpuArchitecture?: string;
   createTime?: string;
   dataDiskAutoScale?: boolean;
   dataDiskAutoScaleConfig?: DescribeInstanceResponseBodyInstanceDataDiskAutoScaleConfig;
@@ -11949,6 +12260,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
   deployType?: string;
   diskType?: string;
   enableIsolationOptimization?: boolean;
+  enableProxyService?: boolean;
   enableUpgradeLogDisk?: boolean;
   expireTime?: string;
   inTempCapacityStatus?: boolean;
@@ -11963,6 +12275,8 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
   nodeNum?: string;
   obRpmVersion?: string;
   payType?: string;
+  proxyClusterId?: string;
+  proxyServiceStatus?: string;
   replicaMode?: string;
   resource?: DescribeInstanceResponseBodyInstanceResource;
   series?: string;
@@ -11975,6 +12289,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
       autoRenewal: 'AutoRenewal',
       autoUpgradeObVersion: 'AutoUpgradeObVersion',
       availableZones: 'AvailableZones',
+      cpuArchitecture: 'CpuArchitecture',
       createTime: 'CreateTime',
       dataDiskAutoScale: 'DataDiskAutoScale',
       dataDiskAutoScaleConfig: 'DataDiskAutoScaleConfig',
@@ -11983,6 +12298,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
       deployType: 'DeployType',
       diskType: 'DiskType',
       enableIsolationOptimization: 'EnableIsolationOptimization',
+      enableProxyService: 'EnableProxyService',
       enableUpgradeLogDisk: 'EnableUpgradeLogDisk',
       expireTime: 'ExpireTime',
       inTempCapacityStatus: 'InTempCapacityStatus',
@@ -11997,6 +12313,8 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
       nodeNum: 'NodeNum',
       obRpmVersion: 'ObRpmVersion',
       payType: 'PayType',
+      proxyClusterId: 'ProxyClusterId',
+      proxyServiceStatus: 'ProxyServiceStatus',
       replicaMode: 'ReplicaMode',
       resource: 'Resource',
       series: 'Series',
@@ -12012,6 +12330,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
       autoRenewal: 'boolean',
       autoUpgradeObVersion: 'boolean',
       availableZones: { 'type': 'array', 'itemType': 'string' },
+      cpuArchitecture: 'string',
       createTime: 'string',
       dataDiskAutoScale: 'boolean',
       dataDiskAutoScaleConfig: DescribeInstanceResponseBodyInstanceDataDiskAutoScaleConfig,
@@ -12020,6 +12339,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
       deployType: 'string',
       diskType: 'string',
       enableIsolationOptimization: 'boolean',
+      enableProxyService: 'boolean',
       enableUpgradeLogDisk: 'boolean',
       expireTime: 'string',
       inTempCapacityStatus: 'boolean',
@@ -12034,6 +12354,8 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
       nodeNum: 'string',
       obRpmVersion: 'string',
       payType: 'string',
+      proxyClusterId: 'string',
+      proxyServiceStatus: 'string',
       replicaMode: 'string',
       resource: DescribeInstanceResponseBodyInstanceResource,
       series: 'string',
@@ -12063,6 +12385,43 @@ export class DescribeInstanceCreatableZoneResponseBodyZoneList extends $tea.Mode
     return {
       isInCluster: 'boolean',
       zone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSSLResponseBodyInstanceSSL extends $tea.Model {
+  caUrl?: string;
+  enableSSL?: string;
+  forceSSL?: string;
+  forceSSLSupport?: boolean;
+  instanceId?: string;
+  status?: string;
+  validPeriod?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caUrl: 'CaUrl',
+      enableSSL: 'EnableSSL',
+      forceSSL: 'ForceSSL',
+      forceSSLSupport: 'ForceSSLSupport',
+      instanceId: 'InstanceId',
+      status: 'Status',
+      validPeriod: 'ValidPeriod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caUrl: 'string',
+      enableSSL: 'string',
+      forceSSL: 'string',
+      forceSSLSupport: 'boolean',
+      instanceId: 'string',
+      status: 'string',
+      validPeriod: 'string',
     };
   }
 
@@ -12103,11 +12462,17 @@ export class DescribeInstanceSecurityConfigsResponseBodyInstanceSecurityConfigsS
 }
 
 export class DescribeInstanceSecurityConfigsResponseBodyInstanceSecurityConfigs extends $tea.Model {
+  checkId?: string;
+  checkTime?: string;
+  instanceId?: string;
   securityConfigs?: DescribeInstanceSecurityConfigsResponseBodyInstanceSecurityConfigsSecurityConfigs[];
   totalCheckCount?: number;
   totalRiskCount?: number;
   static names(): { [key: string]: string } {
     return {
+      checkId: 'CheckId',
+      checkTime: 'CheckTime',
+      instanceId: 'InstanceId',
       securityConfigs: 'SecurityConfigs',
       totalCheckCount: 'TotalCheckCount',
       totalRiskCount: 'TotalRiskCount',
@@ -12116,6 +12481,9 @@ export class DescribeInstanceSecurityConfigsResponseBodyInstanceSecurityConfigs 
 
   static types(): { [key: string]: any } {
     return {
+      checkId: 'string',
+      checkTime: 'string',
+      instanceId: 'string',
       securityConfigs: { 'type': 'array', 'itemType': DescribeInstanceSecurityConfigsResponseBodyInstanceSecurityConfigsSecurityConfigs },
       totalCheckCount: 'number',
       totalRiskCount: 'number',
@@ -12663,6 +13031,7 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
   availableZones?: string[];
   commodityCode?: string;
   cpu?: number;
+  cpuArchitecture?: string;
   createTime?: string;
   dataDiskAutoScaleConfig?: DescribeInstancesResponseBodyInstancesDataDiskAutoScaleConfig;
   deployMode?: string;
@@ -12693,6 +13062,7 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       availableZones: 'AvailableZones',
       commodityCode: 'CommodityCode',
       cpu: 'Cpu',
+      cpuArchitecture: 'CpuArchitecture',
       createTime: 'CreateTime',
       dataDiskAutoScaleConfig: 'DataDiskAutoScaleConfig',
       deployMode: 'DeployMode',
@@ -12726,6 +13096,7 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       availableZones: { 'type': 'array', 'itemType': 'string' },
       commodityCode: 'string',
       cpu: 'number',
+      cpuArchitecture: 'string',
       createTime: 'string',
       dataDiskAutoScaleConfig: DescribeInstancesResponseBodyInstancesDataDiskAutoScaleConfig,
       deployMode: 'string',
@@ -18159,6 +18530,7 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
   executeTime?: number;
   executorRpc?: number;
   expectedWorkerCount?: number;
+  fullSqlText?: string;
   getPlanTime?: number;
   hitPlan?: number;
   inner?: boolean;
@@ -18212,6 +18584,7 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
       executeTime: 'ExecuteTime',
       executorRpc: 'ExecutorRpc',
       expectedWorkerCount: 'ExpectedWorkerCount',
+      fullSqlText: 'FullSqlText',
       getPlanTime: 'GetPlanTime',
       hitPlan: 'HitPlan',
       inner: 'Inner',
@@ -18268,6 +18641,7 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
       executeTime: 'number',
       executorRpc: 'number',
       expectedWorkerCount: 'number',
+      fullSqlText: 'string',
       getPlanTime: 'number',
       hitPlan: 'number',
       inner: 'boolean',
@@ -18638,6 +19012,7 @@ export class DescribeTenantResponseBodyTenantTenantConnections extends $tea.Mode
   intranetAddressSlaveZoneId?: string;
   intranetAddressStatus?: string;
   intranetPort?: number;
+  maxConnectionNum?: number;
   parallelQueryDegree?: number;
   tenantEndpointId?: string;
   transactionSplit?: boolean;
@@ -18656,6 +19031,7 @@ export class DescribeTenantResponseBodyTenantTenantConnections extends $tea.Mode
       intranetAddressSlaveZoneId: 'IntranetAddressSlaveZoneId',
       intranetAddressStatus: 'IntranetAddressStatus',
       intranetPort: 'IntranetPort',
+      maxConnectionNum: 'MaxConnectionNum',
       parallelQueryDegree: 'ParallelQueryDegree',
       tenantEndpointId: 'TenantEndpointId',
       transactionSplit: 'TransactionSplit',
@@ -18677,6 +19053,7 @@ export class DescribeTenantResponseBodyTenantTenantConnections extends $tea.Mode
       intranetAddressSlaveZoneId: 'string',
       intranetAddressStatus: 'string',
       intranetPort: 'number',
+      maxConnectionNum: 'number',
       parallelQueryDegree: 'number',
       tenantEndpointId: 'string',
       transactionSplit: 'boolean',
@@ -18759,6 +19136,28 @@ export class DescribeTenantResponseBodyTenantTenantResourceDiskSize extends $tea
   }
 }
 
+export class DescribeTenantResponseBodyTenantTenantResourceLogDiskSize extends $tea.Model {
+  totalLogDisk?: number;
+  unitLogDisk?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalLogDisk: 'TotalLogDisk',
+      unitLogDisk: 'UnitLogDisk',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalLogDisk: 'number',
+      unitLogDisk: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTenantResponseBodyTenantTenantResourceMemory extends $tea.Model {
   totalMemory?: number;
   unitMemory?: number;
@@ -18788,6 +19187,7 @@ export class DescribeTenantResponseBodyTenantTenantResource extends $tea.Model {
   capacityUnit?: DescribeTenantResponseBodyTenantTenantResourceCapacityUnit;
   cpu?: DescribeTenantResponseBodyTenantTenantResourceCpu;
   diskSize?: DescribeTenantResponseBodyTenantTenantResourceDiskSize;
+  logDiskSize?: DescribeTenantResponseBodyTenantTenantResourceLogDiskSize;
   memory?: DescribeTenantResponseBodyTenantTenantResourceMemory;
   unitNum?: number;
   static names(): { [key: string]: string } {
@@ -18795,6 +19195,7 @@ export class DescribeTenantResponseBodyTenantTenantResource extends $tea.Model {
       capacityUnit: 'CapacityUnit',
       cpu: 'Cpu',
       diskSize: 'DiskSize',
+      logDiskSize: 'LogDiskSize',
       memory: 'Memory',
       unitNum: 'UnitNum',
     };
@@ -18805,6 +19206,7 @@ export class DescribeTenantResponseBodyTenantTenantResource extends $tea.Model {
       capacityUnit: DescribeTenantResponseBodyTenantTenantResourceCapacityUnit,
       cpu: DescribeTenantResponseBodyTenantTenantResourceCpu,
       diskSize: DescribeTenantResponseBodyTenantTenantResourceDiskSize,
+      logDiskSize: DescribeTenantResponseBodyTenantTenantResourceLogDiskSize,
       memory: DescribeTenantResponseBodyTenantTenantResourceMemory,
       unitNum: 'number',
     };
@@ -19006,11 +19408,17 @@ export class DescribeTenantSecurityConfigsResponseBodyConfigsTenantSecurityConfi
 }
 
 export class DescribeTenantSecurityConfigsResponseBodyConfigs extends $tea.Model {
+  checkId?: string;
+  checkTime?: string;
+  instanceId?: string;
   tenantSecurityConfigs?: DescribeTenantSecurityConfigsResponseBodyConfigsTenantSecurityConfigs[];
   totalCheckCount?: number;
   totalRiskCount?: number;
   static names(): { [key: string]: string } {
     return {
+      checkId: 'CheckId',
+      checkTime: 'CheckTime',
+      instanceId: 'InstanceId',
       tenantSecurityConfigs: 'TenantSecurityConfigs',
       totalCheckCount: 'TotalCheckCount',
       totalRiskCount: 'TotalRiskCount',
@@ -19019,6 +19427,9 @@ export class DescribeTenantSecurityConfigsResponseBodyConfigs extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      checkId: 'string',
+      checkTime: 'string',
+      instanceId: 'string',
       tenantSecurityConfigs: { 'type': 'array', 'itemType': DescribeTenantSecurityConfigsResponseBodyConfigsTenantSecurityConfigs },
       totalCheckCount: 'number',
       totalRiskCount: 'number',
@@ -20874,15 +21285,18 @@ export class ModifyDatabaseUserRolesResponseBodyTenantUser extends $tea.Model {
 }
 
 export class ModifyInstanceNodeNumResponseBodyData extends $tea.Model {
+  dryRunResult?: boolean;
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRunResult: 'DryRunResult',
       orderId: 'OrderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dryRunResult: 'boolean',
       orderId: 'string',
     };
   }
@@ -20893,15 +21307,18 @@ export class ModifyInstanceNodeNumResponseBodyData extends $tea.Model {
 }
 
 export class ModifyInstanceSpecResponseBodyData extends $tea.Model {
+  dryRunResult?: boolean;
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRunResult: 'DryRunResult',
       orderId: 'OrderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dryRunResult: 'boolean',
       orderId: 'string',
     };
   }
@@ -20950,6 +21367,31 @@ export class ModifySecurityIpsResponseBodySecurityIpGroup extends $tea.Model {
       instanceId: 'string',
       securityIpGroupName: 'string',
       securityIps: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTenantEncryptionResponseBodyTenantEncryption extends $tea.Model {
+  encryptionType?: string;
+  instanceId?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encryptionType: 'EncryptionType',
+      instanceId: 'InstanceId',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encryptionType: 'string',
+      instanceId: 'string',
+      tenantId: 'string',
     };
   }
 
@@ -22387,12 +22829,20 @@ export default class Client extends OpenApi {
       body["DiskType"] = request.diskType;
     }
 
+    if (!Util.isUnset(request.dryRun)) {
+      body["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.instanceClass)) {
       body["InstanceClass"] = request.instanceClass;
     }
 
     if (!Util.isUnset(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.isolationOptimization)) {
+      body["IsolationOptimization"] = request.isolationOptimization;
     }
 
     if (!Util.isUnset(request.obVersion)) {
@@ -22405,6 +22855,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.periodUnit)) {
       body["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.replicaMode)) {
+      body["ReplicaMode"] = request.replicaMode;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
@@ -22976,12 +23430,20 @@ export default class Client extends OpenApi {
       body["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.logDisk)) {
+      body["LogDisk"] = request.logDisk;
+    }
+
     if (!Util.isUnset(request.memory)) {
       body["Memory"] = request.memory;
     }
 
     if (!Util.isUnset(request.primaryZone)) {
       body["PrimaryZone"] = request.primaryZone;
+    }
+
+    if (!Util.isUnset(request.readOnlyZoneList)) {
+      body["ReadOnlyZoneList"] = request.readOnlyZoneList;
     }
 
     if (!Util.isUnset(request.tenantMode)) {
@@ -23222,6 +23684,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.backupRetainMode)) {
       body["BackupRetainMode"] = request.backupRetainMode;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      body["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.instanceIds)) {
@@ -23687,6 +24153,10 @@ export default class Client extends OpenApi {
       body["DatabaseName"] = request.databaseName;
     }
 
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
@@ -23791,9 +24261,42 @@ export default class Client extends OpenApi {
     return await this.describeInstanceCreatableZoneWithOptions(request, runtime);
   }
 
+  async describeInstanceSSLWithOptions(request: DescribeInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSSLResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceSSL",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceSSLResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSSLResponse({}));
+  }
+
+  async describeInstanceSSL(request: DescribeInstanceSSLRequest): Promise<DescribeInstanceSSLResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceSSLWithOptions(request, runtime);
+  }
+
   async describeInstanceSecurityConfigsWithOptions(request: DescribeInstanceSecurityConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSecurityConfigsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.checkId)) {
+      body["CheckId"] = request.checkId;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
@@ -23958,6 +24461,67 @@ export default class Client extends OpenApi {
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
+  }
+
+  async describeMetricsDataWithOptions(request: DescribeMetricsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMetricsDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.groupByLabels)) {
+      query["GroupByLabels"] = request.groupByLabels;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.metrics)) {
+      query["Metrics"] = request.metrics;
+    }
+
+    if (!Util.isUnset(request.sortMetricKey)) {
+      query["SortMetricKey"] = request.sortMetricKey;
+    }
+
+    if (!Util.isUnset(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeMetricsData",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMetricsDataResponse>(await this.callApi(params, req, runtime), new DescribeMetricsDataResponse({}));
+  }
+
+  async describeMetricsData(request: DescribeMetricsDataRequest): Promise<DescribeMetricsDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeMetricsDataWithOptions(request, runtime);
   }
 
   async describeNodeMetricsWithOptions(request: DescribeNodeMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNodeMetricsResponse> {
@@ -25324,6 +25888,10 @@ export default class Client extends OpenApi {
   async describeTenantSecurityConfigsWithOptions(request: DescribeTenantSecurityConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantSecurityConfigsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.checkId)) {
+      body["CheckId"] = request.checkId;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
@@ -26194,6 +26762,10 @@ export default class Client extends OpenApi {
   async modifyInstanceNodeNumWithOptions(request: ModifyInstanceNodeNumRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceNodeNumResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dryRun)) {
+      body["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
@@ -26229,6 +26801,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.diskSize)) {
       body["DiskSize"] = request.diskSize;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      body["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.instanceClass)) {
@@ -26372,6 +26948,47 @@ export default class Client extends OpenApi {
     return await this.modifySecurityIpsWithOptions(request, runtime);
   }
 
+  async modifyTenantEncryptionWithOptions(request: ModifyTenantEncryptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantEncryptionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.encryptionKeyId)) {
+      body["EncryptionKeyId"] = request.encryptionKeyId;
+    }
+
+    if (!Util.isUnset(request.encryptionType)) {
+      body["EncryptionType"] = request.encryptionType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyTenantEncryption",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyTenantEncryptionResponse>(await this.callApi(params, req, runtime), new ModifyTenantEncryptionResponse({}));
+  }
+
+  async modifyTenantEncryption(request: ModifyTenantEncryptionRequest): Promise<ModifyTenantEncryptionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyTenantEncryptionWithOptions(request, runtime);
+  }
+
   async modifyTenantPrimaryZoneWithOptions(request: ModifyTenantPrimaryZoneRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantPrimaryZoneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26432,8 +27049,16 @@ export default class Client extends OpenApi {
       body["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.logDisk)) {
+      body["LogDisk"] = request.logDisk;
+    }
+
     if (!Util.isUnset(request.memory)) {
       body["Memory"] = request.memory;
+    }
+
+    if (!Util.isUnset(request.readOnlyZoneList)) {
+      body["ReadOnlyZoneList"] = request.readOnlyZoneList;
     }
 
     if (!Util.isUnset(request.tenantId)) {
