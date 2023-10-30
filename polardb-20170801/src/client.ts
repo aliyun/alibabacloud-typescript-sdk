@@ -13778,6 +13778,7 @@ export class DescribeDBClusterAccessWhitelistResponseBodyItems extends $tea.Mode
 
 export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   addedCpuCores?: string;
+  cpuCores?: string;
   creationTime?: string;
   DBNodeClass?: string;
   DBNodeId?: string;
@@ -13789,6 +13790,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   masterId?: string;
   maxConnections?: number;
   maxIOPS?: number;
+  memorySize?: string;
   sccMode?: string;
   serverWeight?: string;
   serverlessType?: string;
@@ -13796,6 +13798,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       addedCpuCores: 'AddedCpuCores',
+      cpuCores: 'CpuCores',
       creationTime: 'CreationTime',
       DBNodeClass: 'DBNodeClass',
       DBNodeId: 'DBNodeId',
@@ -13807,6 +13810,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       masterId: 'MasterId',
       maxConnections: 'MaxConnections',
       maxIOPS: 'MaxIOPS',
+      memorySize: 'MemorySize',
       sccMode: 'SccMode',
       serverWeight: 'ServerWeight',
       serverlessType: 'ServerlessType',
@@ -13817,6 +13821,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       addedCpuCores: 'string',
+      cpuCores: 'string',
       creationTime: 'string',
       DBNodeClass: 'string',
       DBNodeId: 'string',
@@ -13828,6 +13833,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       masterId: 'string',
       maxConnections: 'number',
       maxIOPS: 'number',
+      memorySize: 'string',
       sccMode: 'string',
       serverWeight: 'string',
       serverlessType: 'string',
