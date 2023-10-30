@@ -464,6 +464,78 @@ export class AttachCommonBandwidthPackageToLoadBalancerResponse extends $tea.Mod
   }
 }
 
+export class CancelShiftLoadBalancerZonesRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  loadBalancerId?: string;
+  zoneMappings?: CancelShiftLoadBalancerZonesRequestZoneMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      loadBalancerId: 'LoadBalancerId',
+      zoneMappings: 'ZoneMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      loadBalancerId: 'string',
+      zoneMappings: { 'type': 'array', 'itemType': CancelShiftLoadBalancerZonesRequestZoneMappings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelShiftLoadBalancerZonesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelShiftLoadBalancerZonesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CancelShiftLoadBalancerZonesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelShiftLoadBalancerZonesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAScriptsRequest extends $tea.Model {
   AScripts?: CreateAScriptsRequestAScripts[];
   clientToken?: string;
@@ -5074,6 +5146,78 @@ export class StartListenerResponse extends $tea.Model {
   }
 }
 
+export class StartShiftLoadBalancerZonesRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  loadBalancerId?: string;
+  zoneMappings?: StartShiftLoadBalancerZonesRequestZoneMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      loadBalancerId: 'LoadBalancerId',
+      zoneMappings: 'ZoneMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      loadBalancerId: 'string',
+      zoneMappings: { 'type': 'array', 'itemType': StartShiftLoadBalancerZonesRequestZoneMappings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartShiftLoadBalancerZonesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartShiftLoadBalancerZonesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartShiftLoadBalancerZonesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartShiftLoadBalancerZonesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopListenerRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
@@ -6508,6 +6652,28 @@ export class AssociateAdditionalCertificatesWithListenerRequestCertificates exte
   }
 }
 
+export class CancelShiftLoadBalancerZonesRequestZoneMappings extends $tea.Model {
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAScriptsRequestAScripts extends $tea.Model {
   AScriptName?: string;
   enabled?: boolean;
@@ -6863,10 +7029,12 @@ export class CreateLoadBalancerRequestTag extends $tea.Model {
 }
 
 export class CreateLoadBalancerRequestZoneMappings extends $tea.Model {
+  intranetAddress?: string;
   vSwitchId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      intranetAddress: 'IntranetAddress',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
     };
@@ -6874,6 +7042,7 @@ export class CreateLoadBalancerRequestZoneMappings extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      intranetAddress: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
     };
@@ -11250,6 +11419,28 @@ export class ReplaceServersInServerGroupRequestRemovedServers extends $tea.Model
   }
 }
 
+export class StartShiftLoadBalancerZonesRequestZoneMappings extends $tea.Model {
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -11573,10 +11764,12 @@ export class UpdateLoadBalancerAttributeRequestModificationProtectionConfig exte
 }
 
 export class UpdateLoadBalancerZonesRequestZoneMappings extends $tea.Model {
+  intranetAddress?: string;
   vSwitchId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      intranetAddress: 'IntranetAddress',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
     };
@@ -11584,6 +11777,7 @@ export class UpdateLoadBalancerZonesRequestZoneMappings extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      intranetAddress: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
     };
@@ -13321,6 +13515,47 @@ export default class Client extends OpenApi {
   async attachCommonBandwidthPackageToLoadBalancer(request: AttachCommonBandwidthPackageToLoadBalancerRequest): Promise<AttachCommonBandwidthPackageToLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachCommonBandwidthPackageToLoadBalancerWithOptions(request, runtime);
+  }
+
+  async cancelShiftLoadBalancerZonesWithOptions(request: CancelShiftLoadBalancerZonesRequest, runtime: $Util.RuntimeOptions): Promise<CancelShiftLoadBalancerZonesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.zoneMappings)) {
+      query["ZoneMappings"] = request.zoneMappings;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelShiftLoadBalancerZones",
+      version: "2020-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelShiftLoadBalancerZonesResponse>(await this.callApi(params, req, runtime), new CancelShiftLoadBalancerZonesResponse({}));
+  }
+
+  async cancelShiftLoadBalancerZones(request: CancelShiftLoadBalancerZonesRequest): Promise<CancelShiftLoadBalancerZonesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelShiftLoadBalancerZonesWithOptions(request, runtime);
   }
 
   /**
@@ -16254,6 +16489,47 @@ export default class Client extends OpenApi {
   async startListener(request: StartListenerRequest): Promise<StartListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startListenerWithOptions(request, runtime);
+  }
+
+  async startShiftLoadBalancerZonesWithOptions(request: StartShiftLoadBalancerZonesRequest, runtime: $Util.RuntimeOptions): Promise<StartShiftLoadBalancerZonesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.zoneMappings)) {
+      query["ZoneMappings"] = request.zoneMappings;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartShiftLoadBalancerZones",
+      version: "2020-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartShiftLoadBalancerZonesResponse>(await this.callApi(params, req, runtime), new StartShiftLoadBalancerZonesResponse({}));
+  }
+
+  async startShiftLoadBalancerZones(request: StartShiftLoadBalancerZonesRequest): Promise<StartShiftLoadBalancerZonesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startShiftLoadBalancerZonesWithOptions(request, runtime);
   }
 
   /**
