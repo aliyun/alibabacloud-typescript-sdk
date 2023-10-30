@@ -8,6 +8,78 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DescribeImageModerationResultRequest extends $tea.Model {
+  reqId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reqId: 'ReqId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reqId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageModerationResultResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeImageModerationResultResponseBodyData;
+  msg?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeImageModerationResultResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageModerationResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeImageModerationResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeImageModerationResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageResultExtRequest extends $tea.Model {
   infoType?: string;
   reqId?: string;
@@ -128,6 +200,81 @@ export class DescribeUploadTokenResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeUploadTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageAsyncModerationRequest extends $tea.Model {
+  service?: string;
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageAsyncModerationResponseBody extends $tea.Model {
+  code?: number;
+  data?: ImageAsyncModerationResponseBodyData;
+  msg?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ImageAsyncModerationResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageAsyncModerationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ImageAsyncModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImageAsyncModerationResponseBody,
     };
   }
 
@@ -658,6 +805,56 @@ export class VoiceModerationResultResponse extends $tea.Model {
   }
 }
 
+export class DescribeImageModerationResultResponseBodyDataResult extends $tea.Model {
+  confidence?: number;
+  label?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      label: 'Label',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      label: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageModerationResultResponseBodyData extends $tea.Model {
+  dataId?: string;
+  frame?: string;
+  frameNum?: number;
+  result?: DescribeImageModerationResultResponseBodyDataResult[];
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+      frame: 'Frame',
+      frameNum: 'FrameNum',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+      frame: 'string',
+      frameNum: 'number',
+      result: { 'type': 'array', 'itemType': DescribeImageModerationResultResponseBodyDataResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageResultExtResponseBodyDataCustomImage extends $tea.Model {
   imageId?: string;
   libId?: string;
@@ -781,6 +978,28 @@ export class DescribeUploadTokenResponseBodyData extends $tea.Model {
       ossInternalEndPoint: 'string',
       ossInternetEndPoint: 'string',
       securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageAsyncModerationResponseBodyData extends $tea.Model {
+  dataId?: string;
+  reqId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+      reqId: 'ReqId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+      reqId: 'string',
     };
   }
 
@@ -1209,6 +1428,35 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async describeImageModerationResultWithOptions(request: DescribeImageModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageModerationResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.reqId)) {
+      query["ReqId"] = request.reqId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeImageModerationResult",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeImageModerationResultResponse>(await this.callApi(params, req, runtime), new DescribeImageModerationResultResponse({}));
+  }
+
+  async describeImageModerationResult(request: DescribeImageModerationResultRequest): Promise<DescribeImageModerationResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeImageModerationResultWithOptions(request, runtime);
+  }
+
   async describeImageResultExtWithOptions(request: DescribeImageResultExtRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageResultExtResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -1261,6 +1509,39 @@ export default class Client extends OpenApi {
   async describeUploadToken(): Promise<DescribeUploadTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUploadTokenWithOptions(runtime);
+  }
+
+  async imageAsyncModerationWithOptions(request: ImageAsyncModerationRequest, runtime: $Util.RuntimeOptions): Promise<ImageAsyncModerationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.service)) {
+      query["Service"] = request.service;
+    }
+
+    if (!Util.isUnset(request.serviceParameters)) {
+      query["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImageAsyncModeration",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImageAsyncModerationResponse>(await this.callApi(params, req, runtime), new ImageAsyncModerationResponse({}));
+  }
+
+  async imageAsyncModeration(request: ImageAsyncModerationRequest): Promise<ImageAsyncModerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.imageAsyncModerationWithOptions(request, runtime);
   }
 
   async imageModerationWithOptions(request: ImageModerationRequest, runtime: $Util.RuntimeOptions): Promise<ImageModerationResponse> {
