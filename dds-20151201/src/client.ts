@@ -2513,6 +2513,195 @@ export class DescribeBackupsResponse extends $tea.Model {
   }
 }
 
+export class DescribeClusterBackupsRequest extends $tea.Model {
+  backupId?: string;
+  DBInstanceId?: string;
+  endTime?: string;
+  isOnlyGetClusterBackUp?: boolean;
+  ownerAccount?: string;
+  ownerId?: number;
+  pageNo?: number;
+  pageSize?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupId: 'BackupId',
+      DBInstanceId: 'DBInstanceId',
+      endTime: 'EndTime',
+      isOnlyGetClusterBackUp: 'IsOnlyGetClusterBackUp',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupId: 'string',
+      DBInstanceId: 'string',
+      endTime: 'string',
+      isOnlyGetClusterBackUp: 'boolean',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterBackupsResponseBody extends $tea.Model {
+  clusterBackups?: DescribeClusterBackupsResponseBodyClusterBackups[];
+  maxResults?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterBackups: 'ClusterBackups',
+      maxResults: 'MaxResults',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterBackups: { 'type': 'array', 'itemType': DescribeClusterBackupsResponseBodyClusterBackups },
+      maxResults: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterBackupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeClusterBackupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeClusterBackupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterRecoverTimeRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterRecoverTimeResponseBody extends $tea.Model {
+  requestId?: string;
+  restoreRanges?: DescribeClusterRecoverTimeResponseBodyRestoreRanges[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      restoreRanges: 'RestoreRanges',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      restoreRanges: { 'type': 'array', 'itemType': DescribeClusterRecoverTimeResponseBodyRestoreRanges },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterRecoverTimeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeClusterRecoverTimeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeClusterRecoverTimeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceAttributeRequest extends $tea.Model {
   DBInstanceId?: string;
   engine?: string;
@@ -6495,7 +6684,6 @@ export class ModifyDBInstanceMonitorResponse extends $tea.Model {
 }
 
 export class ModifyDBInstanceNetExpireTimeRequest extends $tea.Model {
-  category?: string;
   classicExpendExpiredDays?: number;
   connectionString?: string;
   DBInstanceId?: string;
@@ -6506,7 +6694,6 @@ export class ModifyDBInstanceNetExpireTimeRequest extends $tea.Model {
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
-      category: 'Category',
       classicExpendExpiredDays: 'ClassicExpendExpiredDays',
       connectionString: 'ConnectionString',
       DBInstanceId: 'DBInstanceId',
@@ -6520,7 +6707,6 @@ export class ModifyDBInstanceNetExpireTimeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      category: 'string',
       classicExpendExpiredDays: 'number',
       connectionString: 'string',
       DBInstanceId: 'string',
@@ -8639,6 +8825,87 @@ export class TagResourcesResponse extends $tea.Model {
   }
 }
 
+export class TransferClusterBackupRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferClusterBackupResponseBody extends $tea.Model {
+  alreadyDone?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alreadyDone: 'AlreadyDone',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alreadyDone: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferClusterBackupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TransferClusterBackupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TransferClusterBackupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TransformInstanceChargeTypeRequest extends $tea.Model {
   autoPay?: boolean;
   autoRenew?: string;
@@ -9786,6 +10053,142 @@ export class DescribeBackupsResponseBodyBackups extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backup: { 'type': 'array', 'itemType': DescribeBackupsResponseBodyBackupsBackup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterBackupsResponseBodyClusterBackupsBackups extends $tea.Model {
+  backupDownloadURL?: string;
+  backupEndTime?: string;
+  backupId?: string;
+  backupIntranetDownloadURL?: string;
+  backupName?: string;
+  backupSize?: string;
+  backupStartTime?: string;
+  backupStatus?: string;
+  instanceName?: string;
+  isAvail?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupDownloadURL: 'BackupDownloadURL',
+      backupEndTime: 'BackupEndTime',
+      backupId: 'BackupId',
+      backupIntranetDownloadURL: 'BackupIntranetDownloadURL',
+      backupName: 'BackupName',
+      backupSize: 'BackupSize',
+      backupStartTime: 'BackupStartTime',
+      backupStatus: 'BackupStatus',
+      instanceName: 'InstanceName',
+      isAvail: 'IsAvail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupDownloadURL: 'string',
+      backupEndTime: 'string',
+      backupId: 'string',
+      backupIntranetDownloadURL: 'string',
+      backupName: 'string',
+      backupSize: 'string',
+      backupStartTime: 'string',
+      backupStatus: 'string',
+      instanceName: 'string',
+      isAvail: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterBackupsResponseBodyClusterBackupsExtraInfo extends $tea.Model {
+  registryFromHistory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      registryFromHistory: 'RegistryFromHistory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      registryFromHistory: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterBackupsResponseBodyClusterBackups extends $tea.Model {
+  backups?: DescribeClusterBackupsResponseBodyClusterBackupsBackups[];
+  clusterBackupEndTime?: string;
+  clusterBackupId?: string;
+  clusterBackupMode?: string;
+  clusterBackupSize?: string;
+  clusterBackupStartTime?: string;
+  clusterBackupStatus?: string;
+  extraInfo?: DescribeClusterBackupsResponseBodyClusterBackupsExtraInfo;
+  isAvail?: number;
+  progress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backups: 'Backups',
+      clusterBackupEndTime: 'ClusterBackupEndTime',
+      clusterBackupId: 'ClusterBackupId',
+      clusterBackupMode: 'ClusterBackupMode',
+      clusterBackupSize: 'ClusterBackupSize',
+      clusterBackupStartTime: 'ClusterBackupStartTime',
+      clusterBackupStatus: 'ClusterBackupStatus',
+      extraInfo: 'ExtraInfo',
+      isAvail: 'IsAvail',
+      progress: 'Progress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backups: { 'type': 'array', 'itemType': DescribeClusterBackupsResponseBodyClusterBackupsBackups },
+      clusterBackupEndTime: 'string',
+      clusterBackupId: 'string',
+      clusterBackupMode: 'string',
+      clusterBackupSize: 'string',
+      clusterBackupStartTime: 'string',
+      clusterBackupStatus: 'string',
+      extraInfo: DescribeClusterBackupsResponseBodyClusterBackupsExtraInfo,
+      isAvail: 'number',
+      progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterRecoverTimeResponseBodyRestoreRanges extends $tea.Model {
+  restoreBeginTime?: string;
+  restoreEndTime?: string;
+  restoreType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      restoreBeginTime: 'RestoreBeginTime',
+      restoreEndTime: 'RestoreEndTime',
+      restoreType: 'RestoreType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      restoreBeginTime: 'string',
+      restoreEndTime: 'string',
+      restoreType: 'string',
     };
   }
 
@@ -14486,6 +14889,104 @@ export default class Client extends OpenApi {
     return await this.describeBackupsWithOptions(request, runtime);
   }
 
+  async describeClusterBackupsWithOptions(request: DescribeClusterBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterBackupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.isOnlyGetClusterBackUp)) {
+      query["IsOnlyGetClusterBackUp"] = request.isOnlyGetClusterBackUp;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterBackups",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterBackupsResponse>(await this.callApi(params, req, runtime), new DescribeClusterBackupsResponse({}));
+  }
+
+  async describeClusterBackups(request: DescribeClusterBackupsRequest): Promise<DescribeClusterBackupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeClusterBackupsWithOptions(request, runtime);
+  }
+
+  async describeClusterRecoverTimeWithOptions(request: DescribeClusterRecoverTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterRecoverTimeResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterRecoverTime",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterRecoverTimeResponse>(await this.callApi(params, req, runtime), new DescribeClusterRecoverTimeResponse({}));
+  }
+
+  async describeClusterRecoverTime(request: DescribeClusterRecoverTimeRequest): Promise<DescribeClusterRecoverTimeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeClusterRecoverTimeWithOptions(request, runtime);
+  }
+
   async describeDBInstanceAttributeWithOptions(request: DescribeDBInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17416,10 +17917,6 @@ export default class Client extends OpenApi {
   async modifyDBInstanceNetExpireTimeWithOptions(request: ModifyDBInstanceNetExpireTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceNetExpireTimeResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.category)) {
-      query["Category"] = request.category;
-    }
-
     if (!Util.isUnset(request.classicExpendExpiredDays)) {
       query["ClassicExpendExpiredDays"] = request.classicExpendExpiredDays;
     }
@@ -19230,6 +19727,55 @@ export default class Client extends OpenApi {
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  async transferClusterBackupWithOptions(request: TransferClusterBackupRequest, runtime: $Util.RuntimeOptions): Promise<TransferClusterBackupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TransferClusterBackup",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TransferClusterBackupResponse>(await this.callApi(params, req, runtime), new TransferClusterBackupResponse({}));
+  }
+
+  async transferClusterBackup(request: TransferClusterBackupRequest): Promise<TransferClusterBackupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.transferClusterBackupWithOptions(request, runtime);
   }
 
   /**
