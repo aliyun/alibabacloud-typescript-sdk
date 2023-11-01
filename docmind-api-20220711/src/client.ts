@@ -446,6 +446,84 @@ export class GetDocumentExtractResultResponse extends $tea.Model {
   }
 }
 
+export class GetPageNumRequest extends $tea.Model {
+  bizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPageNumResponseBody extends $tea.Model {
+  data?: GetPageNumResponseBodyData;
+  errorCode?: string;
+  errorMessage?: string;
+  httpCode?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpCode: 'HttpCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetPageNumResponseBodyData,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPageNumResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPageNumResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPageNumResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTableUnderstandingResultRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -1681,6 +1759,25 @@ export class GetDocumentConvertResultResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetPageNumResponseBodyData extends $tea.Model {
+  pageNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitConvertImageToExcelJobResponseBodyData extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -2117,6 +2214,35 @@ export default class Client extends OpenApi {
   async getDocumentExtractResult(request: GetDocumentExtractResultRequest): Promise<GetDocumentExtractResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDocumentExtractResultWithOptions(request, runtime);
+  }
+
+  async getPageNumWithOptions(request: GetPageNumRequest, runtime: $Util.RuntimeOptions): Promise<GetPageNumResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPageNum",
+      version: "2022-07-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPageNumResponse>(await this.callApi(params, req, runtime), new GetPageNumResponse({}));
+  }
+
+  async getPageNum(request: GetPageNumRequest): Promise<GetPageNumResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPageNumWithOptions(request, runtime);
   }
 
   async getTableUnderstandingResultWithOptions(request: GetTableUnderstandingResultRequest, runtime: $Util.RuntimeOptions): Promise<GetTableUnderstandingResultResponse> {
