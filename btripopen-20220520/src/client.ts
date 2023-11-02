@@ -36791,7 +36791,9 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $tea.Model {
   checkOut?: number;
   city?: string;
   cityAdCode?: string;
+  hotelAddress?: string;
   hotelName?: string;
+  hotelPhone?: string;
   hotelSupportVatInvoiceType?: number;
   night?: number;
   roomNum?: number;
@@ -36802,7 +36804,9 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $tea.Model {
       checkOut: 'check_out',
       city: 'city',
       cityAdCode: 'city_ad_code',
+      hotelAddress: 'hotel_address',
       hotelName: 'hotel_name',
+      hotelPhone: 'hotel_phone',
       hotelSupportVatInvoiceType: 'hotel_support_vat_invoice_type',
       night: 'night',
       roomNum: 'room_num',
@@ -36816,7 +36820,9 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $tea.Model {
       checkOut: 'number',
       city: 'string',
       cityAdCode: 'string',
+      hotelAddress: 'string',
       hotelName: 'string',
+      hotelPhone: 'string',
       hotelSupportVatInvoiceType: 'number',
       night: 'number',
       roomNum: 'number',
@@ -36858,6 +36864,7 @@ export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
   corpName?: string;
   departId?: string;
   departName?: string;
+  exceedApplyNos?: string[];
   extendField?: string;
   gmtCreate?: number;
   gmtModified?: number;
@@ -36878,6 +36885,7 @@ export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
       corpName: 'corp_name',
       departId: 'depart_id',
       departName: 'depart_name',
+      exceedApplyNos: 'exceed_apply_nos',
       extendField: 'extend_field',
       gmtCreate: 'gmt_create',
       gmtModified: 'gmt_modified',
@@ -36901,6 +36909,7 @@ export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
       corpName: 'string',
       departId: 'string',
       departName: 'string',
+      exceedApplyNos: { 'type': 'array', 'itemType': 'string' },
       extendField: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
