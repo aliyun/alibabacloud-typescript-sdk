@@ -513,9 +513,9 @@ export class Ticket extends $tea.Model {
   extra?: string;
   name?: string;
   number?: number;
-  policy?: string;
   ticket?: string;
   ticketId?: string;
+  type?: string;
   unlimitedExpiration?: boolean;
   unlimitedNumber?: boolean;
   usedNumber?: number;
@@ -529,9 +529,9 @@ export class Ticket extends $tea.Model {
       extra: 'extra',
       name: 'name',
       number: 'number',
-      policy: 'policy',
       ticket: 'ticket',
       ticketId: 'ticketId',
+      type: 'type',
       unlimitedExpiration: 'unlimitedExpiration',
       unlimitedNumber: 'unlimitedNumber',
       usedNumber: 'usedNumber',
@@ -548,9 +548,9 @@ export class Ticket extends $tea.Model {
       extra: 'string',
       name: 'string',
       number: 'number',
-      policy: 'string',
       ticket: 'string',
       ticketId: 'string',
+      type: 'string',
       unlimitedExpiration: 'boolean',
       unlimitedNumber: 'boolean',
       usedNumber: 'number',
@@ -1765,53 +1765,6 @@ export class CreateMachineGroupResponse extends $tea.Model {
   }
 }
 
-export class CreateOdpsShipperRequest extends $tea.Model {
-  shipperName?: string;
-  targetConfiguration?: CreateOdpsShipperRequestTargetConfiguration;
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      shipperName: 'shipperName',
-      targetConfiguration: 'targetConfiguration',
-      targetType: 'targetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      shipperName: 'string',
-      targetConfiguration: CreateOdpsShipperRequestTargetConfiguration,
-      targetType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOdpsShipperResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateOssExternalStoreRequest extends $tea.Model {
   externalStoreName?: string;
   parameter?: CreateOssExternalStoreRequestParameter;
@@ -1838,53 +1791,6 @@ export class CreateOssExternalStoreRequest extends $tea.Model {
 }
 
 export class CreateOssExternalStoreResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOssShipperRequest extends $tea.Model {
-  shipperName?: string;
-  targetConfiguration?: CreateOssShipperRequestTargetConfiguration;
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      shipperName: 'shipperName',
-      targetConfiguration: 'targetConfiguration',
-      targetType: 'targetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      shipperName: 'string',
-      targetConfiguration: CreateOssShipperRequestTargetConfiguration,
-      targetType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOssShipperResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -4146,7 +4052,7 @@ export class ListConfigRequest extends $tea.Model {
 }
 
 export class ListConfigResponseBody extends $tea.Model {
-  configs?: LogtailConfig[];
+  configs?: string[];
   count?: number;
   total?: number;
   static names(): { [key: string]: string } {
@@ -4159,7 +4065,7 @@ export class ListConfigResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      configs: { 'type': 'array', 'itemType': LogtailConfig },
+      configs: { 'type': 'array', 'itemType': 'string' },
       count: 'number',
       total: 'number',
     };
@@ -5064,53 +4970,6 @@ export class ListTagResourcesResponse extends $tea.Model {
   }
 }
 
-export class PullDataRequest extends $tea.Model {
-  count?: string;
-  cursor?: string;
-  endCursor?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'count',
-      cursor: 'cursor',
-      endCursor: 'endCursor',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'string',
-      cursor: 'string',
-      endCursor: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PullDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class PutAnnotationDataRequest extends $tea.Model {
   annotationdataId?: string;
   mlDataParam?: MLDataParam;
@@ -5436,7 +5295,7 @@ export class TagResourcesResponse extends $tea.Model {
 
 export class UntagResourcesRequest extends $tea.Model {
   all?: boolean;
-  resourceId?: string;
+  resourceId?: string[];
   resourceType?: string;
   tags?: string[];
   static names(): { [key: string]: string } {
@@ -5451,7 +5310,7 @@ export class UntagResourcesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       all: 'boolean',
-      resourceId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
       tags: { 'type': 'array', 'itemType': 'string' },
     };
@@ -6075,53 +5934,6 @@ export class UpdateMachineGroupMachineResponse extends $tea.Model {
   }
 }
 
-export class UpdateOdpsShipperRequest extends $tea.Model {
-  shipperName?: string;
-  targetConfiguration?: UpdateOdpsShipperRequestTargetConfiguration;
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      shipperName: 'shipperName',
-      targetConfiguration: 'targetConfiguration',
-      targetType: 'targetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      shipperName: 'string',
-      targetConfiguration: UpdateOdpsShipperRequestTargetConfiguration,
-      targetType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateOdpsShipperResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateOssExternalStoreRequest extends $tea.Model {
   externalStoreName?: string;
   parameter?: UpdateOssExternalStoreRequestParameter;
@@ -6148,53 +5960,6 @@ export class UpdateOssExternalStoreRequest extends $tea.Model {
 }
 
 export class UpdateOssExternalStoreResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateOssShipperRequest extends $tea.Model {
-  shipperName?: string;
-  targetConfiguration?: UpdateOssShipperRequestTargetConfiguration;
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      shipperName: 'shipperName',
-      targetConfiguration: 'targetConfiguration',
-      targetType: 'targetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      shipperName: 'string',
-      targetConfiguration: UpdateOssShipperRequestTargetConfiguration,
-      targetType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateOssShipperResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -6806,46 +6571,6 @@ export class CreateMachineGroupRequestGroupAttribute extends $tea.Model {
   }
 }
 
-export class CreateOdpsShipperRequestTargetConfiguration extends $tea.Model {
-  bufferInterval?: number;
-  enable?: boolean;
-  fields?: string[];
-  odpsEndpoint?: string;
-  odpsProject?: string;
-  odpsTable?: string;
-  partitionColumn?: string[];
-  partitionTimeFormat?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bufferInterval: 'bufferInterval',
-      enable: 'enable',
-      fields: 'fields',
-      odpsEndpoint: 'odpsEndpoint',
-      odpsProject: 'odpsProject',
-      odpsTable: 'odpsTable',
-      partitionColumn: 'partitionColumn',
-      partitionTimeFormat: 'partitionTimeFormat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bufferInterval: 'number',
-      enable: 'boolean',
-      fields: { 'type': 'array', 'itemType': 'string' },
-      odpsEndpoint: 'string',
-      odpsProject: 'string',
-      odpsTable: 'string',
-      partitionColumn: { 'type': 'array', 'itemType': 'string' },
-      partitionTimeFormat: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateOssExternalStoreRequestParameterColumns extends $tea.Model {
   name?: string;
   type?: string;
@@ -6894,74 +6619,6 @@ export class CreateOssExternalStoreRequestParameter extends $tea.Model {
       columns: { 'type': 'array', 'itemType': CreateOssExternalStoreRequestParameterColumns },
       endpoint: 'string',
       objects: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOssShipperRequestTargetConfigurationStorage extends $tea.Model {
-  detail?: { [key: string]: any };
-  format?: string;
-  static names(): { [key: string]: string } {
-    return {
-      detail: 'detail',
-      format: 'format',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      format: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOssShipperRequestTargetConfiguration extends $tea.Model {
-  bufferInterval?: number;
-  bufferSize?: number;
-  compressType?: string;
-  enable?: boolean;
-  ossBucket?: string;
-  ossPrefix?: string;
-  pathFormat?: string;
-  roleArn?: string;
-  storage?: CreateOssShipperRequestTargetConfigurationStorage;
-  timeZone?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bufferInterval: 'bufferInterval',
-      bufferSize: 'bufferSize',
-      compressType: 'compressType',
-      enable: 'enable',
-      ossBucket: 'ossBucket',
-      ossPrefix: 'ossPrefix',
-      pathFormat: 'pathFormat',
-      roleArn: 'roleArn',
-      storage: 'storage',
-      timeZone: 'timeZone',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bufferInterval: 'number',
-      bufferSize: 'number',
-      compressType: 'string',
-      enable: 'boolean',
-      ossBucket: 'string',
-      ossPrefix: 'string',
-      pathFormat: 'string',
-      roleArn: 'string',
-      storage: CreateOssShipperRequestTargetConfigurationStorage,
-      timeZone: 'string',
     };
   }
 
@@ -7644,46 +7301,6 @@ export class UpdateMachineGroupRequestGroupAttribute extends $tea.Model {
   }
 }
 
-export class UpdateOdpsShipperRequestTargetConfiguration extends $tea.Model {
-  bufferInterval?: number;
-  enable?: boolean;
-  fields?: string[];
-  odpsEndpoint?: string;
-  odpsProject?: string;
-  odpsTable?: string;
-  partitionColumn?: string[];
-  partitionTimeFormat?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bufferInterval: 'bufferInterval',
-      enable: 'enable',
-      fields: 'fields',
-      odpsEndpoint: 'odpsEndpoint',
-      odpsProject: 'odpsProject',
-      odpsTable: 'odpsTable',
-      partitionColumn: 'partitionColumn',
-      partitionTimeFormat: 'partitionTimeFormat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bufferInterval: 'number',
-      enable: 'boolean',
-      fields: { 'type': 'array', 'itemType': 'string' },
-      odpsEndpoint: 'string',
-      odpsProject: 'string',
-      odpsTable: 'string',
-      partitionColumn: { 'type': 'array', 'itemType': 'string' },
-      partitionTimeFormat: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateOssExternalStoreRequestParameterColumns extends $tea.Model {
   name?: string;
   type?: string;
@@ -7732,74 +7349,6 @@ export class UpdateOssExternalStoreRequestParameter extends $tea.Model {
       columns: { 'type': 'array', 'itemType': UpdateOssExternalStoreRequestParameterColumns },
       endpoint: 'string',
       objects: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateOssShipperRequestTargetConfigurationStorage extends $tea.Model {
-  detail?: { [key: string]: any };
-  format?: string;
-  static names(): { [key: string]: string } {
-    return {
-      detail: 'detail',
-      format: 'format',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      format: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateOssShipperRequestTargetConfiguration extends $tea.Model {
-  bufferInterval?: number;
-  bufferSize?: number;
-  compressType?: string;
-  enable?: boolean;
-  ossBucket?: string;
-  ossPrefix?: string;
-  pathFormat?: string;
-  roleArn?: string;
-  storage?: UpdateOssShipperRequestTargetConfigurationStorage;
-  timeZone?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bufferInterval: 'bufferInterval',
-      bufferSize: 'bufferSize',
-      compressType: 'compressType',
-      enable: 'enable',
-      ossBucket: 'ossBucket',
-      ossPrefix: 'ossPrefix',
-      pathFormat: 'pathFormat',
-      roleArn: 'roleArn',
-      storage: 'storage',
-      timeZone: 'timeZone',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bufferInterval: 'number',
-      bufferSize: 'number',
-      compressType: 'string',
-      enable: 'boolean',
-      ossBucket: 'string',
-      ossPrefix: 'string',
-      pathFormat: 'string',
-      roleArn: 'string',
-      storage: UpdateOssShipperRequestTargetConfigurationStorage,
-      timeZone: 'string',
     };
   }
 
@@ -8515,48 +8064,6 @@ export default class Client extends OpenApi {
     return await this.createMachineGroupWithOptions(project, request, headers, runtime);
   }
 
-  async createOdpsShipperWithOptions(project: string, logstore: string, request: CreateOdpsShipperRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOdpsShipperResponse> {
-    Util.validateModel(request);
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["project"] = project;
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.shipperName)) {
-      body["shipperName"] = request.shipperName;
-    }
-
-    if (!Util.isUnset(request.targetConfiguration)) {
-      body["targetConfiguration"] = request.targetConfiguration;
-    }
-
-    if (!Util.isUnset(request.targetType)) {
-      body["targetType"] = request.targetType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateOdpsShipper",
-      version: "2020-12-30",
-      protocol: "HTTPS",
-      pathname: `/logstores/${logstore}/shipper`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<CreateOdpsShipperResponse>(await this.execute(params, req, runtime), new CreateOdpsShipperResponse({}));
-  }
-
-  async createOdpsShipper(project: string, logstore: string, request: CreateOdpsShipperRequest): Promise<CreateOdpsShipperResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createOdpsShipperWithOptions(project, logstore, request, headers, runtime);
-  }
-
   async createOssExternalStoreWithOptions(project: string, request: CreateOssExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOssExternalStoreResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -8597,48 +8104,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createOssExternalStoreWithOptions(project, request, headers, runtime);
-  }
-
-  async createOssShipperWithOptions(project: string, logstore: string, request: CreateOssShipperRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOssShipperResponse> {
-    Util.validateModel(request);
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["project"] = project;
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.shipperName)) {
-      body["shipperName"] = request.shipperName;
-    }
-
-    if (!Util.isUnset(request.targetConfiguration)) {
-      body["targetConfiguration"] = request.targetConfiguration;
-    }
-
-    if (!Util.isUnset(request.targetType)) {
-      body["targetType"] = request.targetType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateOssShipper",
-      version: "2020-12-30",
-      protocol: "HTTPS",
-      pathname: `/logstores/${logstore}/shipper`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<CreateOssShipperResponse>(await this.execute(params, req, runtime), new CreateOssShipperResponse({}));
-  }
-
-  async createOssShipper(project: string, logstore: string, request: CreateOssShipperRequest): Promise<CreateOssShipperResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createOssShipperWithOptions(project, logstore, request, headers, runtime);
   }
 
   async createProjectWithOptions(request: CreateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
@@ -10929,48 +10394,6 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, headers, runtime);
   }
 
-  async pullDataWithOptions(project: string, logstore: string, shard: string, request: PullDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PullDataResponse> {
-    Util.validateModel(request);
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["project"] = project;
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.count)) {
-      query["count"] = request.count;
-    }
-
-    if (!Util.isUnset(request.cursor)) {
-      query["cursor"] = request.cursor;
-    }
-
-    if (!Util.isUnset(request.endCursor)) {
-      query["endCursor"] = request.endCursor;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "PullData",
-      version: "2020-12-30",
-      protocol: "HTTPS",
-      pathname: `/logstores/${logstore}/shards/${shard}?type=log`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<PullDataResponse>(await this.execute(params, req, runtime), new PullDataResponse({}));
-  }
-
-  async pullData(project: string, logstore: string, shard: string, request: PullDataRequest): Promise<PullDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.pullDataWithOptions(project, logstore, shard, request, headers, runtime);
-  }
-
   async putAnnotationDataWithOptions(datasetId: string, request: PutAnnotationDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutAnnotationDataResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11782,48 +11205,6 @@ export default class Client extends OpenApi {
     return await this.updateMachineGroupMachineWithOptions(project, machineGroup, request, headers, runtime);
   }
 
-  async updateOdpsShipperWithOptions(project: string, logstore: string, shipperName: string, request: UpdateOdpsShipperRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateOdpsShipperResponse> {
-    Util.validateModel(request);
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["project"] = project;
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.shipperName)) {
-      body["shipperName"] = request.shipperName;
-    }
-
-    if (!Util.isUnset(request.targetConfiguration)) {
-      body["targetConfiguration"] = request.targetConfiguration;
-    }
-
-    if (!Util.isUnset(request.targetType)) {
-      body["targetType"] = request.targetType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateOdpsShipper",
-      version: "2020-12-30",
-      protocol: "HTTPS",
-      pathname: `/logstores/${logstore}/shipper/${shipperName}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<UpdateOdpsShipperResponse>(await this.execute(params, req, runtime), new UpdateOdpsShipperResponse({}));
-  }
-
-  async updateOdpsShipper(project: string, logstore: string, shipperName: string, request: UpdateOdpsShipperRequest): Promise<UpdateOdpsShipperResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateOdpsShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
-  }
-
   async updateOssExternalStoreWithOptions(project: string, externalStoreName: string, request: UpdateOssExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateOssExternalStoreResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -11864,48 +11245,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateOssExternalStoreWithOptions(project, externalStoreName, request, headers, runtime);
-  }
-
-  async updateOssShipperWithOptions(project: string, logstore: string, shipperName: string, request: UpdateOssShipperRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateOssShipperResponse> {
-    Util.validateModel(request);
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["project"] = project;
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.shipperName)) {
-      body["shipperName"] = request.shipperName;
-    }
-
-    if (!Util.isUnset(request.targetConfiguration)) {
-      body["targetConfiguration"] = request.targetConfiguration;
-    }
-
-    if (!Util.isUnset(request.targetType)) {
-      body["targetType"] = request.targetType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateOssShipper",
-      version: "2020-12-30",
-      protocol: "HTTPS",
-      pathname: `/logstores/${logstore}/shipper/${shipperName}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<UpdateOssShipperResponse>(await this.execute(params, req, runtime), new UpdateOssShipperResponse({}));
-  }
-
-  async updateOssShipper(project: string, logstore: string, shipperName: string, request: UpdateOssShipperRequest): Promise<UpdateOssShipperResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateOssShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
   }
 
   async updateProjectWithOptions(project: string, request: UpdateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
