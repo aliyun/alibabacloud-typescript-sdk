@@ -348,6 +348,145 @@ export class AddClientUserDefineRuleResponse extends $tea.Model {
   }
 }
 
+export class AddContainerDefenseRuleRequest extends $tea.Model {
+  description?: string;
+  ruleAction?: number;
+  ruleId?: number;
+  ruleName?: string;
+  ruleSwitch?: number;
+  ruleType?: number;
+  scope?: AddContainerDefenseRuleRequestScope[];
+  whitelist?: AddContainerDefenseRuleRequestWhitelist;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      ruleAction: 'RuleAction',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      ruleSwitch: 'RuleSwitch',
+      ruleType: 'RuleType',
+      scope: 'Scope',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      ruleAction: 'number',
+      ruleId: 'number',
+      ruleName: 'string',
+      ruleSwitch: 'number',
+      ruleType: 'number',
+      scope: { 'type': 'array', 'itemType': AddContainerDefenseRuleRequestScope },
+      whitelist: AddContainerDefenseRuleRequestWhitelist,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddContainerDefenseRuleShrinkRequest extends $tea.Model {
+  description?: string;
+  ruleAction?: number;
+  ruleId?: number;
+  ruleName?: string;
+  ruleSwitch?: number;
+  ruleType?: number;
+  scope?: AddContainerDefenseRuleShrinkRequestScope[];
+  whitelistShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      ruleAction: 'RuleAction',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      ruleSwitch: 'RuleSwitch',
+      ruleType: 'RuleType',
+      scope: 'Scope',
+      whitelistShrink: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      ruleAction: 'number',
+      ruleId: 'number',
+      ruleName: 'string',
+      ruleSwitch: 'number',
+      ruleType: 'number',
+      scope: { 'type': 'array', 'itemType': AddContainerDefenseRuleShrinkRequestScope },
+      whitelistShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddContainerDefenseRuleResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddContainerDefenseRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddContainerDefenseRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddContainerDefenseRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddImageEventOperationRequest extends $tea.Model {
   conditions?: string;
   eventKey?: string;
@@ -3963,6 +4102,156 @@ export class CreateOrUpdateDingTalkResponse extends $tea.Model {
   }
 }
 
+export class CreateOssBucketScanTaskRequest extends $tea.Model {
+  bucketNameList?: string[];
+  excludeKeySuffixList?: string[];
+  keySuffixList?: string[];
+  scanMode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucketNameList: 'BucketNameList',
+      excludeKeySuffixList: 'ExcludeKeySuffixList',
+      keySuffixList: 'KeySuffixList',
+      scanMode: 'ScanMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketNameList: { 'type': 'array', 'itemType': 'string' },
+      excludeKeySuffixList: { 'type': 'array', 'itemType': 'string' },
+      keySuffixList: { 'type': 'array', 'itemType': 'string' },
+      scanMode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOssBucketScanTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOssBucketScanTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateOssBucketScanTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOssBucketScanTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOssScanConfigRequest extends $tea.Model {
+  bucketNameList?: string[];
+  enable?: number;
+  endTime?: string;
+  keySuffixList?: string[];
+  scanDayList?: number[];
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucketNameList: 'BucketNameList',
+      enable: 'Enable',
+      endTime: 'EndTime',
+      keySuffixList: 'KeySuffixList',
+      scanDayList: 'ScanDayList',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketNameList: { 'type': 'array', 'itemType': 'string' },
+      enable: 'number',
+      endTime: 'string',
+      keySuffixList: { 'type': 'array', 'itemType': 'string' },
+      scanDayList: { 'type': 'array', 'itemType': 'number' },
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOssScanConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOssScanConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateOssScanConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOssScanConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRestoreJobRequest extends $tea.Model {
   includes?: string;
   snapshotHash?: string;
@@ -4555,6 +4844,75 @@ export class CreateUniRestorePlanResponse extends $tea.Model {
   }
 }
 
+export class CreateVirusScanOnceTaskRequest extends $tea.Model {
+  scanPath?: string[];
+  scanType?: string;
+  selectionKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scanPath: 'ScanPath',
+      scanType: 'ScanType',
+      selectionKey: 'SelectionKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scanPath: { 'type': 'array', 'itemType': 'string' },
+      scanType: 'string',
+      selectionKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVirusScanOnceTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVirusScanOnceTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateVirusScanOnceTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVirusScanOnceTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVulAutoRepairConfigRequest extends $tea.Model {
   reason?: string;
   type?: string;
@@ -4961,6 +5319,84 @@ export class DeleteClientUserDefineRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteClientUserDefineRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteContainerDefenseRuleRequest extends $tea.Model {
+  ruleIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      ruleIds: 'RuleIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteContainerDefenseRuleResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteContainerDefenseRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteContainerDefenseRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteContainerDefenseRuleResponseBody,
     };
   }
 
@@ -26986,6 +27422,72 @@ export class GetCheckRiskStatisticsResponse extends $tea.Model {
   }
 }
 
+export class GetCheckSaleRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckSaleResponseBody extends $tea.Model {
+  checkSale?: GetCheckSaleResponseBodyCheckSale;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkSale: 'CheckSale',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkSale: GetCheckSaleResponseBodyCheckSale,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckSaleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCheckSaleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCheckSaleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCheckSummaryRequest extends $tea.Model {
   lang?: string;
   resourceDirectoryAccountId?: string;
@@ -27857,6 +28359,93 @@ export class GetFileDetectApiInvokeInfoResponse extends $tea.Model {
   }
 }
 
+export class GetFileDetectReportRequest extends $tea.Model {
+  eventId?: number;
+  field?: string;
+  fileHash?: string;
+  lang?: string;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      field: 'Field',
+      fileHash: 'FileHash',
+      lang: 'Lang',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'number',
+      field: 'string',
+      fileHash: 'string',
+      lang: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDetectReportResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetFileDetectReportResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetFileDetectReportResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDetectReportResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetFileDetectReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFileDetectReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFileDetectResultRequest extends $tea.Model {
   hashKeyList?: string[];
   sourceIp?: string;
@@ -28486,6 +29075,93 @@ export class GetHoneypotNodeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetHoneypotNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHoneypotNodeMetricListRequest extends $tea.Model {
+  endTime?: string;
+  express?: string;
+  length?: string;
+  metricName?: string;
+  namespace?: string;
+  nodeId?: string;
+  period?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      express: 'Express',
+      length: 'Length',
+      metricName: 'MetricName',
+      namespace: 'Namespace',
+      nodeId: 'NodeId',
+      period: 'Period',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      express: 'string',
+      length: 'string',
+      metricName: 'string',
+      namespace: 'string',
+      nodeId: 'string',
+      period: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHoneypotNodeMetricListResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHoneypotNodeMetricListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetHoneypotNodeMetricListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetHoneypotNodeMetricListResponseBody,
     };
   }
 
@@ -29307,6 +29983,75 @@ export class GetModuleConfigResponse extends $tea.Model {
   }
 }
 
+export class GetObjectScanEventRequest extends $tea.Model {
+  eventId?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetObjectScanEventResponseBody extends $tea.Model {
+  data?: GetObjectScanEventResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetObjectScanEventResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetObjectScanEventResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetObjectScanEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetObjectScanEventResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOnceTaskResultInfoRequest extends $tea.Model {
   taskId?: string;
   taskName?: string;
@@ -29822,6 +30567,119 @@ export class GetOpaStrategyTemplateSummaryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetOpaStrategyTemplateSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssBucketScanStatisticRequest extends $tea.Model {
+  bucketNameList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      bucketNameList: 'BucketNameList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketNameList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssBucketScanStatisticResponseBody extends $tea.Model {
+  data?: GetOssBucketScanStatisticResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetOssBucketScanStatisticResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssBucketScanStatisticResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetOssBucketScanStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOssBucketScanStatisticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssScanConfigResponseBody extends $tea.Model {
+  data?: GetOssScanConfigResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetOssScanConfigResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssScanConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetOssScanConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOssScanConfigResponseBody,
     };
   }
 
@@ -30417,6 +31275,119 @@ export class GetUserLangResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetUserLangResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVirusScanConfigRequest extends $tea.Model {
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVirusScanConfigResponseBody extends $tea.Model {
+  data?: GetVirusScanConfigResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetVirusScanConfigResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVirusScanConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetVirusScanConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVirusScanConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVirusScanLatestTaskStatisticResponseBody extends $tea.Model {
+  data?: GetVirusScanLatestTaskStatisticResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetVirusScanLatestTaskStatisticResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVirusScanLatestTaskStatisticResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetVirusScanLatestTaskStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVirusScanLatestTaskStatisticResponseBody,
     };
   }
 
@@ -33578,6 +34549,99 @@ export class ListFileProtectRuleResponse extends $tea.Model {
   }
 }
 
+export class ListGroupsRequest extends $tea.Model {
+  currentPage?: number;
+  lang?: string;
+  nextToken?: string;
+  pageSize?: number;
+  useNextToken?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      lang: 'Lang',
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
+      useNextToken: 'UseNextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      lang: 'string',
+      nextToken: 'string',
+      pageSize: 'number',
+      useNextToken: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  list?: ListGroupsResponseBodyList[];
+  message?: string;
+  pageInfo?: ListGroupsResponseBodyPageInfo;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      list: 'List',
+      message: 'Message',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      list: { 'type': 'array', 'itemType': ListGroupsResponseBodyList },
+      message: 'string',
+      pageInfo: ListGroupsResponseBodyPageInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHoneypotRequest extends $tea.Model {
   currentPage?: number;
   honeypotIds?: string[];
@@ -34894,6 +35958,261 @@ export class ListInterceptionTargetPageResponse extends $tea.Model {
   }
 }
 
+export class ListObjectScanEventRequest extends $tea.Model {
+  bucketName?: string;
+  currentPage?: number;
+  eventName?: string;
+  lang?: string;
+  md5?: string;
+  ossKey?: string;
+  pageSize?: number;
+  riskLevel?: string;
+  source?: string;
+  timeEnd?: number;
+  timeStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      currentPage: 'CurrentPage',
+      eventName: 'EventName',
+      lang: 'Lang',
+      md5: 'Md5',
+      ossKey: 'OssKey',
+      pageSize: 'PageSize',
+      riskLevel: 'RiskLevel',
+      source: 'Source',
+      timeEnd: 'TimeEnd',
+      timeStart: 'TimeStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      currentPage: 'number',
+      eventName: 'string',
+      lang: 'string',
+      md5: 'string',
+      ossKey: 'string',
+      pageSize: 'number',
+      riskLevel: 'string',
+      source: 'string',
+      timeEnd: 'number',
+      timeStart: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListObjectScanEventResponseBody extends $tea.Model {
+  data?: ListObjectScanEventResponseBodyData[];
+  pageInfo?: ListObjectScanEventResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListObjectScanEventResponseBodyData },
+      pageInfo: ListObjectScanEventResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListObjectScanEventResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListObjectScanEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListObjectScanEventResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssBucketRequest extends $tea.Model {
+  bucketName?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssBucketResponseBody extends $tea.Model {
+  data?: ListOssBucketResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListOssBucketResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssBucketResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListOssBucketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListOssBucketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssBucketScanInfoRequest extends $tea.Model {
+  bucketName?: string;
+  currentPage?: number;
+  fuzzBucketName?: string;
+  hasRisk?: number;
+  lang?: string;
+  pageSize?: number;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      currentPage: 'CurrentPage',
+      fuzzBucketName: 'FuzzBucketName',
+      hasRisk: 'HasRisk',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      currentPage: 'number',
+      fuzzBucketName: 'string',
+      hasRisk: 'number',
+      lang: 'string',
+      pageSize: 'number',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssBucketScanInfoResponseBody extends $tea.Model {
+  data?: ListOssBucketScanInfoResponseBodyData[];
+  pageInfo?: ListOssBucketScanInfoResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListOssBucketScanInfoResponseBodyData },
+      pageInfo: ListOssBucketScanInfoResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssBucketScanInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListOssBucketScanInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListOssBucketScanInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPluginForUuidRequest extends $tea.Model {
   types?: string[];
   uuid?: string;
@@ -35346,6 +36665,53 @@ export class ListRuleTargetAllResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListRuleTargetAllResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupportObjectSuffixResponseBody extends $tea.Model {
+  data?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupportObjectSuffixResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSupportObjectSuffixResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSupportObjectSuffixResponseBody,
     };
   }
 
@@ -35810,6 +37176,270 @@ export class ListUuidsByWebPathResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListUuidsByWebPathResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanMachineRequest extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  remark?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      remark: 'Remark',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      remark: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanMachineResponseBody extends $tea.Model {
+  data?: ListVirusScanMachineResponseBodyData[];
+  pageInfo?: ListVirusScanMachineResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListVirusScanMachineResponseBodyData },
+      pageInfo: ListVirusScanMachineResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanMachineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListVirusScanMachineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVirusScanMachineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanMachineEventRequest extends $tea.Model {
+  currentPage?: number;
+  operateTaskId?: string;
+  pageSize?: number;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      operateTaskId: 'OperateTaskId',
+      pageSize: 'PageSize',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      operateTaskId: 'string',
+      pageSize: 'number',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanMachineEventResponseBody extends $tea.Model {
+  data?: ListVirusScanMachineEventResponseBodyData[];
+  pageInfo?: ListVirusScanMachineEventResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListVirusScanMachineEventResponseBodyData },
+      pageInfo: ListVirusScanMachineEventResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanMachineEventResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListVirusScanMachineEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVirusScanMachineEventResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanTaskRequest extends $tea.Model {
+  currentPage?: number;
+  endTime?: number;
+  internetIp?: string;
+  intranetIp?: string;
+  lang?: string;
+  machineName?: string;
+  pageSize?: number;
+  rootTask?: boolean;
+  rootTaskId?: string;
+  scanType?: string;
+  startTime?: number;
+  status?: number;
+  statusList?: number[];
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      endTime: 'EndTime',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
+      lang: 'Lang',
+      machineName: 'MachineName',
+      pageSize: 'PageSize',
+      rootTask: 'RootTask',
+      rootTaskId: 'RootTaskId',
+      scanType: 'ScanType',
+      startTime: 'StartTime',
+      status: 'Status',
+      statusList: 'StatusList',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      endTime: 'number',
+      internetIp: 'string',
+      intranetIp: 'string',
+      lang: 'string',
+      machineName: 'string',
+      pageSize: 'number',
+      rootTask: 'boolean',
+      rootTaskId: 'string',
+      scanType: 'string',
+      startTime: 'number',
+      status: 'number',
+      statusList: { 'type': 'array', 'itemType': 'number' },
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanTaskResponseBody extends $tea.Model {
+  list?: ListVirusScanTaskResponseBodyList[];
+  pageInfo?: ListVirusScanTaskResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListVirusScanTaskResponseBodyList },
+      pageInfo: ListVirusScanTaskResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListVirusScanTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVirusScanTaskResponseBody,
     };
   }
 
@@ -40507,6 +42137,72 @@ export class OperateAgentClientInstallResponse extends $tea.Model {
   }
 }
 
+export class OperateBucketScanTaskRequest extends $tea.Model {
+  bucketName?: string;
+  operateCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      operateCode: 'OperateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      operateCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateBucketScanTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateBucketScanTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: OperateBucketScanTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OperateBucketScanTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OperateCommonOverallConfigRequest extends $tea.Model {
   config?: string;
   sourceIp?: string;
@@ -42392,6 +44088,50 @@ export class RefreshContainerAssetsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RefreshContainerAssetsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshOssBucketScanInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshOssBucketScanInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RefreshOssBucketScanInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RefreshOssBucketScanInfoResponseBody,
     };
   }
 
@@ -45192,6 +46932,150 @@ export class UpdateJenkinsImageRegistryPersistenceDayResponse extends $tea.Model
   }
 }
 
+export class UpdateOssScanConfigRequest extends $tea.Model {
+  bucketNameList?: string[];
+  enable?: number;
+  endTime?: string;
+  keySuffixList?: string[];
+  scanDayList?: number[];
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucketNameList: 'BucketNameList',
+      enable: 'Enable',
+      endTime: 'EndTime',
+      keySuffixList: 'KeySuffixList',
+      scanDayList: 'ScanDayList',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketNameList: { 'type': 'array', 'itemType': 'string' },
+      enable: 'number',
+      endTime: 'string',
+      keySuffixList: { 'type': 'array', 'itemType': 'string' },
+      scanDayList: { 'type': 'array', 'itemType': 'number' },
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOssScanConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOssScanConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateOssScanConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateOssScanConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSelectionKeyByTypeRequest extends $tea.Model {
+  businessType?: string;
+  selectionKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      selectionKey: 'SelectionKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      selectionKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSelectionKeyByTypeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSelectionKeyByTypeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSelectionKeyByTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSelectionKeyByTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeBackupPolicyVersionRequest extends $tea.Model {
   id?: number;
   static names(): { [key: string]: string } {
@@ -45498,6 +47382,81 @@ export class AddClientUserDefineRuleResponseBodyUserDefineRuleAddResult extends 
       id: 'number',
       platform: 'string',
       switchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddContainerDefenseRuleRequestScope extends $tea.Model {
+  allNamespace?: number;
+  clusterId?: string;
+  namespaces?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allNamespace: 'AllNamespace',
+      clusterId: 'ClusterId',
+      namespaces: 'Namespaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allNamespace: 'number',
+      clusterId: 'string',
+      namespaces: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddContainerDefenseRuleRequestWhitelist extends $tea.Model {
+  hash?: string[];
+  image?: string[];
+  path?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      hash: 'Hash',
+      image: 'Image',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hash: { 'type': 'array', 'itemType': 'string' },
+      image: { 'type': 'array', 'itemType': 'string' },
+      path: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddContainerDefenseRuleShrinkRequestScope extends $tea.Model {
+  allNamespace?: number;
+  clusterId?: string;
+  namespaces?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allNamespace: 'AllNamespace',
+      clusterId: 'ClusterId',
+      namespaces: 'Namespaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allNamespace: 'number',
+      clusterId: 'string',
+      namespaces: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -59062,6 +61021,34 @@ export class GetCheckRiskStatisticsResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetCheckSaleResponseBodyCheckSale extends $tea.Model {
+  consumeCount?: number;
+  loyalUser?: boolean;
+  purchaseCount?: number;
+  saleUserType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      consumeCount: 'ConsumeCount',
+      loyalUser: 'LoyalUser',
+      purchaseCount: 'PurchaseCount',
+      saleUserType: 'SaleUserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumeCount: 'number',
+      loyalUser: 'boolean',
+      purchaseCount: 'number',
+      saleUserType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCheckSummaryResponseBodySummarysStandards extends $tea.Model {
   failCount?: number;
   id?: number;
@@ -59989,6 +61976,49 @@ export class GetFileDetectApiInvokeInfoResponseBodyData extends $tea.Model {
       remainAuthCount: 'number',
       saleVersion: 'number',
       timeUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDetectReportResponseBodyData extends $tea.Model {
+  basic?: string;
+  fileHash?: string;
+  filename?: string;
+  hasData?: boolean;
+  intelligences?: string;
+  sandbox?: string;
+  showTab?: boolean;
+  threatLevel?: number;
+  threatTypes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      basic: 'Basic',
+      fileHash: 'FileHash',
+      filename: 'Filename',
+      hasData: 'HasData',
+      intelligences: 'Intelligences',
+      sandbox: 'Sandbox',
+      showTab: 'ShowTab',
+      threatLevel: 'ThreatLevel',
+      threatTypes: 'ThreatTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basic: 'string',
+      fileHash: 'string',
+      filename: 'string',
+      hasData: 'boolean',
+      intelligences: 'string',
+      sandbox: 'string',
+      showTab: 'boolean',
+      threatLevel: 'number',
+      threatTypes: 'string',
     };
   }
 
@@ -61043,6 +63073,68 @@ export class GetModuleConfigResponseBodyPageInfo extends $tea.Model {
   }
 }
 
+export class GetObjectScanEventResponseBodyDataDetails extends $tea.Model {
+  infoType?: string;
+  name?: string;
+  nameDisplay?: string;
+  type?: string;
+  value?: string;
+  valueDisplay?: string;
+  static names(): { [key: string]: string } {
+    return {
+      infoType: 'InfoType',
+      name: 'Name',
+      nameDisplay: 'NameDisplay',
+      type: 'Type',
+      value: 'Value',
+      valueDisplay: 'ValueDisplay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      infoType: 'string',
+      name: 'string',
+      nameDisplay: 'string',
+      type: 'string',
+      value: 'string',
+      valueDisplay: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetObjectScanEventResponseBodyData extends $tea.Model {
+  details?: GetObjectScanEventResponseBodyDataDetails[];
+  eventName?: string;
+  fileName?: string;
+  md5?: string;
+  static names(): { [key: string]: string } {
+    return {
+      details: 'Details',
+      eventName: 'EventName',
+      fileName: 'FileName',
+      md5: 'Md5',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      details: { 'type': 'array', 'itemType': GetObjectScanEventResponseBodyDataDetails },
+      eventName: 'string',
+      fileName: 'string',
+      md5: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOnceTaskResultInfoResponseBodyTaskInfo extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
@@ -61189,6 +63281,86 @@ export class GetOpaStrategyTemplateSummaryResponseBodyData extends $tea.Model {
       description: 'string',
       templateId: 'number',
       templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssBucketScanStatisticResponseBodyData extends $tea.Model {
+  expireTime?: number;
+  highRisk?: number;
+  lowRisk?: number;
+  mediumRisk?: number;
+  noScanBucket?: number;
+  remainAuth?: number;
+  riskBucket?: number;
+  scanObject?: number;
+  totalBucket?: number;
+  totalObject?: number;
+  static names(): { [key: string]: string } {
+    return {
+      expireTime: 'ExpireTime',
+      highRisk: 'HighRisk',
+      lowRisk: 'LowRisk',
+      mediumRisk: 'MediumRisk',
+      noScanBucket: 'NoScanBucket',
+      remainAuth: 'RemainAuth',
+      riskBucket: 'RiskBucket',
+      scanObject: 'ScanObject',
+      totalBucket: 'TotalBucket',
+      totalObject: 'TotalObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireTime: 'number',
+      highRisk: 'number',
+      lowRisk: 'number',
+      mediumRisk: 'number',
+      noScanBucket: 'number',
+      remainAuth: 'number',
+      riskBucket: 'number',
+      scanObject: 'number',
+      totalBucket: 'number',
+      totalObject: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssScanConfigResponseBodyData extends $tea.Model {
+  bucketNameList?: string[];
+  enable?: number;
+  endTime?: string;
+  keySuffixList?: string[];
+  scanDayList?: number[];
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucketNameList: 'BucketNameList',
+      enable: 'Enable',
+      endTime: 'EndTime',
+      keySuffixList: 'KeySuffixList',
+      scanDayList: 'ScanDayList',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketNameList: { 'type': 'array', 'itemType': 'string' },
+      enable: 'number',
+      endTime: 'string',
+      keySuffixList: { 'type': 'array', 'itemType': 'string' },
+      scanDayList: { 'type': 'array', 'itemType': 'number' },
+      startTime: 'string',
     };
   }
 
@@ -61666,6 +63838,110 @@ export class GetUserLangResponseBodySasUserLang extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVirusScanConfigResponseBodyData extends $tea.Model {
+  configId?: string;
+  enable?: number;
+  intervalPeriod?: number;
+  periodUnit?: string;
+  scanPath?: string[];
+  scanType?: string;
+  selectionKey?: string;
+  targetEndTime?: number;
+  targetStartTime?: number;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      intervalPeriod: 'IntervalPeriod',
+      periodUnit: 'PeriodUnit',
+      scanPath: 'ScanPath',
+      scanType: 'ScanType',
+      selectionKey: 'SelectionKey',
+      targetEndTime: 'TargetEndTime',
+      targetStartTime: 'TargetStartTime',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'string',
+      enable: 'number',
+      intervalPeriod: 'number',
+      periodUnit: 'string',
+      scanPath: { 'type': 'array', 'itemType': 'string' },
+      scanType: 'string',
+      selectionKey: 'string',
+      targetEndTime: 'number',
+      targetStartTime: 'number',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVirusScanLatestTaskStatisticResponseBodyData extends $tea.Model {
+  completeMachine?: number;
+  machineName?: string;
+  progress?: string;
+  riskLevel?: string;
+  safeMachine?: number;
+  scanMachine?: number;
+  scanPath?: string[];
+  scanTime?: number;
+  scanType?: string;
+  status?: number;
+  suspiciousCount?: number;
+  suspiciousMachine?: number;
+  taskId?: string;
+  unCompleteMachine?: number;
+  static names(): { [key: string]: string } {
+    return {
+      completeMachine: 'CompleteMachine',
+      machineName: 'MachineName',
+      progress: 'Progress',
+      riskLevel: 'RiskLevel',
+      safeMachine: 'SafeMachine',
+      scanMachine: 'ScanMachine',
+      scanPath: 'ScanPath',
+      scanTime: 'ScanTime',
+      scanType: 'ScanType',
+      status: 'Status',
+      suspiciousCount: 'SuspiciousCount',
+      suspiciousMachine: 'SuspiciousMachine',
+      taskId: 'TaskId',
+      unCompleteMachine: 'UnCompleteMachine',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completeMachine: 'number',
+      machineName: 'string',
+      progress: 'string',
+      riskLevel: 'string',
+      safeMachine: 'number',
+      scanMachine: 'number',
+      scanPath: { 'type': 'array', 'itemType': 'string' },
+      scanTime: 'number',
+      scanType: 'string',
+      status: 'number',
+      suspiciousCount: 'number',
+      suspiciousMachine: 'number',
+      taskId: 'string',
+      unCompleteMachine: 'number',
     };
   }
 
@@ -63628,6 +65904,62 @@ export class ListFileProtectRuleResponseBodyPageInfo extends $tea.Model {
   }
 }
 
+export class ListGroupsResponseBodyList extends $tea.Model {
+  groupFlag?: number;
+  groupId?: number;
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupFlag: 'GroupFlag',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupFlag: 'number',
+      groupId: 'number',
+      groupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsResponseBodyPageInfo extends $tea.Model {
+  count?: number;
+  currentPage?: number;
+  nextToken?: string;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      currentPage: 'CurrentPage',
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      currentPage: 'number',
+      nextToken: 'string',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHoneypotResponseBodyList extends $tea.Model {
   controlNodeName?: string;
   honeypotId?: string;
@@ -64878,6 +67210,234 @@ export class ListInterceptionTargetPageResponseBodyRuleTargetList extends $tea.M
   }
 }
 
+export class ListObjectScanEventResponseBodyDataDetails extends $tea.Model {
+  name?: string;
+  nameDisplay?: string;
+  type?: string;
+  value?: string;
+  valueDisplay?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      nameDisplay: 'NameDisplay',
+      type: 'Type',
+      value: 'Value',
+      valueDisplay: 'ValueDisplay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      nameDisplay: 'string',
+      type: 'string',
+      value: 'string',
+      valueDisplay: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListObjectScanEventResponseBodyData extends $tea.Model {
+  bucketName?: string;
+  details?: ListObjectScanEventResponseBodyDataDetails[];
+  displaySandboxResult?: string;
+  eventId?: number;
+  eventName?: string;
+  filePath?: string;
+  firstTime?: number;
+  lastTime?: number;
+  md5?: string;
+  ossKey?: string;
+  riskLevel?: string;
+  sha1?: string;
+  sha256?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      details: 'Details',
+      displaySandboxResult: 'DisplaySandboxResult',
+      eventId: 'EventId',
+      eventName: 'EventName',
+      filePath: 'FilePath',
+      firstTime: 'FirstTime',
+      lastTime: 'LastTime',
+      md5: 'Md5',
+      ossKey: 'OssKey',
+      riskLevel: 'RiskLevel',
+      sha1: 'Sha1',
+      sha256: 'Sha256',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      details: { 'type': 'array', 'itemType': ListObjectScanEventResponseBodyDataDetails },
+      displaySandboxResult: 'string',
+      eventId: 'number',
+      eventName: 'string',
+      filePath: 'string',
+      firstTime: 'number',
+      lastTime: 'number',
+      md5: 'string',
+      ossKey: 'string',
+      riskLevel: 'string',
+      sha1: 'string',
+      sha256: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListObjectScanEventResponseBodyPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssBucketResponseBodyData extends $tea.Model {
+  bucketName?: string;
+  message?: string;
+  regionId?: string;
+  storageClass?: string;
+  support?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      message: 'Message',
+      regionId: 'RegionId',
+      storageClass: 'StorageClass',
+      support: 'Support',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      message: 'string',
+      regionId: 'string',
+      storageClass: 'string',
+      support: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssBucketScanInfoResponseBodyData extends $tea.Model {
+  bucketName?: string;
+  highRisk?: number;
+  lastScanEndTime?: number;
+  lastScanTime?: number;
+  lowRisk?: number;
+  mediumRisk?: number;
+  message?: string;
+  regionId?: string;
+  scanObject?: number;
+  scanned?: boolean;
+  status?: number;
+  storageClass?: string;
+  support?: boolean;
+  totalObject?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      highRisk: 'HighRisk',
+      lastScanEndTime: 'LastScanEndTime',
+      lastScanTime: 'LastScanTime',
+      lowRisk: 'LowRisk',
+      mediumRisk: 'MediumRisk',
+      message: 'Message',
+      regionId: 'RegionId',
+      scanObject: 'ScanObject',
+      scanned: 'Scanned',
+      status: 'Status',
+      storageClass: 'StorageClass',
+      support: 'Support',
+      totalObject: 'TotalObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      highRisk: 'number',
+      lastScanEndTime: 'number',
+      lastScanTime: 'number',
+      lowRisk: 'number',
+      mediumRisk: 'number',
+      message: 'string',
+      regionId: 'string',
+      scanObject: 'number',
+      scanned: 'boolean',
+      status: 'number',
+      storageClass: 'string',
+      support: 'boolean',
+      totalObject: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssBucketScanInfoResponseBodyPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigListAegisSuspiciousConfigList extends $tea.Model {
   config?: boolean;
   msg?: string;
@@ -65418,6 +67978,235 @@ export class ListUuidsByWebPathResponseBodyPageInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       count: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanMachineResponseBodyData extends $tea.Model {
+  eventCount?: number;
+  instanceId?: string;
+  instanceName?: string;
+  internetIp?: string;
+  intranetIp?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventCount: 'EventCount',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventCount: 'number',
+      instanceId: 'string',
+      instanceName: 'string',
+      internetIp: 'string',
+      intranetIp: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanMachineResponseBodyPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanMachineEventResponseBodyDataDetails extends $tea.Model {
+  infoType?: string;
+  nameDisplay?: string;
+  type?: string;
+  valueDisplay?: string;
+  static names(): { [key: string]: string } {
+    return {
+      infoType: 'InfoType',
+      nameDisplay: 'NameDisplay',
+      type: 'Type',
+      valueDisplay: 'ValueDisplay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      infoType: 'string',
+      nameDisplay: 'string',
+      type: 'string',
+      valueDisplay: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanMachineEventResponseBodyData extends $tea.Model {
+  details?: ListVirusScanMachineEventResponseBodyDataDetails[];
+  eventId?: number;
+  eventName?: string;
+  instanceName?: string;
+  internetIp?: string;
+  intranetIp?: string;
+  lastTimeStamp?: number;
+  level?: string;
+  static names(): { [key: string]: string } {
+    return {
+      details: 'Details',
+      eventId: 'EventId',
+      eventName: 'EventName',
+      instanceName: 'InstanceName',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
+      lastTimeStamp: 'LastTimeStamp',
+      level: 'Level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      details: { 'type': 'array', 'itemType': ListVirusScanMachineEventResponseBodyDataDetails },
+      eventId: 'number',
+      eventName: 'string',
+      instanceName: 'string',
+      internetIp: 'string',
+      intranetIp: 'string',
+      lastTimeStamp: 'number',
+      level: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanMachineEventResponseBodyPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanTaskResponseBodyList extends $tea.Model {
+  endTime?: number;
+  instanceName?: string;
+  internetIp?: string;
+  intranetIp?: string;
+  progress?: number;
+  scanPath?: string[];
+  scanType?: string;
+  startTime?: number;
+  status?: number;
+  taskId?: string;
+  taskName?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceName: 'InstanceName',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
+      progress: 'Progress',
+      scanPath: 'ScanPath',
+      scanType: 'ScanType',
+      startTime: 'StartTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      instanceName: 'string',
+      internetIp: 'string',
+      intranetIp: 'string',
+      progress: 'number',
+      scanPath: { 'type': 'array', 'itemType': 'string' },
+      scanType: 'string',
+      startTime: 'number',
+      status: 'number',
+      taskId: 'string',
+      taskName: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirusScanTaskResponseBodyPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       currentPage: 'number',
       pageSize: 'number',
       totalCount: 'number',
@@ -66479,6 +69268,69 @@ export default class Client extends OpenApi {
   async addClientUserDefineRule(request: AddClientUserDefineRuleRequest): Promise<AddClientUserDefineRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addClientUserDefineRuleWithOptions(request, runtime);
+  }
+
+  async addContainerDefenseRuleWithOptions(tmpReq: AddContainerDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddContainerDefenseRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddContainerDefenseRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.whitelist)) {
+      request.whitelistShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.whitelist, "Whitelist", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.ruleSwitch)) {
+      query["RuleSwitch"] = request.ruleSwitch;
+    }
+
+    if (!Util.isUnset(request.ruleType)) {
+      query["RuleType"] = request.ruleType;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.whitelistShrink)) {
+      query["Whitelist"] = request.whitelistShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddContainerDefenseRule",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddContainerDefenseRuleResponse>(await this.callApi(params, req, runtime), new AddContainerDefenseRuleResponse({}));
+  }
+
+  async addContainerDefenseRule(request: AddContainerDefenseRuleRequest): Promise<AddContainerDefenseRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addContainerDefenseRuleWithOptions(request, runtime);
   }
 
   async addImageEventOperationWithOptions(request: AddImageEventOperationRequest, runtime: $Util.RuntimeOptions): Promise<AddImageEventOperationResponse> {
@@ -68537,6 +71389,96 @@ export default class Client extends OpenApi {
     return await this.createOrUpdateDingTalkWithOptions(request, runtime);
   }
 
+  async createOssBucketScanTaskWithOptions(request: CreateOssBucketScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateOssBucketScanTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucketNameList)) {
+      query["BucketNameList"] = request.bucketNameList;
+    }
+
+    if (!Util.isUnset(request.excludeKeySuffixList)) {
+      query["ExcludeKeySuffixList"] = request.excludeKeySuffixList;
+    }
+
+    if (!Util.isUnset(request.keySuffixList)) {
+      query["KeySuffixList"] = request.keySuffixList;
+    }
+
+    if (!Util.isUnset(request.scanMode)) {
+      query["ScanMode"] = request.scanMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOssBucketScanTask",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOssBucketScanTaskResponse>(await this.callApi(params, req, runtime), new CreateOssBucketScanTaskResponse({}));
+  }
+
+  async createOssBucketScanTask(request: CreateOssBucketScanTaskRequest): Promise<CreateOssBucketScanTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOssBucketScanTaskWithOptions(request, runtime);
+  }
+
+  async createOssScanConfigWithOptions(request: CreateOssScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateOssScanConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucketNameList)) {
+      query["BucketNameList"] = request.bucketNameList;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.keySuffixList)) {
+      query["KeySuffixList"] = request.keySuffixList;
+    }
+
+    if (!Util.isUnset(request.scanDayList)) {
+      query["ScanDayList"] = request.scanDayList;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOssScanConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOssScanConfigResponse>(await this.callApi(params, req, runtime), new CreateOssScanConfigResponse({}));
+  }
+
+  async createOssScanConfig(request: CreateOssScanConfigRequest): Promise<CreateOssScanConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOssScanConfigWithOptions(request, runtime);
+  }
+
   async createRestoreJobWithOptions(request: CreateRestoreJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateRestoreJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68875,6 +71817,43 @@ export default class Client extends OpenApi {
     return await this.createUniRestorePlanWithOptions(request, runtime);
   }
 
+  async createVirusScanOnceTaskWithOptions(request: CreateVirusScanOnceTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirusScanOnceTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.scanPath)) {
+      query["ScanPath"] = request.scanPath;
+    }
+
+    if (!Util.isUnset(request.scanType)) {
+      query["ScanType"] = request.scanType;
+    }
+
+    if (!Util.isUnset(request.selectionKey)) {
+      query["SelectionKey"] = request.selectionKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateVirusScanOnceTask",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVirusScanOnceTaskResponse>(await this.callApi(params, req, runtime), new CreateVirusScanOnceTaskResponse({}));
+  }
+
+  async createVirusScanOnceTask(request: CreateVirusScanOnceTaskRequest): Promise<CreateVirusScanOnceTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createVirusScanOnceTaskWithOptions(request, runtime);
+  }
+
   async createVulAutoRepairConfigWithOptions(request: CreateVulAutoRepairConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateVulAutoRepairConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69079,6 +72058,35 @@ export default class Client extends OpenApi {
   async deleteClientUserDefineRule(request: DeleteClientUserDefineRuleRequest): Promise<DeleteClientUserDefineRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteClientUserDefineRuleWithOptions(request, runtime);
+  }
+
+  async deleteContainerDefenseRuleWithOptions(request: DeleteContainerDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteContainerDefenseRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ruleIds)) {
+      query["RuleIds"] = request.ruleIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteContainerDefenseRule",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteContainerDefenseRuleResponse>(await this.callApi(params, req, runtime), new DeleteContainerDefenseRuleResponse({}));
+  }
+
+  async deleteContainerDefenseRule(request: DeleteContainerDefenseRuleRequest): Promise<DeleteContainerDefenseRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteContainerDefenseRuleWithOptions(request, runtime);
   }
 
   async deleteCustomBlockRecordWithOptions(request: DeleteCustomBlockRecordRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomBlockRecordResponse> {
@@ -80806,6 +83814,35 @@ export default class Client extends OpenApi {
     return await this.getCheckRiskStatisticsWithOptions(request, runtime);
   }
 
+  async getCheckSaleWithOptions(request: GetCheckSaleRequest, runtime: $Util.RuntimeOptions): Promise<GetCheckSaleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCheckSale",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCheckSaleResponse>(await this.callApi(params, req, runtime), new GetCheckSaleResponse({}));
+  }
+
+  async getCheckSale(request: GetCheckSaleRequest): Promise<GetCheckSaleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCheckSaleWithOptions(request, runtime);
+  }
+
   async getCheckSummaryWithOptions(request: GetCheckSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetCheckSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81222,6 +84259,51 @@ export default class Client extends OpenApi {
     return await this.getFileDetectApiInvokeInfoWithOptions(runtime);
   }
 
+  async getFileDetectReportWithOptions(request: GetFileDetectReportRequest, runtime: $Util.RuntimeOptions): Promise<GetFileDetectReportResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!Util.isUnset(request.field)) {
+      query["Field"] = request.field;
+    }
+
+    if (!Util.isUnset(request.fileHash)) {
+      query["FileHash"] = request.fileHash;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFileDetectReport",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFileDetectReportResponse>(await this.callApi(params, req, runtime), new GetFileDetectReportResponse({}));
+  }
+
+  async getFileDetectReport(request: GetFileDetectReportRequest): Promise<GetFileDetectReportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFileDetectReportWithOptions(request, runtime);
+  }
+
   /**
     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
     *
@@ -81534,6 +84616,63 @@ export default class Client extends OpenApi {
   async getHoneypotNode(request: GetHoneypotNodeRequest): Promise<GetHoneypotNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHoneypotNodeWithOptions(request, runtime);
+  }
+
+  async getHoneypotNodeMetricListWithOptions(request: GetHoneypotNodeMetricListRequest, runtime: $Util.RuntimeOptions): Promise<GetHoneypotNodeMetricListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.express)) {
+      query["Express"] = request.express;
+    }
+
+    if (!Util.isUnset(request.length)) {
+      query["Length"] = request.length;
+    }
+
+    if (!Util.isUnset(request.metricName)) {
+      query["MetricName"] = request.metricName;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetHoneypotNodeMetricList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHoneypotNodeMetricListResponse>(await this.callApi(params, req, runtime), new GetHoneypotNodeMetricListResponse({}));
+  }
+
+  async getHoneypotNodeMetricList(request: GetHoneypotNodeMetricListRequest): Promise<GetHoneypotNodeMetricListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getHoneypotNodeMetricListWithOptions(request, runtime);
   }
 
   async getHoneypotPresetWithOptions(request: GetHoneypotPresetRequest, runtime: $Util.RuntimeOptions): Promise<GetHoneypotPresetResponse> {
@@ -81883,6 +85022,39 @@ export default class Client extends OpenApi {
     return await this.getModuleConfigWithOptions(request, runtime);
   }
 
+  async getObjectScanEventWithOptions(request: GetObjectScanEventRequest, runtime: $Util.RuntimeOptions): Promise<GetObjectScanEventResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetObjectScanEvent",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetObjectScanEventResponse>(await this.callApi(params, req, runtime), new GetObjectScanEventResponse({}));
+  }
+
+  async getObjectScanEvent(request: GetObjectScanEventRequest): Promise<GetObjectScanEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getObjectScanEventWithOptions(request, runtime);
+  }
+
   async getOnceTaskResultInfoWithOptions(request: GetOnceTaskResultInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetOnceTaskResultInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82112,6 +85284,56 @@ export default class Client extends OpenApi {
   async getOpaStrategyTemplateSummary(): Promise<GetOpaStrategyTemplateSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpaStrategyTemplateSummaryWithOptions(runtime);
+  }
+
+  async getOssBucketScanStatisticWithOptions(request: GetOssBucketScanStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetOssBucketScanStatisticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucketNameList)) {
+      query["BucketNameList"] = request.bucketNameList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOssBucketScanStatistic",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOssBucketScanStatisticResponse>(await this.callApi(params, req, runtime), new GetOssBucketScanStatisticResponse({}));
+  }
+
+  async getOssBucketScanStatistic(request: GetOssBucketScanStatisticRequest): Promise<GetOssBucketScanStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOssBucketScanStatisticWithOptions(request, runtime);
+  }
+
+  async getOssScanConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<GetOssScanConfigResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetOssScanConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOssScanConfigResponse>(await this.callApi(params, req, runtime), new GetOssScanConfigResponse({}));
+  }
+
+  async getOssScanConfig(): Promise<GetOssScanConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOssScanConfigWithOptions(runtime);
   }
 
   async getPropertyScheduleConfigWithOptions(request: GetPropertyScheduleConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetPropertyScheduleConfigResponse> {
@@ -82365,6 +85587,56 @@ export default class Client extends OpenApi {
   async getUserLang(): Promise<GetUserLangResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserLangWithOptions(runtime);
+  }
+
+  async getVirusScanConfigWithOptions(request: GetVirusScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetVirusScanConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVirusScanConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVirusScanConfigResponse>(await this.callApi(params, req, runtime), new GetVirusScanConfigResponse({}));
+  }
+
+  async getVirusScanConfig(request: GetVirusScanConfigRequest): Promise<GetVirusScanConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVirusScanConfigWithOptions(request, runtime);
+  }
+
+  async getVirusScanLatestTaskStatisticWithOptions(runtime: $Util.RuntimeOptions): Promise<GetVirusScanLatestTaskStatisticResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetVirusScanLatestTaskStatistic",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVirusScanLatestTaskStatisticResponse>(await this.callApi(params, req, runtime), new GetVirusScanLatestTaskStatisticResponse({}));
+  }
+
+  async getVirusScanLatestTaskStatistic(): Promise<GetVirusScanLatestTaskStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVirusScanLatestTaskStatisticWithOptions(runtime);
   }
 
   async getVulStatisticsWithOptions(request: GetVulStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetVulStatisticsResponse> {
@@ -84132,6 +87404,51 @@ export default class Client extends OpenApi {
     return await this.listFileProtectRuleWithOptions(request, runtime);
   }
 
+  async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.useNextToken)) {
+      query["UseNextToken"] = request.useNextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGroups",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
+  }
+
+  async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGroupsWithOptions(request, runtime);
+  }
+
   async listHoneypotWithOptions(request: ListHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<ListHoneypotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84787,6 +88104,161 @@ export default class Client extends OpenApi {
     return await this.listInterceptionTargetPageWithOptions(request, runtime);
   }
 
+  async listObjectScanEventWithOptions(request: ListObjectScanEventRequest, runtime: $Util.RuntimeOptions): Promise<ListObjectScanEventResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucketName)) {
+      query["BucketName"] = request.bucketName;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.eventName)) {
+      query["EventName"] = request.eventName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.md5)) {
+      query["Md5"] = request.md5;
+    }
+
+    if (!Util.isUnset(request.ossKey)) {
+      query["OssKey"] = request.ossKey;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.timeEnd)) {
+      query["TimeEnd"] = request.timeEnd;
+    }
+
+    if (!Util.isUnset(request.timeStart)) {
+      query["TimeStart"] = request.timeStart;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListObjectScanEvent",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListObjectScanEventResponse>(await this.callApi(params, req, runtime), new ListObjectScanEventResponse({}));
+  }
+
+  async listObjectScanEvent(request: ListObjectScanEventRequest): Promise<ListObjectScanEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listObjectScanEventWithOptions(request, runtime);
+  }
+
+  async listOssBucketWithOptions(request: ListOssBucketRequest, runtime: $Util.RuntimeOptions): Promise<ListOssBucketResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucketName)) {
+      query["BucketName"] = request.bucketName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListOssBucket",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListOssBucketResponse>(await this.callApi(params, req, runtime), new ListOssBucketResponse({}));
+  }
+
+  async listOssBucket(request: ListOssBucketRequest): Promise<ListOssBucketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listOssBucketWithOptions(request, runtime);
+  }
+
+  async listOssBucketScanInfoWithOptions(request: ListOssBucketScanInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListOssBucketScanInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucketName)) {
+      query["BucketName"] = request.bucketName;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.fuzzBucketName)) {
+      query["FuzzBucketName"] = request.fuzzBucketName;
+    }
+
+    if (!Util.isUnset(request.hasRisk)) {
+      query["HasRisk"] = request.hasRisk;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListOssBucketScanInfo",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListOssBucketScanInfoResponse>(await this.callApi(params, req, runtime), new ListOssBucketScanInfoResponse({}));
+  }
+
+  async listOssBucketScanInfo(request: ListOssBucketScanInfoRequest): Promise<ListOssBucketScanInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listOssBucketScanInfoWithOptions(request, runtime);
+  }
+
   async listPluginForUuidWithOptions(tmpReq: ListPluginForUuidRequest, runtime: $Util.RuntimeOptions): Promise<ListPluginForUuidResponse> {
     Util.validateModel(tmpReq);
     let request = new ListPluginForUuidShrinkRequest({ });
@@ -84993,6 +88465,27 @@ export default class Client extends OpenApi {
   async listRuleTargetAll(request: ListRuleTargetAllRequest): Promise<ListRuleTargetAllResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRuleTargetAllWithOptions(request, runtime);
+  }
+
+  async listSupportObjectSuffixWithOptions(runtime: $Util.RuntimeOptions): Promise<ListSupportObjectSuffixResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListSupportObjectSuffix",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSupportObjectSuffixResponse>(await this.callApi(params, req, runtime), new ListSupportObjectSuffixResponse({}));
+  }
+
+  async listSupportObjectSuffix(): Promise<ListSupportObjectSuffixResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSupportObjectSuffixWithOptions(runtime);
   }
 
   async listSystemAggregationRulesWithOptions(request: ListSystemAggregationRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListSystemAggregationRulesResponse> {
@@ -85219,6 +88712,169 @@ export default class Client extends OpenApi {
   async listUuidsByWebPath(request: ListUuidsByWebPathRequest): Promise<ListUuidsByWebPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUuidsByWebPathWithOptions(request, runtime);
+  }
+
+  async listVirusScanMachineWithOptions(request: ListVirusScanMachineRequest, runtime: $Util.RuntimeOptions): Promise<ListVirusScanMachineResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVirusScanMachine",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVirusScanMachineResponse>(await this.callApi(params, req, runtime), new ListVirusScanMachineResponse({}));
+  }
+
+  async listVirusScanMachine(request: ListVirusScanMachineRequest): Promise<ListVirusScanMachineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVirusScanMachineWithOptions(request, runtime);
+  }
+
+  async listVirusScanMachineEventWithOptions(request: ListVirusScanMachineEventRequest, runtime: $Util.RuntimeOptions): Promise<ListVirusScanMachineEventResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.operateTaskId)) {
+      query["OperateTaskId"] = request.operateTaskId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVirusScanMachineEvent",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVirusScanMachineEventResponse>(await this.callApi(params, req, runtime), new ListVirusScanMachineEventResponse({}));
+  }
+
+  async listVirusScanMachineEvent(request: ListVirusScanMachineEventRequest): Promise<ListVirusScanMachineEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVirusScanMachineEventWithOptions(request, runtime);
+  }
+
+  async listVirusScanTaskWithOptions(request: ListVirusScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListVirusScanTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.internetIp)) {
+      query["InternetIp"] = request.internetIp;
+    }
+
+    if (!Util.isUnset(request.intranetIp)) {
+      query["IntranetIp"] = request.intranetIp;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.machineName)) {
+      query["MachineName"] = request.machineName;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.rootTask)) {
+      query["RootTask"] = request.rootTask;
+    }
+
+    if (!Util.isUnset(request.rootTaskId)) {
+      query["RootTaskId"] = request.rootTaskId;
+    }
+
+    if (!Util.isUnset(request.scanType)) {
+      query["ScanType"] = request.scanType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVirusScanTask",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVirusScanTaskResponse>(await this.callApi(params, req, runtime), new ListVirusScanTaskResponse({}));
+  }
+
+  async listVirusScanTask(request: ListVirusScanTaskRequest): Promise<ListVirusScanTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVirusScanTaskWithOptions(request, runtime);
   }
 
   async listVulAutoRepairConfigWithOptions(request: ListVulAutoRepairConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListVulAutoRepairConfigResponse> {
@@ -87944,6 +91600,39 @@ export default class Client extends OpenApi {
     return await this.operateAgentClientInstallWithOptions(request, runtime);
   }
 
+  async operateBucketScanTaskWithOptions(request: OperateBucketScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<OperateBucketScanTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucketName)) {
+      query["BucketName"] = request.bucketName;
+    }
+
+    if (!Util.isUnset(request.operateCode)) {
+      query["OperateCode"] = request.operateCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OperateBucketScanTask",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OperateBucketScanTaskResponse>(await this.callApi(params, req, runtime), new OperateBucketScanTaskResponse({}));
+  }
+
+  async operateBucketScanTask(request: OperateBucketScanTaskRequest): Promise<OperateBucketScanTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.operateBucketScanTaskWithOptions(request, runtime);
+  }
+
   async operateCommonOverallConfigWithOptions(request: OperateCommonOverallConfigRequest, runtime: $Util.RuntimeOptions): Promise<OperateCommonOverallConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -88991,6 +92680,27 @@ export default class Client extends OpenApi {
   async refreshContainerAssets(request: RefreshContainerAssetsRequest): Promise<RefreshContainerAssetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshContainerAssetsWithOptions(request, runtime);
+  }
+
+  async refreshOssBucketScanInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<RefreshOssBucketScanInfoResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "RefreshOssBucketScanInfo",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RefreshOssBucketScanInfoResponse>(await this.callApi(params, req, runtime), new RefreshOssBucketScanInfoResponse({}));
+  }
+
+  async refreshOssBucketScanInfo(): Promise<RefreshOssBucketScanInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refreshOssBucketScanInfoWithOptions(runtime);
   }
 
   async removeCheckInstanceResultWhiteListWithOptions(request: RemoveCheckInstanceResultWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<RemoveCheckInstanceResultWhiteListResponse> {
@@ -90413,6 +94123,88 @@ export default class Client extends OpenApi {
   async updateJenkinsImageRegistryPersistenceDay(request: UpdateJenkinsImageRegistryPersistenceDayRequest): Promise<UpdateJenkinsImageRegistryPersistenceDayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateJenkinsImageRegistryPersistenceDayWithOptions(request, runtime);
+  }
+
+  async updateOssScanConfigWithOptions(request: UpdateOssScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOssScanConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucketNameList)) {
+      query["BucketNameList"] = request.bucketNameList;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.keySuffixList)) {
+      query["KeySuffixList"] = request.keySuffixList;
+    }
+
+    if (!Util.isUnset(request.scanDayList)) {
+      query["ScanDayList"] = request.scanDayList;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateOssScanConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateOssScanConfigResponse>(await this.callApi(params, req, runtime), new UpdateOssScanConfigResponse({}));
+  }
+
+  async updateOssScanConfig(request: UpdateOssScanConfigRequest): Promise<UpdateOssScanConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateOssScanConfigWithOptions(request, runtime);
+  }
+
+  async updateSelectionKeyByTypeWithOptions(request: UpdateSelectionKeyByTypeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSelectionKeyByTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.selectionKey)) {
+      query["SelectionKey"] = request.selectionKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSelectionKeyByType",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSelectionKeyByTypeResponse>(await this.callApi(params, req, runtime), new UpdateSelectionKeyByTypeResponse({}));
+  }
+
+  async updateSelectionKeyByType(request: UpdateSelectionKeyByTypeRequest): Promise<UpdateSelectionKeyByTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSelectionKeyByTypeWithOptions(request, runtime);
   }
 
   async upgradeBackupPolicyVersionWithOptions(request: UpgradeBackupPolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeBackupPolicyVersionResponse> {
