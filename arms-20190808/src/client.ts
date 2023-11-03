@@ -4913,6 +4913,90 @@ export class DelAuthTokenResponse extends $tea.Model {
   }
 }
 
+export class DeleteAddonReleaseRequest extends $tea.Model {
+  environmentId?: string;
+  force?: boolean;
+  regionId?: string;
+  releaseName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      force: 'Force',
+      regionId: 'RegionId',
+      releaseName: 'ReleaseName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      force: 'boolean',
+      regionId: 'string',
+      releaseName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAddonReleaseResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAddonReleaseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteAddonReleaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAddonReleaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAlertContactRequest extends $tea.Model {
   contactId?: number;
   regionId?: string;
@@ -7390,6 +7474,87 @@ export class DeleteWebhookContactResponse extends $tea.Model {
   }
 }
 
+export class DescribeAddonReleaseRequest extends $tea.Model {
+  environmentId?: string;
+  regionId?: string;
+  releaseName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+      releaseName: 'ReleaseName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      regionId: 'string',
+      releaseName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonReleaseResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeAddonReleaseResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeAddonReleaseResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonReleaseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAddonReleaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAddonReleaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeContactGroupsRequest extends $tea.Model {
   contactGroupName?: string;
   groupIds?: string;
@@ -7937,6 +8102,87 @@ export class DescribeEnvironmentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeEnvironmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvironmentFeatureRequest extends $tea.Model {
+  environmentId?: string;
+  featureName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      featureName: 'FeatureName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      featureName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvironmentFeatureResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeEnvironmentFeatureResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeEnvironmentFeatureResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvironmentFeatureResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEnvironmentFeatureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEnvironmentFeatureResponseBody,
     };
   }
 
@@ -10904,6 +11150,102 @@ export class InitEnvironmentResponse extends $tea.Model {
   }
 }
 
+export class InstallAddonRequest extends $tea.Model {
+  addonVersion?: string;
+  aliyunLang?: string;
+  dryRun?: boolean;
+  environmentId?: string;
+  name?: string;
+  regionId?: string;
+  releaseName?: string;
+  values?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonVersion: 'AddonVersion',
+      aliyunLang: 'AliyunLang',
+      dryRun: 'DryRun',
+      environmentId: 'EnvironmentId',
+      name: 'Name',
+      regionId: 'RegionId',
+      releaseName: 'ReleaseName',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonVersion: 'string',
+      aliyunLang: 'string',
+      dryRun: 'boolean',
+      environmentId: 'string',
+      name: 'string',
+      regionId: 'string',
+      releaseName: 'string',
+      values: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallAddonResponseBody extends $tea.Model {
+  code?: number;
+  data?: InstallAddonResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: InstallAddonResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallAddonResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InstallAddonResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InstallAddonResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InstallCmsExporterRequest extends $tea.Model {
   clusterId?: string;
   cmsArgs?: string;
@@ -10974,6 +11316,99 @@ export class InstallCmsExporterResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: InstallCmsExporterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallEnvironmentFeatureRequest extends $tea.Model {
+  aliyunLang?: string;
+  config?: string;
+  environmentId?: string;
+  featureName?: string;
+  featureVersion?: string;
+  region?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      config: 'Config',
+      environmentId: 'EnvironmentId',
+      featureName: 'FeatureName',
+      featureVersion: 'FeatureVersion',
+      region: 'Region',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      config: 'string',
+      environmentId: 'string',
+      featureName: 'string',
+      featureVersion: 'string',
+      region: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallEnvironmentFeatureResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallEnvironmentFeatureResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InstallEnvironmentFeatureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InstallEnvironmentFeatureResponseBody,
     };
   }
 
@@ -11151,6 +11586,87 @@ export class ListActivatedAlertsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListActivatedAlertsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAddonReleasesRequest extends $tea.Model {
+  addonName?: string;
+  environmentId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonName: 'AddonName',
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonName: 'string',
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAddonReleasesResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListAddonReleasesResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListAddonReleasesResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAddonReleasesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAddonReleasesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAddonReleasesResponseBody,
     };
   }
 
@@ -11958,6 +12474,202 @@ export class ListEnvServiceMonitorsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListEnvServiceMonitorsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentFeaturesRequest extends $tea.Model {
+  environmentId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentFeaturesResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListEnvironmentFeaturesResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListEnvironmentFeaturesResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentFeaturesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListEnvironmentFeaturesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEnvironmentFeaturesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentsRequest extends $tea.Model {
+  addonName?: string;
+  environmentType?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tag?: ListEnvironmentsRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      addonName: 'AddonName',
+      environmentType: 'EnvironmentType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonName: 'string',
+      environmentType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': ListEnvironmentsRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentsShrinkRequest extends $tea.Model {
+  addonName?: string;
+  environmentType?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tagShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonName: 'AddonName',
+      environmentType: 'EnvironmentType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tagShrink: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonName: 'string',
+      environmentType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tagShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentsResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListEnvironmentsResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListEnvironmentsResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListEnvironmentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEnvironmentsResponseBody,
     };
   }
 
@@ -18058,6 +18770,186 @@ export class UpdateWebhookResponse extends $tea.Model {
   }
 }
 
+export class UpgradeAddonReleaseRequest extends $tea.Model {
+  addonVersion?: string;
+  dryRun?: boolean;
+  environmentId?: string;
+  regionId?: string;
+  releaseName?: string;
+  values?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonVersion: 'AddonVersion',
+      dryRun: 'DryRun',
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+      releaseName: 'ReleaseName',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonVersion: 'string',
+      dryRun: 'boolean',
+      environmentId: 'string',
+      regionId: 'string',
+      releaseName: 'string',
+      values: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeAddonReleaseResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeAddonReleaseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpgradeAddonReleaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpgradeAddonReleaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeEnvironmentFeatureRequest extends $tea.Model {
+  aliyunLang?: string;
+  environmentId?: string;
+  featureName?: string;
+  featureVersion?: string;
+  regionId?: string;
+  values?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      environmentId: 'EnvironmentId',
+      featureName: 'FeatureName',
+      featureVersion: 'FeatureVersion',
+      regionId: 'RegionId',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      environmentId: 'string',
+      featureName: 'string',
+      featureVersion: 'string',
+      regionId: 'string',
+      values: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeEnvironmentFeatureResponseBody extends $tea.Model {
+  code?: number;
+  data?: { [key: string]: string };
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeEnvironmentFeatureResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpgradeEnvironmentFeatureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpgradeEnvironmentFeatureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadRequest extends $tea.Model {
   edition?: string;
   file?: string;
@@ -20693,6 +21585,132 @@ export class DeleteTraceAppRequestDeleteReason extends $tea.Model {
   }
 }
 
+export class DescribeAddonReleaseResponseBodyDataReleaseConditions extends $tea.Model {
+  firstTransitionTime?: string;
+  lastTransitionTime?: string;
+  message?: string;
+  reason?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firstTransitionTime: 'FirstTransitionTime',
+      lastTransitionTime: 'LastTransitionTime',
+      message: 'Message',
+      reason: 'Reason',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firstTransitionTime: 'string',
+      lastTransitionTime: 'string',
+      message: 'string',
+      reason: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonReleaseResponseBodyDataRelease extends $tea.Model {
+  addonName?: string;
+  alertRuleCount?: number;
+  conditions?: DescribeAddonReleaseResponseBodyDataReleaseConditions[];
+  createTime?: string;
+  dashboardCount?: number;
+  environmentId?: string;
+  exporterCount?: number;
+  haveConfig?: boolean;
+  installUserId?: string;
+  language?: string;
+  regionId?: string;
+  releaseId?: string;
+  releaseName?: string;
+  scene?: string;
+  status?: string;
+  updateTime?: string;
+  userID?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonName: 'AddonName',
+      alertRuleCount: 'AlertRuleCount',
+      conditions: 'Conditions',
+      createTime: 'CreateTime',
+      dashboardCount: 'DashboardCount',
+      environmentId: 'EnvironmentId',
+      exporterCount: 'ExporterCount',
+      haveConfig: 'HaveConfig',
+      installUserId: 'InstallUserId',
+      language: 'Language',
+      regionId: 'RegionId',
+      releaseId: 'ReleaseId',
+      releaseName: 'ReleaseName',
+      scene: 'Scene',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+      userID: 'UserID',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonName: 'string',
+      alertRuleCount: 'number',
+      conditions: { 'type': 'array', 'itemType': DescribeAddonReleaseResponseBodyDataReleaseConditions },
+      createTime: 'string',
+      dashboardCount: 'number',
+      environmentId: 'string',
+      exporterCount: 'number',
+      haveConfig: 'boolean',
+      installUserId: 'string',
+      language: 'string',
+      regionId: 'string',
+      releaseId: 'string',
+      releaseName: 'string',
+      scene: 'string',
+      status: 'string',
+      updateTime: 'string',
+      userID: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonReleaseResponseBodyData extends $tea.Model {
+  config?: string;
+  release?: DescribeAddonReleaseResponseBodyDataRelease;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      release: 'Release',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      release: DescribeAddonReleaseResponseBodyDataRelease,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeContactGroupsResponseBodyPageBeanAlertContactGroupsContacts extends $tea.Model {
   armsContactId?: number;
   contactId?: number;
@@ -21159,6 +22177,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
   bindVpcCidr?: string;
   environmentId?: string;
   environmentName?: string;
+  environmentSubType?: string;
   environmentType?: string;
   grafaDataSourceName?: string;
   grafanaDatasourceUid?: string;
@@ -21182,6 +22201,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
       bindVpcCidr: 'BindVpcCidr',
       environmentId: 'EnvironmentId',
       environmentName: 'EnvironmentName',
+      environmentSubType: 'EnvironmentSubType',
       environmentType: 'EnvironmentType',
       grafaDataSourceName: 'GrafaDataSourceName',
       grafanaDatasourceUid: 'GrafanaDatasourceUid',
@@ -21208,6 +22228,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
       bindVpcCidr: 'string',
       environmentId: 'string',
       environmentName: 'string',
+      environmentSubType: 'string',
       environmentType: 'string',
       grafaDataSourceName: 'string',
       grafanaDatasourceUid: 'string',
@@ -21221,6 +22242,127 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
       tags: { 'type': 'array', 'itemType': DescribeEnvironmentResponseBodyDataTags },
       userId: 'string',
       vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvironmentFeatureResponseBodyDataFeature extends $tea.Model {
+  alias?: string;
+  config?: { [key: string]: string };
+  description?: string;
+  environmentId?: string;
+  icon?: string;
+  language?: string;
+  latestVersion?: string;
+  name?: string;
+  status?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      config: 'Config',
+      description: 'Description',
+      environmentId: 'EnvironmentId',
+      icon: 'Icon',
+      language: 'Language',
+      latestVersion: 'LatestVersion',
+      name: 'Name',
+      status: 'Status',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      description: 'string',
+      environmentId: 'string',
+      icon: 'string',
+      language: 'string',
+      latestVersion: 'string',
+      name: 'string',
+      status: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureContainers extends $tea.Model {
+  args?: string[];
+  image?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      image: 'Image',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'array', 'itemType': 'string' },
+      image: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatus extends $tea.Model {
+  featureContainers?: DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureContainers[];
+  name?: string;
+  namespace?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      featureContainers: 'FeatureContainers',
+      name: 'Name',
+      namespace: 'Namespace',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureContainers: { 'type': 'array', 'itemType': DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureContainers },
+      name: 'string',
+      namespace: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnvironmentFeatureResponseBodyData extends $tea.Model {
+  feature?: DescribeEnvironmentFeatureResponseBodyDataFeature;
+  featureStatus?: DescribeEnvironmentFeatureResponseBodyDataFeatureStatus;
+  static names(): { [key: string]: string } {
+    return {
+      feature: 'Feature',
+      featureStatus: 'FeatureStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feature: DescribeEnvironmentFeatureResponseBodyDataFeature,
+      featureStatus: DescribeEnvironmentFeatureResponseBodyDataFeatureStatus,
     };
   }
 
@@ -24407,6 +25549,110 @@ export class ImportAppAlertRulesRequestTags extends $tea.Model {
   }
 }
 
+export class InstallAddonResponseBodyDataConditions extends $tea.Model {
+  firstTransitionTime?: string;
+  lastTransitionTime?: string;
+  message?: string;
+  reason?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firstTransitionTime: 'FirstTransitionTime',
+      lastTransitionTime: 'LastTransitionTime',
+      message: 'Message',
+      reason: 'Reason',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firstTransitionTime: 'string',
+      lastTransitionTime: 'string',
+      message: 'string',
+      reason: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallAddonResponseBodyData extends $tea.Model {
+  addonName?: string;
+  alertRuleCount?: number;
+  conditions?: InstallAddonResponseBodyDataConditions[];
+  createTime?: string;
+  dashboardCount?: number;
+  environmentId?: string;
+  exporterCount?: number;
+  haveConfig?: boolean;
+  installUserId?: string;
+  language?: string;
+  regionId?: string;
+  releaseId?: string;
+  releaseName?: string;
+  scene?: string;
+  status?: string;
+  updateTime?: string;
+  userId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonName: 'AddonName',
+      alertRuleCount: 'AlertRuleCount',
+      conditions: 'Conditions',
+      createTime: 'CreateTime',
+      dashboardCount: 'DashboardCount',
+      environmentId: 'EnvironmentId',
+      exporterCount: 'ExporterCount',
+      haveConfig: 'HaveConfig',
+      installUserId: 'InstallUserId',
+      language: 'Language',
+      regionId: 'RegionId',
+      releaseId: 'ReleaseId',
+      releaseName: 'ReleaseName',
+      scene: 'Scene',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+      userId: 'UserId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonName: 'string',
+      alertRuleCount: 'number',
+      conditions: { 'type': 'array', 'itemType': InstallAddonResponseBodyDataConditions },
+      createTime: 'string',
+      dashboardCount: 'number',
+      environmentId: 'string',
+      exporterCount: 'number',
+      haveConfig: 'boolean',
+      installUserId: 'string',
+      language: 'string',
+      regionId: 'string',
+      releaseId: 'string',
+      releaseName: 'string',
+      scene: 'string',
+      status: 'string',
+      updateTime: 'string',
+      userId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListActivatedAlertsResponseBodyPageAlertsDispatchRules extends $tea.Model {
   ruleId?: number;
   ruleName?: string;
@@ -24512,6 +25758,132 @@ export class ListActivatedAlertsResponseBodyPage extends $tea.Model {
       alerts: { 'type': 'array', 'itemType': ListActivatedAlertsResponseBodyPageAlerts },
       page: 'number',
       pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAddonReleasesResponseBodyDataReleasesConditions extends $tea.Model {
+  firstTransitionTime?: string;
+  lastTransitionTime?: string;
+  message?: string;
+  reason?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firstTransitionTime: 'FirstTransitionTime',
+      lastTransitionTime: 'LastTransitionTime',
+      message: 'Message',
+      reason: 'Reason',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firstTransitionTime: 'string',
+      lastTransitionTime: 'string',
+      message: 'string',
+      reason: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAddonReleasesResponseBodyDataReleases extends $tea.Model {
+  addonName?: string;
+  alertRuleCount?: number;
+  conditions?: ListAddonReleasesResponseBodyDataReleasesConditions[];
+  createTime?: string;
+  dashboardCount?: number;
+  environmentId?: string;
+  exporterCount?: number;
+  haveConfig?: boolean;
+  installUserId?: string;
+  language?: string;
+  regionId?: string;
+  releaseId?: string;
+  releaseName?: string;
+  scene?: string;
+  status?: string;
+  updateTime?: string;
+  userId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonName: 'AddonName',
+      alertRuleCount: 'AlertRuleCount',
+      conditions: 'Conditions',
+      createTime: 'CreateTime',
+      dashboardCount: 'DashboardCount',
+      environmentId: 'EnvironmentId',
+      exporterCount: 'ExporterCount',
+      haveConfig: 'HaveConfig',
+      installUserId: 'InstallUserId',
+      language: 'Language',
+      regionId: 'RegionId',
+      releaseId: 'ReleaseId',
+      releaseName: 'ReleaseName',
+      scene: 'Scene',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+      userId: 'UserId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonName: 'string',
+      alertRuleCount: 'number',
+      conditions: { 'type': 'array', 'itemType': ListAddonReleasesResponseBodyDataReleasesConditions },
+      createTime: 'string',
+      dashboardCount: 'number',
+      environmentId: 'string',
+      exporterCount: 'number',
+      haveConfig: 'boolean',
+      installUserId: 'string',
+      language: 'string',
+      regionId: 'string',
+      releaseId: 'string',
+      releaseName: 'string',
+      scene: 'string',
+      status: 'string',
+      updateTime: 'string',
+      userId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAddonReleasesResponseBodyData extends $tea.Model {
+  releases?: ListAddonReleasesResponseBodyDataReleases[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      releases: 'Releases',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      releases: { 'type': 'array', 'itemType': ListAddonReleasesResponseBodyDataReleases },
       total: 'number',
     };
   }
@@ -25321,6 +26693,256 @@ export class ListEnvServiceMonitorsResponseBodyData extends $tea.Model {
       regionId: 'string',
       serviceMonitorName: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentFeaturesResponseBodyData extends $tea.Model {
+  alias?: string;
+  config?: { [key: string]: string };
+  description?: string;
+  environmentId?: string;
+  icon?: string;
+  language?: string;
+  latestVersion?: string;
+  name?: string;
+  status?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      config: 'Config',
+      description: 'Description',
+      environmentId: 'EnvironmentId',
+      icon: 'Icon',
+      language: 'Language',
+      latestVersion: 'LatestVersion',
+      name: 'Name',
+      status: 'Status',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      description: 'string',
+      environmentId: 'string',
+      icon: 'string',
+      language: 'string',
+      latestVersion: 'string',
+      name: 'string',
+      status: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentsResponseBodyDataEnvironmentsAddons extends $tea.Model {
+  alias?: string;
+  description?: string;
+  icon?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      description: 'Description',
+      icon: 'Icon',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      description: 'string',
+      icon: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentsResponseBodyDataEnvironmentsFeatures extends $tea.Model {
+  alias?: string;
+  description?: string;
+  icon?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      description: 'Description',
+      icon: 'Icon',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      description: 'string',
+      icon: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentsResponseBodyDataEnvironmentsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentsResponseBodyDataEnvironments extends $tea.Model {
+  addons?: ListEnvironmentsResponseBodyDataEnvironmentsAddons[];
+  bindResourceId?: string;
+  bindResourceProfile?: string;
+  bindResourceType?: string;
+  bindVpcCidr?: string;
+  createTime?: string;
+  createdUserId?: string;
+  environmentId?: string;
+  environmentName?: string;
+  environmentType?: string;
+  features?: ListEnvironmentsResponseBodyDataEnvironmentsFeatures[];
+  grafanaDatasourceUid?: string;
+  grafanaFolderTitle?: string;
+  grafanaFolderUid?: string;
+  latestReleaseCreateTime?: string;
+  prometheusId?: number;
+  prometheusInstanceId?: string;
+  regionId?: string;
+  releaseCount?: number;
+  resourceGroupId?: string;
+  tags?: ListEnvironmentsResponseBodyDataEnvironmentsTags[];
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addons: 'Addons',
+      bindResourceId: 'BindResourceId',
+      bindResourceProfile: 'BindResourceProfile',
+      bindResourceType: 'BindResourceType',
+      bindVpcCidr: 'BindVpcCidr',
+      createTime: 'CreateTime',
+      createdUserId: 'CreatedUserId',
+      environmentId: 'EnvironmentId',
+      environmentName: 'EnvironmentName',
+      environmentType: 'EnvironmentType',
+      features: 'Features',
+      grafanaDatasourceUid: 'GrafanaDatasourceUid',
+      grafanaFolderTitle: 'GrafanaFolderTitle',
+      grafanaFolderUid: 'GrafanaFolderUid',
+      latestReleaseCreateTime: 'LatestReleaseCreateTime',
+      prometheusId: 'PrometheusId',
+      prometheusInstanceId: 'PrometheusInstanceId',
+      regionId: 'RegionId',
+      releaseCount: 'ReleaseCount',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addons: { 'type': 'array', 'itemType': ListEnvironmentsResponseBodyDataEnvironmentsAddons },
+      bindResourceId: 'string',
+      bindResourceProfile: 'string',
+      bindResourceType: 'string',
+      bindVpcCidr: 'string',
+      createTime: 'string',
+      createdUserId: 'string',
+      environmentId: 'string',
+      environmentName: 'string',
+      environmentType: 'string',
+      features: { 'type': 'array', 'itemType': ListEnvironmentsResponseBodyDataEnvironmentsFeatures },
+      grafanaDatasourceUid: 'string',
+      grafanaFolderTitle: 'string',
+      grafanaFolderUid: 'string',
+      latestReleaseCreateTime: 'string',
+      prometheusId: 'number',
+      prometheusInstanceId: 'string',
+      regionId: 'string',
+      releaseCount: 'number',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListEnvironmentsResponseBodyDataEnvironmentsTags },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentsResponseBodyData extends $tea.Model {
+  environments?: ListEnvironmentsResponseBodyDataEnvironments[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      environments: 'Environments',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environments: { 'type': 'array', 'itemType': ListEnvironmentsResponseBodyDataEnvironments },
+      total: 'number',
     };
   }
 
@@ -31383,6 +33005,47 @@ export default class Client extends OpenApi {
     return await this.delAuthTokenWithOptions(request, runtime);
   }
 
+  async deleteAddonReleaseWithOptions(request: DeleteAddonReleaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAddonReleaseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.releaseName)) {
+      query["ReleaseName"] = request.releaseName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAddonRelease",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAddonReleaseResponse>(await this.callApi(params, req, runtime), new DeleteAddonReleaseResponse({}));
+  }
+
+  async deleteAddonRelease(request: DeleteAddonReleaseRequest): Promise<DeleteAddonReleaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAddonReleaseWithOptions(request, runtime);
+  }
+
   /**
     * ********
     *
@@ -32539,6 +34202,43 @@ export default class Client extends OpenApi {
     return await this.deleteWebhookContactWithOptions(request, runtime);
   }
 
+  async describeAddonReleaseWithOptions(request: DescribeAddonReleaseRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddonReleaseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.releaseName)) {
+      query["ReleaseName"] = request.releaseName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAddonRelease",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAddonReleaseResponse>(await this.callApi(params, req, runtime), new DescribeAddonReleaseResponse({}));
+  }
+
+  async describeAddonRelease(request: DescribeAddonReleaseRequest): Promise<DescribeAddonReleaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAddonReleaseWithOptions(request, runtime);
+  }
+
   async describeContactGroupsWithOptions(request: DescribeContactGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContactGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32832,6 +34532,43 @@ export default class Client extends OpenApi {
   async describeEnvironment(request: DescribeEnvironmentRequest): Promise<DescribeEnvironmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnvironmentWithOptions(request, runtime);
+  }
+
+  async describeEnvironmentFeatureWithOptions(request: DescribeEnvironmentFeatureRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnvironmentFeatureResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.featureName)) {
+      query["FeatureName"] = request.featureName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEnvironmentFeature",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEnvironmentFeatureResponse>(await this.callApi(params, req, runtime), new DescribeEnvironmentFeatureResponse({}));
+  }
+
+  async describeEnvironmentFeature(request: DescribeEnvironmentFeatureRequest): Promise<DescribeEnvironmentFeatureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEnvironmentFeatureWithOptions(request, runtime);
   }
 
   async describeIMRobotsWithOptions(request: DescribeIMRobotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIMRobotsResponse> {
@@ -34293,6 +36030,63 @@ export default class Client extends OpenApi {
     return await this.initEnvironmentWithOptions(request, runtime);
   }
 
+  async installAddonWithOptions(request: InstallAddonRequest, runtime: $Util.RuntimeOptions): Promise<InstallAddonResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addonVersion)) {
+      query["AddonVersion"] = request.addonVersion;
+    }
+
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.releaseName)) {
+      query["ReleaseName"] = request.releaseName;
+    }
+
+    if (!Util.isUnset(request.values)) {
+      query["Values"] = request.values;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InstallAddon",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InstallAddonResponse>(await this.callApi(params, req, runtime), new InstallAddonResponse({}));
+  }
+
+  async installAddon(request: InstallAddonRequest): Promise<InstallAddonResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.installAddonWithOptions(request, runtime);
+  }
+
   async installCmsExporterWithOptions(request: InstallCmsExporterRequest, runtime: $Util.RuntimeOptions): Promise<InstallCmsExporterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34336,6 +36130,59 @@ export default class Client extends OpenApi {
   async installCmsExporter(request: InstallCmsExporterRequest): Promise<InstallCmsExporterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installCmsExporterWithOptions(request, runtime);
+  }
+
+  async installEnvironmentFeatureWithOptions(request: InstallEnvironmentFeatureRequest, runtime: $Util.RuntimeOptions): Promise<InstallEnvironmentFeatureResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.featureName)) {
+      query["FeatureName"] = request.featureName;
+    }
+
+    if (!Util.isUnset(request.featureVersion)) {
+      query["FeatureVersion"] = request.featureVersion;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InstallEnvironmentFeature",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InstallEnvironmentFeatureResponse>(await this.callApi(params, req, runtime), new InstallEnvironmentFeatureResponse({}));
+  }
+
+  async installEnvironmentFeature(request: InstallEnvironmentFeatureRequest): Promise<InstallEnvironmentFeatureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.installEnvironmentFeatureWithOptions(request, runtime);
   }
 
   /**
@@ -34455,6 +36302,43 @@ export default class Client extends OpenApi {
   async listActivatedAlerts(request: ListActivatedAlertsRequest): Promise<ListActivatedAlertsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listActivatedAlertsWithOptions(request, runtime);
+  }
+
+  async listAddonReleasesWithOptions(request: ListAddonReleasesRequest, runtime: $Util.RuntimeOptions): Promise<ListAddonReleasesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addonName)) {
+      query["AddonName"] = request.addonName;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAddonReleases",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAddonReleasesResponse>(await this.callApi(params, req, runtime), new ListAddonReleasesResponse({}));
+  }
+
+  async listAddonReleases(request: ListAddonReleasesRequest): Promise<ListAddonReleasesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAddonReleasesWithOptions(request, runtime);
   }
 
   async listAlertEventsWithOptions(request: ListAlertEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListAlertEventsResponse> {
@@ -34918,6 +36802,90 @@ export default class Client extends OpenApi {
   async listEnvServiceMonitors(request: ListEnvServiceMonitorsRequest): Promise<ListEnvServiceMonitorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnvServiceMonitorsWithOptions(request, runtime);
+  }
+
+  async listEnvironmentFeaturesWithOptions(request: ListEnvironmentFeaturesRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvironmentFeaturesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEnvironmentFeatures",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEnvironmentFeaturesResponse>(await this.callApi(params, req, runtime), new ListEnvironmentFeaturesResponse({}));
+  }
+
+  async listEnvironmentFeatures(request: ListEnvironmentFeaturesRequest): Promise<ListEnvironmentFeaturesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEnvironmentFeaturesWithOptions(request, runtime);
+  }
+
+  async listEnvironmentsWithOptions(tmpReq: ListEnvironmentsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvironmentsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListEnvironmentsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.addonName)) {
+      query["AddonName"] = request.addonName;
+    }
+
+    if (!Util.isUnset(request.environmentType)) {
+      query["EnvironmentType"] = request.environmentType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEnvironments",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEnvironmentsResponse>(await this.callApi(params, req, runtime), new ListEnvironmentsResponse({}));
+  }
+
+  async listEnvironments(request: ListEnvironmentsRequest): Promise<ListEnvironmentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEnvironmentsWithOptions(request, runtime);
   }
 
   async listEscalationPoliciesWithOptions(request: ListEscalationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListEscalationPoliciesResponse> {
@@ -38335,6 +40303,104 @@ export default class Client extends OpenApi {
   async updateWebhook(request: UpdateWebhookRequest): Promise<UpdateWebhookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWebhookWithOptions(request, runtime);
+  }
+
+  async upgradeAddonReleaseWithOptions(request: UpgradeAddonReleaseRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeAddonReleaseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addonVersion)) {
+      query["AddonVersion"] = request.addonVersion;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.releaseName)) {
+      query["ReleaseName"] = request.releaseName;
+    }
+
+    if (!Util.isUnset(request.values)) {
+      query["Values"] = request.values;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpgradeAddonRelease",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeAddonReleaseResponse>(await this.callApi(params, req, runtime), new UpgradeAddonReleaseResponse({}));
+  }
+
+  async upgradeAddonRelease(request: UpgradeAddonReleaseRequest): Promise<UpgradeAddonReleaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.upgradeAddonReleaseWithOptions(request, runtime);
+  }
+
+  async upgradeEnvironmentFeatureWithOptions(request: UpgradeEnvironmentFeatureRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeEnvironmentFeatureResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.featureName)) {
+      query["FeatureName"] = request.featureName;
+    }
+
+    if (!Util.isUnset(request.featureVersion)) {
+      query["FeatureVersion"] = request.featureVersion;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.values)) {
+      query["Values"] = request.values;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpgradeEnvironmentFeature",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeEnvironmentFeatureResponse>(await this.callApi(params, req, runtime), new UpgradeEnvironmentFeatureResponse({}));
+  }
+
+  async upgradeEnvironmentFeature(request: UpgradeEnvironmentFeatureRequest): Promise<UpgradeEnvironmentFeatureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.upgradeEnvironmentFeatureWithOptions(request, runtime);
   }
 
   async uploadWithOptions(request: UploadRequest, runtime: $Util.RuntimeOptions): Promise<UploadResponse> {
