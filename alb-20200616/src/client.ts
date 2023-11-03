@@ -1296,6 +1296,7 @@ export class CreateServerGroupRequest extends $tea.Model {
   stickySessionConfig?: CreateServerGroupRequestStickySessionConfig;
   tag?: CreateServerGroupRequestTag[];
   uchConfig?: CreateServerGroupRequestUchConfig;
+  upstreamKeepaliveEnabled?: boolean;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1311,6 +1312,7 @@ export class CreateServerGroupRequest extends $tea.Model {
       stickySessionConfig: 'StickySessionConfig',
       tag: 'Tag',
       uchConfig: 'UchConfig',
+      upstreamKeepaliveEnabled: 'UpstreamKeepaliveEnabled',
       vpcId: 'VpcId',
     };
   }
@@ -1329,6 +1331,7 @@ export class CreateServerGroupRequest extends $tea.Model {
       stickySessionConfig: CreateServerGroupRequestStickySessionConfig,
       tag: { 'type': 'array', 'itemType': CreateServerGroupRequestTag },
       uchConfig: CreateServerGroupRequestUchConfig,
+      upstreamKeepaliveEnabled: 'boolean',
       vpcId: 'string',
     };
   }
@@ -6419,6 +6422,7 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
   serviceName?: string;
   stickySessionConfig?: UpdateServerGroupAttributeRequestStickySessionConfig;
   uchConfig?: UpdateServerGroupAttributeRequestUchConfig;
+  upstreamKeepaliveEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -6430,6 +6434,7 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
       serviceName: 'ServiceName',
       stickySessionConfig: 'StickySessionConfig',
       uchConfig: 'UchConfig',
+      upstreamKeepaliveEnabled: 'UpstreamKeepaliveEnabled',
     };
   }
 
@@ -6444,6 +6449,7 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
       serviceName: 'string',
       stickySessionConfig: UpdateServerGroupAttributeRequestStickySessionConfig,
       uchConfig: UpdateServerGroupAttributeRequestUchConfig,
+      upstreamKeepaliveEnabled: 'boolean',
     };
   }
 
@@ -7029,11 +7035,13 @@ export class CreateLoadBalancerRequestTag extends $tea.Model {
 }
 
 export class CreateLoadBalancerRequestZoneMappings extends $tea.Model {
+  allocationId?: string;
   intranetAddress?: string;
   vSwitchId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      allocationId: 'AllocationId',
       intranetAddress: 'IntranetAddress',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
@@ -7042,6 +7050,7 @@ export class CreateLoadBalancerRequestZoneMappings extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allocationId: 'string',
       intranetAddress: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
@@ -9177,12 +9186,14 @@ export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddress
   address?: string;
   allocationId?: string;
   eipType?: string;
+  intranetAddress?: string;
   ipv6Address?: string;
   static names(): { [key: string]: string } {
     return {
       address: 'Address',
       allocationId: 'AllocationId',
       eipType: 'EipType',
+      intranetAddress: 'IntranetAddress',
       ipv6Address: 'Ipv6Address',
     };
   }
@@ -9192,6 +9203,7 @@ export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddress
       address: 'string',
       allocationId: 'string',
       eipType: 'string',
+      intranetAddress: 'string',
       ipv6Address: 'string',
     };
   }
@@ -14258,6 +14270,10 @@ export default class Client extends OpenApi {
       query["UchConfig"] = request.uchConfig;
     }
 
+    if (!Util.isUnset(request.upstreamKeepaliveEnabled)) {
+      query["UpstreamKeepaliveEnabled"] = request.upstreamKeepaliveEnabled;
+    }
+
     if (!Util.isUnset(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
@@ -17523,6 +17539,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.uchConfig)) {
       query["UchConfig"] = request.uchConfig;
+    }
+
+    if (!Util.isUnset(request.upstreamKeepaliveEnabled)) {
+      query["UpstreamKeepaliveEnabled"] = request.upstreamKeepaliveEnabled;
     }
 
     let req = new $OpenApi.OpenApiRequest({
