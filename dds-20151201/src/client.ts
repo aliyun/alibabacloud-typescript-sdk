@@ -1915,7 +1915,9 @@ export class DescribeAuditRecordsResponse extends $tea.Model {
 
 export class DescribeAvailabilityZonesRequest extends $tea.Model {
   acceptLanguage?: string;
+  DBInstanceClass?: string;
   dbType?: string;
+  engineVersion?: string;
   excludeSecondaryZoneId?: string;
   excludeZoneId?: string;
   instanceChargeType?: string;
@@ -1933,7 +1935,9 @@ export class DescribeAvailabilityZonesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      DBInstanceClass: 'DBInstanceClass',
       dbType: 'DbType',
+      engineVersion: 'EngineVersion',
       excludeSecondaryZoneId: 'ExcludeSecondaryZoneId',
       excludeZoneId: 'ExcludeZoneId',
       instanceChargeType: 'InstanceChargeType',
@@ -1954,7 +1958,9 @@ export class DescribeAvailabilityZonesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      DBInstanceClass: 'string',
       dbType: 'string',
+      engineVersion: 'string',
       excludeSecondaryZoneId: 'string',
       excludeZoneId: 'string',
       instanceChargeType: 'string',
@@ -2106,7 +2112,9 @@ export class DescribeAvailableEngineVersionResponse extends $tea.Model {
 }
 
 export class DescribeAvailableResourceRequest extends $tea.Model {
+  DBInstanceClass?: string;
   dbType?: string;
+  engineVersion?: string;
   instanceChargeType?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -2119,7 +2127,9 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      DBInstanceClass: 'DBInstanceClass',
       dbType: 'DbType',
+      engineVersion: 'EngineVersion',
       instanceChargeType: 'InstanceChargeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -2135,7 +2145,9 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      DBInstanceClass: 'string',
       dbType: 'string',
+      engineVersion: 'string',
       instanceChargeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -14461,8 +14473,16 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
+    if (!Util.isUnset(request.DBInstanceClass)) {
+      query["DBInstanceClass"] = request.DBInstanceClass;
+    }
+
     if (!Util.isUnset(request.dbType)) {
       query["DbType"] = request.dbType;
+    }
+
+    if (!Util.isUnset(request.engineVersion)) {
+      query["EngineVersion"] = request.engineVersion;
     }
 
     if (!Util.isUnset(request.excludeSecondaryZoneId)) {
@@ -14601,8 +14621,16 @@ export default class Client extends OpenApi {
   async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.DBInstanceClass)) {
+      query["DBInstanceClass"] = request.DBInstanceClass;
+    }
+
     if (!Util.isUnset(request.dbType)) {
       query["DbType"] = request.dbType;
+    }
+
+    if (!Util.isUnset(request.engineVersion)) {
+      query["EngineVersion"] = request.engineVersion;
     }
 
     if (!Util.isUnset(request.instanceChargeType)) {
