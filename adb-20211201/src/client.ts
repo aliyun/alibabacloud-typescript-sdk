@@ -15800,6 +15800,14 @@ export default class Client extends OpenApi {
     return await this.getSparkTemplateFullTreeWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetTableRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTableResponse
+   */
+  // Deprecated
   async getTableWithOptions(request: GetTableRequest, runtime: $Util.RuntimeOptions): Promise<GetTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15836,6 +15844,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTableResponse>(await this.callApi(params, req, runtime), new GetTableResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetTableRequest
+    * @return GetTableResponse
+   */
+  // Deprecated
   async getTable(request: GetTableRequest): Promise<GetTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTableWithOptions(request, runtime);
