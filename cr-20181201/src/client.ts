@@ -227,12 +227,14 @@ export class ChangeResourceGroupResponse extends $tea.Model {
 export class CreateArtifactBuildRuleRequest extends $tea.Model {
   artifactType?: string;
   instanceId?: string;
+  parameters?: { [key: string]: any };
   scopeId?: string;
   scopeType?: string;
   static names(): { [key: string]: string } {
     return {
       artifactType: 'ArtifactType',
       instanceId: 'InstanceId',
+      parameters: 'Parameters',
       scopeId: 'ScopeId',
       scopeType: 'ScopeType',
     };
@@ -242,6 +244,38 @@ export class CreateArtifactBuildRuleRequest extends $tea.Model {
     return {
       artifactType: 'string',
       instanceId: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      scopeId: 'string',
+      scopeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactBuildRuleShrinkRequest extends $tea.Model {
+  artifactType?: string;
+  instanceId?: string;
+  parametersShrink?: string;
+  scopeId?: string;
+  scopeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifactType: 'ArtifactType',
+      instanceId: 'InstanceId',
+      parametersShrink: 'Parameters',
+      scopeId: 'ScopeId',
+      scopeType: 'ScopeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactType: 'string',
+      instanceId: 'string',
+      parametersShrink: 'string',
       scopeId: 'string',
       scopeType: 'string',
     };
@@ -9375,12 +9409,18 @@ export default class Client extends OpenApi {
   /**
     * The ID of the rule.
     *
-    * @param request CreateArtifactBuildRuleRequest
+    * @param tmpReq CreateArtifactBuildRuleRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return CreateArtifactBuildRuleResponse
    */
-  async createArtifactBuildRuleWithOptions(request: CreateArtifactBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateArtifactBuildRuleResponse> {
-    Util.validateModel(request);
+  async createArtifactBuildRuleWithOptions(tmpReq: CreateArtifactBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateArtifactBuildRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateArtifactBuildRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.artifactType)) {
       query["ArtifactType"] = request.artifactType;
@@ -9388,6 +9428,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
     }
 
     if (!Util.isUnset(request.scopeId)) {
