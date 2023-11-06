@@ -2292,12 +2292,14 @@ export class CreateSkillGroupRequest extends $tea.Model {
   description?: string;
   displayName?: string;
   instanceId?: string;
+  mediaType?: string;
   name?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       displayName: 'DisplayName',
       instanceId: 'InstanceId',
+      mediaType: 'MediaType',
       name: 'Name',
     };
   }
@@ -2307,6 +2309,7 @@ export class CreateSkillGroupRequest extends $tea.Model {
       description: 'string',
       displayName: 'string',
       instanceId: 'string',
+      mediaType: 'string',
       name: 'string',
     };
   }
@@ -3122,6 +3125,7 @@ export class ExportDoNotCallNumbersResponseBody extends $tea.Model {
   data?: string;
   httpStatusCode?: number;
   message?: string;
+  params?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3129,6 +3133,7 @@ export class ExportDoNotCallNumbersResponseBody extends $tea.Model {
       data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
+      params: 'Params',
       requestId: 'RequestId',
     };
   }
@@ -3139,6 +3144,7 @@ export class ExportDoNotCallNumbersResponseBody extends $tea.Model {
       data: 'string',
       httpStatusCode: 'number',
       message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -5087,6 +5093,7 @@ export class GetTurnCredentialsResponseBody extends $tea.Model {
   data?: GetTurnCredentialsResponseBodyData;
   httpStatusCode?: number;
   message?: string;
+  params?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5094,6 +5101,7 @@ export class GetTurnCredentialsResponseBody extends $tea.Model {
       data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
+      params: 'Params',
       requestId: 'RequestId',
     };
   }
@@ -5104,6 +5112,7 @@ export class GetTurnCredentialsResponseBody extends $tea.Model {
       data: GetTurnCredentialsResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -5162,6 +5171,7 @@ export class GetTurnServerListResponseBody extends $tea.Model {
   data?: string;
   httpStatusCode?: number;
   message?: string;
+  params?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5169,6 +5179,7 @@ export class GetTurnServerListResponseBody extends $tea.Model {
       data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
+      params: 'Params',
       requestId: 'RequestId',
     };
   }
@@ -5179,6 +5190,7 @@ export class GetTurnServerListResponseBody extends $tea.Model {
       data: 'string',
       httpStatusCode: 'number',
       message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -5809,12 +5821,14 @@ export class ImportDoNotCallNumbersResponseBody extends $tea.Model {
   code?: string;
   httpStatusCode?: number;
   message?: string;
+  params?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
+      params: 'Params',
       requestId: 'RequestId',
     };
   }
@@ -5824,6 +5838,7 @@ export class ImportDoNotCallNumbersResponseBody extends $tea.Model {
       code: 'string',
       httpStatusCode: 'number',
       message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -7378,14 +7393,18 @@ export class ListConfigItemsResponse extends $tea.Model {
 
 export class ListContactFlowsRequest extends $tea.Model {
   instanceId?: string;
+  orderByField?: string;
   pageNumber?: number;
   pageSize?: number;
+  sortOrder?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      orderByField: 'OrderByField',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sortOrder: 'SortOrder',
       type: 'Type',
     };
   }
@@ -7393,8 +7412,10 @@ export class ListContactFlowsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      orderByField: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sortOrder: 'string',
       type: 'string',
     };
   }
@@ -9569,6 +9590,7 @@ export class ListRamUsersResponseBody extends $tea.Model {
   data?: ListRamUsersResponseBodyData;
   httpStatusCode?: number;
   message?: string;
+  params?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9576,6 +9598,7 @@ export class ListRamUsersResponseBody extends $tea.Model {
       data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
+      params: 'Params',
       requestId: 'RequestId',
     };
   }
@@ -9586,6 +9609,7 @@ export class ListRamUsersResponseBody extends $tea.Model {
       data: ListRamUsersResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -10150,12 +10174,14 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponse extends $tea.Mode
 
 export class ListSkillGroupsRequest extends $tea.Model {
   instanceId?: string;
+  mediaType?: string;
   pageNumber?: number;
   pageSize?: number;
   searchPattern?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      mediaType: 'MediaType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       searchPattern: 'SearchPattern',
@@ -10165,6 +10191,7 @@ export class ListSkillGroupsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      mediaType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       searchPattern: 'string',
@@ -12485,6 +12512,7 @@ export class RemoveDoNotCallNumbersResponseBody extends $tea.Model {
   data?: string;
   httpStatusCode?: number;
   message?: string;
+  params?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12492,6 +12520,7 @@ export class RemoveDoNotCallNumbersResponseBody extends $tea.Model {
       data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
+      params: 'Params',
       requestId: 'RequestId',
     };
   }
@@ -12502,6 +12531,7 @@ export class RemoveDoNotCallNumbersResponseBody extends $tea.Model {
       data: 'string',
       httpStatusCode: 'number',
       message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -16380,12 +16410,14 @@ export class CreateCustomCallTaggingResponseBodyData extends $tea.Model {
 export class CreateSkillGroupResponseBodyData extends $tea.Model {
   description?: string;
   instanceId?: string;
+  mediaType?: string;
   name?: string;
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       instanceId: 'InstanceId',
+      mediaType: 'MediaType',
       name: 'Name',
       skillGroupId: 'SkillGroupId',
     };
@@ -16395,6 +16427,7 @@ export class CreateSkillGroupResponseBodyData extends $tea.Model {
     return {
       description: 'string',
       instanceId: 'string',
+      mediaType: 'string',
       name: 'string',
       skillGroupId: 'string',
     };
@@ -18141,6 +18174,7 @@ export class GetSkillGroupResponseBodyData extends $tea.Model {
   description?: string;
   displayName?: string;
   instanceId?: string;
+  mediaType?: string;
   name?: string;
   skillGroupId?: string;
   static names(): { [key: string]: string } {
@@ -18148,6 +18182,7 @@ export class GetSkillGroupResponseBodyData extends $tea.Model {
       description: 'Description',
       displayName: 'DisplayName',
       instanceId: 'InstanceId',
+      mediaType: 'MediaType',
       name: 'Name',
       skillGroupId: 'SkillGroupId',
     };
@@ -18158,6 +18193,7 @@ export class GetSkillGroupResponseBodyData extends $tea.Model {
       description: 'string',
       displayName: 'string',
       instanceId: 'string',
+      mediaType: 'string',
       name: 'string',
       skillGroupId: 'string',
     };
@@ -20382,6 +20418,7 @@ export class ListDevicesResponseBodyData extends $tea.Model {
   callId?: string;
   contact?: string;
   deviceId?: string;
+  deviceType?: string;
   expires?: number;
   extension?: string;
   instanceId?: string;
@@ -20391,6 +20428,7 @@ export class ListDevicesResponseBodyData extends $tea.Model {
       callId: 'CallId',
       contact: 'Contact',
       deviceId: 'DeviceId',
+      deviceType: 'DeviceType',
       expires: 'Expires',
       extension: 'Extension',
       instanceId: 'InstanceId',
@@ -20403,6 +20441,7 @@ export class ListDevicesResponseBodyData extends $tea.Model {
       callId: 'string',
       contact: 'string',
       deviceId: 'string',
+      deviceType: 'string',
       expires: 'number',
       extension: 'string',
       instanceId: 'string',
@@ -25242,6 +25281,7 @@ export class ListSkillGroupsResponseBodyDataList extends $tea.Model {
   description?: string;
   displayName?: string;
   instanceId?: string;
+  mediaType?: string;
   phoneNumberCount?: number;
   skillGroupId?: string;
   skillGroupName?: string;
@@ -25251,6 +25291,7 @@ export class ListSkillGroupsResponseBodyDataList extends $tea.Model {
       description: 'Description',
       displayName: 'DisplayName',
       instanceId: 'InstanceId',
+      mediaType: 'MediaType',
       phoneNumberCount: 'PhoneNumberCount',
       skillGroupId: 'SkillGroupId',
       skillGroupName: 'SkillGroupName',
@@ -25263,6 +25304,7 @@ export class ListSkillGroupsResponseBodyDataList extends $tea.Model {
       description: 'string',
       displayName: 'string',
       instanceId: 'string',
+      mediaType: 'string',
       phoneNumberCount: 'number',
       skillGroupId: 'string',
       skillGroupName: 'string',
@@ -25304,11 +25346,13 @@ export class ListSkillGroupsResponseBodyData extends $tea.Model {
 }
 
 export class ListSkillLevelsOfUserResponseBodyDataList extends $tea.Model {
+  mediaType?: string;
   skillGroupId?: string;
   skillGroupName?: string;
   skillLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      mediaType: 'MediaType',
       skillGroupId: 'SkillGroupId',
       skillGroupName: 'SkillGroupName',
       skillLevel: 'SkillLevel',
@@ -25317,6 +25361,7 @@ export class ListSkillLevelsOfUserResponseBodyDataList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      mediaType: 'string',
       skillGroupId: 'string',
       skillGroupName: 'string',
       skillLevel: 'string',
@@ -29328,6 +29373,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -31621,12 +31670,20 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.orderByField)) {
+      query["OrderByField"] = request.orderByField;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -32971,6 +33028,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
