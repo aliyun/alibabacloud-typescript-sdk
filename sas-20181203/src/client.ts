@@ -23147,11 +23147,16 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
   isNewContainerVersion?: boolean;
   isNewMultiVersion?: boolean;
   isOverBalance?: boolean;
+  isPostpay?: boolean;
   isTrialVersion?: number;
   lastTrailEndTime?: number;
   MVAuthCount?: number;
   MVUnusedAuthCount?: number;
   openTime?: number;
+  postPayInstanceId?: string;
+  postPayModuleSwitch?: string;
+  postPayOpenTime?: number;
+  postPayStatus?: number;
   raspCapacity?: number;
   releaseTime?: number;
   requestId?: string;
@@ -23180,11 +23185,16 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
       isNewContainerVersion: 'IsNewContainerVersion',
       isNewMultiVersion: 'IsNewMultiVersion',
       isOverBalance: 'IsOverBalance',
+      isPostpay: 'IsPostpay',
       isTrialVersion: 'IsTrialVersion',
       lastTrailEndTime: 'LastTrailEndTime',
       MVAuthCount: 'MVAuthCount',
       MVUnusedAuthCount: 'MVUnusedAuthCount',
       openTime: 'OpenTime',
+      postPayInstanceId: 'PostPayInstanceId',
+      postPayModuleSwitch: 'PostPayModuleSwitch',
+      postPayOpenTime: 'PostPayOpenTime',
+      postPayStatus: 'PostPayStatus',
       raspCapacity: 'RaspCapacity',
       releaseTime: 'ReleaseTime',
       requestId: 'RequestId',
@@ -23216,11 +23226,16 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
       isNewContainerVersion: 'boolean',
       isNewMultiVersion: 'boolean',
       isOverBalance: 'boolean',
+      isPostpay: 'boolean',
       isTrialVersion: 'number',
       lastTrailEndTime: 'number',
       MVAuthCount: 'number',
       MVUnusedAuthCount: 'number',
       openTime: 'number',
+      postPayInstanceId: 'string',
+      postPayModuleSwitch: 'string',
+      postPayOpenTime: 'number',
+      postPayStatus: 'number',
       raspCapacity: 'number',
       releaseTime: 'number',
       requestId: 'string',
