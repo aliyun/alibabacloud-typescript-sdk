@@ -5654,10 +5654,12 @@ export class GetIntegratedServiceStatusRequest extends $tea.Model {
 
 export class GetIntegratedServiceStatusResponseBody extends $tea.Model {
   data?: boolean;
+  integratedTypes?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      integratedTypes: 'IntegratedTypes',
       requestId: 'RequestId',
     };
   }
@@ -5665,6 +5667,7 @@ export class GetIntegratedServiceStatusResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: 'boolean',
+      integratedTypes: 'string',
       requestId: 'string',
     };
   }
@@ -10966,10 +10969,12 @@ export class UpdateDeliveryChannelResponse extends $tea.Model {
 }
 
 export class UpdateIntegratedServiceStatusRequest extends $tea.Model {
+  integratedTypes?: string;
   serviceCode?: string;
   status?: boolean;
   static names(): { [key: string]: string } {
     return {
+      integratedTypes: 'IntegratedTypes',
       serviceCode: 'ServiceCode',
       status: 'Status',
     };
@@ -10977,6 +10982,7 @@ export class UpdateIntegratedServiceStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      integratedTypes: 'string',
       serviceCode: 'string',
       status: 'boolean',
     };
@@ -16428,11 +16434,13 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfiles exten
 }
 
 export class ListIntegratedServiceResponseBodyData extends $tea.Model {
+  integratedTypes?: string;
   serviceCode?: string;
   serviceName?: string;
   status?: boolean;
   static names(): { [key: string]: string } {
     return {
+      integratedTypes: 'IntegratedTypes',
       serviceCode: 'ServiceCode',
       serviceName: 'ServiceName',
       status: 'Status',
@@ -16441,6 +16449,7 @@ export class ListIntegratedServiceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      integratedTypes: 'string',
       serviceCode: 'string',
       serviceName: 'string',
       status: 'boolean',
@@ -17633,6 +17642,13 @@ export default class Client extends OpenApi {
     return await this.createAdvancedSearchFileWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to create a downloadable resource file for an account group whose ID is `ca-edd3626622af00b3****`. The resource file includes all the ECS instances in the account group.
+    *
+    * @param request CreateAggregateAdvancedSearchFileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAggregateAdvancedSearchFileResponse
+   */
   async createAggregateAdvancedSearchFileWithOptions(request: CreateAggregateAdvancedSearchFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateAggregateAdvancedSearchFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17661,6 +17677,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAggregateAdvancedSearchFileResponse>(await this.callApi(params, req, runtime), new CreateAggregateAdvancedSearchFileResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to create a downloadable resource file for an account group whose ID is `ca-edd3626622af00b3****`. The resource file includes all the ECS instances in the account group.
+    *
+    * @param request CreateAggregateAdvancedSearchFileRequest
+    * @return CreateAggregateAdvancedSearchFileResponse
+   */
   async createAggregateAdvancedSearchFile(request: CreateAggregateAdvancedSearchFileRequest): Promise<CreateAggregateAdvancedSearchFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAggregateAdvancedSearchFileWithOptions(request, runtime);
@@ -20359,6 +20381,13 @@ export default class Client extends OpenApi {
     return await this.getAggregateResourceCountsGroupByResourceTypeWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the most recently generated resource inventory of an account group whose ID is ca-a91d626622af0035\\*\\*\\*\\*.
+    *
+    * @param request GetAggregateResourceInventoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAggregateResourceInventoryResponse
+   */
   async getAggregateResourceInventoryWithOptions(request: GetAggregateResourceInventoryRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateResourceInventoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20383,6 +20412,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAggregateResourceInventoryResponse>(await this.callApi(params, req, runtime), new GetAggregateResourceInventoryResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the most recently generated resource inventory of an account group whose ID is ca-a91d626622af0035\\*\\*\\*\\*.
+    *
+    * @param request GetAggregateResourceInventoryRequest
+    * @return GetAggregateResourceInventoryResponse
+   */
   async getAggregateResourceInventory(request: GetAggregateResourceInventoryRequest): Promise<GetAggregateResourceInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAggregateResourceInventoryWithOptions(request, runtime);
@@ -20795,7 +20830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example of how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
+    * This topic provides an example to demonstrate how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
     *
     * @param request GetDiscoveredResourceCountsGroupByRegionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20826,7 +20861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example of how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
+    * This topic provides an example to demonstrate how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
     *
     * @param request GetDiscoveredResourceCountsGroupByRegionRequest
     * @return GetDiscoveredResourceCountsGroupByRegionResponse
@@ -21201,6 +21236,13 @@ export default class Client extends OpenApi {
     return await this.getResourceConfigurationTimelineWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the most recently generated resource inventory of the current Alibaba Cloud account.
+    *
+    * @param request GetResourceInventoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetResourceInventoryResponse
+   */
   async getResourceInventoryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetResourceInventoryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -21217,6 +21259,11 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResourceInventoryResponse>(await this.callApi(params, req, runtime), new GetResourceInventoryResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the most recently generated resource inventory of the current Alibaba Cloud account.
+    *
+    * @return GetResourceInventoryResponse
+   */
   async getResourceInventory(): Promise<GetResourceInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResourceInventoryWithOptions(runtime);
@@ -21561,6 +21608,13 @@ export default class Client extends OpenApi {
     return await this.listAggregateConfigRuleEvaluationResultsWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the statistics of compliance evaluation results of an account group whose ID is ca-edd3626622af00b3\\*\\*\\*\\*.
+    *
+    * @param request ListAggregateConfigRuleEvaluationStatisticsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAggregateConfigRuleEvaluationStatisticsResponse
+   */
   async listAggregateConfigRuleEvaluationStatisticsWithOptions(request: ListAggregateConfigRuleEvaluationStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateConfigRuleEvaluationStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21585,6 +21639,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAggregateConfigRuleEvaluationStatisticsResponse>(await this.callApi(params, req, runtime), new ListAggregateConfigRuleEvaluationStatisticsResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the statistics of compliance evaluation results of an account group whose ID is ca-edd3626622af00b3\\*\\*\\*\\*.
+    *
+    * @param request ListAggregateConfigRuleEvaluationStatisticsRequest
+    * @return ListAggregateConfigRuleEvaluationStatisticsResponse
+   */
   async listAggregateConfigRuleEvaluationStatistics(request: ListAggregateConfigRuleEvaluationStatisticsRequest): Promise<ListAggregateConfigRuleEvaluationStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAggregateConfigRuleEvaluationStatisticsWithOptions(request, runtime);
@@ -21738,6 +21798,13 @@ export default class Client extends OpenApi {
     return await this.listAggregateDiscoveredResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the remediation records of the `cr-d04a626622af00af****` rule in the `ca-edd3626622af00b3****` account group.
+    *
+    * @param request ListAggregateRemediationExecutionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAggregateRemediationExecutionsResponse
+   */
   async listAggregateRemediationExecutionsWithOptions(request: ListAggregateRemediationExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateRemediationExecutionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21782,6 +21849,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAggregateRemediationExecutionsResponse>(await this.callApi(params, req, runtime), new ListAggregateRemediationExecutionsResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the remediation records of the `cr-d04a626622af00af****` rule in the `ca-edd3626622af00b3****` account group.
+    *
+    * @param request ListAggregateRemediationExecutionsRequest
+    * @return ListAggregateRemediationExecutionsResponse
+   */
   async listAggregateRemediationExecutions(request: ListAggregateRemediationExecutionsRequest): Promise<ListAggregateRemediationExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAggregateRemediationExecutionsWithOptions(request, runtime);
@@ -22380,6 +22453,13 @@ export default class Client extends OpenApi {
     return await this.listDiscoveredResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the cloud services that can be integrated by the current Alibaba Cloud account.
+    *
+    * @param request ListIntegratedServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListIntegratedServiceResponse
+   */
   async listIntegratedServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<ListIntegratedServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -22396,6 +22476,11 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIntegratedServiceResponse>(await this.callApi(params, req, runtime), new ListIntegratedServiceResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the cloud services that can be integrated by the current Alibaba Cloud account.
+    *
+    * @return ListIntegratedServiceResponse
+   */
   async listIntegratedService(): Promise<ListIntegratedServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIntegratedServiceWithOptions(runtime);
@@ -22792,6 +22877,13 @@ export default class Client extends OpenApi {
     return await this.listResourceRelationsWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query all resources with the business tag key and the online tag value in the current Alibaba Cloud account.
+    *
+    * @param request ListResourcesByAdvancedSearchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListResourcesByAdvancedSearchResponse
+   */
   async listResourcesByAdvancedSearchWithOptions(request: ListResourcesByAdvancedSearchRequest, runtime: $Util.RuntimeOptions): Promise<ListResourcesByAdvancedSearchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22816,11 +22908,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourcesByAdvancedSearchResponse>(await this.callApi(params, req, runtime), new ListResourcesByAdvancedSearchResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query all resources with the business tag key and the online tag value in the current Alibaba Cloud account.
+    *
+    * @param request ListResourcesByAdvancedSearchRequest
+    * @return ListResourcesByAdvancedSearchResponse
+   */
   async listResourcesByAdvancedSearch(request: ListResourcesByAdvancedSearchRequest): Promise<ListResourcesByAdvancedSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listResourcesByAdvancedSearchWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the cloud services and resource types that are supported by Cloud Config.
+    *
+    * @param request ListSupportedProductsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSupportedProductsResponse
+   */
   async listSupportedProductsWithOptions(request: ListSupportedProductsRequest, runtime: $Util.RuntimeOptions): Promise<ListSupportedProductsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22849,6 +22954,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSupportedProductsResponse>(await this.callApi(params, req, runtime), new ListSupportedProductsResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the cloud services and resource types that are supported by Cloud Config.
+    *
+    * @param request ListSupportedProductsRequest
+    * @return ListSupportedProductsResponse
+   */
   async listSupportedProducts(request: ListSupportedProductsRequest): Promise<ListSupportedProductsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSupportedProductsWithOptions(request, runtime);
@@ -24259,6 +24370,10 @@ export default class Client extends OpenApi {
   async updateIntegratedServiceStatusWithOptions(request: UpdateIntegratedServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIntegratedServiceStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.integratedTypes)) {
+      body["IntegratedTypes"] = request.integratedTypes;
+    }
+
     if (!Util.isUnset(request.serviceCode)) {
       body["ServiceCode"] = request.serviceCode;
     }
