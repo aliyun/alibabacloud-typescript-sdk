@@ -3939,7 +3939,10 @@ export class ListListenersResponse extends $tea.Model {
 }
 
 export class ListLoadBalancersRequest extends $tea.Model {
+  addressIpVersion?: string;
   addressType?: string;
+  DNSName?: string;
+  ipv6AddressType?: string;
   loadBalancerBussinessStatus?: string;
   loadBalancerIds?: string[];
   loadBalancerNames?: string[];
@@ -3953,7 +3956,10 @@ export class ListLoadBalancersRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      addressIpVersion: 'AddressIpVersion',
       addressType: 'AddressType',
+      DNSName: 'DNSName',
+      ipv6AddressType: 'Ipv6AddressType',
       loadBalancerBussinessStatus: 'LoadBalancerBussinessStatus',
       loadBalancerIds: 'LoadBalancerIds',
       loadBalancerNames: 'LoadBalancerNames',
@@ -3970,7 +3976,10 @@ export class ListLoadBalancersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addressIpVersion: 'string',
       addressType: 'string',
+      DNSName: 'string',
+      ipv6AddressType: 'string',
       loadBalancerBussinessStatus: 'string',
       loadBalancerIds: { 'type': 'array', 'itemType': 'string' },
       loadBalancerNames: { 'type': 'array', 'itemType': 'string' },
@@ -6769,13 +6778,16 @@ export class CreateHealthCheckTemplateRequestTag extends $tea.Model {
 }
 
 export class CreateListenerRequestCaCertificates extends $tea.Model {
+  certificateId?: string;
   static names(): { [key: string]: string } {
     return {
+      certificateId: 'CertificateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      certificateId: 'string',
     };
   }
 
@@ -11526,13 +11538,16 @@ export class UpdateAScriptsRequestAScripts extends $tea.Model {
 }
 
 export class UpdateListenerAttributeRequestCaCertificates extends $tea.Model {
+  certificateId?: string;
   static names(): { [key: string]: string } {
     return {
+      certificateId: 'CertificateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      certificateId: 'string',
     };
   }
 
@@ -15767,8 +15782,20 @@ export default class Client extends OpenApi {
   async listLoadBalancersWithOptions(request: ListLoadBalancersRequest, runtime: $Util.RuntimeOptions): Promise<ListLoadBalancersResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.addressIpVersion)) {
+      query["AddressIpVersion"] = request.addressIpVersion;
+    }
+
     if (!Util.isUnset(request.addressType)) {
       query["AddressType"] = request.addressType;
+    }
+
+    if (!Util.isUnset(request.DNSName)) {
+      query["DNSName"] = request.DNSName;
+    }
+
+    if (!Util.isUnset(request.ipv6AddressType)) {
+      query["Ipv6AddressType"] = request.ipv6AddressType;
     }
 
     if (!Util.isUnset(request.loadBalancerBussinessStatus)) {
