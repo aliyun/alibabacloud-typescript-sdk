@@ -5636,15 +5636,18 @@ export class DescribeTablesResponse extends $tea.Model {
 
 export class DescribeUserQuotaRequest extends $tea.Model {
   DBClusterId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      regionId: 'string',
     };
   }
 
