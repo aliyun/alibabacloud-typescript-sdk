@@ -2590,11 +2590,13 @@ export class CreateListenerRequest extends $tea.Model {
   customRoutingEndpointGroupConfigurations?: CreateListenerRequestCustomRoutingEndpointGroupConfigurations[];
   description?: string;
   endpointGroupConfigurations?: CreateListenerRequestEndpointGroupConfigurations[];
+  idleTimeout?: number;
   name?: string;
   portRanges?: CreateListenerRequestPortRanges[];
   protocol?: string;
   proxyProtocol?: boolean;
   regionId?: string;
+  requestTimeout?: number;
   securityPolicyId?: string;
   type?: string;
   XForwardedForConfig?: CreateListenerRequestXForwardedForConfig;
@@ -2607,11 +2609,13 @@ export class CreateListenerRequest extends $tea.Model {
       customRoutingEndpointGroupConfigurations: 'CustomRoutingEndpointGroupConfigurations',
       description: 'Description',
       endpointGroupConfigurations: 'EndpointGroupConfigurations',
+      idleTimeout: 'IdleTimeout',
       name: 'Name',
       portRanges: 'PortRanges',
       protocol: 'Protocol',
       proxyProtocol: 'ProxyProtocol',
       regionId: 'RegionId',
+      requestTimeout: 'RequestTimeout',
       securityPolicyId: 'SecurityPolicyId',
       type: 'Type',
       XForwardedForConfig: 'XForwardedForConfig',
@@ -2627,11 +2631,13 @@ export class CreateListenerRequest extends $tea.Model {
       customRoutingEndpointGroupConfigurations: { 'type': 'array', 'itemType': CreateListenerRequestCustomRoutingEndpointGroupConfigurations },
       description: 'string',
       endpointGroupConfigurations: { 'type': 'array', 'itemType': CreateListenerRequestEndpointGroupConfigurations },
+      idleTimeout: 'number',
       name: 'string',
       portRanges: { 'type': 'array', 'itemType': CreateListenerRequestPortRanges },
       protocol: 'string',
       proxyProtocol: 'boolean',
       regionId: 'string',
+      requestTimeout: 'number',
       securityPolicyId: 'string',
       type: 'string',
       XForwardedForConfig: CreateListenerRequestXForwardedForConfig,
@@ -5834,6 +5840,7 @@ export class DescribeListenerResponseBody extends $tea.Model {
   clientAffinity?: string;
   createTime?: string;
   description?: string;
+  idleTimeout?: number;
   listenerId?: string;
   name?: string;
   portRanges?: DescribeListenerResponseBodyPortRanges[];
@@ -5841,6 +5848,7 @@ export class DescribeListenerResponseBody extends $tea.Model {
   proxyProtocol?: boolean;
   relatedAcls?: DescribeListenerResponseBodyRelatedAcls[];
   requestId?: string;
+  requestTimeout?: number;
   securityPolicyId?: string;
   serviceId?: string;
   serviceManaged?: boolean;
@@ -5857,6 +5865,7 @@ export class DescribeListenerResponseBody extends $tea.Model {
       clientAffinity: 'ClientAffinity',
       createTime: 'CreateTime',
       description: 'Description',
+      idleTimeout: 'IdleTimeout',
       listenerId: 'ListenerId',
       name: 'Name',
       portRanges: 'PortRanges',
@@ -5864,6 +5873,7 @@ export class DescribeListenerResponseBody extends $tea.Model {
       proxyProtocol: 'ProxyProtocol',
       relatedAcls: 'RelatedAcls',
       requestId: 'RequestId',
+      requestTimeout: 'RequestTimeout',
       securityPolicyId: 'SecurityPolicyId',
       serviceId: 'ServiceId',
       serviceManaged: 'ServiceManaged',
@@ -5883,6 +5893,7 @@ export class DescribeListenerResponseBody extends $tea.Model {
       clientAffinity: 'string',
       createTime: 'string',
       description: 'string',
+      idleTimeout: 'number',
       listenerId: 'string',
       name: 'string',
       portRanges: { 'type': 'array', 'itemType': DescribeListenerResponseBodyPortRanges },
@@ -5890,6 +5901,7 @@ export class DescribeListenerResponseBody extends $tea.Model {
       proxyProtocol: 'boolean',
       relatedAcls: { 'type': 'array', 'itemType': DescribeListenerResponseBodyRelatedAcls },
       requestId: 'string',
+      requestTimeout: 'number',
       securityPolicyId: 'string',
       serviceId: 'string',
       serviceManaged: 'boolean',
@@ -12896,12 +12908,14 @@ export class UpdateListenerRequest extends $tea.Model {
   clientAffinity?: string;
   clientToken?: string;
   description?: string;
+  idleTimeout?: number;
   listenerId?: string;
   name?: string;
   portRanges?: UpdateListenerRequestPortRanges[];
   protocol?: string;
   proxyProtocol?: string;
   regionId?: string;
+  requestTimeout?: number;
   securityPolicyId?: string;
   XForwardedForConfig?: UpdateListenerRequestXForwardedForConfig;
   static names(): { [key: string]: string } {
@@ -12911,12 +12925,14 @@ export class UpdateListenerRequest extends $tea.Model {
       clientAffinity: 'ClientAffinity',
       clientToken: 'ClientToken',
       description: 'Description',
+      idleTimeout: 'IdleTimeout',
       listenerId: 'ListenerId',
       name: 'Name',
       portRanges: 'PortRanges',
       protocol: 'Protocol',
       proxyProtocol: 'ProxyProtocol',
       regionId: 'RegionId',
+      requestTimeout: 'RequestTimeout',
       securityPolicyId: 'SecurityPolicyId',
       XForwardedForConfig: 'XForwardedForConfig',
     };
@@ -12929,12 +12945,14 @@ export class UpdateListenerRequest extends $tea.Model {
       clientAffinity: 'string',
       clientToken: 'string',
       description: 'string',
+      idleTimeout: 'number',
       listenerId: 'string',
       name: 'string',
       portRanges: { 'type': 'array', 'itemType': UpdateListenerRequestPortRanges },
       protocol: 'string',
       proxyProtocol: 'string',
       regionId: 'string',
+      requestTimeout: 'number',
       securityPolicyId: 'string',
       XForwardedForConfig: UpdateListenerRequestXForwardedForConfig,
     };
@@ -17773,11 +17791,13 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
   clientAffinity?: string;
   createTime?: number;
   description?: string;
+  idleTimeout?: number;
   listenerId?: string;
   name?: string;
   portRanges?: ListListenersResponseBodyListenersPortRanges[];
   protocol?: string;
   proxyProtocol?: boolean;
+  requestTimeout?: number;
   securityPolicyId?: string;
   serviceId?: string;
   serviceManaged?: boolean;
@@ -17793,11 +17813,13 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
       clientAffinity: 'ClientAffinity',
       createTime: 'CreateTime',
       description: 'Description',
+      idleTimeout: 'IdleTimeout',
       listenerId: 'ListenerId',
       name: 'Name',
       portRanges: 'PortRanges',
       protocol: 'Protocol',
       proxyProtocol: 'ProxyProtocol',
+      requestTimeout: 'RequestTimeout',
       securityPolicyId: 'SecurityPolicyId',
       serviceId: 'ServiceId',
       serviceManaged: 'ServiceManaged',
@@ -17816,11 +17838,13 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
       clientAffinity: 'string',
       createTime: 'number',
       description: 'string',
+      idleTimeout: 'number',
       listenerId: 'string',
       name: 'string',
       portRanges: { 'type': 'array', 'itemType': ListListenersResponseBodyListenersPortRanges },
       protocol: 'string',
       proxyProtocol: 'boolean',
+      requestTimeout: 'number',
       securityPolicyId: 'string',
       serviceId: 'string',
       serviceManaged: 'boolean',
@@ -20899,6 +20923,10 @@ export default class Client extends OpenApi {
       query["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
     }
 
+    if (!Util.isUnset(request.idleTimeout)) {
+      query["IdleTimeout"] = request.idleTimeout;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -20917,6 +20945,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestTimeout)) {
+      query["RequestTimeout"] = request.requestTimeout;
     }
 
     if (!Util.isUnset(request.securityPolicyId)) {
@@ -27283,6 +27315,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.idleTimeout)) {
+      query["IdleTimeout"] = request.idleTimeout;
+    }
+
     if (!Util.isUnset(request.listenerId)) {
       query["ListenerId"] = request.listenerId;
     }
@@ -27305,6 +27341,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestTimeout)) {
+      query["RequestTimeout"] = request.requestTimeout;
     }
 
     if (!Util.isUnset(request.securityPolicyId)) {
