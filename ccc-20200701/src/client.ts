@@ -187,11 +187,13 @@ export class AddCasesResponse extends $tea.Model {
 }
 
 export class AddNumbersToSkillGroupRequest extends $tea.Model {
+  instNumberGroupIdList?: string;
   instanceId?: string;
   numberList?: string;
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      instNumberGroupIdList: 'InstNumberGroupIdList',
       instanceId: 'InstanceId',
       numberList: 'NumberList',
       skillGroupId: 'SkillGroupId',
@@ -200,6 +202,7 @@ export class AddNumbersToSkillGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instNumberGroupIdList: 'string',
       instanceId: 'string',
       numberList: 'string',
       skillGroupId: 'string',
@@ -1041,6 +1044,7 @@ export class BargeInCallResponse extends $tea.Model {
 
 export class BlindTransferRequest extends $tea.Model {
   callPriority?: number;
+  contactFlowVariables?: string;
   deviceId?: string;
   instanceId?: string;
   jobId?: string;
@@ -1048,11 +1052,13 @@ export class BlindTransferRequest extends $tea.Model {
   strategyParams?: string;
   timeoutSeconds?: number;
   transferee?: string;
+  transfereeType?: string;
   transferor?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       callPriority: 'CallPriority',
+      contactFlowVariables: 'ContactFlowVariables',
       deviceId: 'DeviceId',
       instanceId: 'InstanceId',
       jobId: 'JobId',
@@ -1060,6 +1066,7 @@ export class BlindTransferRequest extends $tea.Model {
       strategyParams: 'StrategyParams',
       timeoutSeconds: 'TimeoutSeconds',
       transferee: 'Transferee',
+      transfereeType: 'TransfereeType',
       transferor: 'Transferor',
       userId: 'UserId',
     };
@@ -1068,6 +1075,7 @@ export class BlindTransferRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       callPriority: 'number',
+      contactFlowVariables: 'string',
       deviceId: 'string',
       instanceId: 'string',
       jobId: 'string',
@@ -1075,6 +1083,7 @@ export class BlindTransferRequest extends $tea.Model {
       strategyParams: 'string',
       timeoutSeconds: 'number',
       transferee: 'string',
+      transfereeType: 'string',
       transferor: 'string',
       userId: 'string',
     };
@@ -2376,24 +2385,28 @@ export class CreateSkillGroupResponse extends $tea.Model {
 }
 
 export class CreateUserRequest extends $tea.Model {
+  avatarUrl?: string;
   displayId?: string;
   displayName?: string;
   email?: string;
   instanceId?: string;
   loginName?: string;
   mobile?: string;
+  nickname?: string;
   resetPassword?: boolean;
   roleId?: string;
   skillLevelList?: string;
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
+      avatarUrl: 'AvatarUrl',
       displayId: 'DisplayId',
       displayName: 'DisplayName',
       email: 'Email',
       instanceId: 'InstanceId',
       loginName: 'LoginName',
       mobile: 'Mobile',
+      nickname: 'Nickname',
       resetPassword: 'ResetPassword',
       roleId: 'RoleId',
       skillLevelList: 'SkillLevelList',
@@ -2403,12 +2416,14 @@ export class CreateUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      avatarUrl: 'string',
       displayId: 'string',
       displayName: 'string',
       email: 'string',
       instanceId: 'string',
       loginName: 'string',
       mobile: 'string',
+      nickname: 'string',
       resetPassword: 'boolean',
       roleId: 'string',
       skillLevelList: 'string',
@@ -2426,6 +2441,7 @@ export class CreateUserResponseBody extends $tea.Model {
   data?: CreateUserResponseBodyData;
   httpStatusCode?: number;
   message?: string;
+  params?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2433,6 +2449,7 @@ export class CreateUserResponseBody extends $tea.Model {
       data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
+      params: 'Params',
       requestId: 'RequestId',
     };
   }
@@ -2443,6 +2460,7 @@ export class CreateUserResponseBody extends $tea.Model {
       data: CreateUserResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -4439,11 +4457,13 @@ export class GetInstanceResponse extends $tea.Model {
 export class GetInstanceTrendingReportRequest extends $tea.Model {
   endTime?: number;
   instanceId?: string;
+  mediaType?: string;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      mediaType: 'MediaType',
       startTime: 'StartTime',
     };
   }
@@ -4452,6 +4472,7 @@ export class GetInstanceTrendingReportRequest extends $tea.Model {
     return {
       endTime: 'number',
       instanceId: 'string',
+      mediaType: 'string',
       startTime: 'number',
     };
   }
@@ -4518,10 +4539,12 @@ export class GetInstanceTrendingReportResponse extends $tea.Model {
 }
 
 export class GetLoginDetailsRequest extends $tea.Model {
+  chatDeviceId?: string;
   instanceId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      chatDeviceId: 'ChatDeviceId',
       instanceId: 'InstanceId',
       userId: 'UserId',
     };
@@ -4529,6 +4552,7 @@ export class GetLoginDetailsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      chatDeviceId: 'string',
       instanceId: 'string',
       userId: 'string',
     };
@@ -4915,15 +4939,18 @@ export class GetRealtimeCampaignStatsResponse extends $tea.Model {
 
 export class GetRealtimeInstanceStatesRequest extends $tea.Model {
   instanceId?: string;
+  mediaType?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      mediaType: 'MediaType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      mediaType: 'string',
     };
   }
 
@@ -5333,6 +5360,7 @@ export class GetUserResponseBody extends $tea.Model {
   data?: GetUserResponseBodyData;
   httpStatusCode?: number;
   message?: string;
+  params?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5340,6 +5368,7 @@ export class GetUserResponseBody extends $tea.Model {
       data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
+      params: 'Params',
       requestId: 'RequestId',
     };
   }
@@ -5350,6 +5379,7 @@ export class GetUserResponseBody extends $tea.Model {
       data: GetUserResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -16439,20 +16469,24 @@ export class CreateSkillGroupResponseBodyData extends $tea.Model {
 }
 
 export class CreateUserResponseBodyData extends $tea.Model {
+  avatarUrl?: string;
   displayName?: string;
   email?: string;
   extension?: string;
   loginName?: string;
   mobile?: string;
+  nickname?: string;
   userId?: string;
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
+      avatarUrl: 'AvatarUrl',
       displayName: 'DisplayName',
       email: 'Email',
       extension: 'Extension',
       loginName: 'LoginName',
       mobile: 'Mobile',
+      nickname: 'Nickname',
       userId: 'UserId',
       workMode: 'WorkMode',
     };
@@ -16460,11 +16494,13 @@ export class CreateUserResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      avatarUrl: 'string',
       displayName: 'string',
       email: 'string',
       extension: 'string',
       loginName: 'string',
       mobile: 'string',
+      nickname: 'string',
       userId: 'string',
       workMode: 'string',
     };
@@ -17938,13 +17974,37 @@ export class GetInstanceTrendingReportResponseBodyDataOutbound extends $tea.Mode
   }
 }
 
+export class GetInstanceTrendingReportResponseBodyDataOverall extends $tea.Model {
+  maxLoggedInAgents?: number;
+  statsTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxLoggedInAgents: 'MaxLoggedInAgents',
+      statsTime: 'StatsTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxLoggedInAgents: 'number',
+      statsTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceTrendingReportResponseBodyData extends $tea.Model {
   inbound?: GetInstanceTrendingReportResponseBodyDataInbound[];
   outbound?: GetInstanceTrendingReportResponseBodyDataOutbound[];
+  overall?: GetInstanceTrendingReportResponseBodyDataOverall[];
   static names(): { [key: string]: string } {
     return {
       inbound: 'Inbound',
       outbound: 'Outbound',
+      overall: 'Overall',
     };
   }
 
@@ -17952,6 +18012,7 @@ export class GetInstanceTrendingReportResponseBodyData extends $tea.Model {
     return {
       inbound: { 'type': 'array', 'itemType': GetInstanceTrendingReportResponseBodyDataInbound },
       outbound: { 'type': 'array', 'itemType': GetInstanceTrendingReportResponseBodyDataOutbound },
+      overall: { 'type': 'array', 'itemType': GetInstanceTrendingReportResponseBodyDataOverall },
     };
   }
 
@@ -17962,11 +18023,19 @@ export class GetInstanceTrendingReportResponseBodyData extends $tea.Model {
 
 export class GetLoginDetailsResponseBodyData extends $tea.Model {
   agentServerUrl?: string;
+  avatarUrl?: string;
+  chatAppId?: string;
+  chatAppKey?: string;
+  chatDeviceId?: string;
+  chatLoginToken?: string;
+  chatServerUrl?: string;
+  chatUserId?: string;
   deviceExt?: string;
   deviceId?: string;
   deviceState?: string;
   displayName?: string;
   extension?: string;
+  nickname?: string;
   signature?: string;
   signature2?: string;
   sipServerUrl?: string;
@@ -17977,11 +18046,19 @@ export class GetLoginDetailsResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       agentServerUrl: 'AgentServerUrl',
+      avatarUrl: 'AvatarUrl',
+      chatAppId: 'ChatAppId',
+      chatAppKey: 'ChatAppKey',
+      chatDeviceId: 'ChatDeviceId',
+      chatLoginToken: 'ChatLoginToken',
+      chatServerUrl: 'ChatServerUrl',
+      chatUserId: 'ChatUserId',
       deviceExt: 'DeviceExt',
       deviceId: 'DeviceId',
       deviceState: 'DeviceState',
       displayName: 'DisplayName',
       extension: 'Extension',
+      nickname: 'Nickname',
       signature: 'Signature',
       signature2: 'Signature2',
       sipServerUrl: 'SipServerUrl',
@@ -17995,11 +18072,19 @@ export class GetLoginDetailsResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       agentServerUrl: 'string',
+      avatarUrl: 'string',
+      chatAppId: 'string',
+      chatAppKey: 'string',
+      chatDeviceId: 'string',
+      chatLoginToken: 'string',
+      chatServerUrl: 'string',
+      chatUserId: 'string',
       deviceExt: 'string',
       deviceId: 'string',
       deviceState: 'string',
       displayName: 'string',
       extension: 'string',
+      nickname: 'string',
       signature: 'string',
       signature2: 'string',
       sipServerUrl: 'string',
@@ -18091,6 +18176,10 @@ export class GetRealtimeCampaignStatsResponseBodyData extends $tea.Model {
   breakingAgents?: number;
   caps?: number;
   loggedInAgents?: number;
+  outboundScenarioBreakingAgents?: number;
+  outboundScenarioReadyAgents?: number;
+  outboundScenarioTalkingAgents?: number;
+  outboundScenarioWorkingAgents?: number;
   readyAgents?: number;
   talkingAgents?: number;
   totalAgents?: number;
@@ -18100,6 +18189,10 @@ export class GetRealtimeCampaignStatsResponseBodyData extends $tea.Model {
       breakingAgents: 'BreakingAgents',
       caps: 'Caps',
       loggedInAgents: 'LoggedInAgents',
+      outboundScenarioBreakingAgents: 'OutboundScenarioBreakingAgents',
+      outboundScenarioReadyAgents: 'OutboundScenarioReadyAgents',
+      outboundScenarioTalkingAgents: 'OutboundScenarioTalkingAgents',
+      outboundScenarioWorkingAgents: 'OutboundScenarioWorkingAgents',
       readyAgents: 'ReadyAgents',
       talkingAgents: 'TalkingAgents',
       totalAgents: 'TotalAgents',
@@ -18112,6 +18205,10 @@ export class GetRealtimeCampaignStatsResponseBodyData extends $tea.Model {
       breakingAgents: 'number',
       caps: 'number',
       loggedInAgents: 'number',
+      outboundScenarioBreakingAgents: 'number',
+      outboundScenarioReadyAgents: 'number',
+      outboundScenarioTalkingAgents: 'number',
+      outboundScenarioWorkingAgents: 'number',
       readyAgents: 'number',
       talkingAgents: 'number',
       totalAgents: 'number',
@@ -18124,7 +18221,30 @@ export class GetRealtimeCampaignStatsResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetRealtimeInstanceStatesResponseBodyDataBreakCodeDetailList extends $tea.Model {
+  breakCode?: string;
+  count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      breakCode: 'BreakCode',
+      count: 'Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakCode: 'string',
+      count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRealtimeInstanceStatesResponseBodyData extends $tea.Model {
+  breakCodeDetailList?: GetRealtimeInstanceStatesResponseBodyDataBreakCodeDetailList[];
   breakingAgents?: number;
   instanceId?: string;
   interactiveCalls?: number;
@@ -18137,6 +18257,7 @@ export class GetRealtimeInstanceStatesResponseBodyData extends $tea.Model {
   workingAgents?: number;
   static names(): { [key: string]: string } {
     return {
+      breakCodeDetailList: 'BreakCodeDetailList',
       breakingAgents: 'BreakingAgents',
       instanceId: 'InstanceId',
       interactiveCalls: 'InteractiveCalls',
@@ -18152,6 +18273,7 @@ export class GetRealtimeInstanceStatesResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      breakCodeDetailList: { 'type': 'array', 'itemType': GetRealtimeInstanceStatesResponseBodyDataBreakCodeDetailList },
       breakingAgents: 'number',
       instanceId: 'string',
       interactiveCalls: 'number',
@@ -18246,6 +18368,7 @@ export class GetUploadAudioDataParamsResponseBodyData extends $tea.Model {
 }
 
 export class GetUserResponseBodyData extends $tea.Model {
+  avatarUrl?: string;
   deviceExt?: string;
   deviceId?: string;
   deviceState?: string;
@@ -18256,12 +18379,14 @@ export class GetUserResponseBodyData extends $tea.Model {
   instanceId?: string;
   loginName?: string;
   mobile?: string;
+  nickname?: string;
   roleId?: string;
   roleName?: string;
   userId?: string;
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
+      avatarUrl: 'AvatarUrl',
       deviceExt: 'DeviceExt',
       deviceId: 'DeviceId',
       deviceState: 'DeviceState',
@@ -18272,6 +18397,7 @@ export class GetUserResponseBodyData extends $tea.Model {
       instanceId: 'InstanceId',
       loginName: 'LoginName',
       mobile: 'Mobile',
+      nickname: 'Nickname',
       roleId: 'RoleId',
       roleName: 'RoleName',
       userId: 'UserId',
@@ -18281,6 +18407,7 @@ export class GetUserResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      avatarUrl: 'string',
       deviceExt: 'string',
       deviceId: 'string',
       deviceState: 'string',
@@ -18291,6 +18418,7 @@ export class GetUserResponseBodyData extends $tea.Model {
       instanceId: 'string',
       loginName: 'string',
       mobile: 'string',
+      nickname: 'string',
       roleId: 'string',
       roleName: 'string',
       userId: 'string',
@@ -28308,6 +28436,10 @@ export default class Client extends OpenApi {
   async addNumbersToSkillGroupWithOptions(request: AddNumbersToSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddNumbersToSkillGroupResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.instNumberGroupIdList)) {
+      query["InstNumberGroupIdList"] = request.instNumberGroupIdList;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -28722,6 +28854,10 @@ export default class Client extends OpenApi {
       query["CallPriority"] = request.callPriority;
     }
 
+    if (!Util.isUnset(request.contactFlowVariables)) {
+      query["ContactFlowVariables"] = request.contactFlowVariables;
+    }
+
     if (!Util.isUnset(request.deviceId)) {
       query["DeviceId"] = request.deviceId;
     }
@@ -28748,6 +28884,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.transferee)) {
       query["Transferee"] = request.transferee;
+    }
+
+    if (!Util.isUnset(request.transfereeType)) {
+      query["TransfereeType"] = request.transfereeType;
     }
 
     if (!Util.isUnset(request.transferor)) {
@@ -29406,6 +29546,10 @@ export default class Client extends OpenApi {
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.avatarUrl)) {
+      query["AvatarUrl"] = request.avatarUrl;
+    }
+
     if (!Util.isUnset(request.displayId)) {
       query["DisplayId"] = request.displayId;
     }
@@ -29428,6 +29572,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.mobile)) {
       query["Mobile"] = request.mobile;
+    }
+
+    if (!Util.isUnset(request.nickname)) {
+      query["Nickname"] = request.nickname;
     }
 
     if (!Util.isUnset(request.resetPassword)) {
@@ -30312,6 +30460,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -30341,6 +30493,10 @@ export default class Client extends OpenApi {
   async getLoginDetailsWithOptions(request: GetLoginDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginDetailsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.chatDeviceId)) {
+      query["ChatDeviceId"] = request.chatDeviceId;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -30504,6 +30660,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
