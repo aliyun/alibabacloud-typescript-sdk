@@ -850,6 +850,75 @@ export class AddPrivateRegistryResponse extends $tea.Model {
   }
 }
 
+export class AddSasModuleTrialRequest extends $tea.Model {
+  lang?: string;
+  moduleCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      moduleCode: 'ModuleCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      moduleCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSasModuleTrialResponseBody extends $tea.Model {
+  data?: AddSasModuleTrialResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: AddSasModuleTrialResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSasModuleTrialResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddSasModuleTrialResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddSasModuleTrialResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddTagWithUuidRequest extends $tea.Model {
   tagName?: string;
   uuidList?: string;
@@ -27984,15 +28053,18 @@ export class GetCloudAssetSummaryResponse extends $tea.Model {
 
 export class GetClusterCheckItemWarningStatisticsRequest extends $tea.Model {
   clusterId?: string;
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      uuid: 'Uuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      uuid: 'string',
     };
   }
 
@@ -29990,6 +30062,75 @@ export class GetModuleConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetModuleConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModuleTrialAuthInfoRequest extends $tea.Model {
+  lang?: string;
+  moduleCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      moduleCode: 'ModuleCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      moduleCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModuleTrialAuthInfoResponseBody extends $tea.Model {
+  data?: GetModuleTrialAuthInfoResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetModuleTrialAuthInfoResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModuleTrialAuthInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetModuleTrialAuthInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetModuleTrialAuthInfoResponseBody,
     };
   }
 
@@ -33357,6 +33498,7 @@ export class ListCheckItemWarningSummaryRequest extends $tea.Model {
   pageSize?: number;
   riskType?: string;
   source?: string;
+  uuidList?: string[];
   static names(): { [key: string]: string } {
     return {
       checkItemFuzzy: 'CheckItemFuzzy',
@@ -33371,6 +33513,7 @@ export class ListCheckItemWarningSummaryRequest extends $tea.Model {
       pageSize: 'PageSize',
       riskType: 'RiskType',
       source: 'Source',
+      uuidList: 'UuidList',
     };
   }
 
@@ -33388,6 +33531,7 @@ export class ListCheckItemWarningSummaryRequest extends $tea.Model {
       pageSize: 'number',
       riskType: 'string',
       source: 'string',
+      uuidList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -47567,6 +47711,56 @@ export class AddPrivateRegistryResponseBodyData extends $tea.Model {
       transPerHour: 'number',
       userName: 'string',
       vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSasModuleTrialResponseBodyDataTrialRecordList extends $tea.Model {
+  authLimit?: number;
+  gmtEnd?: number;
+  gmtStart?: number;
+  moduleCode?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authLimit: 'AuthLimit',
+      gmtEnd: 'GmtEnd',
+      gmtStart: 'GmtStart',
+      moduleCode: 'ModuleCode',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authLimit: 'number',
+      gmtEnd: 'number',
+      gmtStart: 'number',
+      moduleCode: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSasModuleTrialResponseBodyData extends $tea.Model {
+  trialRecordList?: AddSasModuleTrialResponseBodyDataTrialRecordList[];
+  static names(): { [key: string]: string } {
+    return {
+      trialRecordList: 'TrialRecordList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trialRecordList: { 'type': 'array', 'itemType': AddSasModuleTrialResponseBodyDataTrialRecordList },
     };
   }
 
@@ -63088,6 +63282,62 @@ export class GetModuleConfigResponseBodyPageInfo extends $tea.Model {
   }
 }
 
+export class GetModuleTrialAuthInfoResponseBodyDataTrialRecordList extends $tea.Model {
+  authLimit?: number;
+  gmtEnd?: number;
+  gmtStart?: number;
+  moduleCode?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authLimit: 'AuthLimit',
+      gmtEnd: 'GmtEnd',
+      gmtStart: 'GmtStart',
+      moduleCode: 'ModuleCode',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authLimit: 'number',
+      gmtEnd: 'number',
+      gmtStart: 'number',
+      moduleCode: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModuleTrialAuthInfoResponseBodyData extends $tea.Model {
+  canTry?: boolean;
+  moduleCode?: string;
+  trialRecordList?: GetModuleTrialAuthInfoResponseBodyDataTrialRecordList[];
+  static names(): { [key: string]: string } {
+    return {
+      canTry: 'CanTry',
+      moduleCode: 'ModuleCode',
+      trialRecordList: 'TrialRecordList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canTry: 'boolean',
+      moduleCode: 'string',
+      trialRecordList: { 'type': 'array', 'itemType': GetModuleTrialAuthInfoResponseBodyDataTrialRecordList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetObjectScanEventResponseBodyDataDetails extends $tea.Model {
   infoType?: string;
   name?: string;
@@ -64979,6 +65229,8 @@ export class ListCheckItemWarningMachineResponseBodyPageInfo extends $tea.Model 
 
 export class ListCheckItemWarningSummaryResponseBodyList extends $tea.Model {
   advice?: string;
+  affiliatedRiskTypes?: string[];
+  affiliatedRisks?: string[];
   alias?: string;
   checkId?: number;
   checkItem?: string;
@@ -64992,6 +65244,8 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       advice: 'Advice',
+      affiliatedRiskTypes: 'AffiliatedRiskTypes',
+      affiliatedRisks: 'AffiliatedRisks',
       alias: 'Alias',
       checkId: 'CheckId',
       checkItem: 'CheckItem',
@@ -65008,6 +65262,8 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       advice: 'string',
+      affiliatedRiskTypes: { 'type': 'array', 'itemType': 'string' },
+      affiliatedRisks: { 'type': 'array', 'itemType': 'string' },
       alias: 'string',
       checkId: 'number',
       checkItem: 'string',
@@ -69570,6 +69826,39 @@ export default class Client extends OpenApi {
   async addPrivateRegistry(request: AddPrivateRegistryRequest): Promise<AddPrivateRegistryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addPrivateRegistryWithOptions(request, runtime);
+  }
+
+  async addSasModuleTrialWithOptions(request: AddSasModuleTrialRequest, runtime: $Util.RuntimeOptions): Promise<AddSasModuleTrialResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.moduleCode)) {
+      query["ModuleCode"] = request.moduleCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddSasModuleTrial",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddSasModuleTrialResponse>(await this.callApi(params, req, runtime), new AddSasModuleTrialResponse({}));
+  }
+
+  async addSasModuleTrial(request: AddSasModuleTrialRequest): Promise<AddSasModuleTrialResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addSasModuleTrialWithOptions(request, runtime);
   }
 
   /**
@@ -84111,6 +84400,10 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -85035,6 +85328,39 @@ export default class Client extends OpenApi {
   async getModuleConfig(request: GetModuleConfigRequest): Promise<GetModuleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getModuleConfigWithOptions(request, runtime);
+  }
+
+  async getModuleTrialAuthInfoWithOptions(request: GetModuleTrialAuthInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetModuleTrialAuthInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.moduleCode)) {
+      query["ModuleCode"] = request.moduleCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetModuleTrialAuthInfo",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetModuleTrialAuthInfoResponse>(await this.callApi(params, req, runtime), new GetModuleTrialAuthInfoResponse({}));
+  }
+
+  async getModuleTrialAuthInfo(request: GetModuleTrialAuthInfoRequest): Promise<GetModuleTrialAuthInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getModuleTrialAuthInfoWithOptions(request, runtime);
   }
 
   async getObjectScanEventWithOptions(request: GetObjectScanEventRequest, runtime: $Util.RuntimeOptions): Promise<GetObjectScanEventResponse> {
@@ -86801,6 +87127,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.source)) {
       query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
     }
 
     let req = new $OpenApi.OpenApiRequest({
