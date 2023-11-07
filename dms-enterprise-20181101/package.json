@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/dms-enterprise20181101",
-  "version": "1.29.0",
+  "version": "1.30.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
