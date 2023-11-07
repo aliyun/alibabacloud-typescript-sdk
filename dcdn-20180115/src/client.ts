@@ -33651,7 +33651,15 @@ export default class Client extends OpenApi {
    */
   async updateDcdnUserRealTimeDeliveryFieldWithOptions(request: UpdateDcdnUserRealTimeDeliveryFieldRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnUserRealTimeDeliveryFieldResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.fields)) {
+      query["Fields"] = request.fields;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -33660,7 +33668,7 @@ export default class Client extends OpenApi {
       version: "2018-01-15",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
