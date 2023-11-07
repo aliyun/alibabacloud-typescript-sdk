@@ -399,6 +399,37 @@ export class EnvVar extends $tea.Model {
   }
 }
 
+export class EventInfo extends $tea.Model {
+  content?: string;
+  id?: string;
+  podId?: string;
+  podUid?: string;
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      id: 'Id',
+      podId: 'PodId',
+      podUid: 'PodUid',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      id: 'string',
+      podId: 'string',
+      podUid: 'string',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExtraPodSpec extends $tea.Model {
   initContainers?: ContainerSpec[];
   podAnnotations?: { [key: string]: string };
@@ -904,6 +935,40 @@ export class JobSpec extends $tea.Model {
       resourceConfig: ResourceConfig,
       type: 'string',
       useSpotInstance: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogInfo extends $tea.Model {
+  content?: string;
+  id?: string;
+  podId?: string;
+  podUid?: string;
+  source?: string;
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      id: 'Id',
+      podId: 'PodId',
+      podUid: 'PodUid',
+      source: 'Source',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      id: 'string',
+      podId: 'string',
+      podUid: 'string',
+      source: 'string',
+      time: 'string',
     };
   }
 
@@ -2425,15 +2490,18 @@ export class GetTokenResponse extends $tea.Model {
 }
 
 export class GetWebTerminalRequest extends $tea.Model {
+  isShared?: boolean;
   podUid?: string;
   static names(): { [key: string]: string } {
     return {
+      isShared: 'IsShared',
       podUid: 'PodUid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      isShared: 'boolean',
       podUid: 'string',
     };
   }
@@ -4101,6 +4169,10 @@ export default class Client extends OpenApi {
   async getWebTerminalWithOptions(JobId: string, PodId: string, request: GetWebTerminalRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWebTerminalResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.isShared)) {
+      query["IsShared"] = request.isShared;
+    }
+
     if (!Util.isUnset(request.podUid)) {
       query["PodUid"] = request.podUid;
     }
