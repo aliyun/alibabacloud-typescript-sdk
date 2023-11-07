@@ -19286,12 +19286,14 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.rowsShrink)) {
-      query["Rows"] = request.rowsShrink;
+      body["Rows"] = request.rowsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpsertCollectionData",
