@@ -2651,10 +2651,12 @@ export class PutTargetsResponse extends $tea.Model {
 export class QueryEventRequest extends $tea.Model {
   eventBusName?: string;
   eventId?: string;
+  eventSource?: string;
   static names(): { [key: string]: string } {
     return {
       eventBusName: 'EventBusName',
       eventId: 'EventId',
+      eventSource: 'EventSource',
     };
   }
 
@@ -2662,6 +2664,7 @@ export class QueryEventRequest extends $tea.Model {
     return {
       eventBusName: 'string',
       eventId: 'string',
+      eventSource: 'string',
     };
   }
 
@@ -4331,7 +4334,7 @@ export class CreateEventSourceRequestSourceSLSParameters extends $tea.Model {
 export class CreateEventSourceRequestSourceScheduledEventParameters extends $tea.Model {
   schedule?: string;
   timeZone?: string;
-  userData?: { [key: string]: any };
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       schedule: 'Schedule',
@@ -4344,7 +4347,7 @@ export class CreateEventSourceRequestSourceScheduledEventParameters extends $tea
     return {
       schedule: 'string',
       timeZone: 'string',
-      userData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      userData: 'string',
     };
   }
 
@@ -8420,8 +8423,17 @@ export class GetEventStreamingResponseBodyDataSourceSourceRabbitMQParameters ext
 }
 
 export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters extends $tea.Model {
+  authType?: string;
   groupID?: string;
+  instanceEndpoint?: string;
   instanceId?: string;
+  instanceNetwork?: string;
+  instancePassword?: string;
+  instanceSecurityGroupId?: string;
+  instanceType?: string;
+  instanceUsername?: string;
+  instanceVSwitchIds?: string;
+  instanceVpcId?: string;
   offset?: string;
   regionId?: string;
   tag?: string;
@@ -8429,8 +8441,17 @@ export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters ext
   topic?: string;
   static names(): { [key: string]: string } {
     return {
+      authType: 'AuthType',
       groupID: 'GroupID',
+      instanceEndpoint: 'InstanceEndpoint',
       instanceId: 'InstanceId',
+      instanceNetwork: 'InstanceNetwork',
+      instancePassword: 'InstancePassword',
+      instanceSecurityGroupId: 'InstanceSecurityGroupId',
+      instanceType: 'InstanceType',
+      instanceUsername: 'InstanceUsername',
+      instanceVSwitchIds: 'InstanceVSwitchIds',
+      instanceVpcId: 'InstanceVpcId',
       offset: 'Offset',
       regionId: 'RegionId',
       tag: 'Tag',
@@ -8441,8 +8462,17 @@ export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters ext
 
   static types(): { [key: string]: any } {
     return {
+      authType: 'string',
       groupID: 'string',
+      instanceEndpoint: 'string',
       instanceId: 'string',
+      instanceNetwork: 'string',
+      instancePassword: 'string',
+      instanceSecurityGroupId: 'string',
+      instanceType: 'string',
+      instanceUsername: 'string',
+      instanceVSwitchIds: 'string',
+      instanceVpcId: 'string',
       offset: 'string',
       regionId: 'string',
       tag: 'string',
@@ -10696,8 +10726,17 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbi
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQParameters extends $tea.Model {
+  authType?: string;
   groupID?: string;
+  instanceEndpoint?: string;
   instanceId?: string;
+  instanceNetwork?: string;
+  instancePassword?: string;
+  instanceSecurityGroupId?: string;
+  instanceType?: string;
+  instanceUsername?: string;
+  instanceVSwitchIds?: string;
+  instanceVpcId?: string;
   offset?: string;
   regionId?: string;
   tag?: string;
@@ -10705,8 +10744,17 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   topic?: string;
   static names(): { [key: string]: string } {
     return {
+      authType: 'AuthType',
       groupID: 'GroupID',
+      instanceEndpoint: 'InstanceEndpoint',
       instanceId: 'InstanceId',
+      instanceNetwork: 'InstanceNetwork',
+      instancePassword: 'InstancePassword',
+      instanceSecurityGroupId: 'InstanceSecurityGroupId',
+      instanceType: 'InstanceType',
+      instanceUsername: 'InstanceUsername',
+      instanceVSwitchIds: 'InstanceVSwitchIds',
+      instanceVpcId: 'InstanceVpcId',
       offset: 'Offset',
       regionId: 'RegionId',
       tag: 'Tag',
@@ -10717,8 +10765,17 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
 
   static types(): { [key: string]: any } {
     return {
+      authType: 'string',
       groupID: 'string',
+      instanceEndpoint: 'string',
       instanceId: 'string',
+      instanceNetwork: 'string',
+      instancePassword: 'string',
+      instanceSecurityGroupId: 'string',
+      instanceType: 'string',
+      instanceUsername: 'string',
+      instanceVSwitchIds: 'string',
+      instanceVpcId: 'string',
       offset: 'string',
       regionId: 'string',
       tag: 'string',
@@ -11282,10 +11339,12 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceSLS
 export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceScheduledEventParameters extends $tea.Model {
   schedule?: string;
   timeZone?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       schedule: 'Schedule',
       timeZone: 'TimeZone',
+      userData: 'UserData',
     };
   }
 
@@ -11293,6 +11352,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceSch
     return {
       schedule: 'string',
       timeZone: 'string',
+      userData: 'string',
     };
   }
 
@@ -12189,10 +12249,12 @@ export class UpdateEventSourceRequestSourceSLSParameters extends $tea.Model {
 export class UpdateEventSourceRequestSourceScheduledEventParameters extends $tea.Model {
   schedule?: string;
   timeZone?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       schedule: 'Schedule',
       timeZone: 'TimeZone',
+      userData: 'UserData',
     };
   }
 
@@ -12200,6 +12262,7 @@ export class UpdateEventSourceRequestSourceScheduledEventParameters extends $tea
     return {
       schedule: 'string',
       timeZone: 'string',
+      userData: 'string',
     };
   }
 
@@ -13677,8 +13740,17 @@ export class UpdateEventStreamingRequestSourceSourceRabbitMQParameters extends $
 }
 
 export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $tea.Model {
+  authType?: string;
   groupID?: string;
+  instanceEndpoint?: string;
   instanceId?: string;
+  instanceNetwork?: string;
+  instancePassword?: string;
+  instanceSecurityGroupId?: string;
+  instanceType?: string;
+  instanceUsername?: string;
+  instanceVSwitchIds?: string;
+  instanceVpcId?: string;
   offset?: string;
   regionId?: string;
   tag?: string;
@@ -13686,8 +13758,17 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
   topic?: string;
   static names(): { [key: string]: string } {
     return {
+      authType: 'AuthType',
       groupID: 'GroupID',
+      instanceEndpoint: 'InstanceEndpoint',
       instanceId: 'InstanceId',
+      instanceNetwork: 'InstanceNetwork',
+      instancePassword: 'InstancePassword',
+      instanceSecurityGroupId: 'InstanceSecurityGroupId',
+      instanceType: 'InstanceType',
+      instanceUsername: 'InstanceUsername',
+      instanceVSwitchIds: 'InstanceVSwitchIds',
+      instanceVpcId: 'InstanceVpcId',
       offset: 'Offset',
       regionId: 'RegionId',
       tag: 'Tag',
@@ -13698,8 +13779,17 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
 
   static types(): { [key: string]: any } {
     return {
+      authType: 'string',
       groupID: 'string',
+      instanceEndpoint: 'string',
       instanceId: 'string',
+      instanceNetwork: 'string',
+      instancePassword: 'string',
+      instanceSecurityGroupId: 'string',
+      instanceType: 'string',
+      instanceUsername: 'string',
+      instanceVSwitchIds: 'string',
+      instanceVpcId: 'string',
       offset: 'string',
       regionId: 'string',
       tag: 'string',
@@ -15386,6 +15476,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.eventId)) {
       query["EventId"] = request.eventId;
+    }
+
+    if (!Util.isUnset(request.eventSource)) {
+      query["EventSource"] = request.eventSource;
     }
 
     let req = new $OpenApi.OpenApiRequest({
