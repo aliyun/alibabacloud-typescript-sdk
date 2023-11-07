@@ -8,6 +8,75 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ApproveOperationRequest extends $tea.Model {
+  nodeId?: string;
+  operationType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      operationType: 'OperationType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      operationType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApproveOperationResponseBody extends $tea.Model {
+  errorMessage?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApproveOperationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ApproveOperationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApproveOperationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChangeResourceGroupRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceId?: string;
@@ -2790,6 +2859,39 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async approveOperationWithOptions(request: ApproveOperationRequest, runtime: $Util.RuntimeOptions): Promise<ApproveOperationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.operationType)) {
+      body["OperationType"] = request.operationType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApproveOperation",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApproveOperationResponse>(await this.callApi(params, req, runtime), new ApproveOperationResponse({}));
+  }
+
+  async approveOperation(request: ApproveOperationRequest): Promise<ApproveOperationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.approveOperationWithOptions(request, runtime);
   }
 
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
