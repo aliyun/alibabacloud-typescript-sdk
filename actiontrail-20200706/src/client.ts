@@ -941,6 +941,53 @@ export class GetDeliveryHistoryJobResponse extends $tea.Model {
   }
 }
 
+export class GetGlobalEventsStorageRegionResponseBody extends $tea.Model {
+  requestId?: string;
+  storageRegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      storageRegion: 'StorageRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      storageRegion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGlobalEventsStorageRegionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetGlobalEventsStorageRegionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetGlobalEventsStorageRegionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTrailStatusRequest extends $tea.Model {
   isOrganizationTrail?: boolean;
   name?: string;
@@ -1320,6 +1367,69 @@ export class StopLoggingResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopLoggingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGlobalEventsStorageRegionRequest extends $tea.Model {
+  storageRegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      storageRegion: 'StorageRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageRegion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGlobalEventsStorageRegionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGlobalEventsStorageRegionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateGlobalEventsStorageRegionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGlobalEventsStorageRegionResponseBody,
     };
   }
 
@@ -1818,6 +1928,16 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * Take note of the following limits:
+    * - You must have created and configured a single-account trail to deliver events to Log Service by calling the [CreateTrail](~~212313~~) operation.
+    * - Only one historical event delivery task can be running at a time within an Alibaba Cloud account.
+    * This topic shows you how to create a historical event delivery task for a sample trail named `trail-name`.
+    *
+    * @param request CreateDeliveryHistoryJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDeliveryHistoryJobResponse
+   */
   async createDeliveryHistoryJobWithOptions(request: CreateDeliveryHistoryJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeliveryHistoryJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1846,11 +1966,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDeliveryHistoryJobResponse>(await this.callApi(params, req, runtime), new CreateDeliveryHistoryJobResponse({}));
   }
 
+  /**
+    * Take note of the following limits:
+    * - You must have created and configured a single-account trail to deliver events to Log Service by calling the [CreateTrail](~~212313~~) operation.
+    * - Only one historical event delivery task can be running at a time within an Alibaba Cloud account.
+    * This topic shows you how to create a historical event delivery task for a sample trail named `trail-name`.
+    *
+    * @param request CreateDeliveryHistoryJobRequest
+    * @return CreateDeliveryHistoryJobResponse
+   */
   async createDeliveryHistoryJob(request: CreateDeliveryHistoryJobRequest): Promise<CreateDeliveryHistoryJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDeliveryHistoryJobWithOptions(request, runtime);
   }
 
+  /**
+    * You can create a trail to deliver events to Log Service, Object Storage Service (OSS), or both. Before you call this operation to create a trail, make sure that the following requirements are met:
+    * *   Deliver events to Log Service: A project is created in Log Service.
+    * **
+    * **Description** After you create a trail to deliver events to Log Service, a Logstore whose name is in the `actiontrail_<Trail name>` format is automatically created and optimally configured for subsequent auditing. Indexes and a dashboard are created for the Logstore to facilitate event queries. You cannot manually write data to the Logstore. This ensures data accuracy. You do not need to create a Logstore in advance.
+    * *   Deliver events to OSS: A bucket is created in OSS. This topic provides an example on how to call the API operation to create a single-account trail named `trail-test` to deliver events to an OSS bucket named `audit-log`.
+    *
+    * @param request CreateTrailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateTrailResponse
+   */
   async createTrailWithOptions(request: CreateTrailRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1907,11 +2047,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTrailResponse>(await this.callApi(params, req, runtime), new CreateTrailResponse({}));
   }
 
+  /**
+    * You can create a trail to deliver events to Log Service, Object Storage Service (OSS), or both. Before you call this operation to create a trail, make sure that the following requirements are met:
+    * *   Deliver events to Log Service: A project is created in Log Service.
+    * **
+    * **Description** After you create a trail to deliver events to Log Service, a Logstore whose name is in the `actiontrail_<Trail name>` format is automatically created and optimally configured for subsequent auditing. Indexes and a dashboard are created for the Logstore to facilitate event queries. You cannot manually write data to the Logstore. This ensures data accuracy. You do not need to create a Logstore in advance.
+    * *   Deliver events to OSS: A bucket is created in OSS. This topic provides an example on how to call the API operation to create a single-account trail named `trail-test` to deliver events to an OSS bucket named `audit-log`.
+    *
+    * @param request CreateTrailRequest
+    * @return CreateTrailResponse
+   */
   async createTrail(request: CreateTrailRequest): Promise<CreateTrailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTrailWithOptions(request, runtime);
   }
 
+  /**
+    * This topic describes how to delete a sample historical event delivery task whose ID is `16602`.
+    *
+    * @param request DeleteDeliveryHistoryJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDeliveryHistoryJobResponse
+   */
   async deleteDeliveryHistoryJobWithOptions(request: DeleteDeliveryHistoryJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeliveryHistoryJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1936,11 +2093,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDeliveryHistoryJobResponse>(await this.callApi(params, req, runtime), new DeleteDeliveryHistoryJobResponse({}));
   }
 
+  /**
+    * This topic describes how to delete a sample historical event delivery task whose ID is `16602`.
+    *
+    * @param request DeleteDeliveryHistoryJobRequest
+    * @return DeleteDeliveryHistoryJobResponse
+   */
   async deleteDeliveryHistoryJob(request: DeleteDeliveryHistoryJobRequest): Promise<DeleteDeliveryHistoryJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDeliveryHistoryJobWithOptions(request, runtime);
   }
 
+  /**
+    * This topic describes how to delete a sample trail named `trail-test`.
+    *
+    * @param request DeleteTrailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTrailResponse
+   */
   async deleteTrailWithOptions(request: DeleteTrailRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1965,11 +2135,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTrailResponse>(await this.callApi(params, req, runtime), new DeleteTrailResponse({}));
   }
 
+  /**
+    * This topic describes how to delete a sample trail named `trail-test`.
+    *
+    * @param request DeleteTrailRequest
+    * @return DeleteTrailResponse
+   */
   async deleteTrail(request: DeleteTrailRequest): Promise<DeleteTrailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTrailWithOptions(request, runtime);
   }
 
+  /**
+    * For more information, see [Regions and zones](~~40654~~).
+    *
+    * @param request DescribeRegionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1994,11 +2177,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+    * For more information, see [Regions and zones](~~40654~~).
+    *
+    * @param request DescribeRegionsRequest
+    * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+    * This topic shows you how to query the information about the single-account trails within an Alibaba Cloud account. In this example, the information about a trail named `test-4` is returned.
+    *
+    * @param request DescribeTrailsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTrailsResponse
+   */
   async describeTrailsWithOptions(request: DescribeTrailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2031,11 +2227,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTrailsResponse>(await this.callApi(params, req, runtime), new DescribeTrailsResponse({}));
   }
 
+  /**
+    * This topic shows you how to query the information about the single-account trails within an Alibaba Cloud account. In this example, the information about a trail named `test-4` is returned.
+    *
+    * @param request DescribeTrailsRequest
+    * @return DescribeTrailsResponse
+   */
   async describeTrails(request: DescribeTrailsRequest): Promise<DescribeTrailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTrailsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query only the information about the most recent events that are generated within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. For more information about supported events, see [Alibaba Cloud services and events that are supported by the AccessKey pair audit feature](~~419214~~). Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+    *
+    * @param request GetAccessKeyLastUsedEventsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAccessKeyLastUsedEventsResponse
+   */
   async getAccessKeyLastUsedEventsWithOptions(request: GetAccessKeyLastUsedEventsRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2072,11 +2281,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAccessKeyLastUsedEventsResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedEventsResponse({}));
   }
 
+  /**
+    * You can call this operation to query only the information about the most recent events that are generated within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. For more information about supported events, see [Alibaba Cloud services and events that are supported by the AccessKey pair audit feature](~~419214~~). Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+    *
+    * @param request GetAccessKeyLastUsedEventsRequest
+    * @return GetAccessKeyLastUsedEventsResponse
+   */
   async getAccessKeyLastUsedEvents(request: GetAccessKeyLastUsedEventsRequest): Promise<GetAccessKeyLastUsedEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccessKeyLastUsedEventsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query only the information about the most recent call of a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+    *
+    * @param request GetAccessKeyLastUsedInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAccessKeyLastUsedInfoResponse
+   */
   async getAccessKeyLastUsedInfoWithOptions(request: GetAccessKeyLastUsedInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2101,11 +2323,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAccessKeyLastUsedInfoResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedInfoResponse({}));
   }
 
+  /**
+    * You can call this operation to query only the information about the most recent call of a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+    *
+    * @param request GetAccessKeyLastUsedInfoRequest
+    * @return GetAccessKeyLastUsedInfoResponse
+   */
   async getAccessKeyLastUsedInfo(request: GetAccessKeyLastUsedInfoRequest): Promise<GetAccessKeyLastUsedInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccessKeyLastUsedInfoWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query only the information about the IP addresses that are most recently used within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+    *
+    * @param request GetAccessKeyLastUsedIpsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAccessKeyLastUsedIpsResponse
+   */
   async getAccessKeyLastUsedIpsWithOptions(request: GetAccessKeyLastUsedIpsRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2142,11 +2377,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAccessKeyLastUsedIpsResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedIpsResponse({}));
   }
 
+  /**
+    * You can call this operation to query only the information about the IP addresses that are most recently used within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+    *
+    * @param request GetAccessKeyLastUsedIpsRequest
+    * @return GetAccessKeyLastUsedIpsResponse
+   */
   async getAccessKeyLastUsedIps(request: GetAccessKeyLastUsedIpsRequest): Promise<GetAccessKeyLastUsedIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccessKeyLastUsedIpsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query only the information about Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+    *
+    * @param request GetAccessKeyLastUsedProductsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAccessKeyLastUsedProductsResponse
+   */
   async getAccessKeyLastUsedProductsWithOptions(request: GetAccessKeyLastUsedProductsRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedProductsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2171,11 +2419,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAccessKeyLastUsedProductsResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedProductsResponse({}));
   }
 
+  /**
+    * You can call this operation to query only the information about Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+    *
+    * @param request GetAccessKeyLastUsedProductsRequest
+    * @return GetAccessKeyLastUsedProductsResponse
+   */
   async getAccessKeyLastUsedProducts(request: GetAccessKeyLastUsedProductsRequest): Promise<GetAccessKeyLastUsedProductsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccessKeyLastUsedProductsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query only the information about resources that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+    *
+    * @param request GetAccessKeyLastUsedResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAccessKeyLastUsedResourcesResponse
+   */
   async getAccessKeyLastUsedResourcesWithOptions(request: GetAccessKeyLastUsedResourcesRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2212,11 +2473,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAccessKeyLastUsedResourcesResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedResourcesResponse({}));
   }
 
+  /**
+    * You can call this operation to query only the information about resources that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+    *
+    * @param request GetAccessKeyLastUsedResourcesRequest
+    * @return GetAccessKeyLastUsedResourcesResponse
+   */
   async getAccessKeyLastUsedResources(request: GetAccessKeyLastUsedResourcesRequest): Promise<GetAccessKeyLastUsedResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccessKeyLastUsedResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * This topic describes how to query the details of a historical event delivery tasks created within your Alibaba Cloud account. In this example, the details of a historical event delivery task whose ID is `16602` are returned. The sample response shows that this task is used to deliver the historical events recorded by the trail named `trail-name` to Log Service and the task is complete.
+    *
+    * @param request GetDeliveryHistoryJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetDeliveryHistoryJobResponse
+   */
   async getDeliveryHistoryJobWithOptions(request: GetDeliveryHistoryJobRequest, runtime: $Util.RuntimeOptions): Promise<GetDeliveryHistoryJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2241,11 +2515,59 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDeliveryHistoryJobResponse>(await this.callApi(params, req, runtime), new GetDeliveryHistoryJobResponse({}));
   }
 
+  /**
+    * This topic describes how to query the details of a historical event delivery tasks created within your Alibaba Cloud account. In this example, the details of a historical event delivery task whose ID is `16602` are returned. The sample response shows that this task is used to deliver the historical events recorded by the trail named `trail-name` to Log Service and the task is complete.
+    *
+    * @param request GetDeliveryHistoryJobRequest
+    * @return GetDeliveryHistoryJobResponse
+   */
   async getDeliveryHistoryJob(request: GetDeliveryHistoryJobRequest): Promise<GetDeliveryHistoryJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDeliveryHistoryJobWithOptions(request, runtime);
   }
 
+  /**
+    * By default, global events are stored in the Singapore region.
+    * To obtain the permissions to call the API operation, you must submit a ticket.
+    *
+    * @param request GetGlobalEventsStorageRegionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetGlobalEventsStorageRegionResponse
+   */
+  async getGlobalEventsStorageRegionWithOptions(runtime: $Util.RuntimeOptions): Promise<GetGlobalEventsStorageRegionResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetGlobalEventsStorageRegion",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetGlobalEventsStorageRegionResponse>(await this.callApi(params, req, runtime), new GetGlobalEventsStorageRegionResponse({}));
+  }
+
+  /**
+    * By default, global events are stored in the Singapore region.
+    * To obtain the permissions to call the API operation, you must submit a ticket.
+    *
+    * @return GetGlobalEventsStorageRegionResponse
+   */
+  async getGlobalEventsStorageRegion(): Promise<GetGlobalEventsStorageRegionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getGlobalEventsStorageRegionWithOptions(runtime);
+  }
+
+  /**
+    * This topic describes how to query the status of a sample single-account trail named `trail-test`.
+    *
+    * @param request GetTrailStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTrailStatusResponse
+   */
   async getTrailStatusWithOptions(request: GetTrailStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetTrailStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2274,11 +2596,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTrailStatusResponse>(await this.callApi(params, req, runtime), new GetTrailStatusResponse({}));
   }
 
+  /**
+    * This topic describes how to query the status of a sample single-account trail named `trail-test`.
+    *
+    * @param request GetTrailStatusRequest
+    * @return GetTrailStatusResponse
+   */
   async getTrailStatus(request: GetTrailStatusRequest): Promise<GetTrailStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTrailStatusWithOptions(request, runtime);
   }
 
+  /**
+    * This topic describes how to query the historical event delivery tasks created within your Alibaba Cloud account. In this example, a historical event delivery task whose ID is `16602` is returned. This task is used to deliver historical events for the trail named `trail-name` to Log Service.
+    *
+    * @param request ListDeliveryHistoryJobsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDeliveryHistoryJobsResponse
+   */
   async listDeliveryHistoryJobsWithOptions(request: ListDeliveryHistoryJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListDeliveryHistoryJobsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2307,11 +2642,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeliveryHistoryJobsResponse>(await this.callApi(params, req, runtime), new ListDeliveryHistoryJobsResponse({}));
   }
 
+  /**
+    * This topic describes how to query the historical event delivery tasks created within your Alibaba Cloud account. In this example, a historical event delivery task whose ID is `16602` is returned. This task is used to deliver historical events for the trail named `trail-name` to Log Service.
+    *
+    * @param request ListDeliveryHistoryJobsRequest
+    * @return ListDeliveryHistoryJobsResponse
+   */
   async listDeliveryHistoryJobs(request: ListDeliveryHistoryJobsRequest): Promise<ListDeliveryHistoryJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDeliveryHistoryJobsWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation to query event details, you can query the event details at most twice per second.
+    * > Do not frequently call this operation. You can create a trail to deliver events to Log Service. Then, you can query event details in near real time by using the real-time log consumption feature of Log Service. For more information, see [Create a single-account trail](~~28810~~), [Create a multi-account trail](~~160661~~), and [Overview](~~28997~~).
+    *
+    * @param request LookupEventsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return LookupEventsResponse
+   */
   async lookupEventsWithOptions(request: LookupEventsRequest, runtime: $Util.RuntimeOptions): Promise<LookupEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2356,11 +2705,25 @@ export default class Client extends OpenApi {
     return $tea.cast<LookupEventsResponse>(await this.callApi(params, req, runtime), new LookupEventsResponse({}));
   }
 
+  /**
+    * When you call this operation to query event details, you can query the event details at most twice per second.
+    * > Do not frequently call this operation. You can create a trail to deliver events to Log Service. Then, you can query event details in near real time by using the real-time log consumption feature of Log Service. For more information, see [Create a single-account trail](~~28810~~), [Create a multi-account trail](~~160661~~), and [Overview](~~28997~~).
+    *
+    * @param request LookupEventsRequest
+    * @return LookupEventsResponse
+   */
   async lookupEvents(request: LookupEventsRequest): Promise<LookupEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.lookupEventsWithOptions(request, runtime);
   }
 
+  /**
+    * This topic describes how to enable logging for a sample trail named `trail-test`.
+    *
+    * @param request StartLoggingRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartLoggingResponse
+   */
   async startLoggingWithOptions(request: StartLoggingRequest, runtime: $Util.RuntimeOptions): Promise<StartLoggingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2385,11 +2748,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartLoggingResponse>(await this.callApi(params, req, runtime), new StartLoggingResponse({}));
   }
 
+  /**
+    * This topic describes how to enable logging for a sample trail named `trail-test`.
+    *
+    * @param request StartLoggingRequest
+    * @return StartLoggingResponse
+   */
   async startLogging(request: StartLoggingRequest): Promise<StartLoggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startLoggingWithOptions(request, runtime);
   }
 
+  /**
+    * This topic describes how to disable logging for a sample trail named `trail-test`.
+    *
+    * @param request StopLoggingRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopLoggingResponse
+   */
   async stopLoggingWithOptions(request: StopLoggingRequest, runtime: $Util.RuntimeOptions): Promise<StopLoggingResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -2410,11 +2786,70 @@ export default class Client extends OpenApi {
     return $tea.cast<StopLoggingResponse>(await this.callApi(params, req, runtime), new StopLoggingResponse({}));
   }
 
+  /**
+    * This topic describes how to disable logging for a sample trail named `trail-test`.
+    *
+    * @param request StopLoggingRequest
+    * @return StopLoggingResponse
+   */
   async stopLogging(request: StopLoggingRequest): Promise<StopLoggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopLoggingWithOptions(request, runtime);
   }
 
+  /**
+    * By default, global events are stored in the Singapore region.
+    * *   To obtain the permissions to call the API operation, you must submit a ticket.
+    * *   Only the China (Hangzhou) region (cn-hangzhou) and the Singapore region (ap-southeast-1) are supported.
+    *
+    * @param request UpdateGlobalEventsStorageRegionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateGlobalEventsStorageRegionResponse
+   */
+  async updateGlobalEventsStorageRegionWithOptions(request: UpdateGlobalEventsStorageRegionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGlobalEventsStorageRegionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.storageRegion)) {
+      query["StorageRegion"] = request.storageRegion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGlobalEventsStorageRegion",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGlobalEventsStorageRegionResponse>(await this.callApi(params, req, runtime), new UpdateGlobalEventsStorageRegionResponse({}));
+  }
+
+  /**
+    * By default, global events are stored in the Singapore region.
+    * *   To obtain the permissions to call the API operation, you must submit a ticket.
+    * *   Only the China (Hangzhou) region (cn-hangzhou) and the Singapore region (ap-southeast-1) are supported.
+    *
+    * @param request UpdateGlobalEventsStorageRegionRequest
+    * @return UpdateGlobalEventsStorageRegionResponse
+   */
+  async updateGlobalEventsStorageRegion(request: UpdateGlobalEventsStorageRegionRequest): Promise<UpdateGlobalEventsStorageRegionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGlobalEventsStorageRegionWithOptions(request, runtime);
+  }
+
+  /**
+    * This topic shows you how to change the destination Object Storage Service (OSS) bucket of a sample trail named `trail-test` to `audit-log`.
+    *
+    * @param request UpdateTrailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateTrailResponse
+   */
   async updateTrailWithOptions(request: UpdateTrailRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTrailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2467,6 +2902,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTrailResponse>(await this.callApi(params, req, runtime), new UpdateTrailResponse({}));
   }
 
+  /**
+    * This topic shows you how to change the destination Object Storage Service (OSS) bucket of a sample trail named `trail-test` to `audit-log`.
+    *
+    * @param request UpdateTrailRequest
+    * @return UpdateTrailResponse
+   */
   async updateTrail(request: UpdateTrailRequest): Promise<UpdateTrailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTrailWithOptions(request, runtime);
