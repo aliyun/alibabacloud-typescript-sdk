@@ -10155,6 +10155,10 @@ export class GroupUserSaveHeaders extends $tea.Model {
 }
 
 export class GroupUserSaveRequest extends $tea.Model {
+  baseCityCode?: string;
+  birthday?: string;
+  certList?: GroupUserSaveRequestCertList[];
+  gender?: string;
   jobNo?: string;
   phone?: string;
   realNameEn?: string;
@@ -10163,6 +10167,10 @@ export class GroupUserSaveRequest extends $tea.Model {
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      baseCityCode: 'base_city_code',
+      birthday: 'birthday',
+      certList: 'cert_list',
+      gender: 'gender',
       jobNo: 'job_no',
       phone: 'phone',
       realNameEn: 'real_name_en',
@@ -10174,6 +10182,10 @@ export class GroupUserSaveRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      baseCityCode: 'string',
+      birthday: 'string',
+      certList: { 'type': 'array', 'itemType': GroupUserSaveRequestCertList },
+      gender: 'string',
       jobNo: 'string',
       phone: 'string',
       realNameEn: 'string',
@@ -10189,6 +10201,10 @@ export class GroupUserSaveRequest extends $tea.Model {
 }
 
 export class GroupUserSaveShrinkRequest extends $tea.Model {
+  baseCityCode?: string;
+  birthday?: string;
+  certListShrink?: string;
+  gender?: string;
   jobNo?: string;
   phone?: string;
   realNameEn?: string;
@@ -10197,6 +10213,10 @@ export class GroupUserSaveShrinkRequest extends $tea.Model {
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      baseCityCode: 'base_city_code',
+      birthday: 'birthday',
+      certListShrink: 'cert_list',
+      gender: 'gender',
       jobNo: 'job_no',
       phone: 'phone',
       realNameEn: 'real_name_en',
@@ -10208,6 +10228,10 @@ export class GroupUserSaveShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      baseCityCode: 'string',
+      birthday: 'string',
+      certListShrink: 'string',
+      gender: 'string',
       jobNo: 'string',
       phone: 'string',
       realNameEn: 'string',
@@ -34495,6 +34519,37 @@ export class GroupCorpTokenResponseBodyModule extends $tea.Model {
   }
 }
 
+export class GroupUserSaveRequestCertList extends $tea.Model {
+  certExpiredTime?: string;
+  certNation?: string;
+  certNo?: string;
+  certType?: number;
+  nationality?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certExpiredTime: 'cert_expired_time',
+      certNation: 'cert_nation',
+      certNo: 'cert_no',
+      certType: 'cert_type',
+      nationality: 'nationality',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certExpiredTime: 'string',
+      certNation: 'string',
+      certNo: 'string',
+      certType: 'number',
+      nationality: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GroupUserSaveRequestSubCorpIdList extends $tea.Model {
   departIds?: string[];
   email?: string;
@@ -47820,11 +47875,31 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new GroupUserSaveShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.certList)) {
+      request.certListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.certList, "cert_list", "json");
+    }
+
     if (!Util.isUnset(tmpReq.subCorpIdList)) {
       request.subCorpIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subCorpIdList, "sub_corp_id_list", "json");
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baseCityCode)) {
+      body["base_city_code"] = request.baseCityCode;
+    }
+
+    if (!Util.isUnset(request.birthday)) {
+      body["birthday"] = request.birthday;
+    }
+
+    if (!Util.isUnset(request.certListShrink)) {
+      body["cert_list"] = request.certListShrink;
+    }
+
+    if (!Util.isUnset(request.gender)) {
+      body["gender"] = request.gender;
+    }
+
     if (!Util.isUnset(request.jobNo)) {
       body["job_no"] = request.jobNo;
     }
