@@ -3976,7 +3976,6 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   dataLevel1BackupChainSize?: number;
   dataSyncMode?: string;
   deletionLock?: number;
-  deployUnit?: string;
   engine?: string;
   expireTime?: string;
   expired?: string;
@@ -4032,7 +4031,6 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       dataLevel1BackupChainSize: 'DataLevel1BackupChainSize',
       dataSyncMode: 'DataSyncMode',
       deletionLock: 'DeletionLock',
-      deployUnit: 'DeployUnit',
       engine: 'Engine',
       expireTime: 'ExpireTime',
       expired: 'Expired',
@@ -4091,7 +4089,6 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       dataLevel1BackupChainSize: 'number',
       dataSyncMode: 'string',
       deletionLock: 'number',
-      deployUnit: 'string',
       engine: 'string',
       expireTime: 'string',
       expired: 'string',
@@ -5170,6 +5167,7 @@ export class DescribeDBClusterTDEResponse extends $tea.Model {
 
 export class DescribeDBClusterVersionRequest extends $tea.Model {
   DBClusterId?: string;
+  describeType?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -5177,6 +5175,7 @@ export class DescribeDBClusterVersionRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      describeType: 'DescribeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -5187,6 +5186,7 @@ export class DescribeDBClusterVersionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      describeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -11860,7 +11860,6 @@ export class ModifyPendingMaintenanceActionResponse extends $tea.Model {
 
 export class OpenAITaskRequest extends $tea.Model {
   DBClusterId?: string;
-  describeType?: string;
   nodeType?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -11873,7 +11872,6 @@ export class OpenAITaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
-      describeType: 'DescribeType',
       nodeType: 'NodeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -11889,7 +11887,6 @@ export class OpenAITaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
-      describeType: 'string',
       nodeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -13333,7 +13330,6 @@ export class DescribeAccountsResponseBodyAccounts extends $tea.Model {
   accountDescription?: string;
   accountLockState?: string;
   accountName?: string;
-  accountPassword?: string;
   accountPasswordValidTime?: string;
   accountStatus?: string;
   accountType?: string;
@@ -13343,7 +13339,6 @@ export class DescribeAccountsResponseBodyAccounts extends $tea.Model {
       accountDescription: 'AccountDescription',
       accountLockState: 'AccountLockState',
       accountName: 'AccountName',
-      accountPassword: 'AccountPassword',
       accountPasswordValidTime: 'AccountPasswordValidTime',
       accountStatus: 'AccountStatus',
       accountType: 'AccountType',
@@ -13356,7 +13351,6 @@ export class DescribeAccountsResponseBodyAccounts extends $tea.Model {
       accountDescription: 'string',
       accountLockState: 'string',
       accountName: 'string',
-      accountPassword: 'string',
       accountPasswordValidTime: 'string',
       accountStatus: 'string',
       accountType: 'string',
@@ -19946,6 +19940,10 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!Util.isUnset(request.describeType)) {
+      query["DescribeType"] = request.describeType;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -24562,10 +24560,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
-    }
-
-    if (!Util.isUnset(request.describeType)) {
-      query["DescribeType"] = request.describeType;
     }
 
     if (!Util.isUnset(request.nodeType)) {
