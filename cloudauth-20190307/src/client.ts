@@ -1222,6 +1222,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
   encryptType?: string;
   faceContrastPicture?: string;
   faceContrastPictureUrl?: string;
+  faceGuardOutput?: string;
   ip?: string;
   metaInfo?: string;
   mobile?: string;
@@ -1255,6 +1256,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
       encryptType: 'EncryptType',
       faceContrastPicture: 'FaceContrastPicture',
       faceContrastPictureUrl: 'FaceContrastPictureUrl',
+      faceGuardOutput: 'FaceGuardOutput',
       ip: 'Ip',
       metaInfo: 'MetaInfo',
       mobile: 'Mobile',
@@ -1291,6 +1293,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
       encryptType: 'string',
       faceContrastPicture: 'string',
       faceContrastPictureUrl: 'string',
+      faceGuardOutput: 'string',
       ip: 'string',
       metaInfo: 'string',
       mobile: 'string',
@@ -3321,6 +3324,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.faceContrastPictureUrl)) {
       query["FaceContrastPictureUrl"] = request.faceContrastPictureUrl;
+    }
+
+    if (!Util.isUnset(request.faceGuardOutput)) {
+      query["FaceGuardOutput"] = request.faceGuardOutput;
     }
 
     if (!Util.isUnset(request.ip)) {
