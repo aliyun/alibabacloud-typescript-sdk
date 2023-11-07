@@ -14969,6 +14969,81 @@ export class SetApisAuthoritiesResponse extends $tea.Model {
   }
 }
 
+export class SetAppsAuthToApiProductRequest extends $tea.Model {
+  apiProductId?: string;
+  appIds?: number[];
+  authValidTime?: string;
+  description?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProductId: 'ApiProductId',
+      appIds: 'AppIds',
+      authValidTime: 'AuthValidTime',
+      description: 'Description',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProductId: 'string',
+      appIds: { 'type': 'array', 'itemType': 'number' },
+      authValidTime: 'string',
+      description: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAppsAuthToApiProductResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAppsAuthToApiProductResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetAppsAuthToApiProductResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetAppsAuthToApiProductResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetAppsAuthoritiesRequest extends $tea.Model {
   apiId?: string;
   appIds?: string;
@@ -33972,6 +34047,51 @@ export default class Client extends OpenApi {
   async setApisAuthorities(request: SetApisAuthoritiesRequest): Promise<SetApisAuthoritiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setApisAuthoritiesWithOptions(request, runtime);
+  }
+
+  async setAppsAuthToApiProductWithOptions(request: SetAppsAuthToApiProductRequest, runtime: $Util.RuntimeOptions): Promise<SetAppsAuthToApiProductResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiProductId)) {
+      query["ApiProductId"] = request.apiProductId;
+    }
+
+    if (!Util.isUnset(request.appIds)) {
+      query["AppIds"] = request.appIds;
+    }
+
+    if (!Util.isUnset(request.authValidTime)) {
+      query["AuthValidTime"] = request.authValidTime;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetAppsAuthToApiProduct",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetAppsAuthToApiProductResponse>(await this.callApi(params, req, runtime), new SetAppsAuthToApiProductResponse({}));
+  }
+
+  async setAppsAuthToApiProduct(request: SetAppsAuthToApiProductRequest): Promise<SetAppsAuthToApiProductResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setAppsAuthToApiProductWithOptions(request, runtime);
   }
 
   /**
