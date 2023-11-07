@@ -30497,6 +30497,43 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfNetTCP extends $tea.Mode
   }
 }
 
+export class UpdateTimingSyntheticTaskRequestMonitorConfStream extends $tea.Model {
+  customHeaderContent?: { [key: string]: string };
+  playerType?: number;
+  streamAddressType?: number;
+  streamMonitorTimeout?: number;
+  streamType?: number;
+  targetUrl?: string;
+  whiteList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customHeaderContent: 'CustomHeaderContent',
+      playerType: 'PlayerType',
+      streamAddressType: 'StreamAddressType',
+      streamMonitorTimeout: 'StreamMonitorTimeout',
+      streamType: 'StreamType',
+      targetUrl: 'TargetUrl',
+      whiteList: 'WhiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customHeaderContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      playerType: 'number',
+      streamAddressType: 'number',
+      streamMonitorTimeout: 'number',
+      streamType: 'number',
+      targetUrl: 'string',
+      whiteList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Model {
   automaticScrolling?: number;
   customHeader?: number;
@@ -30576,6 +30613,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConf extends $tea.Model {
   netDNS?: UpdateTimingSyntheticTaskRequestMonitorConfNetDNS;
   netICMP?: UpdateTimingSyntheticTaskRequestMonitorConfNetICMP;
   netTCP?: UpdateTimingSyntheticTaskRequestMonitorConfNetTCP;
+  stream?: UpdateTimingSyntheticTaskRequestMonitorConfStream;
   website?: UpdateTimingSyntheticTaskRequestMonitorConfWebsite;
   static names(): { [key: string]: string } {
     return {
@@ -30584,6 +30622,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConf extends $tea.Model {
       netDNS: 'NetDNS',
       netICMP: 'NetICMP',
       netTCP: 'NetTCP',
+      stream: 'Stream',
       website: 'Website',
     };
   }
@@ -30595,6 +30634,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConf extends $tea.Model {
       netDNS: UpdateTimingSyntheticTaskRequestMonitorConfNetDNS,
       netICMP: UpdateTimingSyntheticTaskRequestMonitorConfNetICMP,
       netTCP: UpdateTimingSyntheticTaskRequestMonitorConfNetTCP,
+      stream: UpdateTimingSyntheticTaskRequestMonitorConfStream,
       website: UpdateTimingSyntheticTaskRequestMonitorConfWebsite,
     };
   }
