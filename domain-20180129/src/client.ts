@@ -431,6 +431,84 @@ export class CancelTaskResponse extends $tea.Model {
   }
 }
 
+export class ChangeResourceGroupRequest extends $tea.Model {
+  lang?: string;
+  newResourceGroupId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      newResourceGroupId: 'NewResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      newResourceGroupId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckDomainRequest extends $tea.Model {
   domainName?: string;
   feeCommand?: string;
@@ -1190,6 +1268,105 @@ export class DeleteRegistrantProfileResponse extends $tea.Model {
   }
 }
 
+export class DomainSpecialBizCancelRequest extends $tea.Model {
+  bizId?: number;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'number',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DomainSpecialBizCancelResponseBody extends $tea.Model {
+  allowRetry?: boolean;
+  appName?: string;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorArgs?: any[];
+  errorCode?: string;
+  errorMsg?: string;
+  httpStatusCode?: number;
+  module?: any;
+  requestId?: string;
+  success?: boolean;
+  synchro?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowRetry: 'AllowRetry',
+      appName: 'AppName',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorArgs: 'ErrorArgs',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      httpStatusCode: 'HttpStatusCode',
+      module: 'Module',
+      requestId: 'RequestId',
+      success: 'Success',
+      synchro: 'Synchro',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowRetry: 'boolean',
+      appName: 'string',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorArgs: { 'type': 'array', 'itemType': 'any' },
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpStatusCode: 'number',
+      module: 'any',
+      requestId: 'string',
+      success: 'boolean',
+      synchro: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DomainSpecialBizCancelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DomainSpecialBizCancelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DomainSpecialBizCancelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EmailVerifiedRequest extends $tea.Model {
   email?: string;
   lang?: string;
@@ -1620,6 +1797,8 @@ export class ListServerLockRequest extends $tea.Model {
   endStartDate?: number;
   lang?: string;
   lockProductId?: string;
+  orderBy?: string;
+  orderByType?: string;
   pageNum?: number;
   pageSize?: number;
   serverLockStatus?: number;
@@ -1633,6 +1812,8 @@ export class ListServerLockRequest extends $tea.Model {
       endStartDate: 'EndStartDate',
       lang: 'Lang',
       lockProductId: 'LockProductId',
+      orderBy: 'OrderBy',
+      orderByType: 'OrderByType',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       serverLockStatus: 'ServerLockStatus',
@@ -1649,6 +1830,8 @@ export class ListServerLockRequest extends $tea.Model {
       endStartDate: 'number',
       lang: 'string',
       lockProductId: 'string',
+      orderBy: 'string',
+      orderByType: 'string',
       pageNum: 'number',
       pageSize: 'number',
       serverLockStatus: 'number',
@@ -1937,10 +2120,12 @@ export class QueryAdvancedDomainListRequest extends $tea.Model {
   productDomainType?: string;
   productDomainTypeSort?: boolean;
   registrationDateSort?: boolean;
+  resourceGroupId?: string;
   startExpirationDate?: number;
   startLength?: number;
   startRegistrationDate?: number;
   suffixs?: string;
+  tag?: QueryAdvancedDomainListRequestTag[];
   tradeType?: number;
   userClientIp?: string;
   static names(): { [key: string]: string } {
@@ -1965,10 +2150,12 @@ export class QueryAdvancedDomainListRequest extends $tea.Model {
       productDomainType: 'ProductDomainType',
       productDomainTypeSort: 'ProductDomainTypeSort',
       registrationDateSort: 'RegistrationDateSort',
+      resourceGroupId: 'ResourceGroupId',
       startExpirationDate: 'StartExpirationDate',
       startLength: 'StartLength',
       startRegistrationDate: 'StartRegistrationDate',
       suffixs: 'Suffixs',
+      tag: 'Tag',
       tradeType: 'TradeType',
       userClientIp: 'UserClientIp',
     };
@@ -1996,10 +2183,12 @@ export class QueryAdvancedDomainListRequest extends $tea.Model {
       productDomainType: 'string',
       productDomainTypeSort: 'boolean',
       registrationDateSort: 'boolean',
+      resourceGroupId: 'string',
       startExpirationDate: 'number',
       startLength: 'number',
       startRegistrationDate: 'number',
       suffixs: 'string',
+      tag: { 'type': 'array', 'itemType': QueryAdvancedDomainListRequestTag },
       tradeType: 'number',
       userClientIp: 'string',
     };
@@ -2647,6 +2836,7 @@ export class QueryDomainByDomainNameResponseBody extends $tea.Model {
   domainName?: string;
   domainNameProxyService?: boolean;
   domainNameVerificationStatus?: string;
+  domainStatus?: string;
   domainType?: string;
   email?: string;
   emailVerificationClientHold?: boolean;
@@ -2666,13 +2856,14 @@ export class QueryDomainByDomainNameResponseBody extends $tea.Model {
   registrationDateLong?: number;
   remark?: string;
   requestId?: string;
+  resourceGroupId?: string;
+  tag?: QueryDomainByDomainNameResponseBodyTag;
   transferOutStatus?: string;
   transferProhibitionLock?: string;
   updateProhibitionLock?: string;
   userId?: string;
   zhRegistrantName?: string;
   zhRegistrantOrganization?: string;
-  domainStatus?: string;
   static names(): { [key: string]: string } {
     return {
       dnsList: 'DnsList',
@@ -2681,6 +2872,7 @@ export class QueryDomainByDomainNameResponseBody extends $tea.Model {
       domainName: 'DomainName',
       domainNameProxyService: 'DomainNameProxyService',
       domainNameVerificationStatus: 'DomainNameVerificationStatus',
+      domainStatus: 'DomainStatus',
       domainType: 'DomainType',
       email: 'Email',
       emailVerificationClientHold: 'EmailVerificationClientHold',
@@ -2700,13 +2892,14 @@ export class QueryDomainByDomainNameResponseBody extends $tea.Model {
       registrationDateLong: 'RegistrationDateLong',
       remark: 'Remark',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
       transferOutStatus: 'TransferOutStatus',
       transferProhibitionLock: 'TransferProhibitionLock',
       updateProhibitionLock: 'UpdateProhibitionLock',
       userId: 'UserId',
       zhRegistrantName: 'ZhRegistrantName',
       zhRegistrantOrganization: 'ZhRegistrantOrganization',
-      domainStatus: 'domainStatus',
     };
   }
 
@@ -2718,6 +2911,7 @@ export class QueryDomainByDomainNameResponseBody extends $tea.Model {
       domainName: 'string',
       domainNameProxyService: 'boolean',
       domainNameVerificationStatus: 'string',
+      domainStatus: 'string',
       domainType: 'string',
       email: 'string',
       emailVerificationClientHold: 'boolean',
@@ -2737,13 +2931,14 @@ export class QueryDomainByDomainNameResponseBody extends $tea.Model {
       registrationDateLong: 'number',
       remark: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
+      tag: QueryDomainByDomainNameResponseBodyTag,
       transferOutStatus: 'string',
       transferProhibitionLock: 'string',
       updateProhibitionLock: 'string',
       userId: 'string',
       zhRegistrantName: 'string',
       zhRegistrantOrganization: 'string',
-      domainStatus: 'string',
     };
   }
 
@@ -2829,6 +3024,8 @@ export class QueryDomainByInstanceIdResponseBody extends $tea.Model {
   registrationDateLong?: number;
   remark?: string;
   requestId?: string;
+  resourceGroupId?: string;
+  tag?: QueryDomainByInstanceIdResponseBodyTag;
   transferOutStatus?: string;
   transferProhibitionLock?: string;
   updateProhibitionLock?: string;
@@ -2863,6 +3060,8 @@ export class QueryDomainByInstanceIdResponseBody extends $tea.Model {
       registrationDateLong: 'RegistrationDateLong',
       remark: 'Remark',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
       transferOutStatus: 'TransferOutStatus',
       transferProhibitionLock: 'TransferProhibitionLock',
       updateProhibitionLock: 'UpdateProhibitionLock',
@@ -2900,6 +3099,8 @@ export class QueryDomainByInstanceIdResponseBody extends $tea.Model {
       registrationDateLong: 'number',
       remark: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
+      tag: QueryDomainByInstanceIdResponseBodyTag,
       transferOutStatus: 'string',
       transferProhibitionLock: 'string',
       updateProhibitionLock: 'string',
@@ -3026,8 +3227,10 @@ export class QueryDomainListRequest extends $tea.Model {
   pageSize?: number;
   productDomainType?: string;
   queryType?: string;
+  resourceGroupId?: string;
   startExpirationDate?: number;
   startRegistrationDate?: number;
+  tag?: QueryDomainListRequestTag[];
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3042,8 +3245,10 @@ export class QueryDomainListRequest extends $tea.Model {
       pageSize: 'PageSize',
       productDomainType: 'ProductDomainType',
       queryType: 'QueryType',
+      resourceGroupId: 'ResourceGroupId',
       startExpirationDate: 'StartExpirationDate',
       startRegistrationDate: 'StartRegistrationDate',
+      tag: 'Tag',
       userClientIp: 'UserClientIp',
     };
   }
@@ -3061,8 +3266,10 @@ export class QueryDomainListRequest extends $tea.Model {
       pageSize: 'number',
       productDomainType: 'string',
       queryType: 'string',
+      resourceGroupId: 'string',
       startExpirationDate: 'number',
       startRegistrationDate: 'number',
+      tag: { 'type': 'array', 'itemType': QueryDomainListRequestTag },
       userClientIp: 'string',
     };
   }
@@ -3222,6 +3429,207 @@ export class QueryDomainRealNameVerificationInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryDomainRealNameVerificationInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainSpecialBizDetailRequest extends $tea.Model {
+  bizId?: number;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'number',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainSpecialBizDetailResponseBody extends $tea.Model {
+  allowRetry?: boolean;
+  appName?: string;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorArgs?: any[];
+  errorCode?: string;
+  errorMsg?: string;
+  httpStatusCode?: number;
+  module?: QueryDomainSpecialBizDetailResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  synchro?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowRetry: 'AllowRetry',
+      appName: 'AppName',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorArgs: 'ErrorArgs',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      httpStatusCode: 'HttpStatusCode',
+      module: 'Module',
+      requestId: 'RequestId',
+      success: 'Success',
+      synchro: 'Synchro',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowRetry: 'boolean',
+      appName: 'string',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorArgs: { 'type': 'array', 'itemType': 'any' },
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpStatusCode: 'number',
+      module: QueryDomainSpecialBizDetailResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      synchro: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainSpecialBizDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryDomainSpecialBizDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDomainSpecialBizDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainSpecialBizInfoByDomainRequest extends $tea.Model {
+  bizType?: string;
+  domainName?: string;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizType: 'BizType',
+      domainName: 'DomainName',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizType: 'string',
+      domainName: 'string',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainSpecialBizInfoByDomainResponseBody extends $tea.Model {
+  allowRetry?: boolean;
+  appName?: string;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorArgs?: any[];
+  errorCode?: string;
+  errorMsg?: string;
+  httpStatusCode?: number;
+  module?: QueryDomainSpecialBizInfoByDomainResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  synchro?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowRetry: 'AllowRetry',
+      appName: 'AppName',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorArgs: 'ErrorArgs',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      httpStatusCode: 'HttpStatusCode',
+      module: 'Module',
+      requestId: 'RequestId',
+      success: 'Success',
+      synchro: 'Synchro',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowRetry: 'boolean',
+      appName: 'string',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorArgs: { 'type': 'array', 'itemType': 'any' },
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpStatusCode: 'number',
+      module: QueryDomainSpecialBizInfoByDomainResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      synchro: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainSpecialBizInfoByDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryDomainSpecialBizInfoByDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDomainSpecialBizInfoByDomainResponseBody,
     };
   }
 
@@ -5369,6 +5777,78 @@ export class SaveBatchDomainRemarkResponse extends $tea.Model {
   }
 }
 
+export class SaveBatchTaskForApplyQuickTransferOutOpenlyRequest extends $tea.Model {
+  domainNames?: string[];
+  lang?: string;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainNames: 'DomainNames',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainNames: { 'type': 'array', 'itemType': 'string' },
+      lang: 'string',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveBatchTaskForApplyQuickTransferOutOpenlyResponseBody extends $tea.Model {
+  requestId?: string;
+  taskNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskNo: 'TaskNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveBatchTaskForApplyQuickTransferOutOpenlyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SaveBatchTaskForApplyQuickTransferOutOpenlyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveBatchTaskForApplyQuickTransferOutOpenlyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveBatchTaskForCreatingOrderActivateRequest extends $tea.Model {
   couponNo?: string;
   lang?: string;
@@ -5772,6 +6252,103 @@ export class SaveBatchTaskForDomainNameProxyServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SaveBatchTaskForDomainNameProxyServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveBatchTaskForGenerateDomainCertificateRequest extends $tea.Model {
+  domainNames?: string[];
+  lang?: string;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainNames: 'DomainNames',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainNames: { 'type': 'array', 'itemType': 'string' },
+      lang: 'string',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveBatchTaskForGenerateDomainCertificateShrinkRequest extends $tea.Model {
+  domainNamesShrink?: string;
+  lang?: string;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainNamesShrink: 'DomainNames',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainNamesShrink: 'string',
+      lang: 'string',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveBatchTaskForGenerateDomainCertificateResponseBody extends $tea.Model {
+  requestId?: string;
+  taskNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskNo: 'TaskNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveBatchTaskForGenerateDomainCertificateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SaveBatchTaskForGenerateDomainCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveBatchTaskForGenerateDomainCertificateResponseBody,
     };
   }
 
@@ -6728,6 +7305,78 @@ export class SaveSingleTaskForAddingDSRecordResponse extends $tea.Model {
   }
 }
 
+export class SaveSingleTaskForApplyQuickTransferOutOpenlyRequest extends $tea.Model {
+  domainName?: string;
+  lang?: string;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      lang: 'string',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForApplyQuickTransferOutOpenlyResponseBody extends $tea.Model {
+  requestId?: string;
+  taskNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskNo: 'TaskNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForApplyQuickTransferOutOpenlyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SaveSingleTaskForApplyQuickTransferOutOpenlyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveSingleTaskForApplyQuickTransferOutOpenlyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveSingleTaskForApprovingTransferOutRequest extends $tea.Model {
   domainName?: string;
   lang?: string;
@@ -7117,6 +7766,7 @@ export class SaveSingleTaskForCreatingOrderActivateRequest extends $tea.Model {
   registrantOrganization?: string;
   registrantProfileId?: number;
   registrantType?: string;
+  resourceGroupId?: string;
   subscriptionDuration?: number;
   telArea?: string;
   telExt?: string;
@@ -7151,6 +7801,7 @@ export class SaveSingleTaskForCreatingOrderActivateRequest extends $tea.Model {
       registrantOrganization: 'RegistrantOrganization',
       registrantProfileId: 'RegistrantProfileId',
       registrantType: 'RegistrantType',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionDuration: 'SubscriptionDuration',
       telArea: 'TelArea',
       telExt: 'TelExt',
@@ -7188,6 +7839,7 @@ export class SaveSingleTaskForCreatingOrderActivateRequest extends $tea.Model {
       registrantOrganization: 'string',
       registrantProfileId: 'number',
       registrantType: 'string',
+      resourceGroupId: 'string',
       subscriptionDuration: 'number',
       telArea: 'string',
       telExt: 'string',
@@ -7815,6 +8467,78 @@ export class SaveSingleTaskForDomainNameProxyServiceResponse extends $tea.Model 
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SaveSingleTaskForDomainNameProxyServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForGenerateDomainCertificateRequest extends $tea.Model {
+  domainName?: string;
+  lang?: string;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      lang: 'string',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForGenerateDomainCertificateResponseBody extends $tea.Model {
+  requestId?: string;
+  taskNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskNo: 'TaskNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForGenerateDomainCertificateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SaveSingleTaskForGenerateDomainCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveSingleTaskForGenerateDomainCertificateResponseBody,
     };
   }
 
@@ -8994,6 +9718,7 @@ export class ScrollDomainListRequest extends $tea.Model {
   lang?: string;
   pageSize?: number;
   productDomainType?: string;
+  resourceGroupId?: string;
   scrollId?: string;
   startExpirationDate?: number;
   startLength?: number;
@@ -9018,6 +9743,7 @@ export class ScrollDomainListRequest extends $tea.Model {
       lang: 'Lang',
       pageSize: 'PageSize',
       productDomainType: 'ProductDomainType',
+      resourceGroupId: 'ResourceGroupId',
       scrollId: 'ScrollId',
       startExpirationDate: 'StartExpirationDate',
       startLength: 'StartLength',
@@ -9045,6 +9771,7 @@ export class ScrollDomainListRequest extends $tea.Model {
       lang: 'string',
       pageSize: 'number',
       productDomainType: 'string',
+      resourceGroupId: 'string',
       scrollId: 'string',
       startExpirationDate: 'number',
       startLength: 'number',
@@ -9174,6 +9901,180 @@ export class SetDefaultRegistrantProfileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SetDefaultRegistrantProfileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetupDomainAutoRenewRequest extends $tea.Model {
+  instanceId?: string;
+  operation?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      operation: 'Operation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      operation: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetupDomainAutoRenewResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetupDomainAutoRenewResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetupDomainAutoRenewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetupDomainAutoRenewResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDomainSpecialBizCredentialsRequest extends $tea.Model {
+  bizId?: number;
+  credentials?: string;
+  extend?: string;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      credentials: 'Credentials',
+      extend: 'Extend',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'number',
+      credentials: 'string',
+      extend: 'string',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDomainSpecialBizCredentialsResponseBody extends $tea.Model {
+  allowRetry?: boolean;
+  appName?: string;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorArgs?: any[];
+  errorCode?: string;
+  errorMsg?: string;
+  httpStatusCode?: number;
+  module?: any;
+  requestId?: string;
+  success?: boolean;
+  synchro?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowRetry: 'AllowRetry',
+      appName: 'AppName',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorArgs: 'ErrorArgs',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      httpStatusCode: 'HttpStatusCode',
+      module: 'Module',
+      requestId: 'RequestId',
+      success: 'Success',
+      synchro: 'Synchro',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowRetry: 'boolean',
+      appName: 'string',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorArgs: { 'type': 'array', 'itemType': 'any' },
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpStatusCode: 'number',
+      module: 'any',
+      requestId: 'string',
+      success: 'boolean',
+      synchro: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDomainSpecialBizCredentialsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitDomainSpecialBizCredentialsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitDomainSpecialBizCredentialsResponseBody,
     };
   }
 
@@ -10661,6 +11562,28 @@ export class PollTaskResultResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryAdvancedDomainListRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryAdvancedDomainListResponseBodyDataDomainDnsList extends $tea.Model {
   dns?: string[];
   static names(): { [key: string]: string } {
@@ -10672,6 +11595,47 @@ export class QueryAdvancedDomainListResponseBodyDataDomainDnsList extends $tea.M
   static types(): { [key: string]: any } {
     return {
       dns: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAdvancedDomainListResponseBodyDataDomainTagTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAdvancedDomainListResponseBodyDataDomainTag extends $tea.Model {
+  tag?: QueryAdvancedDomainListResponseBodyDataDomainTagTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': QueryAdvancedDomainListResponseBodyDataDomainTagTag },
     };
   }
 
@@ -10701,6 +11665,8 @@ export class QueryAdvancedDomainListResponseBodyDataDomain extends $tea.Model {
   registrationDate?: string;
   registrationDateLong?: number;
   remark?: string;
+  resourceGroupId?: string;
+  tag?: QueryAdvancedDomainListResponseBodyDataDomainTag;
   zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10724,6 +11690,8 @@ export class QueryAdvancedDomainListResponseBodyDataDomain extends $tea.Model {
       registrationDate: 'RegistrationDate',
       registrationDateLong: 'RegistrationDateLong',
       remark: 'Remark',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
       zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
@@ -10750,6 +11718,8 @@ export class QueryAdvancedDomainListResponseBodyDataDomain extends $tea.Model {
       registrationDate: 'string',
       registrationDateLong: 'number',
       remark: 'string',
+      resourceGroupId: 'string',
+      tag: QueryAdvancedDomainListResponseBodyDataDomainTag,
       zhRegistrantOrganization: 'string',
     };
   }
@@ -10979,6 +11949,47 @@ export class QueryDomainByDomainNameResponseBodyDnsList extends $tea.Model {
   }
 }
 
+export class QueryDomainByDomainNameResponseBodyTagTag extends $tea.Model {
+  key?: string;
+  vaue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      vaue: 'Vaue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      vaue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainByDomainNameResponseBodyTag extends $tea.Model {
+  tag?: QueryDomainByDomainNameResponseBodyTagTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': QueryDomainByDomainNameResponseBodyTagTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDomainByInstanceIdResponseBodyDnsList extends $tea.Model {
   dns?: string[];
   static names(): { [key: string]: string } {
@@ -10990,6 +12001,47 @@ export class QueryDomainByInstanceIdResponseBodyDnsList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dns: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainByInstanceIdResponseBodyTagTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainByInstanceIdResponseBodyTag extends $tea.Model {
+  tag?: QueryDomainByInstanceIdResponseBodyTagTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': QueryDomainByInstanceIdResponseBodyTagTag },
     };
   }
 
@@ -11054,6 +12106,69 @@ export class QueryDomainGroupListResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryDomainListRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainListResponseBodyDataDomainTagTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainListResponseBodyDataDomainTag extends $tea.Model {
+  tag?: QueryDomainListResponseBodyDataDomainTagTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': QueryDomainListResponseBodyDataDomainTagTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDomainListResponseBodyDataDomain extends $tea.Model {
   domainAuditStatus?: string;
   domainGroupId?: string;
@@ -11072,6 +12187,8 @@ export class QueryDomainListResponseBodyDataDomain extends $tea.Model {
   registrationDate?: string;
   registrationDateLong?: number;
   remark?: string;
+  resourceGroupId?: string;
+  tag?: QueryDomainListResponseBodyDataDomainTag;
   static names(): { [key: string]: string } {
     return {
       domainAuditStatus: 'DomainAuditStatus',
@@ -11091,6 +12208,8 @@ export class QueryDomainListResponseBodyDataDomain extends $tea.Model {
       registrationDate: 'RegistrationDate',
       registrationDateLong: 'RegistrationDateLong',
       remark: 'Remark',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -11113,6 +12232,8 @@ export class QueryDomainListResponseBodyDataDomain extends $tea.Model {
       registrationDate: 'string',
       registrationDateLong: 'number',
       remark: 'string',
+      resourceGroupId: 'string',
+      tag: QueryDomainListResponseBodyDataDomainTag,
     };
   }
 
@@ -11132,6 +12253,454 @@ export class QueryDomainListResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domain: { 'type': 'array', 'itemType': QueryDomainListResponseBodyDataDomain },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialBizContact extends $tea.Model {
+  bizId?: number;
+  CCity?: string;
+  CCompany?: string;
+  CCountry?: string;
+  CName?: string;
+  CProvince?: string;
+  CVenu?: string;
+  ECity?: string;
+  ECompany?: string;
+  EName?: string;
+  EProvince?: string;
+  EVenu?: string;
+  email?: string;
+  extend?: string;
+  faxArea?: string;
+  faxExt?: string;
+  faxMain?: string;
+  mobile?: string;
+  postalcode?: string;
+  regType?: number;
+  registrantId?: string;
+  telArea?: string;
+  telExt?: string;
+  telMain?: string;
+  vspContactId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      CCity: 'CCity',
+      CCompany: 'CCompany',
+      CCountry: 'CCountry',
+      CName: 'CName',
+      CProvince: 'CProvince',
+      CVenu: 'CVenu',
+      ECity: 'ECity',
+      ECompany: 'ECompany',
+      EName: 'EName',
+      EProvince: 'EProvince',
+      EVenu: 'EVenu',
+      email: 'Email',
+      extend: 'Extend',
+      faxArea: 'FaxArea',
+      faxExt: 'FaxExt',
+      faxMain: 'FaxMain',
+      mobile: 'Mobile',
+      postalcode: 'Postalcode',
+      regType: 'RegType',
+      registrantId: 'RegistrantId',
+      telArea: 'TelArea',
+      telExt: 'TelExt',
+      telMain: 'TelMain',
+      vspContactId: 'VspContactId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'number',
+      CCity: 'string',
+      CCompany: 'string',
+      CCountry: 'string',
+      CName: 'string',
+      CProvince: 'string',
+      CVenu: 'string',
+      ECity: 'string',
+      ECompany: 'string',
+      EName: 'string',
+      EProvince: 'string',
+      EVenu: 'string',
+      email: 'string',
+      extend: 'string',
+      faxArea: 'string',
+      faxExt: 'string',
+      faxMain: 'string',
+      mobile: 'string',
+      postalcode: 'string',
+      regType: 'number',
+      registrantId: 'string',
+      telArea: 'string',
+      telExt: 'string',
+      telMain: 'string',
+      vspContactId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialBizCredentials extends $tea.Model {
+  bizId?: number;
+  credentialNo?: string;
+  credentialType?: string;
+  credentialUrl?: string;
+  domainName?: string;
+  holderCert?: number;
+  saleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      credentialNo: 'CredentialNo',
+      credentialType: 'CredentialType',
+      credentialUrl: 'CredentialUrl',
+      domainName: 'DomainName',
+      holderCert: 'HolderCert',
+      saleId: 'SaleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'number',
+      credentialNo: 'string',
+      credentialType: 'string',
+      credentialUrl: 'string',
+      domainName: 'string',
+      holderCert: 'number',
+      saleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialOrderResult extends $tea.Model {
+  actionType?: string;
+  orderAmount?: number;
+  orderCurrency?: string;
+  orderId?: string;
+  orderStatus?: string;
+  orderTime?: string;
+  orderYear?: number;
+  saleId?: string;
+  subOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionType: 'ActionType',
+      orderAmount: 'OrderAmount',
+      orderCurrency: 'OrderCurrency',
+      orderId: 'OrderId',
+      orderStatus: 'OrderStatus',
+      orderTime: 'OrderTime',
+      orderYear: 'OrderYear',
+      saleId: 'SaleId',
+      subOrderId: 'SubOrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionType: 'string',
+      orderAmount: 'number',
+      orderCurrency: 'string',
+      orderId: 'string',
+      orderStatus: 'string',
+      orderTime: 'string',
+      orderYear: 'number',
+      saleId: 'string',
+      subOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainSpecialBizDetailResponseBodyModule extends $tea.Model {
+  auditMsg?: string;
+  bizName?: string;
+  bizNo?: string;
+  bizStatus?: string;
+  bizType?: string;
+  createTime?: number;
+  domainName?: string;
+  domainSpecialBizContact?: QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialBizContact;
+  domainSpecialBizCredentials?: QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialBizCredentials[];
+  domainSpecialOrderResult?: QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialOrderResult;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  orderId?: string;
+  productId?: string;
+  saleId?: string;
+  status?: number;
+  statusDesc?: string;
+  updateTime?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditMsg: 'AuditMsg',
+      bizName: 'BizName',
+      bizNo: 'BizNo',
+      bizStatus: 'BizStatus',
+      bizType: 'BizType',
+      createTime: 'CreateTime',
+      domainName: 'DomainName',
+      domainSpecialBizContact: 'DomainSpecialBizContact',
+      domainSpecialBizCredentials: 'DomainSpecialBizCredentials',
+      domainSpecialOrderResult: 'DomainSpecialOrderResult',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      orderId: 'OrderId',
+      productId: 'ProductId',
+      saleId: 'SaleId',
+      status: 'Status',
+      statusDesc: 'StatusDesc',
+      updateTime: 'UpdateTime',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditMsg: 'string',
+      bizName: 'string',
+      bizNo: 'string',
+      bizStatus: 'string',
+      bizType: 'string',
+      createTime: 'number',
+      domainName: 'string',
+      domainSpecialBizContact: QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialBizContact,
+      domainSpecialBizCredentials: { 'type': 'array', 'itemType': QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialBizCredentials },
+      domainSpecialOrderResult: QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialOrderResult,
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      orderId: 'string',
+      productId: 'string',
+      saleId: 'string',
+      status: 'number',
+      statusDesc: 'string',
+      updateTime: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBizContact extends $tea.Model {
+  bizId?: number;
+  CCity?: string;
+  CCompany?: string;
+  CCountry?: string;
+  CName?: string;
+  CProvince?: string;
+  CVenu?: string;
+  ECity?: string;
+  ECompany?: string;
+  EName?: string;
+  EProvince?: string;
+  EVenu?: string;
+  email?: string;
+  extend?: string;
+  faxArea?: string;
+  faxExt?: string;
+  faxMain?: string;
+  mobile?: string;
+  postalcode?: string;
+  regType?: number;
+  registrantId?: string;
+  telArea?: string;
+  telExt?: string;
+  telMain?: string;
+  vspContactId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      CCity: 'CCity',
+      CCompany: 'CCompany',
+      CCountry: 'CCountry',
+      CName: 'CName',
+      CProvince: 'CProvince',
+      CVenu: 'CVenu',
+      ECity: 'ECity',
+      ECompany: 'ECompany',
+      EName: 'EName',
+      EProvince: 'EProvince',
+      EVenu: 'EVenu',
+      email: 'Email',
+      extend: 'Extend',
+      faxArea: 'FaxArea',
+      faxExt: 'FaxExt',
+      faxMain: 'FaxMain',
+      mobile: 'Mobile',
+      postalcode: 'Postalcode',
+      regType: 'RegType',
+      registrantId: 'RegistrantId',
+      telArea: 'TelArea',
+      telExt: 'TelExt',
+      telMain: 'TelMain',
+      vspContactId: 'VspContactId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'number',
+      CCity: 'string',
+      CCompany: 'string',
+      CCountry: 'string',
+      CName: 'string',
+      CProvince: 'string',
+      CVenu: 'string',
+      ECity: 'string',
+      ECompany: 'string',
+      EName: 'string',
+      EProvince: 'string',
+      EVenu: 'string',
+      email: 'string',
+      extend: 'string',
+      faxArea: 'string',
+      faxExt: 'string',
+      faxMain: 'string',
+      mobile: 'string',
+      postalcode: 'string',
+      regType: 'number',
+      registrantId: 'string',
+      telArea: 'string',
+      telExt: 'string',
+      telMain: 'string',
+      vspContactId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBizCredentials extends $tea.Model {
+  bizId?: number;
+  credentialNo?: string;
+  credentialType?: string;
+  credentialUrl?: string;
+  domainName?: string;
+  holderCert?: number;
+  saleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      credentialNo: 'CredentialNo',
+      credentialType: 'CredentialType',
+      credentialUrl: 'CredentialUrl',
+      domainName: 'DomainName',
+      holderCert: 'HolderCert',
+      saleId: 'SaleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'number',
+      credentialNo: 'string',
+      credentialType: 'string',
+      credentialUrl: 'string',
+      domainName: 'string',
+      holderCert: 'number',
+      saleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDomainSpecialBizInfoByDomainResponseBodyModule extends $tea.Model {
+  auditMsg?: string;
+  bizName?: string;
+  bizNo?: string;
+  bizStatus?: string;
+  bizType?: string;
+  createTime?: number;
+  domainName?: string;
+  domainSpecialBizContact?: QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBizContact;
+  domainSpecialBizCredentials?: QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBizCredentials[];
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  orderId?: string;
+  productId?: string;
+  saleId?: string;
+  status?: number;
+  statusDesc?: string;
+  updateTime?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditMsg: 'AuditMsg',
+      bizName: 'BizName',
+      bizNo: 'BizNo',
+      bizStatus: 'BizStatus',
+      bizType: 'BizType',
+      createTime: 'CreateTime',
+      domainName: 'DomainName',
+      domainSpecialBizContact: 'DomainSpecialBizContact',
+      domainSpecialBizCredentials: 'DomainSpecialBizCredentials',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      orderId: 'OrderId',
+      productId: 'ProductId',
+      saleId: 'SaleId',
+      status: 'Status',
+      statusDesc: 'StatusDesc',
+      updateTime: 'UpdateTime',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditMsg: 'string',
+      bizName: 'string',
+      bizNo: 'string',
+      bizStatus: 'string',
+      bizType: 'string',
+      createTime: 'number',
+      domainName: 'string',
+      domainSpecialBizContact: QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBizContact,
+      domainSpecialBizCredentials: { 'type': 'array', 'itemType': QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBizCredentials },
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      orderId: 'string',
+      productId: 'string',
+      saleId: 'string',
+      status: 'number',
+      statusDesc: 'string',
+      updateTime: 'number',
+      userId: 'string',
     };
   }
 
@@ -11320,6 +12889,8 @@ export class QueryRegistrantProfilesResponseBodyRegistrantProfilesRegistrantProf
   city?: string;
   country?: string;
   createTime?: string;
+  credentialNo?: string;
+  credentialType?: string;
   defaultRegistrantProfile?: boolean;
   email?: string;
   emailVerificationStatus?: number;
@@ -11346,6 +12917,8 @@ export class QueryRegistrantProfilesResponseBodyRegistrantProfilesRegistrantProf
       city: 'City',
       country: 'Country',
       createTime: 'CreateTime',
+      credentialNo: 'CredentialNo',
+      credentialType: 'CredentialType',
       defaultRegistrantProfile: 'DefaultRegistrantProfile',
       email: 'Email',
       emailVerificationStatus: 'EmailVerificationStatus',
@@ -11375,6 +12948,8 @@ export class QueryRegistrantProfilesResponseBodyRegistrantProfilesRegistrantProf
       city: 'string',
       country: 'string',
       createTime: 'string',
+      credentialNo: 'string',
+      credentialType: 'string',
       defaultRegistrantProfile: 'boolean',
       email: 'string',
       emailVerificationStatus: 'number',
@@ -12106,6 +13681,7 @@ export class SaveBatchTaskForCreatingOrderActivateRequestOrderActivateParam exte
   registrantOrganization?: string;
   registrantProfileId?: number;
   registrantType?: string;
+  resourceGroupId?: string;
   subscriptionDuration?: number;
   telArea?: string;
   telExt?: string;
@@ -12134,6 +13710,7 @@ export class SaveBatchTaskForCreatingOrderActivateRequestOrderActivateParam exte
       registrantOrganization: 'RegistrantOrganization',
       registrantProfileId: 'RegistrantProfileId',
       registrantType: 'RegistrantType',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionDuration: 'SubscriptionDuration',
       telArea: 'TelArea',
       telExt: 'TelExt',
@@ -12165,6 +13742,7 @@ export class SaveBatchTaskForCreatingOrderActivateRequestOrderActivateParam exte
       registrantOrganization: 'string',
       registrantProfileId: 'number',
       registrantType: 'string',
+      resourceGroupId: 'string',
       subscriptionDuration: 'number',
       telArea: 'string',
       telExt: 'string',
@@ -12296,6 +13874,47 @@ export class ScrollDomainListResponseBodyDataDomainDnsList extends $tea.Model {
   }
 }
 
+export class ScrollDomainListResponseBodyDataDomainTagTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScrollDomainListResponseBodyDataDomainTag extends $tea.Model {
+  tag?: ScrollDomainListResponseBodyDataDomainTagTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': ScrollDomainListResponseBodyDataDomainTagTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScrollDomainListResponseBodyDataDomain extends $tea.Model {
   dnsList?: ScrollDomainListResponseBodyDataDomainDnsList;
   domainAuditStatus?: string;
@@ -12317,6 +13936,8 @@ export class ScrollDomainListResponseBodyDataDomain extends $tea.Model {
   registrationDate?: string;
   registrationDateLong?: number;
   remark?: string;
+  resourceGroupId?: string;
+  tag?: ScrollDomainListResponseBodyDataDomainTag;
   zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12340,6 +13961,8 @@ export class ScrollDomainListResponseBodyDataDomain extends $tea.Model {
       registrationDate: 'RegistrationDate',
       registrationDateLong: 'RegistrationDateLong',
       remark: 'Remark',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
       zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
@@ -12366,6 +13989,8 @@ export class ScrollDomainListResponseBodyDataDomain extends $tea.Model {
       registrationDate: 'string',
       registrationDateLong: 'number',
       remark: 'string',
+      resourceGroupId: 'string',
+      tag: ScrollDomainListResponseBodyDataDomainTag,
       zhRegistrantOrganization: 'string',
     };
   }
@@ -12754,6 +14379,51 @@ export default class Client extends OpenApi {
   async cancelTask(request: CancelTaskRequest): Promise<CancelTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelTaskWithOptions(request, runtime);
+  }
+
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
   async checkDomainWithOptions(request: CheckDomainRequest, runtime: $Util.RuntimeOptions): Promise<CheckDomainResponse> {
@@ -13146,6 +14816,41 @@ export default class Client extends OpenApi {
     return await this.deleteRegistrantProfileWithOptions(request, runtime);
   }
 
+  async domainSpecialBizCancelWithOptions(request: DomainSpecialBizCancelRequest, runtime: $Util.RuntimeOptions): Promise<DomainSpecialBizCancelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizId)) {
+      body["BizId"] = request.bizId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DomainSpecialBizCancel",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DomainSpecialBizCancelResponse>(await this.callApi(params, req, runtime), new DomainSpecialBizCancelResponse({}));
+  }
+
+  async domainSpecialBizCancel(request: DomainSpecialBizCancelRequest): Promise<DomainSpecialBizCancelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.domainSpecialBizCancelWithOptions(request, runtime);
+  }
+
   async emailVerifiedWithOptions(request: EmailVerifiedRequest, runtime: $Util.RuntimeOptions): Promise<EmailVerifiedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13370,6 +15075,14 @@ export default class Client extends OpenApi {
       query["LockProductId"] = request.lockProductId;
     }
 
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.orderByType)) {
+      query["OrderByType"] = request.orderByType;
+    }
+
     if (!Util.isUnset(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
@@ -13589,6 +15302,10 @@ export default class Client extends OpenApi {
       query["RegistrationDateSort"] = request.registrationDateSort;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.startExpirationDate)) {
       query["StartExpirationDate"] = request.startExpirationDate;
     }
@@ -13603,6 +15320,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.suffixs)) {
       query["Suffixs"] = request.suffixs;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.tradeType)) {
@@ -14035,12 +15756,20 @@ export default class Client extends OpenApi {
       query["QueryType"] = request.queryType;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.startExpirationDate)) {
       query["StartExpirationDate"] = request.startExpirationDate;
     }
 
     if (!Util.isUnset(request.startRegistrationDate)) {
       query["StartRegistrationDate"] = request.startRegistrationDate;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.userClientIp)) {
@@ -14108,6 +15837,80 @@ export default class Client extends OpenApi {
   async queryDomainRealNameVerificationInfo(request: QueryDomainRealNameVerificationInfoRequest): Promise<QueryDomainRealNameVerificationInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDomainRealNameVerificationInfoWithOptions(request, runtime);
+  }
+
+  async queryDomainSpecialBizDetailWithOptions(request: QueryDomainSpecialBizDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainSpecialBizDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizId)) {
+      body["BizId"] = request.bizId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDomainSpecialBizDetail",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDomainSpecialBizDetailResponse>(await this.callApi(params, req, runtime), new QueryDomainSpecialBizDetailResponse({}));
+  }
+
+  async queryDomainSpecialBizDetail(request: QueryDomainSpecialBizDetailRequest): Promise<QueryDomainSpecialBizDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDomainSpecialBizDetailWithOptions(request, runtime);
+  }
+
+  async queryDomainSpecialBizInfoByDomainWithOptions(request: QueryDomainSpecialBizInfoByDomainRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainSpecialBizInfoByDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      body["DomainName"] = request.domainName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDomainSpecialBizInfoByDomain",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDomainSpecialBizInfoByDomainResponse>(await this.callApi(params, req, runtime), new QueryDomainSpecialBizInfoByDomainResponse({}));
+  }
+
+  async queryDomainSpecialBizInfoByDomain(request: QueryDomainSpecialBizInfoByDomainRequest): Promise<QueryDomainSpecialBizInfoByDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDomainSpecialBizInfoByDomainWithOptions(request, runtime);
   }
 
   async queryDomainSuffixWithOptions(request: QueryDomainSuffixRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainSuffixResponse> {
@@ -15164,6 +16967,43 @@ export default class Client extends OpenApi {
     return await this.saveBatchDomainRemarkWithOptions(request, runtime);
   }
 
+  async saveBatchTaskForApplyQuickTransferOutOpenlyWithOptions(request: SaveBatchTaskForApplyQuickTransferOutOpenlyRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForApplyQuickTransferOutOpenlyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForApplyQuickTransferOutOpenly",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForApplyQuickTransferOutOpenlyResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForApplyQuickTransferOutOpenlyResponse({}));
+  }
+
+  async saveBatchTaskForApplyQuickTransferOutOpenly(request: SaveBatchTaskForApplyQuickTransferOutOpenlyRequest): Promise<SaveBatchTaskForApplyQuickTransferOutOpenlyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveBatchTaskForApplyQuickTransferOutOpenlyWithOptions(request, runtime);
+  }
+
   async saveBatchTaskForCreatingOrderActivateWithOptions(request: SaveBatchTaskForCreatingOrderActivateRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForCreatingOrderActivateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15415,6 +17255,49 @@ export default class Client extends OpenApi {
   async saveBatchTaskForDomainNameProxyService(request: SaveBatchTaskForDomainNameProxyServiceRequest): Promise<SaveBatchTaskForDomainNameProxyServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveBatchTaskForDomainNameProxyServiceWithOptions(request, runtime);
+  }
+
+  async saveBatchTaskForGenerateDomainCertificateWithOptions(tmpReq: SaveBatchTaskForGenerateDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForGenerateDomainCertificateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SaveBatchTaskForGenerateDomainCertificateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.domainNames)) {
+      request.domainNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.domainNames, "DomainNames", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.domainNamesShrink)) {
+      query["DomainNames"] = request.domainNamesShrink;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForGenerateDomainCertificate",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForGenerateDomainCertificateResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForGenerateDomainCertificateResponse({}));
+  }
+
+  async saveBatchTaskForGenerateDomainCertificate(request: SaveBatchTaskForGenerateDomainCertificateRequest): Promise<SaveBatchTaskForGenerateDomainCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveBatchTaskForGenerateDomainCertificateWithOptions(request, runtime);
   }
 
   async saveBatchTaskForModifyingDomainDnsWithOptions(request: SaveBatchTaskForModifyingDomainDnsRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForModifyingDomainDnsResponse> {
@@ -16067,6 +17950,43 @@ export default class Client extends OpenApi {
     return await this.saveSingleTaskForAddingDSRecordWithOptions(request, runtime);
   }
 
+  async saveSingleTaskForApplyQuickTransferOutOpenlyWithOptions(request: SaveSingleTaskForApplyQuickTransferOutOpenlyRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForApplyQuickTransferOutOpenlyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForApplyQuickTransferOutOpenly",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForApplyQuickTransferOutOpenlyResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForApplyQuickTransferOutOpenlyResponse({}));
+  }
+
+  async saveSingleTaskForApplyQuickTransferOutOpenly(request: SaveSingleTaskForApplyQuickTransferOutOpenlyRequest): Promise<SaveSingleTaskForApplyQuickTransferOutOpenlyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveSingleTaskForApplyQuickTransferOutOpenlyWithOptions(request, runtime);
+  }
+
   async saveSingleTaskForApprovingTransferOutWithOptions(request: SaveSingleTaskForApprovingTransferOutRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForApprovingTransferOutResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16341,6 +18261,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.registrantType)) {
       query["RegistrantType"] = request.registrantType;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.subscriptionDuration)) {
@@ -16758,6 +18682,43 @@ export default class Client extends OpenApi {
   async saveSingleTaskForDomainNameProxyService(request: SaveSingleTaskForDomainNameProxyServiceRequest): Promise<SaveSingleTaskForDomainNameProxyServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSingleTaskForDomainNameProxyServiceWithOptions(request, runtime);
+  }
+
+  async saveSingleTaskForGenerateDomainCertificateWithOptions(request: SaveSingleTaskForGenerateDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForGenerateDomainCertificateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForGenerateDomainCertificate",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForGenerateDomainCertificateResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForGenerateDomainCertificateResponse({}));
+  }
+
+  async saveSingleTaskForGenerateDomainCertificate(request: SaveSingleTaskForGenerateDomainCertificateRequest): Promise<SaveSingleTaskForGenerateDomainCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveSingleTaskForGenerateDomainCertificateWithOptions(request, runtime);
   }
 
   async saveSingleTaskForModifyingDSRecordWithOptions(request: SaveSingleTaskForModifyingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForModifyingDSRecordResponse> {
@@ -17541,6 +19502,10 @@ export default class Client extends OpenApi {
       query["ProductDomainType"] = request.productDomainType;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.scrollId)) {
       query["ScrollId"] = request.scrollId;
     }
@@ -17622,6 +19587,82 @@ export default class Client extends OpenApi {
   async setDefaultRegistrantProfile(request: SetDefaultRegistrantProfileRequest): Promise<SetDefaultRegistrantProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDefaultRegistrantProfileWithOptions(request, runtime);
+  }
+
+  async setupDomainAutoRenewWithOptions(request: SetupDomainAutoRenewRequest, runtime: $Util.RuntimeOptions): Promise<SetupDomainAutoRenewResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetupDomainAutoRenew",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetupDomainAutoRenewResponse>(await this.callApi(params, req, runtime), new SetupDomainAutoRenewResponse({}));
+  }
+
+  async setupDomainAutoRenew(request: SetupDomainAutoRenewRequest): Promise<SetupDomainAutoRenewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setupDomainAutoRenewWithOptions(request, runtime);
+  }
+
+  async submitDomainSpecialBizCredentialsWithOptions(request: SubmitDomainSpecialBizCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDomainSpecialBizCredentialsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizId)) {
+      body["BizId"] = request.bizId;
+    }
+
+    if (!Util.isUnset(request.credentials)) {
+      body["Credentials"] = request.credentials;
+    }
+
+    if (!Util.isUnset(request.extend)) {
+      body["Extend"] = request.extend;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitDomainSpecialBizCredentials",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitDomainSpecialBizCredentialsResponse>(await this.callApi(params, req, runtime), new SubmitDomainSpecialBizCredentialsResponse({}));
+  }
+
+  async submitDomainSpecialBizCredentials(request: SubmitDomainSpecialBizCredentialsRequest): Promise<SubmitDomainSpecialBizCredentialsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitDomainSpecialBizCredentialsWithOptions(request, runtime);
   }
 
   async submitEmailVerificationWithOptions(request: SubmitEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<SubmitEmailVerificationResponse> {
