@@ -11061,15 +11061,18 @@ export class HotelOrderCancelHeaders extends $tea.Model {
 }
 
 export class HotelOrderCancelRequest extends $tea.Model {
+  btripOrderId?: string;
   disOrderId?: string;
   static names(): { [key: string]: string } {
     return {
+      btripOrderId: 'btrip_order_id',
       disOrderId: 'dis_order_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      btripOrderId: 'string',
       disOrderId: 'string',
     };
   }
@@ -11406,15 +11409,18 @@ export class HotelOrderDetailInfoHeaders extends $tea.Model {
 }
 
 export class HotelOrderDetailInfoRequest extends $tea.Model {
+  btripOrderId?: string;
   disOrderId?: string;
   static names(): { [key: string]: string } {
     return {
+      btripOrderId: 'btrip_order_id',
       disOrderId: 'dis_order_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      btripOrderId: 'string',
       disOrderId: 'string',
     };
   }
@@ -14705,14 +14711,18 @@ export class IsvRuleSaveHeaders extends $tea.Model {
 }
 
 export class IsvRuleSaveRequest extends $tea.Model {
+  applyNeed?: boolean;
   bookType?: string;
   bookuserList?: IsvRuleSaveRequestBookuserList[];
+  ruleNeed?: boolean;
   status?: number;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      applyNeed: 'apply_need',
       bookType: 'book_type',
       bookuserList: 'bookuser_list',
+      ruleNeed: 'rule_need',
       status: 'status',
       userId: 'user_id',
     };
@@ -14720,8 +14730,10 @@ export class IsvRuleSaveRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applyNeed: 'boolean',
       bookType: 'string',
       bookuserList: { 'type': 'array', 'itemType': IsvRuleSaveRequestBookuserList },
+      ruleNeed: 'boolean',
       status: 'number',
       userId: 'string',
     };
@@ -14733,14 +14745,18 @@ export class IsvRuleSaveRequest extends $tea.Model {
 }
 
 export class IsvRuleSaveShrinkRequest extends $tea.Model {
+  applyNeed?: boolean;
   bookType?: string;
   bookuserListShrink?: string;
+  ruleNeed?: boolean;
   status?: number;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      applyNeed: 'apply_need',
       bookType: 'book_type',
       bookuserListShrink: 'bookuser_list',
+      ruleNeed: 'rule_need',
       status: 'status',
       userId: 'user_id',
     };
@@ -14748,8 +14764,10 @@ export class IsvRuleSaveShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applyNeed: 'boolean',
       bookType: 'string',
       bookuserListShrink: 'string',
+      ruleNeed: 'boolean',
       status: 'number',
       userId: 'string',
     };
@@ -48318,6 +48336,10 @@ export default class Client extends OpenApi {
   async hotelOrderCancelWithOptions(request: HotelOrderCancelRequest, headers: HotelOrderCancelHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderCancelResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.btripOrderId)) {
+      query["btrip_order_id"] = request.btripOrderId;
+    }
+
     if (!Util.isUnset(request.disOrderId)) {
       query["dis_order_id"] = request.disOrderId;
     }
@@ -48496,6 +48518,10 @@ export default class Client extends OpenApi {
   async hotelOrderDetailInfoWithOptions(request: HotelOrderDetailInfoRequest, headers: HotelOrderDetailInfoHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderDetailInfoResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.btripOrderId)) {
+      query["btrip_order_id"] = request.btripOrderId;
+    }
+
     if (!Util.isUnset(request.disOrderId)) {
       query["dis_order_id"] = request.disOrderId;
     }
@@ -50099,12 +50125,20 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applyNeed)) {
+      body["apply_need"] = request.applyNeed;
+    }
+
     if (!Util.isUnset(request.bookType)) {
       body["book_type"] = request.bookType;
     }
 
     if (!Util.isUnset(request.bookuserListShrink)) {
       body["bookuser_list"] = request.bookuserListShrink;
+    }
+
+    if (!Util.isUnset(request.ruleNeed)) {
+      body["rule_need"] = request.ruleNeed;
     }
 
     if (!Util.isUnset(request.status)) {
