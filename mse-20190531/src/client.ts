@@ -28247,20 +28247,17 @@ export class ListZnodeChildrenResponseBodyData extends $tea.Model {
 }
 
 export class ModifyGovernanceKubernetesClusterRequestNamespaceInfos extends $tea.Model {
-  labels?: { [key: string]: string };
   mseNamespace?: string;
   name?: string;
   static names(): { [key: string]: string } {
     return {
-      labels: 'labels',
-      mseNamespace: 'mseNamespace',
-      name: 'name',
+      mseNamespace: 'MseNamespace',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       mseNamespace: 'string',
       name: 'string',
     };
@@ -32349,7 +32346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * mse-200-105
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request CreateNacosInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -32426,7 +32423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * mse-200-105
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request CreateNacosInstanceRequest
     * @return CreateNacosInstanceResponse
@@ -38922,7 +38919,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go or subscription MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see "Pricing" (`~~1806469~~`).
+    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
     *
     * @param request UpdateClusterSpecRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -38973,7 +38970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go or subscription MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see "Pricing" (`~~1806469~~`).
+    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
     *
     * @param request UpdateClusterSpecRequest
     * @return UpdateClusterSpecResponse
