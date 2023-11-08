@@ -35856,6 +35856,138 @@ export class ListInstanceCatalogResponse extends $tea.Model {
   }
 }
 
+export class ListInstanceRiskLevelsRequest extends $tea.Model {
+  instanceList?: ListInstanceRiskLevelsRequestInstanceList[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceList: 'InstanceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceList: { 'type': 'array', 'itemType': ListInstanceRiskLevelsRequestInstanceList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceRiskLevelsResponseBody extends $tea.Model {
+  instanceRiskLevels?: ListInstanceRiskLevelsResponseBodyInstanceRiskLevels[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceRiskLevels: 'InstanceRiskLevels',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceRiskLevels: { 'type': 'array', 'itemType': ListInstanceRiskLevelsResponseBodyInstanceRiskLevels },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceRiskLevelsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListInstanceRiskLevelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstanceRiskLevelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceRiskNumRequest extends $tea.Model {
+  instanceList?: ListInstanceRiskNumRequestInstanceList[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceList: 'InstanceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceList: { 'type': 'array', 'itemType': ListInstanceRiskNumRequestInstanceList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceRiskNumResponseBody extends $tea.Model {
+  instanceRiskNum?: ListInstanceRiskNumResponseBodyInstanceRiskNum[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceRiskNum: 'InstanceRiskNum',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceRiskNum: { 'type': 'array', 'itemType': ListInstanceRiskNumResponseBodyInstanceRiskNum },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceRiskNumResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListInstanceRiskNumResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstanceRiskNumResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInterceptionHistoryRequest extends $tea.Model {
   clusterId?: string;
   currentPage?: number;
@@ -67131,6 +67263,156 @@ export class ListInstanceCatalogResponseBodyVendors extends $tea.Model {
   }
 }
 
+export class ListInstanceRiskLevelsRequestInstanceList extends $tea.Model {
+  instanceId?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceRiskLevelsResponseBodyInstanceRiskLevels extends $tea.Model {
+  instanceId?: string;
+  level?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      level: 'Level',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      level: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceRiskNumRequestInstanceList extends $tea.Model {
+  instanceId?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceRiskNumResponseBodyInstanceRiskNumInstanceItem extends $tea.Model {
+  instanceId?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceRiskNumResponseBodyInstanceRiskNumRiskNumEntity extends $tea.Model {
+  suspiciousHighCount?: number;
+  suspiciousLowCount?: number;
+  suspiciousMediumCount?: number;
+  vulHighCount?: number;
+  vulLowCount?: number;
+  vulMediumCount?: number;
+  weakPassWordCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      suspiciousHighCount: 'SuspiciousHighCount',
+      suspiciousLowCount: 'SuspiciousLowCount',
+      suspiciousMediumCount: 'SuspiciousMediumCount',
+      vulHighCount: 'VulHighCount',
+      vulLowCount: 'VulLowCount',
+      vulMediumCount: 'VulMediumCount',
+      weakPassWordCount: 'WeakPassWordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      suspiciousHighCount: 'number',
+      suspiciousLowCount: 'number',
+      suspiciousMediumCount: 'number',
+      vulHighCount: 'number',
+      vulLowCount: 'number',
+      vulMediumCount: 'number',
+      weakPassWordCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceRiskNumResponseBodyInstanceRiskNum extends $tea.Model {
+  instanceItem?: ListInstanceRiskNumResponseBodyInstanceRiskNumInstanceItem;
+  riskNumEntity?: ListInstanceRiskNumResponseBodyInstanceRiskNumRiskNumEntity;
+  static names(): { [key: string]: string } {
+    return {
+      instanceItem: 'InstanceItem',
+      riskNumEntity: 'RiskNumEntity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceItem: ListInstanceRiskNumResponseBodyInstanceRiskNumInstanceItem,
+      riskNumEntity: ListInstanceRiskNumResponseBodyInstanceRiskNumRiskNumEntity,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends $tea.Model {
   clusterId?: string;
   clusterName?: string;
@@ -88288,6 +88570,64 @@ export default class Client extends OpenApi {
   async listInstanceCatalog(request: ListInstanceCatalogRequest): Promise<ListInstanceCatalogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceCatalogWithOptions(request, runtime);
+  }
+
+  async listInstanceRiskLevelsWithOptions(request: ListInstanceRiskLevelsRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceRiskLevelsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceList)) {
+      query["InstanceList"] = request.instanceList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstanceRiskLevels",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceRiskLevelsResponse>(await this.callApi(params, req, runtime), new ListInstanceRiskLevelsResponse({}));
+  }
+
+  async listInstanceRiskLevels(request: ListInstanceRiskLevelsRequest): Promise<ListInstanceRiskLevelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInstanceRiskLevelsWithOptions(request, runtime);
+  }
+
+  async listInstanceRiskNumWithOptions(request: ListInstanceRiskNumRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceRiskNumResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceList)) {
+      query["InstanceList"] = request.instanceList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstanceRiskNum",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceRiskNumResponse>(await this.callApi(params, req, runtime), new ListInstanceRiskNumResponse({}));
+  }
+
+  async listInstanceRiskNum(request: ListInstanceRiskNumRequest): Promise<ListInstanceRiskNumResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInstanceRiskNumWithOptions(request, runtime);
   }
 
   async listInterceptionHistoryWithOptions(request: ListInterceptionHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListInterceptionHistoryResponse> {
