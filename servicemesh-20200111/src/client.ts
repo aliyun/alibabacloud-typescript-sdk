@@ -1051,6 +1051,111 @@ export class CreateSwimLaneGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateWaypointRequest extends $tea.Model {
+  clusterId?: string;
+  HPAEnabled?: boolean;
+  HPAMaxReplicas?: number;
+  HPAMinReplicas?: number;
+  HPATargetCPU?: number;
+  HPATargetMemory?: number;
+  limitCPU?: string;
+  limitMemory?: string;
+  namespace?: string;
+  preferECI?: boolean;
+  replicas?: number;
+  requestCPU?: string;
+  requestMemory?: string;
+  serviceAccount?: string;
+  serviceMeshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      HPAEnabled: 'HPAEnabled',
+      HPAMaxReplicas: 'HPAMaxReplicas',
+      HPAMinReplicas: 'HPAMinReplicas',
+      HPATargetCPU: 'HPATargetCPU',
+      HPATargetMemory: 'HPATargetMemory',
+      limitCPU: 'LimitCPU',
+      limitMemory: 'LimitMemory',
+      namespace: 'Namespace',
+      preferECI: 'PreferECI',
+      replicas: 'Replicas',
+      requestCPU: 'RequestCPU',
+      requestMemory: 'RequestMemory',
+      serviceAccount: 'ServiceAccount',
+      serviceMeshId: 'ServiceMeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      HPAEnabled: 'boolean',
+      HPAMaxReplicas: 'number',
+      HPAMinReplicas: 'number',
+      HPATargetCPU: 'number',
+      HPATargetMemory: 'number',
+      limitCPU: 'string',
+      limitMemory: 'string',
+      namespace: 'string',
+      preferECI: 'boolean',
+      replicas: 'number',
+      requestCPU: 'string',
+      requestMemory: 'string',
+      serviceAccount: 'string',
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWaypointResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWaypointResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateWaypointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWaypointResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteGatewayRouteRequest extends $tea.Model {
   istioGatewayName?: string;
   routeName?: string;
@@ -1466,6 +1571,78 @@ export class DeleteSwimLaneGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSwimLaneGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWaypointRequest extends $tea.Model {
+  clusterId?: string;
+  name?: string;
+  namespace?: string;
+  serviceMeshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      name: 'Name',
+      namespace: 'Namespace',
+      serviceMeshId: 'ServiceMeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      name: 'string',
+      namespace: 'string',
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWaypointResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWaypointResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteWaypointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteWaypointResponseBody,
     };
   }
 
@@ -4813,6 +4990,78 @@ export class GrantUserPermissionsResponse extends $tea.Model {
   }
 }
 
+export class ListServiceAccountsRequest extends $tea.Model {
+  clusterId?: string;
+  namespace?: string;
+  serviceMeshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      namespace: 'Namespace',
+      serviceMeshId: 'ServiceMeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      namespace: 'string',
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceAccountsResponseBody extends $tea.Model {
+  requestId?: string;
+  serviceAccounts?: ListServiceAccountsResponseBodyServiceAccounts[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      serviceAccounts: 'ServiceAccounts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      serviceAccounts: { 'type': 'array', 'itemType': ListServiceAccountsResponseBodyServiceAccounts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceAccountsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListServiceAccountsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceAccountsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequest extends $tea.Model {
   nextToken?: string;
   regionId?: string;
@@ -4886,6 +5135,90 @@ export class ListTagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWaypointsRequest extends $tea.Model {
+  clusterId?: string;
+  continue?: string;
+  limit?: number;
+  name?: string;
+  namespace?: string;
+  serviceMeshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      continue: 'Continue',
+      limit: 'Limit',
+      name: 'Name',
+      namespace: 'Namespace',
+      serviceMeshId: 'ServiceMeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      continue: 'string',
+      limit: 'number',
+      name: 'string',
+      namespace: 'string',
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWaypointsResponseBody extends $tea.Model {
+  continue?: string;
+  requestId?: string;
+  waypoints?: ListWaypointsResponseBodyWaypoints[];
+  static names(): { [key: string]: string } {
+    return {
+      continue: 'Continue',
+      requestId: 'RequestId',
+      waypoints: 'Waypoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      continue: 'string',
+      requestId: 'string',
+      waypoints: { 'type': 'array', 'itemType': ListWaypointsResponseBodyWaypoints },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWaypointsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListWaypointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWaypointsResponseBody,
     };
   }
 
@@ -6765,6 +7098,111 @@ export class UpdateSwimLaneGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateSwimLaneGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWaypointRequest extends $tea.Model {
+  clusterId?: string;
+  HPAEnabled?: boolean;
+  HPAMaxReplicas?: number;
+  HPAMinReplicas?: number;
+  HPATargetCPU?: number;
+  HPATargetMemory?: number;
+  limitCPU?: string;
+  limitMemory?: string;
+  name?: string;
+  namespace?: string;
+  preferECI?: boolean;
+  replicas?: number;
+  requestCPU?: string;
+  requestMemory?: string;
+  serviceMeshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      HPAEnabled: 'HPAEnabled',
+      HPAMaxReplicas: 'HPAMaxReplicas',
+      HPAMinReplicas: 'HPAMinReplicas',
+      HPATargetCPU: 'HPATargetCPU',
+      HPATargetMemory: 'HPATargetMemory',
+      limitCPU: 'LimitCPU',
+      limitMemory: 'LimitMemory',
+      name: 'Name',
+      namespace: 'Namespace',
+      preferECI: 'PreferECI',
+      replicas: 'Replicas',
+      requestCPU: 'RequestCPU',
+      requestMemory: 'RequestMemory',
+      serviceMeshId: 'ServiceMeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      HPAEnabled: 'boolean',
+      HPAMaxReplicas: 'number',
+      HPAMinReplicas: 'number',
+      HPATargetCPU: 'number',
+      HPATargetMemory: 'number',
+      limitCPU: 'string',
+      limitMemory: 'string',
+      name: 'string',
+      namespace: 'string',
+      preferECI: 'boolean',
+      replicas: 'number',
+      requestCPU: 'string',
+      requestMemory: 'string',
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWaypointResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWaypointResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateWaypointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateWaypointResponseBody,
     };
   }
 
@@ -10818,6 +11256,7 @@ export class DescribeServiceMeshesResponseBodyServiceMeshes extends $tea.Model {
   serviceMeshInfo?: DescribeServiceMeshesResponseBodyServiceMeshesServiceMeshInfo;
   spec?: DescribeServiceMeshesResponseBodyServiceMeshesSpec;
   tag?: DescribeServiceMeshesResponseBodyServiceMeshesTag[];
+  upgradable?: boolean;
   static names(): { [key: string]: string } {
     return {
       clusterSpec: 'ClusterSpec',
@@ -10828,6 +11267,7 @@ export class DescribeServiceMeshesResponseBodyServiceMeshes extends $tea.Model {
       serviceMeshInfo: 'ServiceMeshInfo',
       spec: 'Spec',
       tag: 'Tag',
+      upgradable: 'Upgradable',
     };
   }
 
@@ -10841,6 +11281,7 @@ export class DescribeServiceMeshesResponseBodyServiceMeshes extends $tea.Model {
       serviceMeshInfo: DescribeServiceMeshesResponseBodyServiceMeshesServiceMeshInfo,
       spec: DescribeServiceMeshesResponseBodyServiceMeshesSpec,
       tag: { 'type': 'array', 'itemType': DescribeServiceMeshesResponseBodyServiceMeshesTag },
+      upgradable: 'boolean',
     };
   }
 
@@ -11240,6 +11681,28 @@ export class GetVmMetaResponseBodyVmMetaInfo extends $tea.Model {
   }
 }
 
+export class ListServiceAccountsResponseBodyServiceAccounts extends $tea.Model {
+  name?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -11282,6 +11745,64 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
       resourceType: 'string',
       tagKey: 'string',
       tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWaypointsResponseBodyWaypoints extends $tea.Model {
+  HPAEnabled?: string;
+  HPAMaxReplicas?: string;
+  HPAMinReplicas?: string;
+  HPATargetCPU?: string;
+  HPATargetMemory?: string;
+  limitCPU?: string;
+  limitMemory?: string;
+  name?: string;
+  namespace?: string;
+  preferECI?: string;
+  replicas?: string;
+  requestCPU?: string;
+  requestMemory?: string;
+  serviceAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      HPAEnabled: 'HPAEnabled',
+      HPAMaxReplicas: 'HPAMaxReplicas',
+      HPAMinReplicas: 'HPAMinReplicas',
+      HPATargetCPU: 'HPATargetCPU',
+      HPATargetMemory: 'HPATargetMemory',
+      limitCPU: 'LimitCPU',
+      limitMemory: 'LimitMemory',
+      name: 'Name',
+      namespace: 'Namespace',
+      preferECI: 'PreferECI',
+      replicas: 'Replicas',
+      requestCPU: 'RequestCPU',
+      requestMemory: 'RequestMemory',
+      serviceAccount: 'ServiceAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      HPAEnabled: 'string',
+      HPAMaxReplicas: 'string',
+      HPAMinReplicas: 'string',
+      HPATargetCPU: 'string',
+      HPATargetMemory: 'string',
+      limitCPU: 'string',
+      limitMemory: 'string',
+      name: 'string',
+      namespace: 'string',
+      preferECI: 'string',
+      replicas: 'string',
+      requestCPU: 'string',
+      requestMemory: 'string',
+      serviceAccount: 'string',
     };
   }
 
@@ -12556,6 +13077,91 @@ export default class Client extends OpenApi {
     return await this.createSwimLaneGroupWithOptions(request, runtime);
   }
 
+  async createWaypointWithOptions(request: CreateWaypointRequest, runtime: $Util.RuntimeOptions): Promise<CreateWaypointResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.HPAEnabled)) {
+      body["HPAEnabled"] = request.HPAEnabled;
+    }
+
+    if (!Util.isUnset(request.HPAMaxReplicas)) {
+      body["HPAMaxReplicas"] = request.HPAMaxReplicas;
+    }
+
+    if (!Util.isUnset(request.HPAMinReplicas)) {
+      body["HPAMinReplicas"] = request.HPAMinReplicas;
+    }
+
+    if (!Util.isUnset(request.HPATargetCPU)) {
+      body["HPATargetCPU"] = request.HPATargetCPU;
+    }
+
+    if (!Util.isUnset(request.HPATargetMemory)) {
+      body["HPATargetMemory"] = request.HPATargetMemory;
+    }
+
+    if (!Util.isUnset(request.limitCPU)) {
+      body["LimitCPU"] = request.limitCPU;
+    }
+
+    if (!Util.isUnset(request.limitMemory)) {
+      body["LimitMemory"] = request.limitMemory;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.preferECI)) {
+      body["PreferECI"] = request.preferECI;
+    }
+
+    if (!Util.isUnset(request.replicas)) {
+      body["Replicas"] = request.replicas;
+    }
+
+    if (!Util.isUnset(request.requestCPU)) {
+      body["RequestCPU"] = request.requestCPU;
+    }
+
+    if (!Util.isUnset(request.requestMemory)) {
+      body["RequestMemory"] = request.requestMemory;
+    }
+
+    if (!Util.isUnset(request.serviceAccount)) {
+      body["ServiceAccount"] = request.serviceAccount;
+    }
+
+    if (!Util.isUnset(request.serviceMeshId)) {
+      body["ServiceMeshId"] = request.serviceMeshId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWaypoint",
+      version: "2020-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWaypointResponse>(await this.callApi(params, req, runtime), new CreateWaypointResponse({}));
+  }
+
+  async createWaypoint(request: CreateWaypointRequest): Promise<CreateWaypointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createWaypointWithOptions(request, runtime);
+  }
+
   async deleteGatewayRouteWithOptions(request: DeleteGatewayRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayRouteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12784,6 +13390,47 @@ export default class Client extends OpenApi {
   async deleteSwimLaneGroup(request: DeleteSwimLaneGroupRequest): Promise<DeleteSwimLaneGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSwimLaneGroupWithOptions(request, runtime);
+  }
+
+  async deleteWaypointWithOptions(request: DeleteWaypointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWaypointResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.serviceMeshId)) {
+      body["ServiceMeshId"] = request.serviceMeshId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteWaypoint",
+      version: "2020-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWaypointResponse>(await this.callApi(params, req, runtime), new DeleteWaypointResponse({}));
+  }
+
+  async deleteWaypoint(request: DeleteWaypointRequest): Promise<DeleteWaypointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteWaypointWithOptions(request, runtime);
   }
 
   async describeASMGatewayImportedServicesWithOptions(request: DescribeASMGatewayImportedServicesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeASMGatewayImportedServicesResponse> {
@@ -14381,6 +15028,43 @@ export default class Client extends OpenApi {
     return await this.grantUserPermissionsWithOptions(request, runtime);
   }
 
+  async listServiceAccountsWithOptions(request: ListServiceAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceAccountsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.serviceMeshId)) {
+      body["ServiceMeshId"] = request.serviceMeshId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListServiceAccounts",
+      version: "2020-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceAccountsResponse>(await this.callApi(params, req, runtime), new ListServiceAccountsResponse({}));
+  }
+
+  async listServiceAccounts(request: ListServiceAccountsRequest): Promise<ListServiceAccountsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listServiceAccountsWithOptions(request, runtime);
+  }
+
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14424,6 +15108,55 @@ export default class Client extends OpenApi {
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  async listWaypointsWithOptions(request: ListWaypointsRequest, runtime: $Util.RuntimeOptions): Promise<ListWaypointsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.continue)) {
+      body["Continue"] = request.continue;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      body["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.serviceMeshId)) {
+      body["ServiceMeshId"] = request.serviceMeshId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWaypoints",
+      version: "2020-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWaypointsResponse>(await this.callApi(params, req, runtime), new ListWaypointsResponse({}));
+  }
+
+  async listWaypoints(request: ListWaypointsRequest): Promise<ListWaypointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listWaypointsWithOptions(request, runtime);
   }
 
   async modifyApiServerEipResourceWithOptions(request: ModifyApiServerEipResourceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiServerEipResourceResponse> {
@@ -14497,7 +15230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods of Log Service. For more information, visit the [pricing page](https://www.aliyun.com/price/product?spm=5176.10695662.1119587.4.194c6a67rcPWQH#/sls/detail).
+    * Before you call this operation, make sure that you understand the billing methods of Simple Log Service. For more information, visit the [pricing page](https://www.aliyun.com/price/product?spm=5176.10695662.1119587.4.194c6a67rcPWQH#/sls/detail).
     *
     * @param request ReActivateAuditRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14532,7 +15265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods of Log Service. For more information, visit the [pricing page](https://www.aliyun.com/price/product?spm=5176.10695662.1119587.4.194c6a67rcPWQH#/sls/detail).
+    * Before you call this operation, make sure that you understand the billing methods of Simple Log Service. For more information, visit the [pricing page](https://www.aliyun.com/price/product?spm=5176.10695662.1119587.4.194c6a67rcPWQH#/sls/detail).
     *
     * @param request ReActivateAuditRequest
     * @return ReActivateAuditResponse
@@ -15806,6 +16539,91 @@ export default class Client extends OpenApi {
   async updateSwimLaneGroup(request: UpdateSwimLaneGroupRequest): Promise<UpdateSwimLaneGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSwimLaneGroupWithOptions(request, runtime);
+  }
+
+  async updateWaypointWithOptions(request: UpdateWaypointRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWaypointResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.HPAEnabled)) {
+      body["HPAEnabled"] = request.HPAEnabled;
+    }
+
+    if (!Util.isUnset(request.HPAMaxReplicas)) {
+      body["HPAMaxReplicas"] = request.HPAMaxReplicas;
+    }
+
+    if (!Util.isUnset(request.HPAMinReplicas)) {
+      body["HPAMinReplicas"] = request.HPAMinReplicas;
+    }
+
+    if (!Util.isUnset(request.HPATargetCPU)) {
+      body["HPATargetCPU"] = request.HPATargetCPU;
+    }
+
+    if (!Util.isUnset(request.HPATargetMemory)) {
+      body["HPATargetMemory"] = request.HPATargetMemory;
+    }
+
+    if (!Util.isUnset(request.limitCPU)) {
+      body["LimitCPU"] = request.limitCPU;
+    }
+
+    if (!Util.isUnset(request.limitMemory)) {
+      body["LimitMemory"] = request.limitMemory;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.preferECI)) {
+      body["PreferECI"] = request.preferECI;
+    }
+
+    if (!Util.isUnset(request.replicas)) {
+      body["Replicas"] = request.replicas;
+    }
+
+    if (!Util.isUnset(request.requestCPU)) {
+      body["RequestCPU"] = request.requestCPU;
+    }
+
+    if (!Util.isUnset(request.requestMemory)) {
+      body["RequestMemory"] = request.requestMemory;
+    }
+
+    if (!Util.isUnset(request.serviceMeshId)) {
+      body["ServiceMeshId"] = request.serviceMeshId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateWaypoint",
+      version: "2020-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateWaypointResponse>(await this.callApi(params, req, runtime), new UpdateWaypointResponse({}));
+  }
+
+  async updateWaypoint(request: UpdateWaypointRequest): Promise<UpdateWaypointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateWaypointWithOptions(request, runtime);
   }
 
   async upgradeMeshEditionPartiallyWithOptions(request: UpgradeMeshEditionPartiallyRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeMeshEditionPartiallyResponse> {
