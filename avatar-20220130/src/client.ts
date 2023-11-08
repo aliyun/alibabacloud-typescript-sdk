@@ -1893,6 +1893,7 @@ export class SendVamlResponse extends $tea.Model {
 
 export class StartInstanceRequest extends $tea.Model {
   app?: StartInstanceRequestApp;
+  bizId?: string;
   channel?: StartInstanceRequestChannel;
   commandRequest?: StartInstanceRequestCommandRequest;
   tenantId?: number;
@@ -1900,6 +1901,7 @@ export class StartInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       app: 'App',
+      bizId: 'BizId',
       channel: 'Channel',
       commandRequest: 'CommandRequest',
       tenantId: 'TenantId',
@@ -1910,6 +1912,7 @@ export class StartInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       app: StartInstanceRequestApp,
+      bizId: 'string',
       channel: StartInstanceRequestChannel,
       commandRequest: StartInstanceRequestCommandRequest,
       tenantId: 'number',
@@ -1924,6 +1927,7 @@ export class StartInstanceRequest extends $tea.Model {
 
 export class StartInstanceShrinkRequest extends $tea.Model {
   appShrink?: string;
+  bizId?: string;
   channelShrink?: string;
   commandRequestShrink?: string;
   tenantId?: number;
@@ -1931,6 +1935,7 @@ export class StartInstanceShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appShrink: 'App',
+      bizId: 'BizId',
       channelShrink: 'Channel',
       commandRequestShrink: 'CommandRequest',
       tenantId: 'TenantId',
@@ -1941,6 +1946,7 @@ export class StartInstanceShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appShrink: 'string',
+      bizId: 'string',
       channelShrink: 'string',
       commandRequestShrink: 'string',
       tenantId: 'number',
@@ -5586,6 +5592,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.appShrink)) {
       query["App"] = request.appShrink;
+    }
+
+    if (!Util.isUnset(request.bizId)) {
+      query["BizId"] = request.bizId;
     }
 
     if (!Util.isUnset(request.channelShrink)) {
