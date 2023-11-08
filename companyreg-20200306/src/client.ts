@@ -2561,12 +2561,14 @@ export class SubmitIntentionNoteResponse extends $tea.Model {
 export class SubmitSolutionRequest extends $tea.Model {
   bizType?: string;
   intentionBizId?: string;
+  operateType?: string;
   solution?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
       intentionBizId: 'IntentionBizId',
+      operateType: 'OperateType',
       solution: 'Solution',
       userId: 'UserId',
     };
@@ -2576,6 +2578,7 @@ export class SubmitSolutionRequest extends $tea.Model {
     return {
       bizType: 'string',
       intentionBizId: 'string',
+      operateType: 'string',
       solution: 'string',
       userId: 'string',
     };
@@ -4539,6 +4542,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.intentionBizId)) {
       query["IntentionBizId"] = request.intentionBizId;
+    }
+
+    if (!Util.isUnset(request.operateType)) {
+      query["OperateType"] = request.operateType;
     }
 
     if (!Util.isUnset(request.solution)) {
