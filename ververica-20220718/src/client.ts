@@ -720,6 +720,28 @@ export class Logging extends $tea.Model {
   }
 }
 
+export class Member extends $tea.Model {
+  member?: string;
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      member: 'member',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      member: 'string',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PythonArtifact extends $tea.Model {
   additionalDependencies?: string[];
   additionalPythonArchives?: string[];
@@ -1064,6 +1086,106 @@ export class CreateDeploymentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDeploymentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMemberHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMemberRequest extends $tea.Model {
+  body?: Member;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: Member,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMemberResponseBody extends $tea.Model {
+  data?: Member;
+  errorCode?: string;
+  errorMessage?: string;
+  httpCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: Member,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMemberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMemberResponseBody,
     };
   }
 
@@ -1426,6 +1548,84 @@ export class DeleteJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMemberHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMemberResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  httpCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMemberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMemberResponseBody,
     };
   }
 
@@ -2042,6 +2242,87 @@ export class GetJobResponse extends $tea.Model {
   }
 }
 
+export class GetMemberHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMemberResponseBody extends $tea.Model {
+  data?: Member;
+  errorCode?: string;
+  errorMessage?: string;
+  httpCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: Member,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMemberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSavepointHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   workspace?: string;
@@ -2541,6 +2822,118 @@ export class ListJobsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMembersHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMembersRequest extends $tea.Model {
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageIndex: 'pageIndex',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageIndex: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMembersResponseBody extends $tea.Model {
+  data?: Member[];
+  errorCode?: string;
+  errorMessage?: string;
+  httpCode?: number;
+  pageIndex?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      pageIndex: 'pageIndex',
+      pageSize: 'pageSize',
+      requestId: 'requestId',
+      success: 'success',
+      totalSize: 'totalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': Member },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMembersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMembersResponseBody,
     };
   }
 
@@ -3179,6 +3572,106 @@ export class UpdateDeploymentResponse extends $tea.Model {
   }
 }
 
+export class UpdateMemberHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMemberRequest extends $tea.Model {
+  body?: Member;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: Member,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMemberResponseBody extends $tea.Model {
+  data?: Member;
+  errorCode?: string;
+  errorMessage?: string;
+  httpCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: Member,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMemberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateResourcePlanWithFlinkConfAsyncResponseBodyData extends $tea.Model {
   ticketId?: string;
   static names(): { [key: string]: string } {
@@ -3254,6 +3747,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CreateDeploymentHeaders({ });
     return await this.createDeploymentWithOptions(namespace, request, headers, runtime);
+  }
+
+  async createMemberWithOptions(namespace: string, request: CreateMemberRequest, headers: CreateMemberHeaders, runtime: $Util.RuntimeOptions): Promise<CreateMemberResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateMember",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/gateway/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/members`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateMemberResponse>(await this.callApi(params, req, runtime), new CreateMemberResponse({}));
+  }
+
+  async createMember(namespace: string, request: CreateMemberRequest): Promise<CreateMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateMemberHeaders({ });
+    return await this.createMemberWithOptions(namespace, request, headers, runtime);
   }
 
   async createSavepointWithOptions(namespace: string, request: CreateSavepointRequest, headers: CreateSavepointHeaders, runtime: $Util.RuntimeOptions): Promise<CreateSavepointResponse> {
@@ -3403,6 +3931,39 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new DeleteJobHeaders({ });
     return await this.deleteJobWithOptions(namespace, jobId, headers, runtime);
+  }
+
+  async deleteMemberWithOptions(namespace: string, member: string, headers: DeleteMemberHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteMemberResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMember",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/gateway/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/members/${OpenApiUtil.getEncodeParam(member)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMemberResponse>(await this.callApi(params, req, runtime), new DeleteMemberResponse({}));
+  }
+
+  async deleteMember(namespace: string, member: string): Promise<DeleteMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteMemberHeaders({ });
+    return await this.deleteMemberWithOptions(namespace, member, headers, runtime);
   }
 
   async deleteSavepointWithOptions(namespace: string, savepointId: string, headers: DeleteSavepointHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteSavepointResponse> {
@@ -3657,6 +4218,39 @@ export default class Client extends OpenApi {
     return await this.getJobWithOptions(namespace, jobId, headers, runtime);
   }
 
+  async getMemberWithOptions(namespace: string, member: string, headers: GetMemberHeaders, runtime: $Util.RuntimeOptions): Promise<GetMemberResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMember",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/gateway/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/members/${OpenApiUtil.getEncodeParam(member)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMemberResponse>(await this.callApi(params, req, runtime), new GetMemberResponse({}));
+  }
+
+  async getMember(namespace: string, member: string): Promise<GetMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetMemberHeaders({ });
+    return await this.getMemberWithOptions(namespace, member, headers, runtime);
+  }
+
   async getSavepointWithOptions(namespace: string, savepointId: string, headers: GetSavepointHeaders, runtime: $Util.RuntimeOptions): Promise<GetSavepointResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
@@ -3865,6 +4459,50 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ListJobsHeaders({ });
     return await this.listJobsWithOptions(namespace, request, headers, runtime);
+  }
+
+  async listMembersWithOptions(namespace: string, request: ListMembersRequest, headers: ListMembersHeaders, runtime: $Util.RuntimeOptions): Promise<ListMembersResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMembers",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/gateway/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/members`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMembersResponse>(await this.callApi(params, req, runtime), new ListMembersResponse({}));
+  }
+
+  async listMembers(namespace: string, request: ListMembersRequest): Promise<ListMembersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListMembersHeaders({ });
+    return await this.listMembersWithOptions(namespace, request, headers, runtime);
   }
 
   async listSavepointsWithOptions(namespace: string, request: ListSavepointsRequest, headers: ListSavepointsHeaders, runtime: $Util.RuntimeOptions): Promise<ListSavepointsResponse> {
@@ -4117,6 +4755,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new UpdateDeploymentHeaders({ });
     return await this.updateDeploymentWithOptions(namespace, deploymentId, request, headers, runtime);
+  }
+
+  async updateMemberWithOptions(namespace: string, request: UpdateMemberRequest, headers: UpdateMemberHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateMemberResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMember",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/gateway/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/members`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMemberResponse>(await this.callApi(params, req, runtime), new UpdateMemberResponse({}));
+  }
+
+  async updateMember(namespace: string, request: UpdateMemberRequest): Promise<UpdateMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateMemberHeaders({ });
+    return await this.updateMemberWithOptions(namespace, request, headers, runtime);
   }
 
 }
