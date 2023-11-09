@@ -10892,6 +10892,81 @@ export class DescribeConcernNecessityResponse extends $tea.Model {
   }
 }
 
+export class DescribeContainerAppsRequest extends $tea.Model {
+  clusterId?: string;
+  currentPage?: number;
+  fieldValue?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      currentPage: 'CurrentPage',
+      fieldValue: 'FieldValue',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      currentPage: 'number',
+      fieldValue: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerAppsResponseBody extends $tea.Model {
+  requestId?: string;
+  tagValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tagValues: 'TagValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tagValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerAppsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeContainerAppsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeContainerAppsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeContainerCriteriaRequest extends $tea.Model {
   groupField?: string;
   value?: string;
@@ -26598,6 +26673,75 @@ export class GenerateOnceTaskResponse extends $tea.Model {
   }
 }
 
+export class GetAegisContainerPluginRuleCriteriaRequest extends $tea.Model {
+  lang?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAegisContainerPluginRuleCriteriaResponseBody extends $tea.Model {
+  criteriaList?: GetAegisContainerPluginRuleCriteriaResponseBodyCriteriaList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      criteriaList: 'CriteriaList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      criteriaList: { 'type': 'array', 'itemType': GetAegisContainerPluginRuleCriteriaResponseBodyCriteriaList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAegisContainerPluginRuleCriteriaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAegisContainerPluginRuleCriteriaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAegisContainerPluginRuleCriteriaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAgentlessTaskCountResponseBody extends $tea.Model {
   baselineCheckCount?: number;
   cveVulCount?: number;
@@ -30955,6 +31099,72 @@ export class GetRulesCountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetRulesCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSasContainerWebDefenseRuleCriteriaRequest extends $tea.Model {
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSasContainerWebDefenseRuleCriteriaResponseBody extends $tea.Model {
+  criteriaList?: GetSasContainerWebDefenseRuleCriteriaResponseBodyCriteriaList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      criteriaList: 'CriteriaList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      criteriaList: { 'type': 'array', 'itemType': GetSasContainerWebDefenseRuleCriteriaResponseBodyCriteriaList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSasContainerWebDefenseRuleCriteriaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetSasContainerWebDefenseRuleCriteriaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSasContainerWebDefenseRuleCriteriaResponseBody,
     };
   }
 
@@ -42420,6 +42630,72 @@ export class OperateAgentClientInstallResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: OperateAgentClientInstallResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateApplicationRequest extends $tea.Model {
+  containerWebDefenseApplicationDTOS?: OperateApplicationRequestContainerWebDefenseApplicationDTOS[];
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      containerWebDefenseApplicationDTOS: 'ContainerWebDefenseApplicationDTOS',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerWebDefenseApplicationDTOS: { 'type': 'array', 'itemType': OperateApplicationRequestContainerWebDefenseApplicationDTOS },
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateApplicationResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateApplicationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: OperateApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OperateApplicationResponseBody,
     };
   }
 
@@ -60583,6 +60859,31 @@ export class FindContainerNetworkConnectResponseBodyPageInfo extends $tea.Model 
   }
 }
 
+export class GetAegisContainerPluginRuleCriteriaResponseBodyCriteriaList extends $tea.Model {
+  name?: string;
+  type?: string;
+  values?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+      values: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAlarmMachineCountResponseBodyData extends $tea.Model {
   machineCount?: number;
   static names(): { [key: string]: string } {
@@ -63783,6 +64084,31 @@ export class GetPropertyScheduleConfigResponseBodyPropertyScheduleConfig extends
       nextScheduleTime: 'number',
       scheduleTime: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSasContainerWebDefenseRuleCriteriaResponseBodyCriteriaList extends $tea.Model {
+  name?: string;
+  type?: string;
+  values?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+      values: 'string',
     };
   }
 
@@ -69016,6 +69342,34 @@ export class OperateAgentClientInstallResponseBodyAegisCelintInstallResposeList 
       instanceId: 'string',
       recordId: 'number',
       uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateApplicationRequestContainerWebDefenseApplicationDTOS extends $tea.Model {
+  clusterId?: string;
+  flag?: string;
+  id?: number;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      flag: 'Flag',
+      id: 'Id',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      flag: 'string',
+      id: 'number',
+      tag: 'string',
     };
   }
 
@@ -75490,6 +75844,47 @@ export default class Client extends OpenApi {
   async describeConcernNecessity(request: DescribeConcernNecessityRequest): Promise<DescribeConcernNecessityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeConcernNecessityWithOptions(request, runtime);
+  }
+
+  async describeContainerAppsWithOptions(request: DescribeContainerAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerAppsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.fieldValue)) {
+      query["FieldValue"] = request.fieldValue;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeContainerApps",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeContainerAppsResponse>(await this.callApi(params, req, runtime), new DescribeContainerAppsResponse({}));
+  }
+
+  async describeContainerApps(request: DescribeContainerAppsRequest): Promise<DescribeContainerAppsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeContainerAppsWithOptions(request, runtime);
   }
 
   async describeContainerCriteriaWithOptions(request: DescribeContainerCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerCriteriaResponse> {
@@ -83983,6 +84378,39 @@ export default class Client extends OpenApi {
     return await this.generateOnceTaskWithOptions(request, runtime);
   }
 
+  async getAegisContainerPluginRuleCriteriaWithOptions(request: GetAegisContainerPluginRuleCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<GetAegisContainerPluginRuleCriteriaResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAegisContainerPluginRuleCriteria",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAegisContainerPluginRuleCriteriaResponse>(await this.callApi(params, req, runtime), new GetAegisContainerPluginRuleCriteriaResponse({}));
+  }
+
+  async getAegisContainerPluginRuleCriteria(request: GetAegisContainerPluginRuleCriteriaRequest): Promise<GetAegisContainerPluginRuleCriteriaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAegisContainerPluginRuleCriteriaWithOptions(request, runtime);
+  }
+
   async getAgentlessTaskCountWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAgentlessTaskCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -86011,6 +86439,35 @@ export default class Client extends OpenApi {
   async getRulesCount(): Promise<GetRulesCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRulesCountWithOptions(runtime);
+  }
+
+  async getSasContainerWebDefenseRuleCriteriaWithOptions(request: GetSasContainerWebDefenseRuleCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<GetSasContainerWebDefenseRuleCriteriaResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSasContainerWebDefenseRuleCriteria",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSasContainerWebDefenseRuleCriteriaResponse>(await this.callApi(params, req, runtime), new GetSasContainerWebDefenseRuleCriteriaResponse({}));
+  }
+
+  async getSasContainerWebDefenseRuleCriteria(request: GetSasContainerWebDefenseRuleCriteriaRequest): Promise<GetSasContainerWebDefenseRuleCriteriaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSasContainerWebDefenseRuleCriteriaWithOptions(request, runtime);
   }
 
   async getSecurityScoreRuleWithOptions(request: GetSecurityScoreRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetSecurityScoreRuleResponse> {
@@ -92283,6 +92740,39 @@ export default class Client extends OpenApi {
   async operateAgentClientInstall(request: OperateAgentClientInstallRequest): Promise<OperateAgentClientInstallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateAgentClientInstallWithOptions(request, runtime);
+  }
+
+  async operateApplicationWithOptions(request: OperateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<OperateApplicationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.containerWebDefenseApplicationDTOS)) {
+      query["ContainerWebDefenseApplicationDTOS"] = request.containerWebDefenseApplicationDTOS;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OperateApplication",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OperateApplicationResponse>(await this.callApi(params, req, runtime), new OperateApplicationResponse({}));
+  }
+
+  async operateApplication(request: OperateApplicationRequest): Promise<OperateApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.operateApplicationWithOptions(request, runtime);
   }
 
   async operateBucketScanTaskWithOptions(request: OperateBucketScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<OperateBucketScanTaskResponse> {
