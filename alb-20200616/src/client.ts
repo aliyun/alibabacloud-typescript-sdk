@@ -7258,6 +7258,25 @@ export class CreateRuleRequestRuleActionsRedirectConfig extends $tea.Model {
   }
 }
 
+export class CreateRuleRequestRuleActionsRemoveHeaderConfig extends $tea.Model {
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRuleRequestRuleActionsRewriteConfig extends $tea.Model {
   host?: string;
   path?: string;
@@ -7372,6 +7391,7 @@ export class CreateRuleRequestRuleActions extends $tea.Model {
   insertHeaderConfig?: CreateRuleRequestRuleActionsInsertHeaderConfig;
   order?: number;
   redirectConfig?: CreateRuleRequestRuleActionsRedirectConfig;
+  removeHeaderConfig?: CreateRuleRequestRuleActionsRemoveHeaderConfig;
   rewriteConfig?: CreateRuleRequestRuleActionsRewriteConfig;
   trafficLimitConfig?: CreateRuleRequestRuleActionsTrafficLimitConfig;
   trafficMirrorConfig?: CreateRuleRequestRuleActionsTrafficMirrorConfig;
@@ -7384,6 +7404,7 @@ export class CreateRuleRequestRuleActions extends $tea.Model {
       insertHeaderConfig: 'InsertHeaderConfig',
       order: 'Order',
       redirectConfig: 'RedirectConfig',
+      removeHeaderConfig: 'RemoveHeaderConfig',
       rewriteConfig: 'RewriteConfig',
       trafficLimitConfig: 'TrafficLimitConfig',
       trafficMirrorConfig: 'TrafficMirrorConfig',
@@ -7399,6 +7420,7 @@ export class CreateRuleRequestRuleActions extends $tea.Model {
       insertHeaderConfig: CreateRuleRequestRuleActionsInsertHeaderConfig,
       order: 'number',
       redirectConfig: CreateRuleRequestRuleActionsRedirectConfig,
+      removeHeaderConfig: CreateRuleRequestRuleActionsRemoveHeaderConfig,
       rewriteConfig: CreateRuleRequestRuleActionsRewriteConfig,
       trafficLimitConfig: CreateRuleRequestRuleActionsTrafficLimitConfig,
       trafficMirrorConfig: CreateRuleRequestRuleActionsTrafficMirrorConfig,
@@ -7572,6 +7594,47 @@ export class CreateRuleRequestRuleConditionsQueryStringConfig extends $tea.Model
   }
 }
 
+export class CreateRuleRequestRuleConditionsResponseHeaderConfig extends $tea.Model {
+  key?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRuleRequestRuleConditionsResponseStatusCodeConfig extends $tea.Model {
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRuleRequestRuleConditionsSourceIpConfig extends $tea.Model {
   values?: string[];
   static names(): { [key: string]: string } {
@@ -7598,6 +7661,8 @@ export class CreateRuleRequestRuleConditions extends $tea.Model {
   methodConfig?: CreateRuleRequestRuleConditionsMethodConfig;
   pathConfig?: CreateRuleRequestRuleConditionsPathConfig;
   queryStringConfig?: CreateRuleRequestRuleConditionsQueryStringConfig;
+  responseHeaderConfig?: CreateRuleRequestRuleConditionsResponseHeaderConfig;
+  responseStatusCodeConfig?: CreateRuleRequestRuleConditionsResponseStatusCodeConfig;
   sourceIpConfig?: CreateRuleRequestRuleConditionsSourceIpConfig;
   type?: string;
   static names(): { [key: string]: string } {
@@ -7608,6 +7673,8 @@ export class CreateRuleRequestRuleConditions extends $tea.Model {
       methodConfig: 'MethodConfig',
       pathConfig: 'PathConfig',
       queryStringConfig: 'QueryStringConfig',
+      responseHeaderConfig: 'ResponseHeaderConfig',
+      responseStatusCodeConfig: 'ResponseStatusCodeConfig',
       sourceIpConfig: 'SourceIpConfig',
       type: 'Type',
     };
@@ -7621,6 +7688,8 @@ export class CreateRuleRequestRuleConditions extends $tea.Model {
       methodConfig: CreateRuleRequestRuleConditionsMethodConfig,
       pathConfig: CreateRuleRequestRuleConditionsPathConfig,
       queryStringConfig: CreateRuleRequestRuleConditionsQueryStringConfig,
+      responseHeaderConfig: CreateRuleRequestRuleConditionsResponseHeaderConfig,
+      responseStatusCodeConfig: CreateRuleRequestRuleConditionsResponseStatusCodeConfig,
       sourceIpConfig: CreateRuleRequestRuleConditionsSourceIpConfig,
       type: 'string',
     };
@@ -7837,6 +7906,25 @@ export class CreateRulesRequestRulesRuleActionsRedirectConfig extends $tea.Model
   }
 }
 
+export class CreateRulesRequestRulesRuleActionsRemoveHeaderConfig extends $tea.Model {
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRulesRequestRulesRuleActionsRewriteConfig extends $tea.Model {
   host?: string;
   path?: string;
@@ -7951,6 +8039,7 @@ export class CreateRulesRequestRulesRuleActions extends $tea.Model {
   insertHeaderConfig?: CreateRulesRequestRulesRuleActionsInsertHeaderConfig;
   order?: number;
   redirectConfig?: CreateRulesRequestRulesRuleActionsRedirectConfig;
+  removeHeaderConfig?: CreateRulesRequestRulesRuleActionsRemoveHeaderConfig;
   rewriteConfig?: CreateRulesRequestRulesRuleActionsRewriteConfig;
   trafficLimitConfig?: CreateRulesRequestRulesRuleActionsTrafficLimitConfig;
   trafficMirrorConfig?: CreateRulesRequestRulesRuleActionsTrafficMirrorConfig;
@@ -7963,6 +8052,7 @@ export class CreateRulesRequestRulesRuleActions extends $tea.Model {
       insertHeaderConfig: 'InsertHeaderConfig',
       order: 'Order',
       redirectConfig: 'RedirectConfig',
+      removeHeaderConfig: 'RemoveHeaderConfig',
       rewriteConfig: 'RewriteConfig',
       trafficLimitConfig: 'TrafficLimitConfig',
       trafficMirrorConfig: 'TrafficMirrorConfig',
@@ -7978,6 +8068,7 @@ export class CreateRulesRequestRulesRuleActions extends $tea.Model {
       insertHeaderConfig: CreateRulesRequestRulesRuleActionsInsertHeaderConfig,
       order: 'number',
       redirectConfig: CreateRulesRequestRulesRuleActionsRedirectConfig,
+      removeHeaderConfig: CreateRulesRequestRulesRuleActionsRemoveHeaderConfig,
       rewriteConfig: CreateRulesRequestRulesRuleActionsRewriteConfig,
       trafficLimitConfig: CreateRulesRequestRulesRuleActionsTrafficLimitConfig,
       trafficMirrorConfig: CreateRulesRequestRulesRuleActionsTrafficMirrorConfig,
@@ -8173,6 +8264,25 @@ export class CreateRulesRequestRulesRuleConditionsResponseHeaderConfig extends $
   }
 }
 
+export class CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig extends $tea.Model {
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRulesRequestRulesRuleConditionsSourceIpConfig extends $tea.Model {
   values?: string[];
   static names(): { [key: string]: string } {
@@ -8200,6 +8310,7 @@ export class CreateRulesRequestRulesRuleConditions extends $tea.Model {
   pathConfig?: CreateRulesRequestRulesRuleConditionsPathConfig;
   queryStringConfig?: CreateRulesRequestRulesRuleConditionsQueryStringConfig;
   responseHeaderConfig?: CreateRulesRequestRulesRuleConditionsResponseHeaderConfig;
+  responseStatusCodeConfig?: CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig;
   sourceIpConfig?: CreateRulesRequestRulesRuleConditionsSourceIpConfig;
   type?: string;
   static names(): { [key: string]: string } {
@@ -8211,6 +8322,7 @@ export class CreateRulesRequestRulesRuleConditions extends $tea.Model {
       pathConfig: 'PathConfig',
       queryStringConfig: 'QueryStringConfig',
       responseHeaderConfig: 'ResponseHeaderConfig',
+      responseStatusCodeConfig: 'ResponseStatusCodeConfig',
       sourceIpConfig: 'SourceIpConfig',
       type: 'Type',
     };
@@ -8225,6 +8337,7 @@ export class CreateRulesRequestRulesRuleConditions extends $tea.Model {
       pathConfig: CreateRulesRequestRulesRuleConditionsPathConfig,
       queryStringConfig: CreateRulesRequestRulesRuleConditionsQueryStringConfig,
       responseHeaderConfig: CreateRulesRequestRulesRuleConditionsResponseHeaderConfig,
+      responseStatusCodeConfig: CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig,
       sourceIpConfig: CreateRulesRequestRulesRuleConditionsSourceIpConfig,
       type: 'string',
     };
@@ -11941,11 +12054,13 @@ export class UpdateRuleAttributeRequestRuleActionsForwardGroupConfig extends $te
 }
 
 export class UpdateRuleAttributeRequestRuleActionsInsertHeaderConfig extends $tea.Model {
+  coverEnabled?: boolean;
   key?: string;
   value?: string;
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
+      coverEnabled: 'CoverEnabled',
       key: 'Key',
       value: 'Value',
       valueType: 'ValueType',
@@ -11954,6 +12069,7 @@ export class UpdateRuleAttributeRequestRuleActionsInsertHeaderConfig extends $te
 
   static types(): { [key: string]: any } {
     return {
+      coverEnabled: 'boolean',
       key: 'string',
       value: 'string',
       valueType: 'string',
@@ -11991,6 +12107,25 @@ export class UpdateRuleAttributeRequestRuleActionsRedirectConfig extends $tea.Mo
       port: 'string',
       protocol: 'string',
       query: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRuleAttributeRequestRuleActionsRemoveHeaderConfig extends $tea.Model {
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
     };
   }
 
@@ -12113,6 +12248,7 @@ export class UpdateRuleAttributeRequestRuleActions extends $tea.Model {
   insertHeaderConfig?: UpdateRuleAttributeRequestRuleActionsInsertHeaderConfig;
   order?: number;
   redirectConfig?: UpdateRuleAttributeRequestRuleActionsRedirectConfig;
+  removeHeaderConfig?: UpdateRuleAttributeRequestRuleActionsRemoveHeaderConfig;
   rewriteConfig?: UpdateRuleAttributeRequestRuleActionsRewriteConfig;
   trafficLimitConfig?: UpdateRuleAttributeRequestRuleActionsTrafficLimitConfig;
   trafficMirrorConfig?: UpdateRuleAttributeRequestRuleActionsTrafficMirrorConfig;
@@ -12125,6 +12261,7 @@ export class UpdateRuleAttributeRequestRuleActions extends $tea.Model {
       insertHeaderConfig: 'InsertHeaderConfig',
       order: 'Order',
       redirectConfig: 'RedirectConfig',
+      removeHeaderConfig: 'RemoveHeaderConfig',
       rewriteConfig: 'RewriteConfig',
       trafficLimitConfig: 'TrafficLimitConfig',
       trafficMirrorConfig: 'TrafficMirrorConfig',
@@ -12140,6 +12277,7 @@ export class UpdateRuleAttributeRequestRuleActions extends $tea.Model {
       insertHeaderConfig: UpdateRuleAttributeRequestRuleActionsInsertHeaderConfig,
       order: 'number',
       redirectConfig: UpdateRuleAttributeRequestRuleActionsRedirectConfig,
+      removeHeaderConfig: UpdateRuleAttributeRequestRuleActionsRemoveHeaderConfig,
       rewriteConfig: UpdateRuleAttributeRequestRuleActionsRewriteConfig,
       trafficLimitConfig: UpdateRuleAttributeRequestRuleActionsTrafficLimitConfig,
       trafficMirrorConfig: UpdateRuleAttributeRequestRuleActionsTrafficMirrorConfig,
@@ -12313,6 +12451,47 @@ export class UpdateRuleAttributeRequestRuleConditionsQueryStringConfig extends $
   }
 }
 
+export class UpdateRuleAttributeRequestRuleConditionsResponseHeaderConfig extends $tea.Model {
+  key?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRuleAttributeRequestRuleConditionsResponseStatusCodeConfig extends $tea.Model {
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateRuleAttributeRequestRuleConditionsSourceIpConfig extends $tea.Model {
   values?: string[];
   static names(): { [key: string]: string } {
@@ -12339,6 +12518,8 @@ export class UpdateRuleAttributeRequestRuleConditions extends $tea.Model {
   methodConfig?: UpdateRuleAttributeRequestRuleConditionsMethodConfig;
   pathConfig?: UpdateRuleAttributeRequestRuleConditionsPathConfig;
   queryStringConfig?: UpdateRuleAttributeRequestRuleConditionsQueryStringConfig;
+  responseHeaderConfig?: UpdateRuleAttributeRequestRuleConditionsResponseHeaderConfig;
+  responseStatusCodeConfig?: UpdateRuleAttributeRequestRuleConditionsResponseStatusCodeConfig;
   sourceIpConfig?: UpdateRuleAttributeRequestRuleConditionsSourceIpConfig;
   type?: string;
   static names(): { [key: string]: string } {
@@ -12349,6 +12530,8 @@ export class UpdateRuleAttributeRequestRuleConditions extends $tea.Model {
       methodConfig: 'MethodConfig',
       pathConfig: 'PathConfig',
       queryStringConfig: 'QueryStringConfig',
+      responseHeaderConfig: 'ResponseHeaderConfig',
+      responseStatusCodeConfig: 'ResponseStatusCodeConfig',
       sourceIpConfig: 'SourceIpConfig',
       type: 'Type',
     };
@@ -12362,6 +12545,8 @@ export class UpdateRuleAttributeRequestRuleConditions extends $tea.Model {
       methodConfig: UpdateRuleAttributeRequestRuleConditionsMethodConfig,
       pathConfig: UpdateRuleAttributeRequestRuleConditionsPathConfig,
       queryStringConfig: UpdateRuleAttributeRequestRuleConditionsQueryStringConfig,
+      responseHeaderConfig: UpdateRuleAttributeRequestRuleConditionsResponseHeaderConfig,
+      responseStatusCodeConfig: UpdateRuleAttributeRequestRuleConditionsResponseStatusCodeConfig,
       sourceIpConfig: UpdateRuleAttributeRequestRuleConditionsSourceIpConfig,
       type: 'string',
     };
