@@ -39429,6 +39429,7 @@ export class IsvUserSaveRequestUserListCertList extends $tea.Model {
 }
 
 export class IsvUserSaveRequestUserList extends $tea.Model {
+  baseCityCode?: string;
   birthday?: string;
   certList?: IsvUserSaveRequestUserListCertList[];
   departId?: number;
@@ -39448,6 +39449,7 @@ export class IsvUserSaveRequestUserList extends $tea.Model {
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      baseCityCode: 'base_city_code',
       birthday: 'birthday',
       certList: 'cert_list',
       departId: 'depart_id',
@@ -39470,6 +39472,7 @@ export class IsvUserSaveRequestUserList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      baseCityCode: 'string',
       birthday: 'string',
       certList: { 'type': 'array', 'itemType': IsvUserSaveRequestUserListCertList },
       departId: 'number',
@@ -39503,6 +39506,7 @@ export class MonthBillGetResponseBodyModuleMonthAccountBillDetail extends $tea.M
   fuPoint?: number;
   hotelAmount?: number;
   ieFlightAmount?: number;
+  ieHotelAmount?: number;
   mailBillDate?: number;
   serviceAmount?: number;
   trainAmount?: number;
@@ -39515,6 +39519,7 @@ export class MonthBillGetResponseBodyModuleMonthAccountBillDetail extends $tea.M
       fuPoint: 'fuPoint',
       hotelAmount: 'hotelAmount',
       ieFlightAmount: 'ieFlightAmount',
+      ieHotelAmount: 'ieHotelAmount',
       mailBillDate: 'mailBillDate',
       serviceAmount: 'serviceAmount',
       trainAmount: 'trainAmount',
@@ -39530,6 +39535,7 @@ export class MonthBillGetResponseBodyModuleMonthAccountBillDetail extends $tea.M
       fuPoint: 'number',
       hotelAmount: 'number',
       ieFlightAmount: 'number',
+      ieHotelAmount: 'number',
       mailBillDate: 'number',
       serviceAmount: 'number',
       trainAmount: 'number',
