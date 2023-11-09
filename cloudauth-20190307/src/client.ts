@@ -790,6 +790,99 @@ export class DescribeOssUploadTokenResponse extends $tea.Model {
   }
 }
 
+export class DescribeSmartStatisticsPageListRequest extends $tea.Model {
+  currentPage?: string;
+  endDate?: string;
+  pageSize?: string;
+  sceneId?: string;
+  serviceCode?: string;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      endDate: 'EndDate',
+      pageSize: 'PageSize',
+      sceneId: 'SceneId',
+      serviceCode: 'ServiceCode',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'string',
+      endDate: 'string',
+      pageSize: 'string',
+      sceneId: 'string',
+      serviceCode: 'string',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSmartStatisticsPageListResponseBody extends $tea.Model {
+  currentPage?: number;
+  items?: DescribeSmartStatisticsPageListResponseBodyItems[];
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeSmartStatisticsPageListResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSmartStatisticsPageListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSmartStatisticsPageListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSmartStatisticsPageListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVerifyResultRequest extends $tea.Model {
   bizId?: string;
   bizType?: string;
@@ -2036,6 +2129,43 @@ export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $tea.Model
   }
 }
 
+export class DescribeSmartStatisticsPageListResponseBodyItems extends $tea.Model {
+  date?: string;
+  passRate?: string;
+  productCode?: string;
+  sceneId?: number;
+  sceneName?: string;
+  successCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      passRate: 'PassRate',
+      productCode: 'ProductCode',
+      sceneId: 'SceneId',
+      sceneName: 'SceneName',
+      successCount: 'SuccessCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      passRate: 'string',
+      productCode: 'string',
+      sceneId: 'number',
+      sceneName: 'string',
+      successCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVerifyResultResponseBodyMaterialIdCardInfo extends $tea.Model {
   address?: string;
   authority?: string;
@@ -3060,6 +3190,55 @@ export default class Client extends OpenApi {
   async describeOssUploadToken(): Promise<DescribeOssUploadTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOssUploadTokenWithOptions(runtime);
+  }
+
+  async describeSmartStatisticsPageListWithOptions(request: DescribeSmartStatisticsPageListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmartStatisticsPageListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSmartStatisticsPageList",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSmartStatisticsPageListResponse>(await this.callApi(params, req, runtime), new DescribeSmartStatisticsPageListResponse({}));
+  }
+
+  async describeSmartStatisticsPageList(request: DescribeSmartStatisticsPageListRequest): Promise<DescribeSmartStatisticsPageListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSmartStatisticsPageListWithOptions(request, runtime);
   }
 
   async describeVerifyResultWithOptions(request: DescribeVerifyResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyResultResponse> {
