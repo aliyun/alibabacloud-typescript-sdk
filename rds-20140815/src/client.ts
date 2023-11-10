@@ -42049,6 +42049,17 @@ export default class Client extends OpenApi {
     return await this.describeAnalyticdbByPrimaryDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    *
+    * @param request DescribeAvailableClassesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAvailableClassesResponse
+   */
   async describeAvailableClassesWithOptions(request: DescribeAvailableClassesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableClassesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42113,6 +42124,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableClassesResponse>(await this.callApi(params, req, runtime), new DescribeAvailableClassesResponse({}));
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    *
+    * @param request DescribeAvailableClassesRequest
+    * @return DescribeAvailableClassesResponse
+   */
   async describeAvailableClasses(request: DescribeAvailableClassesRequest): Promise<DescribeAvailableClassesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableClassesWithOptions(request, runtime);
@@ -48353,6 +48374,17 @@ export default class Client extends OpenApi {
     return await this.describeReadDBInstanceDelayWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    *
+    * @param request DescribeRegionInfosRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRegionInfosResponse
+   */
   async describeRegionInfosWithOptions(request: DescribeRegionInfosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48393,6 +48425,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionInfosResponse>(await this.callApi(params, req, runtime), new DescribeRegionInfosResponse({}));
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    *
+    * @param request DescribeRegionInfosRequest
+    * @return DescribeRegionInfosResponse
+   */
   async describeRegionInfos(request: DescribeRegionInfosRequest): Promise<DescribeRegionInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionInfosWithOptions(request, runtime);
@@ -50539,14 +50581,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### [](#)Supported database engine
+    * *   SQL Server
+    * ### [](#)Description
     * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
-    * During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
-    * *   The source and destination instances must be created by using the same user credentials.
-    * *   The instance is in the Running state.
-    * *   The source and destination databases must be in the Running state.
-    * *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
+    * ### [](#)Precautions
+    * *   During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
+    * *   Before you call this operation, make sure that the following requirements are met:
+    *     *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
+    *     *   The source and destination instances must be created by using the same user credentials.
+    *     *   The instance is in the Running state.
+    *     *   The source and destination databases must be in the Running state.
+    *     *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
     * > 
     * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
     * *   You can migrate the data of multiple databases at a time.
@@ -50604,14 +50650,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### [](#)Supported database engine
+    * *   SQL Server
+    * ### [](#)Description
     * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
-    * During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
-    * *   The source and destination instances must be created by using the same user credentials.
-    * *   The instance is in the Running state.
-    * *   The source and destination databases must be in the Running state.
-    * *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
+    * ### [](#)Precautions
+    * *   During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
+    * *   Before you call this operation, make sure that the following requirements are met:
+    *     *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
+    *     *   The source and destination instances must be created by using the same user credentials.
+    *     *   The instance is in the Running state.
+    *     *   The source and destination databases must be in the Running state.
+    *     *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
     * > 
     * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
     * *   You can migrate the data of multiple databases at a time.
@@ -53602,6 +53652,17 @@ export default class Client extends OpenApi {
     return await this.modifyDBInstanceTDEWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * ### [](#)References
+    * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
+    * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](~~96061~~)
+    *
+    * @param tmpReq ModifyDBNodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBNodeResponse
+   */
   async modifyDBNodeWithOptions(tmpReq: ModifyDBNodeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBNodeResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyDBNodeShrinkRequest({ });
@@ -53676,6 +53737,16 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBNodeResponse>(await this.callApi(params, req, runtime), new ModifyDBNodeResponse({}));
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * ### [](#)References
+    * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
+    * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](~~96061~~)
+    *
+    * @param request ModifyDBNodeRequest
+    * @return ModifyDBNodeResponse
+   */
   async modifyDBNode(request: ModifyDBNodeRequest): Promise<ModifyDBNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBNodeWithOptions(request, runtime);
@@ -56031,8 +56102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Prerequisites
-    * A disaster recovery instance is created.
+    * The operation is phased out.
     *
     * @param request ReceiveDBInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -56083,8 +56153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Prerequisites
-    * A disaster recovery instance is created.
+    * The operation is phased out.
     *
     * @param request ReceiveDBInstanceRequest
     * @return ReceiveDBInstanceResponse
@@ -57639,6 +57708,13 @@ export default class Client extends OpenApi {
     return await this.switchDBInstanceVpcWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is phased out.
+    *
+    * @param request SwitchGuardToMasterInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SwitchGuardToMasterInstanceResponse
+   */
   async switchGuardToMasterInstanceWithOptions(request: SwitchGuardToMasterInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SwitchGuardToMasterInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57683,6 +57759,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchGuardToMasterInstanceResponse>(await this.callApi(params, req, runtime), new SwitchGuardToMasterInstanceResponse({}));
   }
 
+  /**
+    * This operation is phased out.
+    *
+    * @param request SwitchGuardToMasterInstanceRequest
+    * @return SwitchGuardToMasterInstanceResponse
+   */
   async switchGuardToMasterInstance(request: SwitchGuardToMasterInstanceRequest): Promise<SwitchGuardToMasterInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchGuardToMasterInstanceWithOptions(request, runtime);
