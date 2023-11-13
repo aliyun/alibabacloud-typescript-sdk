@@ -619,6 +619,7 @@ export class CreateServiceMeshRequest extends $tea.Model {
   autoRenewPeriod?: number;
   CRAggregationEnabled?: boolean;
   chargeType?: string;
+  clusterDomain?: string;
   clusterSpec?: string;
   configSourceEnabled?: boolean;
   configSourceNacosID?: string;
@@ -695,6 +696,7 @@ export class CreateServiceMeshRequest extends $tea.Model {
       autoRenewPeriod: 'AutoRenewPeriod',
       CRAggregationEnabled: 'CRAggregationEnabled',
       chargeType: 'ChargeType',
+      clusterDomain: 'ClusterDomain',
       clusterSpec: 'ClusterSpec',
       configSourceEnabled: 'ConfigSourceEnabled',
       configSourceNacosID: 'ConfigSourceNacosID',
@@ -774,6 +776,7 @@ export class CreateServiceMeshRequest extends $tea.Model {
       autoRenewPeriod: 'number',
       CRAggregationEnabled: 'boolean',
       chargeType: 'string',
+      clusterDomain: 'string',
       clusterSpec: 'string',
       configSourceEnabled: 'boolean',
       configSourceNacosID: 'string',
@@ -12710,6 +12713,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.chargeType)) {
       body["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.clusterDomain)) {
+      body["ClusterDomain"] = request.clusterDomain;
     }
 
     if (!Util.isUnset(request.clusterSpec)) {
