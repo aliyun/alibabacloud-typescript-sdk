@@ -28312,6 +28312,7 @@ export class FlightOrderListQueryResponseBodyPageInfo extends $tea.Model {
 }
 
 export class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList extends $tea.Model {
+  applyId?: string;
   arrTime?: string;
   changeCabin?: string;
   changeCabinLevel?: string;
@@ -28324,10 +28325,14 @@ export class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList extend
   gmtCreate?: string;
   gmtModify?: string;
   originTicketNo?: string;
+  outApplyId?: string;
   ticketNo?: string;
+  ticketStatus?: string;
+  ticketStatusCode?: number;
   upgradeFee?: number;
   static names(): { [key: string]: string } {
     return {
+      applyId: 'apply_id',
       arrTime: 'arr_time',
       changeCabin: 'change_cabin',
       changeCabinLevel: 'change_cabin_level',
@@ -28340,13 +28345,17 @@ export class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList extend
       gmtCreate: 'gmt_create',
       gmtModify: 'gmt_modify',
       originTicketNo: 'origin_ticket_no',
+      outApplyId: 'out_apply_id',
       ticketNo: 'ticket_no',
+      ticketStatus: 'ticket_status',
+      ticketStatusCode: 'ticket_status_code',
       upgradeFee: 'upgrade_fee',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      applyId: 'string',
       arrTime: 'string',
       changeCabin: 'string',
       changeCabinLevel: 'string',
@@ -28359,7 +28368,10 @@ export class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList extend
       gmtCreate: 'string',
       gmtModify: 'string',
       originTicketNo: 'string',
+      outApplyId: 'string',
       ticketNo: 'string',
+      ticketStatus: 'string',
+      ticketStatusCode: 'number',
       upgradeFee: 'number',
     };
   }
@@ -28440,8 +28452,10 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoList extends $tea.Model
 }
 
 export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extends $tea.Model {
+  applyId?: string;
   gmtCreate?: string;
   gmtModify?: string;
+  outApplyId?: string;
   refundOrderId?: number;
   refundReason?: string;
   refundTicketFee?: number;
@@ -28449,8 +28463,10 @@ export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extend
   ticketNo?: string;
   static names(): { [key: string]: string } {
     return {
+      applyId: 'apply_id',
       gmtCreate: 'gmt_create',
       gmtModify: 'gmt_modify',
+      outApplyId: 'out_apply_id',
       refundOrderId: 'refund_order_id',
       refundReason: 'refund_reason',
       refundTicketFee: 'refund_ticket_fee',
@@ -28461,8 +28477,10 @@ export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extend
 
   static types(): { [key: string]: any } {
     return {
+      applyId: 'string',
       gmtCreate: 'string',
       gmtModify: 'string',
+      outApplyId: 'string',
       refundOrderId: 'number',
       refundReason: 'string',
       refundTicketFee: 'number',
@@ -28480,6 +28498,7 @@ export class FlightOrderQueryResponseBodyModuleFlightTicketInfoList extends $tea
   buildPrice?: number;
   changed?: boolean;
   discount?: number;
+  flightNo?: string;
   gmtCreate?: string;
   gmtModify?: string;
   oilPrice?: number;
@@ -28495,6 +28514,7 @@ export class FlightOrderQueryResponseBodyModuleFlightTicketInfoList extends $tea
       buildPrice: 'build_price',
       changed: 'changed',
       discount: 'discount',
+      flightNo: 'flight_no',
       gmtCreate: 'gmt_create',
       gmtModify: 'gmt_modify',
       oilPrice: 'oil_price',
@@ -28513,6 +28533,7 @@ export class FlightOrderQueryResponseBodyModuleFlightTicketInfoList extends $tea
       buildPrice: 'number',
       changed: 'boolean',
       discount: 'number',
+      flightNo: 'string',
       gmtCreate: 'string',
       gmtModify: 'string',
       oilPrice: 'number',
@@ -28589,6 +28610,8 @@ export class FlightOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model 
   corpName?: string;
   departId?: string;
   departName?: string;
+  exceedApplyId?: string;
+  exceedThirdPartApplyId?: string;
   gmtCreate?: string;
   gmtModify?: string;
   itineraryId?: string;
@@ -28608,6 +28631,8 @@ export class FlightOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model 
       corpName: 'corp_name',
       departId: 'depart_id',
       departName: 'depart_name',
+      exceedApplyId: 'exceed_apply_id',
+      exceedThirdPartApplyId: 'exceed_third_part_apply_id',
       gmtCreate: 'gmt_create',
       gmtModify: 'gmt_modify',
       itineraryId: 'itinerary_id',
@@ -28630,6 +28655,8 @@ export class FlightOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model 
       corpName: 'string',
       departId: 'string',
       departName: 'string',
+      exceedApplyId: 'string',
+      exceedThirdPartApplyId: 'string',
       gmtCreate: 'string',
       gmtModify: 'string',
       itineraryId: 'string',
