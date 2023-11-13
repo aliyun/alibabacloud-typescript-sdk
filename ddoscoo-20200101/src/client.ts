@@ -149,7 +149,9 @@ export class AddAutoCcWhitelistResponse extends $tea.Model {
 export class AssociateWebCertRequest extends $tea.Model {
   cert?: string;
   certId?: number;
+  certIdentifier?: string;
   certName?: string;
+  certRegion?: string;
   domain?: string;
   key?: string;
   resourceGroupId?: string;
@@ -157,7 +159,9 @@ export class AssociateWebCertRequest extends $tea.Model {
     return {
       cert: 'Cert',
       certId: 'CertId',
+      certIdentifier: 'CertIdentifier',
       certName: 'CertName',
+      certRegion: 'CertRegion',
       domain: 'Domain',
       key: 'Key',
       resourceGroupId: 'ResourceGroupId',
@@ -168,7 +172,9 @@ export class AssociateWebCertRequest extends $tea.Model {
     return {
       cert: 'string',
       certId: 'number',
+      certIdentifier: 'string',
       certName: 'string',
+      certRegion: 'string',
       domain: 'string',
       key: 'string',
       resourceGroupId: 'string',
@@ -357,6 +363,72 @@ export class ConfigL7RsPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ConfigL7RsPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigLayer4RealLimitRequest extends $tea.Model {
+  instanceId?: string;
+  limitValue?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      limitValue: 'LimitValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      limitValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigLayer4RealLimitResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigLayer4RealLimitResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ConfigLayer4RealLimitResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConfigLayer4RealLimitResponseBody,
     };
   }
 
@@ -2835,10 +2907,12 @@ export class DescribeAutoCcWhitelistResponse extends $tea.Model {
 }
 
 export class DescribeBackSourceCidrRequest extends $tea.Model {
+  ipVersion?: string;
   line?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      ipVersion: 'IpVersion',
       line: 'Line',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -2846,6 +2920,7 @@ export class DescribeBackSourceCidrRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ipVersion: 'string',
       line: 'string',
       resourceGroupId: 'string',
     };
@@ -4283,6 +4358,72 @@ export class DescribeDomainResourceResponse extends $tea.Model {
   }
 }
 
+export class DescribeDomainSecurityProfileRequest extends $tea.Model {
+  domain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainSecurityProfileResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: DescribeDomainSecurityProfileResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': DescribeDomainSecurityProfileResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainSecurityProfileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDomainSecurityProfileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDomainSecurityProfileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDomainStatusCodeCountRequest extends $tea.Model {
   domain?: string;
   endTime?: number;
@@ -4985,6 +5126,75 @@ export class DescribeElasticBandwidthSpecResponse extends $tea.Model {
   }
 }
 
+export class DescribeHeadersRequest extends $tea.Model {
+  domain?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHeadersResponseBody extends $tea.Model {
+  customHeader?: DescribeHeadersResponseBodyCustomHeader;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customHeader: 'CustomHeader',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customHeader: DescribeHeadersResponseBodyCustomHeader,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHeadersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeHeadersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeHeadersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHealthCheckListRequest extends $tea.Model {
   networkRules?: string;
   static names(): { [key: string]: string } {
@@ -5175,6 +5385,81 @@ export class DescribeInstanceDetailsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeInstanceDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceExtRequest extends $tea.Model {
+  instanceId?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceExtResponseBody extends $tea.Model {
+  instanceExtSpecs?: DescribeInstanceExtResponseBodyInstanceExtSpecs[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceExtSpecs: 'InstanceExtSpecs',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceExtSpecs: { 'type': 'array', 'itemType': DescribeInstanceExtResponseBodyInstanceExtSpecs },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceExtResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceExtResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceExtResponseBody,
     };
   }
 
@@ -7085,6 +7370,90 @@ export class DescribeSchedulerRulesResponse extends $tea.Model {
   }
 }
 
+export class DescribeSlaEventListRequest extends $tea.Model {
+  endTime?: number;
+  ip?: string;
+  page?: number;
+  pageSize?: number;
+  region?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      ip: 'Ip',
+      page: 'Page',
+      pageSize: 'PageSize',
+      region: 'Region',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      ip: 'string',
+      page: 'number',
+      pageSize: 'number',
+      region: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlaEventListResponseBody extends $tea.Model {
+  requestId?: string;
+  slaEvent?: DescribeSlaEventListResponseBodySlaEvent[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      slaEvent: 'SlaEvent',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      slaEvent: { 'type': 'array', 'itemType': DescribeSlaEventListResponseBodySlaEvent },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlaEventListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSlaEventListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSlaEventListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSlsAuthStatusRequest extends $tea.Model {
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
@@ -7611,6 +7980,84 @@ export class DescribeTagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTotalAttackMaxFlowRequest extends $tea.Model {
+  endTime?: number;
+  instanceIds?: string[];
+  resourceGroupId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceIds: 'InstanceIds',
+      resourceGroupId: 'ResourceGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTotalAttackMaxFlowResponseBody extends $tea.Model {
+  bps?: number;
+  pps?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bps: 'Bps',
+      pps: 'Pps',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bps: 'number',
+      pps: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTotalAttackMaxFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTotalAttackMaxFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTotalAttackMaxFlowResponseBody,
     };
   }
 
@@ -9473,6 +9920,72 @@ export class EnableWebCCRuleResponse extends $tea.Model {
   }
 }
 
+export class ModifyBizBandWidthModeRequest extends $tea.Model {
+  instanceId?: string;
+  mode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      mode: 'Mode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      mode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBizBandWidthModeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBizBandWidthModeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyBizBandWidthModeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyBizBandWidthModeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyBlackholeStatusRequest extends $tea.Model {
   blackholeStatus?: string;
   instanceId?: string;
@@ -9827,6 +10340,75 @@ export class ModifyElasticBandWidthResponse extends $tea.Model {
   }
 }
 
+export class ModifyElasticBizBandWidthRequest extends $tea.Model {
+  elasticBizBandwidth?: number;
+  instanceId?: string;
+  mode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elasticBizBandwidth: 'ElasticBizBandwidth',
+      instanceId: 'InstanceId',
+      mode: 'Mode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticBizBandwidth: 'number',
+      instanceId: 'string',
+      mode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyElasticBizBandWidthResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyElasticBizBandWidthResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyElasticBizBandWidthResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyElasticBizBandWidthResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyFullLogTtlRequest extends $tea.Model {
   resourceGroupId?: string;
   ttl?: number;
@@ -9885,6 +10467,75 @@ export class ModifyFullLogTtlResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyFullLogTtlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyHeadersRequest extends $tea.Model {
+  customHeaders?: string;
+  domain?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customHeaders: 'CustomHeaders',
+      domain: 'Domain',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customHeaders: 'string',
+      domain: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyHeadersResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyHeadersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyHeadersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyHeadersResponseBody,
     };
   }
 
@@ -10164,6 +10815,72 @@ export class ModifyNetworkRuleAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyNetworkRuleAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyOcspStatusRequest extends $tea.Model {
+  domain?: string;
+  enable?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      enable: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyOcspStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyOcspStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyOcspStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyOcspStatusResponseBody,
     };
   }
 
@@ -11819,6 +12536,7 @@ export class DescribeBlockStatusResponseBodyStatusList extends $tea.Model {
 }
 
 export class DescribeCertsResponseBodyCerts extends $tea.Model {
+  certIdentifier?: string;
   common?: string;
   domainRelated?: boolean;
   endDate?: string;
@@ -11828,6 +12546,7 @@ export class DescribeCertsResponseBodyCerts extends $tea.Model {
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
+      certIdentifier: 'CertIdentifier',
       common: 'Common',
       domainRelated: 'DomainRelated',
       endDate: 'EndDate',
@@ -11840,6 +12559,7 @@ export class DescribeCertsResponseBodyCerts extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certIdentifier: 'string',
       common: 'string',
       domainRelated: 'boolean',
       endDate: 'string',
@@ -12220,6 +12940,7 @@ export class DescribeDomainResourceResponseBodyWebRules extends $tea.Model {
   https2HttpEnable?: boolean;
   httpsExt?: string;
   instanceIds?: string[];
+  ocspEnabled?: boolean;
   policyMode?: string;
   proxyEnabled?: boolean;
   proxyTypes?: DescribeDomainResourceResponseBodyWebRulesProxyTypes[];
@@ -12246,6 +12967,7 @@ export class DescribeDomainResourceResponseBodyWebRules extends $tea.Model {
       https2HttpEnable: 'Https2HttpEnable',
       httpsExt: 'HttpsExt',
       instanceIds: 'InstanceIds',
+      ocspEnabled: 'OcspEnabled',
       policyMode: 'PolicyMode',
       proxyEnabled: 'ProxyEnabled',
       proxyTypes: 'ProxyTypes',
@@ -12275,6 +12997,7 @@ export class DescribeDomainResourceResponseBodyWebRules extends $tea.Model {
       https2HttpEnable: 'boolean',
       httpsExt: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
+      ocspEnabled: 'boolean',
       policyMode: 'string',
       proxyEnabled: 'boolean',
       proxyTypes: { 'type': 'array', 'itemType': DescribeDomainResourceResponseBodyWebRulesProxyTypes },
@@ -12286,6 +13009,28 @@ export class DescribeDomainResourceResponseBodyWebRules extends $tea.Model {
       sslCiphers: 'string',
       sslProtocols: 'string',
       whiteList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainSecurityProfileResponseBodyResult extends $tea.Model {
+  globalEnable?: boolean;
+  globalMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      globalEnable: 'GlobalEnable',
+      globalMode: 'GlobalMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalEnable: 'boolean',
+      globalMode: 'string',
     };
   }
 
@@ -12471,6 +13216,28 @@ export class DescribeDomainViewTopUrlResponseBodyUrlList extends $tea.Model {
   }
 }
 
+export class DescribeHeadersResponseBodyCustomHeader extends $tea.Model {
+  domain?: string;
+  headers?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      headers: 'Headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      headers: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHealthCheckListResponseBodyHealthCheckListHealthCheck extends $tea.Model {
   domain?: string;
   down?: number;
@@ -12645,6 +13412,37 @@ export class DescribeInstanceDetailsResponseBodyInstanceDetails extends $tea.Mod
   }
 }
 
+export class DescribeInstanceExtResponseBodyInstanceExtSpecs extends $tea.Model {
+  functionVersion?: number;
+  instanceId?: string;
+  normalBandwidth?: number;
+  productPlan?: number;
+  servicePartner?: string;
+  static names(): { [key: string]: string } {
+    return {
+      functionVersion: 'FunctionVersion',
+      instanceId: 'InstanceId',
+      normalBandwidth: 'NormalBandwidth',
+      productPlan: 'ProductPlan',
+      servicePartner: 'ServicePartner',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functionVersion: 'number',
+      instanceId: 'string',
+      normalBandwidth: 'number',
+      productPlan: 'number',
+      servicePartner: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceIdsResponseBodyInstanceIds extends $tea.Model {
   edition?: number;
   instanceId?: string;
@@ -12679,27 +13477,39 @@ export class DescribeInstanceIdsResponseBodyInstanceIds extends $tea.Model {
 export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $tea.Model {
   bandwidthMbps?: number;
   baseBandwidth?: number;
+  connLimit?: number;
+  cpsLimit?: number;
   defenseCount?: number;
   domainLimit?: number;
   elasticBandwidth?: number;
   elasticBw?: number;
+  elasticBwModel?: string;
+  elasticQps?: number;
+  elasticQpsMode?: string;
   functionVersion?: string;
   instanceId?: string;
   portLimit?: number;
   qpsLimit?: number;
+  realLimitBw?: number;
   siteLimit?: number;
   static names(): { [key: string]: string } {
     return {
       bandwidthMbps: 'BandwidthMbps',
       baseBandwidth: 'BaseBandwidth',
+      connLimit: 'ConnLimit',
+      cpsLimit: 'CpsLimit',
       defenseCount: 'DefenseCount',
       domainLimit: 'DomainLimit',
       elasticBandwidth: 'ElasticBandwidth',
       elasticBw: 'ElasticBw',
+      elasticBwModel: 'ElasticBwModel',
+      elasticQps: 'ElasticQps',
+      elasticQpsMode: 'ElasticQpsMode',
       functionVersion: 'FunctionVersion',
       instanceId: 'InstanceId',
       portLimit: 'PortLimit',
       qpsLimit: 'QpsLimit',
+      realLimitBw: 'RealLimitBw',
       siteLimit: 'SiteLimit',
     };
   }
@@ -12708,14 +13518,20 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $tea.Model {
     return {
       bandwidthMbps: 'number',
       baseBandwidth: 'number',
+      connLimit: 'number',
+      cpsLimit: 'number',
       defenseCount: 'number',
       domainLimit: 'number',
       elasticBandwidth: 'number',
       elasticBw: 'number',
+      elasticBwModel: 'string',
+      elasticQps: 'number',
+      elasticQpsMode: 'string',
       functionVersion: 'string',
       instanceId: 'string',
       portLimit: 'number',
       qpsLimit: 'number',
+      realLimitBw: 'number',
       siteLimit: 'number',
     };
   }
@@ -12785,8 +13601,11 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
   enabled?: number;
   expireTime?: number;
   instanceId?: string;
+  ip?: string;
   ipMode?: string;
   ipVersion?: string;
+  isFirstOpenBw?: number;
+  isFirstOpenQps?: number;
   remark?: string;
   status?: number;
   static names(): { [key: string]: string } {
@@ -12797,8 +13616,11 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       enabled: 'Enabled',
       expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
+      ip: 'Ip',
       ipMode: 'IpMode',
       ipVersion: 'IpVersion',
+      isFirstOpenBw: 'IsFirstOpenBw',
+      isFirstOpenQps: 'IsFirstOpenQps',
       remark: 'Remark',
       status: 'Status',
     };
@@ -12812,8 +13634,11 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       enabled: 'number',
       expireTime: 'number',
       instanceId: 'string',
+      ip: 'string',
       ipMode: 'string',
       ipVersion: 'string',
+      isFirstOpenBw: 'number',
+      isFirstOpenQps: 'number',
       remark: 'string',
       status: 'number',
     };
@@ -13330,6 +14155,14 @@ export class DescribePortFlowListResponseBodyPortFlowList extends $tea.Model {
   outBps?: number;
   outPps?: number;
   region?: string;
+  slaBpsDropBps?: number;
+  slaBpsDropPps?: number;
+  slaConnDropBps?: number;
+  slaConnDropPps?: number;
+  slaCpsDropBps?: number;
+  slaCpsDropPps?: number;
+  slaPpsDropBps?: number;
+  slaPpsDropPps?: number;
   time?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13341,6 +14174,14 @@ export class DescribePortFlowListResponseBodyPortFlowList extends $tea.Model {
       outBps: 'OutBps',
       outPps: 'OutPps',
       region: 'Region',
+      slaBpsDropBps: 'SlaBpsDropBps',
+      slaBpsDropPps: 'SlaBpsDropPps',
+      slaConnDropBps: 'SlaConnDropBps',
+      slaConnDropPps: 'SlaConnDropPps',
+      slaCpsDropBps: 'SlaCpsDropBps',
+      slaCpsDropPps: 'SlaCpsDropPps',
+      slaPpsDropBps: 'SlaPpsDropBps',
+      slaPpsDropPps: 'SlaPpsDropPps',
       time: 'Time',
     };
   }
@@ -13355,6 +14196,14 @@ export class DescribePortFlowListResponseBodyPortFlowList extends $tea.Model {
       outBps: 'number',
       outPps: 'number',
       region: 'string',
+      slaBpsDropBps: 'number',
+      slaBpsDropPps: 'number',
+      slaConnDropBps: 'number',
+      slaConnDropPps: 'number',
+      slaCpsDropBps: 'number',
+      slaCpsDropPps: 'number',
+      slaPpsDropBps: 'number',
+      slaPpsDropPps: 'number',
       time: 'number',
     };
   }
@@ -13652,6 +14501,34 @@ export class DescribeSchedulerRulesResponseBodySchedulerRules extends $tea.Model
       ruleName: 'string',
       ruleType: 'string',
       rules: { 'type': 'array', 'itemType': DescribeSchedulerRulesResponseBodySchedulerRulesRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlaEventListResponseBodySlaEvent extends $tea.Model {
+  endTime?: number;
+  ip?: string;
+  region?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      ip: 'Ip',
+      region: 'Region',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      ip: 'string',
+      region: 'string',
+      startTime: 'number',
     };
   }
 
@@ -14262,6 +15139,7 @@ export class DescribeWebRulesResponseBodyWebRules extends $tea.Model {
   ccRuleEnabled?: boolean;
   ccTemplate?: string;
   certName?: string;
+  certRegion?: string;
   cname?: string;
   customCiphers?: string[];
   domain?: string;
@@ -14287,6 +15165,7 @@ export class DescribeWebRulesResponseBodyWebRules extends $tea.Model {
       ccRuleEnabled: 'CcRuleEnabled',
       ccTemplate: 'CcTemplate',
       certName: 'CertName',
+      certRegion: 'CertRegion',
       cname: 'Cname',
       customCiphers: 'CustomCiphers',
       domain: 'Domain',
@@ -14315,6 +15194,7 @@ export class DescribeWebRulesResponseBodyWebRules extends $tea.Model {
       ccRuleEnabled: 'boolean',
       ccTemplate: 'string',
       certName: 'string',
+      certRegion: 'string',
       cname: 'string',
       customCiphers: { 'type': 'array', 'itemType': 'string' },
       domain: 'string',
@@ -14423,6 +15303,16 @@ export default class Client extends OpenApi {
     return await this.addAutoCcBlacklistWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
+    * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](~~157505~~) operation to remove the IP addresses from the whitelist.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request AddAutoCcWhitelistRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddAutoCcWhitelistResponse
+   */
   async addAutoCcWhitelistWithOptions(request: AddAutoCcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<AddAutoCcWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14455,6 +15345,15 @@ export default class Client extends OpenApi {
     return $tea.cast<AddAutoCcWhitelistResponse>(await this.callApi(params, req, runtime), new AddAutoCcWhitelistResponse({}));
   }
 
+  /**
+    * You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
+    * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](~~157505~~) operation to remove the IP addresses from the whitelist.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request AddAutoCcWhitelistRequest
+    * @return AddAutoCcWhitelistResponse
+   */
   async addAutoCcWhitelist(request: AddAutoCcWhitelistRequest): Promise<AddAutoCcWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addAutoCcWhitelistWithOptions(request, runtime);
@@ -14471,8 +15370,16 @@ export default class Client extends OpenApi {
       query["CertId"] = request.certId;
     }
 
+    if (!Util.isUnset(request.certIdentifier)) {
+      query["CertIdentifier"] = request.certIdentifier;
+    }
+
     if (!Util.isUnset(request.certName)) {
       query["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.certRegion)) {
+      query["CertRegion"] = request.certRegion;
     }
 
     if (!Util.isUnset(request.domain)) {
@@ -14546,6 +15453,13 @@ export default class Client extends OpenApi {
     return await this.attachSceneDefenseObjectWithOptions(request, runtime);
   }
 
+  /**
+    * If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+    *
+    * @param request ConfigL7RsPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ConfigL7RsPolicyResponse
+   */
   async configL7RsPolicyWithOptions(request: ConfigL7RsPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ConfigL7RsPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14578,9 +15492,48 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigL7RsPolicyResponse>(await this.callApi(params, req, runtime), new ConfigL7RsPolicyResponse({}));
   }
 
+  /**
+    * If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+    *
+    * @param request ConfigL7RsPolicyRequest
+    * @return ConfigL7RsPolicyResponse
+   */
   async configL7RsPolicy(request: ConfigL7RsPolicyRequest): Promise<ConfigL7RsPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configL7RsPolicyWithOptions(request, runtime);
+  }
+
+  async configLayer4RealLimitWithOptions(request: ConfigLayer4RealLimitRequest, runtime: $Util.RuntimeOptions): Promise<ConfigLayer4RealLimitResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.limitValue)) {
+      query["LimitValue"] = request.limitValue;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ConfigLayer4RealLimit",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfigLayer4RealLimitResponse>(await this.callApi(params, req, runtime), new ConfigLayer4RealLimitResponse({}));
+  }
+
+  async configLayer4RealLimit(request: ConfigLayer4RealLimitRequest): Promise<ConfigLayer4RealLimitResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.configLayer4RealLimitWithOptions(request, runtime);
   }
 
   async configLayer4RemarkWithOptions(request: ConfigLayer4RemarkRequest, runtime: $Util.RuntimeOptions): Promise<ConfigLayer4RemarkResponse> {
@@ -14736,6 +15689,15 @@ export default class Client extends OpenApi {
     return await this.configNetworkRulesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ConfigUdpReflectRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ConfigUdpReflectResponse
+   */
   async configUdpReflectWithOptions(request: ConfigUdpReflectRequest, runtime: $Util.RuntimeOptions): Promise<ConfigUdpReflectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14768,6 +15730,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigUdpReflectResponse>(await this.callApi(params, req, runtime), new ConfigUdpReflectResponse({}));
   }
 
+  /**
+    * You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ConfigUdpReflectRequest
+    * @return ConfigUdpReflectResponse
+   */
   async configUdpReflect(request: ConfigUdpReflectRequest): Promise<ConfigUdpReflectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configUdpReflectWithOptions(request, runtime);
@@ -14966,6 +15936,13 @@ export default class Client extends OpenApi {
     return await this.createNetworkRulesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+    *
+    * @param request CreatePortRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreatePortResponse
+   */
   async createPortWithOptions(request: CreatePortRequest, runtime: $Util.RuntimeOptions): Promise<CreatePortResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15006,6 +15983,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePortResponse>(await this.callApi(params, req, runtime), new CreatePortResponse({}));
   }
 
+  /**
+    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+    *
+    * @param request CreatePortRequest
+    * @return CreatePortResponse
+   */
   async createPort(request: CreatePortRequest): Promise<CreatePortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPortWithOptions(request, runtime);
@@ -15097,6 +16080,16 @@ export default class Client extends OpenApi {
     return await this.createSchedulerRuleWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Pro instances at a time.
+    * > Anti-DDoS Premium does not support the tag feature.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateTagResourcesResponse
+   */
   async createTagResourcesWithOptions(request: CreateTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<CreateTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15137,6 +16130,15 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTagResourcesResponse>(await this.callApi(params, req, runtime), new CreateTagResourcesResponse({}));
   }
 
+  /**
+    * You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Pro instances at a time.
+    * > Anti-DDoS Premium does not support the tag feature.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateTagResourcesRequest
+    * @return CreateTagResourcesResponse
+   */
   async createTagResources(request: CreateTagResourcesRequest): Promise<CreateTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTagResourcesWithOptions(request, runtime);
@@ -15413,6 +16415,14 @@ export default class Client extends OpenApi {
     return await this.deleteNetworkRuleWithOptions(request, runtime);
   }
 
+  /**
+    * After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
+    * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+    *
+    * @param request DeletePortRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeletePortResponse
+   */
   async deletePortWithOptions(request: DeletePortRequest, runtime: $Util.RuntimeOptions): Promise<DeletePortResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15453,6 +16463,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePortResponse>(await this.callApi(params, req, runtime), new DeletePortResponse({}));
   }
 
+  /**
+    * After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
+    * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+    *
+    * @param request DeletePortRequest
+    * @return DeletePortResponse
+   */
   async deletePort(request: DeletePortRequest): Promise<DeletePortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePortWithOptions(request, runtime);
@@ -15520,6 +16537,16 @@ export default class Client extends OpenApi {
     return await this.deleteSchedulerRuleWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DeleteTagResources operation to remove tags from Anti-DDoS Pro instances.
+    * > Only Anti-DDoS Pro supports tags.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTagResourcesResponse
+   */
   async deleteTagResourcesWithOptions(request: DeleteTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15564,6 +16591,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTagResourcesResponse>(await this.callApi(params, req, runtime), new DeleteTagResourcesResponse({}));
   }
 
+  /**
+    * You can call the DeleteTagResources operation to remove tags from Anti-DDoS Pro instances.
+    * > Only Anti-DDoS Pro supports tags.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteTagResourcesRequest
+    * @return DeleteTagResourcesResponse
+   */
   async deleteTagResources(request: DeleteTagResourcesRequest): Promise<DeleteTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTagResourcesWithOptions(request, runtime);
@@ -15606,6 +16642,15 @@ export default class Client extends OpenApi {
     return await this.deleteWebCCRuleWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteWebCacheCustomRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteWebCacheCustomRuleResponse
+   */
   async deleteWebCacheCustomRuleWithOptions(request: DeleteWebCacheCustomRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebCacheCustomRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15638,6 +16683,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWebCacheCustomRuleResponse>(await this.callApi(params, req, runtime), new DeleteWebCacheCustomRuleResponse({}));
   }
 
+  /**
+    * You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteWebCacheCustomRuleRequest
+    * @return DeleteWebCacheCustomRuleResponse
+   */
   async deleteWebCacheCustomRule(request: DeleteWebCacheCustomRuleRequest): Promise<DeleteWebCacheCustomRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWebCacheCustomRuleWithOptions(request, runtime);
@@ -15713,6 +16766,15 @@ export default class Client extends OpenApi {
     return await this.deleteWebRuleWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeAsyncTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAsyncTasksResponse
+   */
   async describeAsyncTasksWithOptions(request: DescribeAsyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAsyncTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15745,6 +16807,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAsyncTasksResponse>(await this.callApi(params, req, runtime), new DescribeAsyncTasksResponse({}));
   }
 
+  /**
+    * You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeAsyncTasksRequest
+    * @return DescribeAsyncTasksResponse
+   */
   async describeAsyncTasks(request: DescribeAsyncTasksRequest): Promise<DescribeAsyncTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAsyncTasksWithOptions(request, runtime);
@@ -15901,6 +16971,10 @@ export default class Client extends OpenApi {
   async describeBackSourceCidrWithOptions(request: DescribeBackSourceCidrRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackSourceCidrResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
     if (!Util.isUnset(request.line)) {
       query["Line"] = request.line;
     }
@@ -15960,6 +17034,16 @@ export default class Client extends OpenApi {
     return await this.describeBlackholeStatusWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is used to query the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
+    * > This operation is suitable only for Anti-DDoS Pro.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeBlockStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeBlockStatusResponse
+   */
   async describeBlockStatusWithOptions(request: DescribeBlockStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBlockStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15988,6 +17072,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBlockStatusResponse>(await this.callApi(params, req, runtime), new DescribeBlockStatusResponse({}));
   }
 
+  /**
+    * This operation is used to query the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
+    * > This operation is suitable only for Anti-DDoS Pro.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeBlockStatusRequest
+    * @return DescribeBlockStatusResponse
+   */
   async describeBlockStatus(request: DescribeBlockStatusRequest): Promise<DescribeBlockStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBlockStatusWithOptions(request, runtime);
@@ -16108,6 +17201,15 @@ export default class Client extends OpenApi {
     return await this.describeDDoSEventsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDDosAllEventListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDDosAllEventListResponse
+   */
   async describeDDosAllEventListWithOptions(request: DescribeDDosAllEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosAllEventListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16148,11 +17250,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDDosAllEventListResponse>(await this.callApi(params, req, runtime), new DescribeDDosAllEventListResponse({}));
   }
 
+  /**
+    * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDDosAllEventListRequest
+    * @return DescribeDDosAllEventListResponse
+   */
   async describeDDosAllEventList(request: DescribeDDosAllEventListRequest): Promise<DescribeDDosAllEventListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDDosAllEventListWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is suitable only for volumetric attacks.
+    *
+    * @param request DescribeDDosEventAreaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDDosEventAreaResponse
+   */
   async describeDDosEventAreaWithOptions(request: DescribeDDosEventAreaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventAreaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16185,11 +17302,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDDosEventAreaResponse>(await this.callApi(params, req, runtime), new DescribeDDosEventAreaResponse({}));
   }
 
+  /**
+    * > This operation is suitable only for volumetric attacks.
+    *
+    * @param request DescribeDDosEventAreaRequest
+    * @return DescribeDDosEventAreaResponse
+   */
   async describeDDosEventArea(request: DescribeDDosEventAreaRequest): Promise<DescribeDDosEventAreaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDDosEventAreaWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is suitable only for volumetric attacks.
+    *
+    * @param request DescribeDDosEventAttackTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDDosEventAttackTypeResponse
+   */
   async describeDDosEventAttackTypeWithOptions(request: DescribeDDosEventAttackTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventAttackTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16222,11 +17352,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDDosEventAttackTypeResponse>(await this.callApi(params, req, runtime), new DescribeDDosEventAttackTypeResponse({}));
   }
 
+  /**
+    * > This operation is suitable only for volumetric attacks.
+    *
+    * @param request DescribeDDosEventAttackTypeRequest
+    * @return DescribeDDosEventAttackTypeResponse
+   */
   async describeDDosEventAttackType(request: DescribeDDosEventAttackTypeRequest): Promise<DescribeDDosEventAttackTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDDosEventAttackTypeWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is suitable only for volumetric attacks.
+    *
+    * @param request DescribeDDosEventIspRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDDosEventIspResponse
+   */
   async describeDDosEventIspWithOptions(request: DescribeDDosEventIspRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventIspResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16259,6 +17402,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDDosEventIspResponse>(await this.callApi(params, req, runtime), new DescribeDDosEventIspResponse({}));
   }
 
+  /**
+    * > This operation is suitable only for volumetric attacks.
+    *
+    * @param request DescribeDDosEventIspRequest
+    * @return DescribeDDosEventIspResponse
+   */
   async describeDDosEventIsp(request: DescribeDDosEventIspRequest): Promise<DescribeDDosEventIspResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDDosEventIspWithOptions(request, runtime);
@@ -16297,6 +17446,13 @@ export default class Client extends OpenApi {
     return await this.describeDDosEventMaxWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is suitable only for volumetric attacks.
+    *
+    * @param request DescribeDDosEventSrcIpRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDDosEventSrcIpResponse
+   */
   async describeDDosEventSrcIpWithOptions(request: DescribeDDosEventSrcIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventSrcIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16333,11 +17489,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDDosEventSrcIpResponse>(await this.callApi(params, req, runtime), new DescribeDDosEventSrcIpResponse({}));
   }
 
+  /**
+    * > This operation is suitable only for volumetric attacks.
+    *
+    * @param request DescribeDDosEventSrcIpRequest
+    * @return DescribeDDosEventSrcIpResponse
+   */
   async describeDDosEventSrcIp(request: DescribeDDosEventSrcIpRequest): Promise<DescribeDDosEventSrcIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDDosEventSrcIpWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Premium instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of available global advanced mitigation sessions.
+    * > This operation is suitable only for Anti-DDoS Premium.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDefenseCountStatisticsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDefenseCountStatisticsResponse
+   */
   async describeDefenseCountStatisticsWithOptions(request: DescribeDefenseCountStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseCountStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16362,11 +17534,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseCountStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDefenseCountStatisticsResponse({}));
   }
 
+  /**
+    * You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Premium instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of available global advanced mitigation sessions.
+    * > This operation is suitable only for Anti-DDoS Premium.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDefenseCountStatisticsRequest
+    * @return DescribeDefenseCountStatisticsResponse
+   */
   async describeDefenseCountStatistics(request: DescribeDefenseCountStatisticsRequest): Promise<DescribeDefenseCountStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseCountStatisticsWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Premium.
+    *
+    * @param request DescribeDefenseRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDefenseRecordsResponse
+   */
   async describeDefenseRecordsWithOptions(request: DescribeDefenseRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16411,6 +17599,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefenseRecordsResponse>(await this.callApi(params, req, runtime), new DescribeDefenseRecordsResponse({}));
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Premium.
+    *
+    * @param request DescribeDefenseRecordsRequest
+    * @return DescribeDefenseRecordsResponse
+   */
   async describeDefenseRecords(request: DescribeDefenseRecordsRequest): Promise<DescribeDefenseRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseRecordsWithOptions(request, runtime);
@@ -16592,6 +17786,16 @@ export default class Client extends OpenApi {
     return await this.describeDomainQpsWithCacheWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
+    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+    * ### Limits
+    * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDomainResourceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDomainResourceResponse
+   */
   async describeDomainResourceWithOptions(request: DescribeDomainResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16632,9 +17836,47 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainResourceResponse>(await this.callApi(params, req, runtime), new DescribeDomainResourceResponse({}));
   }
 
+  /**
+    * You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
+    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+    * ### Limits
+    * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDomainResourceRequest
+    * @return DescribeDomainResourceResponse
+   */
   async describeDomainResource(request: DescribeDomainResourceRequest): Promise<DescribeDomainResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainResourceWithOptions(request, runtime);
+  }
+
+  async describeDomainSecurityProfileWithOptions(request: DescribeDomainSecurityProfileRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainSecurityProfileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainSecurityProfile",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainSecurityProfileResponse>(await this.callApi(params, req, runtime), new DescribeDomainSecurityProfileResponse({}));
+  }
+
+  async describeDomainSecurityProfile(request: DescribeDomainSecurityProfileRequest): Promise<DescribeDomainSecurityProfileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDomainSecurityProfileWithOptions(request, runtime);
   }
 
   async describeDomainStatusCodeCountWithOptions(request: DescribeDomainStatusCodeCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainStatusCodeCountResponse> {
@@ -16969,6 +18211,13 @@ export default class Client extends OpenApi {
     return await this.describeDomainsWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Pro.
+    *
+    * @param request DescribeElasticBandwidthSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeElasticBandwidthSpecResponse
+   */
   async describeElasticBandwidthSpecWithOptions(request: DescribeElasticBandwidthSpecRequest, runtime: $Util.RuntimeOptions): Promise<DescribeElasticBandwidthSpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16993,9 +18242,48 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeElasticBandwidthSpecResponse>(await this.callApi(params, req, runtime), new DescribeElasticBandwidthSpecResponse({}));
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Pro.
+    *
+    * @param request DescribeElasticBandwidthSpecRequest
+    * @return DescribeElasticBandwidthSpecResponse
+   */
   async describeElasticBandwidthSpec(request: DescribeElasticBandwidthSpecRequest): Promise<DescribeElasticBandwidthSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeElasticBandwidthSpecWithOptions(request, runtime);
+  }
+
+  async describeHeadersWithOptions(request: DescribeHeadersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHeadersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeHeaders",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHeadersResponse>(await this.callApi(params, req, runtime), new DescribeHeadersResponse({}));
+  }
+
+  async describeHeaders(request: DescribeHeadersRequest): Promise<DescribeHeadersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeHeadersWithOptions(request, runtime);
   }
 
   async describeHealthCheckListWithOptions(request: DescribeHealthCheckListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHealthCheckListResponse> {
@@ -17056,6 +18344,15 @@ export default class Client extends OpenApi {
     return await this.describeHealthCheckStatusWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeInstanceDetailsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceDetailsResponse
+   */
   async describeInstanceDetailsWithOptions(request: DescribeInstanceDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17080,9 +18377,54 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceDetailsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceDetailsResponse({}));
   }
 
+  /**
+    * You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeInstanceDetailsRequest
+    * @return DescribeInstanceDetailsResponse
+   */
   async describeInstanceDetails(request: DescribeInstanceDetailsRequest): Promise<DescribeInstanceDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceDetailsWithOptions(request, runtime);
+  }
+
+  async describeInstanceExtWithOptions(request: DescribeInstanceExtRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceExtResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceExt",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceExtResponse>(await this.callApi(params, req, runtime), new DescribeInstanceExtResponse({}));
+  }
+
+  async describeInstanceExt(request: DescribeInstanceExtRequest): Promise<DescribeInstanceExtResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceExtWithOptions(request, runtime);
   }
 
   async describeInstanceIdsWithOptions(request: DescribeInstanceIdsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceIdsResponse> {
@@ -17122,6 +18464,15 @@ export default class Client extends OpenApi {
     return await this.describeInstanceIdsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeInstanceSpecsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceSpecsResponse
+   */
   async describeInstanceSpecsWithOptions(request: DescribeInstanceSpecsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSpecsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17146,6 +18497,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceSpecsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSpecsResponse({}));
   }
 
+  /**
+    * You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeInstanceSpecsRequest
+    * @return DescribeInstanceSpecsResponse
+   */
   async describeInstanceSpecs(request: DescribeInstanceSpecsRequest): Promise<DescribeInstanceSpecsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceSpecsWithOptions(request, runtime);
@@ -17213,6 +18572,13 @@ export default class Client extends OpenApi {
     return await this.describeInstanceStatusWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
+    *
+    * @param request DescribeInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstancesResponse
+   */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17281,6 +18647,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
   }
 
+  /**
+    * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
+    *
+    * @param request DescribeInstancesRequest
+    * @return DescribeInstancesResponse
+   */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
@@ -17484,6 +18856,14 @@ export default class Client extends OpenApi {
     return await this.describeNetworkRulesWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Pro.
+    * You can query operations performed on Anti-DDoS Pro, such as configuring burstable protection bandwidth, deactivating blackhole filtering, configuring the Diversion from Origin Server policy, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
+    *
+    * @param request DescribeOpEntitiesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeOpEntitiesResponse
+   */
   async describeOpEntitiesWithOptions(request: DescribeOpEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOpEntitiesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17532,11 +18912,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOpEntitiesResponse>(await this.callApi(params, req, runtime), new DescribeOpEntitiesResponse({}));
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Pro.
+    * You can query operations performed on Anti-DDoS Pro, such as configuring burstable protection bandwidth, deactivating blackhole filtering, configuring the Diversion from Origin Server policy, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
+    *
+    * @param request DescribeOpEntitiesRequest
+    * @return DescribeOpEntitiesResponse
+   */
   async describeOpEntities(request: DescribeOpEntitiesRequest): Promise<DescribeOpEntitiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOpEntitiesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+    *
+    * @param request DescribePortRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePortResponse
+   */
   async describePortWithOptions(request: DescribePortRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17577,11 +18971,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePortResponse>(await this.callApi(params, req, runtime), new DescribePortResponse({}));
   }
 
+  /**
+    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+    *
+    * @param request DescribePortRequest
+    * @return DescribePortResponse
+   */
   async describePort(request: DescribePortRequest): Promise<DescribePortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePortWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePortAttackMaxFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePortAttackMaxFlowResponse
+   */
   async describePortAttackMaxFlowWithOptions(request: DescribePortAttackMaxFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortAttackMaxFlowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17618,6 +19027,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePortAttackMaxFlowResponse>(await this.callApi(params, req, runtime), new DescribePortAttackMaxFlowResponse({}));
   }
 
+  /**
+    * You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePortAttackMaxFlowRequest
+    * @return DescribePortAttackMaxFlowResponse
+   */
   async describePortAttackMaxFlow(request: DescribePortAttackMaxFlowRequest): Promise<DescribePortAttackMaxFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePortAttackMaxFlowWithOptions(request, runtime);
@@ -17873,6 +19290,16 @@ export default class Client extends OpenApi {
     return await this.describePortViewSourceCountriesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+    * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](~~157460~~) operation.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePortViewSourceIspsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePortViewSourceIspsResponse
+   */
   async describePortViewSourceIspsWithOptions(request: DescribePortViewSourceIspsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortViewSourceIspsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17909,6 +19336,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePortViewSourceIspsResponse>(await this.callApi(params, req, runtime), new DescribePortViewSourceIspsResponse({}));
   }
 
+  /**
+    * You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+    * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](~~157460~~) operation.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePortViewSourceIspsRequest
+    * @return DescribePortViewSourceIspsResponse
+   */
   async describePortViewSourceIsps(request: DescribePortViewSourceIspsRequest): Promise<DescribePortViewSourceIspsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePortViewSourceIspsWithOptions(request, runtime);
@@ -17955,6 +19391,16 @@ export default class Client extends OpenApi {
     return await this.describePortViewSourceProvincesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
+    * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](~~159779~~) operation.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeSceneDefenseObjectsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSceneDefenseObjectsResponse
+   */
   async describeSceneDefenseObjectsWithOptions(request: DescribeSceneDefenseObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSceneDefenseObjectsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17983,11 +19429,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSceneDefenseObjectsResponse>(await this.callApi(params, req, runtime), new DescribeSceneDefenseObjectsResponse({}));
   }
 
+  /**
+    * You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
+    * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](~~159779~~) operation.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeSceneDefenseObjectsRequest
+    * @return DescribeSceneDefenseObjectsResponse
+   */
   async describeSceneDefenseObjects(request: DescribeSceneDefenseObjectsRequest): Promise<DescribeSceneDefenseObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSceneDefenseObjectsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeSceneDefensePoliciesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSceneDefensePoliciesResponse
+   */
   async describeSceneDefensePoliciesWithOptions(request: DescribeSceneDefensePoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSceneDefensePoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18020,6 +19484,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSceneDefensePoliciesResponse>(await this.callApi(params, req, runtime), new DescribeSceneDefensePoliciesResponse({}));
   }
 
+  /**
+    * You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeSceneDefensePoliciesRequest
+    * @return DescribeSceneDefensePoliciesResponse
+   */
   async describeSceneDefensePolicies(request: DescribeSceneDefensePoliciesRequest): Promise<DescribeSceneDefensePoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSceneDefensePoliciesWithOptions(request, runtime);
@@ -18064,6 +19536,55 @@ export default class Client extends OpenApi {
   async describeSchedulerRules(request: DescribeSchedulerRulesRequest): Promise<DescribeSchedulerRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSchedulerRulesWithOptions(request, runtime);
+  }
+
+  async describeSlaEventListWithOptions(request: DescribeSlaEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlaEventListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSlaEventList",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSlaEventListResponse>(await this.callApi(params, req, runtime), new DescribeSlaEventListResponse({}));
+  }
+
+  async describeSlaEventList(request: DescribeSlaEventListRequest): Promise<DescribeSlaEventListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSlaEventListWithOptions(request, runtime);
   }
 
   async describeSlsAuthStatusWithOptions(request: DescribeSlsAuthStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlsAuthStatusResponse> {
@@ -18153,6 +19674,15 @@ export default class Client extends OpenApi {
     return await this.describeSlsOpenStatusWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeStsGrantStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeStsGrantStatusResponse
+   */
   async describeStsGrantStatusWithOptions(request: DescribeStsGrantStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStsGrantStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18181,11 +19711,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeStsGrantStatusResponse>(await this.callApi(params, req, runtime), new DescribeStsGrantStatusResponse({}));
   }
 
+  /**
+    * You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeStsGrantStatusRequest
+    * @return DescribeStsGrantStatusResponse
+   */
   async describeStsGrantStatus(request: DescribeStsGrantStatusRequest): Promise<DescribeStsGrantStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeStsGrantStatusWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
+    * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeSystemLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSystemLogResponse
+   */
   async describeSystemLogWithOptions(request: DescribeSystemLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSystemLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18230,11 +19778,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSystemLogResponse>(await this.callApi(params, req, runtime), new DescribeSystemLogResponse({}));
   }
 
+  /**
+    * You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
+    * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeSystemLogRequest
+    * @return DescribeSystemLogResponse
+   */
   async describeSystemLog(request: DescribeSystemLogRequest): Promise<DescribeSystemLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSystemLogWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query all tag keys and the Anti-DDoS Pro instances to which the tag keys are added by page.
+    * > The tag feature is suitable only for Anti-DDoS Pro.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeTagKeysRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTagKeysResponse
+   */
   async describeTagKeysWithOptions(request: DescribeTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18275,11 +19842,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTagKeysResponse>(await this.callApi(params, req, runtime), new DescribeTagKeysResponse({}));
   }
 
+  /**
+    * You can call this operation to query all tag keys and the Anti-DDoS Pro instances to which the tag keys are added by page.
+    * > The tag feature is suitable only for Anti-DDoS Pro.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeTagKeysRequest
+    * @return DescribeTagKeysResponse
+   */
   async describeTagKeys(request: DescribeTagKeysRequest): Promise<DescribeTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagKeysWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Pro instance.
+    * > Only Anti-DDoS Pro supports tags.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTagResourcesResponse
+   */
   async describeTagResourcesWithOptions(request: DescribeTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18324,9 +19910,59 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTagResourcesResponse>(await this.callApi(params, req, runtime), new DescribeTagResourcesResponse({}));
   }
 
+  /**
+    * You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Pro instance.
+    * > Only Anti-DDoS Pro supports tags.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeTagResourcesRequest
+    * @return DescribeTagResourcesResponse
+   */
   async describeTagResources(request: DescribeTagResourcesRequest): Promise<DescribeTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagResourcesWithOptions(request, runtime);
+  }
+
+  async describeTotalAttackMaxFlowWithOptions(request: DescribeTotalAttackMaxFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTotalAttackMaxFlowResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTotalAttackMaxFlow",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTotalAttackMaxFlowResponse>(await this.callApi(params, req, runtime), new DescribeTotalAttackMaxFlowResponse({}));
+  }
+
+  async describeTotalAttackMaxFlow(request: DescribeTotalAttackMaxFlowRequest): Promise<DescribeTotalAttackMaxFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTotalAttackMaxFlowWithOptions(request, runtime);
   }
 
   async describeUdpReflectWithOptions(request: DescribeUdpReflectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUdpReflectResponse> {
@@ -18391,6 +20027,13 @@ export default class Client extends OpenApi {
     return await this.describeUnBlackholeCountWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Pro.
+    *
+    * @param request DescribeUnBlockCountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeUnBlockCountResponse
+   */
   async describeUnBlockCountWithOptions(request: DescribeUnBlockCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUnBlockCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18415,11 +20058,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUnBlockCountResponse>(await this.callApi(params, req, runtime), new DescribeUnBlockCountResponse({}));
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Pro.
+    *
+    * @param request DescribeUnBlockCountRequest
+    * @return DescribeUnBlockCountResponse
+   */
   async describeUnBlockCount(request: DescribeUnBlockCountRequest): Promise<DescribeUnBlockCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUnBlockCountWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeWebAccessLogDispatchStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeWebAccessLogDispatchStatusResponse
+   */
   async describeWebAccessLogDispatchStatusWithOptions(request: DescribeWebAccessLogDispatchStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebAccessLogDispatchStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18452,6 +20110,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebAccessLogDispatchStatusResponse>(await this.callApi(params, req, runtime), new DescribeWebAccessLogDispatchStatusResponse({}));
   }
 
+  /**
+    * You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeWebAccessLogDispatchStatusRequest
+    * @return DescribeWebAccessLogDispatchStatusResponse
+   */
   async describeWebAccessLogDispatchStatus(request: DescribeWebAccessLogDispatchStatusRequest): Promise<DescribeWebAccessLogDispatchStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebAccessLogDispatchStatusWithOptions(request, runtime);
@@ -18622,6 +20288,15 @@ export default class Client extends OpenApi {
     return await this.describeWebCCRulesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeWebCacheConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeWebCacheConfigsResponse
+   */
   async describeWebCacheConfigsWithOptions(request: DescribeWebCacheConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebCacheConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18650,6 +20325,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebCacheConfigsResponse>(await this.callApi(params, req, runtime), new DescribeWebCacheConfigsResponse({}));
   }
 
+  /**
+    * You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeWebCacheConfigsRequest
+    * @return DescribeWebCacheConfigsResponse
+   */
   async describeWebCacheConfigs(request: DescribeWebCacheConfigsRequest): Promise<DescribeWebCacheConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebCacheConfigsWithOptions(request, runtime);
@@ -19216,6 +20899,52 @@ export default class Client extends OpenApi {
     return await this.enableWebCCRuleWithOptions(request, runtime);
   }
 
+  /**
+    * You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+    *
+    * @param request ModifyBizBandWidthModeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyBizBandWidthModeResponse
+   */
+  async modifyBizBandWidthModeWithOptions(request: ModifyBizBandWidthModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBizBandWidthModeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyBizBandWidthMode",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyBizBandWidthModeResponse>(await this.callApi(params, req, runtime), new ModifyBizBandWidthModeResponse({}));
+  }
+
+  /**
+    * You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+    *
+    * @param request ModifyBizBandWidthModeRequest
+    * @return ModifyBizBandWidthModeResponse
+   */
+  async modifyBizBandWidthMode(request: ModifyBizBandWidthModeRequest): Promise<ModifyBizBandWidthModeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyBizBandWidthModeWithOptions(request, runtime);
+  }
+
   async modifyBlackholeStatusWithOptions(request: ModifyBlackholeStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBlackholeStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19249,6 +20978,13 @@ export default class Client extends OpenApi {
     return await this.modifyBlackholeStatusWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Pro.
+    *
+    * @param request ModifyBlockStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyBlockStatusResponse
+   */
   async modifyBlockStatusWithOptions(request: ModifyBlockStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBlockStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19285,11 +21021,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBlockStatusResponse>(await this.callApi(params, req, runtime), new ModifyBlockStatusResponse({}));
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Pro.
+    *
+    * @param request ModifyBlockStatusRequest
+    * @return ModifyBlockStatusResponse
+   */
   async modifyBlockStatus(request: ModifyBlockStatusRequest): Promise<ModifyBlockStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBlockStatusWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Premium.
+    *
+    * @param request ModifyCnameReuseRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyCnameReuseResponse
+   */
   async modifyCnameReuseWithOptions(request: ModifyCnameReuseRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCnameReuseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19326,6 +21075,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCnameReuseResponse>(await this.callApi(params, req, runtime), new ModifyCnameReuseResponse({}));
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Premium.
+    *
+    * @param request ModifyCnameReuseRequest
+    * @return ModifyCnameReuseResponse
+   */
   async modifyCnameReuse(request: ModifyCnameReuseRequest): Promise<ModifyCnameReuseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCnameReuseWithOptions(request, runtime);
@@ -19380,6 +21135,13 @@ export default class Client extends OpenApi {
     return await this.modifyDomainResourceWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Pro.
+    *
+    * @param request ModifyElasticBandWidthRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyElasticBandWidthResponse
+   */
   async modifyElasticBandWidthWithOptions(request: ModifyElasticBandWidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyElasticBandWidthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19408,9 +21170,65 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyElasticBandWidthResponse>(await this.callApi(params, req, runtime), new ModifyElasticBandWidthResponse({}));
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Pro.
+    *
+    * @param request ModifyElasticBandWidthRequest
+    * @return ModifyElasticBandWidthResponse
+   */
   async modifyElasticBandWidth(request: ModifyElasticBandWidthRequest): Promise<ModifyElasticBandWidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyElasticBandWidthWithOptions(request, runtime);
+  }
+
+  /**
+    * Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+    *
+    * @param request ModifyElasticBizBandWidthRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyElasticBizBandWidthResponse
+   */
+  async modifyElasticBizBandWidthWithOptions(request: ModifyElasticBizBandWidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyElasticBizBandWidthResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.elasticBizBandwidth)) {
+      query["ElasticBizBandwidth"] = request.elasticBizBandwidth;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyElasticBizBandWidth",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyElasticBizBandWidthResponse>(await this.callApi(params, req, runtime), new ModifyElasticBizBandWidthResponse({}));
+  }
+
+  /**
+    * Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+    *
+    * @param request ModifyElasticBizBandWidthRequest
+    * @return ModifyElasticBizBandWidthResponse
+   */
+  async modifyElasticBizBandWidth(request: ModifyElasticBizBandWidthRequest): Promise<ModifyElasticBizBandWidthResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyElasticBizBandWidthWithOptions(request, runtime);
   }
 
   async modifyFullLogTtlWithOptions(request: ModifyFullLogTtlRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFullLogTtlResponse> {
@@ -19444,6 +21262,43 @@ export default class Client extends OpenApi {
   async modifyFullLogTtl(request: ModifyFullLogTtlRequest): Promise<ModifyFullLogTtlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyFullLogTtlWithOptions(request, runtime);
+  }
+
+  async modifyHeadersWithOptions(request: ModifyHeadersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHeadersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.customHeaders)) {
+      query["CustomHeaders"] = request.customHeaders;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyHeaders",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyHeadersResponse>(await this.callApi(params, req, runtime), new ModifyHeadersResponse({}));
+  }
+
+  async modifyHeaders(request: ModifyHeadersRequest): Promise<ModifyHeadersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyHeadersWithOptions(request, runtime);
   }
 
   async modifyHealthCheckConfigWithOptions(request: ModifyHealthCheckConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHealthCheckConfigResponse> {
@@ -19487,6 +21342,13 @@ export default class Client extends OpenApi {
     return await this.modifyHealthCheckConfigWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Pro.
+    *
+    * @param request ModifyHttp2EnableRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyHttp2EnableResponse
+   */
   async modifyHttp2EnableWithOptions(request: ModifyHttp2EnableRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHttp2EnableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19519,6 +21381,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyHttp2EnableResponse>(await this.callApi(params, req, runtime), new ModifyHttp2EnableResponse({}));
   }
 
+  /**
+    * > This operation is suitable only for Anti-DDoS Pro.
+    *
+    * @param request ModifyHttp2EnableRequest
+    * @return ModifyHttp2EnableResponse
+   */
   async modifyHttp2Enable(request: ModifyHttp2EnableRequest): Promise<ModifyHttp2EnableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHttp2EnableWithOptions(request, runtime);
@@ -19598,6 +21466,59 @@ export default class Client extends OpenApi {
     return await this.modifyNetworkRuleAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
+    *
+    * @param request ModifyOcspStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyOcspStatusResponse
+   */
+  async modifyOcspStatusWithOptions(request: ModifyOcspStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyOcspStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyOcspStatus",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyOcspStatusResponse>(await this.callApi(params, req, runtime), new ModifyOcspStatusResponse({}));
+  }
+
+  /**
+    * This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
+    *
+    * @param request ModifyOcspStatusRequest
+    * @return ModifyOcspStatusResponse
+   */
+  async modifyOcspStatus(request: ModifyOcspStatusRequest): Promise<ModifyOcspStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyOcspStatusWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+    *
+    * @param request ModifyPortRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyPortResponse
+   */
   async modifyPortWithOptions(request: ModifyPortRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPortResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19638,6 +21559,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPortResponse>(await this.callApi(params, req, runtime), new ModifyPortResponse({}));
   }
 
+  /**
+    * You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+    *
+    * @param request ModifyPortRequest
+    * @return ModifyPortResponse
+   */
   async modifyPort(request: ModifyPortRequest): Promise<ModifyPortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPortWithOptions(request, runtime);
@@ -19951,6 +21878,15 @@ export default class Client extends OpenApi {
     return await this.modifyWebAreaBlockWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyWebAreaBlockSwitchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyWebAreaBlockSwitchResponse
+   */
   async modifyWebAreaBlockSwitchWithOptions(request: ModifyWebAreaBlockSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebAreaBlockSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19983,6 +21919,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebAreaBlockSwitchResponse>(await this.callApi(params, req, runtime), new ModifyWebAreaBlockSwitchResponse({}));
   }
 
+  /**
+    * You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyWebAreaBlockSwitchRequest
+    * @return ModifyWebAreaBlockSwitchResponse
+   */
   async modifyWebAreaBlockSwitch(request: ModifyWebAreaBlockSwitchRequest): Promise<ModifyWebAreaBlockSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebAreaBlockSwitchWithOptions(request, runtime);
@@ -20123,6 +22067,15 @@ export default class Client extends OpenApi {
     return await this.modifyWebCacheModeWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyWebCacheSwitchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyWebCacheSwitchResponse
+   */
   async modifyWebCacheSwitchWithOptions(request: ModifyWebCacheSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebCacheSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20155,6 +22108,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebCacheSwitchResponse>(await this.callApi(params, req, runtime), new ModifyWebCacheSwitchResponse({}));
   }
 
+  /**
+    * You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyWebCacheSwitchRequest
+    * @return ModifyWebCacheSwitchResponse
+   */
   async modifyWebCacheSwitch(request: ModifyWebCacheSwitchRequest): Promise<ModifyWebCacheSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebCacheSwitchWithOptions(request, runtime);
@@ -20328,6 +22289,13 @@ export default class Client extends OpenApi {
     return await this.modifyWebRuleWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the request, which is used to locate and troubleshoot issues.
+    *
+    * @param request ReleaseInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReleaseInstanceResponse
+   */
   async releaseInstanceWithOptions(request: ReleaseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20352,11 +22320,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseInstanceResponse({}));
   }
 
+  /**
+    * The ID of the request, which is used to locate and troubleshoot issues.
+    *
+    * @param request ReleaseInstanceRequest
+    * @return ReleaseInstanceResponse
+   */
   async releaseInstance(request: ReleaseInstanceRequest): Promise<ReleaseInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
+    * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](~~157479~~) operation.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request SwitchSchedulerRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SwitchSchedulerRuleResponse
+   */
   async switchSchedulerRuleWithOptions(request: SwitchSchedulerRuleRequest, runtime: $Util.RuntimeOptions): Promise<SwitchSchedulerRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20389,6 +22373,15 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchSchedulerRuleResponse>(await this.callApi(params, req, runtime), new SwitchSchedulerRuleResponse({}));
   }
 
+  /**
+    * You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
+    * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](~~157479~~) operation.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request SwitchSchedulerRuleRequest
+    * @return SwitchSchedulerRuleResponse
+   */
   async switchSchedulerRule(request: SwitchSchedulerRuleRequest): Promise<SwitchSchedulerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchSchedulerRuleWithOptions(request, runtime);
