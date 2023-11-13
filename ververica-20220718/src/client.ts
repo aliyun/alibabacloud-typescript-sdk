@@ -547,10 +547,12 @@ export class JobMetric extends $tea.Model {
 
 export class JobStartParameters extends $tea.Model {
   deploymentId?: string;
+  resourceQueueName?: string;
   restoreStrategy?: DeploymentRestoreStrategy;
   static names(): { [key: string]: string } {
     return {
       deploymentId: 'deploymentId',
+      resourceQueueName: 'resourceQueueName',
       restoreStrategy: 'restoreStrategy',
     };
   }
@@ -558,6 +560,7 @@ export class JobStartParameters extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       deploymentId: 'string',
+      resourceQueueName: 'string',
       restoreStrategy: DeploymentRestoreStrategy,
     };
   }
