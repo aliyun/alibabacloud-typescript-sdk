@@ -8,6 +8,141 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CreateSavedQueryRequest extends $tea.Model {
+  description?: string;
+  expression?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      expression: 'Expression',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      expression: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSavedQueryResponseBody extends $tea.Model {
+  queryId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryId: 'QueryId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSavedQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateSavedQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSavedQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSavedQueryRequest extends $tea.Model {
+  queryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryId: 'QueryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSavedQueryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSavedQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteSavedQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSavedQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DisableMultiAccountResourceCenterResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -182,6 +317,216 @@ export class EnableResourceCenterResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: EnableResourceCenterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteMultiAccountSQLQueryRequest extends $tea.Model {
+  expression?: string;
+  scope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      scope: 'Scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      scope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteMultiAccountSQLQueryResponseBody extends $tea.Model {
+  columns?: ExecuteMultiAccountSQLQueryResponseBodyColumns[];
+  requestId?: string;
+  rows?: any[];
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'Columns',
+      requestId: 'RequestId',
+      rows: 'Rows',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': ExecuteMultiAccountSQLQueryResponseBodyColumns },
+      requestId: 'string',
+      rows: { 'type': 'array', 'itemType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteMultiAccountSQLQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ExecuteMultiAccountSQLQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteMultiAccountSQLQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSQLQueryRequest extends $tea.Model {
+  expression?: string;
+  scope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      scope: 'Scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      scope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSQLQueryResponseBody extends $tea.Model {
+  columns?: ExecuteSQLQueryResponseBodyColumns[];
+  requestId?: string;
+  rows?: any[];
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'Columns',
+      requestId: 'RequestId',
+      rows: 'Rows',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': ExecuteSQLQueryResponseBodyColumns },
+      requestId: 'string',
+      rows: { 'type': 'array', 'itemType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSQLQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ExecuteSQLQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteSQLQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetExampleQueryRequest extends $tea.Model {
+  queryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryId: 'QueryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetExampleQueryResponseBody extends $tea.Model {
+  exampleQuery?: GetExampleQueryResponseBodyExampleQuery;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exampleQuery: 'ExampleQuery',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exampleQuery: GetExampleQueryResponseBodyExampleQuery,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetExampleQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetExampleQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetExampleQueryResponseBody,
     };
   }
 
@@ -572,6 +917,147 @@ export class GetResourceCountsResponse extends $tea.Model {
   }
 }
 
+export class GetSavedQueryRequest extends $tea.Model {
+  queryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryId: 'QueryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSavedQueryResponseBody extends $tea.Model {
+  requestId?: string;
+  savedQuery?: GetSavedQueryResponseBodySavedQuery;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      savedQuery: 'SavedQuery',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      savedQuery: GetSavedQueryResponseBodySavedQuery,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSavedQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetSavedQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSavedQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExampleQueriesRequest extends $tea.Model {
+  maxResults?: string;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'string',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExampleQueriesResponseBody extends $tea.Model {
+  exampleQueries?: ListExampleQueriesResponseBodyExampleQueries[];
+  maxResults?: string;
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exampleQueries: 'ExampleQueries',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exampleQueries: { 'type': 'array', 'itemType': ListExampleQueriesResponseBodyExampleQueries },
+      maxResults: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExampleQueriesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListExampleQueriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListExampleQueriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMultiAccountResourceGroupsRequest extends $tea.Model {
   accountId?: string;
   maxResults?: number;
@@ -879,6 +1365,81 @@ export class ListResourceTypesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListResourceTypesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSavedQueriesRequest extends $tea.Model {
+  maxResults?: string;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'string',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSavedQueriesResponseBody extends $tea.Model {
+  maxResults?: string;
+  nextToken?: string;
+  requestId?: string;
+  savedQueries?: ListSavedQueriesResponseBodySavedQueries[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      savedQueries: 'SavedQueries',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      savedQueries: { 'type': 'array', 'itemType': ListSavedQueriesResponseBodySavedQueries },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSavedQueriesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSavedQueriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSavedQueriesResponseBody,
     };
   }
 
@@ -1223,6 +1784,150 @@ export class SearchResourcesResponse extends $tea.Model {
   }
 }
 
+export class UpdateSavedQueryRequest extends $tea.Model {
+  description?: string;
+  expression?: string;
+  name?: string;
+  queryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      expression: 'Expression',
+      name: 'Name',
+      queryId: 'QueryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      expression: 'string',
+      name: 'string',
+      queryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSavedQueryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSavedQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSavedQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSavedQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteMultiAccountSQLQueryResponseBodyColumns extends $tea.Model {
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSQLQueryResponseBodyColumns extends $tea.Model {
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetExampleQueryResponseBodyExampleQuery extends $tea.Model {
+  description?: string;
+  expression?: string;
+  name?: string;
+  queryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      expression: 'Expression',
+      name: 'Name',
+      queryId: 'QueryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      expression: 'string',
+      name: 'string',
+      queryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMultiAccountResourceConfigurationResponseBodyTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -1336,6 +2041,65 @@ export class GetResourceCountsResponseBodyResourceCounts extends $tea.Model {
   }
 }
 
+export class GetSavedQueryResponseBodySavedQuery extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  expression?: string;
+  name?: string;
+  queryId?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      expression: 'Expression',
+      name: 'Name',
+      queryId: 'QueryId',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      expression: 'string',
+      name: 'string',
+      queryId: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExampleQueriesResponseBodyExampleQueries extends $tea.Model {
+  description?: string;
+  name?: string;
+  queryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+      queryId: 'QueryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      queryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMultiAccountResourceGroupsResponseBodyResourceGroups extends $tea.Model {
   accountId?: string;
   createDate?: string;
@@ -1390,6 +2154,37 @@ export class ListResourceTypesResponseBodyResourceTypes extends $tea.Model {
       productName: 'string',
       resourceType: 'string',
       resourceTypeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSavedQueriesResponseBodySavedQueries extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  name?: string;
+  queryId?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      name: 'Name',
+      queryId: 'QueryId',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      name: 'string',
+      queryId: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -1470,6 +2265,31 @@ export class SearchMultiAccountResourcesResponseBodyFilters extends $tea.Model {
   }
 }
 
+export class SearchMultiAccountResourcesResponseBodyResourcesIpAddressAttributes extends $tea.Model {
+  ipAddress?: string[];
+  networkType?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+      networkType: 'NetworkType',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: { 'type': 'array', 'itemType': 'string' },
+      networkType: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchMultiAccountResourcesResponseBodyResourcesTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -1495,6 +2315,8 @@ export class SearchMultiAccountResourcesResponseBodyResourcesTags extends $tea.M
 export class SearchMultiAccountResourcesResponseBodyResources extends $tea.Model {
   accountId?: string;
   createTime?: string;
+  expireTime?: string;
+  ipAddressAttributes?: SearchMultiAccountResourcesResponseBodyResourcesIpAddressAttributes[];
   ipAddresses?: string[];
   regionId?: string;
   resourceGroupId?: string;
@@ -1507,6 +2329,8 @@ export class SearchMultiAccountResourcesResponseBodyResources extends $tea.Model
     return {
       accountId: 'AccountId',
       createTime: 'CreateTime',
+      expireTime: 'ExpireTime',
+      ipAddressAttributes: 'IpAddressAttributes',
       ipAddresses: 'IpAddresses',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -1522,6 +2346,8 @@ export class SearchMultiAccountResourcesResponseBodyResources extends $tea.Model
     return {
       accountId: 'string',
       createTime: 'string',
+      expireTime: 'string',
+      ipAddressAttributes: { 'type': 'array', 'itemType': SearchMultiAccountResourcesResponseBodyResourcesIpAddressAttributes },
       ipAddresses: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       resourceGroupId: 'string',
@@ -1610,6 +2436,31 @@ export class SearchResourcesResponseBodyFilters extends $tea.Model {
   }
 }
 
+export class SearchResourcesResponseBodyResourcesIpAddressAttributes extends $tea.Model {
+  ipAddress?: string[];
+  networkType?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+      networkType: 'NetworkType',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: { 'type': 'array', 'itemType': 'string' },
+      networkType: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchResourcesResponseBodyResourcesTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -1635,6 +2486,8 @@ export class SearchResourcesResponseBodyResourcesTags extends $tea.Model {
 export class SearchResourcesResponseBodyResources extends $tea.Model {
   accountId?: string;
   createTime?: string;
+  expireTime?: string;
+  ipAddressAttributes?: SearchResourcesResponseBodyResourcesIpAddressAttributes[];
   ipAddresses?: string[];
   regionId?: string;
   resourceGroupId?: string;
@@ -1647,6 +2500,8 @@ export class SearchResourcesResponseBodyResources extends $tea.Model {
     return {
       accountId: 'AccountId',
       createTime: 'CreateTime',
+      expireTime: 'ExpireTime',
+      ipAddressAttributes: 'IpAddressAttributes',
       ipAddresses: 'IpAddresses',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -1662,6 +2517,8 @@ export class SearchResourcesResponseBodyResources extends $tea.Model {
     return {
       accountId: 'string',
       createTime: 'string',
+      expireTime: 'string',
+      ipAddressAttributes: { 'type': 'array', 'itemType': SearchResourcesResponseBodyResourcesIpAddressAttributes },
       ipAddresses: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       resourceGroupId: 'string',
@@ -1699,6 +2556,72 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async createSavedQueryWithOptions(request: CreateSavedQueryRequest, runtime: $Util.RuntimeOptions): Promise<CreateSavedQueryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.expression)) {
+      query["Expression"] = request.expression;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSavedQuery",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSavedQueryResponse>(await this.callApi(params, req, runtime), new CreateSavedQueryResponse({}));
+  }
+
+  async createSavedQuery(request: CreateSavedQueryRequest): Promise<CreateSavedQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSavedQueryWithOptions(request, runtime);
+  }
+
+  async deleteSavedQueryWithOptions(request: DeleteSavedQueryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSavedQueryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.queryId)) {
+      query["QueryId"] = request.queryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSavedQuery",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSavedQueryResponse>(await this.callApi(params, req, runtime), new DeleteSavedQueryResponse({}));
+  }
+
+  async deleteSavedQuery(request: DeleteSavedQueryRequest): Promise<DeleteSavedQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSavedQueryWithOptions(request, runtime);
   }
 
   async disableMultiAccountResourceCenterWithOptions(runtime: $Util.RuntimeOptions): Promise<DisableMultiAccountResourceCenterResponse> {
@@ -1795,6 +2718,101 @@ export default class Client extends OpenApi {
   async enableResourceCenter(): Promise<EnableResourceCenterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableResourceCenterWithOptions(runtime);
+  }
+
+  async executeMultiAccountSQLQueryWithOptions(request: ExecuteMultiAccountSQLQueryRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteMultiAccountSQLQueryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.expression)) {
+      query["Expression"] = request.expression;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteMultiAccountSQLQuery",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteMultiAccountSQLQueryResponse>(await this.callApi(params, req, runtime), new ExecuteMultiAccountSQLQueryResponse({}));
+  }
+
+  async executeMultiAccountSQLQuery(request: ExecuteMultiAccountSQLQueryRequest): Promise<ExecuteMultiAccountSQLQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.executeMultiAccountSQLQueryWithOptions(request, runtime);
+  }
+
+  async executeSQLQueryWithOptions(request: ExecuteSQLQueryRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteSQLQueryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.expression)) {
+      query["Expression"] = request.expression;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteSQLQuery",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteSQLQueryResponse>(await this.callApi(params, req, runtime), new ExecuteSQLQueryResponse({}));
+  }
+
+  async executeSQLQuery(request: ExecuteSQLQueryRequest): Promise<ExecuteSQLQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.executeSQLQueryWithOptions(request, runtime);
+  }
+
+  async getExampleQueryWithOptions(request: GetExampleQueryRequest, runtime: $Util.RuntimeOptions): Promise<GetExampleQueryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.queryId)) {
+      query["QueryId"] = request.queryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetExampleQuery",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetExampleQueryResponse>(await this.callApi(params, req, runtime), new GetExampleQueryResponse({}));
+  }
+
+  async getExampleQuery(request: GetExampleQueryRequest): Promise<GetExampleQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getExampleQueryWithOptions(request, runtime);
   }
 
   async getMultiAccountResourceCenterServiceStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<GetMultiAccountResourceCenterServiceStatusResponse> {
@@ -1948,6 +2966,68 @@ export default class Client extends OpenApi {
   async getResourceCounts(request: GetResourceCountsRequest): Promise<GetResourceCountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResourceCountsWithOptions(request, runtime);
+  }
+
+  async getSavedQueryWithOptions(request: GetSavedQueryRequest, runtime: $Util.RuntimeOptions): Promise<GetSavedQueryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.queryId)) {
+      query["QueryId"] = request.queryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSavedQuery",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSavedQueryResponse>(await this.callApi(params, req, runtime), new GetSavedQueryResponse({}));
+  }
+
+  async getSavedQuery(request: GetSavedQueryRequest): Promise<GetSavedQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSavedQueryWithOptions(request, runtime);
+  }
+
+  async listExampleQueriesWithOptions(request: ListExampleQueriesRequest, runtime: $Util.RuntimeOptions): Promise<ListExampleQueriesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListExampleQueries",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListExampleQueriesResponse>(await this.callApi(params, req, runtime), new ListExampleQueriesResponse({}));
+  }
+
+  async listExampleQueries(request: ListExampleQueriesRequest): Promise<ListExampleQueriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listExampleQueriesWithOptions(request, runtime);
   }
 
   async listMultiAccountResourceGroupsWithOptions(request: ListMultiAccountResourceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListMultiAccountResourceGroupsResponse> {
@@ -2122,6 +3202,39 @@ export default class Client extends OpenApi {
     return await this.listResourceTypesWithOptions(request, runtime);
   }
 
+  async listSavedQueriesWithOptions(request: ListSavedQueriesRequest, runtime: $Util.RuntimeOptions): Promise<ListSavedQueriesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSavedQueries",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSavedQueriesResponse>(await this.callApi(params, req, runtime), new ListSavedQueriesResponse({}));
+  }
+
+  async listSavedQueries(request: ListSavedQueriesRequest): Promise<ListSavedQueriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSavedQueriesWithOptions(request, runtime);
+  }
+
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2208,6 +3321,18 @@ export default class Client extends OpenApi {
     return await this.listTagValuesWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
+    * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](~~600556~~).
+    * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+    * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+    * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+    * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
+    *
+    * @param request SearchMultiAccountResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SearchMultiAccountResourcesResponse
+   */
   async searchMultiAccountResourcesWithOptions(request: SearchMultiAccountResourcesRequest, runtime: $Util.RuntimeOptions): Promise<SearchMultiAccountResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2248,11 +3373,33 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchMultiAccountResourcesResponse>(await this.callApi(params, req, runtime), new SearchMultiAccountResourcesResponse({}));
   }
 
+  /**
+    * *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
+    * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](~~600556~~).
+    * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+    * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+    * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+    * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
+    *
+    * @param request SearchMultiAccountResourcesRequest
+    * @return SearchMultiAccountResourcesResponse
+   */
   async searchMultiAccountResources(request: SearchMultiAccountResourcesRequest): Promise<SearchMultiAccountResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchMultiAccountResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
+    * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+    * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+    * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+    * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
+    *
+    * @param request SearchResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SearchResourcesResponse
+   */
   async searchResourcesWithOptions(request: SearchResourcesRequest, runtime: $Util.RuntimeOptions): Promise<SearchResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2293,9 +3440,60 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchResourcesResponse>(await this.callApi(params, req, runtime), new SearchResourcesResponse({}));
   }
 
+  /**
+    * *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
+    * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+    * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+    * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+    * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
+    *
+    * @param request SearchResourcesRequest
+    * @return SearchResourcesResponse
+   */
   async searchResources(request: SearchResourcesRequest): Promise<SearchResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchResourcesWithOptions(request, runtime);
+  }
+
+  async updateSavedQueryWithOptions(request: UpdateSavedQueryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSavedQueryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.expression)) {
+      query["Expression"] = request.expression;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.queryId)) {
+      query["QueryId"] = request.queryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSavedQuery",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSavedQueryResponse>(await this.callApi(params, req, runtime), new UpdateSavedQueryResponse({}));
+  }
+
+  async updateSavedQuery(request: UpdateSavedQueryRequest): Promise<UpdateSavedQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSavedQueryWithOptions(request, runtime);
   }
 
 }
