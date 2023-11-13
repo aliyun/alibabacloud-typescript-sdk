@@ -5859,10 +5859,12 @@ export class DeleteEnvServiceMonitorResponse extends $tea.Model {
 }
 
 export class DeleteEnvironmentRequest extends $tea.Model {
+  deletePromInstance?: boolean;
   environmentId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      deletePromInstance: 'DeletePromInstance',
       environmentId: 'EnvironmentId',
       regionId: 'RegionId',
     };
@@ -5870,6 +5872,7 @@ export class DeleteEnvironmentRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deletePromInstance: 'boolean',
       environmentId: 'string',
       regionId: 'string',
     };
@@ -9044,6 +9047,75 @@ export class GetClusterAllUrlResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetClusterAllUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCommercialStatusRequest extends $tea.Model {
+  commodityCode?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCommercialStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  userAndCommodityStatus?: GetCommercialStatusResponseBodyUserAndCommodityStatus;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userAndCommodityStatus: 'UserAndCommodityStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userAndCommodityStatus: GetCommercialStatusResponseBodyUserAndCommodityStatus,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCommercialStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCommercialStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCommercialStatusResponseBody,
     };
   }
 
@@ -23093,6 +23165,43 @@ export class GetCloudClusterAllUrlResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetCommercialStatusResponseBodyUserAndCommodityStatus extends $tea.Model {
+  basic?: boolean;
+  chargeType?: string;
+  enable?: boolean;
+  extraInfo?: { [key: string]: any };
+  freeDays?: number;
+  lable?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      basic: 'Basic',
+      chargeType: 'ChargeType',
+      enable: 'Enable',
+      extraInfo: 'ExtraInfo',
+      freeDays: 'FreeDays',
+      lable: 'Lable',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basic: 'boolean',
+      chargeType: 'string',
+      enable: 'boolean',
+      extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      freeDays: 'number',
+      lable: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMultipleTraceResponseBodyMultiCallChainInfosSpansLogEventListTagEntryList extends $tea.Model {
   key?: string;
   value?: string;
@@ -33506,6 +33615,10 @@ export default class Client extends OpenApi {
   async deleteEnvironmentWithOptions(request: DeleteEnvironmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnvironmentResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.deletePromInstance)) {
+      query["DeletePromInstance"] = request.deletePromInstance;
+    }
+
     if (!Util.isUnset(request.environmentId)) {
       query["EnvironmentId"] = request.environmentId;
     }
@@ -35016,6 +35129,39 @@ export default class Client extends OpenApi {
   async getClusterAllUrl(request: GetClusterAllUrlRequest): Promise<GetClusterAllUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClusterAllUrlWithOptions(request, runtime);
+  }
+
+  async getCommercialStatusWithOptions(request: GetCommercialStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetCommercialStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCommercialStatus",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCommercialStatusResponse>(await this.callApi(params, req, runtime), new GetCommercialStatusResponse({}));
+  }
+
+  async getCommercialStatus(request: GetCommercialStatusRequest): Promise<GetCommercialStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCommercialStatusWithOptions(request, runtime);
   }
 
   async getExploreUrlWithOptions(request: GetExploreUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetExploreUrlResponse> {
