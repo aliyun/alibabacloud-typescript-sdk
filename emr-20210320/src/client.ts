@@ -1576,6 +1576,7 @@ export class Node extends $tea.Model {
 
 export class NodeAttributes extends $tea.Model {
   keyPairName?: string;
+  masterRootPassword?: string;
   ramRole?: string;
   securityGroupId?: string;
   vpcId?: string;
@@ -1583,6 +1584,7 @@ export class NodeAttributes extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       keyPairName: 'KeyPairName',
+      masterRootPassword: 'MasterRootPassword',
       ramRole: 'RamRole',
       securityGroupId: 'SecurityGroupId',
       vpcId: 'VpcId',
@@ -1593,6 +1595,7 @@ export class NodeAttributes extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       keyPairName: 'string',
+      masterRootPassword: 'string',
       ramRole: 'string',
       securityGroupId: 'string',
       vpcId: 'string',
