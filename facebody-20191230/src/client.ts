@@ -1080,6 +1080,91 @@ export class CreateFaceDbResponse extends $tea.Model {
   }
 }
 
+export class DeepfakeFaceRequest extends $tea.Model {
+  tasks?: DeepfakeFaceRequestTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tasks: { 'type': 'array', 'itemType': DeepfakeFaceRequestTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeepfakeFaceAdvanceRequest extends $tea.Model {
+  tasks?: DeepfakeFaceAdvanceRequestTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tasks: { 'type': 'array', 'itemType': DeepfakeFaceAdvanceRequestTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeepfakeFaceResponseBody extends $tea.Model {
+  data?: DeepfakeFaceResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DeepfakeFaceResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeepfakeFaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeepfakeFaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeepfakeFaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteFaceRequest extends $tea.Model {
   dbName?: string;
   faceId?: string;
@@ -5680,6 +5765,153 @@ export class CompareFaceWithMaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class DeepfakeFaceRequestTasks extends $tea.Model {
+  imageData?: string;
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageData: 'ImageData',
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageData: 'string',
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeepfakeFaceAdvanceRequestTasks extends $tea.Model {
+  imageData?: string;
+  imageURLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageData: 'ImageData',
+      imageURLObject: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageData: 'string',
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeepfakeFaceResponseBodyDataElementsResultsRect extends $tea.Model {
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeepfakeFaceResponseBodyDataElementsResults extends $tea.Model {
+  confidence?: number;
+  label?: string;
+  messageTips?: string;
+  rect?: DeepfakeFaceResponseBodyDataElementsResultsRect;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      label: 'Label',
+      messageTips: 'MessageTips',
+      rect: 'Rect',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      label: 'string',
+      messageTips: 'string',
+      rect: DeepfakeFaceResponseBodyDataElementsResultsRect,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeepfakeFaceResponseBodyDataElements extends $tea.Model {
+  faceNumber?: number;
+  imageURL?: string;
+  results?: DeepfakeFaceResponseBodyDataElementsResults[];
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      faceNumber: 'FaceNumber',
+      imageURL: 'ImageURL',
+      results: 'Results',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceNumber: 'number',
+      imageURL: 'string',
+      results: { 'type': 'array', 'itemType': DeepfakeFaceResponseBodyDataElementsResults },
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeepfakeFaceResponseBodyData extends $tea.Model {
+  elements?: DeepfakeFaceResponseBodyDataElements[];
+  static names(): { [key: string]: string } {
+    return {
+      elements: 'Elements',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elements: { 'type': 'array', 'itemType': DeepfakeFaceResponseBodyDataElements },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectBodyCountResponseBodyData extends $tea.Model {
   personNumber?: number;
   static names(): { [key: string]: string } {
@@ -9613,6 +9845,118 @@ export default class Client extends OpenApi {
   async createFaceDb(request: CreateFaceDbRequest): Promise<CreateFaceDbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFaceDbWithOptions(request, runtime);
+  }
+
+  async deepfakeFaceWithOptions(request: DeepfakeFaceRequest, runtime: $Util.RuntimeOptions): Promise<DeepfakeFaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tasks)) {
+      body["Tasks"] = request.tasks;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeepfakeFace",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeepfakeFaceResponse>(await this.callApi(params, req, runtime), new DeepfakeFaceResponse({}));
+  }
+
+  async deepfakeFace(request: DeepfakeFaceRequest): Promise<DeepfakeFaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deepfakeFaceWithOptions(request, runtime);
+  }
+
+  async deepfakeFaceAdvance(request: DeepfakeFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DeepfakeFaceResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let deepfakeFaceReq = new DeepfakeFaceRequest({ });
+    OpenApiUtil.convert(request, deepfakeFaceReq);
+    if (!Util.isUnset(request.tasks)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.tasks) {
+        if (!Util.isUnset(item0.imageURLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.imageURLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : DeepfakeFaceRequestTasks = deepfakeFaceReq.tasks[i0];
+          tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let deepfakeFaceResp = await this.deepfakeFaceWithOptions(deepfakeFaceReq, runtime);
+    return deepfakeFaceResp;
   }
 
   async deleteFaceWithOptions(request: DeleteFaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceResponse> {
