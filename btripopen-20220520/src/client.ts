@@ -19507,6 +19507,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
   hotelNormalInvoiceFee?: string;
   hotelSpecialInvoiceFee?: string;
   internationalFlightInvoiceFee?: string;
+  internationalHotelInvoiceFee?: string;
   invoiceThirdPartId?: string;
   mailAddress?: string;
   mailCity?: string;
@@ -19527,6 +19528,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
       hotelNormalInvoiceFee: 'hotel_normal_invoice_fee',
       hotelSpecialInvoiceFee: 'hotel_special_invoice_fee',
       internationalFlightInvoiceFee: 'international_flight_invoice_fee',
+      internationalHotelInvoiceFee: 'international_hotel_invoice_fee',
       invoiceThirdPartId: 'invoice_third_part_id',
       mailAddress: 'mail_address',
       mailCity: 'mail_city',
@@ -19550,6 +19552,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
       hotelNormalInvoiceFee: 'string',
       hotelSpecialInvoiceFee: 'string',
       internationalFlightInvoiceFee: 'string',
+      internationalHotelInvoiceFee: 'string',
       invoiceThirdPartId: 'string',
       mailAddress: 'string',
       mailCity: 'string',
@@ -43794,6 +43797,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $tea.Mode
   hotelNormalInvoiceFee?: string;
   hotelSpecialInvoiceFee?: string;
   internationalFlightInvoiceFee?: string;
+  internationalHotelInvoiceFee?: string;
   invoiceThirdPartId?: string;
   invoiceTitle?: string;
   mailAddress?: string;
@@ -43815,6 +43819,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $tea.Mode
       hotelNormalInvoiceFee: 'hotel_normal_invoice_fee',
       hotelSpecialInvoiceFee: 'hotel_special_invoice_fee',
       internationalFlightInvoiceFee: 'international_flight_invoice_fee',
+      internationalHotelInvoiceFee: 'international_hotel_invoice_fee',
       invoiceThirdPartId: 'invoice_third_part_id',
       invoiceTitle: 'invoice_title',
       mailAddress: 'mail_address',
@@ -43839,6 +43844,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $tea.Mode
       hotelNormalInvoiceFee: 'string',
       hotelSpecialInvoiceFee: 'string',
       internationalFlightInvoiceFee: 'string',
+      internationalHotelInvoiceFee: 'string',
       invoiceThirdPartId: 'string',
       invoiceTitle: 'string',
       mailAddress: 'string',
