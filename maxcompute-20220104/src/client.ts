@@ -1348,11 +1348,13 @@ export class ListFunctionsRequest extends $tea.Model {
   marker?: string;
   maxItem?: number;
   prefix?: string;
+  schemaName?: string;
   static names(): { [key: string]: string } {
     return {
       marker: 'marker',
       maxItem: 'maxItem',
       prefix: 'prefix',
+      schemaName: 'schemaName',
     };
   }
 
@@ -1361,6 +1363,7 @@ export class ListFunctionsRequest extends $tea.Model {
       marker: 'string',
       maxItem: 'number',
       prefix: 'string',
+      schemaName: 'string',
     };
   }
 
@@ -1511,6 +1514,7 @@ export class ListProjectUsersResponse extends $tea.Model {
 }
 
 export class ListProjectsRequest extends $tea.Model {
+  listSystemCatalog?: boolean;
   marker?: string;
   maxItem?: number;
   prefix?: string;
@@ -1522,6 +1526,7 @@ export class ListProjectsRequest extends $tea.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      listSystemCatalog: 'listSystemCatalog',
       marker: 'marker',
       maxItem: 'maxItem',
       prefix: 'prefix',
@@ -1536,6 +1541,7 @@ export class ListProjectsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      listSystemCatalog: 'boolean',
       marker: 'string',
       maxItem: 'number',
       prefix: 'string',
@@ -1769,11 +1775,13 @@ export class ListResourcesRequest extends $tea.Model {
   marker?: string;
   maxItem?: number;
   name?: string;
+  schemaName?: string;
   static names(): { [key: string]: string } {
     return {
       marker: 'marker',
       maxItem: 'maxItem',
       name: 'name',
+      schemaName: 'schemaName',
     };
   }
 
@@ -1782,6 +1790,7 @@ export class ListResourcesRequest extends $tea.Model {
       marker: 'string',
       maxItem: 'number',
       name: 'string',
+      schemaName: 'string',
     };
   }
 
@@ -1888,12 +1897,14 @@ export class ListTablesRequest extends $tea.Model {
   marker?: string;
   maxItem?: number;
   prefix?: string;
+  schemaName?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       marker: 'marker',
       maxItem: 'maxItem',
       prefix: 'prefix',
+      schemaName: 'schemaName',
       type: 'type',
     };
   }
@@ -1903,6 +1914,7 @@ export class ListTablesRequest extends $tea.Model {
       marker: 'string',
       maxItem: 'number',
       prefix: 'string',
+      schemaName: 'string',
       type: 'string',
     };
   }
@@ -4087,6 +4099,7 @@ export class GetRunningJobsResponseBodyData extends $tea.Model {
 export class ListFunctionsResponseBodyDataFunctions extends $tea.Model {
   class?: string;
   creationTime?: number;
+  displayName?: string;
   name?: string;
   owner?: string;
   resources?: string;
@@ -4095,6 +4108,7 @@ export class ListFunctionsResponseBodyDataFunctions extends $tea.Model {
     return {
       class: 'class',
       creationTime: 'creationTime',
+      displayName: 'displayName',
       name: 'name',
       owner: 'owner',
       resources: 'resources',
@@ -4106,6 +4120,7 @@ export class ListFunctionsResponseBodyDataFunctions extends $tea.Model {
     return {
       class: 'string',
       creationTime: 'number',
+      displayName: 'string',
       name: 'string',
       owner: 'string',
       resources: 'string',
@@ -4483,6 +4498,7 @@ export class ListProjectsResponseBodyDataProjects extends $tea.Model {
   saleTag?: ListProjectsResponseBodyDataProjectsSaleTag;
   securityProperties?: ListProjectsResponseBodyDataProjectsSecurityProperties;
   status?: string;
+  threeTierModel?: boolean;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4497,6 +4513,7 @@ export class ListProjectsResponseBodyDataProjects extends $tea.Model {
       saleTag: 'saleTag',
       securityProperties: 'securityProperties',
       status: 'status',
+      threeTierModel: 'threeTierModel',
       type: 'type',
     };
   }
@@ -4514,6 +4531,7 @@ export class ListProjectsResponseBodyDataProjects extends $tea.Model {
       saleTag: ListProjectsResponseBodyDataProjectsSaleTag,
       securityProperties: ListProjectsResponseBodyDataProjectsSecurityProperties,
       status: 'string',
+      threeTierModel: 'boolean',
       type: 'string',
     };
   }
@@ -5551,27 +5569,45 @@ export class ListQuotasPlansResponseBodyData extends $tea.Model {
 }
 
 export class ListResourcesResponseBodyDataResources extends $tea.Model {
+  comment?: string;
+  contentMD5?: string;
   creationTime?: number;
+  displayName?: string;
+  lastModifiedTime?: number;
+  lastUpdator?: string;
   name?: string;
   owner?: string;
   schema?: string;
+  size?: number;
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      comment: 'comment',
+      contentMD5: 'contentMD5',
       creationTime: 'creationTime',
+      displayName: 'displayName',
+      lastModifiedTime: 'lastModifiedTime',
+      lastUpdator: 'lastUpdator',
       name: 'name',
       owner: 'owner',
       schema: 'schema',
+      size: 'size',
       type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      comment: 'string',
+      contentMD5: 'string',
       creationTime: 'number',
+      displayName: 'string',
+      lastModifiedTime: 'number',
+      lastUpdator: 'string',
       name: 'string',
       owner: 'string',
       schema: 'string',
+      size: 'number',
       type: 'string',
     };
   }
@@ -5819,29 +5855,166 @@ export class ListRolesResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListTablesResponseBodyDataTables extends $tea.Model {
-  creationTime?: number;
+export class ListTablesResponseBodyDataTablesNativeColumns extends $tea.Model {
+  comment?: string;
+  label?: string;
   name?: string;
-  owner?: string;
-  schema?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
-      creationTime: 'creationTime',
+      comment: 'comment',
+      label: 'label',
       name: 'name',
-      owner: 'owner',
-      schema: 'schema',
       type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      creationTime: 'number',
+      comment: 'string',
+      label: 'string',
       name: 'string',
-      owner: 'string',
-      schema: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesResponseBodyDataTablesPartitionColumns extends $tea.Model {
+  comment?: string;
+  label?: string;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'comment',
+      label: 'label',
+      name: 'name',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      label: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesResponseBodyDataTables extends $tea.Model {
+  autoRefreshEnabled?: boolean;
+  createTableDDL?: string;
+  creationTime?: number;
+  displayName?: string;
+  fileNum?: number;
+  isExternalTable?: boolean;
+  isOutdated?: boolean;
+  lastAccessTime?: number;
+  lastDDLTime?: number;
+  lastModifiedTime?: number;
+  lifecycle?: string;
+  location?: string;
+  materializedView?: boolean;
+  name?: string;
+  nativeColumns?: ListTablesResponseBodyDataTablesNativeColumns[];
+  odpsPropertiesRolearn?: string;
+  odpsSqlTextOptionFlushHeader?: boolean;
+  odpsTextOptionHeaderLinesCount?: number;
+  owner?: string;
+  partitionColumns?: ListTablesResponseBodyDataTablesPartitionColumns[];
+  physicalSize?: number;
+  projectName?: string;
+  rewriteEnabled?: boolean;
+  schema?: string;
+  size?: number;
+  storageHandler?: string;
+  tableComment?: string;
+  tableLabel?: string;
+  tablesotreTableName?: string;
+  tablestoreColumnsMapping?: string;
+  type?: string;
+  viewText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRefreshEnabled: 'autoRefreshEnabled',
+      createTableDDL: 'createTableDDL',
+      creationTime: 'creationTime',
+      displayName: 'displayName',
+      fileNum: 'fileNum',
+      isExternalTable: 'isExternalTable',
+      isOutdated: 'isOutdated',
+      lastAccessTime: 'lastAccessTime',
+      lastDDLTime: 'lastDDLTime',
+      lastModifiedTime: 'lastModifiedTime',
+      lifecycle: 'lifecycle',
+      location: 'location',
+      materializedView: 'materializedView',
+      name: 'name',
+      nativeColumns: 'nativeColumns',
+      odpsPropertiesRolearn: 'odpsPropertiesRolearn',
+      odpsSqlTextOptionFlushHeader: 'odpsSqlTextOptionFlushHeader',
+      odpsTextOptionHeaderLinesCount: 'odpsTextOptionHeaderLinesCount',
+      owner: 'owner',
+      partitionColumns: 'partitionColumns',
+      physicalSize: 'physicalSize',
+      projectName: 'projectName',
+      rewriteEnabled: 'rewriteEnabled',
+      schema: 'schema',
+      size: 'size',
+      storageHandler: 'storageHandler',
+      tableComment: 'tableComment',
+      tableLabel: 'tableLabel',
+      tablesotreTableName: 'tablesotreTableName',
+      tablestoreColumnsMapping: 'tablestoreColumnsMapping',
+      type: 'type',
+      viewText: 'viewText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRefreshEnabled: 'boolean',
+      createTableDDL: 'string',
+      creationTime: 'number',
+      displayName: 'string',
+      fileNum: 'number',
+      isExternalTable: 'boolean',
+      isOutdated: 'boolean',
+      lastAccessTime: 'number',
+      lastDDLTime: 'number',
+      lastModifiedTime: 'number',
+      lifecycle: 'string',
+      location: 'string',
+      materializedView: 'boolean',
+      name: 'string',
+      nativeColumns: { 'type': 'array', 'itemType': ListTablesResponseBodyDataTablesNativeColumns },
+      odpsPropertiesRolearn: 'string',
+      odpsSqlTextOptionFlushHeader: 'boolean',
+      odpsTextOptionHeaderLinesCount: 'number',
+      owner: 'string',
+      partitionColumns: { 'type': 'array', 'itemType': ListTablesResponseBodyDataTablesPartitionColumns },
+      physicalSize: 'number',
+      projectName: 'string',
+      rewriteEnabled: 'boolean',
+      schema: 'string',
+      size: 'number',
+      storageHandler: 'string',
+      tableComment: 'string',
+      tableLabel: 'string',
+      tablesotreTableName: 'string',
+      tablestoreColumnsMapping: 'string',
+      type: 'string',
+      viewText: 'string',
     };
   }
 
@@ -6690,6 +6863,10 @@ export default class Client extends OpenApi {
       query["prefix"] = request.prefix;
     }
 
+    if (!Util.isUnset(request.schemaName)) {
+      query["schemaName"] = request.schemaName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -6765,6 +6942,10 @@ export default class Client extends OpenApi {
   async listProjectsWithOptions(request: ListProjectsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.listSystemCatalog)) {
+      query["listSystemCatalog"] = request.listSystemCatalog;
+    }
+
     if (!Util.isUnset(request.marker)) {
       query["marker"] = request.marker;
     }
@@ -6930,6 +7111,10 @@ export default class Client extends OpenApi {
       query["name"] = request.name;
     }
 
+    if (!Util.isUnset(request.schemaName)) {
+      query["schemaName"] = request.schemaName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -6991,6 +7176,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.prefix)) {
       query["prefix"] = request.prefix;
+    }
+
+    if (!Util.isUnset(request.schemaName)) {
+      query["schemaName"] = request.schemaName;
     }
 
     if (!Util.isUnset(request.type)) {
