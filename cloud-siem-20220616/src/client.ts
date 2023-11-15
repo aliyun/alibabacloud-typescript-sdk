@@ -1011,6 +1011,111 @@ export class DescribeAlertTypeResponse extends $tea.Model {
   }
 }
 
+export class DescribeAlertsRequest extends $tea.Model {
+  alertTitle?: string;
+  alertUuid?: string;
+  currentPage?: number;
+  endTime?: number;
+  isDefend?: string;
+  level?: string[];
+  pageSize?: number;
+  regionId?: string;
+  source?: string;
+  startTime?: number;
+  subUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertTitle: 'AlertTitle',
+      alertUuid: 'AlertUuid',
+      currentPage: 'CurrentPage',
+      endTime: 'EndTime',
+      isDefend: 'IsDefend',
+      level: 'Level',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      source: 'Source',
+      startTime: 'StartTime',
+      subUserId: 'SubUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertTitle: 'string',
+      alertUuid: 'string',
+      currentPage: 'number',
+      endTime: 'number',
+      isDefend: 'string',
+      level: { 'type': 'array', 'itemType': 'string' },
+      pageSize: 'number',
+      regionId: 'string',
+      source: 'string',
+      startTime: 'number',
+      subUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeAlertsResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeAlertsResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAlertsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAlertsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAlertsCountRequest extends $tea.Model {
   endTime?: number;
   regionId?: string;
@@ -1084,6 +1189,195 @@ export class DescribeAlertsCountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAlertsCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEntityRequest extends $tea.Model {
+  currentPage?: number;
+  entityId?: number;
+  incidentUuid?: string;
+  pageSize?: number;
+  regionId?: string;
+  sophonTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      entityId: 'EntityId',
+      incidentUuid: 'IncidentUuid',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      sophonTaskId: 'SophonTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      entityId: 'number',
+      incidentUuid: 'string',
+      pageSize: 'number',
+      regionId: 'string',
+      sophonTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEntityResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeAlertsWithEntityResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeAlertsWithEntityResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEntityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAlertsWithEntityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAlertsWithEntityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEventRequest extends $tea.Model {
+  alertTitle?: string;
+  currentPage?: number;
+  incidentUuid?: string;
+  isDefend?: string;
+  level?: string[];
+  pageSize?: number;
+  regionId?: string;
+  source?: string;
+  subUserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertTitle: 'AlertTitle',
+      currentPage: 'CurrentPage',
+      incidentUuid: 'IncidentUuid',
+      isDefend: 'IsDefend',
+      level: 'Level',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      source: 'Source',
+      subUserId: 'SubUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertTitle: 'string',
+      currentPage: 'number',
+      incidentUuid: 'string',
+      isDefend: 'string',
+      level: { 'type': 'array', 'itemType': 'string' },
+      pageSize: 'number',
+      regionId: 'string',
+      source: 'string',
+      subUserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEventResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeAlertsWithEventResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeAlertsWithEventResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEventResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAlertsWithEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAlertsWithEventResponseBody,
     };
   }
 
@@ -6243,6 +6537,190 @@ export class DescribeAlertTypeResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeAlertsResponseBodyDataPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsResponseBodyDataResponseDataAlertInfoList extends $tea.Model {
+  key?: string;
+  keyName?: string;
+  values?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      keyName: 'KeyName',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      keyName: 'string',
+      values: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsResponseBodyDataResponseData extends $tea.Model {
+  alertDesc?: string;
+  alertDescCode?: string;
+  alertDescEn?: string;
+  alertDetail?: string;
+  alertInfoList?: DescribeAlertsResponseBodyDataResponseDataAlertInfoList[];
+  alertLevel?: string;
+  alertName?: string;
+  alertNameCode?: string;
+  alertNameEn?: string;
+  alertSrcProd?: string;
+  alertSrcProdModule?: string;
+  alertTitle?: string;
+  alertTitleEn?: string;
+  alertType?: string;
+  alertTypeCode?: string;
+  alertTypeEn?: string;
+  alertUuid?: string;
+  assetList?: string;
+  attCk?: string;
+  cloudCode?: string;
+  endTime?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  incidentUuid?: string;
+  isDefend?: string;
+  logTime?: string;
+  logUuid?: string;
+  mainUserId?: number;
+  occurTime?: string;
+  startTime?: string;
+  subUserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertDesc: 'AlertDesc',
+      alertDescCode: 'AlertDescCode',
+      alertDescEn: 'AlertDescEn',
+      alertDetail: 'AlertDetail',
+      alertInfoList: 'AlertInfoList',
+      alertLevel: 'AlertLevel',
+      alertName: 'AlertName',
+      alertNameCode: 'AlertNameCode',
+      alertNameEn: 'AlertNameEn',
+      alertSrcProd: 'AlertSrcProd',
+      alertSrcProdModule: 'AlertSrcProdModule',
+      alertTitle: 'AlertTitle',
+      alertTitleEn: 'AlertTitleEn',
+      alertType: 'AlertType',
+      alertTypeCode: 'AlertTypeCode',
+      alertTypeEn: 'AlertTypeEn',
+      alertUuid: 'AlertUuid',
+      assetList: 'AssetList',
+      attCk: 'AttCk',
+      cloudCode: 'CloudCode',
+      endTime: 'EndTime',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      incidentUuid: 'IncidentUuid',
+      isDefend: 'IsDefend',
+      logTime: 'LogTime',
+      logUuid: 'LogUuid',
+      mainUserId: 'MainUserId',
+      occurTime: 'OccurTime',
+      startTime: 'StartTime',
+      subUserId: 'SubUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertDesc: 'string',
+      alertDescCode: 'string',
+      alertDescEn: 'string',
+      alertDetail: 'string',
+      alertInfoList: { 'type': 'array', 'itemType': DescribeAlertsResponseBodyDataResponseDataAlertInfoList },
+      alertLevel: 'string',
+      alertName: 'string',
+      alertNameCode: 'string',
+      alertNameEn: 'string',
+      alertSrcProd: 'string',
+      alertSrcProdModule: 'string',
+      alertTitle: 'string',
+      alertTitleEn: 'string',
+      alertType: 'string',
+      alertTypeCode: 'string',
+      alertTypeEn: 'string',
+      alertUuid: 'string',
+      assetList: 'string',
+      attCk: 'string',
+      cloudCode: 'string',
+      endTime: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      incidentUuid: 'string',
+      isDefend: 'string',
+      logTime: 'string',
+      logUuid: 'string',
+      mainUserId: 'number',
+      occurTime: 'string',
+      startTime: 'string',
+      subUserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsResponseBodyData extends $tea.Model {
+  pageInfo?: DescribeAlertsResponseBodyDataPageInfo;
+  responseData?: DescribeAlertsResponseBodyDataResponseData[];
+  static names(): { [key: string]: string } {
+    return {
+      pageInfo: 'PageInfo',
+      responseData: 'ResponseData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageInfo: DescribeAlertsResponseBodyDataPageInfo,
+      responseData: { 'type': 'array', 'itemType': DescribeAlertsResponseBodyDataResponseData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAlertsCountResponseBodyData extends $tea.Model {
   all?: number;
   high?: number;
@@ -6266,6 +6744,374 @@ export class DescribeAlertsCountResponseBodyData extends $tea.Model {
       low: 'number',
       medium: 'number',
       productNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEntityResponseBodyDataPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEntityResponseBodyDataResponseDataAlertInfoList extends $tea.Model {
+  key?: string;
+  keyName?: string;
+  values?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      keyName: 'KeyName',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      keyName: 'string',
+      values: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEntityResponseBodyDataResponseData extends $tea.Model {
+  alertDesc?: string;
+  alertDescCode?: string;
+  alertDescEn?: string;
+  alertDetail?: string;
+  alertInfoList?: DescribeAlertsWithEntityResponseBodyDataResponseDataAlertInfoList[];
+  alertLevel?: string;
+  alertName?: string;
+  alertNameCode?: string;
+  alertNameEn?: string;
+  alertSrcProd?: string;
+  alertSrcProdModule?: string;
+  alertTitle?: string;
+  alertTitleEn?: string;
+  alertType?: string;
+  alertTypeCode?: string;
+  alertTypeEn?: string;
+  alertUuid?: string;
+  assetList?: string;
+  attCk?: string;
+  cloudCode?: string;
+  endTime?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  incidentUuid?: string;
+  isDefend?: string;
+  logTime?: string;
+  logUuid?: string;
+  mainUserId?: number;
+  occurTime?: string;
+  startTime?: string;
+  subUserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertDesc: 'AlertDesc',
+      alertDescCode: 'AlertDescCode',
+      alertDescEn: 'AlertDescEn',
+      alertDetail: 'AlertDetail',
+      alertInfoList: 'AlertInfoList',
+      alertLevel: 'AlertLevel',
+      alertName: 'AlertName',
+      alertNameCode: 'AlertNameCode',
+      alertNameEn: 'AlertNameEn',
+      alertSrcProd: 'AlertSrcProd',
+      alertSrcProdModule: 'AlertSrcProdModule',
+      alertTitle: 'AlertTitle',
+      alertTitleEn: 'AlertTitleEn',
+      alertType: 'AlertType',
+      alertTypeCode: 'AlertTypeCode',
+      alertTypeEn: 'AlertTypeEn',
+      alertUuid: 'AlertUuid',
+      assetList: 'AssetList',
+      attCk: 'AttCk',
+      cloudCode: 'CloudCode',
+      endTime: 'EndTime',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      incidentUuid: 'IncidentUuid',
+      isDefend: 'IsDefend',
+      logTime: 'LogTime',
+      logUuid: 'LogUuid',
+      mainUserId: 'MainUserId',
+      occurTime: 'OccurTime',
+      startTime: 'StartTime',
+      subUserId: 'SubUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertDesc: 'string',
+      alertDescCode: 'string',
+      alertDescEn: 'string',
+      alertDetail: 'string',
+      alertInfoList: { 'type': 'array', 'itemType': DescribeAlertsWithEntityResponseBodyDataResponseDataAlertInfoList },
+      alertLevel: 'string',
+      alertName: 'string',
+      alertNameCode: 'string',
+      alertNameEn: 'string',
+      alertSrcProd: 'string',
+      alertSrcProdModule: 'string',
+      alertTitle: 'string',
+      alertTitleEn: 'string',
+      alertType: 'string',
+      alertTypeCode: 'string',
+      alertTypeEn: 'string',
+      alertUuid: 'string',
+      assetList: 'string',
+      attCk: 'string',
+      cloudCode: 'string',
+      endTime: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      incidentUuid: 'string',
+      isDefend: 'string',
+      logTime: 'string',
+      logUuid: 'string',
+      mainUserId: 'number',
+      occurTime: 'string',
+      startTime: 'string',
+      subUserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEntityResponseBodyData extends $tea.Model {
+  pageInfo?: DescribeAlertsWithEntityResponseBodyDataPageInfo;
+  responseData?: DescribeAlertsWithEntityResponseBodyDataResponseData[];
+  static names(): { [key: string]: string } {
+    return {
+      pageInfo: 'PageInfo',
+      responseData: 'ResponseData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageInfo: DescribeAlertsWithEntityResponseBodyDataPageInfo,
+      responseData: { 'type': 'array', 'itemType': DescribeAlertsWithEntityResponseBodyDataResponseData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEventResponseBodyDataPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList extends $tea.Model {
+  key?: string;
+  keyName?: string;
+  values?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      keyName: 'KeyName',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      keyName: 'string',
+      values: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEventResponseBodyDataResponseData extends $tea.Model {
+  alertDesc?: string;
+  alertDescCode?: string;
+  alertDescEn?: string;
+  alertDetail?: string;
+  alertInfoList?: DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList[];
+  alertLevel?: string;
+  alertName?: string;
+  alertNameCode?: string;
+  alertNameEn?: string;
+  alertSrcProd?: string;
+  alertSrcProdModule?: string;
+  alertTitle?: string;
+  alertTitleEn?: string;
+  alertType?: string;
+  alertTypeCode?: string;
+  alertTypeEn?: string;
+  alertUuid?: string;
+  assetList?: string;
+  attCk?: string;
+  cloudCode?: string;
+  endTime?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  incidentUuid?: string;
+  isDefend?: string;
+  logTime?: string;
+  logUuid?: string;
+  mainUserId?: number;
+  occurTime?: string;
+  startTime?: string;
+  subUserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertDesc: 'AlertDesc',
+      alertDescCode: 'AlertDescCode',
+      alertDescEn: 'AlertDescEn',
+      alertDetail: 'AlertDetail',
+      alertInfoList: 'AlertInfoList',
+      alertLevel: 'AlertLevel',
+      alertName: 'AlertName',
+      alertNameCode: 'AlertNameCode',
+      alertNameEn: 'AlertNameEn',
+      alertSrcProd: 'AlertSrcProd',
+      alertSrcProdModule: 'AlertSrcProdModule',
+      alertTitle: 'AlertTitle',
+      alertTitleEn: 'AlertTitleEn',
+      alertType: 'AlertType',
+      alertTypeCode: 'AlertTypeCode',
+      alertTypeEn: 'AlertTypeEn',
+      alertUuid: 'AlertUuid',
+      assetList: 'AssetList',
+      attCk: 'AttCk',
+      cloudCode: 'CloudCode',
+      endTime: 'EndTime',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      incidentUuid: 'IncidentUuid',
+      isDefend: 'IsDefend',
+      logTime: 'LogTime',
+      logUuid: 'LogUuid',
+      mainUserId: 'MainUserId',
+      occurTime: 'OccurTime',
+      startTime: 'StartTime',
+      subUserId: 'SubUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertDesc: 'string',
+      alertDescCode: 'string',
+      alertDescEn: 'string',
+      alertDetail: 'string',
+      alertInfoList: { 'type': 'array', 'itemType': DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList },
+      alertLevel: 'string',
+      alertName: 'string',
+      alertNameCode: 'string',
+      alertNameEn: 'string',
+      alertSrcProd: 'string',
+      alertSrcProdModule: 'string',
+      alertTitle: 'string',
+      alertTitleEn: 'string',
+      alertType: 'string',
+      alertTypeCode: 'string',
+      alertTypeEn: 'string',
+      alertUuid: 'string',
+      assetList: 'string',
+      attCk: 'string',
+      cloudCode: 'string',
+      endTime: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      incidentUuid: 'string',
+      isDefend: 'string',
+      logTime: 'string',
+      logUuid: 'string',
+      mainUserId: 'number',
+      occurTime: 'string',
+      startTime: 'string',
+      subUserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertsWithEventResponseBodyData extends $tea.Model {
+  pageInfo?: DescribeAlertsWithEventResponseBodyDataPageInfo;
+  responseData?: DescribeAlertsWithEventResponseBodyDataResponseData[];
+  static names(): { [key: string]: string } {
+    return {
+      pageInfo: 'PageInfo',
+      responseData: 'ResponseData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageInfo: DescribeAlertsWithEventResponseBodyDataPageInfo,
+      responseData: { 'type': 'array', 'itemType': DescribeAlertsWithEventResponseBodyDataResponseData },
     };
   }
 
@@ -9078,6 +9924,75 @@ export default class Client extends OpenApi {
     return await this.describeAlertTypeWithOptions(request, runtime);
   }
 
+  async describeAlertsWithOptions(request: DescribeAlertsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlertsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alertTitle)) {
+      body["AlertTitle"] = request.alertTitle;
+    }
+
+    if (!Util.isUnset(request.alertUuid)) {
+      body["AlertUuid"] = request.alertUuid;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      body["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.isDefend)) {
+      body["IsDefend"] = request.isDefend;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      body["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      body["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.subUserId)) {
+      body["SubUserId"] = request.subUserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAlerts",
+      version: "2022-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAlertsResponse>(await this.callApi(params, req, runtime), new DescribeAlertsResponse({}));
+  }
+
+  async describeAlerts(request: DescribeAlertsRequest): Promise<DescribeAlertsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAlertsWithOptions(request, runtime);
+  }
+
   async describeAlertsCountWithOptions(request: DescribeAlertsCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlertsCountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9113,6 +10028,116 @@ export default class Client extends OpenApi {
   async describeAlertsCount(request: DescribeAlertsCountRequest): Promise<DescribeAlertsCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAlertsCountWithOptions(request, runtime);
+  }
+
+  async describeAlertsWithEntityWithOptions(request: DescribeAlertsWithEntityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlertsWithEntityResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.currentPage)) {
+      body["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.incidentUuid)) {
+      body["IncidentUuid"] = request.incidentUuid;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sophonTaskId)) {
+      body["SophonTaskId"] = request.sophonTaskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAlertsWithEntity",
+      version: "2022-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAlertsWithEntityResponse>(await this.callApi(params, req, runtime), new DescribeAlertsWithEntityResponse({}));
+  }
+
+  async describeAlertsWithEntity(request: DescribeAlertsWithEntityRequest): Promise<DescribeAlertsWithEntityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAlertsWithEntityWithOptions(request, runtime);
+  }
+
+  async describeAlertsWithEventWithOptions(request: DescribeAlertsWithEventRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlertsWithEventResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alertTitle)) {
+      body["AlertTitle"] = request.alertTitle;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      body["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.incidentUuid)) {
+      body["IncidentUuid"] = request.incidentUuid;
+    }
+
+    if (!Util.isUnset(request.isDefend)) {
+      body["IsDefend"] = request.isDefend;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      body["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      body["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.subUserId)) {
+      body["SubUserId"] = request.subUserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAlertsWithEvent",
+      version: "2022-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAlertsWithEventResponse>(await this.callApi(params, req, runtime), new DescribeAlertsWithEventResponse({}));
+  }
+
+  async describeAlertsWithEvent(request: DescribeAlertsWithEventRequest): Promise<DescribeAlertsWithEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAlertsWithEventWithOptions(request, runtime);
   }
 
   async describeAttackTimeLineWithOptions(request: DescribeAttackTimeLineRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAttackTimeLineResponse> {
