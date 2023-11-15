@@ -6645,6 +6645,7 @@ export class QueryTradeMarkApplicationsRequest extends $tea.Model {
   sortOrder?: string;
   specification?: number;
   status?: number;
+  statusList?: number[];
   supplementStatus?: number;
   tmName?: string;
   tmNumber?: string;
@@ -6665,6 +6666,7 @@ export class QueryTradeMarkApplicationsRequest extends $tea.Model {
       sortOrder: 'SortOrder',
       specification: 'Specification',
       status: 'Status',
+      statusList: 'StatusList',
       supplementStatus: 'SupplementStatus',
       tmName: 'TmName',
       tmNumber: 'TmNumber',
@@ -6688,6 +6690,80 @@ export class QueryTradeMarkApplicationsRequest extends $tea.Model {
       sortOrder: 'string',
       specification: 'number',
       status: 'number',
+      statusList: { 'type': 'array', 'itemType': 'number' },
+      supplementStatus: 'number',
+      tmName: 'string',
+      tmNumber: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTradeMarkApplicationsShrinkRequest extends $tea.Model {
+  bizId?: string;
+  classificationCode?: string;
+  hidden?: number;
+  intentionBizId?: string;
+  logisticsNo?: string;
+  materialName?: string;
+  orderId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  productType?: number;
+  sortFiled?: string;
+  sortOrder?: string;
+  specification?: number;
+  status?: number;
+  statusListShrink?: string;
+  supplementStatus?: number;
+  tmName?: string;
+  tmNumber?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      classificationCode: 'ClassificationCode',
+      hidden: 'Hidden',
+      intentionBizId: 'IntentionBizId',
+      logisticsNo: 'LogisticsNo',
+      materialName: 'MaterialName',
+      orderId: 'OrderId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      productType: 'ProductType',
+      sortFiled: 'SortFiled',
+      sortOrder: 'SortOrder',
+      specification: 'Specification',
+      status: 'Status',
+      statusListShrink: 'StatusList',
+      supplementStatus: 'SupplementStatus',
+      tmName: 'TmName',
+      tmNumber: 'TmNumber',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      classificationCode: 'string',
+      hidden: 'number',
+      intentionBizId: 'string',
+      logisticsNo: 'string',
+      materialName: 'string',
+      orderId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      productType: 'number',
+      sortFiled: 'string',
+      sortOrder: 'string',
+      specification: 'number',
+      status: 'number',
+      statusListShrink: 'string',
       supplementStatus: 'number',
       tmName: 'string',
       tmNumber: 'string',
@@ -19542,8 +19618,14 @@ export default class Client extends OpenApi {
     return await this.queryTradeMarkApplicationLogsWithOptions(request, runtime);
   }
 
-  async queryTradeMarkApplicationsWithOptions(request: QueryTradeMarkApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<QueryTradeMarkApplicationsResponse> {
-    Util.validateModel(request);
+  async queryTradeMarkApplicationsWithOptions(tmpReq: QueryTradeMarkApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<QueryTradeMarkApplicationsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryTradeMarkApplicationsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.statusList)) {
+      request.statusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statusList, "StatusList", "simple");
+    }
+
     let query = { };
     if (!Util.isUnset(request.bizId)) {
       query["BizId"] = request.bizId;
@@ -19599,6 +19681,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.statusListShrink)) {
+      query["StatusList"] = request.statusListShrink;
     }
 
     if (!Util.isUnset(request.supplementStatus)) {
