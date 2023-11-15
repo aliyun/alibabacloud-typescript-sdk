@@ -2455,6 +2455,7 @@ export class ListPrivateAccessTagsRequest extends $tea.Model {
   name?: string;
   pageSize?: number;
   policyId?: string;
+  simpleMode?: boolean;
   tagIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2463,6 +2464,7 @@ export class ListPrivateAccessTagsRequest extends $tea.Model {
       name: 'Name',
       pageSize: 'PageSize',
       policyId: 'PolicyId',
+      simpleMode: 'SimpleMode',
       tagIds: 'TagIds',
     };
   }
@@ -2474,6 +2476,7 @@ export class ListPrivateAccessTagsRequest extends $tea.Model {
       name: 'string',
       pageSize: 'number',
       policyId: 'string',
+      simpleMode: 'boolean',
       tagIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -2982,6 +2985,7 @@ export class ListUserDevicesRequest extends $tea.Model {
   pageSize?: number;
   saseUserId?: string;
   sharingStatus?: boolean;
+  sortBy?: string;
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3001,6 +3005,7 @@ export class ListUserDevicesRequest extends $tea.Model {
       pageSize: 'PageSize',
       saseUserId: 'SaseUserId',
       sharingStatus: 'SharingStatus',
+      sortBy: 'SortBy',
       username: 'Username',
     };
   }
@@ -3023,6 +3028,7 @@ export class ListUserDevicesRequest extends $tea.Model {
       pageSize: 'number',
       saseUserId: 'string',
       sharingStatus: 'boolean',
+      sortBy: 'string',
       username: 'string',
     };
   }
