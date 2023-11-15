@@ -29509,6 +29509,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceClass?: string;
   DBInstanceClassType?: string;
   DBInstanceDescription?: string;
+  DBInstanceDiskUsed?: string;
   DBInstanceId?: string;
   DBInstanceMemory?: number;
   DBInstanceNetType?: string;
@@ -29581,6 +29582,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceClassType: 'DBInstanceClassType',
       DBInstanceDescription: 'DBInstanceDescription',
+      DBInstanceDiskUsed: 'DBInstanceDiskUsed',
       DBInstanceId: 'DBInstanceId',
       DBInstanceMemory: 'DBInstanceMemory',
       DBInstanceNetType: 'DBInstanceNetType',
@@ -29656,6 +29658,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       DBInstanceClass: 'string',
       DBInstanceClassType: 'string',
       DBInstanceDescription: 'string',
+      DBInstanceDiskUsed: 'string',
       DBInstanceId: 'string',
       DBInstanceMemory: 'number',
       DBInstanceNetType: 'string',
