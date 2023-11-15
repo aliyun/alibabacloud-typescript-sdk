@@ -3452,6 +3452,7 @@ export class CreateQualityRuleRequest extends $tea.Model {
   propertyType?: string;
   ruleName?: string;
   ruleType?: number;
+  taskSetting?: string;
   templateId?: number;
   trend?: string;
   warningThreshold?: string;
@@ -3473,6 +3474,7 @@ export class CreateQualityRuleRequest extends $tea.Model {
       propertyType: 'PropertyType',
       ruleName: 'RuleName',
       ruleType: 'RuleType',
+      taskSetting: 'TaskSetting',
       templateId: 'TemplateId',
       trend: 'Trend',
       warningThreshold: 'WarningThreshold',
@@ -3497,6 +3499,7 @@ export class CreateQualityRuleRequest extends $tea.Model {
       propertyType: 'string',
       ruleName: 'string',
       ruleType: 'number',
+      taskSetting: 'string',
       templateId: 'number',
       trend: 'string',
       warningThreshold: 'string',
@@ -22903,6 +22906,7 @@ export class UpdateQualityRuleRequest extends $tea.Model {
   propertyType?: string;
   ruleName?: string;
   ruleType?: number;
+  taskSetting?: string;
   templateId?: number;
   trend?: string;
   warningThreshold?: string;
@@ -22926,6 +22930,7 @@ export class UpdateQualityRuleRequest extends $tea.Model {
       propertyType: 'PropertyType',
       ruleName: 'RuleName',
       ruleType: 'RuleType',
+      taskSetting: 'TaskSetting',
       templateId: 'TemplateId',
       trend: 'Trend',
       warningThreshold: 'WarningThreshold',
@@ -22952,6 +22957,7 @@ export class UpdateQualityRuleRequest extends $tea.Model {
       propertyType: 'string',
       ruleName: 'string',
       ruleType: 'number',
+      taskSetting: 'string',
       templateId: 'number',
       trend: 'string',
       warningThreshold: 'string',
@@ -39542,6 +39548,10 @@ export default class Client extends OpenApi {
       body["RuleType"] = request.ruleType;
     }
 
+    if (!Util.isUnset(request.taskSetting)) {
+      body["TaskSetting"] = request.taskSetting;
+    }
+
     if (!Util.isUnset(request.templateId)) {
       body["TemplateId"] = request.templateId;
     }
@@ -49667,6 +49677,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ruleType)) {
       body["RuleType"] = request.ruleType;
+    }
+
+    if (!Util.isUnset(request.taskSetting)) {
+      body["TaskSetting"] = request.taskSetting;
     }
 
     if (!Util.isUnset(request.templateId)) {
