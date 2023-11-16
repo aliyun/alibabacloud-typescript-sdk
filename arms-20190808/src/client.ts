@@ -17135,10 +17135,12 @@ export class UninstallManagedPrometheusResponse extends $tea.Model {
 }
 
 export class UninstallPromClusterRequest extends $tea.Model {
+  aliyunLang?: string;
   clusterId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      aliyunLang: 'AliyunLang',
       clusterId: 'ClusterId',
       regionId: 'RegionId',
     };
@@ -17146,6 +17148,7 @@ export class UninstallPromClusterRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aliyunLang: 'string',
       clusterId: 'string',
       regionId: 'string',
     };
@@ -39461,6 +39464,10 @@ export default class Client extends OpenApi {
   async uninstallPromClusterWithOptions(request: UninstallPromClusterRequest, runtime: $Util.RuntimeOptions): Promise<UninstallPromClusterResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
