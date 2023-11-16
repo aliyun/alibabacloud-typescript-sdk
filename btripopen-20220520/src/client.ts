@@ -4381,6 +4381,7 @@ export class CostCenterModifyHeaders extends $tea.Model {
 
 export class CostCenterModifyRequest extends $tea.Model {
   alipayNo?: string;
+  disable?: number;
   number?: string;
   scope?: number;
   thirdpartId?: string;
@@ -4388,6 +4389,7 @@ export class CostCenterModifyRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       alipayNo: 'alipay_no',
+      disable: 'disable',
       number: 'number',
       scope: 'scope',
       thirdpartId: 'thirdpart_id',
@@ -4398,6 +4400,7 @@ export class CostCenterModifyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alipayNo: 'string',
+      disable: 'number',
       number: 'string',
       scope: 'number',
       thirdpartId: 'string',
@@ -4489,12 +4492,14 @@ export class CostCenterQueryHeaders extends $tea.Model {
 }
 
 export class CostCenterQueryRequest extends $tea.Model {
+  disable?: number;
   needOrgEntity?: boolean;
   thirdpartId?: string;
   title?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      disable: 'disable',
       needOrgEntity: 'need_org_entity',
       thirdpartId: 'thirdpart_id',
       title: 'title',
@@ -4504,6 +4509,7 @@ export class CostCenterQueryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      disable: 'number',
       needOrgEntity: 'boolean',
       thirdpartId: 'string',
       title: 'string',
@@ -4602,6 +4608,7 @@ export class CostCenterSaveHeaders extends $tea.Model {
 
 export class CostCenterSaveRequest extends $tea.Model {
   alipayNo?: string;
+  disable?: number;
   number?: string;
   scope?: number;
   thirdpartId?: string;
@@ -4609,6 +4616,7 @@ export class CostCenterSaveRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       alipayNo: 'alipay_no',
+      disable: 'disable',
       number: 'number',
       scope: 'scope',
       thirdpartId: 'thirdpart_id',
@@ -4619,6 +4627,7 @@ export class CostCenterSaveRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alipayNo: 'string',
+      disable: 'number',
       number: 'string',
       scope: 'number',
       thirdpartId: 'string',
@@ -22210,6 +22219,7 @@ export class CostCenterQueryResponseBodyModuleEntityDOS extends $tea.Model {
 export class CostCenterQueryResponseBodyModule extends $tea.Model {
   alipayNo?: string;
   corpId?: string;
+  disable?: number;
   entityDOS?: CostCenterQueryResponseBodyModuleEntityDOS[];
   id?: number;
   number?: string;
@@ -22221,6 +22231,7 @@ export class CostCenterQueryResponseBodyModule extends $tea.Model {
     return {
       alipayNo: 'alipay_no',
       corpId: 'corp_id',
+      disable: 'disable',
       entityDOS: 'entity_d_o_s',
       id: 'id',
       number: 'number',
@@ -22235,6 +22246,7 @@ export class CostCenterQueryResponseBodyModule extends $tea.Model {
     return {
       alipayNo: 'string',
       corpId: 'string',
+      disable: 'number',
       entityDOS: { 'type': 'array', 'itemType': CostCenterQueryResponseBodyModuleEntityDOS },
       id: 'number',
       number: 'string',
@@ -45558,6 +45570,10 @@ export default class Client extends OpenApi {
       body["alipay_no"] = request.alipayNo;
     }
 
+    if (!Util.isUnset(request.disable)) {
+      body["disable"] = request.disable;
+    }
+
     if (!Util.isUnset(request.number)) {
       body["number"] = request.number;
     }
@@ -45610,6 +45626,10 @@ export default class Client extends OpenApi {
   async costCenterQueryWithOptions(request: CostCenterQueryRequest, headers: CostCenterQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CostCenterQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.disable)) {
+      query["disable"] = request.disable;
+    }
+
     if (!Util.isUnset(request.needOrgEntity)) {
       query["need_org_entity"] = request.needOrgEntity;
     }
@@ -45664,6 +45684,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.alipayNo)) {
       body["alipay_no"] = request.alipayNo;
+    }
+
+    if (!Util.isUnset(request.disable)) {
+      body["disable"] = request.disable;
     }
 
     if (!Util.isUnset(request.number)) {
