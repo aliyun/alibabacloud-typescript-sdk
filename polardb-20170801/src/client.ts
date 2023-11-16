@@ -870,6 +870,7 @@ export class CreateDBClusterRequest extends $tea.Model {
   parameterGroupId?: string;
   payType?: string;
   period?: string;
+  provisionedIops?: number;
   proxyClass?: string;
   proxyType?: string;
   regionId?: string;
@@ -925,6 +926,7 @@ export class CreateDBClusterRequest extends $tea.Model {
       parameterGroupId: 'ParameterGroupId',
       payType: 'PayType',
       period: 'Period',
+      provisionedIops: 'ProvisionedIops',
       proxyClass: 'ProxyClass',
       proxyType: 'ProxyType',
       regionId: 'RegionId',
@@ -983,6 +985,7 @@ export class CreateDBClusterRequest extends $tea.Model {
       parameterGroupId: 'string',
       payType: 'string',
       period: 'string',
+      provisionedIops: 'number',
       proxyClass: 'string',
       proxyType: 'string',
       regionId: 'string',
@@ -17179,6 +17182,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.period)) {
       query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.provisionedIops)) {
+      query["ProvisionedIops"] = request.provisionedIops;
     }
 
     if (!Util.isUnset(request.proxyClass)) {
