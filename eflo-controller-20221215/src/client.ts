@@ -500,6 +500,7 @@ export class DescribeNodeResponseBody extends $tea.Model {
   nodeId?: string;
   operatingState?: string;
   requestId?: string;
+  resourceGroupId?: string;
   sn?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -519,6 +520,7 @@ export class DescribeNodeResponseBody extends $tea.Model {
       nodeId: 'NodeId',
       operatingState: 'OperatingState',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       sn: 'Sn',
       zoneId: 'ZoneId',
     };
@@ -541,6 +543,7 @@ export class DescribeNodeResponseBody extends $tea.Model {
       nodeId: 'string',
       operatingState: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       sn: 'string',
       zoneId: 'string',
     };
@@ -1071,12 +1074,14 @@ export class ListFreeNodesRequest extends $tea.Model {
   machineType?: string;
   maxResults?: number;
   nextToken?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       hpnZone: 'HpnZone',
       machineType: 'MachineType',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1086,6 +1091,7 @@ export class ListFreeNodesRequest extends $tea.Model {
       machineType: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -2647,6 +2653,7 @@ export class ListFreeNodesResponseBodyNodes extends $tea.Model {
   hpnZone?: string;
   machineType?: string;
   nodeId?: string;
+  resourceGroupId?: string;
   sn?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -2656,6 +2663,7 @@ export class ListFreeNodesResponseBodyNodes extends $tea.Model {
       hpnZone: 'HpnZone',
       machineType: 'MachineType',
       nodeId: 'NodeId',
+      resourceGroupId: 'ResourceGroupId',
       sn: 'Sn',
       zoneId: 'ZoneId',
     };
@@ -2668,6 +2676,7 @@ export class ListFreeNodesResponseBodyNodes extends $tea.Model {
       hpnZone: 'string',
       machineType: 'string',
       nodeId: 'string',
+      resourceGroupId: 'string',
       sn: 'string',
       zoneId: 'string',
     };
@@ -3352,6 +3361,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nextToken)) {
       body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
