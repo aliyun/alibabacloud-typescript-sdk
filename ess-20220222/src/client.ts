@@ -174,6 +174,7 @@ export class AttachDBInstancesResponse extends $tea.Model {
 }
 
 export class AttachInstancesRequest extends $tea.Model {
+  clientToken?: string;
   entrusted?: boolean;
   instanceIds?: string[];
   lifecycleHook?: boolean;
@@ -186,6 +187,7 @@ export class AttachInstancesRequest extends $tea.Model {
   scalingGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       entrusted: 'Entrusted',
       instanceIds: 'InstanceIds',
       lifecycleHook: 'LifecycleHook',
@@ -201,6 +203,7 @@ export class AttachInstancesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       entrusted: 'boolean',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       lifecycleHook: 'boolean',
@@ -811,6 +814,10 @@ export class CreateEciScalingConfigurationRequest extends $tea.Model {
   cpu?: number;
   cpuOptionsCore?: number;
   cpuOptionsThreadsPerCore?: number;
+  dataCacheBucket?: string;
+  dataCacheBurstingEnabled?: boolean;
+  dataCachePL?: string;
+  dataCacheProvisionedIops?: number;
   description?: string;
   dnsConfigNameServers?: string[];
   dnsConfigOptions?: CreateEciScalingConfigurationRequestDnsConfigOptions[];
@@ -858,6 +865,10 @@ export class CreateEciScalingConfigurationRequest extends $tea.Model {
       cpu: 'Cpu',
       cpuOptionsCore: 'CpuOptionsCore',
       cpuOptionsThreadsPerCore: 'CpuOptionsThreadsPerCore',
+      dataCacheBucket: 'DataCacheBucket',
+      dataCacheBurstingEnabled: 'DataCacheBurstingEnabled',
+      dataCachePL: 'DataCachePL',
+      dataCacheProvisionedIops: 'DataCacheProvisionedIops',
       description: 'Description',
       dnsConfigNameServers: 'DnsConfigNameServers',
       dnsConfigOptions: 'DnsConfigOptions',
@@ -908,6 +919,10 @@ export class CreateEciScalingConfigurationRequest extends $tea.Model {
       cpu: 'number',
       cpuOptionsCore: 'number',
       cpuOptionsThreadsPerCore: 'number',
+      dataCacheBucket: 'string',
+      dataCacheBurstingEnabled: 'boolean',
+      dataCachePL: 'string',
+      dataCacheProvisionedIops: 'number',
       description: 'string',
       dnsConfigNameServers: { 'type': 'array', 'itemType': 'string' },
       dnsConfigOptions: { 'type': 'array', 'itemType': CreateEciScalingConfigurationRequestDnsConfigOptions },
@@ -3807,6 +3822,7 @@ export class DescribeScalingInstancesRequest extends $tea.Model {
   healthStatus?: string;
   instanceIds?: string[];
   lifecycleState?: string;
+  lifecycleStates?: string[];
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -3824,6 +3840,7 @@ export class DescribeScalingInstancesRequest extends $tea.Model {
       healthStatus: 'HealthStatus',
       instanceIds: 'InstanceIds',
       lifecycleState: 'LifecycleState',
+      lifecycleStates: 'LifecycleStates',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -3844,6 +3861,7 @@ export class DescribeScalingInstancesRequest extends $tea.Model {
       healthStatus: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       lifecycleState: 'string',
+      lifecycleStates: { 'type': 'array', 'itemType': 'string' },
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -5613,6 +5631,10 @@ export class ModifyEciScalingConfigurationRequest extends $tea.Model {
   cpu?: number;
   cpuOptionsCore?: number;
   cpuOptionsThreadsPerCore?: number;
+  dataCacheBucket?: string;
+  dataCacheBurstingEnabled?: boolean;
+  dataCachePL?: string;
+  dataCacheProvisionedIops?: number;
   description?: string;
   dnsConfigNameServers?: string[];
   dnsConfigOptions?: ModifyEciScalingConfigurationRequestDnsConfigOptions[];
@@ -5661,6 +5683,10 @@ export class ModifyEciScalingConfigurationRequest extends $tea.Model {
       cpu: 'Cpu',
       cpuOptionsCore: 'CpuOptionsCore',
       cpuOptionsThreadsPerCore: 'CpuOptionsThreadsPerCore',
+      dataCacheBucket: 'DataCacheBucket',
+      dataCacheBurstingEnabled: 'DataCacheBurstingEnabled',
+      dataCachePL: 'DataCachePL',
+      dataCacheProvisionedIops: 'DataCacheProvisionedIops',
       description: 'Description',
       dnsConfigNameServers: 'DnsConfigNameServers',
       dnsConfigOptions: 'DnsConfigOptions',
@@ -5712,6 +5738,10 @@ export class ModifyEciScalingConfigurationRequest extends $tea.Model {
       cpu: 'number',
       cpuOptionsCore: 'number',
       cpuOptionsThreadsPerCore: 'number',
+      dataCacheBucket: 'string',
+      dataCacheBurstingEnabled: 'boolean',
+      dataCachePL: 'string',
+      dataCacheProvisionedIops: 'number',
       description: 'string',
       dnsConfigNameServers: { 'type': 'array', 'itemType': 'string' },
       dnsConfigOptions: { 'type': 'array', 'itemType': ModifyEciScalingConfigurationRequestDnsConfigOptions },
@@ -9434,10 +9464,12 @@ export class CreateScalingGroupRequestServerGroups extends $tea.Model {
 
 export class CreateScalingGroupRequestTags extends $tea.Model {
   key?: string;
+  propagate?: boolean;
   value?: string;
   static names(): { [key: string]: string } {
     return {
       key: 'Key',
+      propagate: 'Propagate',
       value: 'Value',
     };
   }
@@ -9445,6 +9477,7 @@ export class CreateScalingGroupRequestTags extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       key: 'string',
+      propagate: 'boolean',
       value: 'string',
     };
   }
@@ -10195,6 +10228,8 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsVo
   flexVolumeDriver?: string;
   flexVolumeFsType?: string;
   flexVolumeOptions?: string;
+  hostPathVolumePath?: string;
+  hostPathVolumeType?: string;
   NFSVolumePath?: string;
   NFSVolumeReadOnly?: boolean;
   NFSVolumeServer?: string;
@@ -10212,6 +10247,8 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsVo
       flexVolumeDriver: 'FlexVolumeDriver',
       flexVolumeFsType: 'FlexVolumeFsType',
       flexVolumeOptions: 'FlexVolumeOptions',
+      hostPathVolumePath: 'HostPathVolumePath',
+      hostPathVolumeType: 'HostPathVolumeType',
       NFSVolumePath: 'NFSVolumePath',
       NFSVolumeReadOnly: 'NFSVolumeReadOnly',
       NFSVolumeServer: 'NFSVolumeServer',
@@ -10232,6 +10269,8 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsVo
       flexVolumeDriver: 'string',
       flexVolumeFsType: 'string',
       flexVolumeOptions: 'string',
+      hostPathVolumePath: 'string',
+      hostPathVolumeType: 'string',
       NFSVolumePath: 'string',
       NFSVolumeReadOnly: 'boolean',
       NFSVolumeServer: 'string',
@@ -10257,6 +10296,10 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurations e
   cpuOptionsCore?: number;
   cpuOptionsThreadsPerCore?: number;
   creationTime?: string;
+  dataCacheBucket?: string;
+  dataCacheBurstingEnabled?: boolean;
+  dataCachePL?: string;
+  dataCacheProvisionedIops?: number;
   description?: string;
   dnsConfigNameServers?: string[];
   dnsConfigOptions?: DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsDnsConfigOptions[];
@@ -10306,6 +10349,10 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurations e
       cpuOptionsCore: 'CpuOptionsCore',
       cpuOptionsThreadsPerCore: 'CpuOptionsThreadsPerCore',
       creationTime: 'CreationTime',
+      dataCacheBucket: 'DataCacheBucket',
+      dataCacheBurstingEnabled: 'DataCacheBurstingEnabled',
+      dataCachePL: 'DataCachePL',
+      dataCacheProvisionedIops: 'DataCacheProvisionedIops',
       description: 'Description',
       dnsConfigNameServers: 'DnsConfigNameServers',
       dnsConfigOptions: 'DnsConfigOptions',
@@ -10358,6 +10405,10 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurations e
       cpuOptionsCore: 'number',
       cpuOptionsThreadsPerCore: 'number',
       creationTime: 'string',
+      dataCacheBucket: 'string',
+      dataCacheBurstingEnabled: 'boolean',
+      dataCachePL: 'string',
+      dataCacheProvisionedIops: 'number',
       description: 'string',
       dnsConfigNameServers: { 'type': 'array', 'itemType': 'string' },
       dnsConfigOptions: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsDnsConfigOptions },
@@ -11106,10 +11157,12 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsServerGroups extends 
 }
 
 export class DescribeScalingGroupsResponseBodyScalingGroupsTags extends $tea.Model {
+  propagate?: boolean;
   tagKey?: string;
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
+      propagate: 'Propagate',
       tagKey: 'TagKey',
       tagValue: 'TagValue',
     };
@@ -11117,6 +11170,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsTags extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      propagate: 'boolean',
       tagKey: 'string',
       tagValue: 'string',
     };
@@ -11375,9 +11429,11 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $tea.M
   launchTemplateVersion?: string;
   lifecycleState?: string;
   loadBalancerWeight?: number;
+  privateIpAddress?: string;
   scalingActivityId?: string;
   scalingConfigurationId?: string;
   scalingGroupId?: string;
+  scalingInstanceId?: string;
   spotStrategy?: string;
   warmupState?: string;
   weightedCapacity?: number;
@@ -11394,9 +11450,11 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $tea.M
       launchTemplateVersion: 'LaunchTemplateVersion',
       lifecycleState: 'LifecycleState',
       loadBalancerWeight: 'LoadBalancerWeight',
+      privateIpAddress: 'PrivateIpAddress',
       scalingActivityId: 'ScalingActivityId',
       scalingConfigurationId: 'ScalingConfigurationId',
       scalingGroupId: 'ScalingGroupId',
+      scalingInstanceId: 'ScalingInstanceId',
       spotStrategy: 'SpotStrategy',
       warmupState: 'WarmupState',
       weightedCapacity: 'WeightedCapacity',
@@ -11416,9 +11474,11 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $tea.M
       launchTemplateVersion: 'string',
       lifecycleState: 'string',
       loadBalancerWeight: 'number',
+      privateIpAddress: 'string',
       scalingActivityId: 'string',
       scalingConfigurationId: 'string',
       scalingGroupId: 'string',
+      scalingInstanceId: 'string',
       spotStrategy: 'string',
       warmupState: 'string',
       weightedCapacity: 'number',
@@ -13585,6 +13645,10 @@ export default class Client extends OpenApi {
   async attachInstancesWithOptions(request: AttachInstancesRequest, runtime: $Util.RuntimeOptions): Promise<AttachInstancesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.entrusted)) {
       query["Entrusted"] = request.entrusted;
     }
@@ -14079,6 +14143,22 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.cpuOptionsThreadsPerCore)) {
       query["CpuOptionsThreadsPerCore"] = request.cpuOptionsThreadsPerCore;
+    }
+
+    if (!Util.isUnset(request.dataCacheBucket)) {
+      query["DataCacheBucket"] = request.dataCacheBucket;
+    }
+
+    if (!Util.isUnset(request.dataCacheBurstingEnabled)) {
+      query["DataCacheBurstingEnabled"] = request.dataCacheBurstingEnabled;
+    }
+
+    if (!Util.isUnset(request.dataCachePL)) {
+      query["DataCachePL"] = request.dataCachePL;
+    }
+
+    if (!Util.isUnset(request.dataCacheProvisionedIops)) {
+      query["DataCacheProvisionedIops"] = request.dataCacheProvisionedIops;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -16237,6 +16317,10 @@ export default class Client extends OpenApi {
       query["LifecycleState"] = request.lifecycleState;
     }
 
+    if (!Util.isUnset(request.lifecycleStates)) {
+      query["LifecycleStates"] = request.lifecycleStates;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -17505,6 +17589,22 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.cpuOptionsThreadsPerCore)) {
       query["CpuOptionsThreadsPerCore"] = request.cpuOptionsThreadsPerCore;
+    }
+
+    if (!Util.isUnset(request.dataCacheBucket)) {
+      query["DataCacheBucket"] = request.dataCacheBucket;
+    }
+
+    if (!Util.isUnset(request.dataCacheBurstingEnabled)) {
+      query["DataCacheBurstingEnabled"] = request.dataCacheBurstingEnabled;
+    }
+
+    if (!Util.isUnset(request.dataCachePL)) {
+      query["DataCachePL"] = request.dataCachePL;
+    }
+
+    if (!Util.isUnset(request.dataCacheProvisionedIops)) {
+      query["DataCacheProvisionedIops"] = request.dataCacheProvisionedIops;
     }
 
     if (!Util.isUnset(request.description)) {
