@@ -8,6 +8,90 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class BatchBindDeviceRequest extends $tea.Model {
+  deviceList?: BatchBindDeviceRequestDeviceList[];
+  identityId?: string;
+  openId?: string;
+  openIdAppKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceList: 'DeviceList',
+      identityId: 'IdentityId',
+      openId: 'OpenId',
+      openIdAppKey: 'OpenIdAppKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceList: { 'type': 'array', 'itemType': BatchBindDeviceRequestDeviceList },
+      identityId: 'string',
+      openId: 'string',
+      openIdAppKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchBindDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: BatchBindDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: BatchBindDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchBindDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchBindDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchBindDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BindStorageOrderRequest extends $tea.Model {
   deviceName?: string;
   enableDefaultPlan?: boolean;
@@ -902,6 +986,687 @@ export class GenerateDeviceByBatchIdResponse extends $tea.Model {
   }
 }
 
+export class GetAccountByIdRequest extends $tea.Model {
+  identityId?: string;
+  openId?: string;
+  openIdAppKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identityId: 'IdentityId',
+      openId: 'OpenId',
+      openIdAppKey: 'OpenIdAppKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityId: 'string',
+      openId: 'string',
+      openIdAppKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountByIdResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetAccountByIdResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetAccountByIdResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountByIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAccountByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccountByIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceStatusRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceStatusResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetDeviceStatusResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetDeviceStatusResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDeviceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDeviceStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubDeviceListRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubDeviceListResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetSubDeviceListResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSubDeviceListResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubDeviceListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetSubDeviceListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSubDeviceListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetThingEventSnapshotRequest extends $tea.Model {
+  deviceName?: string;
+  identifier?: string;
+  iotId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      identifier: 'Identifier',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      identifier: 'string',
+      iotId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetThingEventSnapshotResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetThingEventSnapshotResponseBodyData[];
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetThingEventSnapshotResponseBodyData },
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetThingEventSnapshotResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetThingEventSnapshotResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetThingEventSnapshotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetThingPropertySnapshotRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetThingPropertySnapshotResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetThingPropertySnapshotResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetThingPropertySnapshotResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetThingPropertySnapshotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeThingServiceRequest extends $tea.Model {
+  args?: string;
+  deviceName?: string;
+  identifier?: string;
+  iotId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      deviceName: 'DeviceName',
+      identifier: 'Identifier',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      deviceName: 'string',
+      identifier: 'string',
+      iotId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeThingServiceResponseBody extends $tea.Model {
+  code?: string;
+  data?: InvokeThingServiceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: InvokeThingServiceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeThingServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InvokeThingServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InvokeThingServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBindingAccountByDeviceRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  owned?: number;
+  pageNo?: number;
+  pageSize?: number;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      owned: 'Owned',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      owned: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBindingAccountByDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListBindingAccountByDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListBindingAccountByDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBindingAccountByDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListBindingAccountByDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBindingAccountByDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBindingDeviceByAccountRequest extends $tea.Model {
+  identityId?: string;
+  openId?: string;
+  openIdAppKey?: string;
+  pageNo?: number;
+  pageSize?: number;
+  subDevice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      identityId: 'IdentityId',
+      openId: 'OpenId',
+      openIdAppKey: 'OpenIdAppKey',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      subDevice: 'SubDevice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityId: 'string',
+      openId: 'string',
+      openIdAppKey: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      subDevice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBindingDeviceByAccountResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListBindingDeviceByAccountResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListBindingDeviceByAccountResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBindingDeviceByAccountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListBindingDeviceByAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBindingDeviceByAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryBatchStatusRequest extends $tea.Model {
   batchId?: string;
   productKey?: string;
@@ -1543,6 +2308,87 @@ export class QueryStorageOrderListResponse extends $tea.Model {
   }
 }
 
+export class SetThingPropertyRequest extends $tea.Model {
+  args?: string;
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetThingPropertyResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetThingPropertyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetThingPropertyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetThingPropertyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TransferStorageOrderRequest extends $tea.Model {
   dstIotId?: string;
   enableDefaultPlan?: boolean;
@@ -1648,6 +2494,183 @@ export class TransferStorageOrderResponse extends $tea.Model {
   }
 }
 
+export class UnbindAllUserByDeviceRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  unbindSubDevice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+      unbindSubDevice: 'UnbindSubDevice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+      unbindSubDevice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindAllUserByDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: UnbindAllUserByDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UnbindAllUserByDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindAllUserByDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UnbindAllUserByDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindAllUserByDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindDeviceRequest extends $tea.Model {
+  deviceName?: string;
+  identityId?: string;
+  iotId?: string;
+  openId?: string;
+  openIdAppKey?: string;
+  productKey?: string;
+  unbindSubDevice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      identityId: 'IdentityId',
+      iotId: 'IotId',
+      openId: 'OpenId',
+      openIdAppKey: 'OpenIdAppKey',
+      productKey: 'ProductKey',
+      unbindSubDevice: 'UnbindSubDevice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      identityId: 'string',
+      iotId: 'string',
+      openId: 'string',
+      openIdAppKey: 'string',
+      productKey: 'string',
+      unbindSubDevice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: UnbindDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UnbindDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UnbindDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadDeviceNameListRequest extends $tea.Model {
   deviceNames?: string[];
   productKey?: string;
@@ -1721,6 +2744,81 @@ export class UploadDeviceNameListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UploadDeviceNameListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchBindDeviceRequestDeviceList extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchBindDeviceResponseBodyDataBindDeviceList extends $tea.Model {
+  bindResultCode?: number;
+  bindResultMessage?: string;
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindResultCode: 'BindResultCode',
+      bindResultMessage: 'BindResultMessage',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindResultCode: 'number',
+      bindResultMessage: 'string',
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchBindDeviceResponseBodyData extends $tea.Model {
+  bindDeviceList?: BatchBindDeviceResponseBodyDataBindDeviceList[];
+  static names(): { [key: string]: string } {
+    return {
+      bindDeviceList: 'BindDeviceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindDeviceList: { 'type': 'array', 'itemType': BatchBindDeviceResponseBodyDataBindDeviceList },
     };
   }
 
@@ -2189,6 +3287,292 @@ export class GenerateDeviceByBatchIdResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       batchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountByIdResponseBodyData extends $tea.Model {
+  email?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  identityId?: string;
+  lastLoginTime?: number;
+  loginName?: string;
+  nickName?: string;
+  phone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      email: 'Email',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      identityId: 'IdentityId',
+      lastLoginTime: 'LastLoginTime',
+      loginName: 'LoginName',
+      nickName: 'NickName',
+      phone: 'Phone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      email: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      identityId: 'string',
+      lastLoginTime: 'number',
+      loginName: 'string',
+      nickName: 'string',
+      phone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceStatusResponseBodyData extends $tea.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubDeviceListResponseBodyDataSubDeviceList extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubDeviceListResponseBodyData extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  subDeviceList?: GetSubDeviceListResponseBodyDataSubDeviceList[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      subDeviceList: 'SubDeviceList',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      subDeviceList: { 'type': 'array', 'itemType': GetSubDeviceListResponseBodyDataSubDeviceList },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetThingEventSnapshotResponseBodyData extends $tea.Model {
+  eventBody?: string;
+  eventCode?: string;
+  eventType?: string;
+  identifier?: string;
+  iotId?: string;
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventBody: 'EventBody',
+      eventCode: 'EventCode',
+      eventType: 'EventType',
+      identifier: 'Identifier',
+      iotId: 'IotId',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventBody: 'string',
+      eventCode: 'string',
+      eventType: 'string',
+      identifier: 'string',
+      iotId: 'string',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeThingServiceResponseBodyData extends $tea.Model {
+  data?: string;
+  messageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      messageId: 'MessageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      messageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBindingAccountByDeviceResponseBodyDataAccountList extends $tea.Model {
+  bindTime?: number;
+  identityAlias?: string;
+  identityId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindTime: 'BindTime',
+      identityAlias: 'IdentityAlias',
+      identityId: 'IdentityId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindTime: 'number',
+      identityAlias: 'string',
+      identityId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBindingAccountByDeviceResponseBodyData extends $tea.Model {
+  accountList?: ListBindingAccountByDeviceResponseBodyDataAccountList[];
+  pageNo?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountList: 'AccountList',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountList: { 'type': 'array', 'itemType': ListBindingAccountByDeviceResponseBodyDataAccountList },
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBindingDeviceByAccountResponseBodyDataDeviceList extends $tea.Model {
+  bindTime?: number;
+  deviceName?: string;
+  iotId?: string;
+  nodeType?: string;
+  owned?: number;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindTime: 'BindTime',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      nodeType: 'NodeType',
+      owned: 'Owned',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindTime: 'number',
+      deviceName: 'string',
+      iotId: 'string',
+      nodeType: 'string',
+      owned: 'number',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBindingDeviceByAccountResponseBodyData extends $tea.Model {
+  deviceList?: ListBindingDeviceByAccountResponseBodyDataDeviceList[];
+  pageCount?: number;
+  pageNo?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceList: 'DeviceList',
+      pageCount: 'PageCount',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceList: { 'type': 'array', 'itemType': ListBindingDeviceByAccountResponseBodyDataDeviceList },
+      pageCount: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
     };
   }
 
@@ -2726,6 +4110,106 @@ export class TransferStorageOrderResponseBodyData extends $tea.Model {
   }
 }
 
+export class UnbindAllUserByDeviceResponseBodyDataSubDeviceUnbindResult extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  unbindResultCode?: number;
+  unbindResultMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+      unbindResultCode: 'UnbindResultCode',
+      unbindResultMessage: 'UnbindResultMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+      unbindResultCode: 'number',
+      unbindResultMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindAllUserByDeviceResponseBodyData extends $tea.Model {
+  subDeviceUnbindResult?: UnbindAllUserByDeviceResponseBodyDataSubDeviceUnbindResult[];
+  static names(): { [key: string]: string } {
+    return {
+      subDeviceUnbindResult: 'SubDeviceUnbindResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subDeviceUnbindResult: { 'type': 'array', 'itemType': UnbindAllUserByDeviceResponseBodyDataSubDeviceUnbindResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindDeviceResponseBodyDataSubDeviceUnbindResult extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  unbindResultCode?: number;
+  unbindResultMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+      unbindResultCode: 'UnbindResultCode',
+      unbindResultMessage: 'UnbindResultMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+      unbindResultCode: 'number',
+      unbindResultMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindDeviceResponseBodyData extends $tea.Model {
+  subDeviceUnbindResult?: UnbindDeviceResponseBodyDataSubDeviceUnbindResult[];
+  static names(): { [key: string]: string } {
+    return {
+      subDeviceUnbindResult: 'SubDeviceUnbindResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subDeviceUnbindResult: { 'type': 'array', 'itemType': UnbindDeviceResponseBodyDataSubDeviceUnbindResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadDeviceNameListResponseBodyDataInvalidDetailList extends $tea.Model {
   deviceName?: string;
   errorMsg?: string;
@@ -2851,6 +4335,47 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async batchBindDeviceWithOptions(request: BatchBindDeviceRequest, runtime: $Util.RuntimeOptions): Promise<BatchBindDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceList)) {
+      query["DeviceList"] = request.deviceList;
+    }
+
+    if (!Util.isUnset(request.identityId)) {
+      query["IdentityId"] = request.identityId;
+    }
+
+    if (!Util.isUnset(request.openId)) {
+      query["OpenId"] = request.openId;
+    }
+
+    if (!Util.isUnset(request.openIdAppKey)) {
+      query["OpenIdAppKey"] = request.openIdAppKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchBindDevice",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchBindDeviceResponse>(await this.callApi(params, req, runtime), new BatchBindDeviceResponse({}));
+  }
+
+  async batchBindDevice(request: BatchBindDeviceRequest): Promise<BatchBindDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchBindDeviceWithOptions(request, runtime);
   }
 
   async bindStorageOrderWithOptions(request: BindStorageOrderRequest, runtime: $Util.RuntimeOptions): Promise<BindStorageOrderResponse> {
@@ -3339,6 +4864,346 @@ export default class Client extends OpenApi {
     return await this.generateDeviceByBatchIdWithOptions(request, runtime);
   }
 
+  async getAccountByIdWithOptions(request: GetAccountByIdRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountByIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identityId)) {
+      query["IdentityId"] = request.identityId;
+    }
+
+    if (!Util.isUnset(request.openId)) {
+      query["OpenId"] = request.openId;
+    }
+
+    if (!Util.isUnset(request.openIdAppKey)) {
+      query["OpenIdAppKey"] = request.openIdAppKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAccountById",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccountByIdResponse>(await this.callApi(params, req, runtime), new GetAccountByIdResponse({}));
+  }
+
+  async getAccountById(request: GetAccountByIdRequest): Promise<GetAccountByIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAccountByIdWithOptions(request, runtime);
+  }
+
+  async getDeviceStatusWithOptions(request: GetDeviceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDeviceStatus",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDeviceStatusResponse>(await this.callApi(params, req, runtime), new GetDeviceStatusResponse({}));
+  }
+
+  async getDeviceStatus(request: GetDeviceStatusRequest): Promise<GetDeviceStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDeviceStatusWithOptions(request, runtime);
+  }
+
+  async getSubDeviceListWithOptions(request: GetSubDeviceListRequest, runtime: $Util.RuntimeOptions): Promise<GetSubDeviceListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSubDeviceList",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSubDeviceListResponse>(await this.callApi(params, req, runtime), new GetSubDeviceListResponse({}));
+  }
+
+  async getSubDeviceList(request: GetSubDeviceListRequest): Promise<GetSubDeviceListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSubDeviceListWithOptions(request, runtime);
+  }
+
+  async getThingEventSnapshotWithOptions(request: GetThingEventSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<GetThingEventSnapshotResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.identifier)) {
+      query["Identifier"] = request.identifier;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetThingEventSnapshot",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetThingEventSnapshotResponse>(await this.callApi(params, req, runtime), new GetThingEventSnapshotResponse({}));
+  }
+
+  async getThingEventSnapshot(request: GetThingEventSnapshotRequest): Promise<GetThingEventSnapshotResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getThingEventSnapshotWithOptions(request, runtime);
+  }
+
+  async getThingPropertySnapshotWithOptions(request: GetThingPropertySnapshotRequest, runtime: $Util.RuntimeOptions): Promise<GetThingPropertySnapshotResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetThingPropertySnapshot",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetThingPropertySnapshotResponse>(await this.callApi(params, req, runtime), new GetThingPropertySnapshotResponse({}));
+  }
+
+  async getThingPropertySnapshot(request: GetThingPropertySnapshotRequest): Promise<GetThingPropertySnapshotResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getThingPropertySnapshotWithOptions(request, runtime);
+  }
+
+  async invokeThingServiceWithOptions(request: InvokeThingServiceRequest, runtime: $Util.RuntimeOptions): Promise<InvokeThingServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.args)) {
+      query["Args"] = request.args;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.identifier)) {
+      query["Identifier"] = request.identifier;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InvokeThingService",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InvokeThingServiceResponse>(await this.callApi(params, req, runtime), new InvokeThingServiceResponse({}));
+  }
+
+  async invokeThingService(request: InvokeThingServiceRequest): Promise<InvokeThingServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.invokeThingServiceWithOptions(request, runtime);
+  }
+
+  async listBindingAccountByDeviceWithOptions(request: ListBindingAccountByDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ListBindingAccountByDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.owned)) {
+      query["Owned"] = request.owned;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListBindingAccountByDevice",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBindingAccountByDeviceResponse>(await this.callApi(params, req, runtime), new ListBindingAccountByDeviceResponse({}));
+  }
+
+  async listBindingAccountByDevice(request: ListBindingAccountByDeviceRequest): Promise<ListBindingAccountByDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBindingAccountByDeviceWithOptions(request, runtime);
+  }
+
+  async listBindingDeviceByAccountWithOptions(request: ListBindingDeviceByAccountRequest, runtime: $Util.RuntimeOptions): Promise<ListBindingDeviceByAccountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identityId)) {
+      query["IdentityId"] = request.identityId;
+    }
+
+    if (!Util.isUnset(request.openId)) {
+      query["OpenId"] = request.openId;
+    }
+
+    if (!Util.isUnset(request.openIdAppKey)) {
+      query["OpenIdAppKey"] = request.openIdAppKey;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.subDevice)) {
+      query["SubDevice"] = request.subDevice;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListBindingDeviceByAccount",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBindingDeviceByAccountResponse>(await this.callApi(params, req, runtime), new ListBindingDeviceByAccountResponse({}));
+  }
+
+  async listBindingDeviceByAccount(request: ListBindingDeviceByAccountRequest): Promise<ListBindingDeviceByAccountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBindingDeviceByAccountWithOptions(request, runtime);
+  }
+
   async queryBatchStatusWithOptions(request: QueryBatchStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryBatchStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3643,6 +5508,47 @@ export default class Client extends OpenApi {
     return await this.queryStorageOrderListWithOptions(request, runtime);
   }
 
+  async setThingPropertyWithOptions(request: SetThingPropertyRequest, runtime: $Util.RuntimeOptions): Promise<SetThingPropertyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.args)) {
+      query["Args"] = request.args;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetThingProperty",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetThingPropertyResponse>(await this.callApi(params, req, runtime), new SetThingPropertyResponse({}));
+  }
+
+  async setThingProperty(request: SetThingPropertyRequest): Promise<SetThingPropertyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setThingPropertyWithOptions(request, runtime);
+  }
+
   async transferStorageOrderWithOptions(request: TransferStorageOrderRequest, runtime: $Util.RuntimeOptions): Promise<TransferStorageOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3710,6 +5616,100 @@ export default class Client extends OpenApi {
   async transferStorageOrder(request: TransferStorageOrderRequest): Promise<TransferStorageOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transferStorageOrderWithOptions(request, runtime);
+  }
+
+  async unbindAllUserByDeviceWithOptions(request: UnbindAllUserByDeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnbindAllUserByDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.unbindSubDevice)) {
+      query["UnbindSubDevice"] = request.unbindSubDevice;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnbindAllUserByDevice",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindAllUserByDeviceResponse>(await this.callApi(params, req, runtime), new UnbindAllUserByDeviceResponse({}));
+  }
+
+  async unbindAllUserByDevice(request: UnbindAllUserByDeviceRequest): Promise<UnbindAllUserByDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unbindAllUserByDeviceWithOptions(request, runtime);
+  }
+
+  async unbindDeviceWithOptions(request: UnbindDeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnbindDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.identityId)) {
+      query["IdentityId"] = request.identityId;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.openId)) {
+      query["OpenId"] = request.openId;
+    }
+
+    if (!Util.isUnset(request.openIdAppKey)) {
+      query["OpenIdAppKey"] = request.openIdAppKey;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.unbindSubDevice)) {
+      query["UnbindSubDevice"] = request.unbindSubDevice;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnbindDevice",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindDeviceResponse>(await this.callApi(params, req, runtime), new UnbindDeviceResponse({}));
+  }
+
+  async unbindDevice(request: UnbindDeviceRequest): Promise<UnbindDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unbindDeviceWithOptions(request, runtime);
   }
 
   async uploadDeviceNameListWithOptions(request: UploadDeviceNameListRequest, runtime: $Util.RuntimeOptions): Promise<UploadDeviceNameListResponse> {
