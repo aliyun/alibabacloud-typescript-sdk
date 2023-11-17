@@ -105,6 +105,7 @@ export class Instance extends $tea.Model {
   instanceName?: string;
   instancePort?: number;
   isSpot?: boolean;
+  isolated?: boolean;
   lastState?: { [key: string]: any }[];
   namespace?: string;
   originalAmount?: number;
@@ -127,6 +128,7 @@ export class Instance extends $tea.Model {
       instanceName: 'InstanceName',
       instancePort: 'InstancePort',
       isSpot: 'IsSpot',
+      isolated: 'Isolated',
       lastState: 'LastState',
       namespace: 'Namespace',
       originalAmount: 'OriginalAmount',
@@ -152,6 +154,7 @@ export class Instance extends $tea.Model {
       instanceName: 'string',
       instancePort: 'number',
       isSpot: 'boolean',
+      isolated: 'boolean',
       lastState: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       namespace: 'string',
       originalAmount: 'number',
@@ -370,6 +373,10 @@ export class ResourceInstanceWorker extends $tea.Model {
 
 export class Service extends $tea.Model {
   accessToken?: string;
+  appConfig?: string;
+  appSpecName?: string;
+  appType?: string;
+  appVersion?: string;
   callerUid?: string;
   cpu?: number;
   createTime?: string;
@@ -407,9 +414,14 @@ export class Service extends $tea.Model {
   totalInstance?: number;
   updateTime?: string;
   weight?: number;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       accessToken: 'AccessToken',
+      appConfig: 'AppConfig',
+      appSpecName: 'AppSpecName',
+      appType: 'AppType',
+      appVersion: 'AppVersion',
       callerUid: 'CallerUid',
       cpu: 'Cpu',
       createTime: 'CreateTime',
@@ -447,12 +459,17 @@ export class Service extends $tea.Model {
       totalInstance: 'TotalInstance',
       updateTime: 'UpdateTime',
       weight: 'Weight',
+      workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accessToken: 'string',
+      appConfig: 'string',
+      appSpecName: 'string',
+      appType: 'string',
+      appVersion: 'string',
       callerUid: 'string',
       cpu: 'number',
       createTime: 'string',
@@ -490,6 +507,7 @@ export class Service extends $tea.Model {
       totalInstance: 'number',
       updateTime: 'string',
       weight: 'number',
+      workspaceId: 'string',
     };
   }
 
@@ -537,6 +555,108 @@ export class CommitServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CommitServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppServiceRequest extends $tea.Model {
+  quotaId?: string;
+  workspaceId?: string;
+  appType?: string;
+  appVersion?: string;
+  config?: { [key: string]: any };
+  replicas?: number;
+  serviceName?: string;
+  serviceSpec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      quotaId: 'QuotaId',
+      workspaceId: 'WorkspaceId',
+      appType: 'AppType',
+      appVersion: 'AppVersion',
+      config: 'Config',
+      replicas: 'Replicas',
+      serviceName: 'ServiceName',
+      serviceSpec: 'ServiceSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      quotaId: 'string',
+      workspaceId: 'string',
+      appType: 'string',
+      appVersion: 'string',
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      replicas: 'number',
+      serviceName: 'string',
+      serviceSpec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppServiceResponseBody extends $tea.Model {
+  internetEndpoint?: string;
+  intranetEndpoint?: string;
+  region?: string;
+  requestId?: string;
+  serviceId?: string;
+  serviceName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      internetEndpoint: 'InternetEndpoint',
+      intranetEndpoint: 'IntranetEndpoint',
+      region: 'Region',
+      requestId: 'RequestId',
+      serviceId: 'ServiceId',
+      serviceName: 'ServiceName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internetEndpoint: 'string',
+      intranetEndpoint: 'string',
+      region: 'string',
+      requestId: 'string',
+      serviceId: 'string',
+      serviceName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateAppServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAppServiceResponseBody,
     };
   }
 
@@ -617,16 +737,169 @@ export class CreateBenchmarkTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateGatewayRequest extends $tea.Model {
+  resourceName?: string;
+  enableInternet?: boolean;
+  enableIntranet?: boolean;
+  instanceType?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceName: 'ResourceName',
+      enableInternet: 'EnableInternet',
+      enableIntranet: 'EnableIntranet',
+      instanceType: 'InstanceType',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceName: 'string',
+      enableInternet: 'boolean',
+      enableIntranet: 'boolean',
+      instanceType: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayResponseBody extends $tea.Model {
+  clusterId?: string;
+  gatewayId?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      gatewayId: 'GatewayId',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      gatewayId: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateGatewayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateGatewayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayIntranetLinkedVpcRequest extends $tea.Model {
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
+  gatewayId?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayIntranetLinkedVpcResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateGatewayIntranetLinkedVpcResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateGatewayIntranetLinkedVpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateResourceRequest extends $tea.Model {
   autoRenewal?: boolean;
   chargeType?: string;
   ecsInstanceCount?: number;
   ecsInstanceType?: string;
-  externalClusterId?: string;
-  nodeMatchLabels?: { [key: string]: string };
-  nodeTolerations?: CreateResourceRequestNodeTolerations[];
   resourceType?: string;
-  roleName?: string;
+  selfManagedResourceOptions?: CreateResourceRequestSelfManagedResourceOptions;
   systemDiskSize?: number;
   zone?: string;
   static names(): { [key: string]: string } {
@@ -635,11 +908,8 @@ export class CreateResourceRequest extends $tea.Model {
       chargeType: 'ChargeType',
       ecsInstanceCount: 'EcsInstanceCount',
       ecsInstanceType: 'EcsInstanceType',
-      externalClusterId: 'ExternalClusterId',
-      nodeMatchLabels: 'NodeMatchLabels',
-      nodeTolerations: 'NodeTolerations',
       resourceType: 'ResourceType',
-      roleName: 'RoleName',
+      selfManagedResourceOptions: 'SelfManagedResourceOptions',
       systemDiskSize: 'SystemDiskSize',
       zone: 'Zone',
     };
@@ -651,11 +921,8 @@ export class CreateResourceRequest extends $tea.Model {
       chargeType: 'string',
       ecsInstanceCount: 'number',
       ecsInstanceType: 'string',
-      externalClusterId: 'string',
-      nodeMatchLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      nodeTolerations: { 'type': 'array', 'itemType': CreateResourceRequestNodeTolerations },
       resourceType: 'string',
-      roleName: 'string',
+      selfManagedResourceOptions: CreateResourceRequestSelfManagedResourceOptions,
       systemDiskSize: 'number',
       zone: 'string',
     };
@@ -884,11 +1151,13 @@ export class CreateResourceLogResponse extends $tea.Model {
 export class CreateServiceRequest extends $tea.Model {
   develop?: string;
   labels?: { [key: string]: string };
+  workspaceId?: string;
   body?: string;
   static names(): { [key: string]: string } {
     return {
       develop: 'Develop',
       labels: 'Labels',
+      workspaceId: 'WorkspaceId',
       body: 'body',
     };
   }
@@ -897,6 +1166,7 @@ export class CreateServiceRequest extends $tea.Model {
     return {
       develop: 'string',
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspaceId: 'string',
       body: 'string',
     };
   }
@@ -909,11 +1179,13 @@ export class CreateServiceRequest extends $tea.Model {
 export class CreateServiceShrinkRequest extends $tea.Model {
   develop?: string;
   labelsShrink?: string;
+  workspaceId?: string;
   body?: string;
   static names(): { [key: string]: string } {
     return {
       develop: 'Develop',
       labelsShrink: 'Labels',
+      workspaceId: 'WorkspaceId',
       body: 'body',
     };
   }
@@ -922,6 +1194,7 @@ export class CreateServiceShrinkRequest extends $tea.Model {
     return {
       develop: 'string',
       labelsShrink: 'string',
+      workspaceId: 'string',
       body: 'string',
     };
   }
@@ -1245,6 +1518,128 @@ export class DeleteBenchmarkTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteBenchmarkTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayResponseBody extends $tea.Model {
+  gatewayId?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteGatewayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGatewayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayIntranetLinkedVpcRequest extends $tea.Model {
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
+  gatewayId?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayIntranetLinkedVpcResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteGatewayIntranetLinkedVpcResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGatewayIntranetLinkedVpcResponseBody,
     };
   }
 
@@ -1949,6 +2344,98 @@ export class DescribeBenchmarkTaskReportResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeBenchmarkTaskReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGatewayResponseBody extends $tea.Model {
+  callerUid?: string;
+  createTime?: string;
+  externalClusterId?: string;
+  gatewayId?: string;
+  gatewayName?: string;
+  instanceType?: string;
+  internetAclPolicyList?: DescribeGatewayResponseBodyInternetAclPolicyList[];
+  internetDomain?: string;
+  internetEnabled?: boolean;
+  intranetDomain?: string;
+  intranetEnabled?: boolean;
+  intranetLinkedVpcList?: DescribeGatewayResponseBodyIntranetLinkedVpcList[];
+  parentUid?: string;
+  region?: string;
+  requestId?: string;
+  status?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callerUid: 'CallerUid',
+      createTime: 'CreateTime',
+      externalClusterId: 'ExternalClusterId',
+      gatewayId: 'GatewayId',
+      gatewayName: 'GatewayName',
+      instanceType: 'InstanceType',
+      internetAclPolicyList: 'InternetAclPolicyList',
+      internetDomain: 'InternetDomain',
+      internetEnabled: 'InternetEnabled',
+      intranetDomain: 'IntranetDomain',
+      intranetEnabled: 'IntranetEnabled',
+      intranetLinkedVpcList: 'IntranetLinkedVpcList',
+      parentUid: 'ParentUid',
+      region: 'Region',
+      requestId: 'RequestId',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callerUid: 'string',
+      createTime: 'string',
+      externalClusterId: 'string',
+      gatewayId: 'string',
+      gatewayName: 'string',
+      instanceType: 'string',
+      internetAclPolicyList: { 'type': 'array', 'itemType': DescribeGatewayResponseBodyInternetAclPolicyList },
+      internetDomain: 'string',
+      internetEnabled: 'boolean',
+      intranetDomain: 'string',
+      intranetEnabled: 'boolean',
+      intranetLinkedVpcList: { 'type': 'array', 'itemType': DescribeGatewayResponseBodyIntranetLinkedVpcList },
+      parentUid: 'string',
+      region: 'string',
+      requestId: 'string',
+      status: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGatewayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeGatewayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeGatewayResponseBody,
     };
   }
 
@@ -2812,15 +3299,67 @@ export class ListBenchmarkTaskResponse extends $tea.Model {
   }
 }
 
+export class ListGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
+  gatewayId?: string;
+  intranetLinkedVpcList?: ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      intranetLinkedVpcList: 'IntranetLinkedVpcList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      intranetLinkedVpcList: { 'type': 'array', 'itemType': ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIntranetLinkedVpcResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListGatewayIntranetLinkedVpcResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGatewayIntranetLinkedVpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGroupsRequest extends $tea.Model {
   filter?: string;
   pageNumber?: string;
   pageSize?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -2829,6 +3368,7 @@ export class ListGroupsRequest extends $tea.Model {
       filter: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -3491,6 +4031,7 @@ export class ListServicesRequest extends $tea.Model {
   serviceType?: string;
   serviceUid?: string;
   sort?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
@@ -3506,6 +4047,7 @@ export class ListServicesRequest extends $tea.Model {
       serviceType: 'ServiceType',
       serviceUid: 'ServiceUid',
       sort: 'Sort',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -3524,6 +4066,7 @@ export class ListServicesRequest extends $tea.Model {
       serviceType: 'string',
       serviceUid: 'string',
       sort: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -3546,6 +4089,7 @@ export class ListServicesShrinkRequest extends $tea.Model {
   serviceType?: string;
   serviceUid?: string;
   sort?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
@@ -3561,6 +4105,7 @@ export class ListServicesShrinkRequest extends $tea.Model {
       serviceType: 'ServiceType',
       serviceUid: 'ServiceUid',
       sort: 'Sort',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -3579,6 +4124,7 @@ export class ListServicesShrinkRequest extends $tea.Model {
       serviceType: 'string',
       serviceUid: 'string',
       sort: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -3947,6 +4493,90 @@ export class StopServiceResponse extends $tea.Model {
   }
 }
 
+export class UpdateAppServiceRequest extends $tea.Model {
+  quotaId?: string;
+  workspaceId?: string;
+  appType?: string;
+  appVersion?: string;
+  config?: { [key: string]: any };
+  replicas?: string;
+  serviceSpec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      quotaId: 'QuotaId',
+      workspaceId: 'WorkspaceId',
+      appType: 'AppType',
+      appVersion: 'AppVersion',
+      config: 'Config',
+      replicas: 'Replicas',
+      serviceSpec: 'ServiceSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      quotaId: 'string',
+      workspaceId: 'string',
+      appType: 'string',
+      appVersion: 'string',
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      replicas: 'string',
+      serviceSpec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppServiceResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateAppServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAppServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateBenchmarkTaskRequest extends $tea.Model {
   body?: string;
   static names(): { [key: string]: string } {
@@ -4013,23 +4643,98 @@ export class UpdateBenchmarkTaskResponse extends $tea.Model {
   }
 }
 
-export class UpdateResourceRequest extends $tea.Model {
-  nodeMatchLabels?: { [key: string]: string };
-  nodeTolerations?: UpdateResourceRequestNodeTolerations[];
-  resourceName?: string;
+export class UpdateGatewayRequest extends $tea.Model {
+  enableInternet?: boolean;
+  enableIntranet?: boolean;
+  instanceType?: string;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
-      nodeMatchLabels: 'NodeMatchLabels',
-      nodeTolerations: 'NodeTolerations',
-      resourceName: 'ResourceName',
+      enableInternet: 'EnableInternet',
+      enableIntranet: 'EnableIntranet',
+      instanceType: 'InstanceType',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nodeMatchLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      nodeTolerations: { 'type': 'array', 'itemType': UpdateResourceRequestNodeTolerations },
+      enableInternet: 'boolean',
+      enableIntranet: 'boolean',
+      instanceType: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayResponseBody extends $tea.Model {
+  gatewayId?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateGatewayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGatewayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceRequest extends $tea.Model {
+  resourceName?: string;
+  selfManagedResourceOptions?: UpdateResourceRequestSelfManagedResourceOptions;
+  static names(): { [key: string]: string } {
+    return {
+      resourceName: 'ResourceName',
+      selfManagedResourceOptions: 'SelfManagedResourceOptions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       resourceName: 'string',
+      selfManagedResourceOptions: UpdateResourceRequestSelfManagedResourceOptions,
     };
   }
 
@@ -4442,6 +5147,72 @@ export class UpdateServiceCronScalerResponse extends $tea.Model {
   }
 }
 
+export class UpdateServiceInstanceRequest extends $tea.Model {
+  isolate?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      isolate: 'Isolate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isolate: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateServiceInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateServiceInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServiceLabelRequest extends $tea.Model {
   labels?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -4731,7 +5502,7 @@ export class ServiceLabels extends $tea.Model {
   }
 }
 
-export class CreateResourceRequestNodeTolerations extends $tea.Model {
+export class CreateResourceRequestSelfManagedResourceOptionsNodeTolerations extends $tea.Model {
   effect?: string;
   key?: string;
   operator?: string;
@@ -4751,6 +5522,34 @@ export class CreateResourceRequestNodeTolerations extends $tea.Model {
       key: 'string',
       operator: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceRequestSelfManagedResourceOptions extends $tea.Model {
+  externalClusterId?: string;
+  nodeMatchLabels?: { [key: string]: string };
+  nodeTolerations?: CreateResourceRequestSelfManagedResourceOptionsNodeTolerations[];
+  roleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalClusterId: 'ExternalClusterId',
+      nodeMatchLabels: 'NodeMatchLabels',
+      nodeTolerations: 'NodeTolerations',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalClusterId: 'string',
+      nodeMatchLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      nodeTolerations: { 'type': 'array', 'itemType': CreateResourceRequestSelfManagedResourceOptionsNodeTolerations },
+      roleName: 'string',
     };
   }
 
@@ -4886,6 +5685,62 @@ export class CreateServiceCronScalerRequestScaleJobs extends $tea.Model {
       name: 'string',
       schedule: 'string',
       targetSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGatewayResponseBodyInternetAclPolicyList extends $tea.Model {
+  comment?: string;
+  entry?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      entry: 'Entry',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      entry: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGatewayResponseBodyIntranetLinkedVpcList extends $tea.Model {
+  ip?: string;
+  securityGroupId?: string;
+  status?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      securityGroupId: 'SecurityGroupId',
+      status: 'Status',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      securityGroupId: 'string',
+      status: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -5102,6 +5957,37 @@ export class ListBenchmarkTaskResponseBodyTasks extends $tea.Model {
   }
 }
 
+export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList extends $tea.Model {
+  ip?: string;
+  securityGroupId?: string;
+  status?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      securityGroupId: 'SecurityGroupId',
+      status: 'Status',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      securityGroupId: 'string',
+      status: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceVersionsResponseBodyVersions extends $tea.Model {
   buildTime?: string;
   imageAvailable?: string;
@@ -5133,7 +6019,7 @@ export class ListServiceVersionsResponseBodyVersions extends $tea.Model {
   }
 }
 
-export class UpdateResourceRequestNodeTolerations extends $tea.Model {
+export class UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations extends $tea.Model {
   effect?: string;
   key?: string;
   operator?: string;
@@ -5153,6 +6039,28 @@ export class UpdateResourceRequestNodeTolerations extends $tea.Model {
       key: 'string',
       operator: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceRequestSelfManagedResourceOptions extends $tea.Model {
+  nodeMatchLabels?: { [key: string]: string };
+  nodeTolerations?: UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations[];
+  static names(): { [key: string]: string } {
+    return {
+      nodeMatchLabels: 'NodeMatchLabels',
+      nodeTolerations: 'NodeTolerations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeMatchLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      nodeTolerations: { 'type': 'array', 'itemType': UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations },
     };
   }
 
@@ -5360,6 +6268,67 @@ export default class Client extends OpenApi {
     return await this.commitServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  async createAppServiceWithOptions(request: CreateAppServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAppServiceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.quotaId)) {
+      query["QuotaId"] = request.quotaId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.appVersion)) {
+      body["AppVersion"] = request.appVersion;
+    }
+
+    if (!Util.isUnset(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.replicas)) {
+      body["Replicas"] = request.replicas;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      body["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.serviceSpec)) {
+      body["ServiceSpec"] = request.serviceSpec;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAppService",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/app_services`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAppServiceResponse>(await this.callApi(params, req, runtime), new CreateAppServiceResponse({}));
+  }
+
+  async createAppService(request: CreateAppServiceRequest): Promise<CreateAppServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAppServiceWithOptions(request, headers, runtime);
+  }
+
   async createBenchmarkTaskWithOptions(request: CreateBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateBenchmarkTaskResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5386,6 +6355,90 @@ export default class Client extends OpenApi {
     return await this.createBenchmarkTaskWithOptions(request, headers, runtime);
   }
 
+  async createGatewayWithOptions(request: CreateGatewayRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGatewayResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resourceName)) {
+      query["ResourceName"] = request.resourceName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enableInternet)) {
+      body["EnableInternet"] = request.enableInternet;
+    }
+
+    if (!Util.isUnset(request.enableIntranet)) {
+      body["EnableIntranet"] = request.enableIntranet;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      body["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateGateway",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGatewayResponse>(await this.callApi(params, req, runtime), new CreateGatewayResponse({}));
+  }
+
+  async createGateway(request: CreateGatewayRequest): Promise<CreateGatewayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createGatewayWithOptions(request, headers, runtime);
+  }
+
+  async createGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, request: CreateGatewayIntranetLinkedVpcRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGatewayIntranetLinkedVpcResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateGatewayIntranetLinkedVpc",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_endpoint_linked_vpc`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGatewayIntranetLinkedVpcResponse>(await this.callApi(params, req, runtime), new CreateGatewayIntranetLinkedVpcResponse({}));
+  }
+
+  async createGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string, request: CreateGatewayIntranetLinkedVpcRequest): Promise<CreateGatewayIntranetLinkedVpcResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, request, headers, runtime);
+  }
+
   async createResourceWithOptions(request: CreateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5405,24 +6458,12 @@ export default class Client extends OpenApi {
       body["EcsInstanceType"] = request.ecsInstanceType;
     }
 
-    if (!Util.isUnset(request.externalClusterId)) {
-      body["ExternalClusterId"] = request.externalClusterId;
-    }
-
-    if (!Util.isUnset(request.nodeMatchLabels)) {
-      body["NodeMatchLabels"] = request.nodeMatchLabels;
-    }
-
-    if (!Util.isUnset(request.nodeTolerations)) {
-      body["NodeTolerations"] = request.nodeTolerations;
-    }
-
     if (!Util.isUnset(request.resourceType)) {
       body["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.roleName)) {
-      body["RoleName"] = request.roleName;
+    if (!Util.isUnset(request.selfManagedResourceOptions)) {
+      body["SelfManagedResourceOptions"] = request.selfManagedResourceOptions;
     }
 
     if (!Util.isUnset(request.systemDiskSize)) {
@@ -5562,6 +6603,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.labelsShrink)) {
       query["Labels"] = request.labelsShrink;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -5724,6 +6769,65 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
+  }
+
+  async deleteGatewayWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGateway",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGatewayResponse>(await this.callApi(params, req, runtime), new DeleteGatewayResponse({}));
+  }
+
+  async deleteGateway(ClusterId: string, GatewayId: string): Promise<DeleteGatewayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteGatewayWithOptions(ClusterId, GatewayId, headers, runtime);
+  }
+
+  async deleteGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, request: DeleteGatewayIntranetLinkedVpcRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayIntranetLinkedVpcResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGatewayIntranetLinkedVpc",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_endpoint_linked_vpc`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGatewayIntranetLinkedVpcResponse>(await this.callApi(params, req, runtime), new DeleteGatewayIntranetLinkedVpcResponse({}));
+  }
+
+  async deleteGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string, request: DeleteGatewayIntranetLinkedVpcRequest): Promise<DeleteGatewayIntranetLinkedVpcResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
 
   async deleteResourceWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceResponse> {
@@ -6058,6 +7162,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeBenchmarkTaskReportWithOptions(ClusterId, TaskName, request, headers, runtime);
+  }
+
+  async describeGatewayWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeGatewayResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeGateway",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGatewayResponse>(await this.callApi(params, req, runtime), new DescribeGatewayResponse({}));
+  }
+
+  async describeGateway(ClusterId: string, GatewayId: string): Promise<DescribeGatewayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeGatewayWithOptions(ClusterId, GatewayId, headers, runtime);
   }
 
   async describeGroupWithOptions(ClusterId: string, GroupName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeGroupResponse> {
@@ -6488,6 +7616,30 @@ export default class Client extends OpenApi {
     return await this.listBenchmarkTaskWithOptions(request, headers, runtime);
   }
 
+  async listGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayIntranetLinkedVpcResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGatewayIntranetLinkedVpc",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_endpoint_linked_vpc`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGatewayIntranetLinkedVpcResponse>(await this.callApi(params, req, runtime), new ListGatewayIntranetLinkedVpcResponse({}));
+  }
+
+  async listGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string): Promise<ListGatewayIntranetLinkedVpcResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, headers, runtime);
+  }
+
   async listGroupsWithOptions(request: ListGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6501,6 +7653,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6910,6 +8066,10 @@ export default class Client extends OpenApi {
       query["Sort"] = request.sort;
     }
 
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -7089,6 +8249,63 @@ export default class Client extends OpenApi {
     return await this.stopServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  async updateAppServiceWithOptions(ClusterId: string, ServiceName: string, request: UpdateAppServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAppServiceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.quotaId)) {
+      query["QuotaId"] = request.quotaId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.appVersion)) {
+      body["AppVersion"] = request.appVersion;
+    }
+
+    if (!Util.isUnset(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.replicas)) {
+      body["Replicas"] = request.replicas;
+    }
+
+    if (!Util.isUnset(request.serviceSpec)) {
+      body["ServiceSpec"] = request.serviceSpec;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAppService",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/app_services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAppServiceResponse>(await this.callApi(params, req, runtime), new UpdateAppServiceResponse({}));
+  }
+
+  async updateAppService(ClusterId: string, ServiceName: string, request: UpdateAppServiceRequest): Promise<UpdateAppServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAppServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  }
+
   async updateBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, request: UpdateBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateBenchmarkTaskResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7115,19 +8332,58 @@ export default class Client extends OpenApi {
     return await this.updateBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
   }
 
+  async updateGatewayWithOptions(GatewayId: string, ClusterId: string, request: UpdateGatewayRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enableInternet)) {
+      body["EnableInternet"] = request.enableInternet;
+    }
+
+    if (!Util.isUnset(request.enableIntranet)) {
+      body["EnableIntranet"] = request.enableIntranet;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      body["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGateway",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGatewayResponse>(await this.callApi(params, req, runtime), new UpdateGatewayResponse({}));
+  }
+
+  async updateGateway(GatewayId: string, ClusterId: string, request: UpdateGatewayRequest): Promise<UpdateGatewayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateGatewayWithOptions(GatewayId, ClusterId, request, headers, runtime);
+  }
+
   async updateResourceWithOptions(ClusterId: string, ResourceId: string, request: UpdateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.nodeMatchLabels)) {
-      body["NodeMatchLabels"] = request.nodeMatchLabels;
-    }
-
-    if (!Util.isUnset(request.nodeTolerations)) {
-      body["NodeTolerations"] = request.nodeTolerations;
-    }
-
     if (!Util.isUnset(request.resourceName)) {
       body["ResourceName"] = request.resourceName;
+    }
+
+    if (!Util.isUnset(request.selfManagedResourceOptions)) {
+      body["SelfManagedResourceOptions"] = request.selfManagedResourceOptions;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7330,6 +8586,37 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceCronScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  }
+
+  async updateServiceInstanceWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, request: UpdateServiceInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceInstanceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.isolate)) {
+      body["Isolate"] = request.isolate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateServiceInstance",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/instances/${OpenApiUtil.getEncodeParam(InstanceName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateServiceInstanceResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceResponse({}));
+  }
+
+  async updateServiceInstance(ClusterId: string, ServiceName: string, InstanceName: string, request: UpdateServiceInstanceRequest): Promise<UpdateServiceInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateServiceInstanceWithOptions(ClusterId, ServiceName, InstanceName, request, headers, runtime);
   }
 
   async updateServiceLabelWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceLabelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceLabelResponse> {
