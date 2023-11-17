@@ -4171,6 +4171,181 @@ export class CreateOpaClusterPluginResponse extends $tea.Model {
   }
 }
 
+export class CreateOpaStrategyNewRequest extends $tea.Model {
+  alarmDetail?: CreateOpaStrategyNewRequestAlarmDetail;
+  clusterId?: string;
+  clusterName?: string;
+  description?: string;
+  imageName?: string[];
+  label?: string[];
+  maliciousImage?: boolean;
+  ruleAction?: number;
+  scopes?: CreateOpaStrategyNewRequestScopes[];
+  strategyId?: number;
+  strategyName?: string;
+  strategyTemplateId?: number;
+  unScanedImage?: boolean;
+  whiteList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      alarmDetail: 'AlarmDetail',
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      description: 'Description',
+      imageName: 'ImageName',
+      label: 'Label',
+      maliciousImage: 'MaliciousImage',
+      ruleAction: 'RuleAction',
+      scopes: 'Scopes',
+      strategyId: 'StrategyId',
+      strategyName: 'StrategyName',
+      strategyTemplateId: 'StrategyTemplateId',
+      unScanedImage: 'UnScanedImage',
+      whiteList: 'WhiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmDetail: CreateOpaStrategyNewRequestAlarmDetail,
+      clusterId: 'string',
+      clusterName: 'string',
+      description: 'string',
+      imageName: { 'type': 'array', 'itemType': 'string' },
+      label: { 'type': 'array', 'itemType': 'string' },
+      maliciousImage: 'boolean',
+      ruleAction: 'number',
+      scopes: { 'type': 'array', 'itemType': CreateOpaStrategyNewRequestScopes },
+      strategyId: 'number',
+      strategyName: 'string',
+      strategyTemplateId: 'number',
+      unScanedImage: 'boolean',
+      whiteList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewShrinkRequest extends $tea.Model {
+  alarmDetailShrink?: string;
+  clusterId?: string;
+  clusterName?: string;
+  description?: string;
+  imageName?: string[];
+  label?: string[];
+  maliciousImage?: boolean;
+  ruleAction?: number;
+  scopes?: CreateOpaStrategyNewShrinkRequestScopes[];
+  strategyId?: number;
+  strategyName?: string;
+  strategyTemplateId?: number;
+  unScanedImage?: boolean;
+  whiteList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      alarmDetailShrink: 'AlarmDetail',
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      description: 'Description',
+      imageName: 'ImageName',
+      label: 'Label',
+      maliciousImage: 'MaliciousImage',
+      ruleAction: 'RuleAction',
+      scopes: 'Scopes',
+      strategyId: 'StrategyId',
+      strategyName: 'StrategyName',
+      strategyTemplateId: 'StrategyTemplateId',
+      unScanedImage: 'UnScanedImage',
+      whiteList: 'WhiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmDetailShrink: 'string',
+      clusterId: 'string',
+      clusterName: 'string',
+      description: 'string',
+      imageName: { 'type': 'array', 'itemType': 'string' },
+      label: { 'type': 'array', 'itemType': 'string' },
+      maliciousImage: 'boolean',
+      ruleAction: 'number',
+      scopes: { 'type': 'array', 'itemType': CreateOpaStrategyNewShrinkRequestScopes },
+      strategyId: 'number',
+      strategyName: 'string',
+      strategyTemplateId: 'number',
+      unScanedImage: 'boolean',
+      whiteList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewResponseBody extends $tea.Model {
+  code?: string;
+  data?: string[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateOpaStrategyNewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOpaStrategyNewResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOrUpdateAssetGroupRequest extends $tea.Model {
   groupId?: number;
   groupName?: string;
@@ -6900,6 +7075,81 @@ export class DeleteMaliciousNoteResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteMaliciousNoteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOpaStrategyNewRequest extends $tea.Model {
+  strategyIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      strategyIds: 'StrategyIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      strategyIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOpaStrategyNewResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOpaStrategyNewResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteOpaStrategyNewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteOpaStrategyNewResponseBody,
     };
   }
 
@@ -29004,6 +29254,68 @@ export class GetClusterRuleSummaryResponse extends $tea.Model {
   }
 }
 
+export class GetClusterStrategyCountResponseBody extends $tea.Model {
+  code?: string;
+  count?: number;
+  data?: GetClusterStrategyCountResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      count: 'Count',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      count: 'number',
+      data: { 'type': 'array', 'itemType': GetClusterStrategyCountResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterStrategyCountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetClusterStrategyCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClusterStrategyCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetClusterSuspEventStatisticsRequest extends $tea.Model {
   clusterId?: string;
   from?: string;
@@ -31563,6 +31875,84 @@ export class GetOpaPluginStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetOpaPluginStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewRequest extends $tea.Model {
+  strategyId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      strategyId: 'StrategyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      strategyId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetOpaStrategyDetailNewResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetOpaStrategyDetailNewResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetOpaStrategyDetailNewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOpaStrategyDetailNewResponseBody,
     };
   }
 
@@ -40816,6 +41206,145 @@ export class ModifyConcernNecessityResponse extends $tea.Model {
   }
 }
 
+export class ModifyContainerDefenseRuleRequest extends $tea.Model {
+  description?: string;
+  ruleAction?: number;
+  ruleId?: number;
+  ruleName?: string;
+  ruleSwitch?: number;
+  ruleType?: number;
+  scope?: ModifyContainerDefenseRuleRequestScope[];
+  whitelist?: ModifyContainerDefenseRuleRequestWhitelist;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      ruleAction: 'RuleAction',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      ruleSwitch: 'RuleSwitch',
+      ruleType: 'RuleType',
+      scope: 'Scope',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      ruleAction: 'number',
+      ruleId: 'number',
+      ruleName: 'string',
+      ruleSwitch: 'number',
+      ruleType: 'number',
+      scope: { 'type': 'array', 'itemType': ModifyContainerDefenseRuleRequestScope },
+      whitelist: ModifyContainerDefenseRuleRequestWhitelist,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyContainerDefenseRuleShrinkRequest extends $tea.Model {
+  description?: string;
+  ruleAction?: number;
+  ruleId?: number;
+  ruleName?: string;
+  ruleSwitch?: number;
+  ruleType?: number;
+  scope?: ModifyContainerDefenseRuleShrinkRequestScope[];
+  whitelistShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      ruleAction: 'RuleAction',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      ruleSwitch: 'RuleSwitch',
+      ruleType: 'RuleType',
+      scope: 'Scope',
+      whitelistShrink: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      ruleAction: 'number',
+      ruleId: 'number',
+      ruleName: 'string',
+      ruleSwitch: 'number',
+      ruleType: 'number',
+      scope: { 'type': 'array', 'itemType': ModifyContainerDefenseRuleShrinkRequestScope },
+      whitelistShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyContainerDefenseRuleResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyContainerDefenseRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyContainerDefenseRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyContainerDefenseRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyContainerDefenseRuleSwitchRequest extends $tea.Model {
   ruleIds?: number[];
   ruleSwitch?: number;
@@ -44382,6 +44911,81 @@ export class ModifyWebPathResponse extends $tea.Model {
   }
 }
 
+export class OpenPartialBuyRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenPartialBuyResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenPartialBuyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: OpenPartialBuyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OpenPartialBuyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OpenSensitiveFileScanRequest extends $tea.Model {
   switchOn?: string;
   static names(): { [key: string]: string } {
@@ -47133,6 +47737,84 @@ export class RefreshOssBucketScanInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RefreshOssBucketScanInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseSasInstanceRequest extends $tea.Model {
+  chargeType?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseSasInstanceResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseSasInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReleaseSasInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseSasInstanceResponseBody,
     };
   }
 
@@ -51695,6 +52377,219 @@ export class CreateOpaClusterPluginResponseBodyInstallStatus extends $tea.Model 
     return {
       clusterId: 'string',
       installStatus: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewRequestAlarmDetailBaselineItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewRequestAlarmDetailBaseline extends $tea.Model {
+  item?: CreateOpaStrategyNewRequestAlarmDetailBaselineItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': CreateOpaStrategyNewRequestAlarmDetailBaselineItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewRequestAlarmDetailMaliciousFileItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewRequestAlarmDetailMaliciousFile extends $tea.Model {
+  item?: CreateOpaStrategyNewRequestAlarmDetailMaliciousFileItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': CreateOpaStrategyNewRequestAlarmDetailMaliciousFileItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewRequestAlarmDetailVulItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewRequestAlarmDetailVul extends $tea.Model {
+  item?: CreateOpaStrategyNewRequestAlarmDetailVulItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': CreateOpaStrategyNewRequestAlarmDetailVulItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewRequestAlarmDetail extends $tea.Model {
+  baseline?: CreateOpaStrategyNewRequestAlarmDetailBaseline;
+  maliciousFile?: CreateOpaStrategyNewRequestAlarmDetailMaliciousFile;
+  vul?: CreateOpaStrategyNewRequestAlarmDetailVul;
+  static names(): { [key: string]: string } {
+    return {
+      baseline: 'Baseline',
+      maliciousFile: 'MaliciousFile',
+      vul: 'Vul',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseline: CreateOpaStrategyNewRequestAlarmDetailBaseline,
+      maliciousFile: CreateOpaStrategyNewRequestAlarmDetailMaliciousFile,
+      vul: CreateOpaStrategyNewRequestAlarmDetailVul,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewRequestScopes extends $tea.Model {
+  ackPolicyInstanceId?: string;
+  allNamespace?: number;
+  clusterId?: string;
+  namespaceList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ackPolicyInstanceId: 'AckPolicyInstanceId',
+      allNamespace: 'AllNamespace',
+      clusterId: 'ClusterId',
+      namespaceList: 'NamespaceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ackPolicyInstanceId: 'string',
+      allNamespace: 'number',
+      clusterId: 'string',
+      namespaceList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewShrinkRequestScopes extends $tea.Model {
+  ackPolicyInstanceId?: string;
+  allNamespace?: number;
+  clusterId?: string;
+  namespaceList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ackPolicyInstanceId: 'AckPolicyInstanceId',
+      allNamespace: 'AllNamespace',
+      clusterId: 'ClusterId',
+      namespaceList: 'NamespaceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ackPolicyInstanceId: 'string',
+      allNamespace: 'number',
+      clusterId: 'string',
+      namespaceList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -65221,6 +66116,28 @@ export class GetClusterRuleSummaryResponseBodyClusterRuleSummary extends $tea.Mo
   }
 }
 
+export class GetClusterStrategyCountResponseBodyData extends $tea.Model {
+  clusterId?: string;
+  strategyCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      strategyCount: 'StrategyCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      strategyCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetClusterSuspEventStatisticsResponseBodySuspStatistics extends $tea.Model {
   remind?: number;
   serious?: number;
@@ -66760,6 +67677,258 @@ export class GetOpaPluginStatusResponseBodyInstallStatus extends $tea.Model {
     return {
       clusterId: 'string',
       installStatus: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaselineItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaseline extends $tea.Model {
+  item?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaselineItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaselineItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFileItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFile extends $tea.Model {
+  item?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFileItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFileItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVul extends $tea.Model {
+  item?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetail extends $tea.Model {
+  baseline?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaseline;
+  maliciousFile?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFile;
+  vul?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVul;
+  static names(): { [key: string]: string } {
+    return {
+      baseline: 'Baseline',
+      maliciousFile: 'MaliciousFile',
+      vul: 'Vul',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseline: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaseline,
+      maliciousFile: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFile,
+      vul: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVul,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponseBodyDataScopes extends $tea.Model {
+  ackPolicyInstanceId?: string;
+  allNamespace?: number;
+  clusterId?: string;
+  namespaceList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ackPolicyInstanceId: 'AckPolicyInstanceId',
+      allNamespace: 'AllNamespace',
+      clusterId: 'ClusterId',
+      namespaceList: 'NamespaceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ackPolicyInstanceId: 'string',
+      allNamespace: 'number',
+      clusterId: 'string',
+      namespaceList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponseBodyData extends $tea.Model {
+  alarmDetail?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetail;
+  clusterId?: string;
+  clusterName?: string;
+  currentPage?: number;
+  description?: string;
+  imageName?: string[];
+  label?: string[];
+  lang?: string;
+  maliciousImage?: boolean;
+  pageSize?: number;
+  ruleAction?: number;
+  scopes?: GetOpaStrategyDetailNewResponseBodyDataScopes[];
+  strategyId?: number;
+  strategyName?: string;
+  strategyTemplateId?: number;
+  unScanedImage?: boolean;
+  whiteList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      alarmDetail: 'AlarmDetail',
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      currentPage: 'CurrentPage',
+      description: 'Description',
+      imageName: 'ImageName',
+      label: 'Label',
+      lang: 'Lang',
+      maliciousImage: 'MaliciousImage',
+      pageSize: 'PageSize',
+      ruleAction: 'RuleAction',
+      scopes: 'Scopes',
+      strategyId: 'StrategyId',
+      strategyName: 'StrategyName',
+      strategyTemplateId: 'StrategyTemplateId',
+      unScanedImage: 'UnScanedImage',
+      whiteList: 'WhiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmDetail: GetOpaStrategyDetailNewResponseBodyDataAlarmDetail,
+      clusterId: 'string',
+      clusterName: 'string',
+      currentPage: 'number',
+      description: 'string',
+      imageName: { 'type': 'array', 'itemType': 'string' },
+      label: { 'type': 'array', 'itemType': 'string' },
+      lang: 'string',
+      maliciousImage: 'boolean',
+      pageSize: 'number',
+      ruleAction: 'number',
+      scopes: { 'type': 'array', 'itemType': GetOpaStrategyDetailNewResponseBodyDataScopes },
+      strategyId: 'number',
+      strategyName: 'string',
+      strategyTemplateId: 'number',
+      unScanedImage: 'boolean',
+      whiteList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -72706,6 +73875,81 @@ export class ModifyAssetCleanConfigRequestAssetCleanConfigs extends $tea.Model {
   }
 }
 
+export class ModifyContainerDefenseRuleRequestScope extends $tea.Model {
+  allNamespace?: number;
+  clusterId?: string;
+  namespaces?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allNamespace: 'AllNamespace',
+      clusterId: 'ClusterId',
+      namespaces: 'Namespaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allNamespace: 'number',
+      clusterId: 'string',
+      namespaces: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyContainerDefenseRuleRequestWhitelist extends $tea.Model {
+  hash?: string[];
+  image?: string[];
+  path?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      hash: 'Hash',
+      image: 'Image',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hash: { 'type': 'array', 'itemType': 'string' },
+      image: { 'type': 'array', 'itemType': 'string' },
+      path: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyContainerDefenseRuleShrinkRequestScope extends $tea.Model {
+  allNamespace?: number;
+  clusterId?: string;
+  namespaces?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allNamespace: 'AllNamespace',
+      clusterId: 'ClusterId',
+      namespaces: 'Namespaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allNamespace: 'number',
+      clusterId: 'string',
+      namespaces: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyContainerPluginRuleResponseBodyData extends $tea.Model {
   ruleId?: number;
   ruleName?: string;
@@ -76816,6 +78060,93 @@ export default class Client extends OpenApi {
     return await this.createOpaClusterPluginWithOptions(request, runtime);
   }
 
+  async createOpaStrategyNewWithOptions(tmpReq: CreateOpaStrategyNewRequest, runtime: $Util.RuntimeOptions): Promise<CreateOpaStrategyNewResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateOpaStrategyNewShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.alarmDetail)) {
+      request.alarmDetailShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alarmDetail, "AlarmDetail", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.alarmDetailShrink)) {
+      query["AlarmDetail"] = request.alarmDetailShrink;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.imageName)) {
+      query["ImageName"] = request.imageName;
+    }
+
+    if (!Util.isUnset(request.label)) {
+      query["Label"] = request.label;
+    }
+
+    if (!Util.isUnset(request.maliciousImage)) {
+      query["MaliciousImage"] = request.maliciousImage;
+    }
+
+    if (!Util.isUnset(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!Util.isUnset(request.scopes)) {
+      query["Scopes"] = request.scopes;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
+    if (!Util.isUnset(request.strategyName)) {
+      query["StrategyName"] = request.strategyName;
+    }
+
+    if (!Util.isUnset(request.strategyTemplateId)) {
+      query["StrategyTemplateId"] = request.strategyTemplateId;
+    }
+
+    if (!Util.isUnset(request.unScanedImage)) {
+      query["UnScanedImage"] = request.unScanedImage;
+    }
+
+    if (!Util.isUnset(request.whiteList)) {
+      query["WhiteList"] = request.whiteList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOpaStrategyNew",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOpaStrategyNewResponse>(await this.callApi(params, req, runtime), new CreateOpaStrategyNewResponse({}));
+  }
+
+  async createOpaStrategyNew(request: CreateOpaStrategyNewRequest): Promise<CreateOpaStrategyNewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOpaStrategyNewWithOptions(request, runtime);
+  }
+
   /**
     * A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
     *
@@ -78216,6 +79547,35 @@ export default class Client extends OpenApi {
   async deleteMaliciousNote(request: DeleteMaliciousNoteRequest): Promise<DeleteMaliciousNoteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMaliciousNoteWithOptions(request, runtime);
+  }
+
+  async deleteOpaStrategyNewWithOptions(request: DeleteOpaStrategyNewRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOpaStrategyNewResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.strategyIds)) {
+      query["StrategyIds"] = request.strategyIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteOpaStrategyNew",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteOpaStrategyNewResponse>(await this.callApi(params, req, runtime), new DeleteOpaStrategyNewResponse({}));
+  }
+
+  async deleteOpaStrategyNew(request: DeleteOpaStrategyNewRequest): Promise<DeleteOpaStrategyNewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteOpaStrategyNewWithOptions(request, runtime);
   }
 
   async deletePrivateRegistryWithOptions(request: DeletePrivateRegistryRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateRegistryResponse> {
@@ -90058,6 +91418,27 @@ export default class Client extends OpenApi {
     return await this.getClusterRuleSummaryWithOptions(request, runtime);
   }
 
+  async getClusterStrategyCountWithOptions(runtime: $Util.RuntimeOptions): Promise<GetClusterStrategyCountResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetClusterStrategyCount",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClusterStrategyCountResponse>(await this.callApi(params, req, runtime), new GetClusterStrategyCountResponse({}));
+  }
+
+  async getClusterStrategyCount(): Promise<GetClusterStrategyCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getClusterStrategyCountWithOptions(runtime);
+  }
+
   async getClusterSuspEventStatisticsWithOptions(request: GetClusterSuspEventStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetClusterSuspEventStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91236,6 +92617,35 @@ export default class Client extends OpenApi {
   async getOpaPluginStatus(request: GetOpaPluginStatusRequest): Promise<GetOpaPluginStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpaPluginStatusWithOptions(request, runtime);
+  }
+
+  async getOpaStrategyDetailNewWithOptions(request: GetOpaStrategyDetailNewRequest, runtime: $Util.RuntimeOptions): Promise<GetOpaStrategyDetailNewResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOpaStrategyDetailNew",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOpaStrategyDetailNewResponse>(await this.callApi(params, req, runtime), new GetOpaStrategyDetailNewResponse({}));
+  }
+
+  async getOpaStrategyDetailNew(request: GetOpaStrategyDetailNewRequest): Promise<GetOpaStrategyDetailNewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOpaStrategyDetailNewWithOptions(request, runtime);
   }
 
   async getOpaStrategyTemplateSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetOpaStrategyTemplateSummaryResponse> {
@@ -96040,6 +97450,69 @@ export default class Client extends OpenApi {
     return await this.modifyConcernNecessityWithOptions(request, runtime);
   }
 
+  async modifyContainerDefenseRuleWithOptions(tmpReq: ModifyContainerDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyContainerDefenseRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyContainerDefenseRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.whitelist)) {
+      request.whitelistShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.whitelist, "Whitelist", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.ruleSwitch)) {
+      query["RuleSwitch"] = request.ruleSwitch;
+    }
+
+    if (!Util.isUnset(request.ruleType)) {
+      query["RuleType"] = request.ruleType;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.whitelistShrink)) {
+      query["Whitelist"] = request.whitelistShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyContainerDefenseRule",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyContainerDefenseRuleResponse>(await this.callApi(params, req, runtime), new ModifyContainerDefenseRuleResponse({}));
+  }
+
+  async modifyContainerDefenseRule(request: ModifyContainerDefenseRuleRequest): Promise<ModifyContainerDefenseRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyContainerDefenseRuleWithOptions(request, runtime);
+  }
+
   async modifyContainerDefenseRuleSwitchWithOptions(request: ModifyContainerDefenseRuleSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyContainerDefenseRuleSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98137,6 +99610,35 @@ export default class Client extends OpenApi {
     return await this.modifyWebPathWithOptions(request, runtime);
   }
 
+  async openPartialBuyWithOptions(request: OpenPartialBuyRequest, runtime: $Util.RuntimeOptions): Promise<OpenPartialBuyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OpenPartialBuy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenPartialBuyResponse>(await this.callApi(params, req, runtime), new OpenPartialBuyResponse({}));
+  }
+
+  async openPartialBuy(request: OpenPartialBuyRequest): Promise<OpenPartialBuyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.openPartialBuyWithOptions(request, runtime);
+  }
+
   async openSensitiveFileScanWithOptions(request: OpenSensitiveFileScanRequest, runtime: $Util.RuntimeOptions): Promise<OpenSensitiveFileScanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99586,6 +101088,39 @@ export default class Client extends OpenApi {
   async refreshOssBucketScanInfo(): Promise<RefreshOssBucketScanInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshOssBucketScanInfoWithOptions(runtime);
+  }
+
+  async releaseSasInstanceWithOptions(request: ReleaseSasInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseSasInstanceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.chargeType)) {
+      body["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseSasInstance",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseSasInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseSasInstanceResponse({}));
+  }
+
+  async releaseSasInstance(request: ReleaseSasInstanceRequest): Promise<ReleaseSasInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseSasInstanceWithOptions(request, runtime);
   }
 
   async removeCheckInstanceResultWhiteListWithOptions(request: RemoveCheckInstanceResultWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<RemoveCheckInstanceResultWhiteListResponse> {
