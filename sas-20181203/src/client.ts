@@ -35347,6 +35347,99 @@ export class ListCheckStandardResponse extends $tea.Model {
   }
 }
 
+export class ListCheckTypesRequest extends $tea.Model {
+  currentPage?: number;
+  lang?: string;
+  pageSize?: number;
+  riskId?: number;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      riskId: 'RiskId',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      lang: 'string',
+      pageSize: 'number',
+      riskId: 'number',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckTypesResponseBody extends $tea.Model {
+  code?: string;
+  count?: number;
+  data?: ListCheckTypesResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      count: 'Count',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      count: 'number',
+      data: { 'type': 'array', 'itemType': ListCheckTypesResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckTypesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCheckTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCheckTypesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClientAlertModeRequest extends $tea.Model {
   mode?: string;
   static names(): { [key: string]: string } {
@@ -50670,6 +50763,181 @@ export class UpdateJenkinsImageRegistryPersistenceDayResponse extends $tea.Model
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateJenkinsImageRegistryPersistenceDayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewRequest extends $tea.Model {
+  alarmDetail?: UpdateOpaStrategyNewRequestAlarmDetail;
+  clusterId?: string;
+  clusterName?: string;
+  description?: string;
+  imageName?: string[];
+  label?: string[];
+  maliciousImage?: boolean;
+  ruleAction?: number;
+  scopes?: UpdateOpaStrategyNewRequestScopes[];
+  strategyId?: number;
+  strategyName?: string;
+  strategyTemplateId?: number;
+  unScanedImage?: boolean;
+  whiteList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      alarmDetail: 'AlarmDetail',
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      description: 'Description',
+      imageName: 'ImageName',
+      label: 'Label',
+      maliciousImage: 'MaliciousImage',
+      ruleAction: 'RuleAction',
+      scopes: 'Scopes',
+      strategyId: 'StrategyId',
+      strategyName: 'StrategyName',
+      strategyTemplateId: 'StrategyTemplateId',
+      unScanedImage: 'UnScanedImage',
+      whiteList: 'WhiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmDetail: UpdateOpaStrategyNewRequestAlarmDetail,
+      clusterId: 'string',
+      clusterName: 'string',
+      description: 'string',
+      imageName: { 'type': 'array', 'itemType': 'string' },
+      label: { 'type': 'array', 'itemType': 'string' },
+      maliciousImage: 'boolean',
+      ruleAction: 'number',
+      scopes: { 'type': 'array', 'itemType': UpdateOpaStrategyNewRequestScopes },
+      strategyId: 'number',
+      strategyName: 'string',
+      strategyTemplateId: 'number',
+      unScanedImage: 'boolean',
+      whiteList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewShrinkRequest extends $tea.Model {
+  alarmDetailShrink?: string;
+  clusterId?: string;
+  clusterName?: string;
+  description?: string;
+  imageName?: string[];
+  label?: string[];
+  maliciousImage?: boolean;
+  ruleAction?: number;
+  scopes?: UpdateOpaStrategyNewShrinkRequestScopes[];
+  strategyId?: number;
+  strategyName?: string;
+  strategyTemplateId?: number;
+  unScanedImage?: boolean;
+  whiteList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      alarmDetailShrink: 'AlarmDetail',
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      description: 'Description',
+      imageName: 'ImageName',
+      label: 'Label',
+      maliciousImage: 'MaliciousImage',
+      ruleAction: 'RuleAction',
+      scopes: 'Scopes',
+      strategyId: 'StrategyId',
+      strategyName: 'StrategyName',
+      strategyTemplateId: 'StrategyTemplateId',
+      unScanedImage: 'UnScanedImage',
+      whiteList: 'WhiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmDetailShrink: 'string',
+      clusterId: 'string',
+      clusterName: 'string',
+      description: 'string',
+      imageName: { 'type': 'array', 'itemType': 'string' },
+      label: { 'type': 'array', 'itemType': 'string' },
+      maliciousImage: 'boolean',
+      ruleAction: 'number',
+      scopes: { 'type': 'array', 'itemType': UpdateOpaStrategyNewShrinkRequestScopes },
+      strategyId: 'number',
+      strategyName: 'string',
+      strategyTemplateId: 'number',
+      unScanedImage: 'boolean',
+      whiteList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewResponseBody extends $tea.Model {
+  code?: string;
+  data?: string[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateOpaStrategyNewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateOpaStrategyNewResponseBody,
     };
   }
 
@@ -70027,6 +70295,28 @@ export class ListCheckStandardResponseBodyStandards extends $tea.Model {
   }
 }
 
+export class ListCheckTypesResponseBodyData extends $tea.Model {
+  checkType?: string;
+  checkTypeDisName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkType: 'CheckType',
+      checkTypeDisName: 'CheckTypeDisName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkType: 'string',
+      checkTypeDisName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClientAlertModeResponseBodyData extends $tea.Model {
   count?: number;
   uuids?: string[];
@@ -75622,6 +75912,219 @@ export class UpdateImageEventOperationResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewRequestAlarmDetailBaselineItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewRequestAlarmDetailBaseline extends $tea.Model {
+  item?: UpdateOpaStrategyNewRequestAlarmDetailBaselineItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': UpdateOpaStrategyNewRequestAlarmDetailBaselineItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewRequestAlarmDetailMaliciousFileItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewRequestAlarmDetailMaliciousFile extends $tea.Model {
+  item?: UpdateOpaStrategyNewRequestAlarmDetailMaliciousFileItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': UpdateOpaStrategyNewRequestAlarmDetailMaliciousFileItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewRequestAlarmDetailVulItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewRequestAlarmDetailVul extends $tea.Model {
+  item?: UpdateOpaStrategyNewRequestAlarmDetailVulItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': UpdateOpaStrategyNewRequestAlarmDetailVulItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewRequestAlarmDetail extends $tea.Model {
+  baseline?: UpdateOpaStrategyNewRequestAlarmDetailBaseline;
+  maliciousFile?: UpdateOpaStrategyNewRequestAlarmDetailMaliciousFile;
+  vul?: UpdateOpaStrategyNewRequestAlarmDetailVul;
+  static names(): { [key: string]: string } {
+    return {
+      baseline: 'Baseline',
+      maliciousFile: 'MaliciousFile',
+      vul: 'Vul',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseline: UpdateOpaStrategyNewRequestAlarmDetailBaseline,
+      maliciousFile: UpdateOpaStrategyNewRequestAlarmDetailMaliciousFile,
+      vul: UpdateOpaStrategyNewRequestAlarmDetailVul,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewRequestScopes extends $tea.Model {
+  ackPolicyInstanceId?: string;
+  allNamespace?: number;
+  clusterId?: string;
+  namespaceList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ackPolicyInstanceId: 'AckPolicyInstanceId',
+      allNamespace: 'AllNamespace',
+      clusterId: 'ClusterId',
+      namespaceList: 'NamespaceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ackPolicyInstanceId: 'string',
+      allNamespace: 'number',
+      clusterId: 'string',
+      namespaceList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewShrinkRequestScopes extends $tea.Model {
+  ackPolicyInstanceId?: string;
+  allNamespace?: number;
+  clusterId?: string;
+  namespaceList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ackPolicyInstanceId: 'AckPolicyInstanceId',
+      allNamespace: 'AllNamespace',
+      clusterId: 'ClusterId',
+      namespaceList: 'NamespaceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ackPolicyInstanceId: 'string',
+      allNamespace: 'number',
+      clusterId: 'string',
+      namespaceList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -94467,6 +94970,51 @@ export default class Client extends OpenApi {
     return await this.listCheckStandardWithOptions(request, runtime);
   }
 
+  async listCheckTypesWithOptions(request: ListCheckTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckTypesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.riskId)) {
+      query["RiskId"] = request.riskId;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCheckTypes",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCheckTypesResponse>(await this.callApi(params, req, runtime), new ListCheckTypesResponse({}));
+  }
+
+  async listCheckTypes(request: ListCheckTypesRequest): Promise<ListCheckTypesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCheckTypesWithOptions(request, runtime);
+  }
+
   async listClientAlertModeWithOptions(request: ListClientAlertModeRequest, runtime: $Util.RuntimeOptions): Promise<ListClientAlertModeResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -102572,6 +103120,93 @@ export default class Client extends OpenApi {
   async updateJenkinsImageRegistryPersistenceDay(request: UpdateJenkinsImageRegistryPersistenceDayRequest): Promise<UpdateJenkinsImageRegistryPersistenceDayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateJenkinsImageRegistryPersistenceDayWithOptions(request, runtime);
+  }
+
+  async updateOpaStrategyNewWithOptions(tmpReq: UpdateOpaStrategyNewRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOpaStrategyNewResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateOpaStrategyNewShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.alarmDetail)) {
+      request.alarmDetailShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alarmDetail, "AlarmDetail", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.alarmDetailShrink)) {
+      query["AlarmDetail"] = request.alarmDetailShrink;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.imageName)) {
+      query["ImageName"] = request.imageName;
+    }
+
+    if (!Util.isUnset(request.label)) {
+      query["Label"] = request.label;
+    }
+
+    if (!Util.isUnset(request.maliciousImage)) {
+      query["MaliciousImage"] = request.maliciousImage;
+    }
+
+    if (!Util.isUnset(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!Util.isUnset(request.scopes)) {
+      query["Scopes"] = request.scopes;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
+    if (!Util.isUnset(request.strategyName)) {
+      query["StrategyName"] = request.strategyName;
+    }
+
+    if (!Util.isUnset(request.strategyTemplateId)) {
+      query["StrategyTemplateId"] = request.strategyTemplateId;
+    }
+
+    if (!Util.isUnset(request.unScanedImage)) {
+      query["UnScanedImage"] = request.unScanedImage;
+    }
+
+    if (!Util.isUnset(request.whiteList)) {
+      query["WhiteList"] = request.whiteList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateOpaStrategyNew",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateOpaStrategyNewResponse>(await this.callApi(params, req, runtime), new UpdateOpaStrategyNewResponse({}));
+  }
+
+  async updateOpaStrategyNew(request: UpdateOpaStrategyNewRequest): Promise<UpdateOpaStrategyNewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateOpaStrategyNewWithOptions(request, runtime);
   }
 
   async updateOssScanConfigWithOptions(request: UpdateOssScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOssScanConfigResponse> {
