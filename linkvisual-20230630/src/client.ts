@@ -1748,6 +1748,90 @@ export class QueryBatchStatusResponse extends $tea.Model {
   }
 }
 
+export class QueryDeviceDetailRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceDetailResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryDeviceDetailResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryDeviceDetailResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryDeviceDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDeviceDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDevicesDownloadUrlRequest extends $tea.Model {
   batchId?: string;
   productKey?: string;
@@ -3631,6 +3715,64 @@ export class QueryBatchStatusResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryDeviceDetailResponseBodyData extends $tea.Model {
+  activeTime?: number;
+  createTime?: number;
+  deviceName?: string;
+  deviceSecret?: string;
+  firmwareVersion?: string;
+  iotId?: string;
+  ipAddress?: string;
+  nickname?: string;
+  nodeType?: number;
+  onlineTime?: number;
+  productKey?: string;
+  productName?: string;
+  region?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeTime: 'ActiveTime',
+      createTime: 'CreateTime',
+      deviceName: 'DeviceName',
+      deviceSecret: 'DeviceSecret',
+      firmwareVersion: 'FirmwareVersion',
+      iotId: 'IotId',
+      ipAddress: 'IpAddress',
+      nickname: 'Nickname',
+      nodeType: 'NodeType',
+      onlineTime: 'OnlineTime',
+      productKey: 'ProductKey',
+      productName: 'ProductName',
+      region: 'Region',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeTime: 'number',
+      createTime: 'number',
+      deviceName: 'string',
+      deviceSecret: 'string',
+      firmwareVersion: 'string',
+      iotId: 'string',
+      ipAddress: 'string',
+      nickname: 'string',
+      nodeType: 'number',
+      onlineTime: 'number',
+      productKey: 'string',
+      productName: 'string',
+      region: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDevicesDownloadUrlResponseBodyData extends $tea.Model {
   ossDownloadUrl?: string;
   static names(): { [key: string]: string } {
@@ -5239,6 +5381,47 @@ export default class Client extends OpenApi {
   async queryBatchStatus(request: QueryBatchStatusRequest): Promise<QueryBatchStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryBatchStatusWithOptions(request, runtime);
+  }
+
+  async queryDeviceDetailWithOptions(request: QueryDeviceDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDeviceDetail",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDeviceDetailResponse>(await this.callApi(params, req, runtime), new QueryDeviceDetailResponse({}));
+  }
+
+  async queryDeviceDetail(request: QueryDeviceDetailRequest): Promise<QueryDeviceDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDeviceDetailWithOptions(request, runtime);
   }
 
   async queryDevicesDownloadUrlWithOptions(request: QueryDevicesDownloadUrlRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicesDownloadUrlResponse> {
