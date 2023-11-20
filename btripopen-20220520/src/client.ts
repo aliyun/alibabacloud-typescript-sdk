@@ -14600,11 +14600,13 @@ export class InvoiceRuleSaveHeaders extends $tea.Model {
 export class InvoiceRuleSaveRequest extends $tea.Model {
   allEmploye?: boolean;
   entities?: InvoiceRuleSaveRequestEntities[];
+  scope?: number;
   thirdPartId?: string;
   static names(): { [key: string]: string } {
     return {
       allEmploye: 'all_employe',
       entities: 'entities',
+      scope: 'scope',
       thirdPartId: 'third_part_id',
     };
   }
@@ -14613,6 +14615,7 @@ export class InvoiceRuleSaveRequest extends $tea.Model {
     return {
       allEmploye: 'boolean',
       entities: { 'type': 'array', 'itemType': InvoiceRuleSaveRequestEntities },
+      scope: 'number',
       thirdPartId: 'string',
     };
   }
@@ -14625,11 +14628,13 @@ export class InvoiceRuleSaveRequest extends $tea.Model {
 export class InvoiceRuleSaveShrinkRequest extends $tea.Model {
   allEmploye?: boolean;
   entitiesShrink?: string;
+  scope?: number;
   thirdPartId?: string;
   static names(): { [key: string]: string } {
     return {
       allEmploye: 'all_employe',
       entitiesShrink: 'entities',
+      scope: 'scope',
       thirdPartId: 'third_part_id',
     };
   }
@@ -14638,6 +14643,7 @@ export class InvoiceRuleSaveShrinkRequest extends $tea.Model {
     return {
       allEmploye: 'boolean',
       entitiesShrink: 'string',
+      scope: 'number',
       thirdPartId: 'string',
     };
   }
@@ -50563,6 +50569,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.entitiesShrink)) {
       body["entities"] = request.entitiesShrink;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      body["scope"] = request.scope;
     }
 
     if (!Util.isUnset(request.thirdPartId)) {
