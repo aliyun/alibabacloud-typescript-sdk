@@ -12,11 +12,13 @@ export class Addon extends $tea.Model {
   config?: string;
   disabled?: boolean;
   name?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       config: 'config',
       disabled: 'disabled',
       name: 'name',
+      version: 'version',
     };
   }
 
@@ -25,6 +27,7 @@ export class Addon extends $tea.Model {
       config: 'string',
       disabled: 'boolean',
       name: 'string',
+      version: 'string',
     };
   }
 
@@ -4556,11 +4559,13 @@ export class EdgeClusterAddEdgeMachineResponse extends $tea.Model {
 }
 
 export class FixNodePoolVulsRequest extends $tea.Model {
+  autoRestart?: boolean;
   nodes?: string[];
   rolloutPolicy?: FixNodePoolVulsRequestRolloutPolicy;
   vuls?: string[];
   static names(): { [key: string]: string } {
     return {
+      autoRestart: 'auto_restart',
       nodes: 'nodes',
       rolloutPolicy: 'rollout_policy',
       vuls: 'vuls',
@@ -4569,6 +4574,7 @@ export class FixNodePoolVulsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoRestart: 'boolean',
       nodes: { 'type': 'array', 'itemType': 'string' },
       rolloutPolicy: FixNodePoolVulsRequestRolloutPolicy,
       vuls: { 'type': 'array', 'itemType': 'string' },
@@ -4616,6 +4622,68 @@ export class FixNodePoolVulsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FixNodePoolVulsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterCheckResponseBody extends $tea.Model {
+  checkId?: string;
+  checkItems?: { [key: string]: {[key: string ]: any}[] };
+  createdAt?: string;
+  finishedAt?: string;
+  message?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkId: 'check_id',
+      checkItems: 'check_items',
+      createdAt: 'created_at',
+      finishedAt: 'finished_at',
+      message: 'message',
+      status: 'status',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkId: 'string',
+      checkItems: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } } },
+      createdAt: 'string',
+      finishedAt: 'string',
+      message: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterCheckResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetClusterCheckResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClusterCheckResponseBody,
     };
   }
 
@@ -4807,6 +4875,69 @@ export class InstallClusterAddonsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterChecksRequest extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterChecksResponseBody extends $tea.Model {
+  checks?: ListClusterChecksResponseBodyChecks[];
+  static names(): { [key: string]: string } {
+    return {
+      checks: 'checks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checks: { 'type': 'array', 'itemType': ListClusterChecksResponseBodyChecks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterChecksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListClusterChecksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListClusterChecksResponseBody,
     };
   }
 
@@ -5757,15 +5888,18 @@ export class RemoveWorkflowResponse extends $tea.Model {
 }
 
 export class RepairClusterNodePoolRequest extends $tea.Model {
+  autoRestart?: boolean;
   nodes?: string[];
   static names(): { [key: string]: string } {
     return {
+      autoRestart: 'auto_restart',
       nodes: 'nodes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoRestart: 'boolean',
       nodes: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -5880,6 +6014,75 @@ export class ResumeUpgradeClusterResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunClusterCheckRequest extends $tea.Model {
+  options?: { [key: string]: string };
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      options: 'options',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      options: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunClusterCheckResponseBody extends $tea.Model {
+  checkId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkId: 'check_id',
+      requestId: 'request_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunClusterCheckResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RunClusterCheckResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunClusterCheckResponseBody,
     };
   }
 
@@ -9357,7 +9560,7 @@ export class DescribeClusterResourcesResponseBody extends $tea.Model {
   resourceType?: string;
   state?: string;
   autoCreate?: number;
-  dependencies?: DescribeClusterResourcesResponseBodyDependencies;
+  dependencies?: DescribeClusterResourcesResponseBodyDependencies[];
   static names(): { [key: string]: string } {
     return {
       clusterId: 'cluster_id',
@@ -9380,7 +9583,7 @@ export class DescribeClusterResourcesResponseBody extends $tea.Model {
       resourceType: 'string',
       state: 'string',
       autoCreate: 'number',
-      dependencies: DescribeClusterResourcesResponseBodyDependencies,
+      dependencies: { 'type': 'array', 'itemType': DescribeClusterResourcesResponseBodyDependencies },
     };
   }
 
@@ -10897,6 +11100,40 @@ export class InstallClusterAddonsRequestBody extends $tea.Model {
       config: 'string',
       name: 'string',
       version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterChecksResponseBodyChecks extends $tea.Model {
+  checkId?: string;
+  createdAt?: string;
+  finishedAt?: string;
+  message?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkId: 'check_id',
+      createdAt: 'created_at',
+      finishedAt: 'finished_at',
+      message: 'message',
+      status: 'status',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkId: 'string',
+      createdAt: 'string',
+      finishedAt: 'string',
+      message: 'string',
+      status: 'string',
+      type: 'string',
     };
   }
 
@@ -14408,9 +14645,24 @@ export default class Client extends OpenApi {
     return await this.edgeClusterAddEdgeMachineWithOptions(clusterid, edgeMachineid, request, headers, runtime);
   }
 
+  /**
+    * 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
+    * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
+    * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
+    * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
+    *
+    * @param request FixNodePoolVulsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return FixNodePoolVulsResponse
+   */
   async fixNodePoolVulsWithOptions(clusterId: string, nodepoolId: string, request: FixNodePoolVulsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FixNodePoolVulsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoRestart)) {
+      body["auto_restart"] = request.autoRestart;
+    }
+
     if (!Util.isUnset(request.nodes)) {
       body["nodes"] = request.nodes;
     }
@@ -14441,10 +14693,43 @@ export default class Client extends OpenApi {
     return $tea.cast<FixNodePoolVulsResponse>(await this.callApi(params, req, runtime), new FixNodePoolVulsResponse({}));
   }
 
+  /**
+    * 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
+    * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
+    * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
+    * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
+    *
+    * @param request FixNodePoolVulsRequest
+    * @return FixNodePoolVulsResponse
+   */
   async fixNodePoolVuls(clusterId: string, nodepoolId: string, request: FixNodePoolVulsRequest): Promise<FixNodePoolVulsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.fixNodePoolVulsWithOptions(clusterId, nodepoolId, request, headers, runtime);
+  }
+
+  async getClusterCheckWithOptions(clusterId: string, checkId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterCheckResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClusterCheck",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/%5Bcluster_id%5D/checks/%5Bcheck_id%5D`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClusterCheckResponse>(await this.callApi(params, req, runtime), new GetClusterCheckResponse({}));
+  }
+
+  async getClusterCheck(clusterId: string, checkId: string): Promise<GetClusterCheckResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getClusterCheckWithOptions(clusterId, checkId, headers, runtime);
   }
 
   async getKubernetesTriggerWithOptions(ClusterId: string, request: GetKubernetesTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetKubernetesTriggerResponse> {
@@ -14584,6 +14869,37 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.installClusterAddonsWithOptions(ClusterId, request, headers, runtime);
+  }
+
+  async listClusterChecksWithOptions(clusterId: string, request: ListClusterChecksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterChecksResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListClusterChecks",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/%5Bcluster_id%5D/checks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListClusterChecksResponse>(await this.callApi(params, req, runtime), new ListClusterChecksResponse({}));
+  }
+
+  async listClusterChecks(clusterId: string, request: ListClusterChecksRequest): Promise<ListClusterChecksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listClusterChecksWithOptions(clusterId, request, headers, runtime);
   }
 
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
@@ -15290,6 +15606,10 @@ export default class Client extends OpenApi {
   async repairClusterNodePoolWithOptions(clusterId: string, nodepoolId: string, request: RepairClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RepairClusterNodePoolResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoRestart)) {
+      body["auto_restart"] = request.autoRestart;
+    }
+
     if (!Util.isUnset(request.nodes)) {
       body["nodes"] = request.nodes;
     }
@@ -15388,6 +15708,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.resumeUpgradeClusterWithOptions(ClusterId, headers, runtime);
+  }
+
+  async runClusterCheckWithOptions(clusterId: string, request: RunClusterCheckRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunClusterCheckResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.options)) {
+      body["options"] = request.options;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunClusterCheck",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/%5Bcluster_id%5D/checks`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RunClusterCheckResponse>(await this.callApi(params, req, runtime), new RunClusterCheckResponse({}));
+  }
+
+  async runClusterCheck(clusterId: string, request: RunClusterCheckRequest): Promise<RunClusterCheckResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runClusterCheckWithOptions(clusterId, request, headers, runtime);
   }
 
   /**
