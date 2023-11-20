@@ -3206,6 +3206,181 @@ export class SingleSendMailResponse extends $tea.Model {
   }
 }
 
+export class SingleSendMailV2Request extends $tea.Model {
+  accountName?: string;
+  addressType?: number;
+  clickTrace?: string;
+  fromAlias?: string;
+  htmlBody?: string;
+  htmlBodyPlaceHolders?: SingleSendMailV2RequestHtmlBodyPlaceHolders[];
+  ownerId?: number;
+  replyAddress?: string;
+  replyAddressAlias?: string;
+  replyToAddress?: boolean;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  subject?: string;
+  tagName?: string;
+  textBody?: string;
+  toAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      addressType: 'AddressType',
+      clickTrace: 'ClickTrace',
+      fromAlias: 'FromAlias',
+      htmlBody: 'HtmlBody',
+      htmlBodyPlaceHolders: 'HtmlBodyPlaceHolders',
+      ownerId: 'OwnerId',
+      replyAddress: 'ReplyAddress',
+      replyAddressAlias: 'ReplyAddressAlias',
+      replyToAddress: 'ReplyToAddress',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      subject: 'Subject',
+      tagName: 'TagName',
+      textBody: 'TextBody',
+      toAddress: 'ToAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      addressType: 'number',
+      clickTrace: 'string',
+      fromAlias: 'string',
+      htmlBody: 'string',
+      htmlBodyPlaceHolders: { 'type': 'array', 'itemType': SingleSendMailV2RequestHtmlBodyPlaceHolders },
+      ownerId: 'number',
+      replyAddress: 'string',
+      replyAddressAlias: 'string',
+      replyToAddress: 'boolean',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      subject: 'string',
+      tagName: 'string',
+      textBody: 'string',
+      toAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SingleSendMailV2ShrinkRequest extends $tea.Model {
+  accountName?: string;
+  addressType?: number;
+  clickTrace?: string;
+  fromAlias?: string;
+  htmlBody?: string;
+  htmlBodyPlaceHoldersShrink?: string;
+  ownerId?: number;
+  replyAddress?: string;
+  replyAddressAlias?: string;
+  replyToAddress?: boolean;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  subject?: string;
+  tagName?: string;
+  textBody?: string;
+  toAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      addressType: 'AddressType',
+      clickTrace: 'ClickTrace',
+      fromAlias: 'FromAlias',
+      htmlBody: 'HtmlBody',
+      htmlBodyPlaceHoldersShrink: 'HtmlBodyPlaceHolders',
+      ownerId: 'OwnerId',
+      replyAddress: 'ReplyAddress',
+      replyAddressAlias: 'ReplyAddressAlias',
+      replyToAddress: 'ReplyToAddress',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      subject: 'Subject',
+      tagName: 'TagName',
+      textBody: 'TextBody',
+      toAddress: 'ToAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      addressType: 'number',
+      clickTrace: 'string',
+      fromAlias: 'string',
+      htmlBody: 'string',
+      htmlBodyPlaceHoldersShrink: 'string',
+      ownerId: 'number',
+      replyAddress: 'string',
+      replyAddressAlias: 'string',
+      replyToAddress: 'boolean',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      subject: 'string',
+      tagName: 'string',
+      textBody: 'string',
+      toAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SingleSendMailV2ResponseBody extends $tea.Model {
+  envId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      envId: 'EnvId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      envId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SingleSendMailV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SingleSendMailV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SingleSendMailV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAccountListResponseBodyDataAccountNotificationInfo extends $tea.Model {
   region?: string;
   status?: string;
@@ -3911,6 +4086,28 @@ export class SenderStatisticsDetailByParamResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       mailDetail: { 'type': 'array', 'itemType': SenderStatisticsDetailByParamResponseBodyDataMailDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SingleSendMailV2RequestHtmlBodyPlaceHolders extends $tea.Model {
+  placeHolders?: { [key: string]: string };
+  toAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      placeHolders: 'PlaceHolders',
+      toAddress: 'ToAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      placeHolders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      toAddress: 'string',
     };
   }
 
@@ -5791,6 +5988,101 @@ export default class Client extends OpenApi {
   async singleSendMail(request: SingleSendMailRequest): Promise<SingleSendMailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.singleSendMailWithOptions(request, runtime);
+  }
+
+  async singleSendMailV2WithOptions(tmpReq: SingleSendMailV2Request, runtime: $Util.RuntimeOptions): Promise<SingleSendMailV2Response> {
+    Util.validateModel(tmpReq);
+    let request = new SingleSendMailV2ShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.htmlBodyPlaceHolders)) {
+      request.htmlBodyPlaceHoldersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.htmlBodyPlaceHolders, "HtmlBodyPlaceHolders", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
+    if (!Util.isUnset(request.clickTrace)) {
+      query["ClickTrace"] = request.clickTrace;
+    }
+
+    if (!Util.isUnset(request.fromAlias)) {
+      query["FromAlias"] = request.fromAlias;
+    }
+
+    if (!Util.isUnset(request.htmlBody)) {
+      query["HtmlBody"] = request.htmlBody;
+    }
+
+    if (!Util.isUnset(request.htmlBodyPlaceHoldersShrink)) {
+      query["HtmlBodyPlaceHolders"] = request.htmlBodyPlaceHoldersShrink;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.replyAddress)) {
+      query["ReplyAddress"] = request.replyAddress;
+    }
+
+    if (!Util.isUnset(request.replyAddressAlias)) {
+      query["ReplyAddressAlias"] = request.replyAddressAlias;
+    }
+
+    if (!Util.isUnset(request.replyToAddress)) {
+      query["ReplyToAddress"] = request.replyToAddress;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.subject)) {
+      query["Subject"] = request.subject;
+    }
+
+    if (!Util.isUnset(request.tagName)) {
+      query["TagName"] = request.tagName;
+    }
+
+    if (!Util.isUnset(request.textBody)) {
+      query["TextBody"] = request.textBody;
+    }
+
+    if (!Util.isUnset(request.toAddress)) {
+      query["ToAddress"] = request.toAddress;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SingleSendMailV2",
+      version: "2017-06-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SingleSendMailV2Response>(await this.callApi(params, req, runtime), new SingleSendMailV2Response({}));
+  }
+
+  async singleSendMailV2(request: SingleSendMailV2Request): Promise<SingleSendMailV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.singleSendMailV2WithOptions(request, runtime);
   }
 
 }
