@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/cms20190101",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

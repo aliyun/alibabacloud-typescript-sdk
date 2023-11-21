@@ -1614,12 +1614,16 @@ export class CreateHostAvailabilityResponse extends $tea.Model {
 export class CreateHybridMonitorNamespaceRequest extends $tea.Model {
   description?: string;
   namespace?: string;
+  namespaceRegion?: string;
+  namespaceType?: string;
   regionId?: string;
   spec?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       namespace: 'Namespace',
+      namespaceRegion: 'NamespaceRegion',
+      namespaceType: 'NamespaceType',
       regionId: 'RegionId',
       spec: 'Spec',
     };
@@ -1629,6 +1633,8 @@ export class CreateHybridMonitorNamespaceRequest extends $tea.Model {
     return {
       description: 'string',
       namespace: 'string',
+      namespaceRegion: 'string',
+      namespaceType: 'string',
       regionId: 'string',
       spec: 'string',
     };
@@ -15250,11 +15256,13 @@ export class EscalationRuleEscalationsContactGroupsByLevel extends $tea.Model {
 }
 
 export class EscalationRuleEscalations extends $tea.Model {
+  backupContactGroups?: string[];
   contactGroups?: string[];
   contactGroupsByLevel?: EscalationRuleEscalationsContactGroupsByLevel;
   escalateMin?: number;
   static names(): { [key: string]: string } {
     return {
+      backupContactGroups: 'BackupContactGroups',
       contactGroups: 'ContactGroups',
       contactGroupsByLevel: 'ContactGroupsByLevel',
       escalateMin: 'EscalateMin',
@@ -15263,6 +15271,7 @@ export class EscalationRuleEscalations extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backupContactGroups: { 'type': 'array', 'itemType': 'string' },
       contactGroups: { 'type': 'array', 'itemType': 'string' },
       contactGroupsByLevel: EscalationRuleEscalationsContactGroupsByLevel,
       escalateMin: 'number',
@@ -20527,15 +20536,21 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
 }
 
 export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespaceDetail extends $tea.Model {
+  namespaceRegion?: string;
+  SLSProject?: string;
   spec?: string;
   static names(): { [key: string]: string } {
     return {
+      namespaceRegion: 'NamespaceRegion',
+      SLSProject: 'SLSProject',
       spec: 'Spec',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      namespaceRegion: 'string',
+      SLSProject: 'string',
       spec: 'string',
     };
   }
@@ -20554,6 +20569,7 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
   isDelete?: number;
   modifyTime?: string;
   namespace?: string;
+  namespaceType?: string;
   notAliyunTaskNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20565,6 +20581,7 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
       isDelete: 'IsDelete',
       modifyTime: 'ModifyTime',
       namespace: 'Namespace',
+      namespaceType: 'NamespaceType',
       notAliyunTaskNumber: 'NotAliyunTaskNumber',
     };
   }
@@ -20579,6 +20596,7 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
       isDelete: 'number',
       modifyTime: 'string',
       namespace: 'string',
+      namespaceType: 'string',
       notAliyunTaskNumber: 'number',
     };
   }
@@ -23255,7 +23273,9 @@ export class DescribeProductResourceTagKeyListResponseBodyTagKeys extends $tea.M
 }
 
 export class DescribeProductsOfActiveMetricRuleResponseBodyAllProductInitMetricRuleListAllProductInitMetricRuleAlertInitConfigListAlertInitConfig extends $tea.Model {
+  comparisonOperator?: string;
   evaluationCount?: string;
+  level?: string;
   metricName?: string;
   namespace?: string;
   period?: string;
@@ -23263,7 +23283,9 @@ export class DescribeProductsOfActiveMetricRuleResponseBodyAllProductInitMetricR
   threshold?: string;
   static names(): { [key: string]: string } {
     return {
+      comparisonOperator: 'ComparisonOperator',
       evaluationCount: 'EvaluationCount',
+      level: 'Level',
       metricName: 'MetricName',
       namespace: 'Namespace',
       period: 'Period',
@@ -23274,7 +23296,9 @@ export class DescribeProductsOfActiveMetricRuleResponseBodyAllProductInitMetricR
 
   static types(): { [key: string]: any } {
     return {
+      comparisonOperator: 'string',
       evaluationCount: 'string',
+      level: 'string',
       metricName: 'string',
       namespace: 'string',
       period: 'string',
@@ -27657,6 +27681,14 @@ export default class Client extends OpenApi {
       query["Namespace"] = request.namespace;
     }
 
+    if (!Util.isUnset(request.namespaceRegion)) {
+      query["NamespaceRegion"] = request.namespaceRegion;
+    }
+
+    if (!Util.isUnset(request.namespaceType)) {
+      query["NamespaceType"] = request.namespaceType;
+    }
+
     if (!Util.isUnset(request.spec)) {
       query["Spec"] = request.spec;
     }
@@ -31319,7 +31351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example to show how to query the details of an alert template whose ID is `70****`.
+    * This topic provides an example on how to query the details of an alert template whose ID is `70****`.
     *
     * @param request DescribeMetricRuleTemplateAttributeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -31354,7 +31386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example to show how to query the details of an alert template whose ID is `70****`.
+    * This topic provides an example on how to query the details of an alert template whose ID is `70****`.
     *
     * @param request DescribeMetricRuleTemplateAttributeRequest
     * @return DescribeMetricRuleTemplateAttributeResponse
