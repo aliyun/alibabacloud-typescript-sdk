@@ -2208,15 +2208,18 @@ export class GetWhatsappConnectionCatalogResponse extends $tea.Model {
 }
 
 export class IsvGetAppIdRequest extends $tea.Model {
+  permissions?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      permissions: 'Permissions',
       type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      permissions: 'string',
       type: 'string',
     };
   }
@@ -2230,6 +2233,7 @@ export class IsvGetAppIdResponseBody extends $tea.Model {
   accessDeniedDetail?: string;
   appId?: string;
   code?: string;
+  configId?: string;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -2237,6 +2241,7 @@ export class IsvGetAppIdResponseBody extends $tea.Model {
       accessDeniedDetail: 'AccessDeniedDetail',
       appId: 'AppId',
       code: 'Code',
+      configId: 'ConfigId',
       message: 'Message',
       requestId: 'RequestId',
     };
@@ -2247,6 +2252,7 @@ export class IsvGetAppIdResponseBody extends $tea.Model {
       accessDeniedDetail: 'string',
       appId: 'string',
       code: 'string',
+      configId: 'string',
       message: 'string',
       requestId: 'string',
     };
@@ -3415,6 +3421,7 @@ export class SendChatappMessageRequest extends $tea.Model {
   fallBackDuration?: number;
   fallBackId?: string;
   fallBackRule?: string;
+  flowAction?: SendChatappMessageRequestFlowAction;
   from?: string;
   isvCode?: string;
   label?: string;
@@ -3441,6 +3448,7 @@ export class SendChatappMessageRequest extends $tea.Model {
       fallBackDuration: 'FallBackDuration',
       fallBackId: 'FallBackId',
       fallBackRule: 'FallBackRule',
+      flowAction: 'FlowAction',
       from: 'From',
       isvCode: 'IsvCode',
       label: 'Label',
@@ -3470,6 +3478,7 @@ export class SendChatappMessageRequest extends $tea.Model {
       fallBackDuration: 'number',
       fallBackId: 'string',
       fallBackRule: 'string',
+      flowAction: SendChatappMessageRequestFlowAction,
       from: 'string',
       isvCode: 'string',
       label: 'string',
@@ -3503,6 +3512,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   fallBackDuration?: number;
   fallBackId?: string;
   fallBackRule?: string;
+  flowActionShrink?: string;
   from?: string;
   isvCode?: string;
   label?: string;
@@ -3529,6 +3539,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       fallBackDuration: 'FallBackDuration',
       fallBackId: 'FallBackId',
       fallBackRule: 'FallBackRule',
+      flowActionShrink: 'FlowAction',
       from: 'From',
       isvCode: 'IsvCode',
       label: 'Label',
@@ -3558,6 +3569,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       fallBackDuration: 'number',
       fallBackId: 'string',
       fallBackRule: 'string',
+      flowActionShrink: 'string',
       from: 'string',
       isvCode: 'string',
       label: 'string',
@@ -4401,6 +4413,8 @@ export class CreateChatappMigrationInitiateResponseBodyData extends $tea.Model {
 export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   autofillText?: string;
   couponCode?: string;
+  flowAction?: string;
+  flowId?: string;
   isOptOut?: boolean;
   packageName?: string;
   phoneNumber?: string;
@@ -4409,10 +4423,13 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   type?: string;
   url?: string;
   urlType?: string;
+  navigateScreen?: string;
   static names(): { [key: string]: string } {
     return {
       autofillText: 'AutofillText',
       couponCode: 'CouponCode',
+      flowAction: 'FlowAction',
+      flowId: 'FlowId',
       isOptOut: 'IsOptOut',
       packageName: 'PackageName',
       phoneNumber: 'PhoneNumber',
@@ -4421,6 +4438,7 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
       type: 'Type',
       url: 'Url',
       urlType: 'UrlType',
+      navigateScreen: 'navigateScreen',
     };
   }
 
@@ -4428,6 +4446,8 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
     return {
       autofillText: 'string',
       couponCode: 'string',
+      flowAction: 'string',
+      flowId: 'string',
       isOptOut: 'boolean',
       packageName: 'string',
       phoneNumber: 'string',
@@ -4436,6 +4456,7 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
       type: 'string',
       url: 'string',
       urlType: 'string',
+      navigateScreen: 'string',
     };
   }
 
@@ -4674,7 +4695,10 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   autofillText?: string;
   couponCode?: string;
   extendAttrs?: GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs;
+  flowAction?: string;
+  flowId?: string;
   isOptOut?: boolean;
+  navigateScreen?: string;
   packageName?: string;
   phoneNumber?: string;
   signatureHash?: string;
@@ -4687,7 +4711,10 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
       autofillText: 'AutofillText',
       couponCode: 'CouponCode',
       extendAttrs: 'ExtendAttrs',
+      flowAction: 'FlowAction',
+      flowId: 'FlowId',
       isOptOut: 'IsOptOut',
+      navigateScreen: 'NavigateScreen',
       packageName: 'PackageName',
       phoneNumber: 'PhoneNumber',
       signatureHash: 'SignatureHash',
@@ -4703,7 +4730,10 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
       autofillText: 'string',
       couponCode: 'string',
       extendAttrs: GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs,
+      flowAction: 'string',
+      flowId: 'string',
       isOptOut: 'boolean',
+      navigateScreen: 'string',
       packageName: 'string',
       phoneNumber: 'string',
       signatureHash: 'string',
@@ -5303,6 +5333,8 @@ export class ListProductCatalogResponseBodyModel extends $tea.Model {
 export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
   autofillText?: string;
   couponCode?: string;
+  flowAction?: string;
+  flowId?: string;
   isOptOut?: boolean;
   packageName?: string;
   phoneNumber?: string;
@@ -5311,10 +5343,13 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
   type?: string;
   url?: string;
   urlType?: string;
+  navigateScreen?: string;
   static names(): { [key: string]: string } {
     return {
       autofillText: 'AutofillText',
       couponCode: 'CouponCode',
+      flowAction: 'FlowAction',
+      flowId: 'FlowId',
       isOptOut: 'IsOptOut',
       packageName: 'PackageName',
       phoneNumber: 'PhoneNumber',
@@ -5323,6 +5358,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
       type: 'Type',
       url: 'Url',
       urlType: 'UrlType',
+      navigateScreen: 'navigateScreen',
     };
   }
 
@@ -5330,6 +5366,8 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
     return {
       autofillText: 'string',
       couponCode: 'string',
+      flowAction: 'string',
+      flowId: 'string',
       isOptOut: 'boolean',
       packageName: 'string',
       phoneNumber: 'string',
@@ -5338,6 +5376,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
       type: 'string',
       url: 'string',
       urlType: 'string',
+      navigateScreen: 'string',
     };
   }
 
@@ -5652,6 +5691,28 @@ export class QueryWabaBusinessInfoResponseBodyData extends $tea.Model {
   }
 }
 
+export class SendChatappMassMessageRequestSenderListFlowAction extends $tea.Model {
+  flowActionData?: { [key: string]: string };
+  flowToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowActionData: 'FlowActionData',
+      flowToken: 'FlowToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowActionData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      flowToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendChatappMassMessageRequestSenderListProductActionSectionsProductItems extends $tea.Model {
   productRetailerId?: string;
   static names(): { [key: string]: string } {
@@ -5716,12 +5777,14 @@ export class SendChatappMassMessageRequestSenderListProductAction extends $tea.M
 }
 
 export class SendChatappMassMessageRequestSenderList extends $tea.Model {
+  flowAction?: SendChatappMassMessageRequestSenderListFlowAction;
   payload?: string[];
   productAction?: SendChatappMassMessageRequestSenderListProductAction;
   templateParams?: { [key: string]: string };
   to?: string;
   static names(): { [key: string]: string } {
     return {
+      flowAction: 'FlowAction',
       payload: 'Payload',
       productAction: 'ProductAction',
       templateParams: 'TemplateParams',
@@ -5731,10 +5794,33 @@ export class SendChatappMassMessageRequestSenderList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      flowAction: SendChatappMassMessageRequestSenderListFlowAction,
       payload: { 'type': 'array', 'itemType': 'string' },
       productAction: SendChatappMassMessageRequestSenderListProductAction,
       templateParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       to: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageRequestFlowAction extends $tea.Model {
+  flowActionData?: { [key: string]: string };
+  flowToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowActionData: 'FlowActionData',
+      flowToken: 'FlowToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowActionData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      flowToken: 'string',
     };
   }
 
@@ -7120,6 +7206,10 @@ export default class Client extends OpenApi {
   async isvGetAppIdWithOptions(request: IsvGetAppIdRequest, runtime: $Util.RuntimeOptions): Promise<IsvGetAppIdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.permissions)) {
+      body["Permissions"] = request.permissions;
+    }
+
     if (!Util.isUnset(request.type)) {
       body["Type"] = request.type;
     }
@@ -7851,6 +7941,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SendChatappMessageShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.flowAction)) {
+      request.flowActionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.flowAction, "FlowAction", "json");
+    }
+
     if (!Util.isUnset(tmpReq.payload)) {
       request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
@@ -7903,6 +7997,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fallBackRule)) {
       body["FallBackRule"] = request.fallBackRule;
+    }
+
+    if (!Util.isUnset(request.flowActionShrink)) {
+      body["FlowAction"] = request.flowActionShrink;
     }
 
     if (!Util.isUnset(request.from)) {
