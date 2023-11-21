@@ -696,6 +696,81 @@ export class DescribeAggregateFunctionResponse extends $tea.Model {
   }
 }
 
+export class DescribeAlertSceneRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertSceneResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeAlertSceneResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': DescribeAlertSceneResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAlertSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAlertSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAlertSceneByEventRequest extends $tea.Model {
   incidentUuid?: string;
   regionId?: string;
@@ -3487,6 +3562,96 @@ export class DescribeWafScopeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeWafScopeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteRuleListRequest extends $tea.Model {
+  alertName?: string;
+  alertType?: string;
+  currentPage?: number;
+  incidentUuid?: string;
+  pageSize?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertName: 'AlertName',
+      alertType: 'AlertType',
+      currentPage: 'CurrentPage',
+      incidentUuid: 'IncidentUuid',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertName: 'string',
+      alertType: 'string',
+      currentPage: 'number',
+      incidentUuid: 'string',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteRuleListResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeWhiteRuleListResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeWhiteRuleListResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteRuleListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeWhiteRuleListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeWhiteRuleListResponseBody,
     };
   }
 
@@ -6406,6 +6571,71 @@ export class DescribeAggregateFunctionResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeAlertSceneResponseBodyDataTargets extends $tea.Model {
+  name?: string;
+  type?: string;
+  value?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+      value: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAlertSceneResponseBodyData extends $tea.Model {
+  alertName?: string;
+  alertNameId?: string;
+  alertTile?: string;
+  alertTileId?: string;
+  alertType?: string;
+  alertTypeId?: string;
+  targets?: DescribeAlertSceneResponseBodyDataTargets[];
+  static names(): { [key: string]: string } {
+    return {
+      alertName: 'AlertName',
+      alertNameId: 'AlertNameId',
+      alertTile: 'AlertTile',
+      alertTileId: 'AlertTileId',
+      alertType: 'AlertType',
+      alertTypeId: 'AlertTypeId',
+      targets: 'Targets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertName: 'string',
+      alertNameId: 'string',
+      alertTile: 'string',
+      alertTileId: 'string',
+      alertType: 'string',
+      alertTypeId: 'string',
+      targets: { 'type': 'array', 'itemType': DescribeAlertSceneResponseBodyDataTargets },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAlertSceneByEventResponseBodyDataTargets extends $tea.Model {
   name?: string;
   type?: string;
@@ -8416,6 +8646,223 @@ export class DescribeWafScopeResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeWhiteRuleListResponseBodyDataPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditionsLeft extends $tea.Model {
+  isVar?: boolean;
+  modifier?: string;
+  modifierParam?: { [key: string]: any };
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isVar: 'IsVar',
+      modifier: 'Modifier',
+      modifierParam: 'ModifierParam',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isVar: 'boolean',
+      modifier: 'string',
+      modifierParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditionsRight extends $tea.Model {
+  isVar?: boolean;
+  modifier?: string;
+  modifierParam?: { [key: string]: any };
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isVar: 'IsVar',
+      modifier: 'Modifier',
+      modifierParam: 'ModifierParam',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isVar: 'boolean',
+      modifier: 'string',
+      modifierParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditions extends $tea.Model {
+  isNot?: boolean;
+  itemId?: number;
+  left?: DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditionsLeft;
+  operator?: string;
+  right?: DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditionsRight;
+  static names(): { [key: string]: string } {
+    return {
+      isNot: 'IsNot',
+      itemId: 'ItemId',
+      left: 'Left',
+      operator: 'Operator',
+      right: 'Right',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isNot: 'boolean',
+      itemId: 'number',
+      left: DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditionsLeft,
+      operator: 'string',
+      right: DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditionsRight,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteRuleListResponseBodyDataResponseDataExpression extends $tea.Model {
+  conditions?: DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditions[];
+  logic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      logic: 'Logic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditions },
+      logic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteRuleListResponseBodyDataResponseData extends $tea.Model {
+  alertName?: string;
+  alertNameId?: string;
+  alertType?: string;
+  alertTypeId?: string;
+  alertUuid?: string;
+  aliuid?: number;
+  expression?: DescribeWhiteRuleListResponseBodyDataResponseDataExpression;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  incidentUuid?: string;
+  status?: number;
+  subAliuid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertName: 'AlertName',
+      alertNameId: 'AlertNameId',
+      alertType: 'AlertType',
+      alertTypeId: 'AlertTypeId',
+      alertUuid: 'AlertUuid',
+      aliuid: 'Aliuid',
+      expression: 'Expression',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      incidentUuid: 'IncidentUuid',
+      status: 'Status',
+      subAliuid: 'SubAliuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertName: 'string',
+      alertNameId: 'string',
+      alertType: 'string',
+      alertTypeId: 'string',
+      alertUuid: 'string',
+      aliuid: 'number',
+      expression: DescribeWhiteRuleListResponseBodyDataResponseDataExpression,
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      incidentUuid: 'string',
+      status: 'number',
+      subAliuid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteRuleListResponseBodyData extends $tea.Model {
+  pageInfo?: DescribeWhiteRuleListResponseBodyDataPageInfo;
+  responseData?: DescribeWhiteRuleListResponseBodyDataResponseData[];
+  static names(): { [key: string]: string } {
+    return {
+      pageInfo: 'PageInfo',
+      responseData: 'ResponseData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageInfo: DescribeWhiteRuleListResponseBodyDataPageInfo,
+      responseData: { 'type': 'array', 'itemType': DescribeWhiteRuleListResponseBodyDataResponseData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DoQuickFieldResponseBodyData extends $tea.Model {
   aggQueryd?: string;
   completeOrNot?: boolean;
@@ -9788,6 +10235,35 @@ export default class Client extends OpenApi {
     return await this.describeAggregateFunctionWithOptions(request, runtime);
   }
 
+  async describeAlertSceneWithOptions(request: DescribeAlertSceneRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlertSceneResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAlertScene",
+      version: "2022-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAlertSceneResponse>(await this.callApi(params, req, runtime), new DescribeAlertSceneResponse({}));
+  }
+
+  async describeAlertScene(request: DescribeAlertSceneRequest): Promise<DescribeAlertSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAlertSceneWithOptions(request, runtime);
+  }
+
   async describeAlertSceneByEventWithOptions(request: DescribeAlertSceneByEventRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlertSceneByEventResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -11076,6 +11552,55 @@ export default class Client extends OpenApi {
   async describeWafScope(request: DescribeWafScopeRequest): Promise<DescribeWafScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWafScopeWithOptions(request, runtime);
+  }
+
+  async describeWhiteRuleListWithOptions(request: DescribeWhiteRuleListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhiteRuleListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alertName)) {
+      body["AlertName"] = request.alertName;
+    }
+
+    if (!Util.isUnset(request.alertType)) {
+      body["AlertType"] = request.alertType;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      body["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.incidentUuid)) {
+      body["IncidentUuid"] = request.incidentUuid;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWhiteRuleList",
+      version: "2022-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWhiteRuleListResponse>(await this.callApi(params, req, runtime), new DescribeWhiteRuleListResponse({}));
+  }
+
+  async describeWhiteRuleList(request: DescribeWhiteRuleListRequest): Promise<DescribeWhiteRuleListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWhiteRuleListWithOptions(request, runtime);
   }
 
   async doQuickFieldWithOptions(request: DoQuickFieldRequest, runtime: $Util.RuntimeOptions): Promise<DoQuickFieldResponse> {
