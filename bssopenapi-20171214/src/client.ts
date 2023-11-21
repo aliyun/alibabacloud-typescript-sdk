@@ -3033,6 +3033,7 @@ export class DescribeSplitItemBillRequest extends $tea.Model {
   billingDate?: string;
   granularity?: string;
   instanceID?: string;
+  isHideZeroCharge?: boolean;
   maxResults?: number;
   nextToken?: string;
   ownerId?: number;
@@ -3048,6 +3049,7 @@ export class DescribeSplitItemBillRequest extends $tea.Model {
       billingDate: 'BillingDate',
       granularity: 'Granularity',
       instanceID: 'InstanceID',
+      isHideZeroCharge: 'IsHideZeroCharge',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       ownerId: 'OwnerId',
@@ -3066,6 +3068,7 @@ export class DescribeSplitItemBillRequest extends $tea.Model {
       billingDate: 'string',
       granularity: 'string',
       instanceID: 'string',
+      isHideZeroCharge: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       ownerId: 'number',
@@ -19063,6 +19066,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceID)) {
       query["InstanceID"] = request.instanceID;
+    }
+
+    if (!Util.isUnset(request.isHideZeroCharge)) {
+      query["IsHideZeroCharge"] = request.isHideZeroCharge;
     }
 
     if (!Util.isUnset(request.maxResults)) {
