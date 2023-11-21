@@ -32461,7 +32461,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
   regionId?: string;
   remainTime?: number;
   startTime?: string;
-  status?: number;
+  status?: string;
   taskDetail?: string;
   taskId?: string;
   taskType?: string;
@@ -32508,7 +32508,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
       regionId: 'string',
       remainTime: 'number',
       startTime: 'string',
-      status: 'number',
+      status: 'string',
       taskDetail: 'string',
       taskId: 'string',
       taskType: 'string',
@@ -36909,6 +36909,17 @@ export default class Client extends OpenApi {
     return await this.checkAccountNameAvailableWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    *
+    * @param request CheckCloudResourceAuthorizedRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CheckCloudResourceAuthorizedResponse
+   */
   async checkCloudResourceAuthorizedWithOptions(request: CheckCloudResourceAuthorizedRequest, runtime: $Util.RuntimeOptions): Promise<CheckCloudResourceAuthorizedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36965,6 +36976,16 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckCloudResourceAuthorizedResponse>(await this.callApi(params, req, runtime), new CheckCloudResourceAuthorizedResponse({}));
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    *
+    * @param request CheckCloudResourceAuthorizedRequest
+    * @return CheckCloudResourceAuthorizedResponse
+   */
   async checkCloudResourceAuthorized(request: CheckCloudResourceAuthorizedRequest): Promise<CheckCloudResourceAuthorizedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkCloudResourceAuthorizedWithOptions(request, runtime);
@@ -37187,6 +37208,14 @@ export default class Client extends OpenApi {
     return await this.checkInstanceExistWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   PostgreSQL
+    *
+    * @param request CheckServiceLinkedRoleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CheckServiceLinkedRoleResponse
+   */
   async checkServiceLinkedRoleWithOptions(request: CheckServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CheckServiceLinkedRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37231,6 +37260,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CheckServiceLinkedRoleResponse({}));
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   PostgreSQL
+    *
+    * @param request CheckServiceLinkedRoleRequest
+    * @return CheckServiceLinkedRoleResponse
+   */
   async checkServiceLinkedRole(request: CheckServiceLinkedRoleRequest): Promise<CheckServiceLinkedRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkServiceLinkedRoleWithOptions(request, runtime);
@@ -39135,12 +39171,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
-    * *   Your Alibaba Cloud account is used.
-    * *   The balance in your Alibaba Cloud account is greater than or equal to USD 100.
-    * *   A primary ApsaraDB RDS for MySQL instance is created, and the instance is not running as a node in a global active database cluster. You can call the [CreateDBInstance](~~26228~~) operation to create an instance.
-    * > You must create a primary ApsaraDB RDS for MySQL instance in one of the following regions: China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu).
-    * For more information, see [Create and release an ApsaraDB RDS global active database cluster](~~328592~~).
+    * ### [](#)Supported database engine
+    * *   MySQL
+    * ### [](#)References
+    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * [Create and release an ApsaraDB RDS global active database cluster](~~328592~~)
     *
     * @param request CreateGADInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -39203,12 +39238,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
-    * *   Your Alibaba Cloud account is used.
-    * *   The balance in your Alibaba Cloud account is greater than or equal to USD 100.
-    * *   A primary ApsaraDB RDS for MySQL instance is created, and the instance is not running as a node in a global active database cluster. You can call the [CreateDBInstance](~~26228~~) operation to create an instance.
-    * > You must create a primary ApsaraDB RDS for MySQL instance in one of the following regions: China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu).
-    * For more information, see [Create and release an ApsaraDB RDS global active database cluster](~~328592~~).
+    * ### [](#)Supported database engine
+    * *   MySQL
+    * ### [](#)References
+    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * [Create and release an ApsaraDB RDS global active database cluster](~~328592~~)
     *
     * @param request CreateGADInstanceRequest
     * @return CreateGADInstanceResponse
@@ -40076,6 +40110,14 @@ export default class Client extends OpenApi {
     return await this.createReadOnlyDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    *
+    * @param request CreateSecretRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSecretResponse
+   */
   async createSecretWithOptions(request: CreateSecretRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecretResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40148,6 +40190,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSecretResponse>(await this.callApi(params, req, runtime), new CreateSecretResponse({}));
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    *
+    * @param request CreateSecretRequest
+    * @return CreateSecretResponse
+   */
   async createSecret(request: CreateSecretRequest): Promise<CreateSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSecretWithOptions(request, runtime);
@@ -41531,9 +41580,7 @@ export default class Client extends OpenApi {
 
   /**
     * ### [](#)Supported database engines
-    * MySQL
-    * ### [](#)References
-    * [Migrate data between ApsaraDB RDS for MySQL instances](~~96154~~)
+    * *   MySQL
     *
     * @param request DescibeImportsFromDatabaseRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -41613,9 +41660,7 @@ export default class Client extends OpenApi {
 
   /**
     * ### [](#)Supported database engines
-    * MySQL
-    * ### [](#)References
-    * [Migrate data between ApsaraDB RDS for MySQL instances](~~96154~~)
+    * *   MySQL
     *
     * @param request DescibeImportsFromDatabaseRequest
     * @return DescibeImportsFromDatabaseResponse
@@ -42007,6 +42052,16 @@ export default class Client extends OpenApi {
     return await this.describeAllWhitelistTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * MySQL
+    * ### [](#)References
+    * [Create and view an analytic instance](~~155180~~)
+    *
+    * @param request DescribeAnalyticdbByPrimaryDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAnalyticdbByPrimaryDBInstanceResponse
+   */
   async describeAnalyticdbByPrimaryDBInstanceWithOptions(request: DescribeAnalyticdbByPrimaryDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAnalyticdbByPrimaryDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42047,6 +42102,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAnalyticdbByPrimaryDBInstanceResponse>(await this.callApi(params, req, runtime), new DescribeAnalyticdbByPrimaryDBInstanceResponse({}));
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * MySQL
+    * ### [](#)References
+    * [Create and view an analytic instance](~~155180~~)
+    *
+    * @param request DescribeAnalyticdbByPrimaryDBInstanceRequest
+    * @return DescribeAnalyticdbByPrimaryDBInstanceResponse
+   */
   async describeAnalyticdbByPrimaryDBInstance(request: DescribeAnalyticdbByPrimaryDBInstanceRequest): Promise<DescribeAnalyticdbByPrimaryDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAnalyticdbByPrimaryDBInstanceWithOptions(request, runtime);
@@ -44399,6 +44463,17 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceNetInfoWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    *
+    * @param request DescribeDBInstanceNetInfoForChannelRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceNetInfoForChannelResponse
+   */
   async describeDBInstanceNetInfoForChannelWithOptions(request: DescribeDBInstanceNetInfoForChannelRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceNetInfoForChannelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44451,6 +44526,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceNetInfoForChannelResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceNetInfoForChannelResponse({}));
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    *
+    * @param request DescribeDBInstanceNetInfoForChannelRequest
+    * @return DescribeDBInstanceNetInfoForChannelResponse
+   */
   async describeDBInstanceNetInfoForChannel(request: DescribeDBInstanceNetInfoForChannelRequest): Promise<DescribeDBInstanceNetInfoForChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceNetInfoForChannelWithOptions(request, runtime);
@@ -46139,7 +46224,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Error logs contain the time when they were generated and the error messages.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
     *
     * @param request DescribeErrorLogsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -46202,7 +46291,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Error logs contain the time when they were generated and the error messages.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
     *
     * @param request DescribeErrorLogsRequest
     * @return DescribeErrorLogsResponse
@@ -46213,8 +46306,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The event history feature enables you to view the events that occurred within a region over a specific time range. Historical events include instance creation and parameter modification. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
-    * Before you call this operation, make sure that the event history feature is enabled. Otherwise, this operation fails.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+    * *   [Historical events of an ApsaraDB RDS for MySQL instance](~~129759~~)
+    * *   [Historical events of an ApsaraDB RDS for PostgreSQL instance](~~131008~~)
+    * *   [Historical events of an ApsaraDB RDS for SQL Server instance](~~131013~~)
+    * *   [Historical events of an ApsaraDB RDS for MariaDB instance](~~131010~~)
     *
     * @param request DescribeEventsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -46273,8 +46375,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The event history feature enables you to view the events that occurred within a region over a specific time range. Historical events include instance creation and parameter modification. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
-    * Before you call this operation, make sure that the event history feature is enabled. Otherwise, this operation fails.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+    * *   [Historical events of an ApsaraDB RDS for MySQL instance](~~129759~~)
+    * *   [Historical events of an ApsaraDB RDS for PostgreSQL instance](~~131008~~)
+    * *   [Historical events of an ApsaraDB RDS for SQL Server instance](~~131013~~)
+    * *   [Historical events of an ApsaraDB RDS for MariaDB instance](~~131010~~)
     *
     * @param request DescribeEventsRequest
     * @return DescribeEventsResponse
@@ -46337,7 +46448,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * By default, Alibaba Cloud uses persistent connections to check the availability of an instance. For more information, see [What is availability detection?](~~207467~~)
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * [What is availability detection?](~~207467~~)
     *
     * @param request DescribeHADiagnoseConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -46384,7 +46501,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * By default, Alibaba Cloud uses persistent connections to check the availability of an instance. For more information, see [What is availability detection?](~~207467~~)
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * [What is availability detection?](~~207467~~)
     *
     * @param request DescribeHADiagnoseConfigRequest
     * @return DescribeHADiagnoseConfigResponse
@@ -46395,8 +46518,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After a primary/secondary switchover is complete, the primary instance is demoted to the secondary instance and the secondary instance is promoted to primary. For more information, see [Switch workloads over between primary and secondary ApsaraDB RDS instances](~~96054~~).
-    * When you call this operation, you must make sure that the instance runs RDS High-availability Edition, RDS Enterprise Edition, and RDS Cluster Edition. RDS Cluster Edition is supported for ApsaraDB RDS for MySQL and ApsaraDB RDS for SQL Server.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
     *
     * @param request DescribeHASwitchConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -46443,8 +46569,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After a primary/secondary switchover is complete, the primary instance is demoted to the secondary instance and the secondary instance is promoted to primary. For more information, see [Switch workloads over between primary and secondary ApsaraDB RDS instances](~~96054~~).
-    * When you call this operation, you must make sure that the instance runs RDS High-availability Edition, RDS Enterprise Edition, and RDS Cluster Edition. RDS Cluster Edition is supported for ApsaraDB RDS for MySQL and ApsaraDB RDS for SQL Server.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
     *
     * @param request DescribeHASwitchConfigRequest
     * @return DescribeHASwitchConfigResponse
@@ -46703,6 +46832,17 @@ export default class Client extends OpenApi {
     return await this.describeHostWebShellWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    *
+    * @param request DescribeInstanceAutoRenewalAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceAutoRenewalAttributeResponse
+   */
   async describeInstanceAutoRenewalAttributeWithOptions(request: DescribeInstanceAutoRenewalAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAutoRenewalAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46763,6 +46903,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceAutoRenewalAttributeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAutoRenewalAttributeResponse({}));
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    *
+    * @param request DescribeInstanceAutoRenewalAttributeRequest
+    * @return DescribeInstanceAutoRenewalAttributeResponse
+   */
   async describeInstanceAutoRenewalAttribute(request: DescribeInstanceAutoRenewalAttributeRequest): Promise<DescribeInstanceAutoRenewalAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceAutoRenewalAttributeWithOptions(request, runtime);
@@ -46774,7 +46924,8 @@ export default class Client extends OpenApi {
     * *   PostgreSQL
     * *   SQL Server
     * ### [](#)References
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
+    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
     *
@@ -46828,7 +46979,8 @@ export default class Client extends OpenApi {
     * *   PostgreSQL
     * *   SQL Server
     * ### [](#)References
-    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
+    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
     *
@@ -48721,10 +48873,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is applicable to the following database engine versions:
+    * ### [](#)Supported database engines
     * *   MySQL
-    * *   SQL Server 2008 R2
     * *   PostgreSQL
+    * *   SQL Server
     *
     * @param request DescribeSQLCollectorPolicyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -48779,10 +48931,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is applicable to the following database engine versions:
+    * ### [](#)Supported database engines
     * *   MySQL
-    * *   SQL Server 2008 R2
     * *   PostgreSQL
+    * *   SQL Server
     *
     * @param request DescribeSQLCollectorPolicyRequest
     * @return DescribeSQLCollectorPolicyResponse
@@ -49254,7 +49406,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only for ApsaraDB RDS for PostgreSQL instances.
+    * ### [](#)Supported database engines
+    * *   PostgreSQL
     *
     * @param request DescribeSlotsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -49309,7 +49462,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only for ApsaraDB RDS for PostgreSQL instances.
+    * ### [](#)Supported database engines
+    * *   PostgreSQL
     *
     * @param request DescribeSlotsRequest
     * @return DescribeSlotsResponse
@@ -49815,6 +49969,14 @@ export default class Client extends OpenApi {
     return await this.describeUpgradeMajorVersionPrecheckTaskWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * PostgreSQL
+    *
+    * @param request DescribeUpgradeMajorVersionTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeUpgradeMajorVersionTasksResponse
+   */
   async describeUpgradeMajorVersionTasksWithOptions(request: DescribeUpgradeMajorVersionTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUpgradeMajorVersionTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49871,6 +50033,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUpgradeMajorVersionTasksResponse>(await this.callApi(params, req, runtime), new DescribeUpgradeMajorVersionTasksResponse({}));
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * PostgreSQL
+    *
+    * @param request DescribeUpgradeMajorVersionTasksRequest
+    * @return DescribeUpgradeMajorVersionTasksResponse
+   */
   async describeUpgradeMajorVersionTasks(request: DescribeUpgradeMajorVersionTasksRequest): Promise<DescribeUpgradeMajorVersionTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUpgradeMajorVersionTasksWithOptions(request, runtime);
@@ -50936,7 +51105,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * ### [](#)Feature description
     * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
     * *   Before you call the [CreateDBInstance](~~26228~~) operation to create an ApsaraDB RDS for MySQL instance into which you want to import full backup files, you can call this operation to query the IDs of full backup files.
     * *   You can call the [ImportUserBackupFile](~~260266~~) operation to import a full backup file into an ApsaraDB RDS for MySQL instance.
@@ -51006,7 +51177,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * ### [](#)Feature description
     * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
     * *   Before you call the [CreateDBInstance](~~26228~~) operation to create an ApsaraDB RDS for MySQL instance into which you want to import full backup files, you can call this operation to query the IDs of full backup files.
     * *   You can call the [ImportUserBackupFile](~~260266~~) operation to import a full backup file into an ApsaraDB RDS for MySQL instance.
@@ -52081,7 +52254,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is supported only for instances that run MySQL.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * ### [](#)References
+    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+    * *   [Modify automatic update settings for an ApsaraDB RDS for MySQL instance](~~96059~~)
+    * *   [Modify automatic update settings for an ApsaraDB RDS for PostgreSQL instance](~~146895~~)
     *
     * @param request ModifyDBInstanceAutoUpgradeMinorVersionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -52132,7 +52311,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is supported only for instances that run MySQL.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * ### [](#)References
+    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+    * *   [Modify automatic update settings for an ApsaraDB RDS for MySQL instance](~~96059~~)
+    * *   [Modify automatic update settings for an ApsaraDB RDS for PostgreSQL instance](~~146895~~)
     *
     * @param request ModifyDBInstanceAutoUpgradeMinorVersionRequest
     * @return ModifyDBInstanceAutoUpgradeMinorVersionResponse
@@ -52143,12 +52328,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * > : The configuration item that is supported is [PgBouncer](~~2398301~~) of ApsaraDB RDS for PostgreSQL instances.
+    * ### [](#)Supported database engines
+    * *   PostgreSQL
+    * >  The configuration item that is supported is [PgBouncer](~~2398301~~) of ApsaraDB RDS for PostgreSQL instances.
     *
     * @param request ModifyDBInstanceConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -52211,12 +52393,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
-    * *   RDS SQL Server
-    * *   RDS MariaDB
-    * > : The configuration item that is supported is [PgBouncer](~~2398301~~) of ApsaraDB RDS for PostgreSQL instances.
+    * ### [](#)Supported database engines
+    * *   PostgreSQL
+    * >  The configuration item that is supported is [PgBouncer](~~2398301~~) of ApsaraDB RDS for PostgreSQL instances.
     *
     * @param request ModifyDBInstanceConfigRequest
     * @return ModifyDBInstanceConfigResponse
@@ -52390,6 +52569,17 @@ export default class Client extends OpenApi {
     return await this.modifyDBInstanceConnectionStringWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * ### [](#)References
+    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * *   [Configure a data replication latency for a read-only ApsaraDB RDS for MySQL instance](~~96056~~)
+    *
+    * @param request ModifyDBInstanceDelayedReplicationTimeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceDelayedReplicationTimeResponse
+   */
   async modifyDBInstanceDelayedReplicationTimeWithOptions(request: ModifyDBInstanceDelayedReplicationTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceDelayedReplicationTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52430,13 +52620,33 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceDelayedReplicationTimeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceDelayedReplicationTimeResponse({}));
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * ### [](#)References
+    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * *   [Configure a data replication latency for a read-only ApsaraDB RDS for MySQL instance](~~96056~~)
+    *
+    * @param request ModifyDBInstanceDelayedReplicationTimeRequest
+    * @return ModifyDBInstanceDelayedReplicationTimeResponse
+   */
   async modifyDBInstanceDelayedReplicationTime(request: ModifyDBInstanceDelayedReplicationTimeRequest): Promise<ModifyDBInstanceDelayedReplicationTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceDelayedReplicationTimeWithOptions(request, runtime);
   }
 
   /**
-    * For more information, see [Enable or disable the release protection feature for an ApsaraDB RDS for MySQL instance](~~414512~~).
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * *   [Enable and disable instance release protection for an ApsaraDB RDS for MySQL instance](~~414512~~)
+    * *   [Enable and disable instance release protection for an ApsaraDB RDS for PostgreSQL instance](~~471512~~)
+    * *   [Enable and disable instance release protection for an ApsaraDB RDS for SQL Server instance](~~416209~~)
+    * *   [Enable and disable release protection for an ApsaraDB RDS for MariaDB instance](~~414512~~)
     *
     * @param request ModifyDBInstanceDeletionProtectionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -52491,7 +52701,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information, see [Enable or disable the release protection feature for an ApsaraDB RDS for MySQL instance](~~414512~~).
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * *   [Enable and disable instance release protection for an ApsaraDB RDS for MySQL instance](~~414512~~)
+    * *   [Enable and disable instance release protection for an ApsaraDB RDS for PostgreSQL instance](~~471512~~)
+    * *   [Enable and disable instance release protection for an ApsaraDB RDS for SQL Server instance](~~416209~~)
+    * *   [Enable and disable release protection for an ApsaraDB RDS for MariaDB instance](~~414512~~)
     *
     * @param request ModifyDBInstanceDeletionProtectionRequest
     * @return ModifyDBInstanceDeletionProtectionResponse
@@ -52760,7 +52980,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can set the maintenance time to a period of time during off-peak hours. Alibaba Cloud performs routine maintenance within the maintenance time to minimize impacts on your business.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+    * *   [Set a maintenance window for an ApsaraDB RDS for MySQL instance](~~96052~~)
+    * *   [Set a maintenance window for an ApsaraDB RDS for PostgreSQL instance](~~96799~~)
+    * *   [Set a maintenance window for an ApsaraDB RDS for SQL Sever instance](~~95657~~)
+    * *   [Set a maintenance window for an ApsaraDB RDS for MariaDB instance](~~97473~~)
     *
     * @param request ModifyDBInstanceMaintainTimeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -52815,7 +53045,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can set the maintenance time to a period of time during off-peak hours. Alibaba Cloud performs routine maintenance within the maintenance time to minimize impacts on your business.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+    * *   [Set a maintenance window for an ApsaraDB RDS for MySQL instance](~~96052~~)
+    * *   [Set a maintenance window for an ApsaraDB RDS for PostgreSQL instance](~~96799~~)
+    * *   [Set a maintenance window for an ApsaraDB RDS for SQL Sever instance](~~95657~~)
+    * *   [Set a maintenance window for an ApsaraDB RDS for MariaDB instance](~~97473~~)
     *
     * @param request ModifyDBInstanceMaintainTimeRequest
     * @return ModifyDBInstanceMaintainTimeResponse
@@ -52970,7 +53210,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When an ApsaraDB for RDS instance is in the hybrid access mode, which uses both a VPC endpoint and a classic network endpoint, this operation is used to extend the expiration time of the classic network endpoint.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   SQL Server
+    * ### [](#)References
+    * *   [Configure the hybrid access solution for an ApsaraDB RDS for MySQL instance](~~96110~~)
+    * *   [Configure the hybrid access solution for an ApsaraDB RDS for SQL Server instance](~~95708~~)
     *
     * @param request ModifyDBInstanceNetworkExpireTimeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -53025,7 +53270,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When an ApsaraDB for RDS instance is in the hybrid access mode, which uses both a VPC endpoint and a classic network endpoint, this operation is used to extend the expiration time of the classic network endpoint.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   SQL Server
+    * ### [](#)References
+    * *   [Configure the hybrid access solution for an ApsaraDB RDS for MySQL instance](~~96110~~)
+    * *   [Configure the hybrid access solution for an ApsaraDB RDS for SQL Server instance](~~95708~~)
     *
     * @param request ModifyDBInstanceNetworkExpireTimeRequest
     * @return ModifyDBInstanceNetworkExpireTimeResponse
@@ -53142,14 +53392,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is used to change only the billing method of an instance from pay-as-you-go to subscription.
-    * The following requirements must be met:
-    * *   The instance belongs to the current account.
-    * *   The instance uses one of the most recent instance types. For more information, see [Instance types](~~26312~~).
-    *     **
-    *     **Note**You cannot change the billing method of an instance that uses a phased-out instance type from pay-as-you-go to subscription. If you want to change the billing method of an instance that uses a phased-out instance type from pay-as-you-go to subscription, you must change the instance type of the instance to one of the most recent instance types. Then, you can change the billing method of the instance from pay-as-you-go to subscription. To change the instance type of an instance, you can change the instance specifications of the instance. For more information, see [Change the specifications of an ApsaraDB RDS instance](~~96061~~).
-    * *   The instance uses the pay-as-you-go billing method and is in the Running state.
-    * *   Your Alibaba Cloud account has no unpaid orders for the instance for which you want to change the billing method.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
+    * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](~~96048~~)
+    * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](~~96743~~)
+    * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](~~95631~~)
+    * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](~~97120~~)
     *
     * @param request ModifyDBInstancePayTypeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -53196,14 +53449,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is used to change only the billing method of an instance from pay-as-you-go to subscription.
-    * The following requirements must be met:
-    * *   The instance belongs to the current account.
-    * *   The instance uses one of the most recent instance types. For more information, see [Instance types](~~26312~~).
-    *     **
-    *     **Note**You cannot change the billing method of an instance that uses a phased-out instance type from pay-as-you-go to subscription. If you want to change the billing method of an instance that uses a phased-out instance type from pay-as-you-go to subscription, you must change the instance type of the instance to one of the most recent instance types. Then, you can change the billing method of the instance from pay-as-you-go to subscription. To change the instance type of an instance, you can change the instance specifications of the instance. For more information, see [Change the specifications of an ApsaraDB RDS instance](~~96061~~).
-    * *   The instance uses the pay-as-you-go billing method and is in the Running state.
-    * *   Your Alibaba Cloud account has no unpaid orders for the instance for which you want to change the billing method.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
+    * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](~~96048~~)
+    * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](~~96743~~)
+    * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](~~95631~~)
+    * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](~~97120~~)
     *
     * @param request ModifyDBInstancePayTypeRequest
     * @return ModifyDBInstancePayTypeResponse
@@ -54454,7 +54710,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * By default, Alibaba Cloud uses persistent connections to check the availability of an instance. For more information, see [What is availability detection?](~~207467~~)
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+    * [What is availability check?](~~207467~~)
     *
     * @param request ModifyHADiagnoseConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -54505,7 +54768,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * By default, Alibaba Cloud uses persistent connections to check the availability of an instance. For more information, see [What is availability detection?](~~207467~~)
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+    * [What is availability check?](~~207467~~)
     *
     * @param request ModifyHADiagnoseConfigRequest
     * @return ModifyHADiagnoseConfigResponse
@@ -54681,6 +54951,7 @@ export default class Client extends OpenApi {
     * *   PostgreSQL
     * *   SQL Server
     * ### [](#)References
+    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
     * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
@@ -54759,6 +55030,7 @@ export default class Client extends OpenApi {
     * *   PostgreSQL
     * *   SQL Server
     * ### [](#)References
+    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
     * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
@@ -56601,12 +56873,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and pricing of ApsaraDB RDS. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The instance is a subscription instance.
-    * *   Your account supports credit card payments or balance payments.
-    *     **
-    *     **Note**By default, coupons available for your account are preferentially used for payment.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
+    * *   [Manually renew an ApsaraDB RDS for MySQL instance](~~96050~~)
+    * *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](~~96741~~)
+    * *   [Manually renew an ApsaraDB RDS for SQL Server instance](~~95637~~)
+    * *   [Manually renew an ApsaraDB RDS for MariaDB instance](~~97122~~)
     *
     * @param request RenewInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -56665,12 +56942,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing methods and pricing of ApsaraDB RDS. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The instance is a subscription instance.
-    * *   Your account supports credit card payments or balance payments.
-    *     **
-    *     **Note**By default, coupons available for your account are preferentially used for payment.
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### [](#)References
+    * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
+    * *   [Manually renew an ApsaraDB RDS for MySQL instance](~~96050~~)
+    * *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](~~96741~~)
+    * *   [Manually renew an ApsaraDB RDS for SQL Server instance](~~95637~~)
+    * *   [Manually renew an ApsaraDB RDS for MariaDB instance](~~97122~~)
     *
     * @param request RenewInstanceRequest
     * @return RenewInstanceResponse
