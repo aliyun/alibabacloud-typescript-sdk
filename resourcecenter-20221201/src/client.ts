@@ -617,6 +617,8 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $tea.Model
   accountId?: string;
   configuration?: { [key: string]: any };
   createTime?: string;
+  expireTime?: string;
+  ipAddressAttributes?: GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes[];
   ipAddresses?: string[];
   regionId?: string;
   requestId?: string;
@@ -631,6 +633,8 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $tea.Model
       accountId: 'AccountId',
       configuration: 'Configuration',
       createTime: 'CreateTime',
+      expireTime: 'ExpireTime',
+      ipAddressAttributes: 'IpAddressAttributes',
       ipAddresses: 'IpAddresses',
       regionId: 'RegionId',
       requestId: 'RequestId',
@@ -648,6 +652,8 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $tea.Model
       accountId: 'string',
       configuration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       createTime: 'string',
+      expireTime: 'string',
+      ipAddressAttributes: { 'type': 'array', 'itemType': GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes },
       ipAddresses: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       requestId: 'string',
@@ -769,6 +775,8 @@ export class GetResourceConfigurationResponseBody extends $tea.Model {
   accountId?: string;
   configuration?: { [key: string]: any };
   createTime?: string;
+  expireTime?: string;
+  ipAddressAttributes?: GetResourceConfigurationResponseBodyIpAddressAttributes[];
   ipAddresses?: string[];
   regionId?: string;
   requestId?: string;
@@ -783,6 +791,8 @@ export class GetResourceConfigurationResponseBody extends $tea.Model {
       accountId: 'AccountId',
       configuration: 'Configuration',
       createTime: 'CreateTime',
+      expireTime: 'ExpireTime',
+      ipAddressAttributes: 'IpAddressAttributes',
       ipAddresses: 'IpAddresses',
       regionId: 'RegionId',
       requestId: 'RequestId',
@@ -800,6 +810,8 @@ export class GetResourceConfigurationResponseBody extends $tea.Model {
       accountId: 'string',
       configuration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       createTime: 'string',
+      expireTime: 'string',
+      ipAddressAttributes: { 'type': 'array', 'itemType': GetResourceConfigurationResponseBodyIpAddressAttributes },
       ipAddresses: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       requestId: 'string',
@@ -1928,6 +1940,31 @@ export class GetExampleQueryResponseBodyExampleQuery extends $tea.Model {
   }
 }
 
+export class GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes extends $tea.Model {
+  ipAddress?: string;
+  networkType?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+      networkType: 'NetworkType',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: 'string',
+      networkType: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMultiAccountResourceConfigurationResponseBodyTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -1942,6 +1979,31 @@ export class GetMultiAccountResourceConfigurationResponseBodyTags extends $tea.M
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceConfigurationResponseBodyIpAddressAttributes extends $tea.Model {
+  ipAddress?: string;
+  networkType?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+      networkType: 'NetworkType',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: 'string',
+      networkType: 'string',
+      version: 'string',
     };
   }
 
@@ -2266,7 +2328,7 @@ export class SearchMultiAccountResourcesResponseBodyFilters extends $tea.Model {
 }
 
 export class SearchMultiAccountResourcesResponseBodyResourcesIpAddressAttributes extends $tea.Model {
-  ipAddress?: string[];
+  ipAddress?: string;
   networkType?: string;
   version?: string;
   static names(): { [key: string]: string } {
@@ -2279,7 +2341,7 @@ export class SearchMultiAccountResourcesResponseBodyResourcesIpAddressAttributes
 
   static types(): { [key: string]: any } {
     return {
-      ipAddress: { 'type': 'array', 'itemType': 'string' },
+      ipAddress: 'string',
       networkType: 'string',
       version: 'string',
     };
@@ -2437,7 +2499,7 @@ export class SearchResourcesResponseBodyFilters extends $tea.Model {
 }
 
 export class SearchResourcesResponseBodyResourcesIpAddressAttributes extends $tea.Model {
-  ipAddress?: string[];
+  ipAddress?: string;
   networkType?: string;
   version?: string;
   static names(): { [key: string]: string } {
@@ -2450,7 +2512,7 @@ export class SearchResourcesResponseBodyResourcesIpAddressAttributes extends $te
 
   static types(): { [key: string]: any } {
     return {
-      ipAddress: { 'type': 'array', 'itemType': 'string' },
+      ipAddress: 'string',
       networkType: 'string',
       version: 'string',
     };
