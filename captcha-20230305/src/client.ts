@@ -85,15 +85,18 @@ export class VerifyCaptchaResponse extends $tea.Model {
 
 export class VerifyIntelligentCaptchaRequest extends $tea.Model {
   captchaVerifyParam?: string;
+  sceneId?: string;
   static names(): { [key: string]: string } {
     return {
       captchaVerifyParam: 'CaptchaVerifyParam',
+      sceneId: 'SceneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       captchaVerifyParam: 'string',
+      sceneId: 'string',
     };
   }
 
@@ -253,6 +256,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.captchaVerifyParam)) {
       body["CaptchaVerifyParam"] = request.captchaVerifyParam;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
