@@ -8,6 +8,56 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class WafQuotaInteger extends $tea.Model {
+  equal?: number;
+  greaterThan?: number;
+  greaterThanOrEqual?: number;
+  lessThan?: number;
+  lessThanOrEqual?: number;
+  static names(): { [key: string]: string } {
+    return {
+      equal: 'Equal',
+      greaterThan: 'GreaterThan',
+      greaterThanOrEqual: 'GreaterThanOrEqual',
+      lessThan: 'LessThan',
+      lessThanOrEqual: 'LessThanOrEqual',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      equal: 'number',
+      greaterThan: 'number',
+      greaterThanOrEqual: 'number',
+      lessThan: 'number',
+      lessThanOrEqual: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafQuotaString extends $tea.Model {
+  regexp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regexp: 'Regexp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regexp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddDcdnDomainRequest extends $tea.Model {
   checkUrl?: string;
   domainName?: string;
@@ -8410,6 +8460,72 @@ export class DescribeDcdnL2VipsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDcdnL2VipsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnOriginSiteHealthStatusRequest extends $tea.Model {
+  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnOriginSiteHealthStatusResponseBody extends $tea.Model {
+  originSiteStatus?: DescribeDcdnOriginSiteHealthStatusResponseBodyOriginSiteStatus[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      originSiteStatus: 'OriginSiteStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originSiteStatus: { 'type': 'array', 'itemType': DescribeDcdnOriginSiteHealthStatusResponseBodyOriginSiteStatus },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnOriginSiteHealthStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnOriginSiteHealthStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnOriginSiteHealthStatusResponseBody,
     };
   }
 
@@ -20104,6 +20220,28 @@ export class DescribeDcdnKvAccountResponseBodyNamespaceList extends $tea.Model {
   }
 }
 
+export class DescribeDcdnOriginSiteHealthStatusResponseBodyOriginSiteStatus extends $tea.Model {
+  healthStatus?: string;
+  host?: string;
+  static names(): { [key: string]: string } {
+    return {
+      healthStatus: 'HealthStatus',
+      host: 'Host',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      healthStatus: 'string',
+      host: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnRealTimeDeliveryFieldResponseBodyContentFields extends $tea.Model {
   description?: string;
   fieldName?: string;
@@ -21504,6 +21642,7 @@ export class DescribeDcdnWafFilterInfoResponseBodyContentFieldsLogicalSymbolRege
 }
 
 export class DescribeDcdnWafFilterInfoResponseBodyContentFieldsLogicalSymbol extends $tea.Model {
+  attributes?: number;
   description?: string;
   maxLength?: number;
   regexp?: DescribeDcdnWafFilterInfoResponseBodyContentFieldsLogicalSymbolRegexp;
@@ -21512,6 +21651,7 @@ export class DescribeDcdnWafFilterInfoResponseBodyContentFieldsLogicalSymbol ext
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      attributes: 'Attributes',
       description: 'Description',
       maxLength: 'MaxLength',
       regexp: 'Regexp',
@@ -21523,6 +21663,7 @@ export class DescribeDcdnWafFilterInfoResponseBodyContentFieldsLogicalSymbol ext
 
   static types(): { [key: string]: any } {
     return {
+      attributes: 'number',
       description: 'string',
       maxLength: 'number',
       regexp: DescribeDcdnWafFilterInfoResponseBodyContentFieldsLogicalSymbolRegexp,
@@ -23004,7 +23145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * >  You can call this operation up to 20 times per second per account.
     *
     * @param request BatchCreateDcdnWafRulesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23039,7 +23180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * >  You can call this operation up to 20 times per second per account.
     *
     * @param request BatchCreateDcdnWafRulesRequest
     * @return BatchCreateDcdnWafRulesResponse
@@ -23110,7 +23251,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # Usage notes
     * *   You can call this operation up to 20 times per second per account.
     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
     *
@@ -23143,7 +23283,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # Usage notes
     * *   You can call this operation up to 20 times per second per account.
     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
     *
@@ -23315,9 +23454,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can specify up to 50 domain names in each request.
-    * *   You can call this operation up to 30 times per second per account.
+    * > *   You can specify up to 50 domain names in each request.
+    * >*   You can call this operation up to 30 times per second per account.
     *
     * @param request BatchSetDcdnDomainConfigsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23364,9 +23502,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can specify up to 50 domain names in each request.
-    * *   You can call this operation up to 30 times per second per account.
+    * > *   You can specify up to 50 domain names in each request.
+    * >*   You can call this operation up to 30 times per second per account.
     *
     * @param request BatchSetDcdnDomainConfigsRequest
     * @return BatchSetDcdnDomainConfigsResponse
@@ -28579,6 +28716,35 @@ export default class Client extends OpenApi {
     return await this.describeDcdnL2VipsWithOptions(request, runtime);
   }
 
+  async describeDcdnOriginSiteHealthStatusWithOptions(request: DescribeDcdnOriginSiteHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnOriginSiteHealthStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnOriginSiteHealthStatus",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnOriginSiteHealthStatusResponse>(await this.callApi(params, req, runtime), new DescribeDcdnOriginSiteHealthStatusResponse({}));
+  }
+
+  async describeDcdnOriginSiteHealthStatus(request: DescribeDcdnOriginSiteHealthStatusRequest): Promise<DescribeDcdnOriginSiteHealthStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnOriginSiteHealthStatusWithOptions(request, runtime);
+  }
+
   /**
     * >  You can call this API operation up to 100 times per second per account.
     *
@@ -32480,16 +32646,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * #
     * *   DCDN supports POST requests in which parameters are sent as a form.
     * *   You can call the [RefreshDcdnObjectCaches](~~130620~~) operation to refresh content and call the [PreloadDcdnObjectCaches](~~130636~~) operation to prefetch content.
     * *   By default, each Alibaba Cloud account can refresh content from a maximum of 10,000 URLs and 100 directories per day, including subdirectories. If the daily peak bandwidth value exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to request a quota increase. DCDN evaluates your application based on your workloads.
     * *   You can specify up to 1,000 URLs or 100 directories that you want to refresh in each request.
-    * *   You can refresh up to 1,000 URLs per minute for each domain name.
+    * *   You can refresh a maximum of 1,000 URLs per minute for each domain name.
     * *   You can call this operation up to 30 times per second per account.
-    * # Precautions
-    * *   After a refresh task is submitted and completed, your resources that are stored on DCDN POPs are removed. When a POP receives a request to your resources, the request is redirected to the origin server to retrieve the resources. Then, the resources are returned to the client and cached on the POP. If you frequently run refresh tasks, more requests will be redirected back to the origin server for resources, which result in high bandwidth costs and undue pressure on the origin server.
-    * *   A refresh task takes effect 5 to 6 minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than five minutes, you wait for it to expire instead of manually running a refresh task.
+    * #### [](#)Precautions
+    * *   After a refresh task is submitted and completed, your resources that are stored on DCDN POPs are removed. When a POP receives a request to your resources, the request is redirected to the origin server to retrieve the resources. Then, the resources are returned to the client and cached on the POP. If you frequently run refresh tasks, more requests will be redirected to the origin server for resources, which result in high bandwidth costs and undue pressure on the origin server.
+    * *   A refresh task takes effect 5 to 6 minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than 5 minutes, you wait for it to expire instead of manually running a refresh task.
     * *   If you want to use RAM users to refresh or prefetch resources, you need to obtain the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~445051~~).
     *
     * @param request RefreshDcdnObjectCachesRequest
@@ -32537,16 +32702,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * #
     * *   DCDN supports POST requests in which parameters are sent as a form.
     * *   You can call the [RefreshDcdnObjectCaches](~~130620~~) operation to refresh content and call the [PreloadDcdnObjectCaches](~~130636~~) operation to prefetch content.
     * *   By default, each Alibaba Cloud account can refresh content from a maximum of 10,000 URLs and 100 directories per day, including subdirectories. If the daily peak bandwidth value exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to request a quota increase. DCDN evaluates your application based on your workloads.
     * *   You can specify up to 1,000 URLs or 100 directories that you want to refresh in each request.
-    * *   You can refresh up to 1,000 URLs per minute for each domain name.
+    * *   You can refresh a maximum of 1,000 URLs per minute for each domain name.
     * *   You can call this operation up to 30 times per second per account.
-    * # Precautions
-    * *   After a refresh task is submitted and completed, your resources that are stored on DCDN POPs are removed. When a POP receives a request to your resources, the request is redirected to the origin server to retrieve the resources. Then, the resources are returned to the client and cached on the POP. If you frequently run refresh tasks, more requests will be redirected back to the origin server for resources, which result in high bandwidth costs and undue pressure on the origin server.
-    * *   A refresh task takes effect 5 to 6 minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than five minutes, you wait for it to expire instead of manually running a refresh task.
+    * #### [](#)Precautions
+    * *   After a refresh task is submitted and completed, your resources that are stored on DCDN POPs are removed. When a POP receives a request to your resources, the request is redirected to the origin server to retrieve the resources. Then, the resources are returned to the client and cached on the POP. If you frequently run refresh tasks, more requests will be redirected to the origin server for resources, which result in high bandwidth costs and undue pressure on the origin server.
+    * *   A refresh task takes effect 5 to 6 minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than 5 minutes, you wait for it to expire instead of manually running a refresh task.
     * *   If you want to use RAM users to refresh or prefetch resources, you need to obtain the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~445051~~).
     *
     * @param request RefreshDcdnObjectCachesRequest
