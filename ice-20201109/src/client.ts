@@ -383,6 +383,75 @@ export class AddTemplateResponse extends $tea.Model {
   }
 }
 
+export class AlterSearchIndexRequest extends $tea.Model {
+  indexConfig?: string;
+  indexType?: string;
+  searchLibName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexConfig: 'IndexConfig',
+      indexType: 'IndexType',
+      searchLibName: 'SearchLibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexConfig: 'string',
+      indexType: 'string',
+      searchLibName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlterSearchIndexResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlterSearchIndexResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AlterSearchIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AlterSearchIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchGetMediaInfosRequest extends $tea.Model {
   additionType?: string;
   mediaIds?: string;
@@ -597,18 +666,15 @@ export class CancelFavoritePublicMediaResponse extends $tea.Model {
 }
 
 export class CreateAuditRequest extends $tea.Model {
-  appId?: string;
   auditContent?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
       auditContent: 'AuditContent',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
       auditContent: 'string',
     };
   }
@@ -1409,6 +1475,141 @@ export class CreatePipelineResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreatePipelineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSearchIndexRequest extends $tea.Model {
+  indexConfig?: string;
+  indexType?: string;
+  searchLibName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexConfig: 'IndexConfig',
+      indexType: 'IndexType',
+      searchLibName: 'SearchLibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexConfig: 'string',
+      indexType: 'string',
+      searchLibName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSearchIndexResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSearchIndexResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateSearchIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSearchIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSearchLibRequest extends $tea.Model {
+  searchLibName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      searchLibName: 'SearchLibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchLibName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSearchLibResponseBody extends $tea.Model {
+  requestId?: string;
+  searchLibName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      searchLibName: 'SearchLibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      searchLibName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSearchLibResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateSearchLibResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSearchLibResponseBody,
     };
   }
 
@@ -2636,6 +2837,78 @@ export class DeleteLiveTranscodeTemplateResponse extends $tea.Model {
   }
 }
 
+export class DeleteMediaFromSearchLibRequest extends $tea.Model {
+  mediaId?: string;
+  msgBody?: string;
+  searchLibName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      msgBody: 'MsgBody',
+      searchLibName: 'SearchLibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      msgBody: 'string',
+      searchLibName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaFromSearchLibResponseBody extends $tea.Model {
+  mediaId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaFromSearchLibResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteMediaFromSearchLibResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMediaFromSearchLibResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteMediaInfosRequest extends $tea.Model {
   deletePhysicalFiles?: boolean;
   inputURLs?: string;
@@ -3050,447 +3323,6 @@ export class DeleteTemplateResponse extends $tea.Model {
   }
 }
 
-export class DescribeFilterConfigsRequest extends $tea.Model {
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFilterConfigsResponseBody extends $tea.Model {
-  filterConfigs?: DescribeFilterConfigsResponseBodyFilterConfigs[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filterConfigs: 'FilterConfigs',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filterConfigs: { 'type': 'array', 'itemType': DescribeFilterConfigsResponseBodyFilterConfigs },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFilterConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFilterConfigsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeFilterConfigsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceEditUsageRequest extends $tea.Model {
-  endTs?: number;
-  interval?: number;
-  region?: string;
-  startTs?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTs: 'EndTs',
-      interval: 'Interval',
-      region: 'Region',
-      startTs: 'StartTs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTs: 'number',
-      interval: 'number',
-      region: 'string',
-      startTs: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceEditUsageResponseBody extends $tea.Model {
-  data?: DescribeMeterIceEditUsageResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeMeterIceEditUsageResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceEditUsageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMeterIceEditUsageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeMeterIceEditUsageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceLiveMediaConvertUsageRequest extends $tea.Model {
-  endTs?: number;
-  interval?: number;
-  region?: string;
-  startTs?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTs: 'EndTs',
-      interval: 'Interval',
-      region: 'Region',
-      startTs: 'StartTs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTs: 'number',
-      interval: 'number',
-      region: 'string',
-      startTs: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceLiveMediaConvertUsageResponseBody extends $tea.Model {
-  data?: DescribeMeterIceLiveMediaConvertUsageResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeMeterIceLiveMediaConvertUsageResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceLiveMediaConvertUsageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMeterIceLiveMediaConvertUsageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeMeterIceLiveMediaConvertUsageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceMediaConvertUHDUsageRequest extends $tea.Model {
-  endTs?: number;
-  interval?: string;
-  regionId?: string;
-  startTs?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTs: 'EndTs',
-      interval: 'Interval',
-      regionId: 'RegionId',
-      startTs: 'StartTs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTs: 'number',
-      interval: 'string',
-      regionId: 'string',
-      startTs: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceMediaConvertUHDUsageResponseBody extends $tea.Model {
-  data?: DescribeMeterIceMediaConvertUHDUsageResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeMeterIceMediaConvertUHDUsageResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceMediaConvertUHDUsageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMeterIceMediaConvertUHDUsageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeMeterIceMediaConvertUHDUsageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceMediaConvertUsageRequest extends $tea.Model {
-  endTs?: number;
-  interval?: number;
-  region?: string;
-  startTs?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTs: 'EndTs',
-      interval: 'Interval',
-      region: 'Region',
-      startTs: 'StartTs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTs: 'number',
-      interval: 'number',
-      region: 'string',
-      startTs: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceMediaConvertUsageResponseBody extends $tea.Model {
-  data?: DescribeMeterIceMediaConvertUsageResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeMeterIceMediaConvertUsageResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceMediaConvertUsageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMeterIceMediaConvertUsageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeMeterIceMediaConvertUsageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceMpsAiUsageRequest extends $tea.Model {
-  endTs?: number;
-  interval?: number;
-  region?: string;
-  startTs?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTs: 'EndTs',
-      interval: 'Interval',
-      region: 'Region',
-      startTs: 'StartTs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTs: 'number',
-      interval: 'number',
-      region: 'string',
-      startTs: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceMpsAiUsageResponseBody extends $tea.Model {
-  data?: DescribeMeterIceMpsAiUsageResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeMeterIceMpsAiUsageResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceMpsAiUsageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMeterIceMpsAiUsageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeMeterIceMpsAiUsageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeMeterImsEditUsageRequest extends $tea.Model {
   endTs?: number;
   interval?: number;
@@ -3558,306 +3390,6 @@ export class DescribeMeterImsEditUsageResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeMeterImsEditUsageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveEditUsageRequest extends $tea.Model {
-  endTs?: number;
-  interval?: number;
-  region?: string;
-  startTs?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTs: 'EndTs',
-      interval: 'Interval',
-      region: 'Region',
-      startTs: 'StartTs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTs: 'number',
-      interval: 'number',
-      region: 'string',
-      startTs: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveEditUsageResponseBody extends $tea.Model {
-  data?: DescribeMeterImsLiveEditUsageResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeMeterImsLiveEditUsageResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveEditUsageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMeterImsLiveEditUsageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeMeterImsLiveEditUsageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveMediaConvertUsageRequest extends $tea.Model {
-  endTs?: number;
-  interval?: number;
-  region?: string;
-  startTs?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTs: 'EndTs',
-      interval: 'Interval',
-      region: 'Region',
-      startTs: 'StartTs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTs: 'number',
-      interval: 'number',
-      region: 'string',
-      startTs: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveMediaConvertUsageResponseBody extends $tea.Model {
-  data?: DescribeMeterImsLiveMediaConvertUsageResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeMeterImsLiveMediaConvertUsageResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveMediaConvertUsageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMeterImsLiveMediaConvertUsageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeMeterImsLiveMediaConvertUsageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveRecordUsageRequest extends $tea.Model {
-  endTs?: number;
-  interval?: number;
-  region?: string;
-  startTs?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTs: 'EndTs',
-      interval: 'Interval',
-      region: 'Region',
-      startTs: 'StartTs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTs: 'number',
-      interval: 'number',
-      region: 'string',
-      startTs: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveRecordUsageResponseBody extends $tea.Model {
-  data?: DescribeMeterImsLiveRecordUsageResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeMeterImsLiveRecordUsageResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveRecordUsageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMeterImsLiveRecordUsageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeMeterImsLiveRecordUsageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveSnapshotUsageRequest extends $tea.Model {
-  endTs?: number;
-  interval?: number;
-  region?: string;
-  startTs?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTs: 'EndTs',
-      interval: 'Interval',
-      region: 'Region',
-      startTs: 'StartTs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTs: 'number',
-      interval: 'number',
-      region: 'string',
-      startTs: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveSnapshotUsageResponseBody extends $tea.Model {
-  data?: DescribeMeterImsLiveSnapshotUsageResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeMeterImsLiveSnapshotUsageResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveSnapshotUsageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMeterImsLiveSnapshotUsageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeMeterImsLiveSnapshotUsageResponseBody,
     };
   }
 
@@ -4163,231 +3695,6 @@ export class DescribeMeterImsSummaryResponse extends $tea.Model {
   }
 }
 
-export class DescribePlayDetailRequest extends $tea.Model {
-  playTs?: string;
-  sessionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      playTs: 'PlayTs',
-      sessionId: 'SessionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      playTs: 'string',
-      sessionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayDetailResponseBody extends $tea.Model {
-  baseInfos?: DescribePlayDetailResponseBodyBaseInfos[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseInfos: 'BaseInfos',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseInfos: { 'type': 'array', 'itemType': DescribePlayDetailResponseBodyBaseInfos },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePlayDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribePlayDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayEventListRequest extends $tea.Model {
-  pageNo?: number;
-  pageSize?: number;
-  playTs?: string;
-  sessionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      playTs: 'PlayTs',
-      sessionId: 'SessionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNo: 'number',
-      pageSize: 'number',
-      playTs: 'string',
-      sessionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayEventListResponseBody extends $tea.Model {
-  eventList?: DescribePlayEventListResponseBodyEventList[];
-  pageNo?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      eventList: 'EventList',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventList: { 'type': 'array', 'itemType': DescribePlayEventListResponseBodyEventList },
-      pageNo: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayEventListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePlayEventListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribePlayEventListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayFirstFrameDurationMetricDataRequest extends $tea.Model {
-  beginTs?: string;
-  endTs?: string;
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      beginTs: 'BeginTs',
-      endTs: 'EndTs',
-      traceId: 'TraceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginTs: 'string',
-      endTs: 'string',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayFirstFrameDurationMetricDataResponseBody extends $tea.Model {
-  nodes?: DescribePlayFirstFrameDurationMetricDataResponseBodyNodes[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nodes: 'Nodes',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodes: { 'type': 'array', 'itemType': DescribePlayFirstFrameDurationMetricDataResponseBodyNodes },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayFirstFrameDurationMetricDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePlayFirstFrameDurationMetricDataResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribePlayFirstFrameDurationMetricDataResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribePlayListRequest extends $tea.Model {
   beginTs?: string;
   endTs?: string;
@@ -4487,503 +3794,6 @@ export class DescribePlayListResponse extends $tea.Model {
   }
 }
 
-export class DescribePlayMetricDataRequest extends $tea.Model {
-  appName?: string;
-  beginTs?: number;
-  definition?: string;
-  endTs?: number;
-  experienceLevel?: string;
-  itemConfigs?: string;
-  metricType?: string;
-  network?: string;
-  os?: string;
-  sdkVersion?: string;
-  terminalType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      beginTs: 'BeginTs',
-      definition: 'Definition',
-      endTs: 'EndTs',
-      experienceLevel: 'ExperienceLevel',
-      itemConfigs: 'ItemConfigs',
-      metricType: 'MetricType',
-      network: 'Network',
-      os: 'Os',
-      sdkVersion: 'SdkVersion',
-      terminalType: 'TerminalType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      beginTs: 'number',
-      definition: 'string',
-      endTs: 'number',
-      experienceLevel: 'string',
-      itemConfigs: 'string',
-      metricType: 'string',
-      network: 'string',
-      os: 'string',
-      sdkVersion: 'string',
-      terminalType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayMetricDataResponseBody extends $tea.Model {
-  nodes?: DescribePlayMetricDataResponseBodyNodes[];
-  requestId?: string;
-  summaryData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nodes: 'Nodes',
-      requestId: 'RequestId',
-      summaryData: 'SummaryData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodes: { 'type': 'array', 'itemType': DescribePlayMetricDataResponseBodyNodes },
-      requestId: 'string',
-      summaryData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayMetricDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePlayMetricDataResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribePlayMetricDataResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayQoeListRequest extends $tea.Model {
-  appName?: string;
-  beginTs?: number;
-  definition?: string;
-  endTs?: number;
-  itemConfigs?: string;
-  metricTypes?: string[];
-  network?: string;
-  orderName?: string;
-  orderType?: string;
-  os?: string;
-  pageNo?: number;
-  pageSize?: number;
-  terminalType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      beginTs: 'BeginTs',
-      definition: 'Definition',
-      endTs: 'EndTs',
-      itemConfigs: 'ItemConfigs',
-      metricTypes: 'MetricTypes',
-      network: 'Network',
-      orderName: 'OrderName',
-      orderType: 'OrderType',
-      os: 'Os',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      terminalType: 'TerminalType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      beginTs: 'number',
-      definition: 'string',
-      endTs: 'number',
-      itemConfigs: 'string',
-      metricTypes: { 'type': 'array', 'itemType': 'string' },
-      network: 'string',
-      orderName: 'string',
-      orderType: 'string',
-      os: 'string',
-      pageNo: 'number',
-      pageSize: 'number',
-      terminalType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayQoeListShrinkRequest extends $tea.Model {
-  appName?: string;
-  beginTs?: number;
-  definition?: string;
-  endTs?: number;
-  itemConfigs?: string;
-  metricTypesShrink?: string;
-  network?: string;
-  orderName?: string;
-  orderType?: string;
-  os?: string;
-  pageNo?: number;
-  pageSize?: number;
-  terminalType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      beginTs: 'BeginTs',
-      definition: 'Definition',
-      endTs: 'EndTs',
-      itemConfigs: 'ItemConfigs',
-      metricTypesShrink: 'MetricTypes',
-      network: 'Network',
-      orderName: 'OrderName',
-      orderType: 'OrderType',
-      os: 'Os',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      terminalType: 'TerminalType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      beginTs: 'number',
-      definition: 'string',
-      endTs: 'number',
-      itemConfigs: 'string',
-      metricTypesShrink: 'string',
-      network: 'string',
-      orderName: 'string',
-      orderType: 'string',
-      os: 'string',
-      pageNo: 'number',
-      pageSize: 'number',
-      terminalType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayQoeListResponseBody extends $tea.Model {
-  pageNo?: number;
-  pageSize?: number;
-  qoeInfoList?: DescribePlayQoeListResponseBodyQoeInfoList[];
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      qoeInfoList: 'QoeInfoList',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNo: 'number',
-      pageSize: 'number',
-      qoeInfoList: { 'type': 'array', 'itemType': DescribePlayQoeListResponseBodyQoeInfoList },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayQoeListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePlayQoeListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribePlayQoeListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayQosListRequest extends $tea.Model {
-  appName?: string;
-  beginTs?: string;
-  definition?: string;
-  endTs?: string;
-  itemConfigs?: string;
-  metricTypes?: string[];
-  network?: string;
-  orderName?: string;
-  orderType?: string;
-  os?: string;
-  pageNo?: number;
-  pageSize?: number;
-  terminalType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      beginTs: 'BeginTs',
-      definition: 'Definition',
-      endTs: 'EndTs',
-      itemConfigs: 'ItemConfigs',
-      metricTypes: 'MetricTypes',
-      network: 'Network',
-      orderName: 'OrderName',
-      orderType: 'OrderType',
-      os: 'Os',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      terminalType: 'TerminalType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      beginTs: 'string',
-      definition: 'string',
-      endTs: 'string',
-      itemConfigs: 'string',
-      metricTypes: { 'type': 'array', 'itemType': 'string' },
-      network: 'string',
-      orderName: 'string',
-      orderType: 'string',
-      os: 'string',
-      pageNo: 'number',
-      pageSize: 'number',
-      terminalType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayQosListShrinkRequest extends $tea.Model {
-  appName?: string;
-  beginTs?: string;
-  definition?: string;
-  endTs?: string;
-  itemConfigs?: string;
-  metricTypesShrink?: string;
-  network?: string;
-  orderName?: string;
-  orderType?: string;
-  os?: string;
-  pageNo?: number;
-  pageSize?: number;
-  terminalType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      beginTs: 'BeginTs',
-      definition: 'Definition',
-      endTs: 'EndTs',
-      itemConfigs: 'ItemConfigs',
-      metricTypesShrink: 'MetricTypes',
-      network: 'Network',
-      orderName: 'OrderName',
-      orderType: 'OrderType',
-      os: 'Os',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      terminalType: 'TerminalType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      beginTs: 'string',
-      definition: 'string',
-      endTs: 'string',
-      itemConfigs: 'string',
-      metricTypesShrink: 'string',
-      network: 'string',
-      orderName: 'string',
-      orderType: 'string',
-      os: 'string',
-      pageNo: 'number',
-      pageSize: 'number',
-      terminalType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayQosListResponseBody extends $tea.Model {
-  pageNo?: number;
-  pageSize?: number;
-  qosInfoList?: DescribePlayQosListResponseBodyQosInfoList[];
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      qosInfoList: 'QosInfoList',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNo: 'number',
-      pageSize: 'number',
-      qosInfoList: { 'type': 'array', 'itemType': DescribePlayQosListResponseBodyQosInfoList },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayQosListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePlayQosListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribePlayQosListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeQueryConfigsRequest extends $tea.Model {
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeQueryConfigsResponseBody extends $tea.Model {
-  configs?: DescribeQueryConfigsResponseBodyConfigs[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configs: 'Configs',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configs: { 'type': 'array', 'itemType': DescribeQueryConfigsResponseBodyConfigs },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeQueryConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeQueryConfigsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeQueryConfigsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DetectAudioForCustomizedVoiceJobRequest extends $tea.Model {
   audioRecordId?: number;
   recordUrl?: string;
@@ -5051,6 +3861,135 @@ export class DetectAudioForCustomizedVoiceJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetectAudioForCustomizedVoiceJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropSearchIndexRequest extends $tea.Model {
+  indexType?: string;
+  searchLibName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexType: 'IndexType',
+      searchLibName: 'SearchLibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexType: 'string',
+      searchLibName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropSearchIndexResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropSearchIndexResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DropSearchIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DropSearchIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropSearchLibRequest extends $tea.Model {
+  searchLibName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      searchLibName: 'SearchLibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchLibName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropSearchLibResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropSearchLibResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DropSearchLibResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DropSearchLibResponseBody,
     };
   }
 
@@ -7767,6 +6706,99 @@ export class GetUrlUploadInfosResponse extends $tea.Model {
   }
 }
 
+export class GetVideoListRequest extends $tea.Model {
+  cateId?: number;
+  endTime?: string;
+  pageNo?: number;
+  pageSize?: number;
+  sortBy?: string;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cateId: 'CateId',
+      endTime: 'EndTime',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cateId: 'number',
+      endTime: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoListResponseBody extends $tea.Model {
+  code?: string;
+  mediaList?: GetVideoListResponseBodyMediaList[];
+  requestId?: string;
+  success?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      mediaList: 'MediaList',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      mediaList: { 'type': 'array', 'itemType': GetVideoListResponseBodyMediaList },
+      requestId: 'string',
+      success: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetVideoListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVideoListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkflowTaskRequest extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -7825,6 +6857,84 @@ export class GetWorkflowTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetWorkflowTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertMediaToSearchLibRequest extends $tea.Model {
+  input?: string;
+  mediaId?: string;
+  mediaType?: string;
+  msgBody?: string;
+  searchLibName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      input: 'Input',
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+      msgBody: 'MsgBody',
+      searchLibName: 'SearchLibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      input: 'string',
+      mediaId: 'string',
+      mediaType: 'string',
+      msgBody: 'string',
+      searchLibName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertMediaToSearchLibResponseBody extends $tea.Model {
+  mediaId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertMediaToSearchLibResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InsertMediaToSearchLibResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InsertMediaToSearchLibResponseBody,
     };
   }
 
@@ -9864,10 +8974,12 @@ export class ListSmartJobsResponse extends $tea.Model {
 export class ListSmartSysAvatarModelsRequest extends $tea.Model {
   pageNo?: number;
   pageSize?: number;
+  sdkVersion?: string;
   static names(): { [key: string]: string } {
     return {
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      sdkVersion: 'SdkVersion',
     };
   }
 
@@ -9875,6 +8987,7 @@ export class ListSmartSysAvatarModelsRequest extends $tea.Model {
     return {
       pageNo: 'number',
       pageSize: 'number',
+      sdkVersion: 'string',
     };
   }
 
@@ -9925,6 +9038,53 @@ export class ListSmartSysAvatarModelsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListSmartSysAvatarModelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmartVoiceGroupsResponseBody extends $tea.Model {
+  requestId?: string;
+  voiceGroups?: ListSmartVoiceGroupsResponseBodyVoiceGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      voiceGroups: 'VoiceGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      voiceGroups: { 'type': 'array', 'itemType': ListSmartVoiceGroupsResponseBodyVoiceGroups },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmartVoiceGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSmartVoiceGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSmartVoiceGroupsResponseBody,
     };
   }
 
@@ -10656,6 +9816,150 @@ export class QueryMediaCensorJobListResponse extends $tea.Model {
   }
 }
 
+export class QuerySearchIndexRequest extends $tea.Model {
+  indexType?: string;
+  searchLibName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexType: 'IndexType',
+      searchLibName: 'SearchLibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexType: 'string',
+      searchLibName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySearchIndexResponseBody extends $tea.Model {
+  indexConfig?: string;
+  indexType?: string;
+  requestId?: string;
+  searchLibName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexConfig: 'IndexConfig',
+      indexType: 'IndexType',
+      requestId: 'RequestId',
+      searchLibName: 'SearchLibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexConfig: 'string',
+      indexType: 'string',
+      requestId: 'string',
+      searchLibName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySearchIndexResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QuerySearchIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySearchIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySearchLibRequest extends $tea.Model {
+  searchLibName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      searchLibName: 'SearchLibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchLibName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySearchLibResponseBody extends $tea.Model {
+  requestId?: string;
+  searchLibName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      searchLibName: 'SearchLibName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      searchLibName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySearchLibResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QuerySearchLibResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySearchLibResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySmarttagJobRequest extends $tea.Model {
   jobId?: string;
   params?: string;
@@ -11085,6 +10389,7 @@ export class SearchMediaRequest extends $tea.Model {
   pageNo?: number;
   pageSize?: number;
   scrollToken?: string;
+  searchLibName?: string;
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11093,6 +10398,7 @@ export class SearchMediaRequest extends $tea.Model {
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       scrollToken: 'ScrollToken',
+      searchLibName: 'SearchLibName',
       sortBy: 'SortBy',
     };
   }
@@ -11104,6 +10410,7 @@ export class SearchMediaRequest extends $tea.Model {
       pageNo: 'number',
       pageSize: 'number',
       scrollToken: 'string',
+      searchLibName: 'string',
       sortBy: 'string',
     };
   }
@@ -11172,19 +10479,122 @@ export class SearchMediaResponse extends $tea.Model {
   }
 }
 
+export class SearchMediaByAILabelRequest extends $tea.Model {
+  mediaId?: string;
+  mediaType?: string;
+  multimodalSearchType?: string;
+  pageNo?: number;
+  pageSize?: number;
+  searchLibName?: string;
+  sortBy?: string;
+  specificSearch?: boolean;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+      multimodalSearchType: 'MultimodalSearchType',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      searchLibName: 'SearchLibName',
+      sortBy: 'SortBy',
+      specificSearch: 'SpecificSearch',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      mediaType: 'string',
+      multimodalSearchType: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      searchLibName: 'string',
+      sortBy: 'string',
+      specificSearch: 'boolean',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByAILabelResponseBody extends $tea.Model {
+  code?: string;
+  mediaList?: SearchMediaByAILabelResponseBodyMediaList[];
+  requestId?: string;
+  success?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      mediaList: 'MediaList',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      mediaList: { 'type': 'array', 'itemType': SearchMediaByAILabelResponseBodyMediaList },
+      requestId: 'string',
+      success: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByAILabelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SearchMediaByAILabelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchMediaByAILabelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchMediaByFaceRequest extends $tea.Model {
   entityId?: string;
   faceSearchToken?: string;
+  mediaType?: string;
   pageNo?: number;
   pageSize?: number;
   personImageUrl?: string;
+  searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
       entityId: 'EntityId',
       faceSearchToken: 'FaceSearchToken',
+      mediaType: 'MediaType',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       personImageUrl: 'PersonImageUrl',
+      searchLibName: 'SearchLibName',
     };
   }
 
@@ -11192,9 +10602,11 @@ export class SearchMediaByFaceRequest extends $tea.Model {
     return {
       entityId: 'string',
       faceSearchToken: 'string',
+      mediaType: 'string',
       pageNo: 'number',
       pageSize: 'number',
       personImageUrl: 'string',
+      searchLibName: 'string',
     };
   }
 
@@ -11259,12 +10671,100 @@ export class SearchMediaByFaceResponse extends $tea.Model {
   }
 }
 
+export class SearchMediaByMultimodalRequest extends $tea.Model {
+  mediaType?: string;
+  pageNo?: number;
+  pageSize?: number;
+  searchLibName?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaType: 'MediaType',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      searchLibName: 'SearchLibName',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaType: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      searchLibName: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByMultimodalResponseBody extends $tea.Model {
+  code?: string;
+  mediaList?: SearchMediaByMultimodalResponseBodyMediaList[];
+  requestId?: string;
+  success?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      mediaList: 'MediaList',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      mediaList: { 'type': 'array', 'itemType': SearchMediaByMultimodalResponseBodyMediaList },
+      requestId: 'string',
+      success: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByMultimodalResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SearchMediaByMultimodalResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchMediaByMultimodalResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchMediaClipByFaceRequest extends $tea.Model {
   entityId?: string;
   faceSearchToken?: string;
   mediaId?: string;
   pageNo?: number;
   pageSize?: number;
+  searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
       entityId: 'EntityId',
@@ -11272,6 +10772,7 @@ export class SearchMediaClipByFaceRequest extends $tea.Model {
       mediaId: 'MediaId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      searchLibName: 'SearchLibName',
     };
   }
 
@@ -11282,6 +10783,7 @@ export class SearchMediaClipByFaceRequest extends $tea.Model {
       mediaId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      searchLibName: 'string',
     };
   }
 
@@ -12054,11 +11556,13 @@ export class SubmitAudioProduceJobRequest extends $tea.Model {
 
 export class SubmitAudioProduceJobResponseBody extends $tea.Model {
   jobId?: string;
+  mediaId?: string;
   requestId?: string;
   state?: string;
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
+      mediaId: 'MediaId',
       requestId: 'RequestId',
       state: 'State',
     };
@@ -12067,6 +11571,7 @@ export class SubmitAudioProduceJobResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       jobId: 'string',
+      mediaId: 'string',
       requestId: 'string',
       state: 'string',
     };
@@ -14149,6 +13654,7 @@ export class SubmitSyncMediaInfoJobResponse extends $tea.Model {
 }
 
 export class SubmitTranscodeJobRequest extends $tea.Model {
+  clientToken?: string;
   inputGroup?: SubmitTranscodeJobRequestInputGroup[];
   name?: string;
   outputGroup?: SubmitTranscodeJobRequestOutputGroup[];
@@ -14156,6 +13662,7 @@ export class SubmitTranscodeJobRequest extends $tea.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       inputGroup: 'InputGroup',
       name: 'Name',
       outputGroup: 'OutputGroup',
@@ -14166,6 +13673,7 @@ export class SubmitTranscodeJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       inputGroup: { 'type': 'array', 'itemType': SubmitTranscodeJobRequestInputGroup },
       name: 'string',
       outputGroup: { 'type': 'array', 'itemType': SubmitTranscodeJobRequestOutputGroup },
@@ -14180,6 +13688,7 @@ export class SubmitTranscodeJobRequest extends $tea.Model {
 }
 
 export class SubmitTranscodeJobShrinkRequest extends $tea.Model {
+  clientToken?: string;
   inputGroupShrink?: string;
   name?: string;
   outputGroupShrink?: string;
@@ -14187,6 +13696,7 @@ export class SubmitTranscodeJobShrinkRequest extends $tea.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       inputGroupShrink: 'InputGroup',
       name: 'Name',
       outputGroupShrink: 'OutputGroup',
@@ -14197,6 +13707,7 @@ export class SubmitTranscodeJobShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       inputGroupShrink: 'string',
       name: 'string',
       outputGroupShrink: 'string',
@@ -15175,6 +14686,78 @@ export class UpdateMediaMarksResponse extends $tea.Model {
   }
 }
 
+export class UpdateMediaToSearchLibRequest extends $tea.Model {
+  mediaId?: string;
+  msgBody?: string;
+  searchLibName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      msgBody: 'MsgBody',
+      searchLibName: 'SearchLibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      msgBody: 'string',
+      searchLibName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaToSearchLibResponseBody extends $tea.Model {
+  mediaId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaToSearchLibResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMediaToSearchLibResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMediaToSearchLibResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdatePipelineRequest extends $tea.Model {
   name?: string;
   pipelineId?: string;
@@ -15242,78 +14825,6 @@ export class UpdatePipelineResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdatePipelineResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSmartJobRequest extends $tea.Model {
-  FEExtend?: string;
-  jobId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      FEExtend: 'FEExtend',
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      FEExtend: 'string',
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSmartJobResponseBody extends $tea.Model {
-  FEExtend?: string;
-  jobId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      FEExtend: 'FEExtend',
-      jobId: 'JobId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      FEExtend: 'string',
-      jobId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSmartJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSmartJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateSmartJobResponseBody,
     };
   }
 
@@ -16442,159 +15953,6 @@ export class DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList extends $te
   }
 }
 
-export class DescribeFilterConfigsResponseBodyFilterConfigs extends $tea.Model {
-  filterName?: string;
-  itemConfigs?: string;
-  type?: string;
-  uuId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filterName: 'FilterName',
-      itemConfigs: 'ItemConfigs',
-      type: 'Type',
-      uuId: 'UuId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filterName: 'string',
-      itemConfigs: 'string',
-      type: 'string',
-      uuId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceEditUsageResponseBodyData extends $tea.Model {
-  duration?: number;
-  profile?: string;
-  time?: number;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      profile: 'Profile',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      profile: 'string',
-      time: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceLiveMediaConvertUsageResponseBodyData extends $tea.Model {
-  duration?: number;
-  specification?: string;
-  time?: number;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      specification: 'Specification',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      specification: 'string',
-      time: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceMediaConvertUHDUsageResponseBodyData extends $tea.Model {
-  duration?: number;
-  specification?: string;
-  time?: number;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      specification: 'Specification',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      specification: 'string',
-      time: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceMediaConvertUsageResponseBodyData extends $tea.Model {
-  duration?: number;
-  specification?: string;
-  time?: number;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      specification: 'Specification',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      specification: 'string',
-      time: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterIceMpsAiUsageResponseBodyData extends $tea.Model {
-  duration?: number;
-  time?: number;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      time: 'Time',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      time: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeMeterImsEditUsageResponseBodyData extends $tea.Model {
   duration?: number;
   profile?: string;
@@ -16611,106 +15969,6 @@ export class DescribeMeterImsEditUsageResponseBodyData extends $tea.Model {
     return {
       duration: 'number',
       profile: 'string',
-      time: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveEditUsageResponseBodyData extends $tea.Model {
-  duration?: number;
-  profile?: string;
-  time?: number;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      profile: 'Profile',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      profile: 'string',
-      time: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveMediaConvertUsageResponseBodyData extends $tea.Model {
-  duration?: number;
-  specification?: string;
-  time?: number;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      specification: 'Specification',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      specification: 'string',
-      time: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveRecordUsageResponseBodyData extends $tea.Model {
-  channels?: number;
-  duration?: number;
-  time?: number;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      channels: 'Channels',
-      duration: 'Duration',
-      time: 'Time',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      channels: 'number',
-      duration: 'number',
-      time: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMeterImsLiveSnapshotUsageResponseBodyData extends $tea.Model {
-  count?: number;
-  time?: number;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
       time: 'number',
     };
   }
@@ -16835,147 +16093,6 @@ export class DescribeMeterImsSummaryResponseBodyData extends $tea.Model {
   }
 }
 
-export class DescribePlayDetailResponseBodyBaseInfos extends $tea.Model {
-  appName?: string;
-  bps?: string;
-  broadcastPace?: string;
-  clientIP?: string;
-  codec?: string;
-  decodeStuckTime?: string;
-  definition?: string;
-  firstFrameDuration?: string;
-  fps?: string;
-  isHardDecode?: string;
-  mdat?: string;
-  moov?: string;
-  network?: string;
-  networkDuration?: string;
-  networkStuckTime?: string;
-  os?: string;
-  playTs?: string;
-  playerLoadDuration?: string;
-  playerPreDealDuration?: string;
-  playerReadyDuration?: string;
-  sdkVersion?: string;
-  sessionId?: string;
-  status?: string;
-  terminalType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      bps: 'Bps',
-      broadcastPace: 'BroadcastPace',
-      clientIP: 'ClientIP',
-      codec: 'Codec',
-      decodeStuckTime: 'DecodeStuckTime',
-      definition: 'Definition',
-      firstFrameDuration: 'FirstFrameDuration',
-      fps: 'Fps',
-      isHardDecode: 'IsHardDecode',
-      mdat: 'Mdat',
-      moov: 'Moov',
-      network: 'Network',
-      networkDuration: 'NetworkDuration',
-      networkStuckTime: 'NetworkStuckTime',
-      os: 'Os',
-      playTs: 'PlayTs',
-      playerLoadDuration: 'PlayerLoadDuration',
-      playerPreDealDuration: 'PlayerPreDealDuration',
-      playerReadyDuration: 'PlayerReadyDuration',
-      sdkVersion: 'SdkVersion',
-      sessionId: 'SessionId',
-      status: 'Status',
-      terminalType: 'TerminalType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      bps: 'string',
-      broadcastPace: 'string',
-      clientIP: 'string',
-      codec: 'string',
-      decodeStuckTime: 'string',
-      definition: 'string',
-      firstFrameDuration: 'string',
-      fps: 'string',
-      isHardDecode: 'string',
-      mdat: 'string',
-      moov: 'string',
-      network: 'string',
-      networkDuration: 'string',
-      networkStuckTime: 'string',
-      os: 'string',
-      playTs: 'string',
-      playerLoadDuration: 'string',
-      playerPreDealDuration: 'string',
-      playerReadyDuration: 'string',
-      sdkVersion: 'string',
-      sessionId: 'string',
-      status: 'string',
-      terminalType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayEventListResponseBodyEventList extends $tea.Model {
-  description?: string;
-  duration?: number;
-  eventName?: string;
-  time?: number;
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      duration: 'Duration',
-      eventName: 'EventName',
-      time: 'Time',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      duration: 'number',
-      eventName: 'string',
-      time: 'number',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayFirstFrameDurationMetricDataResponseBodyNodes extends $tea.Model {
-  x?: number;
-  y?: number;
-  static names(): { [key: string]: string } {
-    return {
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      x: 'number',
-      y: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribePlayListResponseBodyPlayList extends $tea.Model {
   firstFrameDuration?: string;
   playDuration?: string;
@@ -17014,130 +16131,6 @@ export class DescribePlayListResponseBodyPlayList extends $tea.Model {
       traceId: 'string',
       videoDuration: 'string',
       videoId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayMetricDataResponseBodyNodes extends $tea.Model {
-  x?: string;
-  y?: string;
-  static names(): { [key: string]: string } {
-    return {
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      x: 'string',
-      y: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayQoeListResponseBodyQoeInfoList extends $tea.Model {
-  qoeFinishedVV?: number;
-  qoeFinishedVVRate?: number;
-  qoeUFinishedVVTime?: number;
-  qoeUV?: number;
-  qoeUVVDuration?: number;
-  qoeUVVTime?: number;
-  qoeVDuration?: number;
-  qoeVVDuration?: number;
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      qoeFinishedVV: 'QoeFinishedVV',
-      qoeFinishedVVRate: 'QoeFinishedVVRate',
-      qoeUFinishedVVTime: 'QoeUFinishedVVTime',
-      qoeUV: 'QoeUV',
-      qoeUVVDuration: 'QoeUVVDuration',
-      qoeUVVTime: 'QoeUVVTime',
-      qoeVDuration: 'QoeVDuration',
-      qoeVVDuration: 'QoeVVDuration',
-      traceId: 'TraceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      qoeFinishedVV: 'number',
-      qoeFinishedVVRate: 'number',
-      qoeUFinishedVVTime: 'number',
-      qoeUV: 'number',
-      qoeUVVDuration: 'number',
-      qoeUVVTime: 'number',
-      qoeVDuration: 'number',
-      qoeVVDuration: 'number',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePlayQosListResponseBodyQosInfoList extends $tea.Model {
-  qosFirstFrame?: string;
-  qosKbps?: string;
-  qosPlay?: string;
-  qosPlayFail?: string;
-  qosRealPlay?: string;
-  qosSeedFailRate?: string;
-  qosStuckRate?: string;
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      qosFirstFrame: 'QosFirstFrame',
-      qosKbps: 'QosKbps',
-      qosPlay: 'QosPlay',
-      qosPlayFail: 'QosPlayFail',
-      qosRealPlay: 'QosRealPlay',
-      qosSeedFailRate: 'QosSeedFailRate',
-      qosStuckRate: 'QosStuckRate',
-      traceId: 'TraceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      qosFirstFrame: 'string',
-      qosKbps: 'string',
-      qosPlay: 'string',
-      qosPlayFail: 'string',
-      qosRealPlay: 'string',
-      qosSeedFailRate: 'string',
-      qosStuckRate: 'string',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeQueryConfigsResponseBodyConfigs extends $tea.Model {
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      value: 'string',
     };
   }
 
@@ -17198,18 +16191,22 @@ export class GetAvatarResponseBodyDataAvatar extends $tea.Model {
   avatarId?: string;
   avatarName?: string;
   avatarType?: string;
+  height?: number;
   portrait?: string;
   thumbnail?: string;
   transparent?: boolean;
+  width?: number;
   static names(): { [key: string]: string } {
     return {
       avatarDescription: 'AvatarDescription',
       avatarId: 'AvatarId',
       avatarName: 'AvatarName',
       avatarType: 'AvatarType',
+      height: 'Height',
       portrait: 'Portrait',
       thumbnail: 'Thumbnail',
       transparent: 'Transparent',
+      width: 'Width',
     };
   }
 
@@ -17219,9 +16216,11 @@ export class GetAvatarResponseBodyDataAvatar extends $tea.Model {
       avatarId: 'string',
       avatarName: 'string',
       avatarType: 'string',
+      height: 'number',
       portrait: 'string',
       thumbnail: 'string',
       transparent: 'boolean',
+      width: 'number',
     };
   }
 
@@ -22329,6 +21328,67 @@ export class GetUrlUploadInfosResponseBodyURLUploadInfoList extends $tea.Model {
   }
 }
 
+export class GetVideoListResponseBodyMediaList extends $tea.Model {
+  appId?: string;
+  cateId?: number;
+  cateName?: string;
+  coverUrl?: string;
+  creationTime?: string;
+  description?: string;
+  duration?: number;
+  mediaId?: string;
+  modificationTime?: string;
+  size?: number;
+  snapshots?: string[];
+  status?: string;
+  storageLocation?: string;
+  tags?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      cateId: 'CateId',
+      cateName: 'CateName',
+      coverUrl: 'CoverUrl',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      duration: 'Duration',
+      mediaId: 'MediaId',
+      modificationTime: 'ModificationTime',
+      size: 'Size',
+      snapshots: 'Snapshots',
+      status: 'Status',
+      storageLocation: 'StorageLocation',
+      tags: 'Tags',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      cateId: 'number',
+      cateName: 'string',
+      coverUrl: 'string',
+      creationTime: 'string',
+      description: 'string',
+      duration: 'number',
+      mediaId: 'string',
+      modificationTime: 'string',
+      size: 'number',
+      snapshots: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      storageLocation: 'string',
+      tags: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $tea.Model {
   createTime?: string;
   modifiedTime?: string;
@@ -24477,6 +23537,65 @@ export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends
       outputMask: 'boolean',
       videoUrl: 'string',
       width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $tea.Model {
+  desc?: string;
+  name?: string;
+  remark?: string;
+  tag?: string;
+  voice?: string;
+  voiceType?: string;
+  voiceUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      name: 'Name',
+      remark: 'Remark',
+      tag: 'Tag',
+      voice: 'Voice',
+      voiceType: 'VoiceType',
+      voiceUrl: 'VoiceUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      name: 'string',
+      remark: 'string',
+      tag: 'string',
+      voice: 'string',
+      voiceType: 'string',
+      voiceUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmartVoiceGroupsResponseBodyVoiceGroups extends $tea.Model {
+  type?: string;
+  voiceList?: ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList[];
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      voiceList: 'VoiceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      voiceList: { 'type': 'array', 'itemType': ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList },
     };
   }
 
@@ -27077,6 +26196,259 @@ export class SearchMediaResponseBodyMediaInfoList extends $tea.Model {
   }
 }
 
+export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrencesTracks extends $tea.Model {
+  position?: string;
+  size?: number;
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      position: 'Position',
+      size: 'Size',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      position: 'string',
+      size: 'number',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrences extends $tea.Model {
+  clipId?: string;
+  content?: string;
+  finegrainId?: string;
+  finegrainName?: string;
+  from?: number;
+  image?: string;
+  score?: number;
+  tableBatchSeqId?: string;
+  to?: number;
+  tracks?: SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrencesTracks[];
+  static names(): { [key: string]: string } {
+    return {
+      clipId: 'ClipId',
+      content: 'Content',
+      finegrainId: 'FinegrainId',
+      finegrainName: 'FinegrainName',
+      from: 'From',
+      image: 'Image',
+      score: 'Score',
+      tableBatchSeqId: 'TableBatchSeqId',
+      to: 'To',
+      tracks: 'Tracks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipId: 'string',
+      content: 'string',
+      finegrainId: 'string',
+      finegrainName: 'string',
+      from: 'number',
+      image: 'string',
+      score: 'number',
+      tableBatchSeqId: 'string',
+      to: 'number',
+      tracks: { 'type': 'array', 'itemType': SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrencesTracks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo extends $tea.Model {
+  category?: string;
+  faceId?: string;
+  labelId?: string;
+  labelName?: string;
+  labelType?: string;
+  occurrences?: SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrences[];
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      faceId: 'FaceId',
+      labelId: 'LabelId',
+      labelName: 'LabelName',
+      labelType: 'LabelType',
+      occurrences: 'Occurrences',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      faceId: 'string',
+      labelId: 'string',
+      labelName: 'string',
+      labelType: 'string',
+      occurrences: { 'type': 'array', 'itemType': SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrences },
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo extends $tea.Model {
+  clipId?: string;
+  content?: string;
+  from?: number;
+  timestamp?: number;
+  to?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clipId: 'ClipId',
+      content: 'Content',
+      from: 'From',
+      timestamp: 'Timestamp',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipId: 'string',
+      content: 'string',
+      from: 'number',
+      timestamp: 'number',
+      to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo extends $tea.Model {
+  clipId?: string;
+  content?: string;
+  from?: number;
+  timestamp?: number;
+  to?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clipId: 'ClipId',
+      content: 'Content',
+      from: 'From',
+      timestamp: 'Timestamp',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipId: 'string',
+      content: 'string',
+      from: 'number',
+      timestamp: 'number',
+      to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByAILabelResponseBodyMediaListAiData extends $tea.Model {
+  aiLabelInfo?: SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo[];
+  asrInfo?: SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo[];
+  ocrInfo?: SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      aiLabelInfo: 'AiLabelInfo',
+      asrInfo: 'AsrInfo',
+      ocrInfo: 'OcrInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiLabelInfo: { 'type': 'array', 'itemType': SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo },
+      asrInfo: { 'type': 'array', 'itemType': SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo },
+      ocrInfo: { 'type': 'array', 'itemType': SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByAILabelResponseBodyMediaList extends $tea.Model {
+  aiData?: SearchMediaByAILabelResponseBodyMediaListAiData;
+  appId?: string;
+  coverUrl?: string;
+  creationTime?: string;
+  description?: string;
+  duration?: number;
+  mediaId?: string;
+  modificationTime?: string;
+  size?: number;
+  snapshots?: string[];
+  status?: string;
+  storageLocation?: string;
+  tags?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aiData: 'AiData',
+      appId: 'AppId',
+      coverUrl: 'CoverUrl',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      duration: 'Duration',
+      mediaId: 'MediaId',
+      modificationTime: 'ModificationTime',
+      size: 'Size',
+      snapshots: 'Snapshots',
+      status: 'Status',
+      storageLocation: 'StorageLocation',
+      tags: 'Tags',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiData: SearchMediaByAILabelResponseBodyMediaListAiData,
+      appId: 'string',
+      coverUrl: 'string',
+      creationTime: 'string',
+      description: 'string',
+      duration: 'number',
+      mediaId: 'string',
+      modificationTime: 'string',
+      size: 'number',
+      snapshots: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      storageLocation: 'string',
+      tags: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchMediaByFaceResponseBodyMediaInfoList extends $tea.Model {
   mediaId?: string;
   static names(): { [key: string]: string } {
@@ -27087,6 +26459,53 @@ export class SearchMediaByFaceResponseBodyMediaInfoList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByMultimodalResponseBodyMediaListClipInfo extends $tea.Model {
+  from?: number;
+  score?: number;
+  to?: number;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      score: 'Score',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      score: 'number',
+      to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByMultimodalResponseBodyMediaList extends $tea.Model {
+  clipInfo?: SearchMediaByMultimodalResponseBodyMediaListClipInfo[];
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clipInfo: 'ClipInfo',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipInfo: { 'type': 'array', 'itemType': SearchMediaByMultimodalResponseBodyMediaListClipInfo },
       mediaId: 'string',
     };
   }
@@ -29438,7 +28857,6 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
   audio?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsAudio;
   container?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsContainer;
   muxConfig?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig;
-  tags?: { [key: string]: string };
   transConfig?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig;
   video?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
@@ -29446,7 +28864,6 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
       audio: 'Audio',
       container: 'Container',
       muxConfig: 'MuxConfig',
-      tags: 'Tags',
       transConfig: 'TransConfig',
       video: 'Video',
     };
@@ -29457,7 +28874,6 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
       audio: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsAudio,
       container: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsContainer,
       muxConfig: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig,
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       transConfig: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig,
       video: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsVideo,
     };
@@ -29494,7 +28910,6 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfig extends $tea.Mode
   combineConfigs?: SubmitTranscodeJobRequestOutputGroupProcessConfigCombineConfigs[];
   encryption?: SubmitTranscodeJobRequestOutputGroupProcessConfigEncryption;
   imageWatermarks?: SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarks[];
-  isInheritTags?: boolean;
   subtitles?: SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitles[];
   textWatermarks?: SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarks[];
   transcode?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscode;
@@ -29503,7 +28918,6 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfig extends $tea.Mode
       combineConfigs: 'CombineConfigs',
       encryption: 'Encryption',
       imageWatermarks: 'ImageWatermarks',
-      isInheritTags: 'IsInheritTags',
       subtitles: 'Subtitles',
       textWatermarks: 'TextWatermarks',
       transcode: 'Transcode',
@@ -29515,7 +28929,6 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfig extends $tea.Mode
       combineConfigs: { 'type': 'array', 'itemType': SubmitTranscodeJobRequestOutputGroupProcessConfigCombineConfigs },
       encryption: SubmitTranscodeJobRequestOutputGroupProcessConfigEncryption,
       imageWatermarks: { 'type': 'array', 'itemType': SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarks },
-      isInheritTags: 'boolean',
       subtitles: { 'type': 'array', 'itemType': SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitles },
       textWatermarks: { 'type': 'array', 'itemType': SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarks },
       transcode: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscode,
@@ -31085,7 +30498,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   audio?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudio;
   container?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer;
   muxConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig;
-  tags?: { [key: string]: any };
   transConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig;
   video?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
@@ -31093,7 +30505,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
       audio: 'Audio',
       container: 'Container',
       muxConfig: 'MuxConfig',
-      tags: 'Tags',
       transConfig: 'TransConfig',
       video: 'Video',
     };
@@ -31104,7 +30515,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
       audio: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudio,
       container: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer,
       muxConfig: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig,
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       transConfig: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig,
       video: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo,
     };
@@ -31141,7 +30551,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   combineConfigs?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigCombineConfigs[];
   encryption?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigEncryption;
   imageWatermarks?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarks[];
-  isInheritTags?: string;
   subtitles?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitles[];
   textWatermarks?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarks[];
   transcode?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscode;
@@ -31150,7 +30559,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
       combineConfigs: 'CombineConfigs',
       encryption: 'Encryption',
       imageWatermarks: 'ImageWatermarks',
-      isInheritTags: 'IsInheritTags',
       subtitles: 'Subtitles',
       textWatermarks: 'TextWatermarks',
       transcode: 'Transcode',
@@ -31162,7 +30570,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
       combineConfigs: { 'type': 'array', 'itemType': SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigCombineConfigs },
       encryption: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigEncryption,
       imageWatermarks: { 'type': 'array', 'itemType': SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarks },
-      isInheritTags: 'string',
       subtitles: { 'type': 'array', 'itemType': SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitles },
       textWatermarks: { 'type': 'array', 'itemType': SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarks },
       transcode: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscode,
@@ -31823,6 +31230,43 @@ export default class Client extends OpenApi {
     return await this.addTemplateWithOptions(request, runtime);
   }
 
+  async alterSearchIndexWithOptions(request: AlterSearchIndexRequest, runtime: $Util.RuntimeOptions): Promise<AlterSearchIndexResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.indexConfig)) {
+      query["IndexConfig"] = request.indexConfig;
+    }
+
+    if (!Util.isUnset(request.indexType)) {
+      query["IndexType"] = request.indexType;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AlterSearchIndex",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AlterSearchIndexResponse>(await this.callApi(params, req, runtime), new AlterSearchIndexResponse({}));
+  }
+
+  async alterSearchIndex(request: AlterSearchIndexRequest): Promise<AlterSearchIndexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.alterSearchIndexWithOptions(request, runtime);
+  }
+
   async batchGetMediaInfosWithOptions(request: BatchGetMediaInfosRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetMediaInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31933,10 +31377,6 @@ export default class Client extends OpenApi {
   async createAuditWithOptions(request: CreateAuditRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuditResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.appId)) {
-      query["AppId"] = request.appId;
-    }
-
     if (!Util.isUnset(request.auditContent)) {
       query["AuditContent"] = request.auditContent;
     }
@@ -32378,6 +31818,72 @@ export default class Client extends OpenApi {
   async createPipeline(request: CreatePipelineRequest): Promise<CreatePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPipelineWithOptions(request, runtime);
+  }
+
+  async createSearchIndexWithOptions(request: CreateSearchIndexRequest, runtime: $Util.RuntimeOptions): Promise<CreateSearchIndexResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.indexConfig)) {
+      query["IndexConfig"] = request.indexConfig;
+    }
+
+    if (!Util.isUnset(request.indexType)) {
+      query["IndexType"] = request.indexType;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSearchIndex",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSearchIndexResponse>(await this.callApi(params, req, runtime), new CreateSearchIndexResponse({}));
+  }
+
+  async createSearchIndex(request: CreateSearchIndexRequest): Promise<CreateSearchIndexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSearchIndexWithOptions(request, runtime);
+  }
+
+  async createSearchLibWithOptions(request: CreateSearchLibRequest, runtime: $Util.RuntimeOptions): Promise<CreateSearchLibResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSearchLib",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSearchLibResponse>(await this.callApi(params, req, runtime), new CreateSearchLibResponse({}));
+  }
+
+  async createSearchLib(request: CreateSearchLibRequest): Promise<CreateSearchLibResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSearchLibWithOptions(request, runtime);
   }
 
   async createUploadMediaWithOptions(request: CreateUploadMediaRequest, runtime: $Util.RuntimeOptions): Promise<CreateUploadMediaResponse> {
@@ -32975,6 +32481,43 @@ export default class Client extends OpenApi {
     return await this.deleteLiveTranscodeTemplateWithOptions(request, runtime);
   }
 
+  async deleteMediaFromSearchLibWithOptions(request: DeleteMediaFromSearchLibRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaFromSearchLibResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.msgBody)) {
+      query["MsgBody"] = request.msgBody;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMediaFromSearchLib",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMediaFromSearchLibResponse>(await this.callApi(params, req, runtime), new DeleteMediaFromSearchLibResponse({}));
+  }
+
+  async deleteMediaFromSearchLib(request: DeleteMediaFromSearchLibRequest): Promise<DeleteMediaFromSearchLibResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteMediaFromSearchLibWithOptions(request, runtime);
+  }
+
   async deleteMediaInfosWithOptions(request: DeleteMediaInfosRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33165,240 +32708,6 @@ export default class Client extends OpenApi {
     return await this.deleteTemplateWithOptions(request, runtime);
   }
 
-  async describeFilterConfigsWithOptions(request: DescribeFilterConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFilterConfigsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.type)) {
-      query["Type"] = request.type;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeFilterConfigs",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeFilterConfigsResponse>(await this.callApi(params, req, runtime), new DescribeFilterConfigsResponse({}));
-  }
-
-  async describeFilterConfigs(request: DescribeFilterConfigsRequest): Promise<DescribeFilterConfigsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeFilterConfigsWithOptions(request, runtime);
-  }
-
-  async describeMeterIceEditUsageWithOptions(request: DescribeMeterIceEditUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterIceEditUsageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
-    if (!Util.isUnset(request.interval)) {
-      query["Interval"] = request.interval;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.startTs)) {
-      query["StartTs"] = request.startTs;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeMeterIceEditUsage",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeMeterIceEditUsageResponse>(await this.callApi(params, req, runtime), new DescribeMeterIceEditUsageResponse({}));
-  }
-
-  async describeMeterIceEditUsage(request: DescribeMeterIceEditUsageRequest): Promise<DescribeMeterIceEditUsageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeMeterIceEditUsageWithOptions(request, runtime);
-  }
-
-  async describeMeterIceLiveMediaConvertUsageWithOptions(request: DescribeMeterIceLiveMediaConvertUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterIceLiveMediaConvertUsageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
-    if (!Util.isUnset(request.interval)) {
-      query["Interval"] = request.interval;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.startTs)) {
-      query["StartTs"] = request.startTs;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeMeterIceLiveMediaConvertUsage",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeMeterIceLiveMediaConvertUsageResponse>(await this.callApi(params, req, runtime), new DescribeMeterIceLiveMediaConvertUsageResponse({}));
-  }
-
-  async describeMeterIceLiveMediaConvertUsage(request: DescribeMeterIceLiveMediaConvertUsageRequest): Promise<DescribeMeterIceLiveMediaConvertUsageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeMeterIceLiveMediaConvertUsageWithOptions(request, runtime);
-  }
-
-  async describeMeterIceMediaConvertUHDUsageWithOptions(request: DescribeMeterIceMediaConvertUHDUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterIceMediaConvertUHDUsageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
-    if (!Util.isUnset(request.interval)) {
-      query["Interval"] = request.interval;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.startTs)) {
-      query["StartTs"] = request.startTs;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeMeterIceMediaConvertUHDUsage",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeMeterIceMediaConvertUHDUsageResponse>(await this.callApi(params, req, runtime), new DescribeMeterIceMediaConvertUHDUsageResponse({}));
-  }
-
-  async describeMeterIceMediaConvertUHDUsage(request: DescribeMeterIceMediaConvertUHDUsageRequest): Promise<DescribeMeterIceMediaConvertUHDUsageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeMeterIceMediaConvertUHDUsageWithOptions(request, runtime);
-  }
-
-  async describeMeterIceMediaConvertUsageWithOptions(request: DescribeMeterIceMediaConvertUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterIceMediaConvertUsageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
-    if (!Util.isUnset(request.interval)) {
-      query["Interval"] = request.interval;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.startTs)) {
-      query["StartTs"] = request.startTs;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeMeterIceMediaConvertUsage",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeMeterIceMediaConvertUsageResponse>(await this.callApi(params, req, runtime), new DescribeMeterIceMediaConvertUsageResponse({}));
-  }
-
-  async describeMeterIceMediaConvertUsage(request: DescribeMeterIceMediaConvertUsageRequest): Promise<DescribeMeterIceMediaConvertUsageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeMeterIceMediaConvertUsageWithOptions(request, runtime);
-  }
-
-  async describeMeterIceMpsAiUsageWithOptions(request: DescribeMeterIceMpsAiUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterIceMpsAiUsageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
-    if (!Util.isUnset(request.interval)) {
-      query["Interval"] = request.interval;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.startTs)) {
-      query["StartTs"] = request.startTs;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeMeterIceMpsAiUsage",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeMeterIceMpsAiUsageResponse>(await this.callApi(params, req, runtime), new DescribeMeterIceMpsAiUsageResponse({}));
-  }
-
-  async describeMeterIceMpsAiUsage(request: DescribeMeterIceMpsAiUsageRequest): Promise<DescribeMeterIceMpsAiUsageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeMeterIceMpsAiUsageWithOptions(request, runtime);
-  }
-
   async describeMeterImsEditUsageWithOptions(request: DescribeMeterImsEditUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImsEditUsageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33438,170 +32747,6 @@ export default class Client extends OpenApi {
   async describeMeterImsEditUsage(request: DescribeMeterImsEditUsageRequest): Promise<DescribeMeterImsEditUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMeterImsEditUsageWithOptions(request, runtime);
-  }
-
-  async describeMeterImsLiveEditUsageWithOptions(request: DescribeMeterImsLiveEditUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImsLiveEditUsageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
-    if (!Util.isUnset(request.interval)) {
-      query["Interval"] = request.interval;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.startTs)) {
-      query["StartTs"] = request.startTs;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeMeterImsLiveEditUsage",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeMeterImsLiveEditUsageResponse>(await this.callApi(params, req, runtime), new DescribeMeterImsLiveEditUsageResponse({}));
-  }
-
-  async describeMeterImsLiveEditUsage(request: DescribeMeterImsLiveEditUsageRequest): Promise<DescribeMeterImsLiveEditUsageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeMeterImsLiveEditUsageWithOptions(request, runtime);
-  }
-
-  async describeMeterImsLiveMediaConvertUsageWithOptions(request: DescribeMeterImsLiveMediaConvertUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImsLiveMediaConvertUsageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
-    if (!Util.isUnset(request.interval)) {
-      query["Interval"] = request.interval;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.startTs)) {
-      query["StartTs"] = request.startTs;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeMeterImsLiveMediaConvertUsage",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeMeterImsLiveMediaConvertUsageResponse>(await this.callApi(params, req, runtime), new DescribeMeterImsLiveMediaConvertUsageResponse({}));
-  }
-
-  async describeMeterImsLiveMediaConvertUsage(request: DescribeMeterImsLiveMediaConvertUsageRequest): Promise<DescribeMeterImsLiveMediaConvertUsageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeMeterImsLiveMediaConvertUsageWithOptions(request, runtime);
-  }
-
-  async describeMeterImsLiveRecordUsageWithOptions(request: DescribeMeterImsLiveRecordUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImsLiveRecordUsageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
-    if (!Util.isUnset(request.interval)) {
-      query["Interval"] = request.interval;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.startTs)) {
-      query["StartTs"] = request.startTs;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeMeterImsLiveRecordUsage",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeMeterImsLiveRecordUsageResponse>(await this.callApi(params, req, runtime), new DescribeMeterImsLiveRecordUsageResponse({}));
-  }
-
-  async describeMeterImsLiveRecordUsage(request: DescribeMeterImsLiveRecordUsageRequest): Promise<DescribeMeterImsLiveRecordUsageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeMeterImsLiveRecordUsageWithOptions(request, runtime);
-  }
-
-  async describeMeterImsLiveSnapshotUsageWithOptions(request: DescribeMeterImsLiveSnapshotUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImsLiveSnapshotUsageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
-    if (!Util.isUnset(request.interval)) {
-      query["Interval"] = request.interval;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.startTs)) {
-      query["StartTs"] = request.startTs;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeMeterImsLiveSnapshotUsage",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeMeterImsLiveSnapshotUsageResponse>(await this.callApi(params, req, runtime), new DescribeMeterImsLiveSnapshotUsageResponse({}));
-  }
-
-  async describeMeterImsLiveSnapshotUsage(request: DescribeMeterImsLiveSnapshotUsageRequest): Promise<DescribeMeterImsLiveSnapshotUsageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeMeterImsLiveSnapshotUsageWithOptions(request, runtime);
   }
 
   async describeMeterImsMediaConvertUHDUsageWithOptions(request: DescribeMeterImsMediaConvertUHDUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImsMediaConvertUHDUsageResponse> {
@@ -33764,117 +32909,6 @@ export default class Client extends OpenApi {
     return await this.describeMeterImsSummaryWithOptions(request, runtime);
   }
 
-  async describePlayDetailWithOptions(request: DescribePlayDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlayDetailResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.playTs)) {
-      query["PlayTs"] = request.playTs;
-    }
-
-    if (!Util.isUnset(request.sessionId)) {
-      query["SessionId"] = request.sessionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribePlayDetail",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePlayDetailResponse>(await this.callApi(params, req, runtime), new DescribePlayDetailResponse({}));
-  }
-
-  async describePlayDetail(request: DescribePlayDetailRequest): Promise<DescribePlayDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describePlayDetailWithOptions(request, runtime);
-  }
-
-  async describePlayEventListWithOptions(request: DescribePlayEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlayEventListResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.pageNo)) {
-      query["PageNo"] = request.pageNo;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.playTs)) {
-      query["PlayTs"] = request.playTs;
-    }
-
-    if (!Util.isUnset(request.sessionId)) {
-      query["SessionId"] = request.sessionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribePlayEventList",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePlayEventListResponse>(await this.callApi(params, req, runtime), new DescribePlayEventListResponse({}));
-  }
-
-  async describePlayEventList(request: DescribePlayEventListRequest): Promise<DescribePlayEventListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describePlayEventListWithOptions(request, runtime);
-  }
-
-  async describePlayFirstFrameDurationMetricDataWithOptions(request: DescribePlayFirstFrameDurationMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlayFirstFrameDurationMetricDataResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.beginTs)) {
-      query["BeginTs"] = request.beginTs;
-    }
-
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
-    if (!Util.isUnset(request.traceId)) {
-      query["TraceId"] = request.traceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribePlayFirstFrameDurationMetricData",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePlayFirstFrameDurationMetricDataResponse>(await this.callApi(params, req, runtime), new DescribePlayFirstFrameDurationMetricDataResponse({}));
-  }
-
-  async describePlayFirstFrameDurationMetricData(request: DescribePlayFirstFrameDurationMetricDataRequest): Promise<DescribePlayFirstFrameDurationMetricDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describePlayFirstFrameDurationMetricDataWithOptions(request, runtime);
-  }
-
   async describePlayListWithOptions(request: DescribePlayListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlayListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33936,270 +32970,6 @@ export default class Client extends OpenApi {
     return await this.describePlayListWithOptions(request, runtime);
   }
 
-  async describePlayMetricDataWithOptions(request: DescribePlayMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlayMetricDataResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.appName)) {
-      query["AppName"] = request.appName;
-    }
-
-    if (!Util.isUnset(request.beginTs)) {
-      query["BeginTs"] = request.beginTs;
-    }
-
-    if (!Util.isUnset(request.definition)) {
-      query["Definition"] = request.definition;
-    }
-
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
-    if (!Util.isUnset(request.experienceLevel)) {
-      query["ExperienceLevel"] = request.experienceLevel;
-    }
-
-    if (!Util.isUnset(request.itemConfigs)) {
-      query["ItemConfigs"] = request.itemConfigs;
-    }
-
-    if (!Util.isUnset(request.metricType)) {
-      query["MetricType"] = request.metricType;
-    }
-
-    if (!Util.isUnset(request.network)) {
-      query["Network"] = request.network;
-    }
-
-    if (!Util.isUnset(request.os)) {
-      query["Os"] = request.os;
-    }
-
-    if (!Util.isUnset(request.sdkVersion)) {
-      query["SdkVersion"] = request.sdkVersion;
-    }
-
-    if (!Util.isUnset(request.terminalType)) {
-      query["TerminalType"] = request.terminalType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribePlayMetricData",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePlayMetricDataResponse>(await this.callApi(params, req, runtime), new DescribePlayMetricDataResponse({}));
-  }
-
-  async describePlayMetricData(request: DescribePlayMetricDataRequest): Promise<DescribePlayMetricDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describePlayMetricDataWithOptions(request, runtime);
-  }
-
-  async describePlayQoeListWithOptions(tmpReq: DescribePlayQoeListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlayQoeListResponse> {
-    Util.validateModel(tmpReq);
-    let request = new DescribePlayQoeListShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.metricTypes)) {
-      request.metricTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metricTypes, "MetricTypes", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.appName)) {
-      query["AppName"] = request.appName;
-    }
-
-    if (!Util.isUnset(request.beginTs)) {
-      query["BeginTs"] = request.beginTs;
-    }
-
-    if (!Util.isUnset(request.definition)) {
-      query["Definition"] = request.definition;
-    }
-
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
-    if (!Util.isUnset(request.itemConfigs)) {
-      query["ItemConfigs"] = request.itemConfigs;
-    }
-
-    if (!Util.isUnset(request.metricTypesShrink)) {
-      query["MetricTypes"] = request.metricTypesShrink;
-    }
-
-    if (!Util.isUnset(request.network)) {
-      query["Network"] = request.network;
-    }
-
-    if (!Util.isUnset(request.orderName)) {
-      query["OrderName"] = request.orderName;
-    }
-
-    if (!Util.isUnset(request.orderType)) {
-      query["OrderType"] = request.orderType;
-    }
-
-    if (!Util.isUnset(request.os)) {
-      query["Os"] = request.os;
-    }
-
-    if (!Util.isUnset(request.pageNo)) {
-      query["PageNo"] = request.pageNo;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.terminalType)) {
-      query["TerminalType"] = request.terminalType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribePlayQoeList",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePlayQoeListResponse>(await this.callApi(params, req, runtime), new DescribePlayQoeListResponse({}));
-  }
-
-  async describePlayQoeList(request: DescribePlayQoeListRequest): Promise<DescribePlayQoeListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describePlayQoeListWithOptions(request, runtime);
-  }
-
-  async describePlayQosListWithOptions(tmpReq: DescribePlayQosListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlayQosListResponse> {
-    Util.validateModel(tmpReq);
-    let request = new DescribePlayQosListShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.metricTypes)) {
-      request.metricTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metricTypes, "MetricTypes", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.appName)) {
-      query["AppName"] = request.appName;
-    }
-
-    if (!Util.isUnset(request.beginTs)) {
-      query["BeginTs"] = request.beginTs;
-    }
-
-    if (!Util.isUnset(request.definition)) {
-      query["Definition"] = request.definition;
-    }
-
-    if (!Util.isUnset(request.endTs)) {
-      query["EndTs"] = request.endTs;
-    }
-
-    if (!Util.isUnset(request.itemConfigs)) {
-      query["ItemConfigs"] = request.itemConfigs;
-    }
-
-    if (!Util.isUnset(request.metricTypesShrink)) {
-      query["MetricTypes"] = request.metricTypesShrink;
-    }
-
-    if (!Util.isUnset(request.network)) {
-      query["Network"] = request.network;
-    }
-
-    if (!Util.isUnset(request.orderName)) {
-      query["OrderName"] = request.orderName;
-    }
-
-    if (!Util.isUnset(request.orderType)) {
-      query["OrderType"] = request.orderType;
-    }
-
-    if (!Util.isUnset(request.os)) {
-      query["Os"] = request.os;
-    }
-
-    if (!Util.isUnset(request.pageNo)) {
-      query["PageNo"] = request.pageNo;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.terminalType)) {
-      query["TerminalType"] = request.terminalType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribePlayQosList",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePlayQosListResponse>(await this.callApi(params, req, runtime), new DescribePlayQosListResponse({}));
-  }
-
-  async describePlayQosList(request: DescribePlayQosListRequest): Promise<DescribePlayQosListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describePlayQosListWithOptions(request, runtime);
-  }
-
-  async describeQueryConfigsWithOptions(request: DescribeQueryConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQueryConfigsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.type)) {
-      query["Type"] = request.type;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeQueryConfigs",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeQueryConfigsResponse>(await this.callApi(params, req, runtime), new DescribeQueryConfigsResponse({}));
-  }
-
-  async describeQueryConfigs(request: DescribeQueryConfigsRequest): Promise<DescribeQueryConfigsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeQueryConfigsWithOptions(request, runtime);
-  }
-
   async detectAudioForCustomizedVoiceJobWithOptions(request: DetectAudioForCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<DetectAudioForCustomizedVoiceJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34235,6 +33005,68 @@ export default class Client extends OpenApi {
   async detectAudioForCustomizedVoiceJob(request: DetectAudioForCustomizedVoiceJobRequest): Promise<DetectAudioForCustomizedVoiceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectAudioForCustomizedVoiceJobWithOptions(request, runtime);
+  }
+
+  async dropSearchIndexWithOptions(request: DropSearchIndexRequest, runtime: $Util.RuntimeOptions): Promise<DropSearchIndexResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.indexType)) {
+      query["IndexType"] = request.indexType;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DropSearchIndex",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DropSearchIndexResponse>(await this.callApi(params, req, runtime), new DropSearchIndexResponse({}));
+  }
+
+  async dropSearchIndex(request: DropSearchIndexRequest): Promise<DropSearchIndexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dropSearchIndexWithOptions(request, runtime);
+  }
+
+  async dropSearchLibWithOptions(request: DropSearchLibRequest, runtime: $Util.RuntimeOptions): Promise<DropSearchLibResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DropSearchLib",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DropSearchLibResponse>(await this.callApi(params, req, runtime), new DropSearchLibResponse({}));
+  }
+
+  async dropSearchLib(request: DropSearchLibRequest): Promise<DropSearchLibResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dropSearchLibWithOptions(request, runtime);
   }
 
   async generateKMSDataKeyWithOptions(runtime: $Util.RuntimeOptions): Promise<GenerateKMSDataKeyResponse> {
@@ -35113,7 +33945,11 @@ export default class Client extends OpenApi {
 
   async getSmartHandleJobWithOptions(request: GetSmartHandleJobRequest, runtime: $Util.RuntimeOptions): Promise<GetSmartHandleJobResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -35122,7 +33958,7 @@ export default class Client extends OpenApi {
       version: "2020-11-09",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -35392,6 +34228,59 @@ export default class Client extends OpenApi {
     return await this.getUrlUploadInfosWithOptions(request, runtime);
   }
 
+  async getVideoListWithOptions(request: GetVideoListRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cateId)) {
+      query["CateId"] = request.cateId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVideoList",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVideoListResponse>(await this.callApi(params, req, runtime), new GetVideoListResponse({}));
+  }
+
+  async getVideoList(request: GetVideoListRequest): Promise<GetVideoListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVideoListWithOptions(request, runtime);
+  }
+
   async getWorkflowTaskWithOptions(request: GetWorkflowTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetWorkflowTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35419,6 +34308,51 @@ export default class Client extends OpenApi {
   async getWorkflowTask(request: GetWorkflowTaskRequest): Promise<GetWorkflowTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getWorkflowTaskWithOptions(request, runtime);
+  }
+
+  async insertMediaToSearchLibWithOptions(request: InsertMediaToSearchLibRequest, runtime: $Util.RuntimeOptions): Promise<InsertMediaToSearchLibResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.input)) {
+      query["Input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
+    if (!Util.isUnset(request.msgBody)) {
+      query["MsgBody"] = request.msgBody;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InsertMediaToSearchLib",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InsertMediaToSearchLibResponse>(await this.callApi(params, req, runtime), new InsertMediaToSearchLibResponse({}));
+  }
+
+  async insertMediaToSearchLib(request: InsertMediaToSearchLibRequest): Promise<InsertMediaToSearchLibResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.insertMediaToSearchLibWithOptions(request, runtime);
   }
 
   async listAllPublicMediaTagsWithOptions(request: ListAllPublicMediaTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListAllPublicMediaTagsResponse> {
@@ -36390,6 +35324,27 @@ export default class Client extends OpenApi {
     return await this.listSmartSysAvatarModelsWithOptions(request, runtime);
   }
 
+  async listSmartVoiceGroupsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListSmartVoiceGroupsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListSmartVoiceGroups",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSmartVoiceGroupsResponse>(await this.callApi(params, req, runtime), new ListSmartVoiceGroupsResponse({}));
+  }
+
+  async listSmartVoiceGroups(): Promise<ListSmartVoiceGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSmartVoiceGroupsWithOptions(runtime);
+  }
+
   async listSnapshotJobsWithOptions(request: ListSnapshotJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListSnapshotJobsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36802,6 +35757,68 @@ export default class Client extends OpenApi {
     return await this.queryMediaCensorJobListWithOptions(request, runtime);
   }
 
+  async querySearchIndexWithOptions(request: QuerySearchIndexRequest, runtime: $Util.RuntimeOptions): Promise<QuerySearchIndexResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.indexType)) {
+      query["IndexType"] = request.indexType;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySearchIndex",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySearchIndexResponse>(await this.callApi(params, req, runtime), new QuerySearchIndexResponse({}));
+  }
+
+  async querySearchIndex(request: QuerySearchIndexRequest): Promise<QuerySearchIndexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySearchIndexWithOptions(request, runtime);
+  }
+
+  async querySearchLibWithOptions(request: QuerySearchLibRequest, runtime: $Util.RuntimeOptions): Promise<QuerySearchLibResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySearchLib",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySearchLibResponse>(await this.callApi(params, req, runtime), new QuerySearchLibResponse({}));
+  }
+
+  async querySearchLib(request: QuerySearchLibRequest): Promise<QuerySearchLibResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySearchLibWithOptions(request, runtime);
+  }
+
   async querySmarttagJobWithOptions(request: QuerySmarttagJobRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmarttagJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37066,6 +36083,10 @@ export default class Client extends OpenApi {
       query["ScrollToken"] = request.scrollToken;
     }
 
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
     if (!Util.isUnset(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
@@ -37092,6 +36113,67 @@ export default class Client extends OpenApi {
     return await this.searchMediaWithOptions(request, runtime);
   }
 
+  async searchMediaByAILabelWithOptions(request: SearchMediaByAILabelRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaByAILabelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
+    if (!Util.isUnset(request.multimodalSearchType)) {
+      query["MultimodalSearchType"] = request.multimodalSearchType;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.specificSearch)) {
+      query["SpecificSearch"] = request.specificSearch;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      query["Text"] = request.text;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchMediaByAILabel",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchMediaByAILabelResponse>(await this.callApi(params, req, runtime), new SearchMediaByAILabelResponse({}));
+  }
+
+  async searchMediaByAILabel(request: SearchMediaByAILabelRequest): Promise<SearchMediaByAILabelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchMediaByAILabelWithOptions(request, runtime);
+  }
+
   async searchMediaByFaceWithOptions(request: SearchMediaByFaceRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaByFaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37101,6 +36183,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.faceSearchToken)) {
       query["FaceSearchToken"] = request.faceSearchToken;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
     }
 
     if (!Util.isUnset(request.pageNo)) {
@@ -37113,6 +36199,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.personImageUrl)) {
       query["PersonImageUrl"] = request.personImageUrl;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -37137,6 +36227,51 @@ export default class Client extends OpenApi {
     return await this.searchMediaByFaceWithOptions(request, runtime);
   }
 
+  async searchMediaByMultimodalWithOptions(request: SearchMediaByMultimodalRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaByMultimodalResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      query["Text"] = request.text;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchMediaByMultimodal",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchMediaByMultimodalResponse>(await this.callApi(params, req, runtime), new SearchMediaByMultimodalResponse({}));
+  }
+
+  async searchMediaByMultimodal(request: SearchMediaByMultimodalRequest): Promise<SearchMediaByMultimodalResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchMediaByMultimodalWithOptions(request, runtime);
+  }
+
   async searchMediaClipByFaceWithOptions(request: SearchMediaClipByFaceRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaClipByFaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37158,6 +36293,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -38763,6 +37902,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.inputGroupShrink)) {
       query["InputGroup"] = request.inputGroupShrink;
     }
@@ -39314,6 +38457,43 @@ export default class Client extends OpenApi {
     return await this.updateMediaMarksWithOptions(request, runtime);
   }
 
+  async updateMediaToSearchLibWithOptions(request: UpdateMediaToSearchLibRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaToSearchLibResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.msgBody)) {
+      query["MsgBody"] = request.msgBody;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMediaToSearchLib",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMediaToSearchLibResponse>(await this.callApi(params, req, runtime), new UpdateMediaToSearchLibResponse({}));
+  }
+
+  async updateMediaToSearchLib(request: UpdateMediaToSearchLibRequest): Promise<UpdateMediaToSearchLibResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMediaToSearchLibWithOptions(request, runtime);
+  }
+
   async updatePipelineWithOptions(request: UpdatePipelineRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39353,54 +38533,6 @@ export default class Client extends OpenApi {
   async updatePipeline(request: UpdatePipelineRequest): Promise<UpdatePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePipelineWithOptions(request, runtime);
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request UpdateSmartJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateSmartJobResponse
-   */
-  // Deprecated
-  async updateSmartJobWithOptions(request: UpdateSmartJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartJobResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.FEExtend)) {
-      query["FEExtend"] = request.FEExtend;
-    }
-
-    if (!Util.isUnset(request.jobId)) {
-      query["JobId"] = request.jobId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateSmartJob",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateSmartJobResponse>(await this.callApi(params, req, runtime), new UpdateSmartJobResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request UpdateSmartJobRequest
-    * @return UpdateSmartJobResponse
-   */
-  // Deprecated
-  async updateSmartJob(request: UpdateSmartJobRequest): Promise<UpdateSmartJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateSmartJobWithOptions(request, runtime);
   }
 
   async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
