@@ -1220,6 +1220,190 @@ export class CreateChatappTemplateResponse extends $tea.Model {
   }
 }
 
+export class CreateFlowRequest extends $tea.Model {
+  categories?: string[];
+  custSpaceId?: string;
+  flowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      custSpaceId: 'CustSpaceId',
+      flowName: 'FlowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      custSpaceId: 'string',
+      flowName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowShrinkRequest extends $tea.Model {
+  categoriesShrink?: string;
+  custSpaceId?: string;
+  flowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoriesShrink: 'Categories',
+      custSpaceId: 'CustSpaceId',
+      flowName: 'FlowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoriesShrink: 'string',
+      custSpaceId: 'string',
+      flowName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateFlowResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateFlowResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePhoneMessageQrdlRequest extends $tea.Model {
+  custSpaceId?: string;
+  generateQrImage?: string;
+  phoneNumber?: string;
+  prefilledMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      generateQrImage: 'GenerateQrImage',
+      phoneNumber: 'PhoneNumber',
+      prefilledMessage: 'PrefilledMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      generateQrImage: 'string',
+      phoneNumber: 'string',
+      prefilledMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePhoneMessageQrdlResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreatePhoneMessageQrdlResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreatePhoneMessageQrdlResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePhoneMessageQrdlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreatePhoneMessageQrdlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePhoneMessageQrdlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteChatappTemplateRequest extends $tea.Model {
   custSpaceId?: string;
   custWabaId?: string;
@@ -1293,6 +1477,225 @@ export class DeleteChatappTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteChatappTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFlowRequest extends $tea.Model {
+  custSpaceId?: string;
+  flowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      flowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFlowResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePhoneMessageQrdlRequest extends $tea.Model {
+  custSpaceId?: string;
+  phoneNumber?: string;
+  qrdlCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      phoneNumber: 'PhoneNumber',
+      qrdlCode: 'QrdlCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      phoneNumber: 'string',
+      qrdlCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePhoneMessageQrdlResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePhoneMessageQrdlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeletePhoneMessageQrdlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePhoneMessageQrdlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeprecateFlowRequest extends $tea.Model {
+  custSpaceId?: string;
+  flowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      flowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeprecateFlowResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeprecateFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeprecateFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeprecateFlowResponseBody,
     };
   }
 
@@ -1883,6 +2286,231 @@ export class GetCommerceSettingResponse extends $tea.Model {
   }
 }
 
+export class GetFlowRequest extends $tea.Model {
+  custSpaceId?: string;
+  flowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      flowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetFlowResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetFlowResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowJSONAssestRequest extends $tea.Model {
+  custSpaceId?: string;
+  flowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      flowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowJSONAssestResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetFlowJSONAssestResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetFlowJSONAssestResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowJSONAssestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetFlowJSONAssestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFlowJSONAssestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowPreviewUrlRequest extends $tea.Model {
+  custSpaceId?: string;
+  flowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      flowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowPreviewUrlResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetFlowPreviewUrlResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetFlowPreviewUrlResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowPreviewUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetFlowPreviewUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFlowPreviewUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMigrationVerifyCodeRequest extends $tea.Model {
   custSpaceId?: string;
   locale?: string;
@@ -1959,6 +2587,181 @@ export class GetMigrationVerifyCodeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetMigrationVerifyCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionByCodeRequest extends $tea.Model {
+  code?: string;
+  custSpaceId?: string;
+  permissions?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      custSpaceId: 'CustSpaceId',
+      permissions: 'Permissions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      custSpaceId: 'string',
+      permissions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionByCodeShrinkRequest extends $tea.Model {
+  code?: string;
+  custSpaceId?: string;
+  permissionsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      custSpaceId: 'CustSpaceId',
+      permissionsShrink: 'Permissions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      custSpaceId: 'string',
+      permissionsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionByCodeResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionByCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPermissionByCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPermissionByCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhoneEncryptionPublicKeyRequest extends $tea.Model {
+  custSpaceId?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhoneEncryptionPublicKeyResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetPhoneEncryptionPublicKeyResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetPhoneEncryptionPublicKeyResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhoneEncryptionPublicKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPhoneEncryptionPublicKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPhoneEncryptionPublicKeyResponseBody,
     };
   }
 
@@ -2427,6 +3230,184 @@ export class ListChatappTemplateResponse extends $tea.Model {
   }
 }
 
+export class ListFlowRequest extends $tea.Model {
+  custSpaceId?: string;
+  flowName?: string;
+  page?: ListFlowRequestPage;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      flowName: 'FlowName',
+      page: 'Page',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      flowName: 'string',
+      page: ListFlowRequestPage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowShrinkRequest extends $tea.Model {
+  custSpaceId?: string;
+  flowName?: string;
+  pageShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      flowName: 'FlowName',
+      pageShrink: 'Page',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      flowName: 'string',
+      pageShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListFlowResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListFlowResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPhoneMessageQrdlRequest extends $tea.Model {
+  custSpaceId?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPhoneMessageQrdlResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListPhoneMessageQrdlResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListPhoneMessageQrdlResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPhoneMessageQrdlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPhoneMessageQrdlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPhoneMessageQrdlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListProductRequest extends $tea.Model {
   after?: string;
   before?: string;
@@ -2782,6 +3763,115 @@ export class ModifyChatappTemplateResponse extends $tea.Model {
   }
 }
 
+export class ModifyFlowRequest extends $tea.Model {
+  categories?: string[];
+  custSpaceId?: string;
+  flowId?: string;
+  flowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      custSpaceId: 'CustSpaceId',
+      flowId: 'FlowId',
+      flowName: 'FlowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      custSpaceId: 'string',
+      flowId: 'string',
+      flowName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFlowShrinkRequest extends $tea.Model {
+  categoriesShrink?: string;
+  custSpaceId?: string;
+  flowId?: string;
+  flowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoriesShrink: 'Categories',
+      custSpaceId: 'CustSpaceId',
+      flowId: 'FlowId',
+      flowName: 'FlowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoriesShrink: 'string',
+      custSpaceId: 'string',
+      flowId: 'string',
+      flowName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFlowResponseBody extends $tea.Model {
+  code?: string;
+  data?: ModifyFlowResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ModifyFlowResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
   address?: string;
   custSpaceId?: string;
@@ -2907,6 +3997,78 @@ export class ModifyPhoneBusinessProfileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyPhoneBusinessProfileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishFlowRequest extends $tea.Model {
+  custSpaceId?: string;
+  flowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      flowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishFlowResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PublishFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PublishFlowResponseBody,
     };
   }
 
@@ -3895,6 +5057,243 @@ export class UpdateCommerceSettingResponse extends $tea.Model {
   }
 }
 
+export class UpdateFlowJSONAssetRequest extends $tea.Model {
+  custSpaceId?: string;
+  filePath?: string;
+  flowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      filePath: 'FilePath',
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      filePath: 'string',
+      flowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFlowJSONAssetResponseBody extends $tea.Model {
+  code?: string;
+  data?: UpdateFlowJSONAssetResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdateFlowJSONAssetResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFlowJSONAssetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateFlowJSONAssetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateFlowJSONAssetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePhoneEncryptionPublicKeyRequest extends $tea.Model {
+  custSpaceId?: string;
+  encryptionPublicKey?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      encryptionPublicKey: 'EncryptionPublicKey',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      encryptionPublicKey: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePhoneEncryptionPublicKeyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePhoneEncryptionPublicKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdatePhoneEncryptionPublicKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePhoneEncryptionPublicKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePhoneMessageQrdlRequest extends $tea.Model {
+  custSpaceId?: string;
+  generateQrImage?: string;
+  phoneNumber?: string;
+  prefilledMessage?: string;
+  qrdlCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      generateQrImage: 'GenerateQrImage',
+      phoneNumber: 'PhoneNumber',
+      prefilledMessage: 'PrefilledMessage',
+      qrdlCode: 'QrdlCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      generateQrImage: 'string',
+      phoneNumber: 'string',
+      prefilledMessage: 'string',
+      qrdlCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePhoneMessageQrdlResponseBody extends $tea.Model {
+  code?: string;
+  data?: UpdatePhoneMessageQrdlResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdatePhoneMessageQrdlResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePhoneMessageQrdlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdatePhoneMessageQrdlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePhoneMessageQrdlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdatePhoneWebhookRequest extends $tea.Model {
   custSpaceId?: string;
   httpFlag?: string;
@@ -4416,6 +5815,7 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   flowAction?: string;
   flowId?: string;
   isOptOut?: boolean;
+  navigateScreen?: string;
   packageName?: string;
   phoneNumber?: string;
   signatureHash?: string;
@@ -4423,7 +5823,6 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   type?: string;
   url?: string;
   urlType?: string;
-  navigateScreen?: string;
   static names(): { [key: string]: string } {
     return {
       autofillText: 'AutofillText',
@@ -4431,6 +5830,7 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
       flowAction: 'FlowAction',
       flowId: 'FlowId',
       isOptOut: 'IsOptOut',
+      navigateScreen: 'NavigateScreen',
       packageName: 'PackageName',
       phoneNumber: 'PhoneNumber',
       signatureHash: 'SignatureHash',
@@ -4438,7 +5838,6 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
       type: 'Type',
       url: 'Url',
       urlType: 'UrlType',
-      navigateScreen: 'navigateScreen',
     };
   }
 
@@ -4449,6 +5848,7 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
       flowAction: 'string',
       flowId: 'string',
       isOptOut: 'boolean',
+      navigateScreen: 'string',
       packageName: 'string',
       phoneNumber: 'string',
       signatureHash: 'string',
@@ -4456,7 +5856,6 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
       type: 'string',
       url: 'string',
       urlType: 'string',
-      navigateScreen: 'string',
     };
   }
 
@@ -4618,6 +6017,65 @@ export class CreateChatappTemplateResponseBodyData extends $tea.Model {
     return {
       templateCode: 'string',
       templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowResponseBodyData extends $tea.Model {
+  categories?: string[];
+  flowId?: string;
+  flowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      flowId: 'FlowId',
+      flowName: 'FlowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      flowId: 'string',
+      flowName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePhoneMessageQrdlResponseBodyData extends $tea.Model {
+  deepLinkUrl?: string;
+  generateQrImage?: string;
+  phoneNumber?: string;
+  prefilledMessage?: string;
+  qrImageUrl?: string;
+  qrdlCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deepLinkUrl: 'DeepLinkUrl',
+      generateQrImage: 'GenerateQrImage',
+      phoneNumber: 'PhoneNumber',
+      prefilledMessage: 'PrefilledMessage',
+      qrImageUrl: 'QrImageUrl',
+      qrdlCode: 'QrdlCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deepLinkUrl: 'string',
+      generateQrImage: 'string',
+      phoneNumber: 'string',
+      prefilledMessage: 'string',
+      qrImageUrl: 'string',
+      qrdlCode: 'string',
     };
   }
 
@@ -5076,6 +6534,93 @@ export class GetCommerceSettingResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetFlowResponseBodyData extends $tea.Model {
+  categories?: string[];
+  dataApiVersion?: string;
+  flowId?: string;
+  flowName?: string;
+  JSONVersion?: string;
+  previewUrl?: string;
+  previewUrlExpires?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      dataApiVersion: 'DataApiVersion',
+      flowId: 'FlowId',
+      flowName: 'FlowName',
+      JSONVersion: 'JSONVersion',
+      previewUrl: 'PreviewUrl',
+      previewUrlExpires: 'PreviewUrlExpires',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      dataApiVersion: 'string',
+      flowId: 'string',
+      flowName: 'string',
+      JSONVersion: 'string',
+      previewUrl: 'string',
+      previewUrlExpires: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowJSONAssestResponseBodyData extends $tea.Model {
+  filePath?: string;
+  flowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filePath: 'FilePath',
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filePath: 'string',
+      flowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowPreviewUrlResponseBodyData extends $tea.Model {
+  flowId?: string;
+  previewUrl?: string;
+  previewUrlExpires?: number;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+      previewUrl: 'PreviewUrl',
+      previewUrlExpires: 'PreviewUrlExpires',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+      previewUrl: 'string',
+      previewUrlExpires: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMigrationVerifyCodeResponseBodyData extends $tea.Model {
   id?: string;
   phoneNumber?: string;
@@ -5089,6 +6634,31 @@ export class GetMigrationVerifyCodeResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       id: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhoneEncryptionPublicKeyResponseBodyData extends $tea.Model {
+  encryptionPublicKey?: string;
+  encryptionPublicKeyStatus?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encryptionPublicKey: 'EncryptionPublicKey',
+      encryptionPublicKeyStatus: 'EncryptionPublicKeyStatus',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encryptionPublicKey: 'string',
+      encryptionPublicKeyStatus: 'string',
       phoneNumber: 'string',
     };
   }
@@ -5196,6 +6766,87 @@ export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
       templateCode: 'string',
       templateName: 'string',
       templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowRequestPage extends $tea.Model {
+  index?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'Index',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowResponseBodyData extends $tea.Model {
+  categories?: string[];
+  flowId?: string;
+  flowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      flowId: 'FlowId',
+      flowName: 'FlowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      flowId: 'string',
+      flowName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPhoneMessageQrdlResponseBodyData extends $tea.Model {
+  deepLinkUrl?: string;
+  generateQrImage?: string;
+  phoneNumber?: string;
+  prefilledMessage?: string;
+  qrImageUrl?: string;
+  qrdlCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deepLinkUrl: 'DeepLinkUrl',
+      generateQrImage: 'GenerateQrImage',
+      phoneNumber: 'PhoneNumber',
+      prefilledMessage: 'PrefilledMessage',
+      qrImageUrl: 'QrImageUrl',
+      qrdlCode: 'QrdlCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deepLinkUrl: 'string',
+      generateQrImage: 'string',
+      phoneNumber: 'string',
+      prefilledMessage: 'string',
+      qrImageUrl: 'string',
+      qrdlCode: 'string',
     };
   }
 
@@ -5336,6 +6987,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
   flowAction?: string;
   flowId?: string;
   isOptOut?: boolean;
+  navigateScreen?: string;
   packageName?: string;
   phoneNumber?: string;
   signatureHash?: string;
@@ -5343,7 +6995,6 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
   type?: string;
   url?: string;
   urlType?: string;
-  navigateScreen?: string;
   static names(): { [key: string]: string } {
     return {
       autofillText: 'AutofillText',
@@ -5351,6 +7002,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
       flowAction: 'FlowAction',
       flowId: 'FlowId',
       isOptOut: 'IsOptOut',
+      navigateScreen: 'NavigateScreen',
       packageName: 'PackageName',
       phoneNumber: 'PhoneNumber',
       signatureHash: 'SignatureHash',
@@ -5358,7 +7010,6 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
       type: 'Type',
       url: 'Url',
       urlType: 'UrlType',
-      navigateScreen: 'navigateScreen',
     };
   }
 
@@ -5369,6 +7020,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
       flowAction: 'string',
       flowId: 'string',
       isOptOut: 'boolean',
+      navigateScreen: 'string',
       packageName: 'string',
       phoneNumber: 'string',
       signatureHash: 'string',
@@ -5376,7 +7028,6 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
       type: 'string',
       url: 'string',
       urlType: 'string',
-      navigateScreen: 'string',
     };
   }
 
@@ -5538,6 +7189,31 @@ export class ModifyChatappTemplateResponseBodyData extends $tea.Model {
     return {
       templateCode: 'string',
       templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFlowResponseBodyData extends $tea.Model {
+  categories?: string[];
+  flowId?: string;
+  flowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      flowId: 'FlowId',
+      flowName: 'FlowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      flowId: 'string',
+      flowName: 'string',
     };
   }
 
@@ -5884,6 +7560,59 @@ export class SendChatappMessageRequestProductAction extends $tea.Model {
     return {
       sections: { 'type': 'array', 'itemType': SendChatappMessageRequestProductActionSections },
       thumbnailProductRetailerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFlowJSONAssetResponseBodyData extends $tea.Model {
+  flowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePhoneMessageQrdlResponseBodyData extends $tea.Model {
+  deepLinkUrl?: string;
+  generateQrImage?: string;
+  phoneNumber?: string;
+  prefilledMessage?: string;
+  qrImageUrl?: string;
+  qrdlCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deepLinkUrl: 'DeepLinkUrl',
+      generateQrImage: 'GenerateQrImage',
+      phoneNumber: 'PhoneNumber',
+      prefilledMessage: 'PrefilledMessage',
+      qrImageUrl: 'QrImageUrl',
+      qrdlCode: 'QrdlCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deepLinkUrl: 'string',
+      generateQrImage: 'string',
+      phoneNumber: 'string',
+      prefilledMessage: 'string',
+      qrImageUrl: 'string',
+      qrdlCode: 'string',
     };
   }
 
@@ -6617,6 +8346,90 @@ export default class Client extends OpenApi {
     return await this.createChatappTemplateWithOptions(request, runtime);
   }
 
+  async createFlowWithOptions(tmpReq: CreateFlowRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.categories)) {
+      request.categoriesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categories, "Categories", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoriesShrink)) {
+      body["Categories"] = request.categoriesShrink;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFlowResponse>(await this.callApi(params, req, runtime), new CreateFlowResponse({}));
+  }
+
+  async createFlow(request: CreateFlowRequest): Promise<CreateFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFlowWithOptions(request, runtime);
+  }
+
+  async createPhoneMessageQrdlWithOptions(request: CreatePhoneMessageQrdlRequest, runtime: $Util.RuntimeOptions): Promise<CreatePhoneMessageQrdlResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.generateQrImage)) {
+      body["GenerateQrImage"] = request.generateQrImage;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.prefilledMessage)) {
+      body["PrefilledMessage"] = request.prefilledMessage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePhoneMessageQrdl",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new CreatePhoneMessageQrdlResponse({}));
+  }
+
+  async createPhoneMessageQrdl(request: CreatePhoneMessageQrdlRequest): Promise<CreatePhoneMessageQrdlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPhoneMessageQrdlWithOptions(request, runtime);
+  }
+
   /**
     * ### QPS limit
     * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -6671,6 +8484,109 @@ export default class Client extends OpenApi {
   async deleteChatappTemplate(request: DeleteChatappTemplateRequest): Promise<DeleteChatappTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteChatappTemplateWithOptions(request, runtime);
+  }
+
+  async deleteFlowWithOptions(request: DeleteFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFlowResponse>(await this.callApi(params, req, runtime), new DeleteFlowResponse({}));
+  }
+
+  async deleteFlow(request: DeleteFlowRequest): Promise<DeleteFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteFlowWithOptions(request, runtime);
+  }
+
+  async deletePhoneMessageQrdlWithOptions(request: DeletePhoneMessageQrdlRequest, runtime: $Util.RuntimeOptions): Promise<DeletePhoneMessageQrdlResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.qrdlCode)) {
+      body["QrdlCode"] = request.qrdlCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePhoneMessageQrdl",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new DeletePhoneMessageQrdlResponse({}));
+  }
+
+  async deletePhoneMessageQrdl(request: DeletePhoneMessageQrdlRequest): Promise<DeletePhoneMessageQrdlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deletePhoneMessageQrdlWithOptions(request, runtime);
+  }
+
+  async deprecateFlowWithOptions(request: DeprecateFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeprecateFlowResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeprecateFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeprecateFlowResponse>(await this.callApi(params, req, runtime), new DeprecateFlowResponse({}));
+  }
+
+  async deprecateFlow(request: DeprecateFlowRequest): Promise<DeprecateFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deprecateFlowWithOptions(request, runtime);
   }
 
   async enableWhatsappROIMetricWithOptions(request: EnableWhatsappROIMetricRequest, runtime: $Util.RuntimeOptions): Promise<EnableWhatsappROIMetricResponse> {
@@ -7005,6 +8921,105 @@ export default class Client extends OpenApi {
     return await this.getCommerceSettingWithOptions(request, runtime);
   }
 
+  async getFlowWithOptions(request: GetFlowRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFlowResponse>(await this.callApi(params, req, runtime), new GetFlowResponse({}));
+  }
+
+  async getFlow(request: GetFlowRequest): Promise<GetFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFlowWithOptions(request, runtime);
+  }
+
+  async getFlowJSONAssestWithOptions(request: GetFlowJSONAssestRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowJSONAssestResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFlowJSONAssest",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFlowJSONAssestResponse>(await this.callApi(params, req, runtime), new GetFlowJSONAssestResponse({}));
+  }
+
+  async getFlowJSONAssest(request: GetFlowJSONAssestRequest): Promise<GetFlowJSONAssestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFlowJSONAssestWithOptions(request, runtime);
+  }
+
+  async getFlowPreviewUrlWithOptions(request: GetFlowPreviewUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowPreviewUrlResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFlowPreviewUrl",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFlowPreviewUrlResponse>(await this.callApi(params, req, runtime), new GetFlowPreviewUrlResponse({}));
+  }
+
+  async getFlowPreviewUrl(request: GetFlowPreviewUrlRequest): Promise<GetFlowPreviewUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFlowPreviewUrlWithOptions(request, runtime);
+  }
+
   /**
     * The ID of the phone number.
     *
@@ -7057,6 +9072,82 @@ export default class Client extends OpenApi {
   async getMigrationVerifyCode(request: GetMigrationVerifyCodeRequest): Promise<GetMigrationVerifyCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMigrationVerifyCodeWithOptions(request, runtime);
+  }
+
+  async getPermissionByCodeWithOptions(tmpReq: GetPermissionByCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetPermissionByCodeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetPermissionByCodeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.permissions)) {
+      request.permissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permissions, "Permissions", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.code)) {
+      body["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.permissionsShrink)) {
+      body["Permissions"] = request.permissionsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPermissionByCode",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPermissionByCodeResponse>(await this.callApi(params, req, runtime), new GetPermissionByCodeResponse({}));
+  }
+
+  async getPermissionByCode(request: GetPermissionByCodeRequest): Promise<GetPermissionByCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPermissionByCodeWithOptions(request, runtime);
+  }
+
+  async getPhoneEncryptionPublicKeyWithOptions(request: GetPhoneEncryptionPublicKeyRequest, runtime: $Util.RuntimeOptions): Promise<GetPhoneEncryptionPublicKeyResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPhoneEncryptionPublicKey",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPhoneEncryptionPublicKeyResponse>(await this.callApi(params, req, runtime), new GetPhoneEncryptionPublicKeyResponse({}));
+  }
+
+  async getPhoneEncryptionPublicKey(request: GetPhoneEncryptionPublicKeyRequest): Promise<GetPhoneEncryptionPublicKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPhoneEncryptionPublicKeyWithOptions(request, runtime);
   }
 
   /**
@@ -7320,6 +9411,82 @@ export default class Client extends OpenApi {
     return await this.listChatappTemplateWithOptions(request, runtime);
   }
 
+  async listFlowWithOptions(tmpReq: ListFlowRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.page)) {
+      request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    if (!Util.isUnset(request.pageShrink)) {
+      body["Page"] = request.pageShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFlowResponse>(await this.callApi(params, req, runtime), new ListFlowResponse({}));
+  }
+
+  async listFlow(request: ListFlowRequest): Promise<ListFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listFlowWithOptions(request, runtime);
+  }
+
+  async listPhoneMessageQrdlWithOptions(request: ListPhoneMessageQrdlRequest, runtime: $Util.RuntimeOptions): Promise<ListPhoneMessageQrdlResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPhoneMessageQrdl",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new ListPhoneMessageQrdlResponse({}));
+  }
+
+  async listPhoneMessageQrdl(request: ListPhoneMessageQrdlRequest): Promise<ListPhoneMessageQrdlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPhoneMessageQrdlWithOptions(request, runtime);
+  }
+
   /**
     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -7560,6 +9727,53 @@ export default class Client extends OpenApi {
     return await this.modifyChatappTemplateWithOptions(request, runtime);
   }
 
+  async modifyFlowWithOptions(tmpReq: ModifyFlowRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.categories)) {
+      request.categoriesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categories, "Categories", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoriesShrink)) {
+      body["Categories"] = request.categoriesShrink;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyFlowResponse>(await this.callApi(params, req, runtime), new ModifyFlowResponse({}));
+  }
+
+  async modifyFlow(request: ModifyFlowRequest): Promise<ModifyFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyFlowWithOptions(request, runtime);
+  }
+
   /**
     * ModifyPhoneBusinessProfile
     *
@@ -7634,6 +9848,39 @@ export default class Client extends OpenApi {
   async modifyPhoneBusinessProfile(request: ModifyPhoneBusinessProfileRequest): Promise<ModifyPhoneBusinessProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPhoneBusinessProfileWithOptions(request, runtime);
+  }
+
+  async publishFlowWithOptions(request: PublishFlowRequest, runtime: $Util.RuntimeOptions): Promise<PublishFlowResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PublishFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishFlowResponse>(await this.callApi(params, req, runtime), new PublishFlowResponse({}));
+  }
+
+  async publishFlow(request: PublishFlowRequest): Promise<PublishFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.publishFlowWithOptions(request, runtime);
   }
 
   /**
@@ -8247,6 +10494,125 @@ export default class Client extends OpenApi {
   async updateCommerceSetting(request: UpdateCommerceSettingRequest): Promise<UpdateCommerceSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCommerceSettingWithOptions(request, runtime);
+  }
+
+  async updateFlowJSONAssetWithOptions(request: UpdateFlowJSONAssetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFlowJSONAssetResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.filePath)) {
+      body["FilePath"] = request.filePath;
+    }
+
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateFlowJSONAsset",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFlowJSONAssetResponse>(await this.callApi(params, req, runtime), new UpdateFlowJSONAssetResponse({}));
+  }
+
+  async updateFlowJSONAsset(request: UpdateFlowJSONAssetRequest): Promise<UpdateFlowJSONAssetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateFlowJSONAssetWithOptions(request, runtime);
+  }
+
+  async updatePhoneEncryptionPublicKeyWithOptions(request: UpdatePhoneEncryptionPublicKeyRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePhoneEncryptionPublicKeyResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.encryptionPublicKey)) {
+      body["EncryptionPublicKey"] = request.encryptionPublicKey;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePhoneEncryptionPublicKey",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePhoneEncryptionPublicKeyResponse>(await this.callApi(params, req, runtime), new UpdatePhoneEncryptionPublicKeyResponse({}));
+  }
+
+  async updatePhoneEncryptionPublicKey(request: UpdatePhoneEncryptionPublicKeyRequest): Promise<UpdatePhoneEncryptionPublicKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePhoneEncryptionPublicKeyWithOptions(request, runtime);
+  }
+
+  async updatePhoneMessageQrdlWithOptions(request: UpdatePhoneMessageQrdlRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePhoneMessageQrdlResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.generateQrImage)) {
+      body["GenerateQrImage"] = request.generateQrImage;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.prefilledMessage)) {
+      body["PrefilledMessage"] = request.prefilledMessage;
+    }
+
+    if (!Util.isUnset(request.qrdlCode)) {
+      body["QrdlCode"] = request.qrdlCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePhoneMessageQrdl",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new UpdatePhoneMessageQrdlResponse({}));
+  }
+
+  async updatePhoneMessageQrdl(request: UpdatePhoneMessageQrdlRequest): Promise<UpdatePhoneMessageQrdlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePhoneMessageQrdlWithOptions(request, runtime);
   }
 
   /**
