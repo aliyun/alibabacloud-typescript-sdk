@@ -1513,6 +1513,72 @@ export class BindAuthToMachineResponse extends $tea.Model {
   }
 }
 
+export class BindHybridProxyRequest extends $tea.Model {
+  clusterName?: string;
+  yundunUuids?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterName: 'ClusterName',
+      yundunUuids: 'YundunUuids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterName: 'string',
+      yundunUuids: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindHybridProxyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindHybridProxyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BindHybridProxyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BindHybridProxyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelOnceTaskRequest extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -61152,12 +61218,16 @@ export class DescribeRiskTypeResponseBodyRiskTypesSubTypesCheckDetails extends $
 
 export class DescribeRiskTypeResponseBodyRiskTypesSubTypes extends $tea.Model {
   alias?: string;
+  authFlag?: boolean;
   checkDetails?: DescribeRiskTypeResponseBodyRiskTypesSubTypesCheckDetails[];
+  supportedOs?: string;
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
       alias: 'Alias',
+      authFlag: 'AuthFlag',
       checkDetails: 'CheckDetails',
+      supportedOs: 'SupportedOs',
       typeName: 'TypeName',
     };
   }
@@ -61165,7 +61235,9 @@ export class DescribeRiskTypeResponseBodyRiskTypesSubTypes extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alias: 'string',
+      authFlag: 'boolean',
       checkDetails: { 'type': 'array', 'itemType': DescribeRiskTypeResponseBodyRiskTypesSubTypesCheckDetails },
+      supportedOs: 'string',
       typeName: 'string',
     };
   }
@@ -61177,11 +61249,13 @@ export class DescribeRiskTypeResponseBodyRiskTypesSubTypes extends $tea.Model {
 
 export class DescribeRiskTypeResponseBodyRiskTypes extends $tea.Model {
   alias?: string;
+  authFlag?: boolean;
   subTypes?: DescribeRiskTypeResponseBodyRiskTypesSubTypes[];
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
       alias: 'Alias',
+      authFlag: 'AuthFlag',
       subTypes: 'SubTypes',
       typeName: 'TypeName',
     };
@@ -61190,6 +61264,7 @@ export class DescribeRiskTypeResponseBodyRiskTypes extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alias: 'string',
+      authFlag: 'boolean',
       subTypes: { 'type': 'array', 'itemType': DescribeRiskTypeResponseBodyRiskTypesSubTypes },
       typeName: 'string',
     };
@@ -63942,6 +64017,11 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
   instanceName?: string;
   internetIp?: string;
   intranetIp?: string;
+  k8sClusterId?: string;
+  k8sNamespace?: string;
+  k8sNodeId?: string;
+  k8sNodeName?: string;
+  k8sPodName?: string;
   lastTs?: number;
   modifyTs?: number;
   name?: string;
@@ -63973,6 +64053,11 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
       instanceName: 'InstanceName',
       internetIp: 'InternetIp',
       intranetIp: 'IntranetIp',
+      k8sClusterId: 'K8sClusterId',
+      k8sNamespace: 'K8sNamespace',
+      k8sNodeId: 'K8sNodeId',
+      k8sNodeName: 'K8sNodeName',
+      k8sPodName: 'K8sPodName',
       lastTs: 'LastTs',
       modifyTs: 'ModifyTs',
       name: 'Name',
@@ -64007,6 +64092,11 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
       instanceName: 'string',
       internetIp: 'string',
       intranetIp: 'string',
+      k8sClusterId: 'string',
+      k8sNamespace: 'string',
+      k8sNodeId: 'string',
+      k8sNodeName: 'string',
+      k8sPodName: 'string',
       lastTs: 'number',
       modifyTs: 'number',
       name: 'string',
@@ -77079,6 +77169,39 @@ export default class Client extends OpenApi {
   async bindAuthToMachine(request: BindAuthToMachineRequest): Promise<BindAuthToMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindAuthToMachineWithOptions(request, runtime);
+  }
+
+  async bindHybridProxyWithOptions(request: BindHybridProxyRequest, runtime: $Util.RuntimeOptions): Promise<BindHybridProxyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.yundunUuids)) {
+      query["YundunUuids"] = request.yundunUuids;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BindHybridProxy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindHybridProxyResponse>(await this.callApi(params, req, runtime), new BindHybridProxyResponse({}));
+  }
+
+  async bindHybridProxy(request: BindHybridProxyRequest): Promise<BindHybridProxyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bindHybridProxyWithOptions(request, runtime);
   }
 
   async cancelOnceTaskWithOptions(request: CancelOnceTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelOnceTaskResponse> {
