@@ -8,6 +8,90 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CreateLdpsNamespaceRequest extends $tea.Model {
+  instanceId?: string;
+  namespace?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      namespace: 'Namespace',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      namespace: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLdpsNamespaceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLdpsNamespaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateLdpsNamespaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateLdpsNamespaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateLindormInstanceRequest extends $tea.Model {
   arbiterVSwitchId?: string;
   arbiterZoneId?: string;
@@ -279,7 +363,6 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class GetInstanceIpWhiteListRequest extends $tea.Model {
-  groupName?: string;
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -288,7 +371,6 @@ export class GetInstanceIpWhiteListRequest extends $tea.Model {
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
-      groupName: 'GroupName',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -300,7 +382,6 @@ export class GetInstanceIpWhiteListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      groupName: 'string',
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -316,11 +397,13 @@ export class GetInstanceIpWhiteListRequest extends $tea.Model {
 }
 
 export class GetInstanceIpWhiteListResponseBody extends $tea.Model {
+  groupList?: GetInstanceIpWhiteListResponseBodyGroupList[];
   instanceId?: string;
   ipList?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      groupList: 'GroupList',
       instanceId: 'InstanceId',
       ipList: 'IpList',
       requestId: 'RequestId',
@@ -329,6 +412,7 @@ export class GetInstanceIpWhiteListResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      groupList: { 'type': 'array', 'itemType': GetInstanceIpWhiteListResponseBodyGroupList },
       instanceId: 'string',
       ipList: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
@@ -357,6 +441,93 @@ export class GetInstanceIpWhiteListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetInstanceIpWhiteListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLdpsNamespacedQuotaRequest extends $tea.Model {
+  instanceId?: string;
+  namespace?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      namespace: 'Namespace',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      namespace: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLdpsNamespacedQuotaResponseBody extends $tea.Model {
+  namespacedQuotas?: GetLdpsNamespacedQuotaResponseBodyNamespacedQuotas[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespacedQuotas: 'NamespacedQuotas',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespacedQuotas: { 'type': 'array', 'itemType': GetLdpsNamespacedQuotaResponseBodyNamespacedQuotas },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLdpsNamespacedQuotaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetLdpsNamespacedQuotaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLdpsNamespacedQuotaResponseBody,
     };
   }
 
@@ -526,6 +697,7 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
   enableCompute?: boolean;
   enableKms?: boolean;
   enableLTS?: boolean;
+  enableLsqlVersionV3?: boolean;
   enableMLCtrl?: boolean;
   enableSSL?: boolean;
   enableShs?: boolean;
@@ -581,6 +753,7 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       enableCompute: 'EnableCompute',
       enableKms: 'EnableKms',
       enableLTS: 'EnableLTS',
+      enableLsqlVersionV3: 'EnableLsqlVersionV3',
       enableMLCtrl: 'EnableMLCtrl',
       enableSSL: 'EnableSSL',
       enableShs: 'EnableShs',
@@ -639,6 +812,7 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       enableCompute: 'boolean',
       enableKms: 'boolean',
       enableLTS: 'boolean',
+      enableLsqlVersionV3: 'boolean',
       enableMLCtrl: 'boolean',
       enableSSL: 'boolean',
       enableShs: 'boolean',
@@ -1440,7 +1614,7 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateInstanceIpWhiteListRequest extends $tea.Model {
-  groupName?: string;
+  delete?: boolean;
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1450,7 +1624,7 @@ export class UpdateInstanceIpWhiteListRequest extends $tea.Model {
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
-      groupName: 'GroupName',
+      delete: 'Delete',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -1463,7 +1637,7 @@ export class UpdateInstanceIpWhiteListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      groupName: 'string',
+      delete: 'boolean',
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -1539,8 +1713,6 @@ export class UpgradeLindormInstanceRequest extends $tea.Model {
   ltsCoreSpec?: string;
   ownerAccount?: string;
   ownerId?: number;
-  phoenixCoreNum?: number;
-  phoenixCoreSpec?: string;
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1570,8 +1742,6 @@ export class UpgradeLindormInstanceRequest extends $tea.Model {
       ltsCoreSpec: 'LtsCoreSpec',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
-      phoenixCoreNum: 'PhoenixCoreNum',
-      phoenixCoreSpec: 'PhoenixCoreSpec',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -1604,8 +1774,6 @@ export class UpgradeLindormInstanceRequest extends $tea.Model {
       ltsCoreSpec: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
-      phoenixCoreNum: 'number',
-      phoenixCoreSpec: 'string',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -1690,6 +1858,59 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
       localName: 'string',
       regionEndpoint: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceIpWhiteListResponseBodyGroupList extends $tea.Model {
+  groupName?: string;
+  securityIpList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      securityIpList: 'SecurityIpList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      securityIpList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLdpsNamespacedQuotaResponseBodyNamespacedQuotas extends $tea.Model {
+  cpuAmount?: string;
+  memoryAmount?: string;
+  name?: string;
+  usedCpu?: string;
+  usedMemory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpuAmount: 'CpuAmount',
+      memoryAmount: 'MemoryAmount',
+      name: 'Name',
+      usedCpu: 'UsedCpu',
+      usedMemory: 'UsedMemory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuAmount: 'string',
+      memoryAmount: 'string',
+      name: 'string',
+      usedCpu: 'string',
+      usedMemory: 'string',
     };
   }
 
@@ -2000,6 +2221,70 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async createLdpsNamespaceWithOptions(request: CreateLdpsNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateLdpsNamespaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateLdpsNamespace",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLdpsNamespaceResponse>(await this.callApi(params, req, runtime), new CreateLdpsNamespaceResponse({}));
+  }
+
+  async createLdpsNamespace(request: CreateLdpsNamespaceRequest): Promise<CreateLdpsNamespaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLdpsNamespaceWithOptions(request, runtime);
+  }
+
+  /**
+    * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](~~181971~~) and [Select storage types](~~174643~~).
+    *
+    * @param request CreateLindormInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLindormInstanceResponse
+   */
   async createLindormInstanceWithOptions(request: CreateLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateLindormInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2184,6 +2469,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLindormInstanceResponse>(await this.callApi(params, req, runtime), new CreateLindormInstanceResponse({}));
   }
 
+  /**
+    * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](~~181971~~) and [Select storage types](~~174643~~).
+    *
+    * @param request CreateLindormInstanceRequest
+    * @return CreateLindormInstanceResponse
+   */
   async createLindormInstance(request: CreateLindormInstanceRequest): Promise<CreateLindormInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLindormInstanceWithOptions(request, runtime);
@@ -2241,10 +2532,6 @@ export default class Client extends OpenApi {
   async getInstanceIpWhiteListWithOptions(request: GetInstanceIpWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceIpWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.groupName)) {
-      query["GroupName"] = request.groupName;
-    }
-
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -2289,6 +2576,63 @@ export default class Client extends OpenApi {
   async getInstanceIpWhiteList(request: GetInstanceIpWhiteListRequest): Promise<GetInstanceIpWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceIpWhiteListWithOptions(request, runtime);
+  }
+
+  async getLdpsNamespacedQuotaWithOptions(request: GetLdpsNamespacedQuotaRequest, runtime: $Util.RuntimeOptions): Promise<GetLdpsNamespacedQuotaResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLdpsNamespacedQuota",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLdpsNamespacedQuotaResponse>(await this.callApi(params, req, runtime), new GetLdpsNamespacedQuotaResponse({}));
+  }
+
+  async getLdpsNamespacedQuota(request: GetLdpsNamespacedQuotaRequest): Promise<GetLdpsNamespacedQuotaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLdpsNamespacedQuotaWithOptions(request, runtime);
   }
 
   async getLdpsResourceCostWithOptions(request: GetLdpsResourceCostRequest, runtime: $Util.RuntimeOptions): Promise<GetLdpsResourceCostResponse> {
@@ -2730,7 +3074,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the order. You can obtain an order ID on the Orders page in Alibaba Cloud User Center.
+    * You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+    * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
     *
     * @param request RenewLindormInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2793,7 +3138,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the order. You can obtain an order ID on the Orders page in Alibaba Cloud User Center.
+    * You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+    * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
     *
     * @param request RenewLindormInstanceRequest
     * @return RenewLindormInstanceResponse
@@ -2925,18 +3271,11 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
-  /**
-    * ***
-    *
-    * @param request UpdateInstanceIpWhiteListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateInstanceIpWhiteListResponse
-   */
   async updateInstanceIpWhiteListWithOptions(request: UpdateInstanceIpWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceIpWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.groupName)) {
-      query["GroupName"] = request.groupName;
+    if (!Util.isUnset(request.delete)) {
+      query["Delete"] = request.delete;
     }
 
     if (!Util.isUnset(request.instanceId)) {
@@ -2984,19 +3323,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceIpWhiteListResponse>(await this.callApi(params, req, runtime), new UpdateInstanceIpWhiteListResponse({}));
   }
 
-  /**
-    * ***
-    *
-    * @param request UpdateInstanceIpWhiteListRequest
-    * @return UpdateInstanceIpWhiteListResponse
-   */
   async updateInstanceIpWhiteList(request: UpdateInstanceIpWhiteListRequest): Promise<UpdateInstanceIpWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateInstanceIpWhiteListWithOptions(request, runtime);
   }
 
   /**
-    * Upgrades, scales up, or enable cold storage for a Lindorm instance.
+    * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](~~181971~~) and [Select storage types](~~174643~~).
     *
     * @param request UpgradeLindormInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3065,14 +3398,6 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoenixCoreNum)) {
-      query["PhoenixCoreNum"] = request.phoenixCoreNum;
-    }
-
-    if (!Util.isUnset(request.phoenixCoreSpec)) {
-      query["PhoenixCoreSpec"] = request.phoenixCoreSpec;
-    }
-
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -3139,7 +3464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Upgrades, scales up, or enable cold storage for a Lindorm instance.
+    * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](~~181971~~) and [Select storage types](~~174643~~).
     *
     * @param request UpgradeLindormInstanceRequest
     * @return UpgradeLindormInstanceResponse
