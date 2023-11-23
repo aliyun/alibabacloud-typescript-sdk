@@ -19524,6 +19524,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
   internationalFlightInvoiceFee?: string;
   internationalHotelInvoiceFee?: string;
   invoiceThirdPartId?: string;
+  invoiceType?: number;
   mailAddress?: string;
   mailCity?: string;
   mailFullAddress?: string;
@@ -19545,6 +19546,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
       internationalFlightInvoiceFee: 'international_flight_invoice_fee',
       internationalHotelInvoiceFee: 'international_hotel_invoice_fee',
       invoiceThirdPartId: 'invoice_third_part_id',
+      invoiceType: 'invoice_type',
       mailAddress: 'mail_address',
       mailCity: 'mail_city',
       mailFullAddress: 'mail_full_address',
@@ -19569,6 +19571,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
       internationalFlightInvoiceFee: 'string',
       internationalHotelInvoiceFee: 'string',
       invoiceThirdPartId: 'string',
+      invoiceType: 'number',
       mailAddress: 'string',
       mailCity: 'string',
       mailFullAddress: 'string',
