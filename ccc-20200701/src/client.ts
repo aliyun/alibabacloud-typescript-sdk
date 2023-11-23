@@ -1704,12 +1704,14 @@ export class CreateAudioFileRequest extends $tea.Model {
   instanceId?: string;
   name?: string;
   ossFileKey?: string;
+  usage?: string;
   static names(): { [key: string]: string } {
     return {
       audioFileName: 'AudioFileName',
       instanceId: 'InstanceId',
       name: 'Name',
       ossFileKey: 'OssFileKey',
+      usage: 'Usage',
     };
   }
 
@@ -1719,6 +1721,7 @@ export class CreateAudioFileRequest extends $tea.Model {
       instanceId: 'string',
       name: 'string',
       ossFileKey: 'string',
+      usage: 'string',
     };
   }
 
@@ -4301,11 +4304,13 @@ export class GetHistoricalCampaignReportResponse extends $tea.Model {
 export class GetHistoricalInstanceReportRequest extends $tea.Model {
   endTime?: number;
   instanceId?: string;
+  mediaType?: string;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      mediaType: 'MediaType',
       startTime: 'StartTime',
     };
   }
@@ -4314,6 +4319,7 @@ export class GetHistoricalInstanceReportRequest extends $tea.Model {
     return {
       endTime: 'number',
       instanceId: 'string',
+      mediaType: 'string',
       startTime: 'number',
     };
   }
@@ -7781,16 +7787,20 @@ export class ListDoNotCallNumbersResponse extends $tea.Model {
 export class ListHistoricalAgentReportRequest extends $tea.Model {
   agentIdList?: string;
   instanceId?: string;
+  mediaType?: string;
   pageNumber?: number;
   pageSize?: number;
+  skillGroupId?: string;
   startTime?: number;
   stopTime?: number;
   static names(): { [key: string]: string } {
     return {
       agentIdList: 'AgentIdList',
       instanceId: 'InstanceId',
+      mediaType: 'MediaType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      skillGroupId: 'SkillGroupId',
       startTime: 'StartTime',
       stopTime: 'StopTime',
     };
@@ -7800,8 +7810,10 @@ export class ListHistoricalAgentReportRequest extends $tea.Model {
     return {
       agentIdList: 'string',
       instanceId: 'string',
+      mediaType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      skillGroupId: 'string',
       startTime: 'number',
       stopTime: 'number',
     };
@@ -7872,6 +7884,7 @@ export class ListHistoricalAgentSkillGroupReportRequest extends $tea.Model {
   agentIdList?: string;
   endTime?: number;
   instanceId?: string;
+  mediaType?: string;
   pageNumber?: number;
   pageSize?: number;
   skillGroupIdList?: string;
@@ -7881,6 +7894,7 @@ export class ListHistoricalAgentSkillGroupReportRequest extends $tea.Model {
       agentIdList: 'AgentIdList',
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      mediaType: 'MediaType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       skillGroupIdList: 'SkillGroupIdList',
@@ -7893,6 +7907,7 @@ export class ListHistoricalAgentSkillGroupReportRequest extends $tea.Model {
       agentIdList: 'string',
       endTime: 'number',
       instanceId: 'string',
+      mediaType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       skillGroupIdList: 'string',
@@ -7964,6 +7979,7 @@ export class ListHistoricalAgentSkillGroupReportResponse extends $tea.Model {
 export class ListHistoricalSkillGroupReportRequest extends $tea.Model {
   endTime?: number;
   instanceId?: string;
+  mediaType?: string;
   pageNumber?: number;
   pageSize?: number;
   skillGroupIdList?: string;
@@ -7972,6 +7988,7 @@ export class ListHistoricalSkillGroupReportRequest extends $tea.Model {
     return {
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      mediaType: 'MediaType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       skillGroupIdList: 'SkillGroupIdList',
@@ -7983,6 +8000,7 @@ export class ListHistoricalSkillGroupReportRequest extends $tea.Model {
     return {
       endTime: 'number',
       instanceId: 'string',
+      mediaType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       skillGroupIdList: 'string',
@@ -8212,6 +8230,7 @@ export class ListIntervalAgentReportRequest extends $tea.Model {
   endTime?: number;
   instanceId?: string;
   interval?: string;
+  mediaType?: string;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8219,6 +8238,7 @@ export class ListIntervalAgentReportRequest extends $tea.Model {
       endTime: 'EndTime',
       instanceId: 'InstanceId',
       interval: 'Interval',
+      mediaType: 'MediaType',
       startTime: 'StartTime',
     };
   }
@@ -8229,6 +8249,7 @@ export class ListIntervalAgentReportRequest extends $tea.Model {
       endTime: 'number',
       instanceId: 'string',
       interval: 'string',
+      mediaType: 'string',
       startTime: 'number',
     };
   }
@@ -8472,6 +8493,7 @@ export class ListIntervalSkillGroupReportRequest extends $tea.Model {
   endTime?: number;
   instanceId?: string;
   interval?: string;
+  mediaType?: string;
   skillGroupId?: string;
   startTime?: number;
   static names(): { [key: string]: string } {
@@ -8479,6 +8501,7 @@ export class ListIntervalSkillGroupReportRequest extends $tea.Model {
       endTime: 'EndTime',
       instanceId: 'InstanceId',
       interval: 'Interval',
+      mediaType: 'MediaType',
       skillGroupId: 'SkillGroupId',
       startTime: 'StartTime',
     };
@@ -8489,6 +8512,7 @@ export class ListIntervalSkillGroupReportRequest extends $tea.Model {
       endTime: 'number',
       instanceId: 'string',
       interval: 'string',
+      mediaType: 'string',
       skillGroupId: 'string',
       startTime: 'number',
     };
@@ -10567,12 +10591,14 @@ export class ListUsersRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   searchPattern?: string;
+  skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       searchPattern: 'SearchPattern',
+      skillGroupId: 'SkillGroupId',
     };
   }
 
@@ -10582,6 +10608,7 @@ export class ListUsersRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       searchPattern: 'string',
+      skillGroupId: 'string',
     };
   }
 
@@ -10595,6 +10622,7 @@ export class ListUsersResponseBody extends $tea.Model {
   data?: ListUsersResponseBodyData;
   httpStatusCode?: number;
   message?: string;
+  params?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10602,6 +10630,7 @@ export class ListUsersResponseBody extends $tea.Model {
       data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
+      params: 'Params',
       requestId: 'RequestId',
     };
   }
@@ -10612,6 +10641,7 @@ export class ListUsersResponseBody extends $tea.Model {
       data: ListUsersResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -17095,7 +17125,9 @@ export class GetCampaignResponseBodyData extends $tea.Model {
   casesAborted?: number;
   casesConnected?: number;
   casesUncompleted?: number;
+  casesUncompletedAfterAttempt?: string;
   casesUncompletedAfterAttempted?: number;
+  completionRate?: number;
   maxAttemptCount?: number;
   minAttemptInterval?: number;
   name?: string;
@@ -17117,7 +17149,9 @@ export class GetCampaignResponseBodyData extends $tea.Model {
       casesAborted: 'CasesAborted',
       casesConnected: 'CasesConnected',
       casesUncompleted: 'CasesUncompleted',
+      casesUncompletedAfterAttempt: 'CasesUncompletedAfterAttempt',
       casesUncompletedAfterAttempted: 'CasesUncompletedAfterAttempted',
+      completionRate: 'CompletionRate',
       maxAttemptCount: 'MaxAttemptCount',
       minAttemptInterval: 'MinAttemptInterval',
       name: 'Name',
@@ -17142,7 +17176,9 @@ export class GetCampaignResponseBodyData extends $tea.Model {
       casesAborted: 'number',
       casesConnected: 'number',
       casesUncompleted: 'number',
+      casesUncompletedAfterAttempt: 'string',
       casesUncompletedAfterAttempted: 'number',
+      completionRate: 'number',
       maxAttemptCount: 'number',
       minAttemptInterval: 'number',
       name: 'string',
@@ -17382,7 +17418,9 @@ export class GetHistoricalCallerReportResponseBodyData extends $tea.Model {
 }
 
 export class GetHistoricalCampaignReportResponseBodyData extends $tea.Model {
+  abandonRate?: number;
   abandonedRate?: number;
+  answerRate?: number;
   callsAbandoned?: number;
   callsConnected?: number;
   callsDialed?: number;
@@ -17390,7 +17428,9 @@ export class GetHistoricalCampaignReportResponseBodyData extends $tea.Model {
   occupancyRate?: number;
   static names(): { [key: string]: string } {
     return {
+      abandonRate: 'AbandonRate',
       abandonedRate: 'AbandonedRate',
+      answerRate: 'AnswerRate',
       callsAbandoned: 'CallsAbandoned',
       callsConnected: 'CallsConnected',
       callsDialed: 'CallsDialed',
@@ -17401,7 +17441,9 @@ export class GetHistoricalCampaignReportResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      abandonRate: 'number',
       abandonedRate: 'number',
+      answerRate: 'number',
       callsAbandoned: 'number',
       callsConnected: 'number',
       callsDialed: 'number',
@@ -17415,13 +17457,38 @@ export class GetHistoricalCampaignReportResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList extends $tea.Model {
+  accessChannelType?: string;
+  callsOffered?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessChannelType: 'AccessChannelType',
+      callsOffered: 'CallsOffered',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessChannelType: 'string',
+      callsOffered: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHistoricalInstanceReportResponseBodyDataInbound extends $tea.Model {
   abandonRate?: number;
+  accessChannelTypeDetailList?: GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList[];
   averageAbandonTime?: number;
   averageAbandonedInIVRTime?: number;
   averageAbandonedInQueueTime?: number;
   averageAbandonedInRingTime?: number;
+  averageFirstResponseTime?: number;
   averageHoldTime?: number;
+  averageResponseTime?: number;
   averageRingTime?: number;
   averageTalkTime?: number;
   averageWaitTime?: number;
@@ -17433,6 +17500,7 @@ export class GetHistoricalInstanceReportResponseBodyDataInbound extends $tea.Mod
   callsAbandonedInVoiceNavigator?: number;
   callsAttendedTransferred?: number;
   callsBlindTransferred?: number;
+  callsCausedIVRException?: number;
   callsForwardToOutsideNumber?: number;
   callsHandled?: number;
   callsHold?: number;
@@ -17443,6 +17511,7 @@ export class GetHistoricalInstanceReportResponseBodyDataInbound extends $tea.Mod
   callsQueuingOverflow?: number;
   callsQueuingTimeout?: number;
   callsRinged?: number;
+  callsToVoicemail?: number;
   callsVoicemail?: number;
   handleRate?: number;
   maxAbandonTime?: number;
@@ -17458,12 +17527,17 @@ export class GetHistoricalInstanceReportResponseBodyDataInbound extends $tea.Mod
   satisfactionRate?: number;
   satisfactionSurveysOffered?: number;
   satisfactionSurveysResponded?: number;
+  serviceLevel15?: number;
   serviceLevel20?: number;
+  serviceLevel30?: number;
   totalAbandonTime?: number;
   totalAbandonedInIVRTime?: number;
   totalAbandonedInQueueTime?: number;
   totalAbandonedInRingTime?: number;
   totalHoldTime?: number;
+  totalMessagesSent?: number;
+  totalMessagesSentByAgent?: number;
+  totalMessagesSentByCustomer?: number;
   totalRingTime?: number;
   totalTalkTime?: number;
   totalWaitTime?: number;
@@ -17471,11 +17545,14 @@ export class GetHistoricalInstanceReportResponseBodyDataInbound extends $tea.Mod
   static names(): { [key: string]: string } {
     return {
       abandonRate: 'AbandonRate',
+      accessChannelTypeDetailList: 'AccessChannelTypeDetailList',
       averageAbandonTime: 'AverageAbandonTime',
       averageAbandonedInIVRTime: 'AverageAbandonedInIVRTime',
       averageAbandonedInQueueTime: 'AverageAbandonedInQueueTime',
       averageAbandonedInRingTime: 'AverageAbandonedInRingTime',
+      averageFirstResponseTime: 'AverageFirstResponseTime',
       averageHoldTime: 'AverageHoldTime',
+      averageResponseTime: 'AverageResponseTime',
       averageRingTime: 'AverageRingTime',
       averageTalkTime: 'AverageTalkTime',
       averageWaitTime: 'AverageWaitTime',
@@ -17487,6 +17564,7 @@ export class GetHistoricalInstanceReportResponseBodyDataInbound extends $tea.Mod
       callsAbandonedInVoiceNavigator: 'CallsAbandonedInVoiceNavigator',
       callsAttendedTransferred: 'CallsAttendedTransferred',
       callsBlindTransferred: 'CallsBlindTransferred',
+      callsCausedIVRException: 'CallsCausedIVRException',
       callsForwardToOutsideNumber: 'CallsForwardToOutsideNumber',
       callsHandled: 'CallsHandled',
       callsHold: 'CallsHold',
@@ -17497,6 +17575,7 @@ export class GetHistoricalInstanceReportResponseBodyDataInbound extends $tea.Mod
       callsQueuingOverflow: 'CallsQueuingOverflow',
       callsQueuingTimeout: 'CallsQueuingTimeout',
       callsRinged: 'CallsRinged',
+      callsToVoicemail: 'CallsToVoicemail',
       callsVoicemail: 'CallsVoicemail',
       handleRate: 'HandleRate',
       maxAbandonTime: 'MaxAbandonTime',
@@ -17512,12 +17591,17 @@ export class GetHistoricalInstanceReportResponseBodyDataInbound extends $tea.Mod
       satisfactionRate: 'SatisfactionRate',
       satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
       satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      serviceLevel15: 'ServiceLevel15',
       serviceLevel20: 'ServiceLevel20',
+      serviceLevel30: 'ServiceLevel30',
       totalAbandonTime: 'TotalAbandonTime',
       totalAbandonedInIVRTime: 'TotalAbandonedInIVRTime',
       totalAbandonedInQueueTime: 'TotalAbandonedInQueueTime',
       totalAbandonedInRingTime: 'TotalAbandonedInRingTime',
       totalHoldTime: 'TotalHoldTime',
+      totalMessagesSent: 'TotalMessagesSent',
+      totalMessagesSentByAgent: 'TotalMessagesSentByAgent',
+      totalMessagesSentByCustomer: 'TotalMessagesSentByCustomer',
       totalRingTime: 'TotalRingTime',
       totalTalkTime: 'TotalTalkTime',
       totalWaitTime: 'TotalWaitTime',
@@ -17528,11 +17612,14 @@ export class GetHistoricalInstanceReportResponseBodyDataInbound extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       abandonRate: 'number',
+      accessChannelTypeDetailList: { 'type': 'array', 'itemType': GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList },
       averageAbandonTime: 'number',
       averageAbandonedInIVRTime: 'number',
       averageAbandonedInQueueTime: 'number',
       averageAbandonedInRingTime: 'number',
+      averageFirstResponseTime: 'number',
       averageHoldTime: 'number',
+      averageResponseTime: 'number',
       averageRingTime: 'number',
       averageTalkTime: 'number',
       averageWaitTime: 'number',
@@ -17544,6 +17631,7 @@ export class GetHistoricalInstanceReportResponseBodyDataInbound extends $tea.Mod
       callsAbandonedInVoiceNavigator: 'number',
       callsAttendedTransferred: 'number',
       callsBlindTransferred: 'number',
+      callsCausedIVRException: 'number',
       callsForwardToOutsideNumber: 'number',
       callsHandled: 'number',
       callsHold: 'number',
@@ -17554,6 +17642,7 @@ export class GetHistoricalInstanceReportResponseBodyDataInbound extends $tea.Mod
       callsQueuingOverflow: 'number',
       callsQueuingTimeout: 'number',
       callsRinged: 'number',
+      callsToVoicemail: 'number',
       callsVoicemail: 'number',
       handleRate: 'number',
       maxAbandonTime: 'number',
@@ -17569,16 +17658,43 @@ export class GetHistoricalInstanceReportResponseBodyDataInbound extends $tea.Mod
       satisfactionRate: 'number',
       satisfactionSurveysOffered: 'number',
       satisfactionSurveysResponded: 'number',
+      serviceLevel15: 'number',
       serviceLevel20: 'number',
+      serviceLevel30: 'number',
       totalAbandonTime: 'number',
       totalAbandonedInIVRTime: 'number',
       totalAbandonedInQueueTime: 'number',
       totalAbandonedInRingTime: 'number',
       totalHoldTime: 'number',
+      totalMessagesSent: 'number',
+      totalMessagesSentByAgent: 'number',
+      totalMessagesSentByCustomer: 'number',
       totalRingTime: 'number',
       totalTalkTime: 'number',
       totalWaitTime: 'number',
       totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHistoricalInstanceReportResponseBodyDataInternal extends $tea.Model {
+  callsAnswered?: number;
+  callsDialed?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callsAnswered: 'CallsAnswered',
+      callsDialed: 'CallsDialed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callsAnswered: 'number',
+      callsDialed: 'number',
     };
   }
 
@@ -17689,6 +17805,7 @@ export class GetHistoricalInstanceReportResponseBodyDataOverall extends $tea.Mod
   averageWorkTime?: number;
   maxBreakTime?: number;
   maxHoldTime?: number;
+  maxLoggedInAgents?: number;
   maxReadyTime?: number;
   maxTalkTime?: number;
   maxWorkTime?: number;
@@ -17713,6 +17830,7 @@ export class GetHistoricalInstanceReportResponseBodyDataOverall extends $tea.Mod
       averageWorkTime: 'AverageWorkTime',
       maxBreakTime: 'MaxBreakTime',
       maxHoldTime: 'MaxHoldTime',
+      maxLoggedInAgents: 'MaxLoggedInAgents',
       maxReadyTime: 'MaxReadyTime',
       maxTalkTime: 'MaxTalkTime',
       maxWorkTime: 'MaxWorkTime',
@@ -17740,6 +17858,7 @@ export class GetHistoricalInstanceReportResponseBodyDataOverall extends $tea.Mod
       averageWorkTime: 'number',
       maxBreakTime: 'number',
       maxHoldTime: 'number',
+      maxLoggedInAgents: 'number',
       maxReadyTime: 'number',
       maxTalkTime: 'number',
       maxWorkTime: 'number',
@@ -17765,11 +17884,13 @@ export class GetHistoricalInstanceReportResponseBodyDataOverall extends $tea.Mod
 
 export class GetHistoricalInstanceReportResponseBodyData extends $tea.Model {
   inbound?: GetHistoricalInstanceReportResponseBodyDataInbound;
+  internal?: GetHistoricalInstanceReportResponseBodyDataInternal;
   outbound?: GetHistoricalInstanceReportResponseBodyDataOutbound;
   overall?: GetHistoricalInstanceReportResponseBodyDataOverall;
   static names(): { [key: string]: string } {
     return {
       inbound: 'Inbound',
+      internal: 'Internal',
       outbound: 'Outbound',
       overall: 'Overall',
     };
@@ -17778,6 +17899,7 @@ export class GetHistoricalInstanceReportResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       inbound: GetHistoricalInstanceReportResponseBodyDataInbound,
+      internal: GetHistoricalInstanceReportResponseBodyDataInternal,
       outbound: GetHistoricalInstanceReportResponseBodyDataOutbound,
       overall: GetHistoricalInstanceReportResponseBodyDataOverall,
     };
@@ -20206,33 +20328,57 @@ export class ListCallTagsResponseBodyData extends $tea.Model {
 
 export class ListCampaignTrendingReportResponseBodyData extends $tea.Model {
   breakAgents?: number;
+  breakingAgents?: number;
   concurrency?: number;
   datetime?: number;
   loggedInAgents?: number;
+  outboundScenarioBreakingAgents?: number;
+  outboundScenarioReadyAgents?: number;
+  outboundScenarioTalkingAgents?: number;
+  outboundScenarioWorkingAgents?: number;
   readyAgents?: number;
+  statsTime?: number;
   talkAgents?: number;
+  talkingAgents?: number;
   workAgents?: number;
+  workingAgents?: number;
   static names(): { [key: string]: string } {
     return {
       breakAgents: 'BreakAgents',
+      breakingAgents: 'BreakingAgents',
       concurrency: 'Concurrency',
       datetime: 'Datetime',
       loggedInAgents: 'LoggedInAgents',
+      outboundScenarioBreakingAgents: 'OutboundScenarioBreakingAgents',
+      outboundScenarioReadyAgents: 'OutboundScenarioReadyAgents',
+      outboundScenarioTalkingAgents: 'OutboundScenarioTalkingAgents',
+      outboundScenarioWorkingAgents: 'OutboundScenarioWorkingAgents',
       readyAgents: 'ReadyAgents',
+      statsTime: 'StatsTime',
       talkAgents: 'TalkAgents',
+      talkingAgents: 'TalkingAgents',
       workAgents: 'WorkAgents',
+      workingAgents: 'WorkingAgents',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       breakAgents: 'number',
+      breakingAgents: 'number',
       concurrency: 'number',
       datetime: 'number',
       loggedInAgents: 'number',
+      outboundScenarioBreakingAgents: 'number',
+      outboundScenarioReadyAgents: 'number',
+      outboundScenarioTalkingAgents: 'number',
+      outboundScenarioWorkingAgents: 'number',
       readyAgents: 'number',
+      statsTime: 'number',
       talkAgents: 'number',
+      talkingAgents: 'number',
       workAgents: 'number',
+      workingAgents: 'number',
     };
   }
 
@@ -20343,6 +20489,7 @@ export class ListCampaignsResponseBodyData extends $tea.Model {
 }
 
 export class ListCasesResponseBodyDataList extends $tea.Model {
+  abandonPhase?: string;
   abandonType?: string;
   attemptCount?: number;
   caseId?: string;
@@ -20352,6 +20499,7 @@ export class ListCasesResponseBodyDataList extends $tea.Model {
   state?: string;
   static names(): { [key: string]: string } {
     return {
+      abandonPhase: 'AbandonPhase',
       abandonType: 'AbandonType',
       attemptCount: 'AttemptCount',
       caseId: 'CaseId',
@@ -20364,6 +20512,7 @@ export class ListCasesResponseBodyDataList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      abandonPhase: 'string',
       abandonType: 'string',
       attemptCount: 'number',
       caseId: 'string',
@@ -20704,8 +20853,97 @@ export class ListDoNotCallNumbersResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListHistoricalAgentReportResponseBodyDataListBack2Back extends $tea.Model {
+  agentHandleRate?: string;
+  answerRate?: string;
+  averageCustomerRingTime?: string;
+  averageRingTime?: string;
+  averageTalkTime?: string;
+  callsAgentHandled?: string;
+  callsAnswered?: string;
+  callsCustomerAnswered?: string;
+  callsDialed?: string;
+  customerAnswerRate?: string;
+  maxCustomerRingTime?: string;
+  maxRingTime?: string;
+  maxTalkTime?: string;
+  totalCustomerRingTime?: string;
+  totalRingTime?: string;
+  totalTalkTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentHandleRate: 'AgentHandleRate',
+      answerRate: 'AnswerRate',
+      averageCustomerRingTime: 'AverageCustomerRingTime',
+      averageRingTime: 'AverageRingTime',
+      averageTalkTime: 'AverageTalkTime',
+      callsAgentHandled: 'CallsAgentHandled',
+      callsAnswered: 'CallsAnswered',
+      callsCustomerAnswered: 'CallsCustomerAnswered',
+      callsDialed: 'CallsDialed',
+      customerAnswerRate: 'CustomerAnswerRate',
+      maxCustomerRingTime: 'MaxCustomerRingTime',
+      maxRingTime: 'MaxRingTime',
+      maxTalkTime: 'MaxTalkTime',
+      totalCustomerRingTime: 'TotalCustomerRingTime',
+      totalRingTime: 'TotalRingTime',
+      totalTalkTime: 'TotalTalkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentHandleRate: 'string',
+      answerRate: 'string',
+      averageCustomerRingTime: 'string',
+      averageRingTime: 'string',
+      averageTalkTime: 'string',
+      callsAgentHandled: 'string',
+      callsAnswered: 'string',
+      callsCustomerAnswered: 'string',
+      callsDialed: 'string',
+      customerAnswerRate: 'string',
+      maxCustomerRingTime: 'string',
+      maxRingTime: 'string',
+      maxTalkTime: 'string',
+      totalCustomerRingTime: 'string',
+      totalRingTime: 'string',
+      totalTalkTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails extends $tea.Model {
+  accessChannelType?: string;
+  callsOffered?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessChannelType: 'AccessChannelType',
+      callsOffered: 'CallsOffered',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessChannelType: 'string',
+      callsOffered: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHistoricalAgentReportResponseBodyDataListInbound extends $tea.Model {
+  accessChannelTypeDetails?: ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails[];
+  averageFirstResponseTime?: number;
   averageHoldTime?: number;
+  averageResponseTime?: number;
   averageRingTime?: number;
   averageTalkTime?: number;
   averageWorkTime?: number;
@@ -20726,13 +20964,20 @@ export class ListHistoricalAgentReportResponseBodyDataListInbound extends $tea.M
   satisfactionRate?: number;
   satisfactionSurveysOffered?: number;
   satisfactionSurveysResponded?: number;
+  serviceLevel15?: number;
   totalHoldTime?: number;
+  totalMessagesSent?: number;
+  totalMessagesSentByAgent?: number;
+  totalMessagesSentByCustomer?: string;
   totalRingTime?: number;
   totalTalkTime?: number;
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
+      accessChannelTypeDetails: 'AccessChannelTypeDetails',
+      averageFirstResponseTime: 'AverageFirstResponseTime',
       averageHoldTime: 'AverageHoldTime',
+      averageResponseTime: 'AverageResponseTime',
       averageRingTime: 'AverageRingTime',
       averageTalkTime: 'AverageTalkTime',
       averageWorkTime: 'AverageWorkTime',
@@ -20753,7 +20998,11 @@ export class ListHistoricalAgentReportResponseBodyDataListInbound extends $tea.M
       satisfactionRate: 'SatisfactionRate',
       satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
       satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      serviceLevel15: 'ServiceLevel15',
       totalHoldTime: 'TotalHoldTime',
+      totalMessagesSent: 'TotalMessagesSent',
+      totalMessagesSentByAgent: 'TotalMessagesSentByAgent',
+      totalMessagesSentByCustomer: 'TotalMessagesSentByCustomer',
       totalRingTime: 'TotalRingTime',
       totalTalkTime: 'TotalTalkTime',
       totalWorkTime: 'TotalWorkTime',
@@ -20762,7 +21011,10 @@ export class ListHistoricalAgentReportResponseBodyDataListInbound extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
+      accessChannelTypeDetails: { 'type': 'array', 'itemType': ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails },
+      averageFirstResponseTime: 'number',
       averageHoldTime: 'number',
+      averageResponseTime: 'number',
       averageRingTime: 'number',
       averageTalkTime: 'number',
       averageWorkTime: 'number',
@@ -20783,10 +21035,54 @@ export class ListHistoricalAgentReportResponseBodyDataListInbound extends $tea.M
       satisfactionRate: 'number',
       satisfactionSurveysOffered: 'number',
       satisfactionSurveysResponded: 'number',
+      serviceLevel15: 'number',
       totalHoldTime: 'number',
+      totalMessagesSent: 'number',
+      totalMessagesSentByAgent: 'number',
+      totalMessagesSentByCustomer: 'string',
       totalRingTime: 'number',
       totalTalkTime: 'number',
       totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoricalAgentReportResponseBodyDataListInternal extends $tea.Model {
+  averageTalkTime?: number;
+  callsAnswered?: number;
+  callsDialed?: number;
+  callsHandled?: number;
+  callsOffered?: number;
+  callsTalked?: number;
+  maxTalkTime?: number;
+  totalTalkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      averageTalkTime: 'AverageTalkTime',
+      callsAnswered: 'CallsAnswered',
+      callsDialed: 'CallsDialed',
+      callsHandled: 'CallsHandled',
+      callsOffered: 'CallsOffered',
+      callsTalked: 'CallsTalked',
+      maxTalkTime: 'MaxTalkTime',
+      totalTalkTime: 'TotalTalkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageTalkTime: 'number',
+      callsAnswered: 'number',
+      callsDialed: 'number',
+      callsHandled: 'number',
+      callsOffered: 'number',
+      callsTalked: 'number',
+      maxTalkTime: 'number',
+      totalTalkTime: 'number',
     };
   }
 
@@ -20943,9 +21239,13 @@ export class ListHistoricalAgentReportResponseBodyDataListOverall extends $tea.M
   totalCalls?: number;
   totalHoldTime?: number;
   totalLoggedInTime?: number;
+  totalOffSiteLoggedInTime?: number;
   totalOffSiteOnlineTime?: number;
+  totalOfficePhoneLoggedInTime?: number;
   totalOfficePhoneOnlineTime?: number;
+  totalOnSiteLoggedInTime?: number;
   totalOnSiteOnlineTime?: number;
+  totalOutboundScenarioLoggedInTime?: number;
   totalOutboundScenarioReadyTime?: number;
   totalOutboundScenarioTime?: number;
   totalReadyTime?: number;
@@ -20975,9 +21275,13 @@ export class ListHistoricalAgentReportResponseBodyDataListOverall extends $tea.M
       totalCalls: 'TotalCalls',
       totalHoldTime: 'TotalHoldTime',
       totalLoggedInTime: 'TotalLoggedInTime',
+      totalOffSiteLoggedInTime: 'TotalOffSiteLoggedInTime',
       totalOffSiteOnlineTime: 'TotalOffSiteOnlineTime',
+      totalOfficePhoneLoggedInTime: 'TotalOfficePhoneLoggedInTime',
       totalOfficePhoneOnlineTime: 'TotalOfficePhoneOnlineTime',
+      totalOnSiteLoggedInTime: 'TotalOnSiteLoggedInTime',
       totalOnSiteOnlineTime: 'TotalOnSiteOnlineTime',
+      totalOutboundScenarioLoggedInTime: 'TotalOutboundScenarioLoggedInTime',
       totalOutboundScenarioReadyTime: 'TotalOutboundScenarioReadyTime',
       totalOutboundScenarioTime: 'TotalOutboundScenarioTime',
       totalReadyTime: 'TotalReadyTime',
@@ -21010,9 +21314,13 @@ export class ListHistoricalAgentReportResponseBodyDataListOverall extends $tea.M
       totalCalls: 'number',
       totalHoldTime: 'number',
       totalLoggedInTime: 'number',
+      totalOffSiteLoggedInTime: 'number',
       totalOffSiteOnlineTime: 'number',
+      totalOfficePhoneLoggedInTime: 'number',
       totalOfficePhoneOnlineTime: 'number',
+      totalOnSiteLoggedInTime: 'number',
       totalOnSiteOnlineTime: 'number',
+      totalOutboundScenarioLoggedInTime: 'number',
       totalOutboundScenarioReadyTime: 'number',
       totalOutboundScenarioTime: 'number',
       totalReadyTime: 'number',
@@ -21029,8 +21337,10 @@ export class ListHistoricalAgentReportResponseBodyDataListOverall extends $tea.M
 export class ListHistoricalAgentReportResponseBodyDataList extends $tea.Model {
   agentId?: string;
   agentName?: string;
+  back2Back?: ListHistoricalAgentReportResponseBodyDataListBack2Back;
   displayId?: string;
   inbound?: ListHistoricalAgentReportResponseBodyDataListInbound;
+  internal?: ListHistoricalAgentReportResponseBodyDataListInternal;
   outbound?: ListHistoricalAgentReportResponseBodyDataListOutbound;
   overall?: ListHistoricalAgentReportResponseBodyDataListOverall;
   skillGroupIds?: string;
@@ -21039,8 +21349,10 @@ export class ListHistoricalAgentReportResponseBodyDataList extends $tea.Model {
     return {
       agentId: 'AgentId',
       agentName: 'AgentName',
+      back2Back: 'Back2Back',
       displayId: 'DisplayId',
       inbound: 'Inbound',
+      internal: 'Internal',
       outbound: 'Outbound',
       overall: 'Overall',
       skillGroupIds: 'SkillGroupIds',
@@ -21052,8 +21364,10 @@ export class ListHistoricalAgentReportResponseBodyDataList extends $tea.Model {
     return {
       agentId: 'string',
       agentName: 'string',
+      back2Back: ListHistoricalAgentReportResponseBodyDataListBack2Back,
       displayId: 'string',
       inbound: ListHistoricalAgentReportResponseBodyDataListInbound,
+      internal: ListHistoricalAgentReportResponseBodyDataListInternal,
       outbound: ListHistoricalAgentReportResponseBodyDataListOutbound,
       overall: ListHistoricalAgentReportResponseBodyDataListOverall,
       skillGroupIds: 'string',
@@ -21096,13 +21410,17 @@ export class ListHistoricalAgentReportResponseBodyData extends $tea.Model {
 
 export class ListHistoricalAgentSkillGroupReportResponseBodyDataListBack2Back extends $tea.Model {
   agentAnswerRate?: number;
+  agentHandleRate?: number;
   answerRate?: number;
   averageCustomerRingTime?: number;
   averageRingTime?: number;
   averageTalkTime?: number;
+  callsAgentHandled?: number;
   callsAnswered?: number;
+  callsCustomerAnswered?: number;
   callsCustomerHandled?: number;
   callsDialed?: number;
+  customerAnswerRate?: number;
   customerHandleRate?: number;
   maxCustomerRingTime?: number;
   maxRingTime?: number;
@@ -21113,13 +21431,17 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListBack2Back ex
   static names(): { [key: string]: string } {
     return {
       agentAnswerRate: 'AgentAnswerRate',
+      agentHandleRate: 'AgentHandleRate',
       answerRate: 'AnswerRate',
       averageCustomerRingTime: 'AverageCustomerRingTime',
       averageRingTime: 'AverageRingTime',
       averageTalkTime: 'AverageTalkTime',
+      callsAgentHandled: 'CallsAgentHandled',
       callsAnswered: 'CallsAnswered',
+      callsCustomerAnswered: 'CallsCustomerAnswered',
       callsCustomerHandled: 'CallsCustomerHandled',
       callsDialed: 'CallsDialed',
+      customerAnswerRate: 'CustomerAnswerRate',
       customerHandleRate: 'CustomerHandleRate',
       maxCustomerRingTime: 'MaxCustomerRingTime',
       maxRingTime: 'MaxRingTime',
@@ -21133,13 +21455,17 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListBack2Back ex
   static types(): { [key: string]: any } {
     return {
       agentAnswerRate: 'number',
+      agentHandleRate: 'number',
       answerRate: 'number',
       averageCustomerRingTime: 'number',
       averageRingTime: 'number',
       averageTalkTime: 'number',
+      callsAgentHandled: 'number',
       callsAnswered: 'number',
+      callsCustomerAnswered: 'number',
       callsCustomerHandled: 'number',
       callsDialed: 'number',
+      customerAnswerRate: 'number',
       customerHandleRate: 'number',
       maxCustomerRingTime: 'number',
       maxRingTime: 'number',
@@ -21156,7 +21482,9 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListBack2Back ex
 }
 
 export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInbound extends $tea.Model {
+  averageFirstResponseTime?: number;
   averageHoldTime?: number;
+  averageResponseTime?: number;
   averageRingTime?: number;
   averageTalkTime?: number;
   averageWorkTime?: number;
@@ -21178,12 +21506,17 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInbound exte
   satisfactionSurveysOffered?: number;
   satisfactionSurveysResponded?: number;
   totalHoldTime?: number;
+  totalMessagesSent?: number;
+  totalMessagesSentByAgent?: number;
+  totalMessagesSentByCustomer?: number;
   totalRingTime?: number;
   totalTalkTime?: number;
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
+      averageFirstResponseTime: 'AverageFirstResponseTime',
       averageHoldTime: 'AverageHoldTime',
+      averageResponseTime: 'AverageResponseTime',
       averageRingTime: 'AverageRingTime',
       averageTalkTime: 'AverageTalkTime',
       averageWorkTime: 'AverageWorkTime',
@@ -21205,6 +21538,9 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInbound exte
       satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
       satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
       totalHoldTime: 'TotalHoldTime',
+      totalMessagesSent: 'TotalMessagesSent',
+      totalMessagesSentByAgent: 'TotalMessagesSentByAgent',
+      totalMessagesSentByCustomer: 'TotalMessagesSentByCustomer',
       totalRingTime: 'TotalRingTime',
       totalTalkTime: 'TotalTalkTime',
       totalWorkTime: 'TotalWorkTime',
@@ -21213,7 +21549,9 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInbound exte
 
   static types(): { [key: string]: any } {
     return {
+      averageFirstResponseTime: 'number',
       averageHoldTime: 'number',
+      averageResponseTime: 'number',
       averageRingTime: 'number',
       averageTalkTime: 'number',
       averageWorkTime: 'number',
@@ -21235,6 +21573,9 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInbound exte
       satisfactionSurveysOffered: 'number',
       satisfactionSurveysResponded: 'number',
       totalHoldTime: 'number',
+      totalMessagesSent: 'number',
+      totalMessagesSentByAgent: 'number',
+      totalMessagesSentByCustomer: 'number',
       totalRingTime: 'number',
       totalTalkTime: 'number',
       totalWorkTime: 'number',
@@ -21253,6 +21594,7 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInternal ext
   callsHandled?: number;
   callsOffered?: number;
   callsTalk?: number;
+  callsTalked?: number;
   maxTalkTime?: number;
   totalTalkTime?: number;
   static names(): { [key: string]: string } {
@@ -21263,6 +21605,7 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInternal ext
       callsHandled: 'CallsHandled',
       callsOffered: 'CallsOffered',
       callsTalk: 'CallsTalk',
+      callsTalked: 'CallsTalked',
       maxTalkTime: 'MaxTalkTime',
       totalTalkTime: 'TotalTalkTime',
     };
@@ -21276,6 +21619,7 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInternal ext
       callsHandled: 'number',
       callsOffered: 'number',
       callsTalk: 'number',
+      callsTalked: 'number',
       maxTalkTime: 'number',
       totalTalkTime: 'number',
     };
@@ -21434,6 +21778,10 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListOverall exte
   totalCalls?: number;
   totalHoldTime?: number;
   totalLoggedInTime?: number;
+  totalOffSiteLggedInTime?: number;
+  totalOfficePhoneLoggedInTime?: number;
+  totalOnSiteLoggedInTime?: string;
+  totalOutboundScenarioLoggedInTime?: number;
   totalOutboundScenarioReadyTime?: number;
   totalOutboundScenarioTime?: number;
   totalReadyTime?: number;
@@ -21463,6 +21811,10 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListOverall exte
       totalCalls: 'TotalCalls',
       totalHoldTime: 'TotalHoldTime',
       totalLoggedInTime: 'TotalLoggedInTime',
+      totalOffSiteLggedInTime: 'TotalOffSiteLggedInTime',
+      totalOfficePhoneLoggedInTime: 'TotalOfficePhoneLoggedInTime',
+      totalOnSiteLoggedInTime: 'TotalOnSiteLoggedInTime',
+      totalOutboundScenarioLoggedInTime: 'TotalOutboundScenarioLoggedInTime',
       totalOutboundScenarioReadyTime: 'TotalOutboundScenarioReadyTime',
       totalOutboundScenarioTime: 'TotalOutboundScenarioTime',
       totalReadyTime: 'TotalReadyTime',
@@ -21495,6 +21847,10 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListOverall exte
       totalCalls: 'number',
       totalHoldTime: 'number',
       totalLoggedInTime: 'number',
+      totalOffSiteLggedInTime: 'number',
+      totalOfficePhoneLoggedInTime: 'number',
+      totalOnSiteLoggedInTime: 'string',
+      totalOutboundScenarioLoggedInTime: 'number',
       totalOutboundScenarioReadyTime: 'number',
       totalOutboundScenarioTime: 'number',
       totalReadyTime: 'number',
@@ -21582,12 +21938,98 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyData extends $tea.Mo
   }
 }
 
+export class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back extends $tea.Model {
+  agentHandleRate?: number;
+  answerRate?: number;
+  averageCustomerRingTime?: number;
+  averageRingTime?: number;
+  averageTalkTime?: number;
+  callsAnswered?: number;
+  callsCustomerAnswered?: number;
+  callsDialed?: number;
+  customerAnswerRate?: number;
+  maxCustomerRingTime?: number;
+  maxRingTime?: number;
+  maxTalkTime?: number;
+  totalCustomerRingTime?: number;
+  totalRingTime?: number;
+  totalTalkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentHandleRate: 'AgentHandleRate',
+      answerRate: 'AnswerRate',
+      averageCustomerRingTime: 'AverageCustomerRingTime',
+      averageRingTime: 'AverageRingTime',
+      averageTalkTime: 'AverageTalkTime',
+      callsAnswered: 'CallsAnswered',
+      callsCustomerAnswered: 'CallsCustomerAnswered',
+      callsDialed: 'CallsDialed',
+      customerAnswerRate: 'CustomerAnswerRate',
+      maxCustomerRingTime: 'MaxCustomerRingTime',
+      maxRingTime: 'MaxRingTime',
+      maxTalkTime: 'MaxTalkTime',
+      totalCustomerRingTime: 'TotalCustomerRingTime',
+      totalRingTime: 'TotalRingTime',
+      totalTalkTime: 'TotalTalkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentHandleRate: 'number',
+      answerRate: 'number',
+      averageCustomerRingTime: 'number',
+      averageRingTime: 'number',
+      averageTalkTime: 'number',
+      callsAnswered: 'number',
+      callsCustomerAnswered: 'number',
+      callsDialed: 'number',
+      customerAnswerRate: 'number',
+      maxCustomerRingTime: 'number',
+      maxRingTime: 'number',
+      maxTalkTime: 'number',
+      totalCustomerRingTime: 'number',
+      totalRingTime: 'number',
+      totalTalkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails extends $tea.Model {
+  accessChannelType?: string;
+  callsOffered?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessChannelType: 'AccessChannelType',
+      callsOffered: 'CallsOffered',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessChannelType: 'string',
+      callsOffered: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $tea.Model {
   abandonRate?: number;
+  accessChannelTypeDetails?: ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails[];
   averageAbandonTime?: number;
   averageAbandonedInQueueTime?: number;
   averageAbandonedInRingTime?: number;
+  averageFirstResponseTime?: number;
   averageHoldTime?: number;
+  averageResponseTime?: number;
   averageRingTime?: number;
   averageTalkTime?: number;
   averageWaitTime?: number;
@@ -21604,6 +22046,9 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   callsOffered?: number;
   callsOverflow?: number;
   callsQueued?: number;
+  callsQueuingFailed?: number;
+  callsQueuingOverflow?: number;
+  callsQueuingTimeout?: number;
   callsRinged?: number;
   callsTimeout?: number;
   handleRate?: number;
@@ -21619,11 +22064,16 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   satisfactionRate?: number;
   satisfactionSurveysOffered?: number;
   satisfactionSurveysResponded?: number;
+  serviceLevel15?: number;
   serviceLevel20?: number;
+  serviceLevel30?: number;
   totalAbandonTime?: number;
   totalAbandonedInQueueTime?: number;
   totalAbandonedInRingTime?: number;
   totalHoldTime?: number;
+  totalMessagesSent?: number;
+  totalMessagesSentByAgent?: number;
+  totalMessagesSentByCustomer?: number;
   totalRingTime?: number;
   totalTalkTime?: number;
   totalWaitTime?: number;
@@ -21631,10 +22081,13 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   static names(): { [key: string]: string } {
     return {
       abandonRate: 'AbandonRate',
+      accessChannelTypeDetails: 'AccessChannelTypeDetails',
       averageAbandonTime: 'AverageAbandonTime',
       averageAbandonedInQueueTime: 'AverageAbandonedInQueueTime',
       averageAbandonedInRingTime: 'AverageAbandonedInRingTime',
+      averageFirstResponseTime: 'AverageFirstResponseTime',
       averageHoldTime: 'AverageHoldTime',
+      averageResponseTime: 'AverageResponseTime',
       averageRingTime: 'AverageRingTime',
       averageTalkTime: 'AverageTalkTime',
       averageWaitTime: 'AverageWaitTime',
@@ -21651,6 +22104,9 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
       callsOffered: 'CallsOffered',
       callsOverflow: 'CallsOverflow',
       callsQueued: 'CallsQueued',
+      callsQueuingFailed: 'CallsQueuingFailed',
+      callsQueuingOverflow: 'CallsQueuingOverflow',
+      callsQueuingTimeout: 'CallsQueuingTimeout',
       callsRinged: 'CallsRinged',
       callsTimeout: 'CallsTimeout',
       handleRate: 'HandleRate',
@@ -21666,11 +22122,16 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
       satisfactionRate: 'SatisfactionRate',
       satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
       satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      serviceLevel15: 'ServiceLevel15',
       serviceLevel20: 'ServiceLevel20',
+      serviceLevel30: 'ServiceLevel30',
       totalAbandonTime: 'TotalAbandonTime',
       totalAbandonedInQueueTime: 'TotalAbandonedInQueueTime',
       totalAbandonedInRingTime: 'TotalAbandonedInRingTime',
       totalHoldTime: 'TotalHoldTime',
+      totalMessagesSent: 'TotalMessagesSent',
+      totalMessagesSentByAgent: 'TotalMessagesSentByAgent',
+      totalMessagesSentByCustomer: 'TotalMessagesSentByCustomer',
       totalRingTime: 'TotalRingTime',
       totalTalkTime: 'TotalTalkTime',
       totalWaitTime: 'TotalWaitTime',
@@ -21681,10 +22142,13 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
   static types(): { [key: string]: any } {
     return {
       abandonRate: 'number',
+      accessChannelTypeDetails: { 'type': 'array', 'itemType': ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails },
       averageAbandonTime: 'number',
       averageAbandonedInQueueTime: 'number',
       averageAbandonedInRingTime: 'number',
+      averageFirstResponseTime: 'number',
       averageHoldTime: 'number',
+      averageResponseTime: 'number',
       averageRingTime: 'number',
       averageTalkTime: 'number',
       averageWaitTime: 'number',
@@ -21701,6 +22165,9 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
       callsOffered: 'number',
       callsOverflow: 'number',
       callsQueued: 'number',
+      callsQueuingFailed: 'number',
+      callsQueuingOverflow: 'number',
+      callsQueuingTimeout: 'number',
       callsRinged: 'number',
       callsTimeout: 'number',
       handleRate: 'number',
@@ -21716,11 +22183,16 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
       satisfactionRate: 'number',
       satisfactionSurveysOffered: 'number',
       satisfactionSurveysResponded: 'number',
+      serviceLevel15: 'number',
       serviceLevel20: 'number',
+      serviceLevel30: 'number',
       totalAbandonTime: 'number',
       totalAbandonedInQueueTime: 'number',
       totalAbandonedInRingTime: 'number',
       totalHoldTime: 'number',
+      totalMessagesSent: 'number',
+      totalMessagesSentByAgent: 'number',
+      totalMessagesSentByCustomer: 'number',
       totalRingTime: 'number',
       totalTalkTime: 'number',
       totalWaitTime: 'number',
@@ -21833,12 +22305,38 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends 
   }
 }
 
+export class ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList extends $tea.Model {
+  breakCode?: string;
+  count?: number;
+  duration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      breakCode: 'BreakCode',
+      count: 'Count',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakCode: 'string',
+      count: 'number',
+      duration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $tea.Model {
   averageBreakTime?: number;
   averageHoldTime?: number;
   averageReadyTime?: number;
   averageTalkTime?: number;
   averageWorkTime?: number;
+  breakCodeDetailList?: ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList[];
   maxBreakTime?: number;
   maxHoldTime?: number;
   maxReadyTime?: number;
@@ -21863,6 +22361,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
       averageReadyTime: 'AverageReadyTime',
       averageTalkTime: 'AverageTalkTime',
       averageWorkTime: 'AverageWorkTime',
+      breakCodeDetailList: 'BreakCodeDetailList',
       maxBreakTime: 'MaxBreakTime',
       maxHoldTime: 'MaxHoldTime',
       maxReadyTime: 'MaxReadyTime',
@@ -21890,6 +22389,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
       averageReadyTime: 'number',
       averageTalkTime: 'number',
       averageWorkTime: 'number',
+      breakCodeDetailList: { 'type': 'array', 'itemType': ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList },
       maxBreakTime: 'number',
       maxHoldTime: 'number',
       maxReadyTime: 'number',
@@ -21916,6 +22416,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $
 }
 
 export class ListHistoricalSkillGroupReportResponseBodyDataList extends $tea.Model {
+  back2Back?: ListHistoricalSkillGroupReportResponseBodyDataListBack2Back;
   inbound?: ListHistoricalSkillGroupReportResponseBodyDataListInbound;
   outbound?: ListHistoricalSkillGroupReportResponseBodyDataListOutbound;
   overall?: ListHistoricalSkillGroupReportResponseBodyDataListOverall;
@@ -21923,6 +22424,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataList extends $tea.Mod
   skillGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      back2Back: 'Back2Back',
       inbound: 'Inbound',
       outbound: 'Outbound',
       overall: 'Overall',
@@ -21933,6 +22435,7 @@ export class ListHistoricalSkillGroupReportResponseBodyDataList extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      back2Back: ListHistoricalSkillGroupReportResponseBodyDataListBack2Back,
       inbound: ListHistoricalSkillGroupReportResponseBodyDataListInbound,
       outbound: ListHistoricalSkillGroupReportResponseBodyDataListOutbound,
       overall: ListHistoricalSkillGroupReportResponseBodyDataListOverall,
@@ -22310,8 +22813,97 @@ export class ListInstancesOfUserResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListIntervalAgentReportResponseBodyDataBack2Back extends $tea.Model {
+  agentHandleRate?: number;
+  answerRate?: number;
+  averageCustomerRingTime?: number;
+  averageRingTime?: number;
+  averageTalkTime?: number;
+  callsAgentHandled?: number;
+  callsAnswered?: number;
+  callsCustomerAnswered?: number;
+  callsDialed?: number;
+  customerAnswerRate?: number;
+  maxCustomerRingTime?: number;
+  maxRingTime?: number;
+  maxTalkTime?: number;
+  totalCustomerRingTime?: number;
+  totalRingTime?: number;
+  totalTalkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentHandleRate: 'AgentHandleRate',
+      answerRate: 'AnswerRate',
+      averageCustomerRingTime: 'AverageCustomerRingTime',
+      averageRingTime: 'AverageRingTime',
+      averageTalkTime: 'AverageTalkTime',
+      callsAgentHandled: 'CallsAgentHandled',
+      callsAnswered: 'CallsAnswered',
+      callsCustomerAnswered: 'CallsCustomerAnswered',
+      callsDialed: 'CallsDialed',
+      customerAnswerRate: 'CustomerAnswerRate',
+      maxCustomerRingTime: 'MaxCustomerRingTime',
+      maxRingTime: 'MaxRingTime',
+      maxTalkTime: 'MaxTalkTime',
+      totalCustomerRingTime: 'TotalCustomerRingTime',
+      totalRingTime: 'TotalRingTime',
+      totalTalkTime: 'TotalTalkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentHandleRate: 'number',
+      answerRate: 'number',
+      averageCustomerRingTime: 'number',
+      averageRingTime: 'number',
+      averageTalkTime: 'number',
+      callsAgentHandled: 'number',
+      callsAnswered: 'number',
+      callsCustomerAnswered: 'number',
+      callsDialed: 'number',
+      customerAnswerRate: 'number',
+      maxCustomerRingTime: 'number',
+      maxRingTime: 'number',
+      maxTalkTime: 'number',
+      totalCustomerRingTime: 'number',
+      totalRingTime: 'number',
+      totalTalkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervalAgentReportResponseBodyDataInboundAccessChannelTypeDetails extends $tea.Model {
+  accessChannelType?: string;
+  callsOffered?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessChannelType: 'AccessChannelType',
+      callsOffered: 'CallsOffered',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessChannelType: 'string',
+      callsOffered: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIntervalAgentReportResponseBodyDataInbound extends $tea.Model {
+  accessChannelTypeDetails?: ListIntervalAgentReportResponseBodyDataInboundAccessChannelTypeDetails[];
+  averageFirstResponseTime?: number;
   averageHoldTime?: number;
+  averageResponseTime?: number;
   averageRingTime?: number;
   averageTalkTime?: number;
   averageWorkTime?: number;
@@ -22332,13 +22924,20 @@ export class ListIntervalAgentReportResponseBodyDataInbound extends $tea.Model {
   satisfactionRate?: number;
   satisfactionSurveysOffered?: number;
   satisfactionSurveysResponded?: number;
+  serviceLevel15?: number;
   totalHoldTime?: number;
+  totalMessagesSent?: number;
+  totalMessagesSentByAgent?: number;
+  totalMessagesSentByCustomer?: number;
   totalRingTime?: number;
   totalTalkTime?: number;
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
+      accessChannelTypeDetails: 'AccessChannelTypeDetails',
+      averageFirstResponseTime: 'AverageFirstResponseTime',
       averageHoldTime: 'AverageHoldTime',
+      averageResponseTime: 'AverageResponseTime',
       averageRingTime: 'AverageRingTime',
       averageTalkTime: 'AverageTalkTime',
       averageWorkTime: 'AverageWorkTime',
@@ -22359,7 +22958,11 @@ export class ListIntervalAgentReportResponseBodyDataInbound extends $tea.Model {
       satisfactionRate: 'SatisfactionRate',
       satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
       satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      serviceLevel15: 'ServiceLevel15',
       totalHoldTime: 'TotalHoldTime',
+      totalMessagesSent: 'TotalMessagesSent',
+      totalMessagesSentByAgent: 'TotalMessagesSentByAgent',
+      totalMessagesSentByCustomer: 'TotalMessagesSentByCustomer',
       totalRingTime: 'TotalRingTime',
       totalTalkTime: 'TotalTalkTime',
       totalWorkTime: 'TotalWorkTime',
@@ -22368,7 +22971,10 @@ export class ListIntervalAgentReportResponseBodyDataInbound extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessChannelTypeDetails: { 'type': 'array', 'itemType': ListIntervalAgentReportResponseBodyDataInboundAccessChannelTypeDetails },
+      averageFirstResponseTime: 'number',
       averageHoldTime: 'number',
+      averageResponseTime: 'number',
       averageRingTime: 'number',
       averageTalkTime: 'number',
       averageWorkTime: 'number',
@@ -22389,10 +22995,48 @@ export class ListIntervalAgentReportResponseBodyDataInbound extends $tea.Model {
       satisfactionRate: 'number',
       satisfactionSurveysOffered: 'number',
       satisfactionSurveysResponded: 'number',
+      serviceLevel15: 'number',
       totalHoldTime: 'number',
+      totalMessagesSent: 'number',
+      totalMessagesSentByAgent: 'number',
+      totalMessagesSentByCustomer: 'number',
       totalRingTime: 'number',
       totalTalkTime: 'number',
       totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervalAgentReportResponseBodyDataInternal extends $tea.Model {
+  averageTalkTime?: number;
+  callsAnswered?: number;
+  callsDialed?: number;
+  callsHandled?: number;
+  callsOffered?: number;
+  callsTalked?: number;
+  static names(): { [key: string]: string } {
+    return {
+      averageTalkTime: 'AverageTalkTime',
+      callsAnswered: 'CallsAnswered',
+      callsDialed: 'CallsDialed',
+      callsHandled: 'CallsHandled',
+      callsOffered: 'CallsOffered',
+      callsTalked: 'CallsTalked',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageTalkTime: 'number',
+      callsAnswered: 'number',
+      callsDialed: 'number',
+      callsHandled: 'number',
+      callsOffered: 'number',
+      callsTalked: 'number',
     };
   }
 
@@ -22534,6 +23178,7 @@ export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
   averageWorkTime?: number;
   breakCodeDetailList?: ListIntervalAgentReportResponseBodyDataOverallBreakCodeDetailList[];
   firstCheckInTime?: number;
+  lastCheckOutTime?: number;
   lastCheckoutTime?: number;
   maxBreakTime?: number;
   maxHoldTime?: number;
@@ -22549,9 +23194,13 @@ export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
   totalCalls?: number;
   totalHoldTime?: number;
   totalLoggedInTime?: number;
+  totalOffSiteLoggedInTime?: number;
   totalOffSiteOnlineTime?: number;
+  totalOfficePhoneLoggedInTime?: number;
   totalOfficePhoneOnlineTime?: number;
+  totalOnSiteLoggedInTime?: number;
   totalOnSiteOnlineTime?: number;
+  totalOutboundScenarioLoggedInTime?: number;
   totalOutboundScenarioReadyTime?: number;
   totalOutboundScenarioTime?: number;
   totalReadyTime?: number;
@@ -22566,6 +23215,7 @@ export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
       averageWorkTime: 'AverageWorkTime',
       breakCodeDetailList: 'BreakCodeDetailList',
       firstCheckInTime: 'FirstCheckInTime',
+      lastCheckOutTime: 'LastCheckOutTime',
       lastCheckoutTime: 'LastCheckoutTime',
       maxBreakTime: 'MaxBreakTime',
       maxHoldTime: 'MaxHoldTime',
@@ -22581,9 +23231,13 @@ export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
       totalCalls: 'TotalCalls',
       totalHoldTime: 'TotalHoldTime',
       totalLoggedInTime: 'TotalLoggedInTime',
+      totalOffSiteLoggedInTime: 'TotalOffSiteLoggedInTime',
       totalOffSiteOnlineTime: 'TotalOffSiteOnlineTime',
+      totalOfficePhoneLoggedInTime: 'TotalOfficePhoneLoggedInTime',
       totalOfficePhoneOnlineTime: 'TotalOfficePhoneOnlineTime',
+      totalOnSiteLoggedInTime: 'TotalOnSiteLoggedInTime',
       totalOnSiteOnlineTime: 'TotalOnSiteOnlineTime',
+      totalOutboundScenarioLoggedInTime: 'TotalOutboundScenarioLoggedInTime',
       totalOutboundScenarioReadyTime: 'TotalOutboundScenarioReadyTime',
       totalOutboundScenarioTime: 'TotalOutboundScenarioTime',
       totalReadyTime: 'TotalReadyTime',
@@ -22601,6 +23255,7 @@ export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
       averageWorkTime: 'number',
       breakCodeDetailList: { 'type': 'array', 'itemType': ListIntervalAgentReportResponseBodyDataOverallBreakCodeDetailList },
       firstCheckInTime: 'number',
+      lastCheckOutTime: 'number',
       lastCheckoutTime: 'number',
       maxBreakTime: 'number',
       maxHoldTime: 'number',
@@ -22616,9 +23271,13 @@ export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
       totalCalls: 'number',
       totalHoldTime: 'number',
       totalLoggedInTime: 'number',
+      totalOffSiteLoggedInTime: 'number',
       totalOffSiteOnlineTime: 'number',
+      totalOfficePhoneLoggedInTime: 'number',
       totalOfficePhoneOnlineTime: 'number',
+      totalOnSiteLoggedInTime: 'number',
       totalOnSiteOnlineTime: 'number',
+      totalOutboundScenarioLoggedInTime: 'number',
       totalOutboundScenarioReadyTime: 'number',
       totalOutboundScenarioTime: 'number',
       totalReadyTime: 'number',
@@ -22633,13 +23292,17 @@ export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
 }
 
 export class ListIntervalAgentReportResponseBodyData extends $tea.Model {
+  back2Back?: ListIntervalAgentReportResponseBodyDataBack2Back;
   inbound?: ListIntervalAgentReportResponseBodyDataInbound;
+  internal?: ListIntervalAgentReportResponseBodyDataInternal;
   outbound?: ListIntervalAgentReportResponseBodyDataOutbound;
   overall?: ListIntervalAgentReportResponseBodyDataOverall;
   statsTime?: number;
   static names(): { [key: string]: string } {
     return {
+      back2Back: 'Back2Back',
       inbound: 'Inbound',
+      internal: 'Internal',
       outbound: 'Outbound',
       overall: 'Overall',
       statsTime: 'StatsTime',
@@ -22648,7 +23311,9 @@ export class ListIntervalAgentReportResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      back2Back: ListIntervalAgentReportResponseBodyDataBack2Back,
       inbound: ListIntervalAgentReportResponseBodyDataInbound,
+      internal: ListIntervalAgentReportResponseBodyDataInternal,
       outbound: ListIntervalAgentReportResponseBodyDataOutbound,
       overall: ListIntervalAgentReportResponseBodyDataOverall,
       statsTime: 'number',
@@ -22662,13 +23327,17 @@ export class ListIntervalAgentReportResponseBodyData extends $tea.Model {
 
 export class ListIntervalAgentSkillGroupReportResponseBodyDataBack2Back extends $tea.Model {
   agentAnswerRate?: number;
+  agentHandleRate?: number;
   answerRate?: number;
   averageCustomerRingTime?: number;
   averageRingTime?: number;
   averageTalkTime?: number;
+  callsAgentHandled?: number;
   callsAnswered?: number;
+  callsCustomerAnswered?: number;
   callsCustomerHandled?: number;
   callsDialed?: number;
+  customerAnswerRate?: number;
   customerHandleRate?: number;
   maxCustomerRingTime?: number;
   maxRingTime?: number;
@@ -22679,13 +23348,17 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataBack2Back extends 
   static names(): { [key: string]: string } {
     return {
       agentAnswerRate: 'AgentAnswerRate',
+      agentHandleRate: 'AgentHandleRate',
       answerRate: 'AnswerRate',
       averageCustomerRingTime: 'AverageCustomerRingTime',
       averageRingTime: 'AverageRingTime',
       averageTalkTime: 'AverageTalkTime',
+      callsAgentHandled: 'CallsAgentHandled',
       callsAnswered: 'CallsAnswered',
+      callsCustomerAnswered: 'CallsCustomerAnswered',
       callsCustomerHandled: 'CallsCustomerHandled',
       callsDialed: 'CallsDialed',
+      customerAnswerRate: 'CustomerAnswerRate',
       customerHandleRate: 'CustomerHandleRate',
       maxCustomerRingTime: 'MaxCustomerRingTime',
       maxRingTime: 'MaxRingTime',
@@ -22699,13 +23372,17 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataBack2Back extends 
   static types(): { [key: string]: any } {
     return {
       agentAnswerRate: 'number',
+      agentHandleRate: 'number',
       answerRate: 'number',
       averageCustomerRingTime: 'number',
       averageRingTime: 'number',
       averageTalkTime: 'number',
+      callsAgentHandled: 'number',
       callsAnswered: 'number',
+      callsCustomerAnswered: 'number',
       callsCustomerHandled: 'number',
       callsDialed: 'number',
+      customerAnswerRate: 'number',
       customerHandleRate: 'number',
       maxCustomerRingTime: 'number',
       maxRingTime: 'number',
@@ -22722,7 +23399,9 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataBack2Back extends 
 }
 
 export class ListIntervalAgentSkillGroupReportResponseBodyDataInbound extends $tea.Model {
+  averageFirstResponseTime?: number;
   averageHoldTime?: number;
+  averageResponseTime?: number;
   averageRingTime?: number;
   averageTalkTime?: number;
   averageWorkTime?: number;
@@ -22744,12 +23423,17 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataInbound extends $t
   satisfactionSurveysOffered?: number;
   satisfactionSurveysResponded?: number;
   totalHoldTime?: number;
+  totalMessagesSent?: number;
+  totalMessagesSentByAgent?: number;
+  totalMessagesSentByCustomer?: number;
   totalRingTime?: number;
   totalTalkTime?: number;
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
+      averageFirstResponseTime: 'AverageFirstResponseTime',
       averageHoldTime: 'AverageHoldTime',
+      averageResponseTime: 'AverageResponseTime',
       averageRingTime: 'AverageRingTime',
       averageTalkTime: 'AverageTalkTime',
       averageWorkTime: 'AverageWorkTime',
@@ -22771,6 +23455,9 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataInbound extends $t
       satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
       satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
       totalHoldTime: 'TotalHoldTime',
+      totalMessagesSent: 'TotalMessagesSent',
+      totalMessagesSentByAgent: 'TotalMessagesSentByAgent',
+      totalMessagesSentByCustomer: 'TotalMessagesSentByCustomer',
       totalRingTime: 'TotalRingTime',
       totalTalkTime: 'TotalTalkTime',
       totalWorkTime: 'TotalWorkTime',
@@ -22779,7 +23466,9 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataInbound extends $t
 
   static types(): { [key: string]: any } {
     return {
+      averageFirstResponseTime: 'number',
       averageHoldTime: 'number',
+      averageResponseTime: 'number',
       averageRingTime: 'number',
       averageTalkTime: 'number',
       averageWorkTime: 'number',
@@ -22801,6 +23490,9 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataInbound extends $t
       satisfactionSurveysOffered: 'number',
       satisfactionSurveysResponded: 'number',
       totalHoldTime: 'number',
+      totalMessagesSent: 'number',
+      totalMessagesSentByAgent: 'number',
+      totalMessagesSentByCustomer: 'number',
       totalRingTime: 'number',
       totalTalkTime: 'number',
       totalWorkTime: 'number',
@@ -22819,6 +23511,7 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataInternal extends $
   callsHandled?: number;
   callsOffered?: number;
   callsTalk?: number;
+  callsTalked?: number;
   maxTalkTime?: number;
   totalTalkTime?: number;
   static names(): { [key: string]: string } {
@@ -22829,6 +23522,7 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataInternal extends $
       callsHandled: 'CallsHandled',
       callsOffered: 'CallsOffered',
       callsTalk: 'CallsTalk',
+      callsTalked: 'CallsTalked',
       maxTalkTime: 'MaxTalkTime',
       totalTalkTime: 'TotalTalkTime',
     };
@@ -22842,6 +23536,7 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataInternal extends $
       callsHandled: 'number',
       callsOffered: 'number',
       callsTalk: 'number',
+      callsTalked: 'number',
       maxTalkTime: 'number',
       totalTalkTime: 'number',
     };
@@ -22985,6 +23680,7 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataOverall extends $t
   averageWorkTime?: number;
   breakCodeDetailList?: ListIntervalAgentSkillGroupReportResponseBodyDataOverallBreakCodeDetailList[];
   firstCheckInTime?: number;
+  lastCheckOutTime?: number;
   lastCheckoutTime?: number;
   maxBreakTime?: number;
   maxHoldTime?: number;
@@ -23000,6 +23696,10 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataOverall extends $t
   totalCalls?: number;
   totalHoldTime?: number;
   totalLoggedInTime?: number;
+  totalOffSiteLoggedInTime?: string;
+  totalOfficePhoneLoggedInTime?: string;
+  totalOnSiteLoggedInTime?: string;
+  totalOutboundScenarioLoggedInTime?: number;
   totalOutboundScenarioReadyTime?: number;
   totalOutboundScenarioTime?: number;
   totalReadyTime?: number;
@@ -23014,6 +23714,7 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataOverall extends $t
       averageWorkTime: 'AverageWorkTime',
       breakCodeDetailList: 'BreakCodeDetailList',
       firstCheckInTime: 'FirstCheckInTime',
+      lastCheckOutTime: 'LastCheckOutTime',
       lastCheckoutTime: 'LastCheckoutTime',
       maxBreakTime: 'MaxBreakTime',
       maxHoldTime: 'MaxHoldTime',
@@ -23029,6 +23730,10 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataOverall extends $t
       totalCalls: 'TotalCalls',
       totalHoldTime: 'TotalHoldTime',
       totalLoggedInTime: 'TotalLoggedInTime',
+      totalOffSiteLoggedInTime: 'TotalOffSiteLoggedInTime',
+      totalOfficePhoneLoggedInTime: 'TotalOfficePhoneLoggedInTime',
+      totalOnSiteLoggedInTime: 'TotalOnSiteLoggedInTime',
+      totalOutboundScenarioLoggedInTime: 'TotalOutboundScenarioLoggedInTime',
       totalOutboundScenarioReadyTime: 'TotalOutboundScenarioReadyTime',
       totalOutboundScenarioTime: 'TotalOutboundScenarioTime',
       totalReadyTime: 'TotalReadyTime',
@@ -23046,6 +23751,7 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataOverall extends $t
       averageWorkTime: 'number',
       breakCodeDetailList: { 'type': 'array', 'itemType': ListIntervalAgentSkillGroupReportResponseBodyDataOverallBreakCodeDetailList },
       firstCheckInTime: 'number',
+      lastCheckOutTime: 'number',
       lastCheckoutTime: 'number',
       maxBreakTime: 'number',
       maxHoldTime: 'number',
@@ -23061,6 +23767,10 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataOverall extends $t
       totalCalls: 'number',
       totalHoldTime: 'number',
       totalLoggedInTime: 'number',
+      totalOffSiteLoggedInTime: 'string',
+      totalOfficePhoneLoggedInTime: 'string',
+      totalOnSiteLoggedInTime: 'string',
+      totalOutboundScenarioLoggedInTime: 'number',
       totalOutboundScenarioReadyTime: 'number',
       totalOutboundScenarioTime: 'number',
       totalReadyTime: 'number',
@@ -23109,12 +23819,15 @@ export class ListIntervalAgentSkillGroupReportResponseBodyData extends $tea.Mode
 }
 
 export class ListIntervalInstanceReportResponseBodyDataInbound extends $tea.Model {
+  abandonRate?: number;
   abandonedRate?: number;
   averageAbandonTime?: number;
   averageAbandonedInIVRTime?: number;
   averageAbandonedInQueueTime?: number;
   averageAbandonedInRingTime?: number;
+  averageFirstResponseTime?: number;
   averageHoldTime?: number;
+  averageResponseTime?: number;
   averageRingTime?: number;
   averageTalkTime?: number;
   averageWaitTime?: number;
@@ -23126,6 +23839,7 @@ export class ListIntervalInstanceReportResponseBodyDataInbound extends $tea.Mode
   callsAbandonedInVoiceNavigator?: number;
   callsAttendedTransferred?: number;
   callsBlindTransferred?: number;
+  callsCausedIVRException?: number;
   callsForwardToOutsideNumber?: number;
   callsHandled?: number;
   callsHold?: number;
@@ -23136,6 +23850,7 @@ export class ListIntervalInstanceReportResponseBodyDataInbound extends $tea.Mode
   callsQueuingOverflow?: number;
   callsQueuingTimeout?: number;
   callsRinged?: number;
+  callsToVoicemail?: number;
   callsVoicemail?: number;
   handleRate?: number;
   maxAbandonTime?: number;
@@ -23157,18 +23872,24 @@ export class ListIntervalInstanceReportResponseBodyDataInbound extends $tea.Mode
   totalAbandonedInQueueTime?: number;
   totalAbandonedInRingTime?: number;
   totalHoldTime?: number;
+  totalMessagesSent?: number;
+  totalMessagesSentByAgent?: number;
+  totalMessagesSentByCustomer?: number;
   totalRingTime?: number;
   totalTalkTime?: number;
   totalWaitTime?: number;
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
+      abandonRate: 'AbandonRate',
       abandonedRate: 'AbandonedRate',
       averageAbandonTime: 'AverageAbandonTime',
       averageAbandonedInIVRTime: 'AverageAbandonedInIVRTime',
       averageAbandonedInQueueTime: 'AverageAbandonedInQueueTime',
       averageAbandonedInRingTime: 'AverageAbandonedInRingTime',
+      averageFirstResponseTime: 'AverageFirstResponseTime',
       averageHoldTime: 'AverageHoldTime',
+      averageResponseTime: 'AverageResponseTime',
       averageRingTime: 'AverageRingTime',
       averageTalkTime: 'AverageTalkTime',
       averageWaitTime: 'AverageWaitTime',
@@ -23180,6 +23901,7 @@ export class ListIntervalInstanceReportResponseBodyDataInbound extends $tea.Mode
       callsAbandonedInVoiceNavigator: 'CallsAbandonedInVoiceNavigator',
       callsAttendedTransferred: 'CallsAttendedTransferred',
       callsBlindTransferred: 'CallsBlindTransferred',
+      callsCausedIVRException: 'CallsCausedIVRException',
       callsForwardToOutsideNumber: 'CallsForwardToOutsideNumber',
       callsHandled: 'CallsHandled',
       callsHold: 'CallsHold',
@@ -23190,6 +23912,7 @@ export class ListIntervalInstanceReportResponseBodyDataInbound extends $tea.Mode
       callsQueuingOverflow: 'CallsQueuingOverflow',
       callsQueuingTimeout: 'CallsQueuingTimeout',
       callsRinged: 'CallsRinged',
+      callsToVoicemail: 'CallsToVoicemail',
       callsVoicemail: 'CallsVoicemail',
       handleRate: 'HandleRate',
       maxAbandonTime: 'MaxAbandonTime',
@@ -23211,6 +23934,9 @@ export class ListIntervalInstanceReportResponseBodyDataInbound extends $tea.Mode
       totalAbandonedInQueueTime: 'TotalAbandonedInQueueTime',
       totalAbandonedInRingTime: 'TotalAbandonedInRingTime',
       totalHoldTime: 'TotalHoldTime',
+      totalMessagesSent: 'TotalMessagesSent',
+      totalMessagesSentByAgent: 'TotalMessagesSentByAgent',
+      totalMessagesSentByCustomer: 'TotalMessagesSentByCustomer',
       totalRingTime: 'TotalRingTime',
       totalTalkTime: 'TotalTalkTime',
       totalWaitTime: 'TotalWaitTime',
@@ -23220,12 +23946,15 @@ export class ListIntervalInstanceReportResponseBodyDataInbound extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
+      abandonRate: 'number',
       abandonedRate: 'number',
       averageAbandonTime: 'number',
       averageAbandonedInIVRTime: 'number',
       averageAbandonedInQueueTime: 'number',
       averageAbandonedInRingTime: 'number',
+      averageFirstResponseTime: 'number',
       averageHoldTime: 'number',
+      averageResponseTime: 'number',
       averageRingTime: 'number',
       averageTalkTime: 'number',
       averageWaitTime: 'number',
@@ -23237,6 +23966,7 @@ export class ListIntervalInstanceReportResponseBodyDataInbound extends $tea.Mode
       callsAbandonedInVoiceNavigator: 'number',
       callsAttendedTransferred: 'number',
       callsBlindTransferred: 'number',
+      callsCausedIVRException: 'number',
       callsForwardToOutsideNumber: 'number',
       callsHandled: 'number',
       callsHold: 'number',
@@ -23247,6 +23977,7 @@ export class ListIntervalInstanceReportResponseBodyDataInbound extends $tea.Mode
       callsQueuingOverflow: 'number',
       callsQueuingTimeout: 'number',
       callsRinged: 'number',
+      callsToVoicemail: 'number',
       callsVoicemail: 'number',
       handleRate: 'number',
       maxAbandonTime: 'number',
@@ -23268,6 +23999,9 @@ export class ListIntervalInstanceReportResponseBodyDataInbound extends $tea.Mode
       totalAbandonedInQueueTime: 'number',
       totalAbandonedInRingTime: 'number',
       totalHoldTime: 'number',
+      totalMessagesSent: 'number',
+      totalMessagesSentByAgent: 'number',
+      totalMessagesSentByCustomer: 'number',
       totalRingTime: 'number',
       totalTalkTime: 'number',
       totalWaitTime: 'number',
@@ -23484,12 +24218,78 @@ export class ListIntervalInstanceReportResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListIntervalSkillGroupReportResponseBodyDataBack2Back extends $tea.Model {
+  agentHandleRate?: number;
+  answerRate?: string;
+  averageCustomerRingTime?: number;
+  averageRingTime?: number;
+  averageTalkTime?: string;
+  callsAgentHandled?: number;
+  callsAnswered?: number;
+  callsCustomerAnswered?: number;
+  callsDialed?: number;
+  customerAnswerRate?: number;
+  maxCustomerRingTime?: number;
+  maxRingTime?: number;
+  maxTalkTime?: string;
+  totalCustomerRingTime?: number;
+  totalRingTime?: number;
+  totalTalkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentHandleRate: 'AgentHandleRate',
+      answerRate: 'AnswerRate',
+      averageCustomerRingTime: 'AverageCustomerRingTime',
+      averageRingTime: 'AverageRingTime',
+      averageTalkTime: 'AverageTalkTime',
+      callsAgentHandled: 'CallsAgentHandled',
+      callsAnswered: 'CallsAnswered',
+      callsCustomerAnswered: 'CallsCustomerAnswered',
+      callsDialed: 'CallsDialed',
+      customerAnswerRate: 'CustomerAnswerRate',
+      maxCustomerRingTime: 'MaxCustomerRingTime',
+      maxRingTime: 'MaxRingTime',
+      maxTalkTime: 'MaxTalkTime',
+      totalCustomerRingTime: 'TotalCustomerRingTime',
+      totalRingTime: 'TotalRingTime',
+      totalTalkTime: 'TotalTalkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentHandleRate: 'number',
+      answerRate: 'string',
+      averageCustomerRingTime: 'number',
+      averageRingTime: 'number',
+      averageTalkTime: 'string',
+      callsAgentHandled: 'number',
+      callsAnswered: 'number',
+      callsCustomerAnswered: 'number',
+      callsDialed: 'number',
+      customerAnswerRate: 'number',
+      maxCustomerRingTime: 'number',
+      maxRingTime: 'number',
+      maxTalkTime: 'string',
+      totalCustomerRingTime: 'number',
+      totalRingTime: 'number',
+      totalTalkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIntervalSkillGroupReportResponseBodyDataInbound extends $tea.Model {
   abandonRate?: number;
   averageAbandonTime?: number;
   averageAbandonedInQueueTime?: number;
   averageAbandonedInRingTime?: number;
+  averageFirstResponseTime?: number;
   averageHoldTime?: number;
+  averageResponseTime?: number;
   averageRingTime?: number;
   averageTalkTime?: number;
   averageWaitTime?: number;
@@ -23506,6 +24306,8 @@ export class ListIntervalSkillGroupReportResponseBodyDataInbound extends $tea.Mo
   callsOffered?: number;
   callsOverflow?: number;
   callsQueued?: number;
+  callsQueuingOverflow?: number;
+  callsQueuingTimeout?: number;
   callsRinged?: number;
   callsTimeout?: number;
   handleRate?: number;
@@ -23526,6 +24328,9 @@ export class ListIntervalSkillGroupReportResponseBodyDataInbound extends $tea.Mo
   totalAbandonedInQueueTime?: number;
   totalAbandonedInRingTime?: number;
   totalHoldTime?: number;
+  totalMessagesSent?: number;
+  totalMessagesSentByAgent?: number;
+  totalMessagesSentByCustomer?: number;
   totalRingTime?: number;
   totalTalkTime?: number;
   totalWaitTime?: number;
@@ -23536,7 +24341,9 @@ export class ListIntervalSkillGroupReportResponseBodyDataInbound extends $tea.Mo
       averageAbandonTime: 'AverageAbandonTime',
       averageAbandonedInQueueTime: 'AverageAbandonedInQueueTime',
       averageAbandonedInRingTime: 'AverageAbandonedInRingTime',
+      averageFirstResponseTime: 'AverageFirstResponseTime',
       averageHoldTime: 'AverageHoldTime',
+      averageResponseTime: 'AverageResponseTime',
       averageRingTime: 'AverageRingTime',
       averageTalkTime: 'AverageTalkTime',
       averageWaitTime: 'AverageWaitTime',
@@ -23553,6 +24360,8 @@ export class ListIntervalSkillGroupReportResponseBodyDataInbound extends $tea.Mo
       callsOffered: 'CallsOffered',
       callsOverflow: 'CallsOverflow',
       callsQueued: 'CallsQueued',
+      callsQueuingOverflow: 'CallsQueuingOverflow',
+      callsQueuingTimeout: 'CallsQueuingTimeout',
       callsRinged: 'CallsRinged',
       callsTimeout: 'CallsTimeout',
       handleRate: 'HandleRate',
@@ -23573,6 +24382,9 @@ export class ListIntervalSkillGroupReportResponseBodyDataInbound extends $tea.Mo
       totalAbandonedInQueueTime: 'TotalAbandonedInQueueTime',
       totalAbandonedInRingTime: 'TotalAbandonedInRingTime',
       totalHoldTime: 'TotalHoldTime',
+      totalMessagesSent: 'TotalMessagesSent',
+      totalMessagesSentByAgent: 'TotalMessagesSentByAgent',
+      totalMessagesSentByCustomer: 'TotalMessagesSentByCustomer',
       totalRingTime: 'TotalRingTime',
       totalTalkTime: 'TotalTalkTime',
       totalWaitTime: 'TotalWaitTime',
@@ -23586,7 +24398,9 @@ export class ListIntervalSkillGroupReportResponseBodyDataInbound extends $tea.Mo
       averageAbandonTime: 'number',
       averageAbandonedInQueueTime: 'number',
       averageAbandonedInRingTime: 'number',
+      averageFirstResponseTime: 'number',
       averageHoldTime: 'number',
+      averageResponseTime: 'number',
       averageRingTime: 'number',
       averageTalkTime: 'number',
       averageWaitTime: 'number',
@@ -23603,6 +24417,8 @@ export class ListIntervalSkillGroupReportResponseBodyDataInbound extends $tea.Mo
       callsOffered: 'number',
       callsOverflow: 'number',
       callsQueued: 'number',
+      callsQueuingOverflow: 'number',
+      callsQueuingTimeout: 'number',
       callsRinged: 'number',
       callsTimeout: 'number',
       handleRate: 'number',
@@ -23623,6 +24439,9 @@ export class ListIntervalSkillGroupReportResponseBodyDataInbound extends $tea.Mo
       totalAbandonedInQueueTime: 'number',
       totalAbandonedInRingTime: 'number',
       totalHoldTime: 'number',
+      totalMessagesSent: 'number',
+      totalMessagesSentByAgent: 'number',
+      totalMessagesSentByCustomer: 'number',
       totalRingTime: 'number',
       totalTalkTime: 'number',
       totalWaitTime: 'number',
@@ -23735,12 +24554,38 @@ export class ListIntervalSkillGroupReportResponseBodyDataOutbound extends $tea.M
   }
 }
 
+export class ListIntervalSkillGroupReportResponseBodyDataOverallBreakCodeDetailList extends $tea.Model {
+  breakCode?: string;
+  count?: number;
+  duration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      breakCode: 'BreakCode',
+      count: 'Count',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakCode: 'string',
+      count: 'number',
+      duration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIntervalSkillGroupReportResponseBodyDataOverall extends $tea.Model {
   averageBreakTime?: number;
   averageHoldTime?: number;
   averageReadyTime?: number;
   averageTalkTime?: number;
   averageWorkTime?: number;
+  breakCodeDetailList?: ListIntervalSkillGroupReportResponseBodyDataOverallBreakCodeDetailList[];
   maxBreakTime?: number;
   maxHoldTime?: number;
   maxReadyTime?: number;
@@ -23765,6 +24610,7 @@ export class ListIntervalSkillGroupReportResponseBodyDataOverall extends $tea.Mo
       averageReadyTime: 'AverageReadyTime',
       averageTalkTime: 'AverageTalkTime',
       averageWorkTime: 'AverageWorkTime',
+      breakCodeDetailList: 'BreakCodeDetailList',
       maxBreakTime: 'MaxBreakTime',
       maxHoldTime: 'MaxHoldTime',
       maxReadyTime: 'MaxReadyTime',
@@ -23792,6 +24638,7 @@ export class ListIntervalSkillGroupReportResponseBodyDataOverall extends $tea.Mo
       averageReadyTime: 'number',
       averageTalkTime: 'number',
       averageWorkTime: 'number',
+      breakCodeDetailList: { 'type': 'array', 'itemType': ListIntervalSkillGroupReportResponseBodyDataOverallBreakCodeDetailList },
       maxBreakTime: 'number',
       maxHoldTime: 'number',
       maxReadyTime: 'number',
@@ -23818,12 +24665,14 @@ export class ListIntervalSkillGroupReportResponseBodyDataOverall extends $tea.Mo
 }
 
 export class ListIntervalSkillGroupReportResponseBodyData extends $tea.Model {
+  back2Back?: ListIntervalSkillGroupReportResponseBodyDataBack2Back;
   inbound?: ListIntervalSkillGroupReportResponseBodyDataInbound;
   outbound?: ListIntervalSkillGroupReportResponseBodyDataOutbound;
   overall?: ListIntervalSkillGroupReportResponseBodyDataOverall;
   statsTime?: number;
   static names(): { [key: string]: string } {
     return {
+      back2Back: 'Back2Back',
       inbound: 'Inbound',
       outbound: 'Outbound',
       overall: 'Overall',
@@ -23833,6 +24682,7 @@ export class ListIntervalSkillGroupReportResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      back2Back: ListIntervalSkillGroupReportResponseBodyDataBack2Back,
       inbound: ListIntervalSkillGroupReportResponseBodyDataInbound,
       outbound: ListIntervalSkillGroupReportResponseBodyDataOutbound,
       overall: ListIntervalSkillGroupReportResponseBodyDataOverall,
@@ -24898,7 +25748,30 @@ export class ListRealtimeAgentStatesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList extends $tea.Model {
+  breakCode?: string;
+  count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      breakCode: 'BreakCode',
+      count: 'Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakCode: 'string',
+      count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRealtimeSkillGroupStatesResponseBodyDataList extends $tea.Model {
+  breakCodeDetailList?: ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList[];
   breakingAgents?: number;
   instanceId?: string;
   loggedInAgents?: number;
@@ -24908,10 +25781,12 @@ export class ListRealtimeSkillGroupStatesResponseBodyDataList extends $tea.Model
   skillGroupId?: string;
   skillGroupName?: string;
   talkingAgents?: number;
+  totalAgents?: number;
   waitingCalls?: number;
   workingAgents?: number;
   static names(): { [key: string]: string } {
     return {
+      breakCodeDetailList: 'BreakCodeDetailList',
       breakingAgents: 'BreakingAgents',
       instanceId: 'InstanceId',
       loggedInAgents: 'LoggedInAgents',
@@ -24921,6 +25796,7 @@ export class ListRealtimeSkillGroupStatesResponseBodyDataList extends $tea.Model
       skillGroupId: 'SkillGroupId',
       skillGroupName: 'SkillGroupName',
       talkingAgents: 'TalkingAgents',
+      totalAgents: 'TotalAgents',
       waitingCalls: 'WaitingCalls',
       workingAgents: 'WorkingAgents',
     };
@@ -24928,6 +25804,7 @@ export class ListRealtimeSkillGroupStatesResponseBodyDataList extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      breakCodeDetailList: { 'type': 'array', 'itemType': ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList },
       breakingAgents: 'number',
       instanceId: 'string',
       loggedInAgents: 'number',
@@ -24937,6 +25814,7 @@ export class ListRealtimeSkillGroupStatesResponseBodyDataList extends $tea.Model
       skillGroupId: 'string',
       skillGroupName: 'string',
       talkingAgents: 'number',
+      totalAgents: 'number',
       waitingCalls: 'number',
       workingAgents: 'number',
     };
@@ -25783,6 +26661,7 @@ export class ListUsersResponseBodyDataList extends $tea.Model {
   loginName?: string;
   mobile?: string;
   personalOutboundNumberList?: ListUsersResponseBodyDataListPersonalOutboundNumberList[];
+  primary?: boolean;
   primaryAccount?: boolean;
   ramId?: number;
   roleId?: string;
@@ -25802,6 +26681,7 @@ export class ListUsersResponseBodyDataList extends $tea.Model {
       loginName: 'LoginName',
       mobile: 'Mobile',
       personalOutboundNumberList: 'PersonalOutboundNumberList',
+      primary: 'Primary',
       primaryAccount: 'PrimaryAccount',
       ramId: 'RamId',
       roleId: 'RoleId',
@@ -25824,6 +26704,7 @@ export class ListUsersResponseBodyDataList extends $tea.Model {
       loginName: 'string',
       mobile: 'string',
       personalOutboundNumberList: { 'type': 'array', 'itemType': ListUsersResponseBodyDataListPersonalOutboundNumberList },
+      primary: 'boolean',
       primaryAccount: 'boolean',
       ramId: 'number',
       roleId: 'string',
@@ -29405,6 +30286,10 @@ export default class Client extends OpenApi {
       query["OssFileKey"] = request.ossFileKey;
     }
 
+    if (!Util.isUnset(request.usage)) {
+      query["Usage"] = request.usage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -30587,6 +31472,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -32239,12 +33128,20 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -32292,6 +33189,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -32347,6 +33248,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -32474,6 +33379,10 @@ export default class Client extends OpenApi {
       query["Interval"] = request.interval;
     }
 
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -32579,6 +33488,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.interval)) {
       query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
     }
 
     if (!Util.isUnset(request.skillGroupId)) {
@@ -33617,6 +34530,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.searchPattern)) {
       query["SearchPattern"] = request.searchPattern;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
