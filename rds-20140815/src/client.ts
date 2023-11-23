@@ -21618,6 +21618,7 @@ export class ModifyDBNodeRequest extends $tea.Model {
   DBInstanceStorageType?: string;
   DBNode?: ModifyDBNodeRequestDBNode[];
   dryRun?: boolean;
+  effectiveTime?: string;
   ownerAccount?: string;
   ownerId?: number;
   produceAsync?: boolean;
@@ -21632,6 +21633,7 @@ export class ModifyDBNodeRequest extends $tea.Model {
       DBInstanceStorageType: 'DBInstanceStorageType',
       DBNode: 'DBNode',
       dryRun: 'DryRun',
+      effectiveTime: 'EffectiveTime',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       produceAsync: 'ProduceAsync',
@@ -21649,6 +21651,7 @@ export class ModifyDBNodeRequest extends $tea.Model {
       DBInstanceStorageType: 'string',
       DBNode: { 'type': 'array', 'itemType': ModifyDBNodeRequestDBNode },
       dryRun: 'boolean',
+      effectiveTime: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       produceAsync: 'boolean',
@@ -21670,6 +21673,7 @@ export class ModifyDBNodeShrinkRequest extends $tea.Model {
   DBInstanceStorageType?: string;
   DBNodeShrink?: string;
   dryRun?: boolean;
+  effectiveTime?: string;
   ownerAccount?: string;
   ownerId?: number;
   produceAsync?: boolean;
@@ -21684,6 +21688,7 @@ export class ModifyDBNodeShrinkRequest extends $tea.Model {
       DBInstanceStorageType: 'DBInstanceStorageType',
       DBNodeShrink: 'DBNode',
       dryRun: 'DryRun',
+      effectiveTime: 'EffectiveTime',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       produceAsync: 'ProduceAsync',
@@ -21701,6 +21706,7 @@ export class ModifyDBNodeShrinkRequest extends $tea.Model {
       DBInstanceStorageType: 'string',
       DBNodeShrink: 'string',
       dryRun: 'boolean',
+      effectiveTime: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       produceAsync: 'boolean',
@@ -47167,8 +47173,8 @@ export default class Client extends OpenApi {
 
   /**
     * ### [](#)Supported database engines
-    * RDS SQL Server
-    * >  You can call the [DescribeBinlogFiles](~~610550~~) operation to query the log files of other database engines.
+    * SQL Server
+    * >  You can call the DescribeBinlogFiles operation to query the log files of instances that run different database engines.
     *
     * @param request DescribeLogBackupFilesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -47232,8 +47238,8 @@ export default class Client extends OpenApi {
 
   /**
     * ### [](#)Supported database engines
-    * RDS SQL Server
-    * >  You can call the [DescribeBinlogFiles](~~610550~~) operation to query the log files of other database engines.
+    * SQL Server
+    * >  You can call the DescribeBinlogFiles operation to query the log files of instances that run different database engines.
     *
     * @param request DescribeLogBackupFilesRequest
     * @return DescribeLogBackupFilesResponse
@@ -53957,6 +53963,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.effectiveTime)) {
+      query["EffectiveTime"] = request.effectiveTime;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
