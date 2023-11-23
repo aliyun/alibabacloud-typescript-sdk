@@ -459,6 +459,7 @@ export class CreateEventStreamingRequest extends $tea.Model {
   runOptions?: CreateEventStreamingRequestRunOptions;
   sink?: CreateEventStreamingRequestSink;
   source?: CreateEventStreamingRequestSource;
+  transforms?: CreateEventStreamingRequestTransforms[];
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -467,6 +468,7 @@ export class CreateEventStreamingRequest extends $tea.Model {
       runOptions: 'RunOptions',
       sink: 'Sink',
       source: 'Source',
+      transforms: 'Transforms',
     };
   }
 
@@ -478,6 +480,7 @@ export class CreateEventStreamingRequest extends $tea.Model {
       runOptions: CreateEventStreamingRequestRunOptions,
       sink: CreateEventStreamingRequestSink,
       source: CreateEventStreamingRequestSource,
+      transforms: { 'type': 'array', 'itemType': CreateEventStreamingRequestTransforms },
     };
   }
 
@@ -493,6 +496,7 @@ export class CreateEventStreamingShrinkRequest extends $tea.Model {
   runOptionsShrink?: string;
   sinkShrink?: string;
   sourceShrink?: string;
+  transformsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -501,6 +505,7 @@ export class CreateEventStreamingShrinkRequest extends $tea.Model {
       runOptionsShrink: 'RunOptions',
       sinkShrink: 'Sink',
       sourceShrink: 'Source',
+      transformsShrink: 'Transforms',
     };
   }
 
@@ -512,6 +517,7 @@ export class CreateEventStreamingShrinkRequest extends $tea.Model {
       runOptionsShrink: 'string',
       sinkShrink: 'string',
       sourceShrink: 'string',
+      transformsShrink: 'string',
     };
   }
 
@@ -3579,6 +3585,7 @@ export class UpdateEventStreamingRequest extends $tea.Model {
   runOptions?: UpdateEventStreamingRequestRunOptions;
   sink?: UpdateEventStreamingRequestSink;
   source?: UpdateEventStreamingRequestSource;
+  transforms?: UpdateEventStreamingRequestTransforms[];
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -3587,6 +3594,7 @@ export class UpdateEventStreamingRequest extends $tea.Model {
       runOptions: 'RunOptions',
       sink: 'Sink',
       source: 'Source',
+      transforms: 'Transforms',
     };
   }
 
@@ -3598,6 +3606,7 @@ export class UpdateEventStreamingRequest extends $tea.Model {
       runOptions: UpdateEventStreamingRequestRunOptions,
       sink: UpdateEventStreamingRequestSink,
       source: UpdateEventStreamingRequestSource,
+      transforms: { 'type': 'array', 'itemType': UpdateEventStreamingRequestTransforms },
     };
   }
 
@@ -3613,6 +3622,7 @@ export class UpdateEventStreamingShrinkRequest extends $tea.Model {
   runOptionsShrink?: string;
   sinkShrink?: string;
   sourceShrink?: string;
+  transformsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -3621,6 +3631,7 @@ export class UpdateEventStreamingShrinkRequest extends $tea.Model {
       runOptionsShrink: 'RunOptions',
       sinkShrink: 'Sink',
       sourceShrink: 'Source',
+      transformsShrink: 'Transforms',
     };
   }
 
@@ -3632,6 +3643,7 @@ export class UpdateEventStreamingShrinkRequest extends $tea.Model {
       runOptionsShrink: 'string',
       sinkShrink: 'string',
       sourceShrink: 'string',
+      transformsShrink: 'string',
     };
   }
 
@@ -6401,6 +6413,25 @@ export class CreateEventStreamingRequestSource extends $tea.Model {
   }
 }
 
+export class CreateEventStreamingRequestTransforms extends $tea.Model {
+  arn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventStreamingResponseBodyData extends $tea.Model {
   eventStreamingARN?: string;
   static names(): { [key: string]: string } {
@@ -8554,6 +8585,25 @@ export class GetEventStreamingResponseBodyDataSource extends $tea.Model {
   }
 }
 
+export class GetEventStreamingResponseBodyDataTransforms extends $tea.Model {
+  arn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEventStreamingResponseBodyData extends $tea.Model {
   description?: string;
   eventStreamingName?: string;
@@ -8562,6 +8612,7 @@ export class GetEventStreamingResponseBodyData extends $tea.Model {
   sink?: GetEventStreamingResponseBodyDataSink;
   source?: GetEventStreamingResponseBodyDataSource;
   status?: string;
+  transforms?: GetEventStreamingResponseBodyDataTransforms[];
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -8571,6 +8622,7 @@ export class GetEventStreamingResponseBodyData extends $tea.Model {
       sink: 'Sink',
       source: 'Source',
       status: 'Status',
+      transforms: 'Transforms',
     };
   }
 
@@ -8583,6 +8635,7 @@ export class GetEventStreamingResponseBodyData extends $tea.Model {
       sink: GetEventStreamingResponseBodyDataSink,
       source: GetEventStreamingResponseBodyDataSource,
       status: 'string',
+      transforms: { 'type': 'array', 'itemType': GetEventStreamingResponseBodyDataTransforms },
     };
   }
 
@@ -10857,6 +10910,25 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $t
   }
 }
 
+export class ListEventStreamingsResponseBodyDataEventStreamingsTransforms extends $tea.Model {
+  arn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventStreamingsResponseBodyDataEventStreamings extends $tea.Model {
   description?: string;
   eventStreamingName?: string;
@@ -10865,6 +10937,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamings extends $tea.Mod
   sink?: ListEventStreamingsResponseBodyDataEventStreamingsSink;
   source?: ListEventStreamingsResponseBodyDataEventStreamingsSource;
   status?: string;
+  transforms?: ListEventStreamingsResponseBodyDataEventStreamingsTransforms[];
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -10874,6 +10947,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamings extends $tea.Mod
       sink: 'Sink',
       source: 'Source',
       status: 'Status',
+      transforms: 'Transforms',
     };
   }
 
@@ -10886,6 +10960,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamings extends $tea.Mod
       sink: ListEventStreamingsResponseBodyDataEventStreamingsSink,
       source: ListEventStreamingsResponseBodyDataEventStreamingsSource,
       status: 'string',
+      transforms: { 'type': 'array', 'itemType': ListEventStreamingsResponseBodyDataEventStreamingsTransforms },
     };
   }
 
@@ -13859,6 +13934,25 @@ export class UpdateEventStreamingRequestSource extends $tea.Model {
   }
 }
 
+export class UpdateEventStreamingRequestTransforms extends $tea.Model {
+  arn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -14183,6 +14277,10 @@ export default class Client extends OpenApi {
       request.sourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.source, "Source", "json");
     }
 
+    if (!Util.isUnset(tmpReq.transforms)) {
+      request.transformsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transforms, "Transforms", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
@@ -14206,6 +14304,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sourceShrink)) {
       body["Source"] = request.sourceShrink;
+    }
+
+    if (!Util.isUnset(request.transformsShrink)) {
+      body["Transforms"] = request.transformsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -16065,6 +16167,10 @@ export default class Client extends OpenApi {
       request.sourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.source, "Source", "json");
     }
 
+    if (!Util.isUnset(tmpReq.transforms)) {
+      request.transformsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transforms, "Transforms", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
@@ -16088,6 +16194,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sourceShrink)) {
       body["Source"] = request.sourceShrink;
+    }
+
+    if (!Util.isUnset(request.transformsShrink)) {
+      body["Transforms"] = request.transformsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
