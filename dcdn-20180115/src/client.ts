@@ -5009,6 +5009,90 @@ export class DescribeDcdnDomainLogResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnDomainLogExTtlRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainLogExTtlResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainLogExTtlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnDomainLogExTtlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnDomainLogExTtlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnDomainMultiUsageDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
@@ -26403,6 +26487,51 @@ export default class Client extends OpenApi {
   async describeDcdnDomainLog(request: DescribeDcdnDomainLogRequest): Promise<DescribeDcdnDomainLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainLogWithOptions(request, runtime);
+  }
+
+  async describeDcdnDomainLogExTtlWithOptions(request: DescribeDcdnDomainLogExTtlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainLogExTtlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnDomainLogExTtl",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnDomainLogExTtlResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainLogExTtlResponse({}));
+  }
+
+  async describeDcdnDomainLogExTtl(request: DescribeDcdnDomainLogExTtlRequest): Promise<DescribeDcdnDomainLogExTtlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnDomainLogExTtlWithOptions(request, runtime);
   }
 
   /**
