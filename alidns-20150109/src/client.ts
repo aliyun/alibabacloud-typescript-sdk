@@ -21412,6 +21412,14 @@ export default class Client extends OpenApi {
     return await this.describeDomainNsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
+    *
+    * @param request DescribeDomainRecordInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDomainRecordInfoResponse
+   */
   async describeDomainRecordInfoWithOptions(request: DescribeDomainRecordInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRecordInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21444,6 +21452,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainRecordInfoResponse>(await this.callApi(params, req, runtime), new DescribeDomainRecordInfoResponse({}));
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
+    *
+    * @param request DescribeDomainRecordInfoRequest
+    * @return DescribeDomainRecordInfoResponse
+   */
   async describeDomainRecordInfo(request: DescribeDomainRecordInfoRequest): Promise<DescribeDomainRecordInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainRecordInfoWithOptions(request, runtime);
