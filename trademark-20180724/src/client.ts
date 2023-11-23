@@ -7367,9 +7367,12 @@ export class QueryTrademarkModelEspDetailResponse extends $tea.Model {
 }
 
 export class QueryTrademarkModelEspListRequest extends $tea.Model {
+  additionalSubmitStatus?: string;
+  additionalSubmitTime?: string;
   bizId?: string;
   bizType?: string;
   env?: string;
+  existStatus?: string[];
   orderId?: string;
   orderIdsStr?: string;
   orderInstanceId?: string;
@@ -7382,9 +7385,12 @@ export class QueryTrademarkModelEspListRequest extends $tea.Model {
   submitTime?: string;
   static names(): { [key: string]: string } {
     return {
+      additionalSubmitStatus: 'AdditionalSubmitStatus',
+      additionalSubmitTime: 'AdditionalSubmitTime',
       bizId: 'BizId',
       bizType: 'BizType',
       env: 'Env',
+      existStatus: 'ExistStatus',
       orderId: 'OrderId',
       orderIdsStr: 'OrderIdsStr',
       orderInstanceId: 'OrderInstanceId',
@@ -7400,9 +7406,76 @@ export class QueryTrademarkModelEspListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      additionalSubmitStatus: 'string',
+      additionalSubmitTime: 'string',
       bizId: 'string',
       bizType: 'string',
       env: 'string',
+      existStatus: { 'type': 'array', 'itemType': 'string' },
+      orderId: 'string',
+      orderIdsStr: 'string',
+      orderInstanceId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      principalKey: 'string',
+      principalName: 'string',
+      status: 'string',
+      submitStatus: 'string',
+      submitTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTrademarkModelEspListShrinkRequest extends $tea.Model {
+  additionalSubmitStatus?: string;
+  additionalSubmitTime?: string;
+  bizId?: string;
+  bizType?: string;
+  env?: string;
+  existStatusShrink?: string;
+  orderId?: string;
+  orderIdsStr?: string;
+  orderInstanceId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  principalKey?: string;
+  principalName?: string;
+  status?: string;
+  submitStatus?: string;
+  submitTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additionalSubmitStatus: 'AdditionalSubmitStatus',
+      additionalSubmitTime: 'AdditionalSubmitTime',
+      bizId: 'BizId',
+      bizType: 'BizType',
+      env: 'Env',
+      existStatusShrink: 'ExistStatus',
+      orderId: 'OrderId',
+      orderIdsStr: 'OrderIdsStr',
+      orderInstanceId: 'OrderInstanceId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      principalKey: 'PrincipalKey',
+      principalName: 'PrincipalName',
+      status: 'Status',
+      submitStatus: 'SubmitStatus',
+      submitTime: 'SubmitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalSubmitStatus: 'string',
+      additionalSubmitTime: 'string',
+      bizId: 'string',
+      bizType: 'string',
+      env: 'string',
+      existStatusShrink: 'string',
       orderId: 'string',
       orderIdsStr: 'string',
       orderInstanceId: 'string',
@@ -10461,11 +10534,13 @@ export class UpdateProduceRequest extends $tea.Model {
   bizId?: string;
   bizType?: string;
   extMap?: string;
+  operateType?: string;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
       bizType: 'BizType',
       extMap: 'ExtMap',
+      operateType: 'OperateType',
     };
   }
 
@@ -10474,6 +10549,7 @@ export class UpdateProduceRequest extends $tea.Model {
       bizId: 'string',
       bizType: 'string',
       extMap: 'string',
+      operateType: 'string',
     };
   }
 
@@ -19996,9 +20072,23 @@ export default class Client extends OpenApi {
     return await this.queryTrademarkModelEspDetailWithOptions(request, runtime);
   }
 
-  async queryTrademarkModelEspListWithOptions(request: QueryTrademarkModelEspListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTrademarkModelEspListResponse> {
-    Util.validateModel(request);
+  async queryTrademarkModelEspListWithOptions(tmpReq: QueryTrademarkModelEspListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTrademarkModelEspListResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryTrademarkModelEspListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.existStatus)) {
+      request.existStatusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.existStatus, "ExistStatus", "json");
+    }
+
     let query = { };
+    if (!Util.isUnset(request.additionalSubmitStatus)) {
+      query["AdditionalSubmitStatus"] = request.additionalSubmitStatus;
+    }
+
+    if (!Util.isUnset(request.additionalSubmitTime)) {
+      query["AdditionalSubmitTime"] = request.additionalSubmitTime;
+    }
+
     if (!Util.isUnset(request.bizId)) {
       query["BizId"] = request.bizId;
     }
@@ -20009,6 +20099,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.env)) {
       query["Env"] = request.env;
+    }
+
+    if (!Util.isUnset(request.existStatusShrink)) {
+      query["ExistStatus"] = request.existStatusShrink;
     }
 
     if (!Util.isUnset(request.orderId)) {
@@ -21829,6 +21923,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.extMap)) {
       query["ExtMap"] = request.extMap;
+    }
+
+    if (!Util.isUnset(request.operateType)) {
+      query["OperateType"] = request.operateType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
