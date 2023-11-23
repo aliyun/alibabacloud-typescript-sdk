@@ -1509,6 +1509,7 @@ export class GetLabelTableResponseBody extends $tea.Model {
   owner?: string;
   projectId?: string;
   projectName?: string;
+  relatedModelFeatures?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1521,6 +1522,7 @@ export class GetLabelTableResponseBody extends $tea.Model {
       owner: 'Owner',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
+      relatedModelFeatures: 'RelatedModelFeatures',
       requestId: 'RequestId',
     };
   }
@@ -1536,6 +1538,7 @@ export class GetLabelTableResponseBody extends $tea.Model {
       owner: 'string',
       projectId: 'string',
       projectName: 'string',
+      relatedModelFeatures: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
