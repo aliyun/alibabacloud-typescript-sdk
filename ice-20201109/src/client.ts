@@ -385,11 +385,13 @@ export class AddTemplateResponse extends $tea.Model {
 
 export class AlterSearchIndexRequest extends $tea.Model {
   indexConfig?: string;
+  indexStatus?: string;
   indexType?: string;
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
       indexConfig: 'IndexConfig',
+      indexStatus: 'IndexStatus',
       indexType: 'IndexType',
       searchLibName: 'SearchLibName',
     };
@@ -398,6 +400,7 @@ export class AlterSearchIndexRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       indexConfig: 'string',
+      indexStatus: 'string',
       indexType: 'string',
       searchLibName: 'string',
     };
@@ -409,16 +412,22 @@ export class AlterSearchIndexRequest extends $tea.Model {
 }
 
 export class AlterSearchIndexResponseBody extends $tea.Model {
+  code?: string;
   requestId?: string;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       requestId: 'string',
+      success: 'string',
     };
   }
 
@@ -1485,11 +1494,13 @@ export class CreatePipelineResponse extends $tea.Model {
 
 export class CreateSearchIndexRequest extends $tea.Model {
   indexConfig?: string;
+  indexStatus?: string;
   indexType?: string;
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
       indexConfig: 'IndexConfig',
+      indexStatus: 'IndexStatus',
       indexType: 'IndexType',
       searchLibName: 'SearchLibName',
     };
@@ -1498,6 +1509,7 @@ export class CreateSearchIndexRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       indexConfig: 'string',
+      indexStatus: 'string',
       indexType: 'string',
       searchLibName: 'string',
     };
@@ -1509,16 +1521,22 @@ export class CreateSearchIndexRequest extends $tea.Model {
 }
 
 export class CreateSearchIndexResponseBody extends $tea.Model {
+  code?: string;
   requestId?: string;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       requestId: 'string',
+      success: 'string',
     };
   }
 
@@ -1572,19 +1590,25 @@ export class CreateSearchLibRequest extends $tea.Model {
 }
 
 export class CreateSearchLibResponseBody extends $tea.Model {
+  code?: string;
   requestId?: string;
   searchLibName?: string;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       requestId: 'RequestId',
       searchLibName: 'SearchLibName',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       requestId: 'string',
       searchLibName: 'string',
+      success: 'string',
     };
   }
 
@@ -2863,19 +2887,25 @@ export class DeleteMediaFromSearchLibRequest extends $tea.Model {
 }
 
 export class DeleteMediaFromSearchLibResponseBody extends $tea.Model {
+  code?: string;
   mediaId?: string;
   requestId?: string;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       mediaId: 'MediaId',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       mediaId: 'string',
       requestId: 'string',
+      success: 'string',
     };
   }
 
@@ -3892,16 +3922,22 @@ export class DropSearchIndexRequest extends $tea.Model {
 }
 
 export class DropSearchIndexResponseBody extends $tea.Model {
+  code?: string;
   requestId?: string;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       requestId: 'string',
+      success: 'string',
     };
   }
 
@@ -3955,16 +3991,22 @@ export class DropSearchLibRequest extends $tea.Model {
 }
 
 export class DropSearchLibResponseBody extends $tea.Model {
+  code?: string;
   requestId?: string;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       requestId: 'string',
+      success: 'string',
     };
   }
 
@@ -6897,19 +6939,25 @@ export class InsertMediaToSearchLibRequest extends $tea.Model {
 }
 
 export class InsertMediaToSearchLibResponseBody extends $tea.Model {
+  code?: string;
   mediaId?: string;
   requestId?: string;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       mediaId: 'MediaId',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       mediaId: 'string',
       requestId: 'string',
+      success: 'string',
     };
   }
 
@@ -7252,10 +7300,12 @@ export class ListCustomTemplatesResponse extends $tea.Model {
 export class ListCustomizedVoiceJobsRequest extends $tea.Model {
   pageNo?: number;
   pageSize?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      type: 'Type',
     };
   }
 
@@ -7263,6 +7313,7 @@ export class ListCustomizedVoiceJobsRequest extends $tea.Model {
     return {
       pageNo: 'number',
       pageSize: 'number',
+      type: 'string',
     };
   }
 
@@ -7324,10 +7375,12 @@ export class ListCustomizedVoiceJobsResponse extends $tea.Model {
 export class ListCustomizedVoicesRequest extends $tea.Model {
   pageNo?: number;
   pageSize?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      type: 'Type',
     };
   }
 
@@ -7335,6 +7388,7 @@ export class ListCustomizedVoicesRequest extends $tea.Model {
     return {
       pageNo: 'number',
       pageSize: 'number',
+      type: 'string',
     };
   }
 
@@ -9816,6 +9870,81 @@ export class QueryMediaCensorJobListResponse extends $tea.Model {
   }
 }
 
+export class QueryMediaIndexJobRequest extends $tea.Model {
+  mediaId?: string;
+  searchLibName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      searchLibName: 'SearchLibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      searchLibName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMediaIndexJobResponseBody extends $tea.Model {
+  code?: string;
+  indexJobInfoList?: QueryMediaIndexJobResponseBodyIndexJobInfoList[];
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      indexJobInfoList: 'IndexJobInfoList',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      indexJobInfoList: { 'type': 'array', 'itemType': QueryMediaIndexJobResponseBodyIndexJobInfoList },
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMediaIndexJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryMediaIndexJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryMediaIndexJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySearchIndexRequest extends $tea.Model {
   indexType?: string;
   searchLibName?: string;
@@ -9839,25 +9968,34 @@ export class QuerySearchIndexRequest extends $tea.Model {
 }
 
 export class QuerySearchIndexResponseBody extends $tea.Model {
-  indexConfig?: string;
+  code?: string;
+  indexStatus?: string;
   indexType?: string;
+  mediaTotal?: string;
   requestId?: string;
   searchLibName?: string;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
-      indexConfig: 'IndexConfig',
+      code: 'Code',
+      indexStatus: 'IndexStatus',
       indexType: 'IndexType',
+      mediaTotal: 'MediaTotal',
       requestId: 'RequestId',
       searchLibName: 'SearchLibName',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      indexConfig: 'string',
+      code: 'string',
+      indexStatus: 'string',
       indexType: 'string',
+      mediaTotal: 'string',
       requestId: 'string',
       searchLibName: 'string',
+      success: 'string',
     };
   }
 
@@ -9911,22 +10049,28 @@ export class QuerySearchLibRequest extends $tea.Model {
 }
 
 export class QuerySearchLibResponseBody extends $tea.Model {
+  code?: string;
   requestId?: string;
   searchLibName?: string;
   status?: string;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       requestId: 'RequestId',
       searchLibName: 'SearchLibName',
       status: 'Status',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       requestId: 'string',
       searchLibName: 'string',
       status: 'string',
+      success: 'string',
     };
   }
 
@@ -13463,6 +13607,87 @@ export class SubmitSnapshotJobResponse extends $tea.Model {
   }
 }
 
+export class SubmitStandardCustomizedVoiceJobRequest extends $tea.Model {
+  audios?: string;
+  authentication?: string;
+  demoAudioMediaURL?: string;
+  gender?: string;
+  voiceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audios: 'Audios',
+      authentication: 'Authentication',
+      demoAudioMediaURL: 'DemoAudioMediaURL',
+      gender: 'Gender',
+      voiceName: 'VoiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audios: 'string',
+      authentication: 'string',
+      demoAudioMediaURL: 'string',
+      gender: 'string',
+      voiceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitStandardCustomizedVoiceJobResponseBody extends $tea.Model {
+  data?: SubmitStandardCustomizedVoiceJobResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitStandardCustomizedVoiceJobResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitStandardCustomizedVoiceJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitStandardCustomizedVoiceJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitStandardCustomizedVoiceJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitSubtitleProduceJobRequest extends $tea.Model {
   description?: string;
   editingConfig?: string;
@@ -14712,19 +14937,25 @@ export class UpdateMediaToSearchLibRequest extends $tea.Model {
 }
 
 export class UpdateMediaToSearchLibResponseBody extends $tea.Model {
+  code?: string;
   mediaId?: string;
   requestId?: string;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       mediaId: 'MediaId',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       mediaId: 'string',
       requestId: 'string',
+      success: 'string',
     };
   }
 
@@ -16534,25 +16765,43 @@ export class GetCustomizedVoiceResponseBodyData extends $tea.Model {
 }
 
 export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $tea.Model {
+  createTime?: string;
+  gender?: string;
   jobId?: string;
   message?: string;
+  scenario?: string;
   status?: string;
+  type?: string;
+  voiceDesc?: string;
   voiceId?: string;
+  voiceName?: string;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
+      gender: 'Gender',
       jobId: 'JobId',
       message: 'Message',
+      scenario: 'Scenario',
       status: 'Status',
+      type: 'Type',
+      voiceDesc: 'VoiceDesc',
       voiceId: 'VoiceId',
+      voiceName: 'VoiceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
+      gender: 'string',
       jobId: 'string',
       message: 'string',
+      scenario: 'string',
       status: 'string',
+      type: 'string',
+      voiceDesc: 'string',
       voiceId: 'string',
+      voiceName: 'string',
     };
   }
 
@@ -21696,23 +21945,27 @@ export class ListCustomTemplatesResponseBodyCustomTemplateList extends $tea.Mode
 }
 
 export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList extends $tea.Model {
+  createTime?: string;
   gender?: string;
   gmtCreate?: string;
   jobId?: string;
   message?: string;
   scenario?: string;
   status?: string;
+  type?: string;
   voiceDesc?: string;
   voiceId?: string;
   voiceName?: string;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       gender: 'Gender',
       gmtCreate: 'GmtCreate',
       jobId: 'JobId',
       message: 'Message',
       scenario: 'Scenario',
       status: 'Status',
+      type: 'Type',
       voiceDesc: 'VoiceDesc',
       voiceId: 'VoiceId',
       voiceName: 'VoiceName',
@@ -21721,12 +21974,14 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
       gender: 'string',
       gmtCreate: 'string',
       jobId: 'string',
       message: 'string',
       scenario: 'string',
       status: 'string',
+      type: 'string',
       voiceDesc: 'string',
       voiceId: 'string',
       voiceName: 'string',
@@ -21764,6 +22019,7 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $te
   demoAudioMediaId?: string;
   gender?: string;
   scenario?: string;
+  type?: string;
   voiceDesc?: string;
   voiceId?: string;
   voiceName?: string;
@@ -21772,6 +22028,7 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $te
       demoAudioMediaId: 'DemoAudioMediaId',
       gender: 'Gender',
       scenario: 'Scenario',
+      type: 'Type',
       voiceDesc: 'VoiceDesc',
       voiceId: 'VoiceId',
       voiceName: 'VoiceName',
@@ -21783,6 +22040,7 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $te
       demoAudioMediaId: 'string',
       gender: 'string',
       scenario: 'string',
+      type: 'string',
       voiceDesc: 'string',
       voiceId: 'string',
       voiceName: 'string',
@@ -25672,6 +25930,34 @@ export class QueryMediaCensorJobListResponseBodyNonExistIds extends $tea.Model {
   }
 }
 
+export class QueryMediaIndexJobResponseBodyIndexJobInfoList extends $tea.Model {
+  gmtFinish?: string;
+  gmtSubmit?: string;
+  indexType?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtFinish: 'GmtFinish',
+      gmtSubmit: 'GmtSubmit',
+      indexType: 'IndexType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtFinish: 'string',
+      gmtSubmit: 'string',
+      indexType: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySmarttagJobResponseBodyResultsResult extends $tea.Model {
   data?: string;
   type?: string;
@@ -27898,6 +28184,25 @@ export class SubmitSnapshotJobRequestTemplateConfig extends $tea.Model {
     return {
       overwriteParams: SubmitSnapshotJobRequestTemplateConfigOverwriteParams,
       templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitStandardCustomizedVoiceJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
     };
   }
 
@@ -31176,10 +31481,6 @@ export default class Client extends OpenApi {
   async addTemplateWithOptions(request: AddTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.config)) {
-      query["Config"] = request.config;
-    }
-
     if (!Util.isUnset(request.coverUrl)) {
       query["CoverUrl"] = request.coverUrl;
     }
@@ -31208,8 +31509,14 @@ export default class Client extends OpenApi {
       query["Type"] = request.type;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.config)) {
+      body["Config"] = request.config;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "AddTemplate",
@@ -31235,6 +31542,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.indexConfig)) {
       query["IndexConfig"] = request.indexConfig;
+    }
+
+    if (!Util.isUnset(request.indexStatus)) {
+      query["IndexStatus"] = request.indexStatus;
     }
 
     if (!Util.isUnset(request.indexType)) {
@@ -31630,16 +31941,18 @@ export default class Client extends OpenApi {
       query["TemplateType"] = request.templateType;
     }
 
-    if (!Util.isUnset(request.timeline)) {
-      query["Timeline"] = request.timeline;
-    }
-
     if (!Util.isUnset(request.title)) {
       query["Title"] = request.title;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.timeline)) {
+      body["Timeline"] = request.timeline;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateEditingProject",
@@ -31825,6 +32138,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.indexConfig)) {
       query["IndexConfig"] = request.indexConfig;
+    }
+
+    if (!Util.isUnset(request.indexStatus)) {
+      query["IndexStatus"] = request.indexStatus;
     }
 
     if (!Util.isUnset(request.indexType)) {
@@ -34526,6 +34843,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -34557,6 +34878,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -35755,6 +36080,39 @@ export default class Client extends OpenApi {
   async queryMediaCensorJobList(request: QueryMediaCensorJobListRequest): Promise<QueryMediaCensorJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMediaCensorJobListWithOptions(request, runtime);
+  }
+
+  async queryMediaIndexJobWithOptions(request: QueryMediaIndexJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaIndexJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryMediaIndexJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMediaIndexJobResponse>(await this.callApi(params, req, runtime), new QueryMediaIndexJobResponse({}));
+  }
+
+  async queryMediaIndexJob(request: QueryMediaIndexJobRequest): Promise<QueryMediaIndexJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMediaIndexJobWithOptions(request, runtime);
   }
 
   async querySearchIndexWithOptions(request: QuerySearchIndexRequest, runtime: $Util.RuntimeOptions): Promise<QuerySearchIndexResponse> {
@@ -37531,16 +37889,18 @@ export default class Client extends OpenApi {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.timeline)) {
-      query["Timeline"] = request.timeline;
-    }
-
     if (!Util.isUnset(request.userData)) {
       query["UserData"] = request.userData;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.timeline)) {
+      body["Timeline"] = request.timeline;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SubmitMediaProducingJob",
@@ -37760,6 +38120,51 @@ export default class Client extends OpenApi {
   async submitSnapshotJob(request: SubmitSnapshotJobRequest): Promise<SubmitSnapshotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitSnapshotJobWithOptions(request, runtime);
+  }
+
+  async submitStandardCustomizedVoiceJobWithOptions(request: SubmitStandardCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitStandardCustomizedVoiceJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.audios)) {
+      query["Audios"] = request.audios;
+    }
+
+    if (!Util.isUnset(request.authentication)) {
+      query["Authentication"] = request.authentication;
+    }
+
+    if (!Util.isUnset(request.demoAudioMediaURL)) {
+      query["DemoAudioMediaURL"] = request.demoAudioMediaURL;
+    }
+
+    if (!Util.isUnset(request.gender)) {
+      query["Gender"] = request.gender;
+    }
+
+    if (!Util.isUnset(request.voiceName)) {
+      query["VoiceName"] = request.voiceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitStandardCustomizedVoiceJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitStandardCustomizedVoiceJobResponse>(await this.callApi(params, req, runtime), new SubmitStandardCustomizedVoiceJobResponse({}));
+  }
+
+  async submitStandardCustomizedVoiceJob(request: SubmitStandardCustomizedVoiceJobRequest): Promise<SubmitStandardCustomizedVoiceJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitStandardCustomizedVoiceJobWithOptions(request, runtime);
   }
 
   /**
@@ -38131,16 +38536,18 @@ export default class Client extends OpenApi {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.timeline)) {
-      query["Timeline"] = request.timeline;
-    }
-
     if (!Util.isUnset(request.title)) {
       query["Title"] = request.title;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.timeline)) {
+      body["Timeline"] = request.timeline;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateEditingProject",
@@ -38538,10 +38945,6 @@ export default class Client extends OpenApi {
   async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.config)) {
-      query["Config"] = request.config;
-    }
-
     if (!Util.isUnset(request.coverUrl)) {
       query["CoverUrl"] = request.coverUrl;
     }
@@ -38570,8 +38973,14 @@ export default class Client extends OpenApi {
       query["TemplateId"] = request.templateId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.config)) {
+      body["Config"] = request.config;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTemplate",
