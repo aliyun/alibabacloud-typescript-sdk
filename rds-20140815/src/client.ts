@@ -11326,6 +11326,7 @@ export class DescribeDBProxyResponseBody extends $tea.Model {
   DBProxyInstanceSize?: string;
   DBProxyInstanceStatus?: string;
   DBProxyInstanceType?: string;
+  DBProxyPersistentConnectionSupport?: string;
   DBProxyServiceStatus?: string;
   dbProxyEndpointItems?: DescribeDBProxyResponseBodyDbProxyEndpointItems;
   requestId?: string;
@@ -11342,6 +11343,7 @@ export class DescribeDBProxyResponseBody extends $tea.Model {
       DBProxyInstanceSize: 'DBProxyInstanceSize',
       DBProxyInstanceStatus: 'DBProxyInstanceStatus',
       DBProxyInstanceType: 'DBProxyInstanceType',
+      DBProxyPersistentConnectionSupport: 'DBProxyPersistentConnectionSupport',
       DBProxyServiceStatus: 'DBProxyServiceStatus',
       dbProxyEndpointItems: 'DbProxyEndpointItems',
       requestId: 'RequestId',
@@ -11361,6 +11363,7 @@ export class DescribeDBProxyResponseBody extends $tea.Model {
       DBProxyInstanceSize: 'string',
       DBProxyInstanceStatus: 'string',
       DBProxyInstanceType: 'string',
+      DBProxyPersistentConnectionSupport: 'string',
       DBProxyServiceStatus: 'string',
       dbProxyEndpointItems: DescribeDBProxyResponseBodyDbProxyEndpointItems,
       requestId: 'string',
@@ -21778,6 +21781,7 @@ export class ModifyDBProxyRequest extends $tea.Model {
   DBInstanceId?: string;
   DBProxyEngineType?: string;
   DBProxyInstanceNum?: string;
+  DBProxyInstanceType?: string;
   instanceNetworkType?: string;
   ownerId?: number;
   regionId?: string;
@@ -21792,6 +21796,7 @@ export class ModifyDBProxyRequest extends $tea.Model {
       DBInstanceId: 'DBInstanceId',
       DBProxyEngineType: 'DBProxyEngineType',
       DBProxyInstanceNum: 'DBProxyInstanceNum',
+      DBProxyInstanceType: 'DBProxyInstanceType',
       instanceNetworkType: 'InstanceNetworkType',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -21809,6 +21814,7 @@ export class ModifyDBProxyRequest extends $tea.Model {
       DBInstanceId: 'string',
       DBProxyEngineType: 'string',
       DBProxyInstanceNum: 'string',
+      DBProxyInstanceType: 'string',
       instanceNetworkType: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -54056,6 +54062,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBProxyInstanceNum)) {
       query["DBProxyInstanceNum"] = request.DBProxyInstanceNum;
+    }
+
+    if (!Util.isUnset(request.DBProxyInstanceType)) {
+      query["DBProxyInstanceType"] = request.DBProxyInstanceType;
     }
 
     if (!Util.isUnset(request.instanceNetworkType)) {
