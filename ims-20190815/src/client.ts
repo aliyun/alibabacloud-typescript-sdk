@@ -491,6 +491,7 @@ export class CreateApplicationRequest extends $tea.Model {
   predefinedScopes?: string;
   redirectUris?: string;
   refreshTokenValidity?: number;
+  requiredScopes?: string;
   secretRequired?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -502,6 +503,7 @@ export class CreateApplicationRequest extends $tea.Model {
       predefinedScopes: 'PredefinedScopes',
       redirectUris: 'RedirectUris',
       refreshTokenValidity: 'RefreshTokenValidity',
+      requiredScopes: 'RequiredScopes',
       secretRequired: 'SecretRequired',
     };
   }
@@ -516,6 +518,7 @@ export class CreateApplicationRequest extends $tea.Model {
       predefinedScopes: 'string',
       redirectUris: 'string',
       refreshTokenValidity: 'number',
+      requiredScopes: 'string',
       secretRequired: 'boolean',
     };
   }
@@ -4523,6 +4526,7 @@ export class UpdateApplicationRequest extends $tea.Model {
   newPredefinedScopes?: string;
   newRedirectUris?: string;
   newRefreshTokenValidity?: number;
+  newRequiredScopes?: string;
   newSecretRequired?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4533,6 +4537,7 @@ export class UpdateApplicationRequest extends $tea.Model {
       newPredefinedScopes: 'NewPredefinedScopes',
       newRedirectUris: 'NewRedirectUris',
       newRefreshTokenValidity: 'NewRefreshTokenValidity',
+      newRequiredScopes: 'NewRequiredScopes',
       newSecretRequired: 'NewSecretRequired',
     };
   }
@@ -4546,6 +4551,7 @@ export class UpdateApplicationRequest extends $tea.Model {
       newPredefinedScopes: 'string',
       newRedirectUris: 'string',
       newRefreshTokenValidity: 'number',
+      newRequiredScopes: 'string',
       newSecretRequired: 'boolean',
     };
   }
@@ -5143,10 +5149,12 @@ export class CreateAppSecretResponseBodyAppSecret extends $tea.Model {
 export class CreateApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope extends $tea.Model {
   description?: string;
   name?: string;
+  required?: boolean;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       name: 'Name',
+      required: 'Required',
     };
   }
 
@@ -5154,6 +5162,7 @@ export class CreateApplicationResponseBodyApplicationDelegatedScopePredefinedSco
     return {
       description: 'string',
       name: 'string',
+      required: 'boolean',
     };
   }
 
@@ -5753,10 +5762,12 @@ export class GetAppSecretResponseBodyAppSecret extends $tea.Model {
 export class GetApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope extends $tea.Model {
   description?: string;
   name?: string;
+  required?: boolean;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       name: 'Name',
+      required: 'Required',
     };
   }
 
@@ -5764,6 +5775,7 @@ export class GetApplicationResponseBodyApplicationDelegatedScopePredefinedScopes
     return {
       description: 'string',
       name: 'string',
+      required: 'boolean',
     };
   }
 
@@ -6456,10 +6468,12 @@ export class ListAppSecretIdsResponseBodyAppSecrets extends $tea.Model {
 export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePredefinedScopesPredefinedScope extends $tea.Model {
   description?: string;
   name?: string;
+  required?: boolean;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       name: 'Name',
+      required: 'Required',
     };
   }
 
@@ -6467,6 +6481,7 @@ export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePr
     return {
       description: 'string',
       name: 'string',
+      required: 'boolean',
     };
   }
 
@@ -7607,10 +7622,12 @@ export class UnbindMFADeviceResponseBodyMFADevice extends $tea.Model {
 export class UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope extends $tea.Model {
   description?: string;
   name?: string;
+  required?: boolean;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       name: 'Name',
+      required: 'Required',
     };
   }
 
@@ -7618,6 +7635,7 @@ export class UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedSco
     return {
       description: 'string',
       name: 'string',
+      required: 'boolean',
     };
   }
 
@@ -8261,6 +8279,10 @@ export default class Client extends OpenApi {
       query["RefreshTokenValidity"] = request.refreshTokenValidity;
     }
 
+    if (!Util.isUnset(request.requiredScopes)) {
+      query["RequiredScopes"] = request.requiredScopes;
+    }
+
     if (!Util.isUnset(request.secretRequired)) {
       query["SecretRequired"] = request.secretRequired;
     }
@@ -8370,13 +8392,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Prerequisite
-    * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external IdP, such as Google G Suite or Okta.
-    * ### [](#)Limits
+    * ### Prerequisites
+    * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external (IdP, such as Google G Suite or Okta.
+    * ### Limits
     * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
     * *   You can add a maximum of 20 client IDs to an OIDC IdP.
     * *   You can add a maximum of five fingerprints to an OIDC IdP.
-    * ### [](#)
+    * ###
     * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
     *
     * @param request CreateOIDCProviderRequest
@@ -8428,13 +8450,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Prerequisite
-    * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external IdP, such as Google G Suite or Okta.
-    * ### [](#)Limits
+    * ### Prerequisites
+    * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external (IdP, such as Google G Suite or Okta.
+    * ### Limits
     * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
     * *   You can add a maximum of 20 client IDs to an OIDC IdP.
     * *   You can add a maximum of five fingerprints to an OIDC IdP.
-    * ### [](#)
+    * ###
     * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
     *
     * @param request CreateOIDCProviderRequest
@@ -9810,8 +9832,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * You can call the following API operations to query the information about all RAM users:
+    * ### [](#)
+    * You can call the following API operations to query the details of all RAM users:
     * *   ListUsers: queries the details of all RAM users.
     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
     *
@@ -9852,8 +9874,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * You can call the following API operations to query the information about all RAM users:
+    * ### [](#)
+    * You can call the following API operations to query the details of all RAM users:
     * *   ListUsers: queries the details of all RAM users.
     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
     *
@@ -10466,6 +10488,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.newRefreshTokenValidity)) {
       query["NewRefreshTokenValidity"] = request.newRefreshTokenValidity;
+    }
+
+    if (!Util.isUnset(request.newRequiredScopes)) {
+      query["NewRequiredScopes"] = request.newRequiredScopes;
     }
 
     if (!Util.isUnset(request.newSecretRequired)) {
