@@ -1615,6 +1615,7 @@ export class UntagResourcesResponse extends $tea.Model {
 
 export class UpdateInstanceIpWhiteListRequest extends $tea.Model {
   delete?: boolean;
+  groupName?: string;
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1625,6 +1626,7 @@ export class UpdateInstanceIpWhiteListRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       delete: 'Delete',
+      groupName: 'GroupName',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -1638,6 +1640,7 @@ export class UpdateInstanceIpWhiteListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       delete: 'boolean',
+      groupName: 'string',
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -3276,6 +3279,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.delete)) {
       query["Delete"] = request.delete;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
     }
 
     if (!Util.isUnset(request.instanceId)) {
