@@ -291,11 +291,13 @@ export class CreateQuotaApplicationsForTemplateRequest extends $tea.Model {
 export class CreateQuotaApplicationsForTemplateResponseBody extends $tea.Model {
   aliyunUids?: string[];
   batchQuotaApplicationId?: string;
+  failResults?: CreateQuotaApplicationsForTemplateResponseBodyFailResults[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       aliyunUids: 'AliyunUids',
       batchQuotaApplicationId: 'BatchQuotaApplicationId',
+      failResults: 'FailResults',
       requestId: 'RequestId',
     };
   }
@@ -304,6 +306,7 @@ export class CreateQuotaApplicationsForTemplateResponseBody extends $tea.Model {
     return {
       aliyunUids: { 'type': 'array', 'itemType': 'string' },
       batchQuotaApplicationId: 'string',
+      failResults: { 'type': 'array', 'itemType': CreateQuotaApplicationsForTemplateResponseBodyFailResults },
       requestId: 'string',
     };
   }
@@ -2177,6 +2180,28 @@ export class CreateQuotaApplicationsForTemplateRequestDimensions extends $tea.Mo
   }
 }
 
+export class CreateQuotaApplicationsForTemplateResponseBodyFailResults extends $tea.Model {
+  aliyunUid?: string;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunUid: 'AliyunUid',
+      reason: 'Reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunUid: 'string',
+      reason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTemplateQuotaItemRequestDimensions extends $tea.Model {
   key?: string;
   value?: string;
@@ -2280,6 +2305,7 @@ export class GetProductQuotaResponseBodyQuota extends $tea.Model {
   dimensions?: { [key: string]: any };
   effectiveTime?: string;
   expireTime?: string;
+  globalQuota?: boolean;
   period?: GetProductQuotaResponseBodyQuotaPeriod;
   productCode?: string;
   quotaActionCode?: string;
@@ -2304,6 +2330,7 @@ export class GetProductQuotaResponseBodyQuota extends $tea.Model {
       dimensions: 'Dimensions',
       effectiveTime: 'EffectiveTime',
       expireTime: 'ExpireTime',
+      globalQuota: 'GlobalQuota',
       period: 'Period',
       productCode: 'ProductCode',
       quotaActionCode: 'QuotaActionCode',
@@ -2331,6 +2358,7 @@ export class GetProductQuotaResponseBodyQuota extends $tea.Model {
       dimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       effectiveTime: 'string',
       expireTime: 'string',
+      globalQuota: 'boolean',
       period: GetProductQuotaResponseBodyQuotaPeriod,
       productCode: 'string',
       quotaActionCode: 'string',
@@ -2836,6 +2864,7 @@ export class ListProductQuotasResponseBodyQuotas extends $tea.Model {
   dimensions?: { [key: string]: any };
   effectiveTime?: string;
   expireTime?: string;
+  globalQuota?: boolean;
   period?: ListProductQuotasResponseBodyQuotasPeriod;
   productCode?: string;
   quotaActionCode?: string;
@@ -2860,6 +2889,7 @@ export class ListProductQuotasResponseBodyQuotas extends $tea.Model {
       dimensions: 'Dimensions',
       effectiveTime: 'EffectiveTime',
       expireTime: 'ExpireTime',
+      globalQuota: 'GlobalQuota',
       period: 'Period',
       productCode: 'ProductCode',
       quotaActionCode: 'QuotaActionCode',
@@ -2887,6 +2917,7 @@ export class ListProductQuotasResponseBodyQuotas extends $tea.Model {
       dimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       effectiveTime: 'string',
       expireTime: 'string',
+      globalQuota: 'boolean',
       period: ListProductQuotasResponseBodyQuotasPeriod,
       productCode: 'string',
       quotaActionCode: 'string',
