@@ -1329,6 +1329,93 @@ export class CreateFunctionInstanceResponse extends $tea.Model {
   }
 }
 
+export class CreateFunctionResourceRequest extends $tea.Model {
+  data?: CreateFunctionResourceRequestData;
+  description?: string;
+  resourceName?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      description: 'Description',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateFunctionResourceRequestData,
+      description: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFunctionResourceResponseBody extends $tea.Model {
+  code?: string;
+  httpCode?: number;
+  latency?: number;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpCode: 'HttpCode',
+      latency: 'Latency',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpCode: 'number',
+      latency: 'number',
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFunctionResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateFunctionResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFunctionResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFunctionTaskResponseBody extends $tea.Model {
   code?: string;
   httpCode?: number;
@@ -1730,17 +1817,45 @@ export class CreateSecondRankResponse extends $tea.Model {
   }
 }
 
+export class CreateSortScriptRequest extends $tea.Model {
+  scope?: string;
+  scriptName?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scope: 'scope',
+      scriptName: 'scriptName',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scope: 'string',
+      scriptName: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSortScriptResponseBody extends $tea.Model {
   requestId?: string;
+  result?: CreateSortScriptResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'requestId',
+      result: 'result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      result: CreateSortScriptResponseBodyResult,
     };
   }
 
@@ -2047,6 +2162,65 @@ export class DeleteFunctionInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteFunctionInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFunctionResourceResponseBody extends $tea.Model {
+  code?: string;
+  httpCode?: number;
+  latency?: number;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpCode: 'HttpCode',
+      latency: 'Latency',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpCode: 'number',
+      latency: 'number',
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFunctionResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteFunctionResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFunctionResourceResponseBody,
     };
   }
 
@@ -2711,53 +2885,6 @@ export class DescribeQueryProcessorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeQueryProcessorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: DescribeRegionResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-      result: 'result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: DescribeRegionResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRegionResponseBody,
     };
   }
 
@@ -3488,6 +3615,87 @@ export class GetFunctionInstanceResponse extends $tea.Model {
   }
 }
 
+export class GetFunctionResourceRequest extends $tea.Model {
+  output?: string;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFunctionResourceResponseBody extends $tea.Model {
+  code?: string;
+  httpCode?: number;
+  latency?: number;
+  message?: string;
+  requestId?: string;
+  result?: GetFunctionResourceResponseBodyResult;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpCode: 'HttpCode',
+      latency: 'Latency',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpCode: 'number',
+      latency: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: GetFunctionResourceResponseBodyResult,
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFunctionResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetFunctionResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFunctionResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFunctionTaskResponseBody extends $tea.Model {
   code?: string;
   httpCode?: number;
@@ -3604,53 +3812,6 @@ export class GetFunctionVersionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetFunctionVersionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelReportResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-      result: 'result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetModelReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetModelReportResponseBody,
     };
   }
 
@@ -4162,53 +4323,6 @@ export class ListAppGroupsResponse extends $tea.Model {
   }
 }
 
-export class ListAppsRequest extends $tea.Model {
-  group?: boolean;
-  page?: number;
-  size?: number;
-  static names(): { [key: string]: string } {
-    return {
-      group: 'group',
-      page: 'page',
-      size: 'size',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      group: 'boolean',
-      page: 'number',
-      size: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListDataCollectionsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
@@ -4554,6 +4668,99 @@ export class ListFunctionInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListFunctionInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionResourcesRequest extends $tea.Model {
+  output?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionResourcesResponseBody extends $tea.Model {
+  code?: string;
+  httpCode?: number;
+  latency?: number;
+  message?: string;
+  requestId?: string;
+  result?: ListFunctionResourcesResponseBodyResult[];
+  status?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpCode: 'HttpCode',
+      latency: 'Latency',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      status: 'Status',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpCode: 'number',
+      latency: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListFunctionResourcesResponseBodyResult },
+      status: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListFunctionResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListFunctionResourcesResponseBody,
     };
   }
 
@@ -4913,78 +5120,6 @@ export class ListInterventionDictionaryRelatedEntitiesResponse extends $tea.Mode
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListInterventionDictionaryRelatedEntitiesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListModelsRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListModelsResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: { [key: string]: any }[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-      result: 'result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListModelsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListModelsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListModelsResponseBody,
     };
   }
 
@@ -6519,75 +6654,6 @@ export class ModifySecondRankResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifySecondRankResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewModelRequest extends $tea.Model {
-  query?: string;
-  static names(): { [key: string]: string } {
-    return {
-      query: 'query',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      query: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewModelResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: { [key: string]: any }[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-      result: 'result',
-      totalCount: 'totalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewModelResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PreviewModelResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PreviewModelResponseBody,
     };
   }
 
@@ -8307,6 +8373,87 @@ export class UpdateFunctionInstanceResponse extends $tea.Model {
   }
 }
 
+export class UpdateFunctionResourceRequest extends $tea.Model {
+  data?: UpdateFunctionResourceRequestData;
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UpdateFunctionResourceRequestData,
+      description: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFunctionResourceResponseBody extends $tea.Model {
+  code?: string;
+  httpCode?: number;
+  latency?: number;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpCode: 'HttpCode',
+      latency: 'Latency',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpCode: 'number',
+      latency: 'number',
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFunctionResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateFunctionResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateFunctionResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateSearchStrategyRequest extends $tea.Model {
   body?: SearchStrategy;
   static names(): { [key: string]: string } {
@@ -9058,6 +9205,94 @@ export class CreateFunctionInstanceRequestUsageParameters extends $tea.Model {
   }
 }
 
+export class CreateFunctionResourceRequestDataGeneratorsInputFeatures extends $tea.Model {
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFunctionResourceRequestDataGeneratorsInput extends $tea.Model {
+  features?: CreateFunctionResourceRequestDataGeneratorsInputFeatures[];
+  static names(): { [key: string]: string } {
+    return {
+      features: 'Features',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      features: { 'type': 'array', 'itemType': CreateFunctionResourceRequestDataGeneratorsInputFeatures },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFunctionResourceRequestDataGenerators extends $tea.Model {
+  generator?: string;
+  input?: CreateFunctionResourceRequestDataGeneratorsInput;
+  output?: string;
+  static names(): { [key: string]: string } {
+    return {
+      generator: 'Generator',
+      input: 'Input',
+      output: 'Output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generator: 'string',
+      input: CreateFunctionResourceRequestDataGeneratorsInput,
+      output: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFunctionResourceRequestData extends $tea.Model {
+  content?: string;
+  generators?: CreateFunctionResourceRequestDataGenerators[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      generators: 'Generators',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      generators: { 'type': 'array', 'itemType': CreateFunctionResourceRequestDataGenerators },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInterventionDictionaryResponseBodyResult extends $tea.Model {
   analyzer?: string;
   created?: string;
@@ -9118,6 +9353,31 @@ export class CreateQueryProcessorResponseBodyResult extends $tea.Model {
       name: 'string',
       processors: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       updated: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSortScriptResponseBodyResult extends $tea.Model {
+  scope?: string;
+  scriptName?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scope: 'scope',
+      scriptName: 'scriptName',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scope: 'string',
+      scriptName: 'string',
+      type: 'string',
     };
   }
 
@@ -9688,28 +9948,6 @@ export class DescribeQueryProcessorResponseBodyResult extends $tea.Model {
   }
 }
 
-export class DescribeRegionResponseBodyResult extends $tea.Model {
-  config?: { [key: string]: any };
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'config',
-      regionId: 'regionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeRegionsResponseBodyResult extends $tea.Model {
   consoleUrl?: string;
   endpoint?: string;
@@ -10130,6 +10368,134 @@ export class GetFunctionInstanceResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetFunctionResourceResponseBodyResultDataGeneratorsInputFeatures extends $tea.Model {
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFunctionResourceResponseBodyResultDataGeneratorsInput extends $tea.Model {
+  features?: GetFunctionResourceResponseBodyResultDataGeneratorsInputFeatures[];
+  static names(): { [key: string]: string } {
+    return {
+      features: 'Features',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      features: { 'type': 'array', 'itemType': GetFunctionResourceResponseBodyResultDataGeneratorsInputFeatures },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFunctionResourceResponseBodyResultDataGenerators extends $tea.Model {
+  generator?: string;
+  input?: GetFunctionResourceResponseBodyResultDataGeneratorsInput;
+  output?: string;
+  static names(): { [key: string]: string } {
+    return {
+      generator: 'Generator',
+      input: 'Input',
+      output: 'Output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generator: 'string',
+      input: GetFunctionResourceResponseBodyResultDataGeneratorsInput,
+      output: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFunctionResourceResponseBodyResultData extends $tea.Model {
+  content?: string;
+  generators?: GetFunctionResourceResponseBodyResultDataGenerators[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      generators: 'Generators',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      generators: { 'type': 'array', 'itemType': GetFunctionResourceResponseBodyResultDataGenerators },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFunctionResourceResponseBodyResult extends $tea.Model {
+  createTime?: number;
+  data?: GetFunctionResourceResponseBodyResultData;
+  description?: string;
+  functionName?: string;
+  modifyTime?: number;
+  referencedInstances?: string[];
+  resourceName?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      data: 'Data',
+      description: 'Description',
+      functionName: 'FunctionName',
+      modifyTime: 'ModifyTime',
+      referencedInstances: 'ReferencedInstances',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      data: GetFunctionResourceResponseBodyResultData,
+      description: 'string',
+      functionName: 'string',
+      modifyTime: 'number',
+      referencedInstances: { 'type': 'array', 'itemType': 'string' },
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFunctionTaskResponseBodyResult extends $tea.Model {
   endTime?: number;
   extendInfo?: string;
@@ -10330,6 +10696,7 @@ export class GetSortScriptResponseBodyResult extends $tea.Model {
   createTime?: string;
   modifyTime?: string;
   scope?: string;
+  scriptName?: string;
   status?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -10337,6 +10704,7 @@ export class GetSortScriptResponseBodyResult extends $tea.Model {
       createTime: 'createTime',
       modifyTime: 'modifyTime',
       scope: 'scope',
+      scriptName: 'scriptName',
       status: 'status',
       type: 'type',
     };
@@ -10347,6 +10715,7 @@ export class GetSortScriptResponseBodyResult extends $tea.Model {
       createTime: 'string',
       modifyTime: 'string',
       scope: 'string',
+      scriptName: 'string',
       status: 'string',
       type: 'string',
     };
@@ -10871,6 +11240,134 @@ export class ListFunctionInstancesResponseBodyResult extends $tea.Model {
       status: 'string',
       usageParameters: { 'type': 'array', 'itemType': ListFunctionInstancesResponseBodyResultUsageParameters },
       versionId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionResourcesResponseBodyResultDataGeneratorsInputFeatures extends $tea.Model {
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionResourcesResponseBodyResultDataGeneratorsInput extends $tea.Model {
+  features?: ListFunctionResourcesResponseBodyResultDataGeneratorsInputFeatures[];
+  static names(): { [key: string]: string } {
+    return {
+      features: 'Features',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      features: { 'type': 'array', 'itemType': ListFunctionResourcesResponseBodyResultDataGeneratorsInputFeatures },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionResourcesResponseBodyResultDataGenerators extends $tea.Model {
+  generator?: string;
+  input?: ListFunctionResourcesResponseBodyResultDataGeneratorsInput;
+  output?: string;
+  static names(): { [key: string]: string } {
+    return {
+      generator: 'Generator',
+      input: 'Input',
+      output: 'Output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generator: 'string',
+      input: ListFunctionResourcesResponseBodyResultDataGeneratorsInput,
+      output: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionResourcesResponseBodyResultData extends $tea.Model {
+  content?: string;
+  generators?: ListFunctionResourcesResponseBodyResultDataGenerators[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      generators: 'Generators',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      generators: { 'type': 'array', 'itemType': ListFunctionResourcesResponseBodyResultDataGenerators },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionResourcesResponseBodyResult extends $tea.Model {
+  createTime?: number;
+  data?: ListFunctionResourcesResponseBodyResultData;
+  description?: string;
+  functionName?: string;
+  modifyTime?: number;
+  referencedInstances?: string[];
+  resourceName?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      data: 'Data',
+      description: 'Description',
+      functionName: 'FunctionName',
+      modifyTime: 'ModifyTime',
+      referencedInstances: 'ReferencedInstances',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      data: ListFunctionResourcesResponseBodyResultData,
+      description: 'string',
+      functionName: 'string',
+      modifyTime: 'number',
+      referencedInstances: { 'type': 'array', 'itemType': 'string' },
+      resourceName: 'string',
+      resourceType: 'string',
     };
   }
 
@@ -12221,6 +12718,94 @@ export class UpdateFunctionInstanceRequestUsageParameters extends $tea.Model {
   }
 }
 
+export class UpdateFunctionResourceRequestDataGeneratorsInputFeatures extends $tea.Model {
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFunctionResourceRequestDataGeneratorsInput extends $tea.Model {
+  features?: UpdateFunctionResourceRequestDataGeneratorsInputFeatures[];
+  static names(): { [key: string]: string } {
+    return {
+      features: 'Features',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      features: { 'type': 'array', 'itemType': UpdateFunctionResourceRequestDataGeneratorsInputFeatures },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFunctionResourceRequestDataGenerators extends $tea.Model {
+  generator?: string;
+  input?: UpdateFunctionResourceRequestDataGeneratorsInput;
+  output?: string;
+  static names(): { [key: string]: string } {
+    return {
+      generator: 'Generator',
+      input: 'Input',
+      output: 'Output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generator: 'string',
+      input: UpdateFunctionResourceRequestDataGeneratorsInput,
+      output: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFunctionResourceRequestData extends $tea.Model {
+  content?: string;
+  generators?: UpdateFunctionResourceRequestDataGenerators[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      generators: 'Generators',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      generators: { 'type': 'array', 'itemType': UpdateFunctionResourceRequestDataGenerators },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateSummariesRequestBody extends $tea.Model {
   element?: string;
   ellipsis?: string;
@@ -12504,9 +13089,9 @@ export default class Client extends OpenApi {
 
   /**
     * *   When you create a standard application, a new version of the application is created if the specified application name already exists.
-    * *   When you create a version of an existing application, you must set the autoSwitch and realtimeShared parameters.
+    * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
     * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
-    * *   When you create a version of an existing application, the modification of the quota parameter does not take effect.
+    * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
     *
     * @param request CreateAppRequest
     * @param headers map
@@ -12541,9 +13126,9 @@ export default class Client extends OpenApi {
 
   /**
     * *   When you create a standard application, a new version of the application is created if the specified application name already exists.
-    * *   When you create a version of an existing application, you must set the autoSwitch and realtimeShared parameters.
+    * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
     * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
-    * *   When you create a version of an existing application, the modification of the quota parameter does not take effect.
+    * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
     *
     * @param request CreateAppRequest
     * @return CreateAppResponse
@@ -12681,6 +13266,49 @@ export default class Client extends OpenApi {
     return await this.createFunctionInstanceWithOptions(appGroupIdentity, functionName, request, headers, runtime);
   }
 
+  async createFunctionResourceWithOptions(appGroupIdentity: string, functionName: string, request: CreateFunctionResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFunctionResourceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.resourceName)) {
+      body["ResourceName"] = request.resourceName;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFunctionResource",
+      version: "2017-12-25",
+      protocol: "HTTPS",
+      pathname: `/v4/openapi/app-groups/${OpenApiUtil.getEncodeParam(appGroupIdentity)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/resources`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFunctionResourceResponse>(await this.callApi(params, req, runtime), new CreateFunctionResourceResponse({}));
+  }
+
+  async createFunctionResource(appGroupIdentity: string, functionName: string, request: CreateFunctionResourceRequest): Promise<CreateFunctionResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createFunctionResourceWithOptions(appGroupIdentity, functionName, request, headers, runtime);
+  }
+
   async createFunctionTaskWithOptions(appGroupIdentity: string, functionName: string, instanceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFunctionTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -12782,14 +13410,6 @@ export default class Client extends OpenApi {
     return await this.createQueryProcessorWithOptions(appGroupIdentity, appId, request, headers, runtime);
   }
 
-  /**
-    * ****
-    *
-    * @param request CreateScheduledTaskRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateScheduledTaskResponse
-   */
   async createScheduledTaskWithOptions(appGroupIdentity: string, request: CreateScheduledTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateScheduledTaskResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -12810,12 +13430,6 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateScheduledTaskResponse>(await this.callApi(params, req, runtime), new CreateScheduledTaskResponse({}));
   }
 
-  /**
-    * ****
-    *
-    * @param request CreateScheduledTaskRequest
-    * @return CreateScheduledTaskResponse
-   */
   async createScheduledTask(appGroupIdentity: string, request: CreateScheduledTaskRequest): Promise<CreateScheduledTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -12880,9 +13494,24 @@ export default class Client extends OpenApi {
     return await this.createSecondRankWithOptions(appGroupIdentity, appId, request, headers, runtime);
   }
 
-  async createSortScriptWithOptions(appGroupIdentity: string, appVersionId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSortScriptResponse> {
+  async createSortScriptWithOptions(appGroupIdentity: string, appVersionId: string, request: CreateSortScriptRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSortScriptResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.scope)) {
+      body["scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.scriptName)) {
+      body["scriptName"] = request.scriptName;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateSortScript",
@@ -12898,12 +13527,21 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSortScriptResponse>(await this.callApi(params, req, runtime), new CreateSortScriptResponse({}));
   }
 
-  async createSortScript(appGroupIdentity: string, appVersionId: string): Promise<CreateSortScriptResponse> {
+  async createSortScript(appGroupIdentity: string, appVersionId: string, request: CreateSortScriptRequest): Promise<CreateSortScriptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createSortScriptWithOptions(appGroupIdentity, appVersionId, headers, runtime);
+    return await this.createSortScriptWithOptions(appGroupIdentity, appVersionId, request, headers, runtime);
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=OpenSearch\\&api=CreateUserAnalyzer\\&type=ROA\\&version=2017-12-25)
+    *
+    * @param request CreateUserAnalyzerRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateUserAnalyzerResponse
+   */
   async createUserAnalyzerWithOptions(request: CreateUserAnalyzerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateUserAnalyzerResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12951,6 +13589,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserAnalyzerResponse>(await this.callApi(params, req, runtime), new CreateUserAnalyzerResponse({}));
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=OpenSearch\\&api=CreateUserAnalyzer\\&type=ROA\\&version=2017-12-25)
+    *
+    * @param request CreateUserAnalyzerRequest
+    * @return CreateUserAnalyzerResponse
+   */
   async createUserAnalyzer(request: CreateUserAnalyzerRequest): Promise<CreateUserAnalyzerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -13051,6 +13696,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteFunctionInstanceWithOptions(appGroupIdentity, functionName, instanceName, headers, runtime);
+  }
+
+  async deleteFunctionResourceWithOptions(appGroupIdentity: string, functionName: string, resourceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionResourceResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFunctionResource",
+      version: "2017-12-25",
+      protocol: "HTTPS",
+      pathname: `/v4/openapi/app-groups/${OpenApiUtil.getEncodeParam(appGroupIdentity)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/resources/${OpenApiUtil.getEncodeParam(resourceName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFunctionResourceResponse>(await this.callApi(params, req, runtime), new DeleteFunctionResourceResponse({}));
+  }
+
+  async deleteFunctionResource(appGroupIdentity: string, functionName: string, resourceName: string): Promise<DeleteFunctionResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFunctionResourceWithOptions(appGroupIdentity, functionName, resourceName, headers, runtime);
   }
 
   async deleteFunctionTaskWithOptions(appGroupIdentity: string, functionName: string, instanceName: string, generation: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionTaskResponse> {
@@ -13389,30 +14058,6 @@ export default class Client extends OpenApi {
     return await this.describeQueryProcessorWithOptions(appGroupIdentity, appId, name, headers, runtime);
   }
 
-  async describeRegionWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeRegion",
-      version: "2017-12-25",
-      protocol: "HTTPS",
-      pathname: `/v4/openapi/region`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeRegionResponse>(await this.callApi(params, req, runtime), new DescribeRegionResponse({}));
-  }
-
-  async describeRegion(): Promise<DescribeRegionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.describeRegionWithOptions(headers, runtime);
-  }
-
   async describeRegionsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -13749,6 +14394,37 @@ export default class Client extends OpenApi {
     return await this.getFunctionInstanceWithOptions(appGroupIdentity, functionName, instanceName, request, headers, runtime);
   }
 
+  async getFunctionResourceWithOptions(appGroupIdentity: string, functionName: string, resourceName: string, request: GetFunctionResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionResourceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.output)) {
+      query["output"] = request.output;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFunctionResource",
+      version: "2017-12-25",
+      protocol: "HTTPS",
+      pathname: `/v4/openapi/app-groups/${OpenApiUtil.getEncodeParam(appGroupIdentity)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/resources/${OpenApiUtil.getEncodeParam(resourceName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFunctionResourceResponse>(await this.callApi(params, req, runtime), new GetFunctionResourceResponse({}));
+  }
+
+  async getFunctionResource(appGroupIdentity: string, functionName: string, resourceName: string, request: GetFunctionResourceRequest): Promise<GetFunctionResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getFunctionResourceWithOptions(appGroupIdentity, functionName, resourceName, request, headers, runtime);
+  }
+
   async getFunctionTaskWithOptions(appGroupIdentity: string, functionName: string, instanceName: string, generation: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -13795,30 +14471,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFunctionVersionWithOptions(functionName, versionId, headers, runtime);
-  }
-
-  async getModelReportWithOptions(appGroupIdentity: string, modelName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetModelReportResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetModelReport",
-      version: "2017-12-25",
-      protocol: "HTTPS",
-      pathname: `/v4/openapi/app-groups/${OpenApiUtil.getEncodeParam(appGroupIdentity)}/algorithm/models/${OpenApiUtil.getEncodeParam(modelName)}/report`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetModelReportResponse>(await this.callApi(params, req, runtime), new GetModelReportResponse({}));
-  }
-
-  async getModelReport(appGroupIdentity: string, modelName: string): Promise<GetModelReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getModelReportWithOptions(appGroupIdentity, modelName, headers, runtime);
   }
 
   async getScriptFileNamesWithOptions(appGroupIdentity: string, appVersionId: string, scriptName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetScriptFileNamesResponse> {
@@ -14096,45 +14748,6 @@ export default class Client extends OpenApi {
     return await this.listAppGroupsWithOptions(request, headers, runtime);
   }
 
-  async listAppsWithOptions(request: ListAppsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAppsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.group)) {
-      query["group"] = request.group;
-    }
-
-    if (!Util.isUnset(request.page)) {
-      query["page"] = request.page;
-    }
-
-    if (!Util.isUnset(request.size)) {
-      query["size"] = request.size;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListApps",
-      version: "2017-12-25",
-      protocol: "HTTPS",
-      pathname: `/v4/openapi/apps`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<ListAppsResponse>(await this.callApi(params, req, runtime), new ListAppsResponse({}));
-  }
-
-  async listApps(request: ListAppsRequest): Promise<ListAppsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listAppsWithOptions(request, headers, runtime);
-  }
-
   async listDataCollectionsWithOptions(appGroupIdentity: string, request: ListDataCollectionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataCollectionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -14309,6 +14922,49 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFunctionInstancesWithOptions(appGroupIdentity, functionName, request, headers, runtime);
+  }
+
+  async listFunctionResourcesWithOptions(appGroupIdentity: string, functionName: string, request: ListFunctionResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionResourcesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.output)) {
+      query["output"] = request.output;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListFunctionResources",
+      version: "2017-12-25",
+      protocol: "HTTPS",
+      pathname: `/v4/openapi/app-groups/${OpenApiUtil.getEncodeParam(appGroupIdentity)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/resources`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFunctionResourcesResponse>(await this.callApi(params, req, runtime), new ListFunctionResourcesResponse({}));
+  }
+
+  async listFunctionResources(appGroupIdentity: string, functionName: string, request: ListFunctionResourcesRequest): Promise<ListFunctionResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listFunctionResourcesWithOptions(appGroupIdentity, functionName, request, headers, runtime);
   }
 
   async listFunctionTasksWithOptions(appGroupIdentity: string, functionName: string, instanceName: string, request: ListFunctionTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionTasksResponse> {
@@ -14489,45 +15145,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInterventionDictionaryRelatedEntitiesWithOptions(name, headers, runtime);
-  }
-
-  async listModelsWithOptions(appGroupIdentity: string, request: ListModelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListModelsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      query["pageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["pageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.type)) {
-      query["type"] = request.type;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListModels",
-      version: "2017-12-25",
-      protocol: "HTTPS",
-      pathname: `/v4/openapi/app-groups/${OpenApiUtil.getEncodeParam(appGroupIdentity)}/algorithm/models`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListModelsResponse>(await this.callApi(params, req, runtime), new ListModelsResponse({}));
-  }
-
-  async listModels(appGroupIdentity: string, request: ListModelsRequest): Promise<ListModelsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listModelsWithOptions(appGroupIdentity, request, headers, runtime);
   }
 
   async listProceedingsWithOptions(appGroupIdentity: string, request: ListProceedingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProceedingsResponse> {
@@ -15109,15 +15726,6 @@ export default class Client extends OpenApi {
     return await this.listUserAnalyzersWithOptions(request, headers, runtime);
   }
 
-  /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=OpenSearch\\&api=ModifyAppGroup\\&type=ROA\\&version=2017-12-25)
-    *
-    * @param request ModifyAppGroupRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyAppGroupResponse
-   */
   async modifyAppGroupWithOptions(appGroupIdentity: string, request: ModifyAppGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyAppGroupResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15161,13 +15769,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAppGroupResponse>(await this.callApi(params, req, runtime), new ModifyAppGroupResponse({}));
   }
 
-  /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=OpenSearch\\&api=ModifyAppGroup\\&type=ROA\\&version=2017-12-25)
-    *
-    * @param request ModifyAppGroupRequest
-    * @return ModifyAppGroupResponse
-   */
   async modifyAppGroup(appGroupIdentity: string, request: ModifyAppGroupRequest): Promise<ModifyAppGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -15328,37 +15929,6 @@ export default class Client extends OpenApi {
     return await this.modifySecondRankWithOptions(appGroupIdentity, appId, name, request, headers, runtime);
   }
 
-  async previewModelWithOptions(appGroupIdentity: string, modelName: string, request: PreviewModelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PreviewModelResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.query)) {
-      query["query"] = request.query;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "PreviewModel",
-      version: "2017-12-25",
-      protocol: "HTTPS",
-      pathname: `/v4/openapi/app-groups/${OpenApiUtil.getEncodeParam(appGroupIdentity)}/algorithm/models/${OpenApiUtil.getEncodeParam(modelName)}/actions/preview`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<PreviewModelResponse>(await this.callApi(params, req, runtime), new PreviewModelResponse({}));
-  }
-
-  async previewModel(appGroupIdentity: string, modelName: string, request: PreviewModelRequest): Promise<PreviewModelResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.previewModelWithOptions(appGroupIdentity, modelName, request, headers, runtime);
-  }
-
   async pushInterventionDictionaryEntriesWithOptions(name: string, request: PushInterventionDictionaryEntriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PushInterventionDictionaryEntriesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15476,13 +16046,6 @@ export default class Client extends OpenApi {
     return await this.releaseSortScriptWithOptions(appGroupIdentity, scriptName, appVersionId, headers, runtime);
   }
 
-  /**
-    * > If an application has two versions, you can delete only the offline version.
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveAppResponse
-   */
   async removeAppWithOptions(appGroupIdentity: string, appId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveAppResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -15501,25 +16064,12 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveAppResponse>(await this.callApi(params, req, runtime), new RemoveAppResponse({}));
   }
 
-  /**
-    * > If an application has two versions, you can delete only the offline version.
-    *
-    * @return RemoveAppResponse
-   */
   async removeApp(appGroupIdentity: string, appId: string): Promise<RemoveAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeAppWithOptions(appGroupIdentity, appId, headers, runtime);
   }
 
-  /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=OpenSearch\\&api=RemoveAppGroup\\&type=ROA\\&version=2017-12-25)
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveAppGroupResponse
-   */
   async removeAppGroupWithOptions(appGroupIdentity: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveAppGroupResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -15538,12 +16088,6 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveAppGroupResponse>(await this.callApi(params, req, runtime), new RemoveAppGroupResponse({}));
   }
 
-  /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=OpenSearch\\&api=RemoveAppGroup\\&type=ROA\\&version=2017-12-25)
-    *
-    * @return RemoveAppGroupResponse
-   */
   async removeAppGroup(appGroupIdentity: string): Promise<RemoveAppGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -16239,6 +16783,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateFunctionInstanceWithOptions(appGroupIdentity, functionName, instanceName, request, headers, runtime);
+  }
+
+  async updateFunctionResourceWithOptions(appGroupIdentity: string, functionName: string, resourceName: string, request: UpdateFunctionResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFunctionResourceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateFunctionResource",
+      version: "2017-12-25",
+      protocol: "HTTPS",
+      pathname: `/v4/openapi/app-groups/${OpenApiUtil.getEncodeParam(appGroupIdentity)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/resources/${OpenApiUtil.getEncodeParam(resourceName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFunctionResourceResponse>(await this.callApi(params, req, runtime), new UpdateFunctionResourceResponse({}));
+  }
+
+  async updateFunctionResource(appGroupIdentity: string, functionName: string, resourceName: string, request: UpdateFunctionResourceRequest): Promise<UpdateFunctionResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateFunctionResourceWithOptions(appGroupIdentity, functionName, resourceName, request, headers, runtime);
   }
 
   async updateSearchStrategyWithOptions(appGroupIdentity: string, appId: string, strategyName: string, request: UpdateSearchStrategyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSearchStrategyResponse> {
