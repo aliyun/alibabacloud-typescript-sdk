@@ -2909,6 +2909,28 @@ export class DescribeClusterResourcesResponse extends $tea.Model {
   }
 }
 
+export class DescribeClusterTasksRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'page_number',
+      pageSize: 'page_size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterTasksResponseBody extends $tea.Model {
   pageInfo?: DescribeClusterTasksResponseBodyPageInfo;
   requestId?: string;
@@ -3183,6 +3205,7 @@ export class DescribeClustersResponse extends $tea.Model {
 }
 
 export class DescribeClustersV1Request extends $tea.Model {
+  clusterId?: string;
   clusterSpec?: string;
   clusterType?: string;
   name?: string;
@@ -3192,6 +3215,7 @@ export class DescribeClustersV1Request extends $tea.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'cluster_id',
       clusterSpec: 'cluster_spec',
       clusterType: 'cluster_type',
       name: 'name',
@@ -3204,6 +3228,7 @@ export class DescribeClustersV1Request extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'string',
       clusterSpec: 'string',
       clusterType: 'string',
       name: 'string',
@@ -13658,9 +13683,20 @@ export default class Client extends OpenApi {
     return await this.describeClusterResourcesWithOptions(ClusterId, headers, runtime);
   }
 
-  async describeClusterTasksWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterTasksResponse> {
+  async describeClusterTasksWithOptions(clusterId: string, request: DescribeClusterTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterTasksResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["page_number"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["page_size"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DescribeClusterTasks",
@@ -13676,10 +13712,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterTasksResponse>(await this.callApi(params, req, runtime), new DescribeClusterTasksResponse({}));
   }
 
-  async describeClusterTasks(clusterId: string): Promise<DescribeClusterTasksResponse> {
+  async describeClusterTasks(clusterId: string, request: DescribeClusterTasksRequest): Promise<DescribeClusterTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterTasksWithOptions(clusterId, headers, runtime);
+    return await this.describeClusterTasksWithOptions(clusterId, request, headers, runtime);
   }
 
   async describeClusterUserKubeconfigWithOptions(ClusterId: string, request: DescribeClusterUserKubeconfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterUserKubeconfigResponse> {
@@ -13842,6 +13878,10 @@ export default class Client extends OpenApi {
   async describeClustersV1WithOptions(request: DescribeClustersV1Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClustersV1Response> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["cluster_id"] = request.clusterId;
+    }
+
     if (!Util.isUnset(request.clusterSpec)) {
       query["cluster_spec"] = request.clusterSpec;
     }
