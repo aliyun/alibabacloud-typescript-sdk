@@ -1351,6 +1351,81 @@ export class AdvanceSecurityEventOperationsResponse extends $tea.Model {
   }
 }
 
+export class BatchDeleteMaliciousFileWhitelistConfigRequest extends $tea.Model {
+  configIdList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      configIdList: 'ConfigIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configIdList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteMaliciousFileWhitelistConfigResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteMaliciousFileWhitelistConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchDeleteMaliciousFileWhitelistConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchDeleteMaliciousFileWhitelistConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchOperateCommonOverallConfigRequest extends $tea.Model {
   config?: string;
   typeList?: string[];
@@ -1409,6 +1484,81 @@ export class BatchOperateCommonOverallConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchOperateCommonOverallConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateMaliciousFileWhitelistConfigRequest extends $tea.Model {
+  configList?: BatchUpdateMaliciousFileWhitelistConfigRequestConfigList[];
+  static names(): { [key: string]: string } {
+    return {
+      configList: 'ConfigList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configList: { 'type': 'array', 'itemType': BatchUpdateMaliciousFileWhitelistConfigRequestConfigList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateMaliciousFileWhitelistConfigResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateMaliciousFileWhitelistConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchUpdateMaliciousFileWhitelistConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchUpdateMaliciousFileWhitelistConfigResponseBody,
     };
   }
 
@@ -4097,6 +4247,102 @@ export class CreateJenkinsImageRegistryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateJenkinsImageRegistryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMaliciousFileWhitelistConfigRequest extends $tea.Model {
+  eventName?: string;
+  field?: string;
+  fieldValue?: string;
+  operator?: string;
+  source?: string;
+  targetType?: string;
+  targetValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventName: 'EventName',
+      field: 'Field',
+      fieldValue: 'FieldValue',
+      operator: 'Operator',
+      source: 'Source',
+      targetType: 'TargetType',
+      targetValue: 'TargetValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventName: 'string',
+      field: 'string',
+      fieldValue: 'string',
+      operator: 'string',
+      source: 'string',
+      targetType: 'string',
+      targetValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMaliciousFileWhitelistConfigResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateMaliciousFileWhitelistConfigResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateMaliciousFileWhitelistConfigResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMaliciousFileWhitelistConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateMaliciousFileWhitelistConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMaliciousFileWhitelistConfigResponseBody,
     };
   }
 
@@ -7078,6 +7324,81 @@ export class DeleteLoginBaseConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteLoginBaseConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMaliciousFileWhitelistConfigRequest extends $tea.Model {
+  configId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMaliciousFileWhitelistConfigResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMaliciousFileWhitelistConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteMaliciousFileWhitelistConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMaliciousFileWhitelistConfigResponseBody,
     };
   }
 
@@ -31266,6 +31587,84 @@ export class GetLogMetaResponse extends $tea.Model {
   }
 }
 
+export class GetMaliciousFileWhitelistConfigRequest extends $tea.Model {
+  configId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMaliciousFileWhitelistConfigResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetMaliciousFileWhitelistConfigResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetMaliciousFileWhitelistConfigResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMaliciousFileWhitelistConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMaliciousFileWhitelistConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMaliciousFileWhitelistConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetModuleConfigRequest extends $tea.Model {
   currentPage?: string;
   pageSize?: string;
@@ -38273,6 +38672,99 @@ export class ListK8sAccessInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListK8sAccessInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMaliciousFileWhitelistConfigsRequest extends $tea.Model {
+  currentPage?: number;
+  eventName?: string;
+  lang?: string;
+  pageSize?: number;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      eventName: 'EventName',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      eventName: 'string',
+      lang: 'string',
+      pageSize: 'number',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMaliciousFileWhitelistConfigsResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  list?: ListMaliciousFileWhitelistConfigsResponseBodyList[];
+  message?: string;
+  pageInfo?: ListMaliciousFileWhitelistConfigsResponseBodyPageInfo;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      list: 'List',
+      message: 'Message',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      list: { 'type': 'array', 'itemType': ListMaliciousFileWhitelistConfigsResponseBodyList },
+      message: 'string',
+      pageInfo: ListMaliciousFileWhitelistConfigsResponseBodyPageInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMaliciousFileWhitelistConfigsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMaliciousFileWhitelistConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMaliciousFileWhitelistConfigsResponseBody,
     };
   }
 
@@ -50837,6 +51329,102 @@ export class UpdateJenkinsImageRegistryPersistenceDayResponse extends $tea.Model
   }
 }
 
+export class UpdateMaliciousFileWhitelistConfigRequest extends $tea.Model {
+  configId?: number;
+  eventName?: string;
+  field?: string;
+  fieldValue?: string;
+  operator?: string;
+  source?: string;
+  targetType?: string;
+  targetValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      eventName: 'EventName',
+      field: 'Field',
+      fieldValue: 'FieldValue',
+      operator: 'Operator',
+      source: 'Source',
+      targetType: 'TargetType',
+      targetValue: 'TargetValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      eventName: 'string',
+      field: 'string',
+      fieldValue: 'string',
+      operator: 'string',
+      source: 'string',
+      targetType: 'string',
+      targetValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMaliciousFileWhitelistConfigResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMaliciousFileWhitelistConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMaliciousFileWhitelistConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMaliciousFileWhitelistConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateOpaStrategyNewRequest extends $tea.Model {
   alarmDetail?: UpdateOpaStrategyNewRequestAlarmDetail;
   clusterId?: string;
@@ -51944,6 +52532,46 @@ export class AdvanceSecurityEventOperationsResponseBodySecurityEventOperationsRe
   }
 }
 
+export class BatchUpdateMaliciousFileWhitelistConfigRequestConfigList extends $tea.Model {
+  configId?: number;
+  eventName?: string;
+  field?: string;
+  fieldValue?: string;
+  operator?: string;
+  source?: string;
+  targetType?: string;
+  targetValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      eventName: 'EventName',
+      field: 'Field',
+      fieldValue: 'FieldValue',
+      operator: 'Operator',
+      source: 'Source',
+      targetType: 'TargetType',
+      targetValue: 'TargetValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      eventName: 'string',
+      field: 'string',
+      fieldValue: 'string',
+      operator: 'string',
+      source: 'string',
+      targetType: 'string',
+      targetValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChangeAssetRefreshTaskConfigRequestAssetRefreshConfigs extends $tea.Model {
   refreshConfigType?: number;
   schedulePeriod?: number;
@@ -52689,6 +53317,55 @@ export class CreateJenkinsImageRegistryResponseBodyData extends $tea.Model {
       userName: 'string',
       vpcId: 'string',
       whiteList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMaliciousFileWhitelistConfigResponseBodyData extends $tea.Model {
+  count?: string;
+  eventName?: string;
+  field?: string;
+  fieldValue?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: string;
+  operator?: string;
+  source?: string;
+  targetType?: string;
+  targetValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      eventName: 'EventName',
+      field: 'Field',
+      fieldValue: 'FieldValue',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      operator: 'Operator',
+      source: 'Source',
+      targetType: 'TargetType',
+      targetValue: 'TargetValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'string',
+      eventName: 'string',
+      field: 'string',
+      fieldValue: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'string',
+      operator: 'string',
+      source: 'string',
+      targetType: 'string',
+      targetValue: 'string',
     };
   }
 
@@ -54856,6 +55533,8 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $tea
 export class DescribeCheckWarningsResponseBodyCheckWarnings extends $tea.Model {
   checkId?: number;
   checkWarningId?: number;
+  containerId?: string;
+  containerName?: string;
   execErrorMessage?: string;
   fixStatus?: number;
   item?: string;
@@ -54868,6 +55547,8 @@ export class DescribeCheckWarningsResponseBodyCheckWarnings extends $tea.Model {
     return {
       checkId: 'CheckId',
       checkWarningId: 'CheckWarningId',
+      containerId: 'ContainerId',
+      containerName: 'ContainerName',
       execErrorMessage: 'ExecErrorMessage',
       fixStatus: 'FixStatus',
       item: 'Item',
@@ -54883,6 +55564,8 @@ export class DescribeCheckWarningsResponseBodyCheckWarnings extends $tea.Model {
     return {
       checkId: 'number',
       checkWarningId: 'number',
+      containerId: 'string',
+      containerName: 'string',
       execErrorMessage: 'string',
       fixStatus: 'number',
       item: 'string',
@@ -67712,6 +68395,55 @@ export class GetLogMetaResponseBodyLogMeta extends $tea.Model {
   }
 }
 
+export class GetMaliciousFileWhitelistConfigResponseBodyData extends $tea.Model {
+  count?: string;
+  eventName?: string;
+  field?: string;
+  fieldValue?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  operator?: string;
+  source?: string;
+  targetType?: string;
+  targetValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      eventName: 'EventName',
+      field: 'Field',
+      fieldValue: 'FieldValue',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      operator: 'Operator',
+      source: 'Source',
+      targetType: 'TargetType',
+      targetValue: 'TargetValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'string',
+      eventName: 'string',
+      field: 'string',
+      fieldValue: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      operator: 'string',
+      source: 'string',
+      targetType: 'string',
+      targetValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetModuleConfigResponseBodyModuleConfigListItems extends $tea.Model {
   groupId?: number;
   instanceId?: string;
@@ -72828,6 +73560,83 @@ export class ListK8sAccessInfoResponseBodyK8sAccessInfos extends $tea.Model {
   }
 }
 
+export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $tea.Model {
+  count?: string;
+  eventName?: string;
+  field?: string;
+  fieldValue?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  operator?: string;
+  source?: string;
+  targetType?: string;
+  targetValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      eventName: 'EventName',
+      field: 'Field',
+      fieldValue: 'FieldValue',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      operator: 'Operator',
+      source: 'Source',
+      targetType: 'TargetType',
+      targetValue: 'TargetValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'string',
+      eventName: 'string',
+      field: 'string',
+      fieldValue: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      operator: 'string',
+      source: 'string',
+      targetType: 'string',
+      targetValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMaliciousFileWhitelistConfigsResponseBodyPageInfo extends $tea.Model {
+  count?: number;
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListObjectScanEventResponseBodyDataDetails extends $tea.Model {
   name?: string;
   nameDisplay?: string;
@@ -77085,6 +77894,35 @@ export default class Client extends OpenApi {
     return await this.advanceSecurityEventOperationsWithOptions(request, runtime);
   }
 
+  async batchDeleteMaliciousFileWhitelistConfigWithOptions(request: BatchDeleteMaliciousFileWhitelistConfigRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteMaliciousFileWhitelistConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configIdList)) {
+      query["ConfigIdList"] = request.configIdList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchDeleteMaliciousFileWhitelistConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchDeleteMaliciousFileWhitelistConfigResponse>(await this.callApi(params, req, runtime), new BatchDeleteMaliciousFileWhitelistConfigResponse({}));
+  }
+
+  async batchDeleteMaliciousFileWhitelistConfig(request: BatchDeleteMaliciousFileWhitelistConfigRequest): Promise<BatchDeleteMaliciousFileWhitelistConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchDeleteMaliciousFileWhitelistConfigWithOptions(request, runtime);
+  }
+
   async batchOperateCommonOverallConfigWithOptions(request: BatchOperateCommonOverallConfigRequest, runtime: $Util.RuntimeOptions): Promise<BatchOperateCommonOverallConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -77116,6 +77954,35 @@ export default class Client extends OpenApi {
   async batchOperateCommonOverallConfig(request: BatchOperateCommonOverallConfigRequest): Promise<BatchOperateCommonOverallConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchOperateCommonOverallConfigWithOptions(request, runtime);
+  }
+
+  async batchUpdateMaliciousFileWhitelistConfigWithOptions(request: BatchUpdateMaliciousFileWhitelistConfigRequest, runtime: $Util.RuntimeOptions): Promise<BatchUpdateMaliciousFileWhitelistConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configList)) {
+      query["ConfigList"] = request.configList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchUpdateMaliciousFileWhitelistConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchUpdateMaliciousFileWhitelistConfigResponse>(await this.callApi(params, req, runtime), new BatchUpdateMaliciousFileWhitelistConfigResponse({}));
+  }
+
+  async batchUpdateMaliciousFileWhitelistConfig(request: BatchUpdateMaliciousFileWhitelistConfigRequest): Promise<BatchUpdateMaliciousFileWhitelistConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchUpdateMaliciousFileWhitelistConfigWithOptions(request, runtime);
   }
 
   async bindAuthToMachineWithOptions(request: BindAuthToMachineRequest, runtime: $Util.RuntimeOptions): Promise<BindAuthToMachineResponse> {
@@ -78622,6 +79489,59 @@ export default class Client extends OpenApi {
   async createJenkinsImageRegistry(request: CreateJenkinsImageRegistryRequest): Promise<CreateJenkinsImageRegistryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createJenkinsImageRegistryWithOptions(request, runtime);
+  }
+
+  async createMaliciousFileWhitelistConfigWithOptions(request: CreateMaliciousFileWhitelistConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateMaliciousFileWhitelistConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.eventName)) {
+      query["EventName"] = request.eventName;
+    }
+
+    if (!Util.isUnset(request.field)) {
+      query["Field"] = request.field;
+    }
+
+    if (!Util.isUnset(request.fieldValue)) {
+      query["FieldValue"] = request.fieldValue;
+    }
+
+    if (!Util.isUnset(request.operator)) {
+      query["Operator"] = request.operator;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    if (!Util.isUnset(request.targetValue)) {
+      query["TargetValue"] = request.targetValue;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateMaliciousFileWhitelistConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateMaliciousFileWhitelistConfigResponse>(await this.callApi(params, req, runtime), new CreateMaliciousFileWhitelistConfigResponse({}));
+  }
+
+  async createMaliciousFileWhitelistConfig(request: CreateMaliciousFileWhitelistConfigRequest): Promise<CreateMaliciousFileWhitelistConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createMaliciousFileWhitelistConfigWithOptions(request, runtime);
   }
 
   async createMaliciousNoteWithOptions(request: CreateMaliciousNoteRequest, runtime: $Util.RuntimeOptions): Promise<CreateMaliciousNoteResponse> {
@@ -80144,6 +81064,35 @@ export default class Client extends OpenApi {
   async deleteLoginBaseConfig(request: DeleteLoginBaseConfigRequest): Promise<DeleteLoginBaseConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLoginBaseConfigWithOptions(request, runtime);
+  }
+
+  async deleteMaliciousFileWhitelistConfigWithOptions(request: DeleteMaliciousFileWhitelistConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMaliciousFileWhitelistConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMaliciousFileWhitelistConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMaliciousFileWhitelistConfigResponse>(await this.callApi(params, req, runtime), new DeleteMaliciousFileWhitelistConfigResponse({}));
+  }
+
+  async deleteMaliciousFileWhitelistConfig(request: DeleteMaliciousFileWhitelistConfigRequest): Promise<DeleteMaliciousFileWhitelistConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteMaliciousFileWhitelistConfigWithOptions(request, runtime);
   }
 
   async deleteMaliciousNoteWithOptions(request: DeleteMaliciousNoteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMaliciousNoteResponse> {
@@ -92936,6 +93885,35 @@ export default class Client extends OpenApi {
     return await this.getLogMetaWithOptions(request, runtime);
   }
 
+  async getMaliciousFileWhitelistConfigWithOptions(request: GetMaliciousFileWhitelistConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetMaliciousFileWhitelistConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMaliciousFileWhitelistConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMaliciousFileWhitelistConfigResponse>(await this.callApi(params, req, runtime), new GetMaliciousFileWhitelistConfigResponse({}));
+  }
+
+  async getMaliciousFileWhitelistConfig(request: GetMaliciousFileWhitelistConfigRequest): Promise<GetMaliciousFileWhitelistConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMaliciousFileWhitelistConfigWithOptions(request, runtime);
+  }
+
   async getModuleConfigWithOptions(request: GetModuleConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetModuleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96482,6 +97460,51 @@ export default class Client extends OpenApi {
   async listK8sAccessInfo(request: ListK8sAccessInfoRequest): Promise<ListK8sAccessInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listK8sAccessInfoWithOptions(request, runtime);
+  }
+
+  async listMaliciousFileWhitelistConfigsWithOptions(request: ListMaliciousFileWhitelistConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListMaliciousFileWhitelistConfigsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.eventName)) {
+      query["EventName"] = request.eventName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMaliciousFileWhitelistConfigs",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMaliciousFileWhitelistConfigsResponse>(await this.callApi(params, req, runtime), new ListMaliciousFileWhitelistConfigsResponse({}));
+  }
+
+  async listMaliciousFileWhitelistConfigs(request: ListMaliciousFileWhitelistConfigsRequest): Promise<ListMaliciousFileWhitelistConfigsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMaliciousFileWhitelistConfigsWithOptions(request, runtime);
   }
 
   async listObjectScanEventWithOptions(request: ListObjectScanEventRequest, runtime: $Util.RuntimeOptions): Promise<ListObjectScanEventResponse> {
@@ -103243,6 +104266,63 @@ export default class Client extends OpenApi {
   async updateJenkinsImageRegistryPersistenceDay(request: UpdateJenkinsImageRegistryPersistenceDayRequest): Promise<UpdateJenkinsImageRegistryPersistenceDayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateJenkinsImageRegistryPersistenceDayWithOptions(request, runtime);
+  }
+
+  async updateMaliciousFileWhitelistConfigWithOptions(request: UpdateMaliciousFileWhitelistConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMaliciousFileWhitelistConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.eventName)) {
+      query["EventName"] = request.eventName;
+    }
+
+    if (!Util.isUnset(request.field)) {
+      query["Field"] = request.field;
+    }
+
+    if (!Util.isUnset(request.fieldValue)) {
+      query["FieldValue"] = request.fieldValue;
+    }
+
+    if (!Util.isUnset(request.operator)) {
+      query["Operator"] = request.operator;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    if (!Util.isUnset(request.targetValue)) {
+      query["TargetValue"] = request.targetValue;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMaliciousFileWhitelistConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMaliciousFileWhitelistConfigResponse>(await this.callApi(params, req, runtime), new UpdateMaliciousFileWhitelistConfigResponse({}));
+  }
+
+  async updateMaliciousFileWhitelistConfig(request: UpdateMaliciousFileWhitelistConfigRequest): Promise<UpdateMaliciousFileWhitelistConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMaliciousFileWhitelistConfigWithOptions(request, runtime);
   }
 
   async updateOpaStrategyNewWithOptions(tmpReq: UpdateOpaStrategyNewRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOpaStrategyNewResponse> {
