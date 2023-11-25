@@ -1705,7 +1705,9 @@ export class AssociateHaVipResponse extends $tea.Model {
 
 export class AssociateNetworkAclRequest extends $tea.Model {
   clientToken?: string;
+  dryRun?: boolean;
   networkAclId?: string;
+  ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
   resource?: AssociateNetworkAclRequestResource[];
@@ -1714,7 +1716,9 @@ export class AssociateNetworkAclRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       networkAclId: 'NetworkAclId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resource: 'Resource',
@@ -1726,7 +1730,9 @@ export class AssociateNetworkAclRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       networkAclId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
       resource: { 'type': 'array', 'itemType': AssociateNetworkAclRequestResource },
@@ -3226,7 +3232,9 @@ export class ConvertBandwidthPackageResponse extends $tea.Model {
 
 export class CopyNetworkAclEntriesRequest extends $tea.Model {
   clientToken?: string;
+  dryRun?: boolean;
   networkAclId?: string;
+  ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -3235,7 +3243,9 @@ export class CopyNetworkAclEntriesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       networkAclId: 'NetworkAclId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -3247,7 +3257,9 @@ export class CopyNetworkAclEntriesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       networkAclId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
@@ -5930,7 +5942,9 @@ export class CreateNatIpCidrResponse extends $tea.Model {
 export class CreateNetworkAclRequest extends $tea.Model {
   clientToken?: string;
   description?: string;
+  dryRun?: boolean;
   networkAclName?: string;
+  ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -5941,7 +5955,9 @@ export class CreateNetworkAclRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       description: 'Description',
+      dryRun: 'DryRun',
       networkAclName: 'NetworkAclName',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -5955,7 +5971,9 @@ export class CreateNetworkAclRequest extends $tea.Model {
     return {
       clientToken: 'string',
       description: 'string',
+      dryRun: 'boolean',
       networkAclName: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
@@ -11293,7 +11311,9 @@ export class DeleteNatIpCidrResponse extends $tea.Model {
 
 export class DeleteNetworkAclRequest extends $tea.Model {
   clientToken?: string;
+  dryRun?: boolean;
   networkAclId?: string;
+  ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -11301,7 +11321,9 @@ export class DeleteNetworkAclRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       networkAclId: 'NetworkAclId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -11312,7 +11334,9 @@ export class DeleteNetworkAclRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       networkAclId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
@@ -16763,6 +16787,7 @@ export class DescribeNatGatewaysResponse extends $tea.Model {
 export class DescribeNetworkAclAttributesRequest extends $tea.Model {
   clientToken?: string;
   networkAclId?: string;
+  ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -16771,6 +16796,7 @@ export class DescribeNetworkAclAttributesRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       networkAclId: 'NetworkAclId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -16782,6 +16808,7 @@ export class DescribeNetworkAclAttributesRequest extends $tea.Model {
     return {
       clientToken: 'string',
       networkAclId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
@@ -16845,6 +16872,7 @@ export class DescribeNetworkAclsRequest extends $tea.Model {
   clientToken?: string;
   networkAclId?: string;
   networkAclName?: string;
+  ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
@@ -16860,6 +16888,7 @@ export class DescribeNetworkAclsRequest extends $tea.Model {
       clientToken: 'ClientToken',
       networkAclId: 'NetworkAclId',
       networkAclName: 'NetworkAclName',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -16878,6 +16907,7 @@ export class DescribeNetworkAclsRequest extends $tea.Model {
       clientToken: 'string',
       networkAclId: 'string',
       networkAclName: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
@@ -28262,8 +28292,10 @@ export class ModifyNatIpCidrAttributeResponse extends $tea.Model {
 export class ModifyNetworkAclAttributesRequest extends $tea.Model {
   clientToken?: string;
   description?: string;
+  dryRun?: boolean;
   networkAclId?: string;
   networkAclName?: string;
+  ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -28272,8 +28304,10 @@ export class ModifyNetworkAclAttributesRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       description: 'Description',
+      dryRun: 'DryRun',
       networkAclId: 'NetworkAclId',
       networkAclName: 'NetworkAclName',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -28285,8 +28319,10 @@ export class ModifyNetworkAclAttributesRequest extends $tea.Model {
     return {
       clientToken: 'string',
       description: 'string',
+      dryRun: 'boolean',
       networkAclId: 'string',
       networkAclName: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
@@ -33431,7 +33467,9 @@ export class UnassociateHaVipResponse extends $tea.Model {
 
 export class UnassociateNetworkAclRequest extends $tea.Model {
   clientToken?: string;
+  dryRun?: boolean;
   networkAclId?: string;
+  ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
   resource?: UnassociateNetworkAclRequestResource[];
@@ -33440,7 +33478,9 @@ export class UnassociateNetworkAclRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       networkAclId: 'NetworkAclId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resource: 'Resource',
@@ -33452,7 +33492,9 @@ export class UnassociateNetworkAclRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       networkAclId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
       resource: { 'type': 'array', 'itemType': UnassociateNetworkAclRequestResource },
@@ -34421,9 +34463,11 @@ export class UpdateNatGatewayNatTypeResponse extends $tea.Model {
 
 export class UpdateNetworkAclEntriesRequest extends $tea.Model {
   clientToken?: string;
+  dryRun?: boolean;
   egressAclEntries?: UpdateNetworkAclEntriesRequestEgressAclEntries[];
   ingressAclEntries?: UpdateNetworkAclEntriesRequestIngressAclEntries[];
   networkAclId?: string;
+  ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -34433,9 +34477,11 @@ export class UpdateNetworkAclEntriesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       egressAclEntries: 'EgressAclEntries',
       ingressAclEntries: 'IngressAclEntries',
       networkAclId: 'NetworkAclId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -34448,9 +34494,11 @@ export class UpdateNetworkAclEntriesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       egressAclEntries: { 'type': 'array', 'itemType': UpdateNetworkAclEntriesRequestEgressAclEntries },
       ingressAclEntries: { 'type': 'array', 'itemType': UpdateNetworkAclEntriesRequestIngressAclEntries },
       networkAclId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
@@ -39798,6 +39846,8 @@ export class DescribeNatGatewaysResponseBodyNatGateways extends $tea.Model {
 export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeEgressAclEntriesEgressAclEntry extends $tea.Model {
   description?: string;
   destinationCidrIp?: string;
+  entryType?: string;
+  ipVersion?: string;
   networkAclEntryId?: string;
   networkAclEntryName?: string;
   policy?: string;
@@ -39807,6 +39857,8 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeEgressAc
     return {
       description: 'Description',
       destinationCidrIp: 'DestinationCidrIp',
+      entryType: 'EntryType',
+      ipVersion: 'IpVersion',
       networkAclEntryId: 'NetworkAclEntryId',
       networkAclEntryName: 'NetworkAclEntryName',
       policy: 'Policy',
@@ -39819,6 +39871,8 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeEgressAc
     return {
       description: 'string',
       destinationCidrIp: 'string',
+      entryType: 'string',
+      ipVersion: 'string',
       networkAclEntryId: 'string',
       networkAclEntryName: 'string',
       policy: 'string',
@@ -39853,6 +39907,8 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeEgressAc
 
 export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeIngressAclEntriesIngressAclEntry extends $tea.Model {
   description?: string;
+  entryType?: string;
+  ipVersion?: string;
   networkAclEntryId?: string;
   networkAclEntryName?: string;
   policy?: string;
@@ -39862,6 +39918,8 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeIngressA
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      entryType: 'EntryType',
+      ipVersion: 'IpVersion',
       networkAclEntryId: 'NetworkAclEntryId',
       networkAclEntryName: 'NetworkAclEntryName',
       policy: 'Policy',
@@ -39874,6 +39932,8 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeIngressA
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      entryType: 'string',
+      ipVersion: 'string',
       networkAclEntryId: 'string',
       networkAclEntryName: 'string',
       policy: 'string',
@@ -40069,6 +40129,8 @@ export class DescribeNetworkAclsRequestTags extends $tea.Model {
 export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclEgressAclEntriesEgressAclEntry extends $tea.Model {
   description?: string;
   destinationCidrIp?: string;
+  entryType?: string;
+  ipVersion?: string;
   networkAclEntryId?: string;
   networkAclEntryName?: string;
   policy?: string;
@@ -40078,6 +40140,8 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclEgressAclEntrie
     return {
       description: 'Description',
       destinationCidrIp: 'DestinationCidrIp',
+      entryType: 'EntryType',
+      ipVersion: 'IpVersion',
       networkAclEntryId: 'NetworkAclEntryId',
       networkAclEntryName: 'NetworkAclEntryName',
       policy: 'Policy',
@@ -40090,6 +40154,8 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclEgressAclEntrie
     return {
       description: 'string',
       destinationCidrIp: 'string',
+      entryType: 'string',
+      ipVersion: 'string',
       networkAclEntryId: 'string',
       networkAclEntryName: 'string',
       policy: 'string',
@@ -40124,6 +40190,8 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclEgressAclEntrie
 
 export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclIngressAclEntriesIngressAclEntry extends $tea.Model {
   description?: string;
+  entryType?: string;
+  ipVersion?: string;
   networkAclEntryId?: string;
   networkAclEntryName?: string;
   policy?: string;
@@ -40133,6 +40201,8 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclIngressAclEntri
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      entryType: 'EntryType',
+      ipVersion: 'IpVersion',
       networkAclEntryId: 'NetworkAclEntryId',
       networkAclEntryName: 'NetworkAclEntryName',
       policy: 'Policy',
@@ -40145,6 +40215,8 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclIngressAclEntri
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      entryType: 'string',
+      ipVersion: 'string',
       networkAclEntryId: 'string',
       networkAclEntryName: 'string',
       policy: 'string',
@@ -48104,6 +48176,7 @@ export class UpdateNetworkAclEntriesRequestEgressAclEntries extends $tea.Model {
   description?: string;
   destinationCidrIp?: string;
   entryType?: string;
+  ipVersion?: string;
   networkAclEntryId?: string;
   networkAclEntryName?: string;
   policy?: string;
@@ -48114,6 +48187,7 @@ export class UpdateNetworkAclEntriesRequestEgressAclEntries extends $tea.Model {
       description: 'Description',
       destinationCidrIp: 'DestinationCidrIp',
       entryType: 'EntryType',
+      ipVersion: 'IpVersion',
       networkAclEntryId: 'NetworkAclEntryId',
       networkAclEntryName: 'NetworkAclEntryName',
       policy: 'Policy',
@@ -48127,6 +48201,7 @@ export class UpdateNetworkAclEntriesRequestEgressAclEntries extends $tea.Model {
       description: 'string',
       destinationCidrIp: 'string',
       entryType: 'string',
+      ipVersion: 'string',
       networkAclEntryId: 'string',
       networkAclEntryName: 'string',
       policy: 'string',
@@ -48143,6 +48218,7 @@ export class UpdateNetworkAclEntriesRequestEgressAclEntries extends $tea.Model {
 export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $tea.Model {
   description?: string;
   entryType?: string;
+  ipVersion?: string;
   networkAclEntryId?: string;
   networkAclEntryName?: string;
   policy?: string;
@@ -48153,6 +48229,7 @@ export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $tea.Model 
     return {
       description: 'Description',
       entryType: 'EntryType',
+      ipVersion: 'IpVersion',
       networkAclEntryId: 'NetworkAclEntryId',
       networkAclEntryName: 'NetworkAclEntryName',
       policy: 'Policy',
@@ -48166,6 +48243,7 @@ export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $tea.Model 
     return {
       description: 'string',
       entryType: 'string',
+      ipVersion: 'string',
       networkAclEntryId: 'string',
       networkAclEntryName: 'string',
       policy: 'string',
@@ -49779,8 +49857,16 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.networkAclId)) {
       query["NetworkAclId"] = request.networkAclId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -51051,8 +51137,16 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.networkAclId)) {
       query["NetworkAclId"] = request.networkAclId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -53467,16 +53561,20 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.networkAclName)) {
       query["NetworkAclName"] = request.networkAclName;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -58249,8 +58347,16 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.networkAclId)) {
       query["NetworkAclId"] = request.networkAclId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -62504,6 +62610,10 @@ export default class Client extends OpenApi {
       query["NetworkAclId"] = request.networkAclId;
     }
 
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -62559,6 +62669,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.networkAclName)) {
       query["NetworkAclName"] = request.networkAclName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -70342,12 +70456,20 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.networkAclId)) {
       query["NetworkAclId"] = request.networkAclId;
     }
 
     if (!Util.isUnset(request.networkAclName)) {
       query["NetworkAclName"] = request.networkAclName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -74607,8 +74729,16 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.networkAclId)) {
       query["NetworkAclId"] = request.networkAclId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -75469,6 +75599,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.egressAclEntries)) {
       query["EgressAclEntries"] = request.egressAclEntries;
     }
@@ -75479,6 +75613,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.networkAclId)) {
       query["NetworkAclId"] = request.networkAclId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
     }
 
     if (!Util.isUnset(request.ownerId)) {
