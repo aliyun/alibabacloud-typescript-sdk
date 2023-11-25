@@ -6310,15 +6310,18 @@ export class GetSparkAppAttemptLogResponse extends $tea.Model {
 
 export class GetSparkAppInfoRequest extends $tea.Model {
   appId?: string;
+  DBClusterId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      DBClusterId: 'DBClusterId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      DBClusterId: 'string',
     };
   }
 
@@ -6376,10 +6379,12 @@ export class GetSparkAppInfoResponse extends $tea.Model {
 
 export class GetSparkAppLogRequest extends $tea.Model {
   appId?: string;
+  DBClusterId?: string;
   logLength?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      DBClusterId: 'DBClusterId',
       logLength: 'LogLength',
     };
   }
@@ -6387,6 +6392,7 @@ export class GetSparkAppLogRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      DBClusterId: 'string',
       logLength: 'number',
     };
   }
@@ -6445,15 +6451,18 @@ export class GetSparkAppLogResponse extends $tea.Model {
 
 export class GetSparkAppMetricsRequest extends $tea.Model {
   appId?: string;
+  DBClusterId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      DBClusterId: 'DBClusterId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      DBClusterId: 'string',
     };
   }
 
@@ -6511,15 +6520,18 @@ export class GetSparkAppMetricsResponse extends $tea.Model {
 
 export class GetSparkAppStateRequest extends $tea.Model {
   appId?: string;
+  DBClusterId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      DBClusterId: 'DBClusterId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      DBClusterId: 'string',
     };
   }
 
@@ -6577,15 +6589,18 @@ export class GetSparkAppStateResponse extends $tea.Model {
 
 export class GetSparkAppWebUiAddressRequest extends $tea.Model {
   appId?: string;
+  DBClusterId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      DBClusterId: 'DBClusterId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      DBClusterId: 'string',
     };
   }
 
@@ -7639,15 +7654,18 @@ export class GetViewObjectsResponse extends $tea.Model {
 
 export class KillSparkAppRequest extends $tea.Model {
   appId?: string;
+  DBClusterId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      DBClusterId: 'DBClusterId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      DBClusterId: 'string',
     };
   }
 
@@ -7840,11 +7858,13 @@ export class KillSparkSQLEngineResponse extends $tea.Model {
 
 export class ListSparkAppAttemptsRequest extends $tea.Model {
   appId?: string;
+  DBClusterId?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      DBClusterId: 'DBClusterId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -7853,6 +7873,7 @@ export class ListSparkAppAttemptsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      DBClusterId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -8927,15 +8948,18 @@ export class ModifyElasticPlanResponse extends $tea.Model {
 
 export class PreloadSparkAppMetricsRequest extends $tea.Model {
   appId?: string;
+  DBClusterId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      DBClusterId: 'DBClusterId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      DBClusterId: 'string',
     };
   }
 
@@ -15525,12 +15549,18 @@ export default class Client extends OpenApi {
 
   async getSparkAppInfoWithOptions(request: GetSparkAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkAppInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -15554,6 +15584,11 @@ export default class Client extends OpenApi {
 
   async getSparkAppLogWithOptions(request: GetSparkAppLogRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkAppLogResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
@@ -15564,6 +15599,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -15587,12 +15623,18 @@ export default class Client extends OpenApi {
 
   async getSparkAppMetricsWithOptions(request: GetSparkAppMetricsRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkAppMetricsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -15616,12 +15658,18 @@ export default class Client extends OpenApi {
 
   async getSparkAppStateWithOptions(request: GetSparkAppStateRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkAppStateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -15645,12 +15693,18 @@ export default class Client extends OpenApi {
 
   async getSparkAppWebUiAddressWithOptions(request: GetSparkAppWebUiAddressRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkAppWebUiAddressResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -16215,12 +16269,18 @@ export default class Client extends OpenApi {
 
   async killSparkAppWithOptions(request: KillSparkAppRequest, runtime: $Util.RuntimeOptions): Promise<KillSparkAppResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -16309,6 +16369,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -16929,12 +16993,18 @@ export default class Client extends OpenApi {
 
   async preloadSparkAppMetricsWithOptions(request: PreloadSparkAppMetricsRequest, runtime: $Util.RuntimeOptions): Promise<PreloadSparkAppMetricsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
