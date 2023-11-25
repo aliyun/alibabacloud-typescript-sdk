@@ -6349,8 +6349,11 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet extends $te
 }
 
 export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Model {
+  canNotCreateColumnar?: boolean;
   cnNodeClassCode?: string;
   cnNodeCount?: number;
+  columnarInstanceName?: string;
+  columnarReadDBInstances?: string[];
   commodityCode?: string;
   connAddrs?: DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs[];
   connectionString?: string;
@@ -6362,6 +6365,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
   DBType?: string;
   DBVersion?: string;
   description?: string;
+  differentDNSpec?: boolean;
   dnNodeClassCode?: string;
   dnNodeCount?: number;
   engine?: string;
@@ -6378,23 +6382,30 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
   network?: string;
   payType?: string;
   port?: string;
+  primaryZone?: string;
   readDBInstances?: string[];
   regionId?: string;
   resourceGroupId?: string;
   rightsSeparationEnabled?: boolean;
   rightsSeparationStatus?: string;
+  secondaryZone?: string;
   series?: string;
   status?: string;
   storageUsed?: number;
   tagSet?: DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet[];
+  tertiaryZone?: string;
+  topologyType?: string;
   type?: string;
   VPCId?: string;
   vSwitchId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      canNotCreateColumnar: 'CanNotCreateColumnar',
       cnNodeClassCode: 'CnNodeClassCode',
       cnNodeCount: 'CnNodeCount',
+      columnarInstanceName: 'ColumnarInstanceName',
+      columnarReadDBInstances: 'ColumnarReadDBInstances',
       commodityCode: 'CommodityCode',
       connAddrs: 'ConnAddrs',
       connectionString: 'ConnectionString',
@@ -6406,6 +6417,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       DBType: 'DBType',
       DBVersion: 'DBVersion',
       description: 'Description',
+      differentDNSpec: 'DifferentDNSpec',
       dnNodeClassCode: 'DnNodeClassCode',
       dnNodeCount: 'DnNodeCount',
       engine: 'Engine',
@@ -6422,15 +6434,19 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       network: 'Network',
       payType: 'PayType',
       port: 'Port',
+      primaryZone: 'PrimaryZone',
       readDBInstances: 'ReadDBInstances',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       rightsSeparationEnabled: 'RightsSeparationEnabled',
       rightsSeparationStatus: 'RightsSeparationStatus',
+      secondaryZone: 'SecondaryZone',
       series: 'Series',
       status: 'Status',
       storageUsed: 'StorageUsed',
       tagSet: 'TagSet',
+      tertiaryZone: 'TertiaryZone',
+      topologyType: 'TopologyType',
       type: 'Type',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -6440,8 +6456,11 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
+      canNotCreateColumnar: 'boolean',
       cnNodeClassCode: 'string',
       cnNodeCount: 'number',
+      columnarInstanceName: 'string',
+      columnarReadDBInstances: { 'type': 'array', 'itemType': 'string' },
       commodityCode: 'string',
       connAddrs: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs },
       connectionString: 'string',
@@ -6453,6 +6472,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       DBType: 'string',
       DBVersion: 'string',
       description: 'string',
+      differentDNSpec: 'boolean',
       dnNodeClassCode: 'string',
       dnNodeCount: 'number',
       engine: 'string',
@@ -6469,15 +6489,19 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       network: 'string',
       payType: 'string',
       port: 'string',
+      primaryZone: 'string',
       readDBInstances: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       resourceGroupId: 'string',
       rightsSeparationEnabled: 'boolean',
       rightsSeparationStatus: 'string',
+      secondaryZone: 'string',
       series: 'string',
       status: 'string',
       storageUsed: 'number',
       tagSet: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet },
+      tertiaryZone: 'string',
+      topologyType: 'string',
       type: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
@@ -7143,6 +7167,8 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
   cdcInstanceName?: string;
   cnNodeClassCode?: string;
   cnNodeCount?: number;
+  columnarInstanceName?: string;
+  columnarReadDBInstances?: string[];
   commodityCode?: string;
   containBinlogX?: boolean;
   createTime?: string;
@@ -7164,14 +7190,18 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
   nodeCount?: number;
   nodes?: DescribeDBInstancesResponseBodyDBInstancesNodes[];
   payType?: string;
+  primaryZone?: string;
   readDBInstances?: string[];
   regionId?: string;
   resourceGroupId?: string;
+  secondaryZone?: string;
   series?: string;
   status?: string;
   storageUsed?: number;
   supportBinlogX?: boolean;
   tagSet?: DescribeDBInstancesResponseBodyDBInstancesTagSet[];
+  tertiaryZone?: string;
+  topologyType?: string;
   type?: string;
   VPCId?: string;
   zoneId?: string;
@@ -7180,6 +7210,8 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       cdcInstanceName: 'CdcInstanceName',
       cnNodeClassCode: 'CnNodeClassCode',
       cnNodeCount: 'CnNodeCount',
+      columnarInstanceName: 'ColumnarInstanceName',
+      columnarReadDBInstances: 'ColumnarReadDBInstances',
       commodityCode: 'CommodityCode',
       containBinlogX: 'ContainBinlogX',
       createTime: 'CreateTime',
@@ -7201,14 +7233,18 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       nodeCount: 'NodeCount',
       nodes: 'Nodes',
       payType: 'PayType',
+      primaryZone: 'PrimaryZone',
       readDBInstances: 'ReadDBInstances',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      secondaryZone: 'SecondaryZone',
       series: 'Series',
       status: 'Status',
       storageUsed: 'StorageUsed',
       supportBinlogX: 'SupportBinlogX',
       tagSet: 'TagSet',
+      tertiaryZone: 'TertiaryZone',
+      topologyType: 'TopologyType',
       type: 'Type',
       VPCId: 'VPCId',
       zoneId: 'ZoneId',
@@ -7220,6 +7256,8 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       cdcInstanceName: 'string',
       cnNodeClassCode: 'string',
       cnNodeCount: 'number',
+      columnarInstanceName: 'string',
+      columnarReadDBInstances: { 'type': 'array', 'itemType': 'string' },
       commodityCode: 'string',
       containBinlogX: 'boolean',
       createTime: 'string',
@@ -7241,14 +7279,18 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       nodeCount: 'number',
       nodes: { 'type': 'array', 'itemType': DescribeDBInstancesResponseBodyDBInstancesNodes },
       payType: 'string',
+      primaryZone: 'string',
       readDBInstances: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       resourceGroupId: 'string',
+      secondaryZone: 'string',
       series: 'string',
       status: 'string',
       storageUsed: 'number',
       supportBinlogX: 'boolean',
       tagSet: { 'type': 'array', 'itemType': DescribeDBInstancesResponseBodyDBInstancesTagSet },
+      tertiaryZone: 'string',
+      topologyType: 'string',
       type: 'string',
       VPCId: 'string',
       zoneId: 'string',
