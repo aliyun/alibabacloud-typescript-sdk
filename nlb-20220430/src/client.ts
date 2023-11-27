@@ -337,6 +337,7 @@ export class CreateListenerRequest extends $tea.Model {
   loadBalancerId?: string;
   mss?: number;
   proxyProtocolEnabled?: boolean;
+  proxyProtocolV2Config?: CreateListenerRequestProxyProtocolV2Config;
   regionId?: string;
   secSensorEnabled?: boolean;
   securityPolicyId?: string;
@@ -361,6 +362,7 @@ export class CreateListenerRequest extends $tea.Model {
       loadBalancerId: 'LoadBalancerId',
       mss: 'Mss',
       proxyProtocolEnabled: 'ProxyProtocolEnabled',
+      proxyProtocolV2Config: 'ProxyProtocolV2Config',
       regionId: 'RegionId',
       secSensorEnabled: 'SecSensorEnabled',
       securityPolicyId: 'SecurityPolicyId',
@@ -388,12 +390,98 @@ export class CreateListenerRequest extends $tea.Model {
       loadBalancerId: 'string',
       mss: 'number',
       proxyProtocolEnabled: 'boolean',
+      proxyProtocolV2Config: CreateListenerRequestProxyProtocolV2Config,
       regionId: 'string',
       secSensorEnabled: 'boolean',
       securityPolicyId: 'string',
       serverGroupId: 'string',
       startPort: 'number',
       tag: { 'type': 'array', 'itemType': CreateListenerRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateListenerShrinkRequest extends $tea.Model {
+  alpnEnabled?: boolean;
+  alpnPolicy?: string;
+  caCertificateIds?: string[];
+  caEnabled?: boolean;
+  certificateIds?: string[];
+  clientToken?: string;
+  cps?: number;
+  dryRun?: boolean;
+  endPort?: number;
+  idleTimeout?: number;
+  listenerDescription?: string;
+  listenerPort?: number;
+  listenerProtocol?: string;
+  loadBalancerId?: string;
+  mss?: number;
+  proxyProtocolEnabled?: boolean;
+  proxyProtocolV2ConfigShrink?: string;
+  regionId?: string;
+  secSensorEnabled?: boolean;
+  securityPolicyId?: string;
+  serverGroupId?: string;
+  startPort?: number;
+  tag?: CreateListenerShrinkRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      alpnEnabled: 'AlpnEnabled',
+      alpnPolicy: 'AlpnPolicy',
+      caCertificateIds: 'CaCertificateIds',
+      caEnabled: 'CaEnabled',
+      certificateIds: 'CertificateIds',
+      clientToken: 'ClientToken',
+      cps: 'Cps',
+      dryRun: 'DryRun',
+      endPort: 'EndPort',
+      idleTimeout: 'IdleTimeout',
+      listenerDescription: 'ListenerDescription',
+      listenerPort: 'ListenerPort',
+      listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
+      mss: 'Mss',
+      proxyProtocolEnabled: 'ProxyProtocolEnabled',
+      proxyProtocolV2ConfigShrink: 'ProxyProtocolV2Config',
+      regionId: 'RegionId',
+      secSensorEnabled: 'SecSensorEnabled',
+      securityPolicyId: 'SecurityPolicyId',
+      serverGroupId: 'ServerGroupId',
+      startPort: 'StartPort',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpnEnabled: 'boolean',
+      alpnPolicy: 'string',
+      caCertificateIds: { 'type': 'array', 'itemType': 'string' },
+      caEnabled: 'boolean',
+      certificateIds: { 'type': 'array', 'itemType': 'string' },
+      clientToken: 'string',
+      cps: 'number',
+      dryRun: 'boolean',
+      endPort: 'number',
+      idleTimeout: 'number',
+      listenerDescription: 'string',
+      listenerPort: 'number',
+      listenerProtocol: 'string',
+      loadBalancerId: 'string',
+      mss: 'number',
+      proxyProtocolEnabled: 'boolean',
+      proxyProtocolV2ConfigShrink: 'string',
+      regionId: 'string',
+      secSensorEnabled: 'boolean',
+      securityPolicyId: 'string',
+      serverGroupId: 'string',
+      startPort: 'number',
+      tag: { 'type': 'array', 'itemType': CreateListenerShrinkRequestTag },
     };
   }
 
@@ -1625,6 +1713,7 @@ export class GetListenerAttributeResponseBody extends $tea.Model {
   loadBalancerId?: string;
   mss?: number;
   proxyProtocolEnabled?: boolean;
+  proxyProtocolV2Config?: GetListenerAttributeResponseBodyProxyProtocolV2Config;
   regionId?: string;
   requestId?: string;
   secSensorEnabled?: boolean;
@@ -1650,6 +1739,7 @@ export class GetListenerAttributeResponseBody extends $tea.Model {
       loadBalancerId: 'LoadBalancerId',
       mss: 'Mss',
       proxyProtocolEnabled: 'ProxyProtocolEnabled',
+      proxyProtocolV2Config: 'ProxyProtocolV2Config',
       regionId: 'RegionId',
       requestId: 'RequestId',
       secSensorEnabled: 'SecSensorEnabled',
@@ -1678,6 +1768,7 @@ export class GetListenerAttributeResponseBody extends $tea.Model {
       loadBalancerId: 'string',
       mss: 'number',
       proxyProtocolEnabled: 'boolean',
+      proxyProtocolV2Config: GetListenerAttributeResponseBodyProxyProtocolV2Config,
       regionId: 'string',
       requestId: 'string',
       secSensorEnabled: 'boolean',
@@ -3406,6 +3497,7 @@ export class UpdateListenerAttributeRequest extends $tea.Model {
   listenerId?: string;
   mss?: number;
   proxyProtocolEnabled?: boolean;
+  proxyProtocolV2Config?: UpdateListenerAttributeRequestProxyProtocolV2Config;
   regionId?: string;
   secSensorEnabled?: boolean;
   securityPolicyId?: string;
@@ -3425,6 +3517,7 @@ export class UpdateListenerAttributeRequest extends $tea.Model {
       listenerId: 'ListenerId',
       mss: 'Mss',
       proxyProtocolEnabled: 'ProxyProtocolEnabled',
+      proxyProtocolV2Config: 'ProxyProtocolV2Config',
       regionId: 'RegionId',
       secSensorEnabled: 'SecSensorEnabled',
       securityPolicyId: 'SecurityPolicyId',
@@ -3447,6 +3540,77 @@ export class UpdateListenerAttributeRequest extends $tea.Model {
       listenerId: 'string',
       mss: 'number',
       proxyProtocolEnabled: 'boolean',
+      proxyProtocolV2Config: UpdateListenerAttributeRequestProxyProtocolV2Config,
+      regionId: 'string',
+      secSensorEnabled: 'boolean',
+      securityPolicyId: 'string',
+      serverGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateListenerAttributeShrinkRequest extends $tea.Model {
+  alpnEnabled?: boolean;
+  alpnPolicy?: string;
+  caCertificateIds?: string[];
+  caEnabled?: boolean;
+  certificateIds?: string[];
+  clientToken?: string;
+  cps?: number;
+  dryRun?: boolean;
+  idleTimeout?: number;
+  listenerDescription?: string;
+  listenerId?: string;
+  mss?: number;
+  proxyProtocolEnabled?: boolean;
+  proxyProtocolV2ConfigShrink?: string;
+  regionId?: string;
+  secSensorEnabled?: boolean;
+  securityPolicyId?: string;
+  serverGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alpnEnabled: 'AlpnEnabled',
+      alpnPolicy: 'AlpnPolicy',
+      caCertificateIds: 'CaCertificateIds',
+      caEnabled: 'CaEnabled',
+      certificateIds: 'CertificateIds',
+      clientToken: 'ClientToken',
+      cps: 'Cps',
+      dryRun: 'DryRun',
+      idleTimeout: 'IdleTimeout',
+      listenerDescription: 'ListenerDescription',
+      listenerId: 'ListenerId',
+      mss: 'Mss',
+      proxyProtocolEnabled: 'ProxyProtocolEnabled',
+      proxyProtocolV2ConfigShrink: 'ProxyProtocolV2Config',
+      regionId: 'RegionId',
+      secSensorEnabled: 'SecSensorEnabled',
+      securityPolicyId: 'SecurityPolicyId',
+      serverGroupId: 'ServerGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpnEnabled: 'boolean',
+      alpnPolicy: 'string',
+      caCertificateIds: { 'type': 'array', 'itemType': 'string' },
+      caEnabled: 'boolean',
+      certificateIds: { 'type': 'array', 'itemType': 'string' },
+      clientToken: 'string',
+      cps: 'number',
+      dryRun: 'boolean',
+      idleTimeout: 'number',
+      listenerDescription: 'string',
+      listenerId: 'string',
+      mss: 'number',
+      proxyProtocolEnabled: 'boolean',
+      proxyProtocolV2ConfigShrink: 'string',
       regionId: 'string',
       secSensorEnabled: 'boolean',
       securityPolicyId: 'string',
@@ -4153,7 +4317,54 @@ export class CancelShiftLoadBalancerZonesRequestZoneMappings extends $tea.Model 
   }
 }
 
+export class CreateListenerRequestProxyProtocolV2Config extends $tea.Model {
+  ppv2PrivateLinkEpIdEnabled?: boolean;
+  ppv2PrivateLinkEpsIdEnabled?: boolean;
+  ppv2VpcIdEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      ppv2PrivateLinkEpIdEnabled: 'Ppv2PrivateLinkEpIdEnabled',
+      ppv2PrivateLinkEpsIdEnabled: 'Ppv2PrivateLinkEpsIdEnabled',
+      ppv2VpcIdEnabled: 'Ppv2VpcIdEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ppv2PrivateLinkEpIdEnabled: 'boolean',
+      ppv2PrivateLinkEpsIdEnabled: 'boolean',
+      ppv2VpcIdEnabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateListenerRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateListenerShrinkRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -4420,6 +4631,31 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
     return {
       localName: 'string',
       zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetListenerAttributeResponseBodyProxyProtocolV2Config extends $tea.Model {
+  ppv2PrivateLinkEpIdEnabled?: string;
+  ppv2PrivateLinkEpsIdEnabled?: string;
+  ppv2VpcIdEnabled?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ppv2PrivateLinkEpIdEnabled: 'Ppv2PrivateLinkEpIdEnabled',
+      ppv2PrivateLinkEpsIdEnabled: 'Ppv2PrivateLinkEpsIdEnabled',
+      ppv2VpcIdEnabled: 'Ppv2VpcIdEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ppv2PrivateLinkEpIdEnabled: 'string',
+      ppv2PrivateLinkEpsIdEnabled: 'string',
+      ppv2VpcIdEnabled: 'string',
     };
   }
 
@@ -4781,6 +5017,31 @@ export class ListListenersRequestTag extends $tea.Model {
   }
 }
 
+export class ListListenersResponseBodyListenersProxyProtocolV2Config extends $tea.Model {
+  ppv2PrivateLinkEpIdEnabled?: string;
+  ppv2PrivateLinkEpsIdEnabled?: string;
+  ppv2VpcIdEnabled?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ppv2PrivateLinkEpIdEnabled: 'Ppv2PrivateLinkEpIdEnabled',
+      ppv2PrivateLinkEpsIdEnabled: 'Ppv2PrivateLinkEpsIdEnabled',
+      ppv2VpcIdEnabled: 'Ppv2VpcIdEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ppv2PrivateLinkEpIdEnabled: 'string',
+      ppv2PrivateLinkEpsIdEnabled: 'string',
+      ppv2VpcIdEnabled: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListListenersResponseBodyListenersTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -4820,6 +5081,7 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
   loadBalancerId?: string;
   mss?: number;
   proxyProtocolEnabled?: boolean;
+  proxyProtocolV2Config?: ListListenersResponseBodyListenersProxyProtocolV2Config;
   regionId?: string;
   secSensorEnabled?: boolean;
   securityPolicyId?: string;
@@ -4844,6 +5106,7 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
       loadBalancerId: 'LoadBalancerId',
       mss: 'Mss',
       proxyProtocolEnabled: 'ProxyProtocolEnabled',
+      proxyProtocolV2Config: 'ProxyProtocolV2Config',
       regionId: 'RegionId',
       secSensorEnabled: 'SecSensorEnabled',
       securityPolicyId: 'SecurityPolicyId',
@@ -4871,6 +5134,7 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
       loadBalancerId: 'string',
       mss: 'number',
       proxyProtocolEnabled: 'boolean',
+      proxyProtocolV2Config: ListListenersResponseBodyListenersProxyProtocolV2Config,
       regionId: 'string',
       secSensorEnabled: 'boolean',
       securityPolicyId: 'string',
@@ -5672,6 +5936,31 @@ export class TagResourcesRequestTag extends $tea.Model {
   }
 }
 
+export class UpdateListenerAttributeRequestProxyProtocolV2Config extends $tea.Model {
+  ppv2PrivateLinkEpIdEnabled?: boolean;
+  ppv2PrivateLinkEpsIdEnabled?: boolean;
+  ppv2VpcIdEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      ppv2PrivateLinkEpIdEnabled: 'Ppv2PrivateLinkEpIdEnabled',
+      ppv2PrivateLinkEpsIdEnabled: 'Ppv2PrivateLinkEpsIdEnabled',
+      ppv2VpcIdEnabled: 'Ppv2VpcIdEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ppv2PrivateLinkEpIdEnabled: 'boolean',
+      ppv2PrivateLinkEpsIdEnabled: 'boolean',
+      ppv2VpcIdEnabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateLoadBalancerAddressTypeConfigRequestZoneMappings extends $tea.Model {
   allocationId?: string;
   eipType?: string;
@@ -6052,8 +6341,14 @@ export default class Client extends OpenApi {
     return await this.cancelShiftLoadBalancerZonesWithOptions(request, runtime);
   }
 
-  async createListenerWithOptions(request: CreateListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateListenerResponse> {
-    Util.validateModel(request);
+  async createListenerWithOptions(tmpReq: CreateListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateListenerResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateListenerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.proxyProtocolV2Config)) {
+      request.proxyProtocolV2ConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.proxyProtocolV2Config, "ProxyProtocolV2Config", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.alpnEnabled)) {
       body["AlpnEnabled"] = request.alpnEnabled;
@@ -6117,6 +6412,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.proxyProtocolEnabled)) {
       body["ProxyProtocolEnabled"] = request.proxyProtocolEnabled;
+    }
+
+    if (!Util.isUnset(request.proxyProtocolV2ConfigShrink)) {
+      body["ProxyProtocolV2Config"] = request.proxyProtocolV2ConfigShrink;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -7953,8 +8252,14 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
-  async updateListenerAttributeWithOptions(request: UpdateListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateListenerAttributeResponse> {
-    Util.validateModel(request);
+  async updateListenerAttributeWithOptions(tmpReq: UpdateListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateListenerAttributeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateListenerAttributeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.proxyProtocolV2Config)) {
+      request.proxyProtocolV2ConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.proxyProtocolV2Config, "ProxyProtocolV2Config", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.alpnEnabled)) {
       body["AlpnEnabled"] = request.alpnEnabled;
@@ -8006,6 +8311,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.proxyProtocolEnabled)) {
       body["ProxyProtocolEnabled"] = request.proxyProtocolEnabled;
+    }
+
+    if (!Util.isUnset(request.proxyProtocolV2ConfigShrink)) {
+      body["ProxyProtocolV2Config"] = request.proxyProtocolV2ConfigShrink;
     }
 
     if (!Util.isUnset(request.regionId)) {
