@@ -8,6 +8,75 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CheckCommercialStatusRequest extends $tea.Model {
+  regionId?: string;
+  service?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      service: 'Service',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      service: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCommercialStatusResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCommercialStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckCommercialStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckCommercialStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTagKeyRequest extends $tea.Model {
   endTime?: number;
   regionId?: string;
@@ -480,10 +549,12 @@ export class OpenXtraceServiceRequest extends $tea.Model {
 export class OpenXtraceServiceResponseBody extends $tea.Model {
   orderId?: string;
   requestId?: string;
+  result?: string;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
       requestId: 'RequestId',
+      result: 'Result',
     };
   }
 
@@ -491,6 +562,7 @@ export class OpenXtraceServiceResponseBody extends $tea.Model {
     return {
       orderId: 'string',
       requestId: 'string',
+      result: 'string',
     };
   }
 
@@ -1185,6 +1257,39 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async checkCommercialStatusWithOptions(request: CheckCommercialStatusRequest, runtime: $Util.RuntimeOptions): Promise<CheckCommercialStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.service)) {
+      query["Service"] = request.service;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckCommercialStatus",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckCommercialStatusResponse>(await this.callApi(params, req, runtime), new CheckCommercialStatusResponse({}));
+  }
+
+  async checkCommercialStatus(request: CheckCommercialStatusRequest): Promise<CheckCommercialStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkCommercialStatusWithOptions(request, runtime);
   }
 
   async getTagKeyWithOptions(request: GetTagKeyRequest, runtime: $Util.RuntimeOptions): Promise<GetTagKeyResponse> {
