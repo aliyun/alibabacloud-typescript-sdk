@@ -708,6 +708,49 @@ export class GrafanaWorkspaceIntegrationPreview extends $tea.Model {
   }
 }
 
+export class GrafanaWorkspaceMoveProcess extends $tea.Model {
+  gmtCreate?: number;
+  gmtModified?: number;
+  grafanaWorkspaceId?: string;
+  id?: number;
+  msg?: string;
+  processName?: string;
+  processStatus?: string;
+  subType?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      grafanaWorkspaceId: 'grafanaWorkspaceId',
+      id: 'id',
+      msg: 'msg',
+      processName: 'processName',
+      processStatus: 'processStatus',
+      subType: 'subType',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      grafanaWorkspaceId: 'string',
+      id: 'number',
+      msg: 'string',
+      processName: 'string',
+      processStatus: 'string',
+      subType: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GrafanaWorkspaceNews extends $tea.Model {
   date?: number;
   description?: string;
@@ -14960,6 +15003,108 @@ export class QueryAppMetadataResponse extends $tea.Model {
   }
 }
 
+export class QueryCommercialUsageRequest extends $tea.Model {
+  advancedFilters?: QueryCommercialUsageRequestAdvancedFilters[];
+  dimensions?: string[];
+  endTime?: number;
+  intervalInSec?: number;
+  measures?: string[];
+  metric?: string;
+  order?: string;
+  orderBy?: string;
+  queryType?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advancedFilters: 'AdvancedFilters',
+      dimensions: 'Dimensions',
+      endTime: 'EndTime',
+      intervalInSec: 'IntervalInSec',
+      measures: 'Measures',
+      metric: 'Metric',
+      order: 'Order',
+      orderBy: 'OrderBy',
+      queryType: 'QueryType',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedFilters: { 'type': 'array', 'itemType': QueryCommercialUsageRequestAdvancedFilters },
+      dimensions: { 'type': 'array', 'itemType': 'string' },
+      endTime: 'number',
+      intervalInSec: 'number',
+      measures: { 'type': 'array', 'itemType': 'string' },
+      metric: 'string',
+      order: 'string',
+      orderBy: 'string',
+      queryType: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCommercialUsageResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryCommercialUsageResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryCommercialUsageResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCommercialUsageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryCommercialUsageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCommercialUsageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryMetricByPageRequest extends $tea.Model {
   currentPage?: number;
   customFilters?: string[];
@@ -28685,6 +28830,53 @@ export class ListTraceAppsResponseBodyTraceApps extends $tea.Model {
   }
 }
 
+export class QueryCommercialUsageRequestAdvancedFilters extends $tea.Model {
+  key?: string;
+  opType?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      opType: 'OpType',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      opType: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCommercialUsageResponseBodyData extends $tea.Model {
+  complete?: boolean;
+  items?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      complete: 'Complete',
+      items: 'Items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complete: 'boolean',
+      items: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryMetricByPageRequestFilters extends $tea.Model {
   key?: string;
   value?: string;
@@ -38190,6 +38382,71 @@ export default class Client extends OpenApi {
   async queryAppMetadata(request: QueryAppMetadataRequest): Promise<QueryAppMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAppMetadataWithOptions(request, runtime);
+  }
+
+  async queryCommercialUsageWithOptions(request: QueryCommercialUsageRequest, runtime: $Util.RuntimeOptions): Promise<QueryCommercialUsageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.advancedFilters)) {
+      query["AdvancedFilters"] = request.advancedFilters;
+    }
+
+    if (!Util.isUnset(request.dimensions)) {
+      query["Dimensions"] = request.dimensions;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.intervalInSec)) {
+      query["IntervalInSec"] = request.intervalInSec;
+    }
+
+    if (!Util.isUnset(request.measures)) {
+      query["Measures"] = request.measures;
+    }
+
+    if (!Util.isUnset(request.metric)) {
+      query["Metric"] = request.metric;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCommercialUsage",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCommercialUsageResponse>(await this.callApi(params, req, runtime), new QueryCommercialUsageResponse({}));
+  }
+
+  async queryCommercialUsage(request: QueryCommercialUsageRequest): Promise<QueryCommercialUsageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCommercialUsageWithOptions(request, runtime);
   }
 
   async queryMetricByPageWithOptions(request: QueryMetricByPageRequest, runtime: $Util.RuntimeOptions): Promise<QueryMetricByPageResponse> {
