@@ -835,6 +835,7 @@ export class CreateHostRequest extends $tea.Model {
   hostPublicAddress?: string;
   instanceId?: string;
   instanceRegionId?: string;
+  networkDomainId?: string;
   OSType?: string;
   regionId?: string;
   source?: string;
@@ -848,6 +849,7 @@ export class CreateHostRequest extends $tea.Model {
       hostPublicAddress: 'HostPublicAddress',
       instanceId: 'InstanceId',
       instanceRegionId: 'InstanceRegionId',
+      networkDomainId: 'NetworkDomainId',
       OSType: 'OSType',
       regionId: 'RegionId',
       source: 'Source',
@@ -864,6 +866,7 @@ export class CreateHostRequest extends $tea.Model {
       hostPublicAddress: 'string',
       instanceId: 'string',
       instanceRegionId: 'string',
+      networkDomainId: 'string',
       OSType: 'string',
       regionId: 'string',
       source: 'string',
@@ -5067,6 +5070,7 @@ export class ModifyHostRequest extends $tea.Model {
   hostPrivateAddress?: string;
   hostPublicAddress?: string;
   instanceId?: string;
+  networkDomainId?: string;
   OSType?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -5077,6 +5081,7 @@ export class ModifyHostRequest extends $tea.Model {
       hostPrivateAddress: 'HostPrivateAddress',
       hostPublicAddress: 'HostPublicAddress',
       instanceId: 'InstanceId',
+      networkDomainId: 'NetworkDomainId',
       OSType: 'OSType',
       regionId: 'RegionId',
     };
@@ -5090,6 +5095,7 @@ export class ModifyHostRequest extends $tea.Model {
       hostPrivateAddress: 'string',
       hostPublicAddress: 'string',
       instanceId: 'string',
+      networkDomainId: 'string',
       OSType: 'string',
       regionId: 'string',
     };
@@ -7613,6 +7619,7 @@ export class GetHostResponseBodyHost extends $tea.Model {
   hostName?: string;
   hostPrivateAddress?: string;
   hostPublicAddress?: string;
+  networkDomainId?: string;
   OSType?: string;
   protocols?: GetHostResponseBodyHostProtocols[];
   source?: string;
@@ -7626,6 +7633,7 @@ export class GetHostResponseBodyHost extends $tea.Model {
       hostName: 'HostName',
       hostPrivateAddress: 'HostPrivateAddress',
       hostPublicAddress: 'HostPublicAddress',
+      networkDomainId: 'NetworkDomainId',
       OSType: 'OSType',
       protocols: 'Protocols',
       source: 'Source',
@@ -7642,6 +7650,7 @@ export class GetHostResponseBodyHost extends $tea.Model {
       hostName: 'string',
       hostPrivateAddress: 'string',
       hostPublicAddress: 'string',
+      networkDomainId: 'string',
       OSType: 'string',
       protocols: { 'type': 'array', 'itemType': GetHostResponseBodyHostProtocols },
       source: 'string',
@@ -9379,6 +9388,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceRegionId)) {
       query["InstanceRegionId"] = request.instanceRegionId;
+    }
+
+    if (!Util.isUnset(request.networkDomainId)) {
+      query["NetworkDomainId"] = request.networkDomainId;
     }
 
     if (!Util.isUnset(request.OSType)) {
@@ -11942,6 +11955,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.networkDomainId)) {
+      query["NetworkDomainId"] = request.networkDomainId;
     }
 
     if (!Util.isUnset(request.OSType)) {
