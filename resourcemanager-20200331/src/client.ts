@@ -2186,6 +2186,50 @@ export class DetachPolicyResponse extends $tea.Model {
   }
 }
 
+export class DisableAssociatedTransferResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableAssociatedTransferResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DisableAssociatedTransferResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableAssociatedTransferResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DisableControlPolicyResponseBody extends $tea.Model {
   enablementStatus?: string;
   requestId?: string;
@@ -2225,6 +2269,50 @@ export class DisableControlPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DisableControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAssociatedTransferResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAssociatedTransferResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableAssociatedTransferResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableAssociatedTransferResponseBody,
     };
   }
 
@@ -11013,6 +11101,27 @@ export default class Client extends OpenApi {
     return await this.detachPolicyWithOptions(request, runtime);
   }
 
+  async disableAssociatedTransferWithOptions(runtime: $Util.RuntimeOptions): Promise<DisableAssociatedTransferResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DisableAssociatedTransfer",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableAssociatedTransferResponse>(await this.callApi(params, req, runtime), new DisableAssociatedTransferResponse({}));
+  }
+
+  async disableAssociatedTransfer(): Promise<DisableAssociatedTransferResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableAssociatedTransferWithOptions(runtime);
+  }
+
   /**
     * After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
     * >  If you disable the Control Policy feature, the permissions of all folders and member accounts in a resource directory are affected. You must proceed with caution.
@@ -11046,6 +11155,27 @@ export default class Client extends OpenApi {
   async disableControlPolicy(): Promise<DisableControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableControlPolicyWithOptions(runtime);
+  }
+
+  async enableAssociatedTransferWithOptions(runtime: $Util.RuntimeOptions): Promise<EnableAssociatedTransferResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "EnableAssociatedTransfer",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableAssociatedTransferResponse>(await this.callApi(params, req, runtime), new EnableAssociatedTransferResponse({}));
+  }
+
+  async enableAssociatedTransfer(): Promise<EnableAssociatedTransferResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableAssociatedTransferWithOptions(runtime);
   }
 
   /**
@@ -11227,6 +11357,13 @@ export default class Client extends OpenApi {
     return await this.getAccountDeletionCheckResultWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to call the API operation to query the deletion status of the member whose Alibaba Cloud account ID is `169946124551****`. The response shows that the member is deleted.
+    *
+    * @param request GetAccountDeletionStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAccountDeletionStatusResponse
+   */
   async getAccountDeletionStatusWithOptions(request: GetAccountDeletionStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountDeletionStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11251,6 +11388,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAccountDeletionStatusResponse>(await this.callApi(params, req, runtime), new GetAccountDeletionStatusResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to call the API operation to query the deletion status of the member whose Alibaba Cloud account ID is `169946124551****`. The response shows that the member is deleted.
+    *
+    * @param request GetAccountDeletionStatusRequest
+    * @return GetAccountDeletionStatusResponse
+   */
   async getAccountDeletionStatus(request: GetAccountDeletionStatusRequest): Promise<GetAccountDeletionStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccountDeletionStatusWithOptions(request, runtime);
@@ -12427,7 +12570,7 @@ export default class Client extends OpenApi {
 
   /**
     * >  You can use a RAM role that is not associated with a session policy to call this API operation.
-    * This topic provides an example on how to call the API operation to query the resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
+    * This topic provides an example on how to call the API operation to query resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
     *
     * @param request ListResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -12487,7 +12630,7 @@ export default class Client extends OpenApi {
 
   /**
     * >  You can use a RAM role that is not associated with a session policy to call this API operation.
-    * This topic provides an example on how to call the API operation to query the resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
+    * This topic provides an example on how to call the API operation to query resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
     *
     * @param request ListResourcesRequest
     * @return ListResourcesResponse
