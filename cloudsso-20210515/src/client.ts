@@ -1373,6 +1373,75 @@ export class DeleteUserProvisioningResponse extends $tea.Model {
   }
 }
 
+export class DeleteUserProvisioningEventRequest extends $tea.Model {
+  directoryId?: string;
+  eventId?: string;
+  userProvisioningId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+      eventId: 'EventId',
+      userProvisioningId: 'UserProvisioningId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+      eventId: 'string',
+      userProvisioningId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserProvisioningEventResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserProvisioningEventResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteUserProvisioningEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteUserProvisioningEventResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeprovisionAccessConfigurationRequest extends $tea.Model {
   accessConfigurationId?: string;
   directoryId?: string;
@@ -2594,6 +2663,279 @@ export class GetUserProvisioningResponse extends $tea.Model {
   }
 }
 
+export class GetUserProvisioningConfigurationRequest extends $tea.Model {
+  directoryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningConfigurationResponseBody extends $tea.Model {
+  requestId?: string;
+  userProvisioningConfiguration?: GetUserProvisioningConfigurationResponseBodyUserProvisioningConfiguration;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userProvisioningConfiguration: 'UserProvisioningConfiguration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userProvisioningConfiguration: GetUserProvisioningConfigurationResponseBodyUserProvisioningConfiguration,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningConfigurationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUserProvisioningConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserProvisioningConfigurationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningEventRequest extends $tea.Model {
+  directoryId?: string;
+  eventId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+      eventId: 'EventId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+      eventId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningEventResponseBody extends $tea.Model {
+  requestId?: string;
+  userProvisioningEvent?: GetUserProvisioningEventResponseBodyUserProvisioningEvent;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userProvisioningEvent: 'UserProvisioningEvent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userProvisioningEvent: GetUserProvisioningEventResponseBodyUserProvisioningEvent,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningEventResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUserProvisioningEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserProvisioningEventResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningRdAccountStatisticsRequest extends $tea.Model {
+  directoryId?: string;
+  rdMemberId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+      rdMemberId: 'RdMemberId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+      rdMemberId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningRdAccountStatisticsResponseBody extends $tea.Model {
+  requestId?: string;
+  userProvisioningStatistics?: GetUserProvisioningRdAccountStatisticsResponseBodyUserProvisioningStatistics;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userProvisioningStatistics: 'UserProvisioningStatistics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userProvisioningStatistics: GetUserProvisioningRdAccountStatisticsResponseBodyUserProvisioningStatistics,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningRdAccountStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUserProvisioningRdAccountStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserProvisioningRdAccountStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningStatisticsRequest extends $tea.Model {
+  directoryId?: string;
+  userProvisioningId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+      userProvisioningId: 'UserProvisioningId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+      userProvisioningId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningStatisticsResponseBody extends $tea.Model {
+  requestId?: string;
+  userProvisioningStatistics?: GetUserProvisioningStatisticsResponseBodyUserProvisioningStatistics;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userProvisioningStatistics: 'UserProvisioningStatistics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userProvisioningStatistics: GetUserProvisioningStatisticsResponseBodyUserProvisioningStatistics,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUserProvisioningStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserProvisioningStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAccessAssignmentsRequest extends $tea.Model {
   accessConfigurationId?: string;
   directoryId?: string;
@@ -3586,6 +3928,93 @@ export class ListTasksResponse extends $tea.Model {
   }
 }
 
+export class ListUserProvisioningEventsRequest extends $tea.Model {
+  directoryId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  userProvisioningId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      userProvisioningId: 'UserProvisioningId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      userProvisioningId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserProvisioningEventsResponseBody extends $tea.Model {
+  isTruncated?: boolean;
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCounts?: number;
+  userProvisioningEvents?: ListUserProvisioningEventsResponseBodyUserProvisioningEvents[];
+  static names(): { [key: string]: string } {
+    return {
+      isTruncated: 'IsTruncated',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCounts: 'TotalCounts',
+      userProvisioningEvents: 'UserProvisioningEvents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isTruncated: 'boolean',
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCounts: 'number',
+      userProvisioningEvents: { 'type': 'array', 'itemType': ListUserProvisioningEventsResponseBodyUserProvisioningEvents },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserProvisioningEventsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListUserProvisioningEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserProvisioningEventsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUserProvisioningsRequest extends $tea.Model {
   directoryId?: string;
   maxResults?: number;
@@ -4127,6 +4556,75 @@ export class ResetUserPasswordResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ResetUserPasswordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryUserProvisioningEventRequest extends $tea.Model {
+  directoryId?: string;
+  duplicationStrategy?: string;
+  eventId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+      duplicationStrategy: 'DuplicationStrategy',
+      eventId: 'EventId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+      duplicationStrategy: 'string',
+      eventId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryUserProvisioningEventResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryUserProvisioningEventResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RetryUserProvisioningEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RetryUserProvisioningEventResponseBody,
     };
   }
 
@@ -5017,6 +5515,78 @@ export class UpdateUserProvisioningResponse extends $tea.Model {
   }
 }
 
+export class UpdateUserProvisioningConfigurationRequest extends $tea.Model {
+  directoryId?: string;
+  newDefaultLandingPage?: string;
+  newSessionDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+      newDefaultLandingPage: 'NewDefaultLandingPage',
+      newSessionDuration: 'NewSessionDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+      newDefaultLandingPage: 'string',
+      newSessionDuration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserProvisioningConfigurationResponseBody extends $tea.Model {
+  requestId?: string;
+  userProvisioningConfiguration?: UpdateUserProvisioningConfigurationResponseBodyUserProvisioningConfiguration;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userProvisioningConfiguration: 'UserProvisioningConfiguration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userProvisioningConfiguration: UpdateUserProvisioningConfigurationResponseBodyUserProvisioningConfiguration,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserProvisioningConfigurationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateUserProvisioningConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUserProvisioningConfigurationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateUserStatusRequest extends $tea.Model {
   directoryId?: string;
   newStatus?: string;
@@ -5570,24 +6140,33 @@ export class GetDirectoryResponseBodyDirectory extends $tea.Model {
 
 export class GetDirectorySAMLServiceProviderInfoResponseBodySAMLServiceProvider extends $tea.Model {
   acsUrl?: string;
+  authnSignAlgo?: string;
+  certificateType?: string;
   directoryId?: string;
   encodedMetadataDocument?: string;
   entityId?: string;
+  supportEncryptedAssertion?: boolean;
   static names(): { [key: string]: string } {
     return {
       acsUrl: 'AcsUrl',
+      authnSignAlgo: 'AuthnSignAlgo',
+      certificateType: 'CertificateType',
       directoryId: 'DirectoryId',
       encodedMetadataDocument: 'EncodedMetadataDocument',
       entityId: 'EntityId',
+      supportEncryptedAssertion: 'SupportEncryptedAssertion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acsUrl: 'string',
+      authnSignAlgo: 'string',
+      certificateType: 'string',
       directoryId: 'string',
       encodedMetadataDocument: 'string',
       entityId: 'string',
+      supportEncryptedAssertion: 'boolean',
     };
   }
 
@@ -5987,6 +6566,175 @@ export class GetUserProvisioningResponseBodyUserProvisioning extends $tea.Model 
       targetType: 'string',
       updateTime: 'string',
       userProvisioningId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningConfigurationResponseBodyUserProvisioningConfiguration extends $tea.Model {
+  createTime?: string;
+  defaultLandingPage?: string;
+  directoryId?: string;
+  sessionDuration?: number;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      defaultLandingPage: 'DefaultLandingPage',
+      directoryId: 'DirectoryId',
+      sessionDuration: 'SessionDuration',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      defaultLandingPage: 'string',
+      directoryId: 'string',
+      sessionDuration: 'number',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningEventResponseBodyUserProvisioningEvent extends $tea.Model {
+  createTime?: string;
+  deletionStrategy?: string;
+  directoryId?: string;
+  duplicationStrategy?: string;
+  errorCount?: number;
+  errorInfo?: string;
+  eventId?: string;
+  latestAsyncTime?: string;
+  principalId?: string;
+  principalName?: string;
+  principalType?: string;
+  sourceType?: string;
+  targetId?: string;
+  targetName?: string;
+  targetPath?: string;
+  targetType?: string;
+  updateTime?: string;
+  userProvisioningId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      deletionStrategy: 'DeletionStrategy',
+      directoryId: 'DirectoryId',
+      duplicationStrategy: 'DuplicationStrategy',
+      errorCount: 'ErrorCount',
+      errorInfo: 'ErrorInfo',
+      eventId: 'EventId',
+      latestAsyncTime: 'LatestAsyncTime',
+      principalId: 'PrincipalId',
+      principalName: 'PrincipalName',
+      principalType: 'PrincipalType',
+      sourceType: 'SourceType',
+      targetId: 'TargetId',
+      targetName: 'TargetName',
+      targetPath: 'TargetPath',
+      targetType: 'TargetType',
+      updateTime: 'UpdateTime',
+      userProvisioningId: 'UserProvisioningId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      deletionStrategy: 'string',
+      directoryId: 'string',
+      duplicationStrategy: 'string',
+      errorCount: 'number',
+      errorInfo: 'string',
+      eventId: 'string',
+      latestAsyncTime: 'string',
+      principalId: 'string',
+      principalName: 'string',
+      principalType: 'string',
+      sourceType: 'string',
+      targetId: 'string',
+      targetName: 'string',
+      targetPath: 'string',
+      targetType: 'string',
+      updateTime: 'string',
+      userProvisioningId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningRdAccountStatisticsResponseBodyUserProvisioningStatistics extends $tea.Model {
+  directoryId?: string;
+  entityId?: string;
+  failedEventCount?: number;
+  latestAsyncTime?: string;
+  ownerPk?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+      entityId: 'EntityId',
+      failedEventCount: 'FailedEventCount',
+      latestAsyncTime: 'LatestAsyncTime',
+      ownerPk: 'OwnerPk',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+      entityId: 'string',
+      failedEventCount: 'number',
+      latestAsyncTime: 'string',
+      ownerPk: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserProvisioningStatisticsResponseBodyUserProvisioningStatistics extends $tea.Model {
+  directoryId?: string;
+  entityId?: string;
+  failedEventCount?: number;
+  latestAsyncTime?: string;
+  ownerPk?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+      entityId: 'EntityId',
+      failedEventCount: 'FailedEventCount',
+      latestAsyncTime: 'LatestAsyncTime',
+      ownerPk: 'OwnerPk',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+      entityId: 'string',
+      failedEventCount: 'number',
+      latestAsyncTime: 'string',
+      ownerPk: 'string',
+      type: 'string',
     };
   }
 
@@ -6484,6 +7232,76 @@ export class ListTasksResponseBodyTasks extends $tea.Model {
   }
 }
 
+export class ListUserProvisioningEventsResponseBodyUserProvisioningEvents extends $tea.Model {
+  createTime?: string;
+  deletionStrategy?: string;
+  directoryId?: string;
+  duplicationStrategy?: string;
+  errorCount?: number;
+  errorInfo?: string;
+  eventId?: string;
+  latestAsyncTime?: string;
+  principalId?: string;
+  principalName?: string;
+  principalType?: string;
+  sourceType?: string;
+  targetId?: string;
+  targetName?: string;
+  targetPath?: string;
+  targetType?: string;
+  updateTime?: string;
+  userProvisioningId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      deletionStrategy: 'DeletionStrategy',
+      directoryId: 'DirectoryId',
+      duplicationStrategy: 'DuplicationStrategy',
+      errorCount: 'ErrorCount',
+      errorInfo: 'ErrorInfo',
+      eventId: 'EventId',
+      latestAsyncTime: 'LatestAsyncTime',
+      principalId: 'PrincipalId',
+      principalName: 'PrincipalName',
+      principalType: 'PrincipalType',
+      sourceType: 'SourceType',
+      targetId: 'TargetId',
+      targetName: 'TargetName',
+      targetPath: 'TargetPath',
+      targetType: 'TargetType',
+      updateTime: 'UpdateTime',
+      userProvisioningId: 'UserProvisioningId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      deletionStrategy: 'string',
+      directoryId: 'string',
+      duplicationStrategy: 'string',
+      errorCount: 'number',
+      errorInfo: 'string',
+      eventId: 'string',
+      latestAsyncTime: 'string',
+      principalId: 'string',
+      principalName: 'string',
+      principalType: 'string',
+      sourceType: 'string',
+      targetId: 'string',
+      targetName: 'string',
+      targetPath: 'string',
+      targetType: 'string',
+      updateTime: 'string',
+      userProvisioningId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUserProvisioningsResponseBodyUserProvisionings extends $tea.Model {
   createTime?: string;
   deletionStrategy?: string;
@@ -6930,6 +7748,37 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $tea.Mod
       targetType: 'string',
       updateTime: 'string',
       userProvisioningId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserProvisioningConfigurationResponseBodyUserProvisioningConfiguration extends $tea.Model {
+  createTime?: string;
+  defaultLandingPage?: string;
+  directoryId?: string;
+  sessionDuration?: number;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      defaultLandingPage: 'DefaultLandingPage',
+      directoryId: 'DirectoryId',
+      sessionDuration: 'SessionDuration',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      defaultLandingPage: 'string',
+      directoryId: 'string',
+      sessionDuration: 'number',
+      updateTime: 'string',
     };
   }
 
@@ -7987,6 +8836,43 @@ export default class Client extends OpenApi {
     return await this.deleteUserProvisioningWithOptions(request, runtime);
   }
 
+  async deleteUserProvisioningEventWithOptions(request: DeleteUserProvisioningEventRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserProvisioningEventResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!Util.isUnset(request.userProvisioningId)) {
+      query["UserProvisioningId"] = request.userProvisioningId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteUserProvisioningEvent",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteUserProvisioningEventResponse>(await this.callApi(params, req, runtime), new DeleteUserProvisioningEventResponse({}));
+  }
+
+  async deleteUserProvisioningEvent(request: DeleteUserProvisioningEventRequest): Promise<DeleteUserProvisioningEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteUserProvisioningEventWithOptions(request, runtime);
+  }
+
   /**
     * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
     * This topic provides an example on how to de-provision the access configuration `ac-00jhtfl8thteu6uj****` from the account `114240524784****` in your resource directory.
@@ -8791,8 +9677,136 @@ export default class Client extends OpenApi {
     return await this.getUserProvisioningWithOptions(request, runtime);
   }
 
+  async getUserProvisioningConfigurationWithOptions(request: GetUserProvisioningConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<GetUserProvisioningConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserProvisioningConfiguration",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserProvisioningConfigurationResponse>(await this.callApi(params, req, runtime), new GetUserProvisioningConfigurationResponse({}));
+  }
+
+  async getUserProvisioningConfiguration(request: GetUserProvisioningConfigurationRequest): Promise<GetUserProvisioningConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserProvisioningConfigurationWithOptions(request, runtime);
+  }
+
+  async getUserProvisioningEventWithOptions(request: GetUserProvisioningEventRequest, runtime: $Util.RuntimeOptions): Promise<GetUserProvisioningEventResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserProvisioningEvent",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserProvisioningEventResponse>(await this.callApi(params, req, runtime), new GetUserProvisioningEventResponse({}));
+  }
+
+  async getUserProvisioningEvent(request: GetUserProvisioningEventRequest): Promise<GetUserProvisioningEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserProvisioningEventWithOptions(request, runtime);
+  }
+
+  async getUserProvisioningRdAccountStatisticsWithOptions(request: GetUserProvisioningRdAccountStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetUserProvisioningRdAccountStatisticsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.rdMemberId)) {
+      query["RdMemberId"] = request.rdMemberId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserProvisioningRdAccountStatistics",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserProvisioningRdAccountStatisticsResponse>(await this.callApi(params, req, runtime), new GetUserProvisioningRdAccountStatisticsResponse({}));
+  }
+
+  async getUserProvisioningRdAccountStatistics(request: GetUserProvisioningRdAccountStatisticsRequest): Promise<GetUserProvisioningRdAccountStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserProvisioningRdAccountStatisticsWithOptions(request, runtime);
+  }
+
+  async getUserProvisioningStatisticsWithOptions(request: GetUserProvisioningStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetUserProvisioningStatisticsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.userProvisioningId)) {
+      query["UserProvisioningId"] = request.userProvisioningId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserProvisioningStatistics",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserProvisioningStatisticsResponse>(await this.callApi(params, req, runtime), new GetUserProvisioningStatisticsResponse({}));
+  }
+
+  async getUserProvisioningStatistics(request: GetUserProvisioningStatisticsRequest): Promise<GetUserProvisioningStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserProvisioningStatisticsWithOptions(request, runtime);
+  }
+
   /**
-    * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
+    * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory are assigned to one user.
     *
     * @param request ListAccessAssignmentsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -8851,7 +9865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
+    * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory are assigned to one user.
     *
     * @param request ListAccessAssignmentsRequest
     * @return ListAccessAssignmentsResponse
@@ -9448,6 +10462,47 @@ export default class Client extends OpenApi {
     return await this.listTasksWithOptions(request, runtime);
   }
 
+  async listUserProvisioningEventsWithOptions(request: ListUserProvisioningEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserProvisioningEventsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.userProvisioningId)) {
+      query["UserProvisioningId"] = request.userProvisioningId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUserProvisioningEvents",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserProvisioningEventsResponse>(await this.callApi(params, req, runtime), new ListUserProvisioningEventsResponse({}));
+  }
+
+  async listUserProvisioningEvents(request: ListUserProvisioningEventsRequest): Promise<ListUserProvisioningEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUserProvisioningEventsWithOptions(request, runtime);
+  }
+
   async listUserProvisioningsWithOptions(request: ListUserProvisioningsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserProvisioningsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9833,6 +10888,43 @@ export default class Client extends OpenApi {
   async resetUserPassword(request: ResetUserPasswordRequest): Promise<ResetUserPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetUserPasswordWithOptions(request, runtime);
+  }
+
+  async retryUserProvisioningEventWithOptions(request: RetryUserProvisioningEventRequest, runtime: $Util.RuntimeOptions): Promise<RetryUserProvisioningEventResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.duplicationStrategy)) {
+      query["DuplicationStrategy"] = request.duplicationStrategy;
+    }
+
+    if (!Util.isUnset(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RetryUserProvisioningEvent",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RetryUserProvisioningEventResponse>(await this.callApi(params, req, runtime), new RetryUserProvisioningEventResponse({}));
+  }
+
+  async retryUserProvisioningEvent(request: RetryUserProvisioningEventRequest): Promise<RetryUserProvisioningEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.retryUserProvisioningEventWithOptions(request, runtime);
   }
 
   /**
@@ -10506,6 +11598,43 @@ export default class Client extends OpenApi {
   async updateUserProvisioning(request: UpdateUserProvisioningRequest): Promise<UpdateUserProvisioningResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserProvisioningWithOptions(request, runtime);
+  }
+
+  async updateUserProvisioningConfigurationWithOptions(request: UpdateUserProvisioningConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserProvisioningConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.newDefaultLandingPage)) {
+      query["NewDefaultLandingPage"] = request.newDefaultLandingPage;
+    }
+
+    if (!Util.isUnset(request.newSessionDuration)) {
+      query["NewSessionDuration"] = request.newSessionDuration;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateUserProvisioningConfiguration",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUserProvisioningConfigurationResponse>(await this.callApi(params, req, runtime), new UpdateUserProvisioningConfigurationResponse({}));
+  }
+
+  async updateUserProvisioningConfiguration(request: UpdateUserProvisioningConfigurationRequest): Promise<UpdateUserProvisioningConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateUserProvisioningConfigurationWithOptions(request, runtime);
   }
 
   /**
