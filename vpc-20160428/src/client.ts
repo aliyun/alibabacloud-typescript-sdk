@@ -17488,6 +17488,7 @@ export class DescribeRouteTableListRequest extends $tea.Model {
   resourceOwnerId?: number;
   routeTableId?: string;
   routeTableName?: string;
+  routeTableType?: string;
   routerId?: string;
   routerType?: string;
   tag?: DescribeRouteTableListRequestTag[];
@@ -17504,6 +17505,7 @@ export class DescribeRouteTableListRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       routeTableId: 'RouteTableId',
       routeTableName: 'RouteTableName',
+      routeTableType: 'RouteTableType',
       routerId: 'RouterId',
       routerType: 'RouterType',
       tag: 'Tag',
@@ -17523,6 +17525,7 @@ export class DescribeRouteTableListRequest extends $tea.Model {
       resourceOwnerId: 'number',
       routeTableId: 'string',
       routeTableName: 'string',
+      routeTableType: 'string',
       routerId: 'string',
       routerType: 'string',
       tag: { 'type': 'array', 'itemType': DescribeRouteTableListRequestTag },
@@ -63152,6 +63155,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.routeTableName)) {
       query["RouteTableName"] = request.routeTableName;
+    }
+
+    if (!Util.isUnset(request.routeTableType)) {
+      query["RouteTableType"] = request.routeTableType;
     }
 
     if (!Util.isUnset(request.routerId)) {
