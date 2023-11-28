@@ -24452,6 +24452,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
   requestId?: string;
   sasLog?: number;
   sasScreen?: number;
+  sdkCapacity?: number;
   slsCapacity?: number;
   threatAnalysisCapacity?: number;
   userDefinedAlarms?: number;
@@ -24490,6 +24491,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
       requestId: 'RequestId',
       sasLog: 'SasLog',
       sasScreen: 'SasScreen',
+      sdkCapacity: 'SdkCapacity',
       slsCapacity: 'SlsCapacity',
       threatAnalysisCapacity: 'ThreatAnalysisCapacity',
       userDefinedAlarms: 'UserDefinedAlarms',
@@ -24531,6 +24533,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
       requestId: 'string',
       sasLog: 'number',
       sasScreen: 'number',
+      sdkCapacity: 'number',
       slsCapacity: 'number',
       threatAnalysisCapacity: 'number',
       userDefinedAlarms: 'number',
