@@ -87,6 +87,7 @@ export class CreateVpcPeerConnectionRequest extends $tea.Model {
   acceptingAliUid?: number;
   acceptingRegionId?: string;
   acceptingVpcId?: string;
+  bandwidth?: number;
   clientToken?: string;
   description?: string;
   dryRun?: boolean;
@@ -99,6 +100,7 @@ export class CreateVpcPeerConnectionRequest extends $tea.Model {
       acceptingAliUid: 'AcceptingAliUid',
       acceptingRegionId: 'AcceptingRegionId',
       acceptingVpcId: 'AcceptingVpcId',
+      bandwidth: 'Bandwidth',
       clientToken: 'ClientToken',
       description: 'Description',
       dryRun: 'DryRun',
@@ -114,6 +116,7 @@ export class CreateVpcPeerConnectionRequest extends $tea.Model {
       acceptingAliUid: 'number',
       acceptingRegionId: 'string',
       acceptingVpcId: 'string',
+      bandwidth: 'number',
       clientToken: 'string',
       description: 'string',
       dryRun: 'boolean',
@@ -1417,6 +1420,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.acceptingVpcId)) {
       body["AcceptingVpcId"] = request.acceptingVpcId;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      body["Bandwidth"] = request.bandwidth;
     }
 
     if (!Util.isUnset(request.clientToken)) {
