@@ -515,9 +515,6 @@ export class Ticket extends $tea.Model {
   number?: number;
   ticket?: string;
   ticketId?: string;
-  type?: string;
-  unlimitedExpiration?: boolean;
-  unlimitedNumber?: boolean;
   usedNumber?: number;
   valid?: boolean;
   static names(): { [key: string]: string } {
@@ -531,9 +528,6 @@ export class Ticket extends $tea.Model {
       number: 'number',
       ticket: 'ticket',
       ticketId: 'ticketId',
-      type: 'type',
-      unlimitedExpiration: 'unlimitedExpiration',
-      unlimitedNumber: 'unlimitedNumber',
       usedNumber: 'usedNumber',
       valid: 'valid',
     };
@@ -550,9 +544,6 @@ export class Ticket extends $tea.Model {
       number: 'number',
       ticket: 'string',
       ticketId: 'string',
-      type: 'string',
-      unlimitedExpiration: 'boolean',
-      unlimitedNumber: 'boolean',
       usedNumber: 'number',
       valid: 'boolean',
     };
@@ -1954,72 +1945,6 @@ export class CreateSavedSearchResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTicketRequest extends $tea.Model {
-  playAccessKeyId?: string;
-  playAccessKeySecret?: string;
-  static names(): { [key: string]: string } {
-    return {
-      playAccessKeyId: 'playAccessKeyId',
-      playAccessKeySecret: 'playAccessKeySecret',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      playAccessKeyId: 'string',
-      playAccessKeySecret: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTicketResponseBody extends $tea.Model {
-  ticket?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ticket: 'ticket',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ticket: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTicketResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTicketResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateTicketResponseBody,
     };
   }
 
@@ -3461,6 +3386,75 @@ export class GetLogtailPipelineConfigResponse extends $tea.Model {
   }
 }
 
+export class GetMLServiceResultsRequest extends $tea.Model {
+  allowBuiltin?: boolean;
+  body?: MLServiceAnalysisParam;
+  static names(): { [key: string]: string } {
+    return {
+      allowBuiltin: 'allowBuiltin',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowBuiltin: 'boolean',
+      body: MLServiceAnalysisParam,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMLServiceResultsResponseBody extends $tea.Model {
+  data?: { [key: string]: string }[];
+  status?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      status: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMLServiceResultsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMLServiceResultsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMLServiceResultsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMachineGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -4654,11 +4648,13 @@ export class ListMachinesResponse extends $tea.Model {
 export class ListProjectRequest extends $tea.Model {
   offset?: number;
   projectName?: string;
+  resourceGroupId?: string;
   size?: number;
   static names(): { [key: string]: string } {
     return {
       offset: 'offset',
       projectName: 'projectName',
+      resourceGroupId: 'resourceGroupId',
       size: 'size',
     };
   }
@@ -4667,6 +4663,7 @@ export class ListProjectRequest extends $tea.Model {
     return {
       offset: 'number',
       projectName: 'string',
+      resourceGroupId: 'string',
       size: 'number',
     };
   }
@@ -7490,6 +7487,13 @@ export default class Client extends OpenApi {
   }
 
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ApplyConfigToMachineGroupResponse
+   */
   async applyConfigToMachineGroupWithOptions(project: string, machineGroup: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ApplyConfigToMachineGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -7511,6 +7515,11 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyConfigToMachineGroupResponse>(await this.execute(params, req, runtime), new ApplyConfigToMachineGroupResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return ApplyConfigToMachineGroupResponse
+   */
   async applyConfigToMachineGroup(project: string, machineGroup: string, configName: string): Promise<ApplyConfigToMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7681,6 +7690,17 @@ export default class Client extends OpenApi {
     return await this.createConfigWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   You can create up to 30 consumer groups for a Logstore.
+    * *   Simple Log Service provides examples of both regular log consumption and consumer group-based log consumption by using Simple Log Service SDKs for Java. For more information, see [Consume log data](~~120035~~) and [Use consumer groups to consume data](~~28998~~).
+    *
+    * @param request CreateConsumerGroupRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateConsumerGroupResponse
+   */
   async createConsumerGroupWithOptions(project: string, logstore: string, request: CreateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -7717,6 +7737,15 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateConsumerGroupResponse>(await this.execute(params, req, runtime), new CreateConsumerGroupResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   You can create up to 30 consumer groups for a Logstore.
+    * *   Simple Log Service provides examples of both regular log consumption and consumer group-based log consumption by using Simple Log Service SDKs for Java. For more information, see [Consume log data](~~120035~~) and [Use consumer groups to consume data](~~28998~~).
+    *
+    * @param request CreateConsumerGroupRequest
+    * @return CreateConsumerGroupResponse
+   */
   async createConsumerGroup(project: string, logstore: string, request: CreateConsumerGroupRequest): Promise<CreateConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7752,6 +7781,14 @@ export default class Client extends OpenApi {
     return await this.createDashboardWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateDomainRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDomainResponse
+   */
   async createDomainWithOptions(project: string, request: CreateDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -7780,12 +7817,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDomainResponse>(await this.execute(params, req, runtime), new CreateDomainResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateDomainRequest
+    * @return CreateDomainResponse
+   */
   async createDomain(project: string, request: CreateDomainRequest): Promise<CreateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createDomainWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateIndexRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateIndexResponse
+   */
   async createIndexWithOptions(project: string, logstore: string, request: CreateIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIndexResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -7838,12 +7889,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIndexResponse>(await this.execute(params, req, runtime), new CreateIndexResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateIndexRequest
+    * @return CreateIndexResponse
+   */
   async createIndex(project: string, logstore: string, request: CreateIndexRequest): Promise<CreateIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createIndexWithOptions(project, logstore, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateLogStoreRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLogStoreResponse
+   */
   async createLogStoreWithOptions(project: string, request: CreateLogStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLogStoreResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -7912,12 +7978,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLogStoreResponse>(await this.execute(params, req, runtime), new CreateLogStoreResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateLogStoreRequest
+    * @return CreateLogStoreResponse
+   */
   async createLogStore(project: string, request: CreateLogStoreRequest): Promise<CreateLogStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createLogStoreWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateLoggingRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLoggingResponse
+   */
   async createLoggingWithOptions(project: string, request: CreateLoggingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLoggingResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -7950,6 +8031,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLoggingResponse>(await this.execute(params, req, runtime), new CreateLoggingResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateLoggingRequest
+    * @return CreateLoggingResponse
+   */
   async createLogging(project: string, request: CreateLoggingRequest): Promise<CreateLoggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8014,6 +8101,15 @@ export default class Client extends OpenApi {
     return await this.createLogtailPipelineConfigWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateMachineGroupRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateMachineGroupResponse
+   */
   async createMachineGroupWithOptions(project: string, request: CreateMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateMachineGroupResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -8058,12 +8154,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMachineGroupResponse>(await this.execute(params, req, runtime), new CreateMachineGroupResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateMachineGroupRequest
+    * @return CreateMachineGroupResponse
+   */
   async createMachineGroup(project: string, request: CreateMachineGroupRequest): Promise<CreateMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createMachineGroupWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateOssExternalStoreRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateOssExternalStoreResponse
+   */
   async createOssExternalStoreWithOptions(project: string, request: CreateOssExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOssExternalStoreResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -8100,6 +8211,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOssExternalStoreResponse>(await this.execute(params, req, runtime), new CreateOssExternalStoreResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateOssExternalStoreRequest
+    * @return CreateOssExternalStoreResponse
+   */
   async createOssExternalStore(project: string, request: CreateOssExternalStoreRequest): Promise<CreateOssExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8149,6 +8266,14 @@ export default class Client extends OpenApi {
     return await this.createProjectWithOptions(request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateRdsExternalStoreRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRdsExternalStoreResponse
+   */
   async createRdsExternalStoreWithOptions(project: string, request: CreateRdsExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRdsExternalStoreResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -8185,12 +8310,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRdsExternalStoreResponse>(await this.execute(params, req, runtime), new CreateRdsExternalStoreResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateRdsExternalStoreRequest
+    * @return CreateRdsExternalStoreResponse
+   */
   async createRdsExternalStore(project: string, request: CreateRdsExternalStoreRequest): Promise<CreateRdsExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createRdsExternalStoreWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateSavedSearchRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSavedSearchResponse
+   */
   async createSavedSearchWithOptions(project: string, request: CreateSavedSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSavedSearchResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -8235,45 +8375,17 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSavedSearchResponse>(await this.execute(params, req, runtime), new CreateSavedSearchResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request CreateSavedSearchRequest
+    * @return CreateSavedSearchResponse
+   */
   async createSavedSearch(project: string, request: CreateSavedSearchRequest): Promise<CreateSavedSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createSavedSearchWithOptions(project, request, headers, runtime);
-  }
-
-  async createTicketWithOptions(request: CreateTicketRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTicketResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.playAccessKeyId)) {
-      body["playAccessKeyId"] = request.playAccessKeyId;
-    }
-
-    if (!Util.isUnset(request.playAccessKeySecret)) {
-      body["playAccessKeySecret"] = request.playAccessKeySecret;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateTicket",
-      version: "2020-12-30",
-      protocol: "HTTPS",
-      pathname: `/tickets`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateTicketResponse>(await this.execute(params, req, runtime), new CreateTicketResponse({}));
-  }
-
-  async createTicket(request: CreateTicketRequest): Promise<CreateTicketResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createTicketWithOptions(request, headers, runtime);
   }
 
   async deleteAnnotationDataWithOptions(datasetId: string, annotationdataId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAnnotationDataResponse> {
@@ -8410,6 +8522,13 @@ export default class Client extends OpenApi {
     return await this.deleteConfigWithOptions(project, configName, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteConsumerGroupResponse
+   */
   async deleteConsumerGroupWithOptions(project: string, logstore: string, consumerGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8431,6 +8550,11 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConsumerGroupResponse>(await this.execute(params, req, runtime), new DeleteConsumerGroupResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return DeleteConsumerGroupResponse
+   */
   async deleteConsumerGroup(project: string, logstore: string, consumerGroup: string): Promise<DeleteConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8464,6 +8588,13 @@ export default class Client extends OpenApi {
     return await this.deleteDashboardWithOptions(project, dashboardName, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDomainResponse
+   */
   async deleteDomainWithOptions(project: string, domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8485,12 +8616,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainResponse>(await this.execute(params, req, runtime), new DeleteDomainResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return DeleteDomainResponse
+   */
   async deleteDomain(project: string, domainName: string): Promise<DeleteDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteDomainWithOptions(project, domainName, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteExternalStoreResponse
+   */
   async deleteExternalStoreWithOptions(project: string, externalStoreName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteExternalStoreResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8512,12 +8655,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteExternalStoreResponse>(await this.execute(params, req, runtime), new DeleteExternalStoreResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return DeleteExternalStoreResponse
+   */
   async deleteExternalStore(project: string, externalStoreName: string): Promise<DeleteExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteExternalStoreWithOptions(project, externalStoreName, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteIndexResponse
+   */
   async deleteIndexWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8539,12 +8695,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIndexResponse>(await this.execute(params, req, runtime), new DeleteIndexResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return DeleteIndexResponse
+   */
   async deleteIndex(project: string, logstore: string): Promise<DeleteIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteIndexWithOptions(project, logstore, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteLogStoreResponse
+   */
   async deleteLogStoreWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLogStoreResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8566,6 +8736,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLogStoreResponse>(await this.execute(params, req, runtime), new DeleteLogStoreResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @return DeleteLogStoreResponse
+   */
   async deleteLogStore(project: string, logstore: string): Promise<DeleteLogStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8626,6 +8802,14 @@ export default class Client extends OpenApi {
     return await this.deleteLogtailPipelineConfigWithOptions(project, configName, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteMachineGroupResponse
+   */
   async deleteMachineGroupWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteMachineGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8647,6 +8831,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMachineGroupResponse>(await this.execute(params, req, runtime), new DeleteMachineGroupResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return DeleteMachineGroupResponse
+   */
   async deleteMachineGroup(project: string, machineGroup: string): Promise<DeleteMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8680,6 +8870,14 @@ export default class Client extends OpenApi {
     return await this.deleteProjectWithOptions(project, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteProjectPolicyResponse
+   */
   async deleteProjectPolicyWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProjectPolicyResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8701,12 +8899,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProjectPolicyResponse>(await this.execute(params, req, runtime), new DeleteProjectPolicyResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return DeleteProjectPolicyResponse
+   */
   async deleteProjectPolicy(project: string): Promise<DeleteProjectPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteProjectPolicyWithOptions(project, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteSavedSearchResponse
+   */
   async deleteSavedSearchWithOptions(project: string, savedsearchName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSavedSearchResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8728,12 +8940,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSavedSearchResponse>(await this.execute(params, req, runtime), new DeleteSavedSearchResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return DeleteSavedSearchResponse
+   */
   async deleteSavedSearch(project: string, savedsearchName: string): Promise<DeleteSavedSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteSavedSearchWithOptions(project, savedsearchName, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteShipperResponse
+   */
   async deleteShipperWithOptions(project: string, logstore: string, shipperName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteShipperResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8755,6 +8980,11 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteShipperResponse>(await this.execute(params, req, runtime), new DeleteShipperResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return DeleteShipperResponse
+   */
   async deleteShipper(project: string, logstore: string, shipperName: string): Promise<DeleteShipperResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8833,6 +9063,13 @@ export default class Client extends OpenApi {
     return await this.getAnnotationLabelWithOptions(labelId, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAppliedConfigsResponse
+   */
   async getAppliedConfigsWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAppliedConfigsResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8854,12 +9091,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppliedConfigsResponse>(await this.execute(params, req, runtime), new GetAppliedConfigsResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return GetAppliedConfigsResponse
+   */
   async getAppliedConfigs(project: string, machineGroup: string): Promise<GetAppliedConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAppliedConfigsWithOptions(project, machineGroup, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAppliedMachineGroupsResponse
+   */
   async getAppliedMachineGroupsWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAppliedMachineGroupsResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8881,12 +9130,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppliedMachineGroupsResponse>(await this.execute(params, req, runtime), new GetAppliedMachineGroupsResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return GetAppliedMachineGroupsResponse
+   */
   async getAppliedMachineGroups(project: string, configName: string): Promise<GetAppliedMachineGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAppliedMachineGroupsWithOptions(project, configName, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request GetCheckPointRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetCheckPointResponse
+   */
   async getCheckPointWithOptions(project: string, logstore: string, consumerGroup: string, request: GetCheckPointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCheckPointResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -8915,6 +9177,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCheckPointResponse>(await this.execute(params, req, runtime), new GetCheckPointResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request GetCheckPointRequest
+    * @return GetCheckPointResponse
+   */
   async getCheckPoint(project: string, logstore: string, consumerGroup: string, request: GetCheckPointRequest): Promise<GetCheckPointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8983,6 +9251,15 @@ export default class Client extends OpenApi {
     return await this.getConfigWithOptions(project, configName, headers, runtime);
   }
 
+  /**
+    * *   You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request GetContextLogsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetContextLogsResponse
+   */
   async getContextLogsWithOptions(project: string, logstore: string, request: GetContextLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetContextLogsResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -9027,12 +9304,32 @@ export default class Client extends OpenApi {
     return $tea.cast<GetContextLogsResponse>(await this.execute(params, req, runtime), new GetContextLogsResponse({}));
   }
 
+  /**
+    * *   You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request GetContextLogsRequest
+    * @return GetContextLogsResponse
+   */
   async getContextLogs(project: string, logstore: string, request: GetContextLogsRequest): Promise<GetContextLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getContextLogsWithOptions(project, logstore, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   The following content describes the relationships among a cursor, project, Logstore, and shard:
+    *     *   A project can have multiple Logstores.
+    *     *   A Logstore can have multiple shards.
+    *     *   You can use a cursor to obtain a log in a shard.
+    *
+    * @param request GetCursorRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetCursorResponse
+   */
   async getCursorWithOptions(project: string, logstore: string, shardId: string, request: GetCursorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCursorResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -9061,6 +9358,17 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCursorResponse>(await this.execute(params, req, runtime), new GetCursorResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   The following content describes the relationships among a cursor, project, Logstore, and shard:
+    *     *   A project can have multiple Logstores.
+    *     *   A Logstore can have multiple shards.
+    *     *   You can use a cursor to obtain a log in a shard.
+    *
+    * @param request GetCursorRequest
+    * @return GetCursorResponse
+   */
   async getCursor(project: string, logstore: string, shardId: string, request: GetCursorRequest): Promise<GetCursorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -9128,6 +9436,14 @@ export default class Client extends OpenApi {
     return await this.getDashboardWithOptions(project, dashboardName, headers, runtime);
   }
 
+  /**
+    * *   The supported data sources of external stores include Object Storage Service (OSS) buckets and ApsaraDB RDS for MySQL databases in a virtual private cloud (VPC).
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetExternalStoreResponse
+   */
   async getExternalStoreWithOptions(project: string, externalStoreName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetExternalStoreResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -9149,12 +9465,35 @@ export default class Client extends OpenApi {
     return $tea.cast<GetExternalStoreResponse>(await this.execute(params, req, runtime), new GetExternalStoreResponse({}));
   }
 
+  /**
+    * *   The supported data sources of external stores include Object Storage Service (OSS) buckets and ApsaraDB RDS for MySQL databases in a virtual private cloud (VPC).
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return GetExternalStoreResponse
+   */
   async getExternalStore(project: string, externalStoreName: string): Promise<GetExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getExternalStoreWithOptions(project, externalStoreName, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   The time range is evenly divided into subintervals in the responses. If the time range that is specified in the request remains unchanged, the subintervals in the responses also remain unchanged.
+    * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times that you must call this operation to obtain the complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
+    * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log after a short latency. The latency of a query varies based on the type of the log. Simple Log Service classifies logs into the following types based on the log time:
+    *     *   Real-time data: The difference between the time record in a log and the current time on Simple Log Service is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as real-time data. After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds.
+    *     *   Historical data: The difference between the time record in a log and the current time on Simple Log Service is within the interval \\[-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as historical data. This type of log is usually generated in data backfill scenarios.
+    *     After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+    * > Simple Log Service calculates the difference between the log time that is specified by the \\__time\\_\\_ field and the receiving time that is specified by the \\__tag\\_\\_:\\__receive_time\\_\\_ field for each log. The receiving time indicates the time at which Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds], Simple Log Service processes the log as real-time data. If the difference is within the interval \\[-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
+    * *   Simple Log Service provides examples on how to call the GetHistograms operation by using Simple Log Service SDK for Java. For more information, see [Use GetHistograms to query the distribution of logs](~~462234~~).
+    *
+    * @param request GetHistogramsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetHistogramsResponse
+   */
   async getHistogramsWithOptions(project: string, logstore: string, request: GetHistogramsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetHistogramsResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -9195,12 +9534,35 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHistogramsResponse>(await this.execute(params, req, runtime), new GetHistogramsResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   The time range is evenly divided into subintervals in the responses. If the time range that is specified in the request remains unchanged, the subintervals in the responses also remain unchanged.
+    * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times that you must call this operation to obtain the complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
+    * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log after a short latency. The latency of a query varies based on the type of the log. Simple Log Service classifies logs into the following types based on the log time:
+    *     *   Real-time data: The difference between the time record in a log and the current time on Simple Log Service is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as real-time data. After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds.
+    *     *   Historical data: The difference between the time record in a log and the current time on Simple Log Service is within the interval \\[-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as historical data. This type of log is usually generated in data backfill scenarios.
+    *     After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+    * > Simple Log Service calculates the difference between the log time that is specified by the \\__time\\_\\_ field and the receiving time that is specified by the \\__tag\\_\\_:\\__receive_time\\_\\_ field for each log. The receiving time indicates the time at which Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds], Simple Log Service processes the log as real-time data. If the difference is within the interval \\[-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
+    * *   Simple Log Service provides examples on how to call the GetHistograms operation by using Simple Log Service SDK for Java. For more information, see [Use GetHistograms to query the distribution of logs](~~462234~~).
+    *
+    * @param request GetHistogramsRequest
+    * @return GetHistogramsResponse
+   */
   async getHistograms(project: string, logstore: string, request: GetHistogramsRequest): Promise<GetHistogramsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getHistogramsWithOptions(project, logstore, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetIndexResponse
+   */
   async getIndexWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIndexResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -9222,12 +9584,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIndexResponse>(await this.execute(params, req, runtime), new GetIndexResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return GetIndexResponse
+   */
   async getIndex(project: string, logstore: string): Promise<GetIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIndexWithOptions(project, logstore, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetLogStoreResponse
+   */
   async getLogStoreWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLogStoreResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -9249,6 +9625,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLogStoreResponse>(await this.execute(params, req, runtime), new GetLogStoreResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return GetLogStoreResponse
+   */
   async getLogStore(project: string, logstore: string): Promise<GetLogStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -9282,6 +9664,13 @@ export default class Client extends OpenApi {
     return await this.getLogStoreMeteringModeWithOptions(project, logstore, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetLoggingResponse
+   */
   async getLoggingWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLoggingResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -9303,12 +9692,34 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLoggingResponse>(await this.execute(params, req, runtime), new GetLoggingResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return GetLoggingResponse
+   */
   async getLogging(project: string): Promise<GetLoggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLoggingWithOptions(project, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * > Simple Log Service allows you to create a Scheduled SQL job. For more information, see [Create a Scheduled SQL job](~~286457~~).
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot forecast the number of times that you must call this operation to obtain the complete result. In this case, you must check the value of the x-log-progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
+    * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log after a short latency. The latency of a query varies based on the type of the log. Simple Log Service classifies logs into the following types based on the log time:
+    *         Real-time data: The difference between the time record in a log and the current time on Simple Log Service is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as real-time data. This type of log is usually generated in common scenarios. 
+    *     *   Historical data: The difference between the time record in a log and the current time on Simple Log Service is within the interval \\[-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as historical data. This type of log is usually generated in data backfill scenarios.
+    *     After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+    * > Simple Log Service calculates the difference between the log time that is specified by the \\__time\\_\\_ field and the receiving time that is specified by the \\__tag\\_\\_:**receive_time** field for each log. The receiving time indicates the time at which Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds], Simple Log Service processes the log as real-time data. If the difference is within the interval \\[-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
+    * *   Simple Log Service provides examples on how to call the GetLogs operation by using Simple Log Service SDK for Java and Simple Log Service SDK for Python. For more information, see [Examples of calling the GetLogs operation by using Simple Log Service SDK for Java](~~407683~~) and [Examples of calling the GetLogs operation by using Simple Log Service SDK for Python](~~407684~~).
+    *
+    * @param request GetLogsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetLogsResponse
+   */
   async getLogsWithOptions(project: string, logstore: string, request: GetLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLogsResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -9365,12 +9776,39 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLogsResponse>(await this.execute(params, req, runtime), new GetLogsResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * > Simple Log Service allows you to create a Scheduled SQL job. For more information, see [Create a Scheduled SQL job](~~286457~~).
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot forecast the number of times that you must call this operation to obtain the complete result. In this case, you must check the value of the x-log-progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
+    * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log after a short latency. The latency of a query varies based on the type of the log. Simple Log Service classifies logs into the following types based on the log time:
+    *         Real-time data: The difference between the time record in a log and the current time on Simple Log Service is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as real-time data. This type of log is usually generated in common scenarios. 
+    *     *   Historical data: The difference between the time record in a log and the current time on Simple Log Service is within the interval \\[-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as historical data. This type of log is usually generated in data backfill scenarios.
+    *     After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+    * > Simple Log Service calculates the difference between the log time that is specified by the \\__time\\_\\_ field and the receiving time that is specified by the \\__tag\\_\\_:**receive_time** field for each log. The receiving time indicates the time at which Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds], Simple Log Service processes the log as real-time data. If the difference is within the interval \\[-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
+    * *   Simple Log Service provides examples on how to call the GetLogs operation by using Simple Log Service SDK for Java and Simple Log Service SDK for Python. For more information, see [Examples of calling the GetLogs operation by using Simple Log Service SDK for Java](~~407683~~) and [Examples of calling the GetLogs operation by using Simple Log Service SDK for Python](~~407684~~).
+    *
+    * @param request GetLogsRequest
+    * @return GetLogsResponse
+   */
   async getLogs(project: string, logstore: string, request: GetLogsRequest): Promise<GetLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLogsWithOptions(project, logstore, request, headers, runtime);
   }
 
+  /**
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times you must call this API operation to obtain a complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation again to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
+    * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log. The latency of the query varies based on the type of the log. Simple Log Service classifies logs into the following types based on log timestamps:
+    * 1.  1.  Real-time data: The difference between the time record in the log and the current server time is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and the server received the log at 12:05:00, September 25, 2014 (UTC), the server processes the log as real-time data. This type of log is usually generated in common scenarios.
+    * 2.  2.  Historical data: The difference between the time record in the log and the current server time is within the interval \\[-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and the server received the log at 12:05:00, September 25, 2014 (UTC), the server processes the log as historical data. This type of log is usually generated in data backfill scenarios. After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+    *
+    * @param request GetLogsV2Request
+    * @param headers GetLogsV2Headers
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetLogsV2Response
+   */
   async getLogsV2WithOptions(project: string, logstore: string, request: GetLogsV2Request, headers: GetLogsV2Headers, runtime: $Util.RuntimeOptions): Promise<GetLogsV2Response> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -9448,6 +9886,16 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLogsV2Response>(await this.execute(params, req, runtime), new GetLogsV2Response({}));
   }
 
+  /**
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times you must call this API operation to obtain a complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation again to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
+    * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log. The latency of the query varies based on the type of the log. Simple Log Service classifies logs into the following types based on log timestamps:
+    * 1.  1.  Real-time data: The difference between the time record in the log and the current server time is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and the server received the log at 12:05:00, September 25, 2014 (UTC), the server processes the log as real-time data. This type of log is usually generated in common scenarios.
+    * 2.  2.  Historical data: The difference between the time record in the log and the current server time is within the interval \\[-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and the server received the log at 12:05:00, September 25, 2014 (UTC), the server processes the log as historical data. This type of log is usually generated in data backfill scenarios. After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+    *
+    * @param request GetLogsV2Request
+    * @return GetLogsV2Response
+   */
   async getLogsV2(project: string, logstore: string, request: GetLogsV2Request): Promise<GetLogsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetLogsV2Headers({ });
@@ -9481,6 +9929,45 @@ export default class Client extends OpenApi {
     return await this.getLogtailPipelineConfigWithOptions(project, configName, headers, runtime);
   }
 
+  async getMLServiceResultsWithOptions(serviceName: string, request: GetMLServiceResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMLServiceResultsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.allowBuiltin)) {
+      query["allowBuiltin"] = request.allowBuiltin;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMLServiceResults",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/ml/service/${serviceName}/analysis`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMLServiceResultsResponse>(await this.execute(params, req, runtime), new GetMLServiceResultsResponse({}));
+  }
+
+  async getMLServiceResults(serviceName: string, request: GetMLServiceResultsRequest): Promise<GetMLServiceResultsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMLServiceResultsWithOptions(serviceName, request, headers, runtime);
+  }
+
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMachineGroupResponse
+   */
   async getMachineGroupWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMachineGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -9502,12 +9989,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMachineGroupResponse>(await this.execute(params, req, runtime), new GetMachineGroupResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return GetMachineGroupResponse
+   */
   async getMachineGroup(project: string, machineGroup: string): Promise<GetMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getMachineGroupWithOptions(project, machineGroup, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetProjectResponse
+   */
   async getProjectWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -9529,12 +10029,31 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectResponse>(await this.execute(params, req, runtime), new GetProjectResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return GetProjectResponse
+   */
   async getProject(project: string): Promise<GetProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProjectWithOptions(project, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * *   You can use the query parameter to specify a standard SQL statement.
+    * *   You must specify a project in the domain name of the request.
+    * *   You must specify a Logstore in the FROM clause of the SQL statement. A Logstore can be used as an SQL table.
+    * *   You must specify a time range in the SQL statement by using the \\__date\\_\\_ parameter or \\__time\\_\\_ parameter. The value of the \\__date\\_\\_ parameter is a timestamp, and the value of the \\__time\\_\\_ parameter is an integer. The unit of the \\__time\\_\\_ parameter is seconds.
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request GetProjectLogsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetProjectLogsResponse
+   */
   async getProjectLogsWithOptions(project: string, request: GetProjectLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectLogsResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -9567,12 +10086,31 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectLogsResponse>(await this.execute(params, req, runtime), new GetProjectLogsResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * *   You can use the query parameter to specify a standard SQL statement.
+    * *   You must specify a project in the domain name of the request.
+    * *   You must specify a Logstore in the FROM clause of the SQL statement. A Logstore can be used as an SQL table.
+    * *   You must specify a time range in the SQL statement by using the \\__date\\_\\_ parameter or \\__time\\_\\_ parameter. The value of the \\__date\\_\\_ parameter is a timestamp, and the value of the \\__time\\_\\_ parameter is an integer. The unit of the \\__time\\_\\_ parameter is seconds.
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request GetProjectLogsRequest
+    * @return GetProjectLogsResponse
+   */
   async getProjectLogs(project: string, request: GetProjectLogsRequest): Promise<GetProjectLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProjectLogsWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetProjectPolicyResponse
+   */
   async getProjectPolicyWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectPolicyResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -9594,12 +10132,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectPolicyResponse>(await this.execute(params, req, runtime), new GetProjectPolicyResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return GetProjectPolicyResponse
+   */
   async getProjectPolicy(project: string): Promise<GetProjectPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProjectPolicyWithOptions(project, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSavedSearchResponse
+   */
   async getSavedSearchWithOptions(project: string, savedsearchName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSavedSearchResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -9621,12 +10173,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSavedSearchResponse>(await this.execute(params, req, runtime), new GetSavedSearchResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return GetSavedSearchResponse
+   */
   async getSavedSearch(project: string, savedsearchName: string): Promise<GetSavedSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSavedSearchWithOptions(project, savedsearchName, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request GetShipperStatusRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetShipperStatusResponse
+   */
   async getShipperStatusWithOptions(project: string, logstore: string, shipperName: string, request: GetShipperStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShipperStatusResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -9671,6 +10237,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetShipperStatusResponse>(await this.execute(params, req, runtime), new GetShipperStatusResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request GetShipperStatusRequest
+    * @return GetShipperStatusResponse
+   */
   async getShipperStatus(project: string, logstore: string, shipperName: string, request: GetShipperStatusRequest): Promise<GetShipperStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -9889,6 +10461,14 @@ export default class Client extends OpenApi {
     return await this.listConfigWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListConsumerGroupResponse
+   */
   async listConsumerGroupWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -9910,6 +10490,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConsumerGroupResponse>(await this.execute(params, req, runtime), new ListConsumerGroupResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return ListConsumerGroupResponse
+   */
   async listConsumerGroup(project: string, logstore: string): Promise<ListConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -9954,6 +10540,15 @@ export default class Client extends OpenApi {
     return await this.listDashboardWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   Only one custom domain name can be bound to each project.
+    *
+    * @param request ListDomainsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDomainsResponse
+   */
   async listDomainsWithOptions(project: string, request: ListDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDomainsResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -9990,12 +10585,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDomainsResponse>(await this.execute(params, req, runtime), new ListDomainsResponse({}));
   }
 
+  /**
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   Only one custom domain name can be bound to each project.
+    *
+    * @param request ListDomainsRequest
+    * @return ListDomainsResponse
+   */
   async listDomains(project: string, request: ListDomainsRequest): Promise<ListDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDomainsWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ListExternalStoreRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListExternalStoreResponse
+   */
   async listExternalStoreWithOptions(project: string, request: ListExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListExternalStoreResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -10032,12 +10642,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExternalStoreResponse>(await this.execute(params, req, runtime), new ListExternalStoreResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ListExternalStoreRequest
+    * @return ListExternalStoreResponse
+   */
   async listExternalStore(project: string, request: ListExternalStoreRequest): Promise<ListExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listExternalStoreWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ListLogStoresRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListLogStoresResponse
+   */
   async listLogStoresWithOptions(project: string, request: ListLogStoresRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogStoresResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -10082,6 +10707,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLogStoresResponse>(await this.execute(params, req, runtime), new ListLogStoresResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ListLogStoresRequest
+    * @return ListLogStoresResponse
+   */
   async listLogStores(project: string, request: ListLogStoresRequest): Promise<ListLogStoresResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10134,6 +10766,14 @@ export default class Client extends OpenApi {
     return await this.listLogtailPipelineConfigWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ListMachineGroupRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListMachineGroupResponse
+   */
   async listMachineGroupWithOptions(project: string, request: ListMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMachineGroupResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -10170,12 +10810,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMachineGroupResponse>(await this.execute(params, req, runtime), new ListMachineGroupResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ListMachineGroupRequest
+    * @return ListMachineGroupResponse
+   */
   async listMachineGroup(project: string, request: ListMachineGroupRequest): Promise<ListMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMachineGroupWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ListMachinesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListMachinesResponse
+   */
   async listMachinesWithOptions(project: string, machineGroup: string, request: ListMachinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMachinesResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -10208,13 +10862,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMachinesResponse>(await this.execute(params, req, runtime), new ListMachinesResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ListMachinesRequest
+    * @return ListMachinesResponse
+   */
   async listMachines(project: string, machineGroup: string, request: ListMachinesRequest): Promise<ListMachinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMachinesWithOptions(project, machineGroup, request, headers, runtime);
   }
 
-  async listProjectWithOptions(resourceGroupId: string, request: ListProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectResponse> {
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ListProjectRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListProjectResponse
+   */
+  async listProjectWithOptions(request: ListProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.offset)) {
@@ -10223,6 +10892,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.projectName)) {
       query["projectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.size)) {
@@ -10247,12 +10920,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectResponse>(await this.execute(params, req, runtime), new ListProjectResponse({}));
   }
 
-  async listProject(resourceGroupId: string, request: ListProjectRequest): Promise<ListProjectResponse> {
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ListProjectRequest
+    * @return ListProjectResponse
+   */
+  async listProject(request: ListProjectRequest): Promise<ListProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listProjectWithOptions(resourceGroupId, request, headers, runtime);
+    return await this.listProjectWithOptions(request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ListSavedSearchRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSavedSearchResponse
+   */
   async listSavedSearchWithOptions(project: string, request: ListSavedSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSavedSearchResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -10285,6 +10974,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSavedSearchResponse>(await this.execute(params, req, runtime), new ListSavedSearchResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ListSavedSearchRequest
+    * @return ListSavedSearchResponse
+   */
   async listSavedSearch(project: string, request: ListSavedSearchRequest): Promise<ListSavedSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10318,6 +11014,13 @@ export default class Client extends OpenApi {
     return await this.listShardsWithOptions(project, logstore, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListShipperResponse
+   */
   async listShipperWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShipperResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -10339,12 +11042,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListShipperResponse>(await this.execute(params, req, runtime), new ListShipperResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return ListShipperResponse
+   */
   async listShipper(project: string, logstore: string): Promise<ListShipperResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listShipperWithOptions(project, logstore, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param tmpReq ListTagResourcesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListTagResourcesShrinkRequest({ });
@@ -10388,6 +11105,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ListTagResourcesRequest
+    * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10435,6 +11159,19 @@ export default class Client extends OpenApi {
     return await this.putAnnotationDataWithOptions(datasetId, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   Alibaba Cloud Simple Log Service allows you to configure a project policy to authorize other users to access the specified Log Service resources.
+    *     *   You must configure a project policy based on policy syntax. Before you configure a project policy, you must be familiar with the Action, Resource, and Condition parameters. For more information, see [RAM](~~128139~~).
+    *     *   If you set the Principal element to an asterisk (\\*) and do not configure the Condition element when you configure a project policy, the policy applies to all users except for the project owner. If you set the Principal element to an asterisk (\\*) and configure the Condition element when you configure a project policy, the policy applies to all users including the project owner.
+    *     *   You can configure multiple project policies for a project. The total size of the policies cannot exceed 16 KB.
+    *
+    * @param request PutProjectPolicyRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PutProjectPolicyResponse
+   */
   async putProjectPolicyWithOptions(project: string, request: PutProjectPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutProjectPolicyResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -10458,6 +11195,17 @@ export default class Client extends OpenApi {
     return $tea.cast<PutProjectPolicyResponse>(await this.execute(params, req, runtime), new PutProjectPolicyResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   Alibaba Cloud Simple Log Service allows you to configure a project policy to authorize other users to access the specified Log Service resources.
+    *     *   You must configure a project policy based on policy syntax. Before you configure a project policy, you must be familiar with the Action, Resource, and Condition parameters. For more information, see [RAM](~~128139~~).
+    *     *   If you set the Principal element to an asterisk (\\*) and do not configure the Condition element when you configure a project policy, the policy applies to all users except for the project owner. If you set the Principal element to an asterisk (\\*) and configure the Condition element when you configure a project policy, the policy applies to all users including the project owner.
+    *     *   You can configure multiple project policies for a project. The total size of the policies cannot exceed 16 KB.
+    *
+    * @param request PutProjectPolicyRequest
+    * @return PutProjectPolicyResponse
+   */
   async putProjectPolicy(project: string, request: PutProjectPolicyRequest): Promise<PutProjectPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10510,6 +11258,15 @@ export default class Client extends OpenApi {
     return await this.putWebtrackingWithOptions(project, logstoreName, request, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request QueryMLServiceResultsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryMLServiceResultsResponse
+   */
+  // Deprecated
   async queryMLServiceResultsWithOptions(serviceName: string, request: QueryMLServiceResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryMLServiceResultsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -10536,12 +11293,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMLServiceResultsResponse>(await this.execute(params, req, runtime), new QueryMLServiceResultsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request QueryMLServiceResultsRequest
+    * @return QueryMLServiceResultsResponse
+   */
+  // Deprecated
   async queryMLServiceResults(serviceName: string, request: QueryMLServiceResultsRequest): Promise<QueryMLServiceResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryMLServiceResultsWithOptions(serviceName, request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveConfigFromMachineGroupResponse
+   */
   async removeConfigFromMachineGroupWithOptions(project: string, machineGroup: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveConfigFromMachineGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -10563,12 +11334,27 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveConfigFromMachineGroupResponse>(await this.execute(params, req, runtime), new RemoveConfigFromMachineGroupResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @return RemoveConfigFromMachineGroupResponse
+   */
   async removeConfigFromMachineGroup(project: string, machineGroup: string, configName: string): Promise<RemoveConfigFromMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeConfigFromMachineGroupWithOptions(project, machineGroup, configName, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   Each shard has an MD5 hash range, and each range is a left-closed, right-open interval. The interval is in the `[BeginKey,EndKey)` format. A shard can be in the readwrite or readonly state. You can split a shard and merge shards. For more information, see [Shard](~~28976~~).
+    *
+    * @param request SplitShardRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SplitShardResponse
+   */
   async splitShardWithOptions(project: string, logstore: string, shard: string, request: SplitShardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SplitShardResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -10601,12 +11387,29 @@ export default class Client extends OpenApi {
     return $tea.cast<SplitShardResponse>(await this.execute(params, req, runtime), new SplitShardResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   Each shard has an MD5 hash range, and each range is a left-closed, right-open interval. The interval is in the `[BeginKey,EndKey)` format. A shard can be in the readwrite or readonly state. You can split a shard and merge shards. For more information, see [Shard](~~28976~~).
+    *
+    * @param request SplitShardRequest
+    * @return SplitShardResponse
+   */
   async splitShard(project: string, logstore: string, shard: string, request: SplitShardRequest): Promise<SplitShardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.splitShardWithOptions(project, logstore, shard, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request TagResourcesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10640,12 +11443,28 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.tagResourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UntagResourcesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10683,6 +11502,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UntagResourcesRequest
+    * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10770,6 +11596,15 @@ export default class Client extends OpenApi {
     return await this.updateConfigWithOptions(project, configName, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateConsumerGroupRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateConsumerGroupResponse
+   */
   async updateConsumerGroupWithOptions(project: string, logstore: string, consumerGroup: string, request: UpdateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateConsumerGroupResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -10802,6 +11637,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateConsumerGroupResponse>(await this.execute(params, req, runtime), new UpdateConsumerGroupResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateConsumerGroupRequest
+    * @return UpdateConsumerGroupResponse
+   */
   async updateConsumerGroup(project: string, logstore: string, consumerGroup: string, request: UpdateConsumerGroupRequest): Promise<UpdateConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10858,6 +11700,15 @@ export default class Client extends OpenApi {
     return await this.updateDashboardWithOptions(project, dashboardName, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateIndexRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateIndexResponse
+   */
   async updateIndexWithOptions(project: string, logstore: string, request: UpdateIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIndexResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -10910,12 +11761,29 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIndexResponse>(await this.execute(params, req, runtime), new UpdateIndexResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateIndexRequest
+    * @return UpdateIndexResponse
+   */
   async updateIndex(project: string, logstore: string, request: UpdateIndexRequest): Promise<UpdateIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateIndexWithOptions(project, logstore, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * *   Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    * *   You can call the UpdateLogStore operation to change only the time-to-live (TTL) attribute.
+    *
+    * @param request UpdateLogStoreRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateLogStoreResponse
+   */
   async updateLogStoreWithOptions(project: string, logstore: string, request: UpdateLogStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogStoreResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -10984,6 +11852,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLogStoreResponse>(await this.execute(params, req, runtime), new UpdateLogStoreResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * *   Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    * *   You can call the UpdateLogStore operation to change only the time-to-live (TTL) attribute.
+    *
+    * @param request UpdateLogStoreRequest
+    * @return UpdateLogStoreResponse
+   */
   async updateLogStore(project: string, logstore: string, request: UpdateLogStoreRequest): Promise<UpdateLogStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11024,6 +11900,14 @@ export default class Client extends OpenApi {
     return await this.updateLogStoreMeteringModeWithOptions(project, logstore, request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateLoggingRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateLoggingResponse
+   */
   async updateLoggingWithOptions(project: string, request: UpdateLoggingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLoggingResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -11056,6 +11940,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLoggingResponse>(await this.execute(params, req, runtime), new UpdateLoggingResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateLoggingRequest
+    * @return UpdateLoggingResponse
+   */
   async updateLogging(project: string, request: UpdateLoggingRequest): Promise<UpdateLoggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11120,6 +12010,14 @@ export default class Client extends OpenApi {
     return await this.updateLogtailPipelineConfigWithOptions(project, configName, request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateMachineGroupRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateMachineGroupResponse
+   */
   async updateMachineGroupWithOptions(project: string, groupName: string, request: UpdateMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMachineGroupResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -11164,12 +12062,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMachineGroupResponse>(await this.execute(params, req, runtime), new UpdateMachineGroupResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateMachineGroupRequest
+    * @return UpdateMachineGroupResponse
+   */
   async updateMachineGroup(project: string, groupName: string, request: UpdateMachineGroupRequest): Promise<UpdateMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateMachineGroupWithOptions(project, groupName, request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateMachineGroupMachineRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateMachineGroupMachineResponse
+   */
   async updateMachineGroupMachineWithOptions(project: string, machineGroup: string, request: UpdateMachineGroupMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMachineGroupMachineResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -11199,12 +12111,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMachineGroupMachineResponse>(await this.execute(params, req, runtime), new UpdateMachineGroupMachineResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateMachineGroupMachineRequest
+    * @return UpdateMachineGroupMachineResponse
+   */
   async updateMachineGroupMachine(project: string, machineGroup: string, request: UpdateMachineGroupMachineRequest): Promise<UpdateMachineGroupMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateMachineGroupMachineWithOptions(project, machineGroup, request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateOssExternalStoreRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateOssExternalStoreResponse
+   */
   async updateOssExternalStoreWithOptions(project: string, externalStoreName: string, request: UpdateOssExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateOssExternalStoreResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -11241,12 +12167,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateOssExternalStoreResponse>(await this.execute(params, req, runtime), new UpdateOssExternalStoreResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateOssExternalStoreRequest
+    * @return UpdateOssExternalStoreResponse
+   */
   async updateOssExternalStore(project: string, externalStoreName: string, request: UpdateOssExternalStoreRequest): Promise<UpdateOssExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateOssExternalStoreWithOptions(project, externalStoreName, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateProjectRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateProjectResponse
+   */
   async updateProjectWithOptions(project: string, request: UpdateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -11275,12 +12216,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProjectResponse>(await this.execute(params, req, runtime), new UpdateProjectResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateProjectRequest
+    * @return UpdateProjectResponse
+   */
   async updateProject(project: string, request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateProjectWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateRdsExternalStoreRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateRdsExternalStoreResponse
+   */
   async updateRdsExternalStoreWithOptions(project: string, externalStoreName: string, request: UpdateRdsExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRdsExternalStoreResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -11317,6 +12273,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRdsExternalStoreResponse>(await this.execute(params, req, runtime), new UpdateRdsExternalStoreResponse({}));
   }
 
+  /**
+    * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateRdsExternalStoreRequest
+    * @return UpdateRdsExternalStoreResponse
+   */
   async updateRdsExternalStore(project: string, externalStoreName: string, request: UpdateRdsExternalStoreRequest): Promise<UpdateRdsExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
