@@ -119,6 +119,49 @@ export class AlgorithmDefinition extends $tea.Model {
   }
 }
 
+export class App extends $tea.Model {
+  appDescription?: string;
+  appId?: string;
+  appKey?: string;
+  appName?: string;
+  appRegion?: number;
+  appType?: number;
+  englishName?: string;
+  ownerId?: string;
+  packageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appDescription: 'AppDescription',
+      appId: 'AppId',
+      appKey: 'AppKey',
+      appName: 'AppName',
+      appRegion: 'AppRegion',
+      appType: 'AppType',
+      englishName: 'EnglishName',
+      ownerId: 'OwnerId',
+      packageName: 'PackageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appDescription: 'string',
+      appId: 'string',
+      appKey: 'string',
+      appName: 'string',
+      appRegion: 'number',
+      appType: 'number',
+      englishName: 'string',
+      ownerId: 'string',
+      packageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AssumeRoleChain extends $tea.Model {
   chain?: AssumeRoleChainNode[];
   policy?: string;
@@ -499,6 +542,7 @@ export class DataIngestion extends $tea.Model {
   input?: Input;
   marker?: string;
   notification?: DataIngestionNotification;
+  phase?: string;
   state?: string;
   statistic?: DataIngestionStatistic;
   tags?: { [key: string]: any };
@@ -512,6 +556,7 @@ export class DataIngestion extends $tea.Model {
       input: 'Input',
       marker: 'Marker',
       notification: 'Notification',
+      phase: 'Phase',
       state: 'State',
       statistic: 'Statistic',
       tags: 'Tags',
@@ -528,6 +573,7 @@ export class DataIngestion extends $tea.Model {
       input: Input,
       marker: 'string',
       notification: DataIngestionNotification,
+      phase: 'string',
       state: 'string',
       statistic: DataIngestionStatistic,
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -590,6 +636,25 @@ export class Dataset extends $tea.Model {
       templateId: 'string',
       totalFileSize: 'number',
       updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FastFailPolicy extends $tea.Model {
+  action?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
     };
   }
 
@@ -1189,8 +1254,10 @@ export class InputFile extends $tea.Model {
   customLabels?: { [key: string]: any };
   figures?: InputFileFigures[];
   fileHash?: string;
+  latLong?: string;
   mediaType?: string;
   OSSURI?: string;
+  produceTime?: string;
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1199,8 +1266,10 @@ export class InputFile extends $tea.Model {
       customLabels: 'CustomLabels',
       figures: 'Figures',
       fileHash: 'FileHash',
+      latLong: 'LatLong',
       mediaType: 'MediaType',
       OSSURI: 'OSSURI',
+      produceTime: 'ProduceTime',
       URI: 'URI',
     };
   }
@@ -1212,8 +1281,10 @@ export class InputFile extends $tea.Model {
       customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       figures: { 'type': 'array', 'itemType': InputFileFigures },
       fileHash: 'string',
+      latLong: 'string',
       mediaType: 'string',
       OSSURI: 'string',
+      produceTime: 'string',
       URI: 'string',
     };
   }
@@ -2745,10 +2816,12 @@ export class AddStoryFilesResponse extends $tea.Model {
 }
 
 export class AttachOSSBucketRequest extends $tea.Model {
+  description?: string;
   OSSBucket?: string;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       OSSBucket: 'OSSBucket',
       projectName: 'ProjectName',
     };
@@ -2756,6 +2829,7 @@ export class AttachOSSBucketRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       OSSBucket: 'string',
       projectName: 'string',
     };
@@ -8037,6 +8111,7 @@ export class FuzzyQueryRequest extends $tea.Model {
   projectName?: string;
   query?: string;
   sort?: string;
+  withFields?: string[];
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
@@ -8046,6 +8121,7 @@ export class FuzzyQueryRequest extends $tea.Model {
       projectName: 'ProjectName',
       query: 'Query',
       sort: 'Sort',
+      withFields: 'WithFields',
     };
   }
 
@@ -8058,6 +8134,47 @@ export class FuzzyQueryRequest extends $tea.Model {
       projectName: 'string',
       query: 'string',
       sort: 'string',
+      withFields: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FuzzyQueryShrinkRequest extends $tea.Model {
+  datasetName?: string;
+  maxResults?: number;
+  nextToken?: string;
+  order?: string;
+  projectName?: string;
+  query?: string;
+  sort?: string;
+  withFieldsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      order: 'Order',
+      projectName: 'ProjectName',
+      query: 'Query',
+      sort: 'Sort',
+      withFieldsShrink: 'WithFields',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      order: 'string',
+      projectName: 'string',
+      query: 'string',
+      sort: 'string',
+      withFieldsShrink: 'string',
     };
   }
 
@@ -8785,19 +8902,28 @@ export class GetOSSBucketAttachmentRequest extends $tea.Model {
 }
 
 export class GetOSSBucketAttachmentResponseBody extends $tea.Model {
+  createTime?: string;
+  description?: string;
   projectName?: string;
   requestId?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
+      description: 'Description',
       projectName: 'ProjectName',
       requestId: 'RequestId',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
+      description: 'string',
       projectName: 'string',
       requestId: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -11116,16 +11242,20 @@ export class SearchImageFigureClusterResponse extends $tea.Model {
 export class SemanticQueryRequest extends $tea.Model {
   datasetName?: string;
   maxResults?: number;
+  mediaTypes?: string[];
   nextToken?: string;
   projectName?: string;
   query?: string;
+  withFields?: string[];
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       maxResults: 'MaxResults',
+      mediaTypes: 'MediaTypes',
       nextToken: 'NextToken',
       projectName: 'ProjectName',
       query: 'Query',
+      withFields: 'WithFields',
     };
   }
 
@@ -11133,9 +11263,48 @@ export class SemanticQueryRequest extends $tea.Model {
     return {
       datasetName: 'string',
       maxResults: 'number',
+      mediaTypes: { 'type': 'array', 'itemType': 'string' },
       nextToken: 'string',
       projectName: 'string',
       query: 'string',
+      withFields: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SemanticQueryShrinkRequest extends $tea.Model {
+  datasetName?: string;
+  maxResults?: number;
+  mediaTypesShrink?: string;
+  nextToken?: string;
+  projectName?: string;
+  query?: string;
+  withFieldsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      maxResults: 'MaxResults',
+      mediaTypesShrink: 'MediaTypes',
+      nextToken: 'NextToken',
+      projectName: 'ProjectName',
+      query: 'Query',
+      withFieldsShrink: 'WithFields',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      maxResults: 'number',
+      mediaTypesShrink: 'string',
+      nextToken: 'string',
+      projectName: 'string',
+      query: 'string',
+      withFieldsShrink: 'string',
     };
   }
 
@@ -11146,24 +11315,18 @@ export class SemanticQueryRequest extends $tea.Model {
 
 export class SemanticQueryResponseBody extends $tea.Model {
   files?: File[];
-  nextToken?: string;
   requestId?: string;
-  totalHits?: number;
   static names(): { [key: string]: string } {
     return {
       files: 'Files',
-      nextToken: 'NextToken',
       requestId: 'RequestId',
-      totalHits: 'TotalHits',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       files: { 'type': 'array', 'itemType': File },
-      nextToken: 'string',
       requestId: 'string',
-      totalHits: 'number',
     };
   }
 
@@ -11207,6 +11370,7 @@ export class SimpleQueryRequest extends $tea.Model {
   query?: SimpleQuery;
   sort?: string;
   withFields?: string[];
+  withoutTotalHits?: boolean;
   static names(): { [key: string]: string } {
     return {
       aggregations: 'Aggregations',
@@ -11218,6 +11382,7 @@ export class SimpleQueryRequest extends $tea.Model {
       query: 'Query',
       sort: 'Sort',
       withFields: 'WithFields',
+      withoutTotalHits: 'WithoutTotalHits',
     };
   }
 
@@ -11232,6 +11397,7 @@ export class SimpleQueryRequest extends $tea.Model {
       query: SimpleQuery,
       sort: 'string',
       withFields: { 'type': 'array', 'itemType': 'string' },
+      withoutTotalHits: 'boolean',
     };
   }
 
@@ -11250,6 +11416,7 @@ export class SimpleQueryShrinkRequest extends $tea.Model {
   queryShrink?: string;
   sort?: string;
   withFieldsShrink?: string;
+  withoutTotalHits?: boolean;
   static names(): { [key: string]: string } {
     return {
       aggregationsShrink: 'Aggregations',
@@ -11261,6 +11428,7 @@ export class SimpleQueryShrinkRequest extends $tea.Model {
       queryShrink: 'Query',
       sort: 'Sort',
       withFieldsShrink: 'WithFields',
+      withoutTotalHits: 'WithoutTotalHits',
     };
   }
 
@@ -11275,6 +11443,7 @@ export class SimpleQueryShrinkRequest extends $tea.Model {
       queryShrink: 'string',
       sort: 'string',
       withFieldsShrink: 'string',
+      withoutTotalHits: 'boolean',
     };
   }
 
@@ -12348,10 +12517,12 @@ export class CredentialConfigChain extends $tea.Model {
 }
 
 export class DataIngestionActions extends $tea.Model {
+  fastFailPolicy?: FastFailPolicy;
   name?: string;
   parameters?: string[];
   static names(): { [key: string]: string } {
     return {
+      fastFailPolicy: 'FastFailPolicy',
       name: 'Name',
       parameters: 'Parameters',
     };
@@ -12359,6 +12530,7 @@ export class DataIngestionActions extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fastFailPolicy: FastFailPolicy,
       name: 'string',
       parameters: { 'type': 'array', 'itemType': 'string' },
     };
@@ -13036,10 +13208,12 @@ export class CompareImageFacesRequestSource extends $tea.Model {
 }
 
 export class CreateBatchRequestActions extends $tea.Model {
+  fastFailPolicy?: FastFailPolicy;
   name?: string;
   parameters?: string[];
   static names(): { [key: string]: string } {
     return {
+      fastFailPolicy: 'FastFailPolicy',
       name: 'Name',
       parameters: 'Parameters',
     };
@@ -13047,6 +13221,7 @@ export class CreateBatchRequestActions extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fastFailPolicy: FastFailPolicy,
       name: 'string',
       parameters: { 'type': 'array', 'itemType': 'string' },
     };
@@ -13135,10 +13310,12 @@ export class CreateFacesSearchingTaskRequestSources extends $tea.Model {
 
 export class CreateFileCompressionTaskRequestSources extends $tea.Model {
   alias?: string;
+  mode?: string;
   URI?: string;
   static names(): { [key: string]: string } {
     return {
       alias: 'Alias',
+      mode: 'Mode',
       URI: 'URI',
     };
   }
@@ -13146,6 +13323,7 @@ export class CreateFileCompressionTaskRequestSources extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alias: 'string',
+      mode: 'string',
       URI: 'string',
     };
   }
@@ -13365,10 +13543,12 @@ export class CreateMediaConvertTaskRequestTargets extends $tea.Model {
 }
 
 export class CreateTriggerRequestActions extends $tea.Model {
+  fastFailPolicy?: FastFailPolicy;
   name?: string;
   parameters?: string[];
   static names(): { [key: string]: string } {
     return {
+      fastFailPolicy: 'FastFailPolicy',
       name: 'Name',
       parameters: 'Parameters',
     };
@@ -13376,6 +13556,7 @@ export class CreateTriggerRequestActions extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fastFailPolicy: FastFailPolicy,
       name: 'string',
       parameters: { 'type': 'array', 'itemType': 'string' },
     };
@@ -13892,6 +14073,10 @@ export default class Client extends OpenApi {
   async attachOSSBucketWithOptions(request: AttachOSSBucketRequest, runtime: $Util.RuntimeOptions): Promise<AttachOSSBucketResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!Util.isUnset(request.OSSBucket)) {
       query["OSSBucket"] = request.OSSBucket;
     }
@@ -16664,8 +16849,14 @@ export default class Client extends OpenApi {
     return await this.extractDocumentTextWithOptions(request, runtime);
   }
 
-  async fuzzyQueryWithOptions(request: FuzzyQueryRequest, runtime: $Util.RuntimeOptions): Promise<FuzzyQueryResponse> {
-    Util.validateModel(request);
+  async fuzzyQueryWithOptions(tmpReq: FuzzyQueryRequest, runtime: $Util.RuntimeOptions): Promise<FuzzyQueryResponse> {
+    Util.validateModel(tmpReq);
+    let request = new FuzzyQueryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.withFields)) {
+      request.withFieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.withFields, "WithFields", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.datasetName)) {
       query["DatasetName"] = request.datasetName;
@@ -16693,6 +16884,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sort)) {
       query["Sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.withFieldsShrink)) {
+      query["WithFields"] = request.withFieldsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -18234,8 +18429,18 @@ export default class Client extends OpenApi {
     return await this.searchImageFigureClusterWithOptions(request, runtime);
   }
 
-  async semanticQueryWithOptions(request: SemanticQueryRequest, runtime: $Util.RuntimeOptions): Promise<SemanticQueryResponse> {
-    Util.validateModel(request);
+  async semanticQueryWithOptions(tmpReq: SemanticQueryRequest, runtime: $Util.RuntimeOptions): Promise<SemanticQueryResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SemanticQueryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.mediaTypes)) {
+      request.mediaTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.mediaTypes, "MediaTypes", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.withFields)) {
+      request.withFieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.withFields, "WithFields", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.datasetName)) {
       query["DatasetName"] = request.datasetName;
@@ -18243,6 +18448,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.mediaTypesShrink)) {
+      query["MediaTypes"] = request.mediaTypesShrink;
     }
 
     if (!Util.isUnset(request.nextToken)) {
@@ -18255,6 +18464,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.query)) {
       query["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.withFieldsShrink)) {
+      query["WithFields"] = request.withFieldsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -18330,6 +18543,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.withFieldsShrink)) {
       query["WithFields"] = request.withFieldsShrink;
+    }
+
+    if (!Util.isUnset(request.withoutTotalHits)) {
+      query["WithoutTotalHits"] = request.withoutTotalHits;
     }
 
     let req = new $OpenApi.OpenApiRequest({
