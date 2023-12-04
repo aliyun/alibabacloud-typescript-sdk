@@ -43007,6 +43007,7 @@ export class IsvUserSaveRequestUserList extends $tea.Model {
   thirdDepartIdList?: string[];
   userId?: string;
   userName?: string;
+  userNick?: string;
   static names(): { [key: string]: string } {
     return {
       baseCityCode: 'base_city_code',
@@ -43027,6 +43028,7 @@ export class IsvUserSaveRequestUserList extends $tea.Model {
       thirdDepartIdList: 'third_depart_id_list',
       userId: 'user_id',
       userName: 'user_name',
+      userNick: 'user_nick',
     };
   }
 
@@ -43050,6 +43052,7 @@ export class IsvUserSaveRequestUserList extends $tea.Model {
       thirdDepartIdList: { 'type': 'array', 'itemType': 'string' },
       userId: 'string',
       userName: 'string',
+      userNick: 'string',
     };
   }
 
