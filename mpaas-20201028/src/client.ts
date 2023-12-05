@@ -5769,6 +5769,99 @@ export class LogMsaQueryResponse extends $tea.Model {
   }
 }
 
+export class MTRSOCRServiceRequest extends $tea.Model {
+  appId?: string;
+  imageRaw?: string;
+  mask?: boolean;
+  tenantId?: string;
+  type?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      imageRaw: 'ImageRaw',
+      mask: 'Mask',
+      tenantId: 'TenantId',
+      type: 'Type',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      imageRaw: 'string',
+      mask: 'boolean',
+      tenantId: 'string',
+      type: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MTRSOCRServiceResponseBody extends $tea.Model {
+  code?: string;
+  msg?: string;
+  requestId?: string;
+  result?: string;
+  status?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      msg: 'Msg',
+      requestId: 'RequestId',
+      result: 'Result',
+      status: 'Status',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      msg: 'string',
+      requestId: 'string',
+      result: 'string',
+      status: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MTRSOCRServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: MTRSOCRServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MTRSOCRServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OpenApiAddActiveCodeRequest extends $tea.Model {
   appId?: string;
   mpaasMqcpOpenApiAddActiveCodeReqJsonStr?: string;
@@ -9700,6 +9793,7 @@ export class UploadBitcodeToMsaRequest extends $tea.Model {
   codeVersion?: string;
   license?: string;
   tenantId?: string;
+  type?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9708,6 +9802,7 @@ export class UploadBitcodeToMsaRequest extends $tea.Model {
       codeVersion: 'CodeVersion',
       license: 'License',
       tenantId: 'TenantId',
+      type: 'Type',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -9719,6 +9814,7 @@ export class UploadBitcodeToMsaRequest extends $tea.Model {
       codeVersion: 'string',
       license: 'string',
       tenantId: 'string',
+      type: 'string',
       workspaceId: 'string',
     };
   }
@@ -20877,6 +20973,55 @@ export default class Client extends OpenApi {
     return await this.logMsaQueryWithOptions(request, runtime);
   }
 
+  async mTRSOCRServiceWithOptions(request: MTRSOCRServiceRequest, runtime: $Util.RuntimeOptions): Promise<MTRSOCRServiceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.imageRaw)) {
+      body["ImageRaw"] = request.imageRaw;
+    }
+
+    if (!Util.isUnset(request.mask)) {
+      body["Mask"] = request.mask;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "MTRSOCRService",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MTRSOCRServiceResponse>(await this.callApi(params, req, runtime), new MTRSOCRServiceResponse({}));
+  }
+
+  async mTRSOCRService(request: MTRSOCRServiceRequest): Promise<MTRSOCRServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.mTRSOCRServiceWithOptions(request, runtime);
+  }
+
   async openApiAddActiveCodeWithOptions(request: OpenApiAddActiveCodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiAddActiveCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23082,6 +23227,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tenantId)) {
       body["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
     }
 
     if (!Util.isUnset(request.workspaceId)) {
