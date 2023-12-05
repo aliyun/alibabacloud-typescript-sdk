@@ -10344,6 +10344,28 @@ export class ListRulesResponseBodyRulesRuleActionsFixedResponseConfig extends $t
   }
 }
 
+export class ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupStickySession extends $tea.Model {
+  enabled?: boolean;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupTuples extends $tea.Model {
   serverGroupId?: string;
   weight?: number;
@@ -10367,15 +10389,18 @@ export class ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupT
 }
 
 export class ListRulesResponseBodyRulesRuleActionsForwardGroupConfig extends $tea.Model {
+  serverGroupStickySession?: ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupStickySession;
   serverGroupTuples?: ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
+      serverGroupStickySession: 'ServerGroupStickySession',
       serverGroupTuples: 'ServerGroupTuples',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      serverGroupStickySession: ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupStickySession,
       serverGroupTuples: { 'type': 'array', 'itemType': ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupTuples },
     };
   }
@@ -10553,15 +10578,18 @@ export class ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroup
 
 export class ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfig extends $tea.Model {
   mirrorGroupConfig?: ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig;
+  targetType?: string;
   static names(): { [key: string]: string } {
     return {
       mirrorGroupConfig: 'MirrorGroupConfig',
+      targetType: 'TargetType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       mirrorGroupConfig: ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig,
+      targetType: 'string',
     };
   }
 
@@ -13729,6 +13757,13 @@ export default class Client extends OpenApi {
     return await this.attachCommonBandwidthPackageToLoadBalancerWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
+    *
+    * @param request CancelShiftLoadBalancerZonesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelShiftLoadBalancerZonesResponse
+   */
   async cancelShiftLoadBalancerZonesWithOptions(request: CancelShiftLoadBalancerZonesRequest, runtime: $Util.RuntimeOptions): Promise<CancelShiftLoadBalancerZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13765,6 +13800,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelShiftLoadBalancerZonesResponse>(await this.callApi(params, req, runtime), new CancelShiftLoadBalancerZonesResponse({}));
   }
 
+  /**
+    * This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
+    *
+    * @param request CancelShiftLoadBalancerZonesRequest
+    * @return CancelShiftLoadBalancerZonesResponse
+   */
   async cancelShiftLoadBalancerZones(request: CancelShiftLoadBalancerZonesRequest): Promise<CancelShiftLoadBalancerZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelShiftLoadBalancerZonesWithOptions(request, runtime);
@@ -16719,6 +16760,13 @@ export default class Client extends OpenApi {
     return await this.startListenerWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
+    *
+    * @param request StartShiftLoadBalancerZonesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartShiftLoadBalancerZonesResponse
+   */
   async startShiftLoadBalancerZonesWithOptions(request: StartShiftLoadBalancerZonesRequest, runtime: $Util.RuntimeOptions): Promise<StartShiftLoadBalancerZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16755,6 +16803,12 @@ export default class Client extends OpenApi {
     return $tea.cast<StartShiftLoadBalancerZonesResponse>(await this.callApi(params, req, runtime), new StartShiftLoadBalancerZonesResponse({}));
   }
 
+  /**
+    * This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
+    *
+    * @param request StartShiftLoadBalancerZonesRequest
+    * @return StartShiftLoadBalancerZonesResponse
+   */
   async startShiftLoadBalancerZones(request: StartShiftLoadBalancerZonesRequest): Promise<StartShiftLoadBalancerZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startShiftLoadBalancerZonesWithOptions(request, runtime);
