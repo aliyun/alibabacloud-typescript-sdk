@@ -18266,6 +18266,87 @@ export class UpdateIntegrationResponse extends $tea.Model {
   }
 }
 
+export class UpdateMetricDropRequest extends $tea.Model {
+  clusterId?: string;
+  metricDrop?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      metricDrop: 'MetricDrop',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      metricDrop: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMetricDropResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMetricDropResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMetricDropResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMetricDropResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdatePrometheusAlertRuleRequest extends $tea.Model {
   alertId?: number;
   alertName?: string;
@@ -23825,12 +23906,21 @@ export class GetPrometheusInstanceResponseBodyDataTags extends $tea.Model {
 }
 
 export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
+  authToken?: string;
   clusterId?: string;
   clusterName?: string;
   clusterType?: string;
   grafanaInstanceId?: string;
+  httpApiInterUrl?: string;
+  httpApiIntraUrl?: string;
   paymentType?: string;
+  pushGatewayInterUrl?: string;
+  pushGatewayIntraUrl?: string;
   regionId?: string;
+  remoteReadInterUrl?: string;
+  remoteReadIntraUrl?: string;
+  remoteWriteInterUrl?: string;
+  remoteWriteIntraUrl?: string;
   resourceGroupId?: string;
   resourceType?: string;
   securityGroupId?: string;
@@ -23841,12 +23931,21 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      authToken: 'AuthToken',
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
       grafanaInstanceId: 'GrafanaInstanceId',
+      httpApiInterUrl: 'HttpApiInterUrl',
+      httpApiIntraUrl: 'HttpApiIntraUrl',
       paymentType: 'PaymentType',
+      pushGatewayInterUrl: 'PushGatewayInterUrl',
+      pushGatewayIntraUrl: 'PushGatewayIntraUrl',
       regionId: 'RegionId',
+      remoteReadInterUrl: 'RemoteReadInterUrl',
+      remoteReadIntraUrl: 'RemoteReadIntraUrl',
+      remoteWriteInterUrl: 'RemoteWriteInterUrl',
+      remoteWriteIntraUrl: 'RemoteWriteIntraUrl',
       resourceGroupId: 'ResourceGroupId',
       resourceType: 'ResourceType',
       securityGroupId: 'SecurityGroupId',
@@ -23860,12 +23959,21 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authToken: 'string',
       clusterId: 'string',
       clusterName: 'string',
       clusterType: 'string',
       grafanaInstanceId: 'string',
+      httpApiInterUrl: 'string',
+      httpApiIntraUrl: 'string',
       paymentType: 'string',
+      pushGatewayInterUrl: 'string',
+      pushGatewayIntraUrl: 'string',
       regionId: 'string',
+      remoteReadInterUrl: 'string',
+      remoteReadIntraUrl: 'string',
+      remoteWriteInterUrl: 'string',
+      remoteWriteIntraUrl: 'string',
       resourceGroupId: 'string',
       resourceType: 'string',
       securityGroupId: 'string',
@@ -40360,6 +40468,43 @@ export default class Client extends OpenApi {
   async updateIntegration(request: UpdateIntegrationRequest): Promise<UpdateIntegrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIntegrationWithOptions(request, runtime);
+  }
+
+  async updateMetricDropWithOptions(request: UpdateMetricDropRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetricDropResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.metricDrop)) {
+      query["MetricDrop"] = request.metricDrop;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMetricDrop",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMetricDropResponse>(await this.callApi(params, req, runtime), new UpdateMetricDropResponse({}));
+  }
+
+  async updateMetricDrop(request: UpdateMetricDropRequest): Promise<UpdateMetricDropResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMetricDropWithOptions(request, runtime);
   }
 
   async updatePrometheusAlertRuleWithOptions(request: UpdatePrometheusAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusAlertRuleResponse> {
