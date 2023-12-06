@@ -27253,6 +27253,7 @@ export class ExportSuspEventsRequest extends $tea.Model {
   currentPage?: string;
   dealed?: string;
   from?: string;
+  groupId?: number;
   id?: number;
   lang?: string;
   levels?: string;
@@ -27277,6 +27278,7 @@ export class ExportSuspEventsRequest extends $tea.Model {
       currentPage: 'CurrentPage',
       dealed: 'Dealed',
       from: 'From',
+      groupId: 'GroupId',
       id: 'Id',
       lang: 'Lang',
       levels: 'Levels',
@@ -27304,6 +27306,7 @@ export class ExportSuspEventsRequest extends $tea.Model {
       currentPage: 'string',
       dealed: 'string',
       from: 'string',
+      groupId: 'number',
       id: 'number',
       lang: 'string',
       levels: 'string',
@@ -35237,6 +35240,90 @@ export class ListAvailableHoneypotResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAvailableHoneypotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBackupRecordRequest extends $tea.Model {
+  backupEndTime?: number;
+  backupStartTime?: number;
+  currentPage?: number;
+  machineRemark?: string;
+  pageSize?: number;
+  statusList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      backupEndTime: 'BackupEndTime',
+      backupStartTime: 'BackupStartTime',
+      currentPage: 'CurrentPage',
+      machineRemark: 'MachineRemark',
+      pageSize: 'PageSize',
+      statusList: 'StatusList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupEndTime: 'number',
+      backupStartTime: 'number',
+      currentPage: 'number',
+      machineRemark: 'string',
+      pageSize: 'number',
+      statusList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBackupRecordResponseBody extends $tea.Model {
+  backupRecordList?: ListBackupRecordResponseBodyBackupRecordList[];
+  pageInfo?: ListBackupRecordResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupRecordList: 'BackupRecordList',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupRecordList: { 'type': 'array', 'itemType': ListBackupRecordResponseBodyBackupRecordList },
+      pageInfo: ListBackupRecordResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBackupRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListBackupRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBackupRecordResponseBody,
     };
   }
 
@@ -54774,6 +54861,7 @@ export class DescribeBackupMachineStatusResponseBodyBackupMachineStatus extends 
   instanceId?: string;
   regionId?: string;
   savedBackupCount?: number;
+  serviceStatus?: string;
   status?: string;
   uuid?: string;
   vaultId?: string;
@@ -54787,6 +54875,7 @@ export class DescribeBackupMachineStatusResponseBodyBackupMachineStatus extends 
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       savedBackupCount: 'SavedBackupCount',
+      serviceStatus: 'ServiceStatus',
       status: 'Status',
       uuid: 'Uuid',
       vaultId: 'VaultId',
@@ -54803,6 +54892,7 @@ export class DescribeBackupMachineStatusResponseBodyBackupMachineStatus extends 
       instanceId: 'string',
       regionId: 'string',
       savedBackupCount: 'number',
+      serviceStatus: 'string',
       status: 'string',
       uuid: 'string',
       vaultId: 'string',
@@ -61355,6 +61445,7 @@ export class DescribeRestoreJobsResponseBodyRestoreJobs extends $tea.Model {
   updatedTime?: number;
   uuid?: string;
   vaultId?: string;
+  vaultRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       actualBytes: 'ActualBytes',
@@ -61397,6 +61488,7 @@ export class DescribeRestoreJobsResponseBodyRestoreJobs extends $tea.Model {
       updatedTime: 'UpdatedTime',
       uuid: 'Uuid',
       vaultId: 'VaultId',
+      vaultRegionId: 'VaultRegionId',
     };
   }
 
@@ -61442,6 +61534,7 @@ export class DescribeRestoreJobsResponseBodyRestoreJobs extends $tea.Model {
       updatedTime: 'number',
       uuid: 'string',
       vaultId: 'string',
+      vaultRegionId: 'string',
     };
   }
 
@@ -70469,6 +70562,95 @@ export class ListAvailableHoneypotResponseBodyData extends $tea.Model {
       proto: 'string',
       servicePort: 'string',
       template: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBackupRecordResponseBodyBackupRecordList extends $tea.Model {
+  backupEndTime?: number;
+  backupJobId?: string;
+  backupPlanId?: string;
+  backupStartTime?: number;
+  backupStatus?: string;
+  clientId?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  instanceId?: string;
+  instanceName?: string;
+  internetIp?: string;
+  intranetIp?: string;
+  ip?: string;
+  regionId?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupEndTime: 'BackupEndTime',
+      backupJobId: 'BackupJobId',
+      backupPlanId: 'BackupPlanId',
+      backupStartTime: 'BackupStartTime',
+      backupStatus: 'BackupStatus',
+      clientId: 'ClientId',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
+      ip: 'Ip',
+      regionId: 'RegionId',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupEndTime: 'number',
+      backupJobId: 'string',
+      backupPlanId: 'string',
+      backupStartTime: 'number',
+      backupStatus: 'string',
+      clientId: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      internetIp: 'string',
+      intranetIp: 'string',
+      ip: 'string',
+      regionId: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBackupRecordResponseBodyPageInfo extends $tea.Model {
+  count?: number;
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -91720,6 +91902,10 @@ export default class Client extends OpenApi {
       query["From"] = request.from;
     }
 
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
     }
@@ -95694,6 +95880,55 @@ export default class Client extends OpenApi {
   async listAvailableHoneypot(request: ListAvailableHoneypotRequest): Promise<ListAvailableHoneypotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAvailableHoneypotWithOptions(request, runtime);
+  }
+
+  async listBackupRecordWithOptions(request: ListBackupRecordRequest, runtime: $Util.RuntimeOptions): Promise<ListBackupRecordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupEndTime)) {
+      query["BackupEndTime"] = request.backupEndTime;
+    }
+
+    if (!Util.isUnset(request.backupStartTime)) {
+      query["BackupStartTime"] = request.backupStartTime;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.machineRemark)) {
+      query["MachineRemark"] = request.machineRemark;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListBackupRecord",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBackupRecordResponse>(await this.callApi(params, req, runtime), new ListBackupRecordResponse({}));
+  }
+
+  async listBackupRecord(request: ListBackupRecordRequest): Promise<ListBackupRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBackupRecordWithOptions(request, runtime);
   }
 
   async listCheckInstanceResultWithOptions(request: ListCheckInstanceResultRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckInstanceResultResponse> {
