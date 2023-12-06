@@ -916,6 +916,7 @@ export class OrderResult extends $tea.Model {
 }
 
 export class Product extends $tea.Model {
+  brandName?: string;
   canSell?: boolean;
   categoryChain?: Category[];
   categoryLeafId?: number;
@@ -939,6 +940,7 @@ export class Product extends $tea.Model {
   title?: string;
   static names(): { [key: string]: string } {
     return {
+      brandName: 'brandName',
       canSell: 'canSell',
       categoryChain: 'categoryChain',
       categoryLeafId: 'categoryLeafId',
@@ -965,6 +967,7 @@ export class Product extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      brandName: 'string',
       canSell: 'boolean',
       categoryChain: { 'type': 'array', 'itemType': Category },
       categoryLeafId: 'number',
@@ -1792,6 +1795,7 @@ export class ShopPageResult extends $tea.Model {
 }
 
 export class Sku extends $tea.Model {
+  barcode?: string;
   canSell?: boolean;
   divisionCode?: string;
   fuzzyQuantity?: string;
@@ -1809,6 +1813,7 @@ export class Sku extends $tea.Model {
   title?: string;
   static names(): { [key: string]: string } {
     return {
+      barcode: 'barcode',
       canSell: 'canSell',
       divisionCode: 'divisionCode',
       fuzzyQuantity: 'fuzzyQuantity',
@@ -1829,6 +1834,7 @@ export class Sku extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      barcode: 'string',
       canSell: 'boolean',
       divisionCode: 'string',
       fuzzyQuantity: 'string',
