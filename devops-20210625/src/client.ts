@@ -515,6 +515,102 @@ export class CreateBranchResponse extends $tea.Model {
   }
 }
 
+export class CreateCommitStatusRequest extends $tea.Model {
+  accessToken?: string;
+  context?: string;
+  description?: string;
+  state?: string;
+  targetUrl?: string;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  sha?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      context: 'context',
+      description: 'description',
+      state: 'state',
+      targetUrl: 'targetUrl',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+      sha: 'sha',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      context: 'string',
+      description: 'string',
+      state: 'string',
+      targetUrl: 'string',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+      sha: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommitStatusResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: CreateCommitStatusResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: CreateCommitStatusResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommitStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateCommitStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCommitStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDeployKeyRequest extends $tea.Model {
   accessToken?: string;
   key?: string;
@@ -5829,6 +5925,96 @@ export class GetMergeRequestResponse extends $tea.Model {
   }
 }
 
+export class GetMergeRequestChangeTreeRequest extends $tea.Model {
+  accessToken?: string;
+  fromPatchSetBizId?: string;
+  localId?: number;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  toPatchSetBizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      fromPatchSetBizId: 'fromPatchSetBizId',
+      localId: 'localId',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+      toPatchSetBizId: 'toPatchSetBizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      fromPatchSetBizId: 'string',
+      localId: 'number',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+      toPatchSetBizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMergeRequestChangeTreeResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: GetMergeRequestChangeTreeResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: GetMergeRequestChangeTreeResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMergeRequestChangeTreeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMergeRequestChangeTreeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMergeRequestChangeTreeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOrganizationMemberResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -7817,6 +8003,99 @@ export class JoinPipelineGroupResponse extends $tea.Model {
   }
 }
 
+export class ListCommitStatusesRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  page?: number;
+  pageSize?: number;
+  repositoryIdentity?: string;
+  sha?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+      page: 'page',
+      pageSize: 'pageSize',
+      repositoryIdentity: 'repositoryIdentity',
+      sha: 'sha',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+      page: 'number',
+      pageSize: 'number',
+      repositoryIdentity: 'string',
+      sha: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommitStatusesResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListCommitStatusesResponseBodyResult[];
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListCommitStatusesResponseBodyResult },
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommitStatusesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCommitStatusesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCommitStatusesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFlowTagGroupsResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -8138,6 +8417,279 @@ export class ListHostGroupsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListHostGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestCommentsRequest extends $tea.Model {
+  accessToken?: string;
+  commentType?: string;
+  filePath?: string;
+  patchSetBizIds?: string[];
+  resolved?: boolean;
+  state?: string;
+  localId?: number;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      commentType: 'commentType',
+      filePath: 'filePath',
+      patchSetBizIds: 'patchSetBizIds',
+      resolved: 'resolved',
+      state: 'state',
+      localId: 'localId',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      commentType: 'string',
+      filePath: 'string',
+      patchSetBizIds: { 'type': 'array', 'itemType': 'string' },
+      resolved: 'boolean',
+      state: 'string',
+      localId: 'number',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestCommentsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListMergeRequestCommentsResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListMergeRequestCommentsResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestCommentsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMergeRequestCommentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMergeRequestCommentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestFilesReadsRequest extends $tea.Model {
+  accessToken?: string;
+  fromPatchSetBizId?: string;
+  localId?: number;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  toPatchSetBizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      fromPatchSetBizId: 'fromPatchSetBizId',
+      localId: 'localId',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+      toPatchSetBizId: 'toPatchSetBizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      fromPatchSetBizId: 'string',
+      localId: 'number',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+      toPatchSetBizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestFilesReadsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListMergeRequestFilesReadsResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListMergeRequestFilesReadsResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestFilesReadsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMergeRequestFilesReadsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMergeRequestFilesReadsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestPatchSetsRequest extends $tea.Model {
+  accessToken?: string;
+  localId?: number;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      localId: 'localId',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      localId: 'number',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestPatchSetsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListMergeRequestPatchSetsResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListMergeRequestPatchSetsResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestPatchSetsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMergeRequestPatchSetsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMergeRequestPatchSetsResponseBody,
     };
   }
 
@@ -15650,6 +16202,71 @@ export class CreateBranchResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CreateCommitStatusResponseBodyResultCreator extends $tea.Model {
+  aliyunPk?: number;
+  avatarUrl?: string;
+  login?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunPk: 'aliyunPk',
+      avatarUrl: 'avatarUrl',
+      login: 'login',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunPk: 'number',
+      avatarUrl: 'string',
+      login: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommitStatusResponseBodyResult extends $tea.Model {
+  context?: string;
+  creator?: CreateCommitStatusResponseBodyResultCreator;
+  description?: string;
+  id?: number;
+  sha?: string;
+  state?: string;
+  targetUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+      creator: 'creator',
+      description: 'description',
+      id: 'id',
+      sha: 'sha',
+      state: 'state',
+      targetUrl: 'targetUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: 'string',
+      creator: CreateCommitStatusResponseBodyResultCreator,
+      description: 'string',
+      id: 'number',
+      sha: 'string',
+      state: 'string',
+      targetUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDeployKeyResponseBodyResult extends $tea.Model {
   createdAt?: string;
   fingerprint?: string;
@@ -19064,6 +19681,74 @@ export class GetMergeRequestResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetMergeRequestChangeTreeResponseBodyResultChangedFilesInfos extends $tea.Model {
+  addLines?: number;
+  binaryFile?: boolean;
+  delLines?: number;
+  deletedFile?: boolean;
+  newFile?: boolean;
+  newPath?: string;
+  oldPath?: string;
+  renamedFile?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      addLines: 'addLines',
+      binaryFile: 'binaryFile',
+      delLines: 'delLines',
+      deletedFile: 'deletedFile',
+      newFile: 'newFile',
+      newPath: 'newPath',
+      oldPath: 'oldPath',
+      renamedFile: 'renamedFile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addLines: 'number',
+      binaryFile: 'boolean',
+      delLines: 'number',
+      deletedFile: 'boolean',
+      newFile: 'boolean',
+      newPath: 'string',
+      oldPath: 'string',
+      renamedFile: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMergeRequestChangeTreeResponseBodyResult extends $tea.Model {
+  changedFilesCount?: number;
+  changedFilesInfos?: GetMergeRequestChangeTreeResponseBodyResultChangedFilesInfos[];
+  totalAddLines?: number;
+  totalDelLines?: number;
+  static names(): { [key: string]: string } {
+    return {
+      changedFilesCount: 'changedFilesCount',
+      changedFilesInfos: 'changedFilesInfos',
+      totalAddLines: 'totalAddLines',
+      totalDelLines: 'totalDelLines',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changedFilesCount: 'number',
+      changedFilesInfos: { 'type': 'array', 'itemType': GetMergeRequestChangeTreeResponseBodyResultChangedFilesInfos },
+      totalAddLines: 'number',
+      totalDelLines: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOrganizationMemberResponseBodyMemberIdentities extends $tea.Model {
   externUid?: string;
   provider?: string;
@@ -19093,6 +19778,7 @@ export class GetOrganizationMemberResponseBodyMember extends $tea.Model {
   email?: string;
   hiredDate?: number;
   identities?: GetOrganizationMemberResponseBodyMemberIdentities;
+  jobNumber?: string;
   joinTime?: number;
   lastVisitTime?: number;
   mobile?: string;
@@ -19108,6 +19794,7 @@ export class GetOrganizationMemberResponseBodyMember extends $tea.Model {
       email: 'email',
       hiredDate: 'hiredDate',
       identities: 'identities',
+      jobNumber: 'jobNumber',
       joinTime: 'joinTime',
       lastVisitTime: 'lastVisitTime',
       mobile: 'mobile',
@@ -19126,6 +19813,7 @@ export class GetOrganizationMemberResponseBodyMember extends $tea.Model {
       email: 'string',
       hiredDate: 'number',
       identities: GetOrganizationMemberResponseBodyMemberIdentities,
+      jobNumber: 'string',
       joinTime: 'number',
       lastVisitTime: 'number',
       mobile: 'string',
@@ -21455,6 +22143,71 @@ export class GetWorkspaceResponseBodyWorkspace extends $tea.Model {
   }
 }
 
+export class ListCommitStatusesResponseBodyResultCreator extends $tea.Model {
+  aliyunPk?: string;
+  avatarUrl?: string;
+  login?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunPk: 'aliyunPk',
+      avatarUrl: 'avatarUrl',
+      login: 'login',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunPk: 'string',
+      avatarUrl: 'string',
+      login: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommitStatusesResponseBodyResult extends $tea.Model {
+  context?: string;
+  creator?: ListCommitStatusesResponseBodyResultCreator;
+  description?: string;
+  id?: number;
+  sha?: string;
+  state?: string;
+  targetUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+      creator: 'creator',
+      description: 'description',
+      id: 'id',
+      sha: 'sha',
+      state: 'state',
+      targetUrl: 'targetUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: 'string',
+      creator: ListCommitStatusesResponseBodyResultCreator,
+      description: 'string',
+      id: 'number',
+      sha: 'string',
+      state: 'string',
+      targetUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFlowTagGroupsResponseBodyFlowTagGroups extends $tea.Model {
   creatorAccountId?: string;
   id?: number;
@@ -21667,6 +22420,504 @@ export class ListHostGroupsResponseBodyHostGroups extends $tea.Model {
       serviceConnectionId: 'number',
       type: 'string',
       updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestCommentsResponseBodyResultAuthor extends $tea.Model {
+  aliyunPk?: string;
+  avatarUrl?: string;
+  email?: string;
+  name?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunPk: 'aliyunPk',
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunPk: 'string',
+      avatarUrl: 'string',
+      email: 'string',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestCommentsResponseBodyResultChildCommentsAuthor extends $tea.Model {
+  aliyunPk?: string;
+  avatarUrl?: string;
+  email?: string;
+  name?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunPk: 'aliyunPk',
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunPk: 'string',
+      avatarUrl: 'string',
+      email: 'string',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsAuthor extends $tea.Model {
+  aliyunPk?: string;
+  avatarUrl?: string;
+  email?: string;
+  name?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunPk: 'aliyunPk',
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunPk: 'string',
+      avatarUrl: 'string',
+      email: 'string',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsRelatedPatchSet extends $tea.Model {
+  commitId?: string;
+  createdAt?: string;
+  patchSetBizId?: string;
+  patchSetName?: string;
+  patchSetNo?: string;
+  relatedMergeItemType?: string;
+  shortId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commitId: 'commitId',
+      createdAt: 'createdAt',
+      patchSetBizId: 'patchSetBizId',
+      patchSetName: 'patchSetName',
+      patchSetNo: 'patchSetNo',
+      relatedMergeItemType: 'relatedMergeItemType',
+      shortId: 'shortId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commitId: 'string',
+      createdAt: 'string',
+      patchSetBizId: 'string',
+      patchSetName: 'string',
+      patchSetNo: 'string',
+      relatedMergeItemType: 'string',
+      shortId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildComments extends $tea.Model {
+  author?: ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsAuthor;
+  commentBizId?: string;
+  commentTime?: string;
+  commentType?: string;
+  content?: string;
+  deleted?: boolean;
+  filePath?: string;
+  lastEditTime?: string;
+  lineNumber?: string;
+  parentCommentBizId?: string;
+  relatedPatchSet?: ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsRelatedPatchSet;
+  resolved?: boolean;
+  rootCommentBizId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'author',
+      commentBizId: 'commentBizId',
+      commentTime: 'commentTime',
+      commentType: 'commentType',
+      content: 'content',
+      deleted: 'deleted',
+      filePath: 'filePath',
+      lastEditTime: 'lastEditTime',
+      lineNumber: 'lineNumber',
+      parentCommentBizId: 'parentCommentBizId',
+      relatedPatchSet: 'relatedPatchSet',
+      resolved: 'resolved',
+      rootCommentBizId: 'rootCommentBizId',
+      state: 'state',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsAuthor,
+      commentBizId: 'string',
+      commentTime: 'string',
+      commentType: 'string',
+      content: 'string',
+      deleted: 'boolean',
+      filePath: 'string',
+      lastEditTime: 'string',
+      lineNumber: 'string',
+      parentCommentBizId: 'string',
+      relatedPatchSet: ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsRelatedPatchSet,
+      resolved: 'boolean',
+      rootCommentBizId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestCommentsResponseBodyResultChildCommentsRelatedPatchSet extends $tea.Model {
+  commitId?: string;
+  createdAt?: string;
+  patchSetBizId?: string;
+  patchSetName?: string;
+  patchSetNo?: string;
+  relatedMergeItemType?: string;
+  shortId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commitId: 'commitId',
+      createdAt: 'createdAt',
+      patchSetBizId: 'patchSetBizId',
+      patchSetName: 'patchSetName',
+      patchSetNo: 'patchSetNo',
+      relatedMergeItemType: 'relatedMergeItemType',
+      shortId: 'shortId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commitId: 'string',
+      createdAt: 'string',
+      patchSetBizId: 'string',
+      patchSetName: 'string',
+      patchSetNo: 'string',
+      relatedMergeItemType: 'string',
+      shortId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestCommentsResponseBodyResultChildComments extends $tea.Model {
+  author?: ListMergeRequestCommentsResponseBodyResultChildCommentsAuthor;
+  commentBizId?: string;
+  commentTime?: string;
+  commentType?: string;
+  content?: string;
+  deleted?: boolean;
+  filePath?: string;
+  finalChildComments?: ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildComments[];
+  lastEditTime?: string;
+  lineNumber?: string;
+  parentCommentBizId?: string;
+  relatedPatchSet?: ListMergeRequestCommentsResponseBodyResultChildCommentsRelatedPatchSet;
+  resolved?: boolean;
+  rootCommentBizId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'author',
+      commentBizId: 'commentBizId',
+      commentTime: 'commentTime',
+      commentType: 'commentType',
+      content: 'content',
+      deleted: 'deleted',
+      filePath: 'filePath',
+      finalChildComments: 'finalChildComments',
+      lastEditTime: 'lastEditTime',
+      lineNumber: 'lineNumber',
+      parentCommentBizId: 'parentCommentBizId',
+      relatedPatchSet: 'relatedPatchSet',
+      resolved: 'resolved',
+      rootCommentBizId: 'rootCommentBizId',
+      state: 'state',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: ListMergeRequestCommentsResponseBodyResultChildCommentsAuthor,
+      commentBizId: 'string',
+      commentTime: 'string',
+      commentType: 'string',
+      content: 'string',
+      deleted: 'boolean',
+      filePath: 'string',
+      finalChildComments: { 'type': 'array', 'itemType': ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildComments },
+      lastEditTime: 'string',
+      lineNumber: 'string',
+      parentCommentBizId: 'string',
+      relatedPatchSet: ListMergeRequestCommentsResponseBodyResultChildCommentsRelatedPatchSet,
+      resolved: 'boolean',
+      rootCommentBizId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestCommentsResponseBodyResultRelatedPatchSet extends $tea.Model {
+  commitId?: string;
+  createdAt?: string;
+  patchSetBizId?: string;
+  patchSetName?: string;
+  patchSetNo?: string;
+  relatedMergeItemType?: string;
+  shortId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commitId: 'commitId',
+      createdAt: 'createdAt',
+      patchSetBizId: 'patchSetBizId',
+      patchSetName: 'patchSetName',
+      patchSetNo: 'patchSetNo',
+      relatedMergeItemType: 'relatedMergeItemType',
+      shortId: 'shortId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commitId: 'string',
+      createdAt: 'string',
+      patchSetBizId: 'string',
+      patchSetName: 'string',
+      patchSetNo: 'string',
+      relatedMergeItemType: 'string',
+      shortId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestCommentsResponseBodyResult extends $tea.Model {
+  author?: ListMergeRequestCommentsResponseBodyResultAuthor;
+  childComments?: ListMergeRequestCommentsResponseBodyResultChildComments[];
+  commentBizId?: string;
+  commentTime?: string;
+  commentType?: string;
+  content?: string;
+  deleted?: boolean;
+  filePath?: string;
+  lastEditTime?: string;
+  lineNumber?: string;
+  parentCommentBizId?: string;
+  relatedPatchSet?: ListMergeRequestCommentsResponseBodyResultRelatedPatchSet;
+  resolved?: boolean;
+  rootCommentBizId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'author',
+      childComments: 'childComments',
+      commentBizId: 'commentBizId',
+      commentTime: 'commentTime',
+      commentType: 'commentType',
+      content: 'content',
+      deleted: 'deleted',
+      filePath: 'filePath',
+      lastEditTime: 'lastEditTime',
+      lineNumber: 'lineNumber',
+      parentCommentBizId: 'parentCommentBizId',
+      relatedPatchSet: 'relatedPatchSet',
+      resolved: 'resolved',
+      rootCommentBizId: 'rootCommentBizId',
+      state: 'state',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: ListMergeRequestCommentsResponseBodyResultAuthor,
+      childComments: { 'type': 'array', 'itemType': ListMergeRequestCommentsResponseBodyResultChildComments },
+      commentBizId: 'string',
+      commentTime: 'string',
+      commentType: 'string',
+      content: 'string',
+      deleted: 'boolean',
+      filePath: 'string',
+      lastEditTime: 'string',
+      lineNumber: 'string',
+      parentCommentBizId: 'string',
+      relatedPatchSet: ListMergeRequestCommentsResponseBodyResultRelatedPatchSet,
+      resolved: 'boolean',
+      rootCommentBizId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestFilesReadsResponseBodyResultReadUsers extends $tea.Model {
+  aliyunPk?: string;
+  avatarUrl?: string;
+  email?: string;
+  name?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunPk: 'aliyunPk',
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunPk: 'string',
+      avatarUrl: 'string',
+      email: 'string',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestFilesReadsResponseBodyResult extends $tea.Model {
+  deletedFile?: string;
+  newFile?: boolean;
+  newFilePath?: string;
+  oldFilePath?: string;
+  readUsers?: ListMergeRequestFilesReadsResponseBodyResultReadUsers[];
+  renamedFile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deletedFile: 'deletedFile',
+      newFile: 'newFile',
+      newFilePath: 'newFilePath',
+      oldFilePath: 'oldFilePath',
+      readUsers: 'readUsers',
+      renamedFile: 'renamedFile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deletedFile: 'string',
+      newFile: 'boolean',
+      newFilePath: 'string',
+      oldFilePath: 'string',
+      readUsers: { 'type': 'array', 'itemType': ListMergeRequestFilesReadsResponseBodyResultReadUsers },
+      renamedFile: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestPatchSetsResponseBodyResult extends $tea.Model {
+  commitId?: string;
+  createdAt?: string;
+  patchSetBizId?: string;
+  patchSetName?: string;
+  patchSetNo?: number;
+  relatedMergeItemType?: string;
+  shortCommitId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commitId: 'commitId',
+      createdAt: 'createdAt',
+      patchSetBizId: 'patchSetBizId',
+      patchSetName: 'patchSetName',
+      patchSetNo: 'patchSetNo',
+      relatedMergeItemType: 'relatedMergeItemType',
+      shortCommitId: 'shortCommitId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commitId: 'string',
+      createdAt: 'string',
+      patchSetBizId: 'string',
+      patchSetName: 'string',
+      patchSetNo: 'number',
+      relatedMergeItemType: 'string',
+      shortCommitId: 'string',
     };
   }
 
@@ -27251,6 +28502,67 @@ export default class Client extends OpenApi {
     return await this.createBranchWithOptions(repositoryId, request, headers, runtime);
   }
 
+  async createCommitStatusWithOptions(request: CreateCommitStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCommitStatusResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    if (!Util.isUnset(request.sha)) {
+      query["sha"] = request.sha;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.context)) {
+      body["context"] = request.context;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      body["state"] = request.state;
+    }
+
+    if (!Util.isUnset(request.targetUrl)) {
+      body["targetUrl"] = request.targetUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCommitStatus",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/repository/commit_statuses/create_commit_status`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCommitStatusResponse>(await this.callApi(params, req, runtime), new CreateCommitStatusResponse({}));
+  }
+
+  async createCommitStatus(request: CreateCommitStatusRequest): Promise<CreateCommitStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createCommitStatusWithOptions(request, headers, runtime);
+  }
+
   async createDeployKeyWithOptions(repositoryId: string, request: CreateDeployKeyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDeployKeyResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -30050,6 +31362,57 @@ export default class Client extends OpenApi {
     return await this.getMergeRequestWithOptions(repositoryId, localId, request, headers, runtime);
   }
 
+  async getMergeRequestChangeTreeWithOptions(request: GetMergeRequestChangeTreeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMergeRequestChangeTreeResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.fromPatchSetBizId)) {
+      query["fromPatchSetBizId"] = request.fromPatchSetBizId;
+    }
+
+    if (!Util.isUnset(request.localId)) {
+      query["localId"] = request.localId;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    if (!Util.isUnset(request.toPatchSetBizId)) {
+      query["toPatchSetBizId"] = request.toPatchSetBizId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMergeRequestChangeTree",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/merge_requests/diffs/change_tree`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMergeRequestChangeTreeResponse>(await this.callApi(params, req, runtime), new GetMergeRequestChangeTreeResponse({}));
+  }
+
+  async getMergeRequestChangeTree(request: GetMergeRequestChangeTreeRequest): Promise<GetMergeRequestChangeTreeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMergeRequestChangeTreeWithOptions(request, headers, runtime);
+  }
+
   async getOrganizationMemberWithOptions(organizationId: string, accountId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOrganizationMemberResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -30930,6 +32293,57 @@ export default class Client extends OpenApi {
     return await this.joinPipelineGroupWithOptions(organizationId, request, headers, runtime);
   }
 
+  async listCommitStatusesWithOptions(request: ListCommitStatusesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCommitStatusesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    if (!Util.isUnset(request.sha)) {
+      query["sha"] = request.sha;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCommitStatuses",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/repository/commit_statuses/list_commit_statuses`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCommitStatusesResponse>(await this.callApi(params, req, runtime), new ListCommitStatusesResponse({}));
+  }
+
+  async listCommitStatuses(request: ListCommitStatusesRequest): Promise<ListCommitStatusesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listCommitStatusesWithOptions(request, headers, runtime);
+  }
+
   async listFlowTagGroupsWithOptions(organizationId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFlowTagGroupsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -31097,6 +32511,165 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listHostGroupsWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listMergeRequestCommentsWithOptions(request: ListMergeRequestCommentsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMergeRequestCommentsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.localId)) {
+      query["localId"] = request.localId;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.commentType)) {
+      body["commentType"] = request.commentType;
+    }
+
+    if (!Util.isUnset(request.filePath)) {
+      body["filePath"] = request.filePath;
+    }
+
+    if (!Util.isUnset(request.patchSetBizIds)) {
+      body["patchSetBizIds"] = request.patchSetBizIds;
+    }
+
+    if (!Util.isUnset(request.resolved)) {
+      body["resolved"] = request.resolved;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      body["state"] = request.state;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMergeRequestComments",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/merge_requests/comments/list_comments`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMergeRequestCommentsResponse>(await this.callApi(params, req, runtime), new ListMergeRequestCommentsResponse({}));
+  }
+
+  async listMergeRequestComments(request: ListMergeRequestCommentsRequest): Promise<ListMergeRequestCommentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMergeRequestCommentsWithOptions(request, headers, runtime);
+  }
+
+  async listMergeRequestFilesReadsWithOptions(request: ListMergeRequestFilesReadsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMergeRequestFilesReadsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.fromPatchSetBizId)) {
+      query["fromPatchSetBizId"] = request.fromPatchSetBizId;
+    }
+
+    if (!Util.isUnset(request.localId)) {
+      query["localId"] = request.localId;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    if (!Util.isUnset(request.toPatchSetBizId)) {
+      query["toPatchSetBizId"] = request.toPatchSetBizId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMergeRequestFilesReads",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/merge_requests/diffs/files_read_infos`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMergeRequestFilesReadsResponse>(await this.callApi(params, req, runtime), new ListMergeRequestFilesReadsResponse({}));
+  }
+
+  async listMergeRequestFilesReads(request: ListMergeRequestFilesReadsRequest): Promise<ListMergeRequestFilesReadsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMergeRequestFilesReadsWithOptions(request, headers, runtime);
+  }
+
+  async listMergeRequestPatchSetsWithOptions(request: ListMergeRequestPatchSetsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMergeRequestPatchSetsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.localId)) {
+      query["localId"] = request.localId;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMergeRequestPatchSets",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/merge_requests/diffs/list_patchsets`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMergeRequestPatchSetsResponse>(await this.callApi(params, req, runtime), new ListMergeRequestPatchSetsResponse({}));
+  }
+
+  async listMergeRequestPatchSets(request: ListMergeRequestPatchSetsRequest): Promise<ListMergeRequestPatchSetsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMergeRequestPatchSetsWithOptions(request, headers, runtime);
   }
 
   async listMergeRequestsWithOptions(request: ListMergeRequestsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMergeRequestsResponse> {
