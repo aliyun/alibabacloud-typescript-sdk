@@ -11,13 +11,17 @@ import * as $tea from '@alicloud/tea-typescript';
 export class CreateConfigRequest extends $tea.Model {
   code?: string;
   description?: string;
+  featureType?: number;
   lang?: string;
+  sourceIp?: string;
   value?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       description: 'Description',
+      featureType: 'FeatureType',
       lang: 'Lang',
+      sourceIp: 'SourceIp',
       value: 'Value',
     };
   }
@@ -26,7 +30,9 @@ export class CreateConfigRequest extends $tea.Model {
     return {
       code: 'string',
       description: 'string',
+      featureType: 'number',
       lang: 'string',
+      sourceIp: 'string',
       value: 'string',
     };
   }
@@ -90,6 +96,7 @@ export class CreateDataLimitRequest extends $tea.Model {
   enable?: number;
   engineType?: string;
   eventStatus?: number;
+  featureType?: number;
   lang?: string;
   logStoreDay?: number;
   ocrStatus?: number;
@@ -99,6 +106,7 @@ export class CreateDataLimitRequest extends $tea.Model {
   resourceType?: number;
   samplingSize?: number;
   serviceRegionId?: string;
+  sourceIp?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,6 +116,7 @@ export class CreateDataLimitRequest extends $tea.Model {
       enable: 'Enable',
       engineType: 'EngineType',
       eventStatus: 'EventStatus',
+      featureType: 'FeatureType',
       lang: 'Lang',
       logStoreDay: 'LogStoreDay',
       ocrStatus: 'OcrStatus',
@@ -117,6 +126,7 @@ export class CreateDataLimitRequest extends $tea.Model {
       resourceType: 'ResourceType',
       samplingSize: 'SamplingSize',
       serviceRegionId: 'ServiceRegionId',
+      sourceIp: 'SourceIp',
       userName: 'UserName',
     };
   }
@@ -129,6 +139,7 @@ export class CreateDataLimitRequest extends $tea.Model {
       enable: 'number',
       engineType: 'string',
       eventStatus: 'number',
+      featureType: 'number',
       lang: 'string',
       logStoreDay: 'number',
       ocrStatus: 'number',
@@ -138,6 +149,7 @@ export class CreateDataLimitRequest extends $tea.Model {
       resourceType: 'number',
       samplingSize: 'number',
       serviceRegionId: 'string',
+      sourceIp: 'string',
       userName: 'string',
     };
   }
@@ -206,6 +218,7 @@ export class CreateRuleRequest extends $tea.Model {
   productId?: number;
   riskLevelId?: number;
   ruleType?: number;
+  sourceIp?: string;
   statExpress?: string;
   status?: number;
   supportForm?: number;
@@ -224,6 +237,7 @@ export class CreateRuleRequest extends $tea.Model {
       productId: 'ProductId',
       riskLevelId: 'RiskLevelId',
       ruleType: 'RuleType',
+      sourceIp: 'SourceIp',
       statExpress: 'StatExpress',
       status: 'Status',
       supportForm: 'SupportForm',
@@ -245,6 +259,7 @@ export class CreateRuleRequest extends $tea.Model {
       productId: 'number',
       riskLevelId: 'number',
       ruleType: 'number',
+      sourceIp: 'string',
       statExpress: 'string',
       status: 'number',
       supportForm: 'number',
@@ -307,6 +322,7 @@ export class CreateRuleResponse extends $tea.Model {
 
 export class CreateScanTaskRequest extends $tea.Model {
   dataLimitId?: number;
+  featureType?: number;
   intervalDay?: number;
   lang?: string;
   ossScanPath?: string;
@@ -315,11 +331,13 @@ export class CreateScanTaskRequest extends $tea.Model {
   runMinute?: number;
   scanRange?: number;
   scanRangeContent?: string;
+  sourceIp?: string;
   taskName?: string;
   taskUserName?: string;
   static names(): { [key: string]: string } {
     return {
       dataLimitId: 'DataLimitId',
+      featureType: 'FeatureType',
       intervalDay: 'IntervalDay',
       lang: 'Lang',
       ossScanPath: 'OssScanPath',
@@ -328,6 +346,7 @@ export class CreateScanTaskRequest extends $tea.Model {
       runMinute: 'RunMinute',
       scanRange: 'ScanRange',
       scanRangeContent: 'ScanRangeContent',
+      sourceIp: 'SourceIp',
       taskName: 'TaskName',
       taskUserName: 'TaskUserName',
     };
@@ -336,6 +355,7 @@ export class CreateScanTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dataLimitId: 'number',
+      featureType: 'number',
       intervalDay: 'number',
       lang: 'string',
       ossScanPath: 'string',
@@ -344,6 +364,7 @@ export class CreateScanTaskRequest extends $tea.Model {
       runMinute: 'number',
       scanRange: 'number',
       scanRangeContent: 'string',
+      sourceIp: 'string',
       taskName: 'string',
       taskUserName: 'string',
     };
@@ -402,16 +423,22 @@ export class CreateScanTaskResponse extends $tea.Model {
 }
 
 export class CreateSlrRoleRequest extends $tea.Model {
+  featureType?: number;
   lang?: string;
+  sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
+      featureType: 'FeatureType',
       lang: 'Lang',
+      sourceIp: 'SourceIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      featureType: 'number',
       lang: 'string',
+      sourceIp: 'string',
     };
   }
 
@@ -468,19 +495,25 @@ export class CreateSlrRoleResponse extends $tea.Model {
 }
 
 export class DeleteDataLimitRequest extends $tea.Model {
+  featureType?: number;
   id?: number;
   lang?: string;
+  sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
+      featureType: 'FeatureType',
       id: 'Id',
       lang: 'Lang',
+      sourceIp: 'SourceIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      featureType: 'number',
       id: 'number',
       lang: 'string',
+      sourceIp: 'string',
     };
   }
 
@@ -534,19 +567,25 @@ export class DeleteDataLimitResponse extends $tea.Model {
 }
 
 export class DeleteRuleRequest extends $tea.Model {
+  featureType?: number;
   id?: number;
   lang?: string;
+  sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
+      featureType: 'FeatureType',
       id: 'Id',
       lang: 'Lang',
+      sourceIp: 'SourceIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      featureType: 'number',
       id: 'number',
       lang: 'string',
+      sourceIp: 'string',
     };
   }
 
@@ -601,12 +640,14 @@ export class DeleteRuleResponse extends $tea.Model {
 
 export class DescribeCategoryTemplateListRequest extends $tea.Model {
   currentPage?: number;
+  featureType?: number;
   lang?: string;
   pageSize?: number;
   usageScenario?: number;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      featureType: 'FeatureType',
       lang: 'Lang',
       pageSize: 'PageSize',
       usageScenario: 'UsageScenario',
@@ -616,6 +657,7 @@ export class DescribeCategoryTemplateListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      featureType: 'number',
       lang: 'string',
       pageSize: 'number',
       usageScenario: 'number',
@@ -685,6 +727,7 @@ export class DescribeCategoryTemplateListResponse extends $tea.Model {
 
 export class DescribeCategoryTemplateRuleListRequest extends $tea.Model {
   currentPage?: number;
+  featureType?: number;
   lang?: string;
   pageSize?: number;
   riskLevelId?: number;
@@ -692,6 +735,7 @@ export class DescribeCategoryTemplateRuleListRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      featureType: 'FeatureType',
       lang: 'Lang',
       pageSize: 'PageSize',
       riskLevelId: 'RiskLevelId',
@@ -702,6 +746,7 @@ export class DescribeCategoryTemplateRuleListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      featureType: 'number',
       lang: 'string',
       pageSize: 'number',
       riskLevelId: 'number',
@@ -1152,11 +1197,13 @@ export class DescribeDataAssetsResponse extends $tea.Model {
 }
 
 export class DescribeDataLimitDetailRequest extends $tea.Model {
+  featureType?: number;
   id?: number;
   lang?: string;
   networkType?: number;
   static names(): { [key: string]: string } {
     return {
+      featureType: 'FeatureType',
       id: 'Id',
       lang: 'Lang',
       networkType: 'NetworkType',
@@ -1165,6 +1212,7 @@ export class DescribeDataLimitDetailRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      featureType: 'number',
       id: 'number',
       lang: 'string',
       networkType: 'number',
@@ -1224,11 +1272,13 @@ export class DescribeDataLimitDetailResponse extends $tea.Model {
 }
 
 export class DescribeDataLimitSetRequest extends $tea.Model {
+  featureType?: number;
   lang?: string;
   parentId?: string;
   resourceType?: number;
   static names(): { [key: string]: string } {
     return {
+      featureType: 'FeatureType',
       lang: 'Lang',
       parentId: 'ParentId',
       resourceType: 'ResourceType',
@@ -1237,6 +1287,7 @@ export class DescribeDataLimitSetRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      featureType: 'number',
       lang: 'string',
       parentId: 'string',
       resourceType: 'number',
@@ -1303,6 +1354,7 @@ export class DescribeDataLimitsRequest extends $tea.Model {
   enable?: number;
   endTime?: number;
   engineType?: string;
+  featureType?: number;
   lang?: string;
   pageSize?: number;
   parentId?: string;
@@ -1318,6 +1370,7 @@ export class DescribeDataLimitsRequest extends $tea.Model {
       enable: 'Enable',
       endTime: 'EndTime',
       engineType: 'EngineType',
+      featureType: 'FeatureType',
       lang: 'Lang',
       pageSize: 'PageSize',
       parentId: 'ParentId',
@@ -1336,6 +1389,7 @@ export class DescribeDataLimitsRequest extends $tea.Model {
       enable: 'number',
       endTime: 'number',
       engineType: 'string',
+      featureType: 'number',
       lang: 'string',
       pageSize: 'number',
       parentId: 'string',
@@ -1606,6 +1660,7 @@ export class DescribeDataMaskingTasksResponse extends $tea.Model {
 
 export class DescribeDataObjectColumnDetailRequest extends $tea.Model {
   currentPage?: number;
+  featureType?: number;
   id?: number;
   lang?: string;
   pageSize?: number;
@@ -1614,6 +1669,7 @@ export class DescribeDataObjectColumnDetailRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      featureType: 'FeatureType',
       id: 'Id',
       lang: 'Lang',
       pageSize: 'PageSize',
@@ -1625,6 +1681,7 @@ export class DescribeDataObjectColumnDetailRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      featureType: 'number',
       id: 'number',
       lang: 'string',
       pageSize: 'number',
@@ -1696,6 +1753,7 @@ export class DescribeDataObjectColumnDetailResponse extends $tea.Model {
 
 export class DescribeDataObjectColumnDetailV2Request extends $tea.Model {
   currentPage?: number;
+  featureType?: number;
   id?: string;
   lang?: string;
   pageSize?: number;
@@ -1704,6 +1762,7 @@ export class DescribeDataObjectColumnDetailV2Request extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      featureType: 'FeatureType',
       id: 'Id',
       lang: 'Lang',
       pageSize: 'PageSize',
@@ -1715,6 +1774,7 @@ export class DescribeDataObjectColumnDetailV2Request extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      featureType: 'number',
       id: 'string',
       lang: 'string',
       pageSize: 'number',
@@ -1787,6 +1847,8 @@ export class DescribeDataObjectColumnDetailV2Response extends $tea.Model {
 export class DescribeDataObjectsRequest extends $tea.Model {
   currentPage?: number;
   domainId?: number;
+  featureType?: number;
+  fileCategoryCode?: number;
   fileType?: number;
   instanceId?: string;
   lang?: string;
@@ -1803,6 +1865,8 @@ export class DescribeDataObjectsRequest extends $tea.Model {
     return {
       currentPage: 'CurrentPage',
       domainId: 'DomainId',
+      featureType: 'FeatureType',
+      fileCategoryCode: 'FileCategoryCode',
       fileType: 'FileType',
       instanceId: 'InstanceId',
       lang: 'Lang',
@@ -1822,6 +1886,8 @@ export class DescribeDataObjectsRequest extends $tea.Model {
     return {
       currentPage: 'number',
       domainId: 'number',
+      featureType: 'number',
+      fileCategoryCode: 'number',
       fileType: 'number',
       instanceId: 'string',
       lang: 'string',
@@ -2034,12 +2100,14 @@ export class DescribeEventDetailResponse extends $tea.Model {
 }
 
 export class DescribeEventTypesRequest extends $tea.Model {
+  featureType?: number;
   lang?: string;
   parentTypeId?: number;
   resourceId?: number;
   status?: number;
   static names(): { [key: string]: string } {
     return {
+      featureType: 'FeatureType',
       lang: 'Lang',
       parentTypeId: 'ParentTypeId',
       resourceId: 'ResourceId',
@@ -2049,6 +2117,7 @@ export class DescribeEventTypesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      featureType: 'number',
       lang: 'string',
       parentTypeId: 'number',
       resourceId: 'number',
@@ -2230,6 +2299,7 @@ export class DescribeInstanceSourcesRequest extends $tea.Model {
   authStatus?: number;
   currentPage?: number;
   engineType?: string;
+  featureType?: number;
   instanceId?: string;
   lang?: string;
   pageSize?: number;
@@ -2244,6 +2314,7 @@ export class DescribeInstanceSourcesRequest extends $tea.Model {
       authStatus: 'AuthStatus',
       currentPage: 'CurrentPage',
       engineType: 'EngineType',
+      featureType: 'FeatureType',
       instanceId: 'InstanceId',
       lang: 'Lang',
       pageSize: 'PageSize',
@@ -2261,6 +2332,7 @@ export class DescribeInstanceSourcesRequest extends $tea.Model {
       authStatus: 'number',
       currentPage: 'number',
       engineType: 'string',
+      featureType: 'number',
       instanceId: 'string',
       lang: 'string',
       pageSize: 'number',
@@ -2575,6 +2647,7 @@ export class DescribeOssObjectDetailV2Response extends $tea.Model {
 
 export class DescribeOssObjectsRequest extends $tea.Model {
   currentPage?: number;
+  fileCategoryCode?: number;
   instanceId?: string;
   lang?: string;
   lastScanTimeEnd?: number;
@@ -2588,6 +2661,7 @@ export class DescribeOssObjectsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      fileCategoryCode: 'FileCategoryCode',
       instanceId: 'InstanceId',
       lang: 'Lang',
       lastScanTimeEnd: 'LastScanTimeEnd',
@@ -2604,6 +2678,7 @@ export class DescribeOssObjectsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      fileCategoryCode: 'number',
       instanceId: 'string',
       lang: 'string',
       lastScanTimeEnd: 'number',
@@ -2775,10 +2850,12 @@ export class DescribePackagesResponse extends $tea.Model {
 }
 
 export class DescribeRiskLevelsRequest extends $tea.Model {
+  featureType?: number;
   lang?: string;
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
+      featureType: 'FeatureType',
       lang: 'Lang',
       templateId: 'TemplateId',
     };
@@ -2786,6 +2863,7 @@ export class DescribeRiskLevelsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      featureType: 'number',
       lang: 'string',
       templateId: 'number',
     };
@@ -2848,6 +2926,7 @@ export class DescribeRulesRequest extends $tea.Model {
   contentCategory?: number;
   currentPage?: number;
   customType?: number;
+  featureType?: number;
   groupId?: string;
   keywordCompatible?: boolean;
   lang?: string;
@@ -2867,6 +2946,7 @@ export class DescribeRulesRequest extends $tea.Model {
       contentCategory: 'ContentCategory',
       currentPage: 'CurrentPage',
       customType: 'CustomType',
+      featureType: 'FeatureType',
       groupId: 'GroupId',
       keywordCompatible: 'KeywordCompatible',
       lang: 'Lang',
@@ -2889,6 +2969,7 @@ export class DescribeRulesRequest extends $tea.Model {
       contentCategory: 'number',
       currentPage: 'number',
       customType: 'number',
+      featureType: 'number',
       groupId: 'string',
       keywordCompatible: 'boolean',
       lang: 'string',
@@ -3075,10 +3156,12 @@ export class DescribeTablesResponse extends $tea.Model {
 }
 
 export class DescribeTemplateAllRulesRequest extends $tea.Model {
+  featureType?: number;
   lang?: string;
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
+      featureType: 'FeatureType',
       lang: 'Lang',
       templateId: 'TemplateId',
     };
@@ -3086,6 +3169,7 @@ export class DescribeTemplateAllRulesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      featureType: 'number',
       lang: 'string',
       templateId: 'number',
     };
@@ -3144,15 +3228,18 @@ export class DescribeTemplateAllRulesResponse extends $tea.Model {
 }
 
 export class DescribeUserStatusRequest extends $tea.Model {
+  featureType?: number;
   lang?: string;
   static names(): { [key: string]: string } {
     return {
+      featureType: 'FeatureType',
       lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      featureType: 'number',
       lang: 'string',
     };
   }
@@ -3211,10 +3298,12 @@ export class DescribeUserStatusResponse extends $tea.Model {
 
 export class DisableUserConfigRequest extends $tea.Model {
   code?: string;
+  featureType?: number;
   lang?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      featureType: 'FeatureType',
       lang: 'Lang',
     };
   }
@@ -3222,6 +3311,7 @@ export class DisableUserConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      featureType: 'number',
       lang: 'string',
     };
   }
@@ -3277,11 +3367,13 @@ export class DisableUserConfigResponse extends $tea.Model {
 
 export class ExecDatamaskRequest extends $tea.Model {
   data?: string;
+  featureType?: number;
   lang?: string;
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      featureType: 'FeatureType',
       lang: 'Lang',
       templateId: 'TemplateId',
     };
@@ -3290,6 +3382,7 @@ export class ExecDatamaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: 'string',
+      featureType: 'number',
       lang: 'string',
       templateId: 'number',
     };
@@ -3417,6 +3510,7 @@ export class ModifyDataLimitRequest extends $tea.Model {
   auditStatus?: number;
   autoScan?: number;
   engineType?: string;
+  featureType?: number;
   id?: number;
   lang?: string;
   logStoreDay?: number;
@@ -3435,6 +3529,7 @@ export class ModifyDataLimitRequest extends $tea.Model {
       auditStatus: 'AuditStatus',
       autoScan: 'AutoScan',
       engineType: 'EngineType',
+      featureType: 'FeatureType',
       id: 'Id',
       lang: 'Lang',
       logStoreDay: 'LogStoreDay',
@@ -3456,6 +3551,7 @@ export class ModifyDataLimitRequest extends $tea.Model {
       auditStatus: 'number',
       autoScan: 'number',
       engineType: 'string',
+      featureType: 'number',
       id: 'number',
       lang: 'string',
       logStoreDay: 'number',
@@ -3666,10 +3762,12 @@ export class ModifyEventStatusResponse extends $tea.Model {
 }
 
 export class ModifyEventTypeStatusRequest extends $tea.Model {
+  featureType?: number;
   lang?: string;
   subTypeIds?: string;
   static names(): { [key: string]: string } {
     return {
+      featureType: 'FeatureType',
       lang: 'Lang',
       subTypeIds: 'SubTypeIds',
     };
@@ -3677,6 +3775,7 @@ export class ModifyEventTypeStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      featureType: 'number',
       lang: 'string',
       subTypeIds: 'string',
     };
@@ -3732,10 +3831,12 @@ export class ModifyEventTypeStatusResponse extends $tea.Model {
 }
 
 export class ModifyReportTaskStatusRequest extends $tea.Model {
+  featureType?: number;
   lang?: string;
   reportTaskStatus?: number;
   static names(): { [key: string]: string } {
     return {
+      featureType: 'FeatureType',
       lang: 'Lang',
       reportTaskStatus: 'ReportTaskStatus',
     };
@@ -3743,6 +3844,7 @@ export class ModifyReportTaskStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      featureType: 'number',
       lang: 'string',
       reportTaskStatus: 'number',
     };
@@ -5069,6 +5171,7 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
   lastScanTime?: number;
   modelTags?: DescribeDataObjectsResponseBodyItemsModelTags[];
   name?: string;
+  objectFileCategory?: string;
   objectType?: string;
   path?: string;
   productCode?: string;
@@ -5086,6 +5189,7 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
       lastScanTime: 'LastScanTime',
       modelTags: 'ModelTags',
       name: 'Name',
+      objectFileCategory: 'ObjectFileCategory',
       objectType: 'ObjectType',
       path: 'Path',
       productCode: 'ProductCode',
@@ -5106,6 +5210,7 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
       lastScanTime: 'number',
       modelTags: { 'type': 'array', 'itemType': DescribeDataObjectsResponseBodyItemsModelTags },
       name: 'string',
+      objectFileCategory: 'string',
       objectType: 'string',
       path: 'string',
       productCode: 'string',
@@ -5948,6 +6053,8 @@ export class DescribeOssObjectsResponseBodyItems extends $tea.Model {
   bucketName?: string;
   category?: number;
   categoryName?: string;
+  fileCategoryCode?: number;
+  fileCategoryName?: string;
   fileId?: string;
   id?: string;
   instanceId?: number;
@@ -5964,6 +6071,8 @@ export class DescribeOssObjectsResponseBodyItems extends $tea.Model {
       bucketName: 'BucketName',
       category: 'Category',
       categoryName: 'CategoryName',
+      fileCategoryCode: 'FileCategoryCode',
+      fileCategoryName: 'FileCategoryName',
       fileId: 'FileId',
       id: 'Id',
       instanceId: 'InstanceId',
@@ -5983,6 +6092,8 @@ export class DescribeOssObjectsResponseBodyItems extends $tea.Model {
       bucketName: 'string',
       category: 'number',
       categoryName: 'string',
+      fileCategoryCode: 'number',
+      fileCategoryName: 'string',
       fileId: 'string',
       id: 'string',
       instanceId: 'number',
@@ -6301,6 +6412,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
   releaseTime?: number;
   remainDays?: number;
   trail?: boolean;
+  useAgentAudit?: boolean;
   useInstanceNum?: number;
   useOssSize?: number;
   static names(): { [key: string]: string } {
@@ -6321,6 +6433,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
       releaseTime: 'ReleaseTime',
       remainDays: 'RemainDays',
       trail: 'Trail',
+      useAgentAudit: 'UseAgentAudit',
       useInstanceNum: 'UseInstanceNum',
       useOssSize: 'UseOssSize',
     };
@@ -6344,6 +6457,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
       releaseTime: 'number',
       remainDays: 'number',
       trail: 'boolean',
+      useAgentAudit: 'boolean',
       useInstanceNum: 'number',
       useOssSize: 'number',
     };
@@ -6400,8 +6514,16 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
     }
 
     if (!Util.isUnset(request.value)) {
@@ -6474,6 +6596,10 @@ export default class Client extends OpenApi {
       query["EventStatus"] = request.eventStatus;
     }
 
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -6508,6 +6634,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
     }
 
     if (!Util.isUnset(request.userName)) {
@@ -6591,6 +6721,10 @@ export default class Client extends OpenApi {
       query["RuleType"] = request.ruleType;
     }
 
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     if (!Util.isUnset(request.statExpress)) {
       query["StatExpress"] = request.statExpress;
     }
@@ -6649,6 +6783,10 @@ export default class Client extends OpenApi {
       query["DataLimitId"] = request.dataLimitId;
     }
 
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.intervalDay)) {
       query["IntervalDay"] = request.intervalDay;
     }
@@ -6679,6 +6817,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.scanRangeContent)) {
       query["ScanRangeContent"] = request.scanRangeContent;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
     }
 
     if (!Util.isUnset(request.taskName)) {
@@ -6731,8 +6873,16 @@ export default class Client extends OpenApi {
   async createSlrRoleWithOptions(request: CreateSlrRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateSlrRoleResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6777,12 +6927,20 @@ export default class Client extends OpenApi {
   async deleteDataLimitWithOptions(request: DeleteDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataLimitResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
     }
 
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6818,12 +6976,20 @@ export default class Client extends OpenApi {
   async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
     }
 
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6853,6 +7019,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
     }
 
     if (!Util.isUnset(request.lang)) {
@@ -6903,6 +7073,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
     }
 
     if (!Util.isUnset(request.lang)) {
@@ -7207,6 +7381,10 @@ export default class Client extends OpenApi {
   async describeDataLimitDetailWithOptions(request: DescribeDataLimitDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitDetailResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
     }
@@ -7253,6 +7431,10 @@ export default class Client extends OpenApi {
   async describeDataLimitSetWithOptions(request: DescribeDataLimitSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitSetResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -7324,6 +7506,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.engineType)) {
       query["EngineType"] = request.engineType;
+    }
+
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
     }
 
     if (!Util.isUnset(request.lang)) {
@@ -7535,6 +7721,10 @@ export default class Client extends OpenApi {
       query["CurrentPage"] = request.currentPage;
     }
 
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
     }
@@ -7582,6 +7772,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
     }
 
     if (!Util.isUnset(request.id)) {
@@ -7635,6 +7829,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.domainId)) {
       query["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
+    if (!Util.isUnset(request.fileCategoryCode)) {
+      query["FileCategoryCode"] = request.fileCategoryCode;
     }
 
     if (!Util.isUnset(request.fileType)) {
@@ -7772,6 +7974,10 @@ export default class Client extends OpenApi {
   async describeEventTypesWithOptions(request: DescribeEventTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventTypesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -7938,6 +8144,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.engineType)) {
       query["EngineType"] = request.engineType;
+    }
+
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
     }
 
     if (!Util.isUnset(request.instanceId)) {
@@ -8174,6 +8384,10 @@ export default class Client extends OpenApi {
       query["CurrentPage"] = request.currentPage;
     }
 
+    if (!Util.isUnset(request.fileCategoryCode)) {
+      query["FileCategoryCode"] = request.fileCategoryCode;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -8322,6 +8536,10 @@ export default class Client extends OpenApi {
   async describeRiskLevelsWithOptions(request: DescribeRiskLevelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskLevelsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -8377,6 +8595,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.customType)) {
       query["CustomType"] = request.customType;
+    }
+
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
     }
 
     if (!Util.isUnset(request.groupId)) {
@@ -8546,6 +8768,10 @@ export default class Client extends OpenApi {
   async describeTemplateAllRulesWithOptions(request: DescribeTemplateAllRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTemplateAllRulesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -8588,6 +8814,10 @@ export default class Client extends OpenApi {
   async describeUserStatusWithOptions(request: DescribeUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserStatusResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -8638,6 +8868,10 @@ export default class Client extends OpenApi {
       query["Code"] = request.code;
     }
 
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -8677,6 +8911,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.data)) {
       query["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
     }
 
     if (!Util.isUnset(request.lang)) {
@@ -8755,6 +8993,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.engineType)) {
       query["EngineType"] = request.engineType;
+    }
+
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
     }
 
     if (!Util.isUnset(request.id)) {
@@ -8950,6 +9192,10 @@ export default class Client extends OpenApi {
   async modifyEventTypeStatusWithOptions(request: ModifyEventTypeStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEventTypeStatusResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -8992,6 +9238,10 @@ export default class Client extends OpenApi {
   async modifyReportTaskStatusWithOptions(request: ModifyReportTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReportTaskStatusResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
