@@ -7125,6 +7125,7 @@ export class ScaleWithAdjustmentRequest extends $tea.Model {
   adjustmentValue?: number;
   clientToken?: string;
   minAdjustmentMagnitude?: number;
+  overrides?: ScaleWithAdjustmentRequestOverrides;
   ownerId?: number;
   resourceOwnerAccount?: string;
   scalingGroupId?: string;
@@ -7135,6 +7136,7 @@ export class ScaleWithAdjustmentRequest extends $tea.Model {
       adjustmentValue: 'AdjustmentValue',
       clientToken: 'ClientToken',
       minAdjustmentMagnitude: 'MinAdjustmentMagnitude',
+      overrides: 'Overrides',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       scalingGroupId: 'ScalingGroupId',
@@ -7148,6 +7150,50 @@ export class ScaleWithAdjustmentRequest extends $tea.Model {
       adjustmentValue: 'number',
       clientToken: 'string',
       minAdjustmentMagnitude: 'number',
+      overrides: ScaleWithAdjustmentRequestOverrides,
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      scalingGroupId: 'string',
+      syncActivity: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScaleWithAdjustmentShrinkRequest extends $tea.Model {
+  adjustmentType?: string;
+  adjustmentValue?: number;
+  clientToken?: string;
+  minAdjustmentMagnitude?: number;
+  overridesShrink?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  scalingGroupId?: string;
+  syncActivity?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      adjustmentType: 'AdjustmentType',
+      adjustmentValue: 'AdjustmentValue',
+      clientToken: 'ClientToken',
+      minAdjustmentMagnitude: 'MinAdjustmentMagnitude',
+      overridesShrink: 'Overrides',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      scalingGroupId: 'ScalingGroupId',
+      syncActivity: 'SyncActivity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adjustmentType: 'string',
+      adjustmentValue: 'number',
+      clientToken: 'string',
+      minAdjustmentMagnitude: 'number',
+      overridesShrink: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       scalingGroupId: 'string',
@@ -13472,6 +13518,87 @@ export class ModifyScalingRuleRequestStepAdjustments extends $tea.Model {
   }
 }
 
+export class ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScaleWithAdjustmentRequestOverridesContainerOverrides extends $tea.Model {
+  args?: string[];
+  commands?: string[];
+  cpu?: number;
+  environmentVars?: ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars[];
+  memory?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      commands: 'Commands',
+      cpu: 'Cpu',
+      environmentVars: 'EnvironmentVars',
+      memory: 'Memory',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'array', 'itemType': 'string' },
+      commands: { 'type': 'array', 'itemType': 'string' },
+      cpu: 'number',
+      environmentVars: { 'type': 'array', 'itemType': ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars },
+      memory: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScaleWithAdjustmentRequestOverrides extends $tea.Model {
+  containerOverrides?: ScaleWithAdjustmentRequestOverridesContainerOverrides[];
+  cpu?: number;
+  memory?: number;
+  static names(): { [key: string]: string } {
+    return {
+      containerOverrides: 'ContainerOverrides',
+      cpu: 'Cpu',
+      memory: 'Memory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerOverrides: { 'type': 'array', 'itemType': ScaleWithAdjustmentRequestOverridesContainerOverrides },
+      cpu: 'number',
+      memory: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTags extends $tea.Model {
   key?: string;
   propagate?: boolean;
@@ -19132,12 +19259,18 @@ export default class Client extends OpenApi {
     * *   If the removal of a specified number of ECS instances from a scaling group causes the total number of ECS instances in the scaling group to drop below the minimum number of instances allowed, Auto Scaling removes only a specific number of ECS instances to ensure that the total number of instances is equal to the minimum number of instances.
     * A successful call indicates that Auto Scaling accepts the request. However, the scaling activity may still fail. You can obtain the status of a scaling activity by using the value of the `ScalingActivityId` parameter in the response.
     *
-    * @param request ScaleWithAdjustmentRequest
+    * @param tmpReq ScaleWithAdjustmentRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return ScaleWithAdjustmentResponse
    */
-  async scaleWithAdjustmentWithOptions(request: ScaleWithAdjustmentRequest, runtime: $Util.RuntimeOptions): Promise<ScaleWithAdjustmentResponse> {
-    Util.validateModel(request);
+  async scaleWithAdjustmentWithOptions(tmpReq: ScaleWithAdjustmentRequest, runtime: $Util.RuntimeOptions): Promise<ScaleWithAdjustmentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ScaleWithAdjustmentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.overrides)) {
+      request.overridesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.overrides, "Overrides", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.adjustmentType)) {
       query["AdjustmentType"] = request.adjustmentType;
@@ -19153,6 +19286,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.minAdjustmentMagnitude)) {
       query["MinAdjustmentMagnitude"] = request.minAdjustmentMagnitude;
+    }
+
+    if (!Util.isUnset(request.overridesShrink)) {
+      query["Overrides"] = request.overridesShrink;
     }
 
     if (!Util.isUnset(request.ownerId)) {
