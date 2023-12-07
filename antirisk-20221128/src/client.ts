@@ -332,6 +332,87 @@ export class ListChannelRiskDetailsResponse extends $tea.Model {
   }
 }
 
+export class ListUninstallDetailRequest extends $tea.Model {
+  dataSourceId?: string;
+  endDs?: string;
+  startDs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'dataSourceId',
+      endDs: 'endDs',
+      startDs: 'startDs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      endDs: 'string',
+      startDs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUninstallDetailResponseBody extends $tea.Model {
+  msg?: string;
+  success?: boolean;
+  code?: number;
+  data?: ListUninstallDetailResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      msg: 'Msg',
+      success: 'Success',
+      code: 'code',
+      data: 'data',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      msg: 'string',
+      success: 'boolean',
+      code: 'number',
+      data: ListUninstallDetailResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUninstallDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListUninstallDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUninstallDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRealTimeRiskInfoResponseBodyData extends $tea.Model {
   appChannel?: string;
   fakeDevice?: string;
@@ -569,6 +650,89 @@ export class ListChannelRiskDetailsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListUninstallDetailResponseBodyDataDetails extends $tea.Model {
+  activeDatetime?: string;
+  city?: string;
+  deviceBrand?: string;
+  deviceModel?: string;
+  firstActiveDatetime?: string;
+  idfa?: string;
+  imei?: string;
+  installAppVersion?: string;
+  installChannel?: string;
+  oaid?: string;
+  osVersion?: string;
+  puid?: string;
+  umid?: string;
+  uninstallCount?: number;
+  uninstallDatetime?: string;
+  zid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeDatetime: 'activeDatetime',
+      city: 'city',
+      deviceBrand: 'deviceBrand',
+      deviceModel: 'deviceModel',
+      firstActiveDatetime: 'firstActiveDatetime',
+      idfa: 'idfa',
+      imei: 'imei',
+      installAppVersion: 'installAppVersion',
+      installChannel: 'installChannel',
+      oaid: 'oaid',
+      osVersion: 'osVersion',
+      puid: 'puid',
+      umid: 'umid',
+      uninstallCount: 'uninstallCount',
+      uninstallDatetime: 'uninstallDatetime',
+      zid: 'zid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeDatetime: 'string',
+      city: 'string',
+      deviceBrand: 'string',
+      deviceModel: 'string',
+      firstActiveDatetime: 'string',
+      idfa: 'string',
+      imei: 'string',
+      installAppVersion: 'string',
+      installChannel: 'string',
+      oaid: 'string',
+      osVersion: 'string',
+      puid: 'string',
+      umid: 'string',
+      uninstallCount: 'number',
+      uninstallDatetime: 'string',
+      zid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUninstallDetailResponseBodyData extends $tea.Model {
+  details?: ListUninstallDetailResponseBodyDataDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      details: 'details',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      details: { 'type': 'array', 'itemType': ListUninstallDetailResponseBodyDataDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -746,6 +910,45 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listChannelRiskDetailsWithOptions(request, headers, runtime);
+  }
+
+  async listUninstallDetailWithOptions(request: ListUninstallDetailRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUninstallDetailResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["dataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.endDs)) {
+      query["endDs"] = request.endDs;
+    }
+
+    if (!Util.isUnset(request.startDs)) {
+      query["startDs"] = request.startDs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUninstallDetail",
+      version: "2022-11-28",
+      protocol: "HTTPS",
+      pathname: `/uninstall/listUninstallDetail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUninstallDetailResponse>(await this.callApi(params, req, runtime), new ListUninstallDetailResponse({}));
+  }
+
+  async listUninstallDetail(request: ListUninstallDetailRequest): Promise<ListUninstallDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listUninstallDetailWithOptions(request, headers, runtime);
   }
 
 }
