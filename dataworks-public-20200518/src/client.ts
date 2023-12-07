@@ -9169,6 +9169,7 @@ export class GetInstanceStatusStatisticRequest extends $tea.Model {
   dagType?: string;
   projectEnv?: string;
   projectId?: number;
+  schedulerPeriod?: string;
   schedulerType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9176,6 +9177,7 @@ export class GetInstanceStatusStatisticRequest extends $tea.Model {
       dagType: 'DagType',
       projectEnv: 'ProjectEnv',
       projectId: 'ProjectId',
+      schedulerPeriod: 'SchedulerPeriod',
       schedulerType: 'SchedulerType',
     };
   }
@@ -9186,6 +9188,7 @@ export class GetInstanceStatusStatisticRequest extends $tea.Model {
       dagType: 'string',
       projectEnv: 'string',
       projectId: 'number',
+      schedulerPeriod: 'string',
       schedulerType: 'string',
     };
   }
@@ -15369,6 +15372,7 @@ export class ListInstancesRequest extends $tea.Model {
   endBizdate?: string;
   nodeId?: number;
   nodeName?: string;
+  orderBy?: string;
   owner?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -15385,6 +15389,7 @@ export class ListInstancesRequest extends $tea.Model {
       endBizdate: 'EndBizdate',
       nodeId: 'NodeId',
       nodeName: 'NodeName',
+      orderBy: 'OrderBy',
       owner: 'Owner',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -15404,6 +15409,7 @@ export class ListInstancesRequest extends $tea.Model {
       endBizdate: 'string',
       nodeId: 'number',
       nodeName: 'string',
+      orderBy: 'string',
       owner: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -42492,6 +42498,10 @@ export default class Client extends OpenApi {
       body["ProjectId"] = request.projectId;
     }
 
+    if (!Util.isUnset(request.schedulerPeriod)) {
+      body["SchedulerPeriod"] = request.schedulerPeriod;
+    }
+
     if (!Util.isUnset(request.schedulerType)) {
       body["SchedulerType"] = request.schedulerType;
     }
@@ -45578,6 +45588,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nodeName)) {
       body["NodeName"] = request.nodeName;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      body["OrderBy"] = request.orderBy;
     }
 
     if (!Util.isUnset(request.owner)) {
