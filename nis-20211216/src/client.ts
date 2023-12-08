@@ -9,7 +9,6 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateAndAnalyzeNetworkPathRequest extends $tea.Model {
-  auditParam?: string;
   protocol?: string;
   regionId?: string;
   sourceId?: string;
@@ -22,7 +21,6 @@ export class CreateAndAnalyzeNetworkPathRequest extends $tea.Model {
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
-      auditParam: 'AuditParam',
       protocol: 'Protocol',
       regionId: 'RegionId',
       sourceId: 'SourceId',
@@ -38,7 +36,6 @@ export class CreateAndAnalyzeNetworkPathRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      auditParam: 'string',
       protocol: 'string',
       regionId: 'string',
       sourceId: 'string',
@@ -136,6 +133,7 @@ export class CreateNetworkPathRequest extends $tea.Model {
   networkPathName?: string;
   protocol?: string;
   regionId?: string;
+  resourceGroupId?: string;
   sourceId?: string;
   sourceIpAddress?: string;
   sourcePort?: number;
@@ -151,6 +149,7 @@ export class CreateNetworkPathRequest extends $tea.Model {
       networkPathName: 'NetworkPathName',
       protocol: 'Protocol',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sourceId: 'SourceId',
       sourceIpAddress: 'SourceIpAddress',
       sourcePort: 'SourcePort',
@@ -169,6 +168,7 @@ export class CreateNetworkPathRequest extends $tea.Model {
       networkPathName: 'string',
       protocol: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       sourceId: 'string',
       sourceIpAddress: 'string',
       sourcePort: 'number',
@@ -234,13 +234,11 @@ export class CreateNetworkPathResponse extends $tea.Model {
 }
 
 export class CreateNetworkReachableAnalysisRequest extends $tea.Model {
-  auditParam?: string;
   networkPathId?: string;
   regionId?: string;
   tag?: CreateNetworkReachableAnalysisRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      auditParam: 'AuditParam',
       networkPathId: 'NetworkPathId',
       regionId: 'RegionId',
       tag: 'Tag',
@@ -249,7 +247,6 @@ export class CreateNetworkReachableAnalysisRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      auditParam: 'string',
       networkPathId: 'string',
       regionId: 'string',
       tag: { 'type': 'array', 'itemType': CreateNetworkReachableAnalysisRequestTag },
@@ -485,7 +482,7 @@ export class DeleteNetworkReachableAnalysisResponse extends $tea.Model {
 }
 
 export class GetInternetTupleRequest extends $tea.Model {
-  accountIds?: string[];
+  accountIds?: number[];
   beginTime?: number;
   cloudIp?: string;
   cloudIsp?: string;
@@ -534,7 +531,7 @@ export class GetInternetTupleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accountIds: { 'type': 'array', 'itemType': 'string' },
+      accountIds: { 'type': 'array', 'itemType': 'number' },
       beginTime: 'number',
       cloudIp: 'string',
       cloudIsp: 'string',
@@ -564,7 +561,7 @@ export class GetInternetTupleRequest extends $tea.Model {
 }
 
 export class GetInternetTupleShrinkRequest extends $tea.Model {
-  accountIds?: string[];
+  accountIds?: number[];
   beginTime?: number;
   cloudIp?: string;
   cloudIsp?: string;
@@ -613,7 +610,7 @@ export class GetInternetTupleShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accountIds: { 'type': 'array', 'itemType': 'string' },
+      accountIds: { 'type': 'array', 'itemType': 'number' },
       beginTime: 'number',
       cloudIp: 'string',
       cloudIsp: 'string',
@@ -867,7 +864,7 @@ export class GetNetworkReachableAnalysisResponse extends $tea.Model {
 }
 
 export class GetTransitRouterFlowTopNRequest extends $tea.Model {
-  accountIds?: string[];
+  accountIds?: number[];
   bandwithPackageId?: string;
   beginTime?: number;
   cenId?: string;
@@ -910,7 +907,7 @@ export class GetTransitRouterFlowTopNRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accountIds: { 'type': 'array', 'itemType': 'string' },
+      accountIds: { 'type': 'array', 'itemType': 'number' },
       bandwithPackageId: 'string',
       beginTime: 'number',
       cenId: 'string',
@@ -1054,7 +1051,7 @@ export class GetTransitRouterFlowTopNResponse extends $tea.Model {
 }
 
 export class GetVbrFlowTopNRequest extends $tea.Model {
-  accountIds?: string[];
+  accountIds?: number[];
   attachmentId?: string;
   beginTime?: number;
   cenId?: string;
@@ -1097,7 +1094,7 @@ export class GetVbrFlowTopNRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accountIds: { 'type': 'array', 'itemType': 'string' },
+      accountIds: { 'type': 'array', 'itemType': 'number' },
       attachmentId: 'string',
       beginTime: 'number',
       cenId: 'string',
@@ -1315,7 +1312,7 @@ export class GetInternetTupleResponseBodyData extends $tea.Model {
   outRetranCount?: number;
   packetCount?: number;
   protocol?: string;
-  retranCount?: number;
+  retransmitRate?: number;
   rtt?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1349,7 +1346,7 @@ export class GetInternetTupleResponseBodyData extends $tea.Model {
       outRetranCount: 'OutRetranCount',
       packetCount: 'PacketCount',
       protocol: 'Protocol',
-      retranCount: 'RetranCount',
+      retransmitRate: 'RetransmitRate',
       rtt: 'Rtt',
     };
   }
@@ -1386,7 +1383,7 @@ export class GetInternetTupleResponseBodyData extends $tea.Model {
       outRetranCount: 'number',
       packetCount: 'number',
       protocol: 'string',
-      retranCount: 'number',
+      retransmitRate: 'number',
       rtt: 'number',
     };
   }
@@ -1634,6 +1631,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.sourceId)) {
       query["SourceId"] = request.sourceId;
     }
@@ -1711,10 +1712,6 @@ export default class Client extends OpenApi {
   async createNetworkReachableAnalysisWithOptions(request: CreateNetworkReachableAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkReachableAnalysisResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.auditParam)) {
-      query["AuditParam"] = request.auditParam;
-    }
-
     if (!Util.isUnset(request.networkPathId)) {
       query["NetworkPathId"] = request.networkPathId;
     }
