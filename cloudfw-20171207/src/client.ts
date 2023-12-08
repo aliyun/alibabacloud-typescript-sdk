@@ -5431,6 +5431,7 @@ export class ModifyNatFirewallControlPolicyRequest extends $tea.Model {
   destPortType?: string;
   destination?: string;
   destinationType?: string;
+  direction?: string;
   domainResolveType?: string;
   endTime?: number;
   lang?: string;
@@ -5455,6 +5456,7 @@ export class ModifyNatFirewallControlPolicyRequest extends $tea.Model {
       destPortType: 'DestPortType',
       destination: 'Destination',
       destinationType: 'DestinationType',
+      direction: 'Direction',
       domainResolveType: 'DomainResolveType',
       endTime: 'EndTime',
       lang: 'Lang',
@@ -5482,6 +5484,7 @@ export class ModifyNatFirewallControlPolicyRequest extends $tea.Model {
       destPortType: 'string',
       destination: 'string',
       destinationType: 'string',
+      direction: 'string',
       domainResolveType: 'string',
       endTime: 'number',
       lang: 'string',
@@ -5549,12 +5552,14 @@ export class ModifyNatFirewallControlPolicyResponse extends $tea.Model {
 
 export class ModifyNatFirewallControlPolicyPositionRequest extends $tea.Model {
   aclUuid?: string;
+  direction?: string;
   lang?: string;
   natGatewayId?: string;
   newOrder?: number;
   static names(): { [key: string]: string } {
     return {
       aclUuid: 'AclUuid',
+      direction: 'Direction',
       lang: 'Lang',
       natGatewayId: 'NatGatewayId',
       newOrder: 'NewOrder',
@@ -5564,6 +5569,7 @@ export class ModifyNatFirewallControlPolicyPositionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aclUuid: 'string',
+      direction: 'string',
       lang: 'string',
       natGatewayId: 'string',
       newOrder: 'number',
@@ -8514,12 +8520,14 @@ export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $te
   aclGroupId?: string;
   aclGroupName?: string;
   aclRuleCount?: number;
+  isDefault?: boolean;
   memberUid?: string;
   static names(): { [key: string]: string } {
     return {
       aclGroupId: 'AclGroupId',
       aclGroupName: 'AclGroupName',
       aclRuleCount: 'AclRuleCount',
+      isDefault: 'IsDefault',
       memberUid: 'MemberUid',
     };
   }
@@ -8529,6 +8537,7 @@ export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $te
       aclGroupId: 'string',
       aclGroupName: 'string',
       aclRuleCount: 'number',
+      isDefault: 'boolean',
       memberUid: 'string',
     };
   }
@@ -12620,10 +12629,6 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.lang)) {
-      query["Lang"] = request.lang;
-    }
-
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -13731,6 +13736,10 @@ export default class Client extends OpenApi {
       query["DestinationType"] = request.destinationType;
     }
 
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
     if (!Util.isUnset(request.domainResolveType)) {
       query["DomainResolveType"] = request.domainResolveType;
     }
@@ -13816,6 +13825,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.aclUuid)) {
       query["AclUuid"] = request.aclUuid;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
     }
 
     if (!Util.isUnset(request.lang)) {
