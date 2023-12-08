@@ -5041,25 +5041,19 @@ export class DescribeDcdnDomainLogExTtlRequest extends $tea.Model {
 }
 
 export class DescribeDcdnDomainLogExTtlResponseBody extends $tea.Model {
-  maxResults?: number;
-  nextToken?: string;
+  domainLogDetails?: DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetails;
   requestId?: string;
-  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
+      domainLogDetails: 'DomainLogDetails',
       requestId: 'RequestId',
-      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'number',
-      nextToken: 'string',
+      domainLogDetails: DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetails,
       requestId: 'string',
-      totalCount: 'number',
     };
   }
 
@@ -18164,6 +18158,128 @@ export class DescribeDcdnDomainLogResponseBodyDomainLogDetails extends $tea.Mode
   }
 }
 
+export class DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail extends $tea.Model {
+  endTime?: string;
+  logName?: string;
+  logPath?: string;
+  logSize?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      logName: 'LogName',
+      logPath: 'LogPath',
+      logSize: 'LogSize',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      logName: 'string',
+      logPath: 'string',
+      logSize: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfos extends $tea.Model {
+  logInfoDetail?: DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail[];
+  static names(): { [key: string]: string } {
+    return {
+      logInfoDetail: 'LogInfoDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logInfoDetail: { 'type': 'array', 'itemType': DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetailsDomainLogDetailPageInfos extends $tea.Model {
+  pageIndex?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageIndex: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetailsDomainLogDetail extends $tea.Model {
+  domainName?: string;
+  logCount?: number;
+  logInfos?: DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfos;
+  pageInfos?: DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetailsDomainLogDetailPageInfos;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      logCount: 'LogCount',
+      logInfos: 'LogInfos',
+      pageInfos: 'PageInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      logCount: 'number',
+      logInfos: DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfos,
+      pageInfos: DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetailsDomainLogDetailPageInfos,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetails extends $tea.Model {
+  domainLogDetail?: DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetailsDomainLogDetail[];
+  static names(): { [key: string]: string } {
+    return {
+      domainLogDetail: 'DomainLogDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainLogDetail: { 'type': 'array', 'itemType': DescribeDcdnDomainLogExTtlResponseBodyDomainLogDetailsDomainLogDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnDomainMultiUsageDataResponseBodyRequestPerIntervalRequestDataModule extends $tea.Model {
   domain?: string;
   request?: number;
@@ -23538,8 +23654,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   You can specify up to 50 domain names in each request.
-    * >*   You can call this operation up to 30 times per second per account.
+    * *   You can specify up to 50 domain names in each request. Separate multiple domain names with commas (,).
+    * *   You can call this operation up to 30 times per second per account.
     *
     * @param request BatchSetDcdnDomainConfigsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23586,8 +23702,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   You can specify up to 50 domain names in each request.
-    * >*   You can call this operation up to 30 times per second per account.
+    * *   You can specify up to 50 domain names in each request. Separate multiple domain names with commas (,).
+    * *   You can call this operation up to 30 times per second per account.
     *
     * @param request BatchSetDcdnDomainConfigsRequest
     * @return BatchSetDcdnDomainConfigsResponse
@@ -24032,9 +24148,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   This operation allows you to customize an operations report for a specific domain name. You can view the statistics about the domain name in the report.
-    * *   You can call this operation up to three times per second per account.
+    * **
+    * ****
+    * *
+    * *
     *
     * @param request CreateDcdnSubTaskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24069,9 +24186,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   This operation allows you to customize an operations report for a specific domain name. You can view the statistics about the domain name in the report.
-    * *   You can call this operation up to three times per second per account.
+    * **
+    * ****
+    * *
+    * *
     *
     * @param request CreateDcdnSubTaskRequest
     * @return CreateDcdnSubTaskResponse
@@ -24175,10 +24293,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   The parameters must comply with the rules of EnvConf. The description of a routine cannot exceed 50 characters in length.
-    * *   You can only specify the production and staging environments when you call this operation.
-    * *   You can call this operation up to 100 times per second.
+    * > *   The parameters must comply with the rules of EnvConf. The description of a routine cannot exceed 50 characters in length.
+    * >*   You can only specify the production and staging environments when you call this operation.
+    * >*   You can call this operation up to 100 times per second per account.
     *
     * @param tmpReq CreateRoutineRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24223,10 +24340,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   The parameters must comply with the rules of EnvConf. The description of a routine cannot exceed 50 characters in length.
-    * *   You can only specify the production and staging environments when you call this operation.
-    * *   You can call this operation up to 100 times per second.
+    * > *   The parameters must comply with the rules of EnvConf. The description of a routine cannot exceed 50 characters in length.
+    * >*   You can only specify the production and staging environments when you call this operation.
+    * >*   You can call this operation up to 100 times per second per account.
     *
     * @param request CreateRoutineRequest
     * @return CreateRoutineResponse
@@ -25408,8 +25524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * **You can call this operation up to three times per second.
+    * >You can call this operation up to three times per second.
     *
     * @param request DescribeDcdnDeliverListRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25440,8 +25555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * **You can call this operation up to three times per second.
+    * >You can call this operation up to three times per second.
     *
     * @param request DescribeDcdnDeliverListRequest
     * @return DescribeDcdnDeliverListResponse
@@ -29013,7 +29127,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
     * *   You can query the refresh or prefetch tasks by ID or URL.
     * *   You can set both **TaskId** and **ObjectPath** in a request. If you do not set **TaskId** or **ObjectPath**, the data in the last 3 days on the first page is returned. By default, a maximum of 20 entries can be displayed on each page.
     * *   If you specify **DomainName** or **Status**, you must also specify **ObjectType**.
@@ -29088,7 +29201,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
     * *   You can query the refresh or prefetch tasks by ID or URL.
     * *   You can set both **TaskId** and **ObjectPath** in a request. If you do not set **TaskId** or **ObjectPath**, the data in the last 3 days on the first page is returned. By default, a maximum of 20 entries can be displayed on each page.
     * *   If you specify **DomainName** or **Status**, you must also specify **ObjectType**.
@@ -33630,7 +33742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The parameters that specify the time interval at which the tracking task sends operations reports. The settings must be escaped in JSON.
+    * > You can call this operation up to three times per second per account.
     *
     * @param request UpdateDcdnDeliverTaskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -33681,7 +33793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The parameters that specify the time interval at which the tracking task sends operations reports. The settings must be escaped in JSON.
+    * > You can call this operation up to three times per second per account.
     *
     * @param request UpdateDcdnDeliverTaskRequest
     * @return UpdateDcdnDeliverTaskResponse
