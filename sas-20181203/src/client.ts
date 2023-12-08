@@ -4812,14 +4812,18 @@ export class CreateOrUpdateDingTalkResponse extends $tea.Model {
 }
 
 export class CreateOssBucketScanTaskRequest extends $tea.Model {
+  allKeyPrefix?: boolean;
   bucketNameList?: string[];
   excludeKeySuffixList?: string[];
+  keyPrefixList?: string[];
   keySuffixList?: string[];
   scanMode?: number;
   static names(): { [key: string]: string } {
     return {
+      allKeyPrefix: 'AllKeyPrefix',
       bucketNameList: 'BucketNameList',
       excludeKeySuffixList: 'ExcludeKeySuffixList',
+      keyPrefixList: 'KeyPrefixList',
       keySuffixList: 'KeySuffixList',
       scanMode: 'ScanMode',
     };
@@ -4827,8 +4831,10 @@ export class CreateOssBucketScanTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allKeyPrefix: 'boolean',
       bucketNameList: { 'type': 'array', 'itemType': 'string' },
       excludeKeySuffixList: { 'type': 'array', 'itemType': 'string' },
+      keyPrefixList: { 'type': 'array', 'itemType': 'string' },
       keySuffixList: { 'type': 'array', 'itemType': 'string' },
       scanMode: 'number',
     };
@@ -4884,18 +4890,24 @@ export class CreateOssBucketScanTaskResponse extends $tea.Model {
 }
 
 export class CreateOssScanConfigRequest extends $tea.Model {
+  allKeyPrefix?: boolean;
   bucketNameList?: string[];
   enable?: number;
   endTime?: string;
+  keyPrefixList?: string[];
   keySuffixList?: string[];
+  name?: string;
   scanDayList?: number[];
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      allKeyPrefix: 'AllKeyPrefix',
       bucketNameList: 'BucketNameList',
       enable: 'Enable',
       endTime: 'EndTime',
+      keyPrefixList: 'KeyPrefixList',
       keySuffixList: 'KeySuffixList',
+      name: 'Name',
       scanDayList: 'ScanDayList',
       startTime: 'StartTime',
     };
@@ -4903,10 +4915,13 @@ export class CreateOssScanConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allKeyPrefix: 'boolean',
       bucketNameList: { 'type': 'array', 'itemType': 'string' },
       enable: 'number',
       endTime: 'string',
+      keyPrefixList: { 'type': 'array', 'itemType': 'string' },
       keySuffixList: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
       scanDayList: { 'type': 'array', 'itemType': 'number' },
       startTime: 'string',
     };
@@ -4918,15 +4933,18 @@ export class CreateOssScanConfigRequest extends $tea.Model {
 }
 
 export class CreateOssScanConfigResponseBody extends $tea.Model {
+  id?: number;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      id: 'Id',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      id: 'number',
       requestId: 'string',
     };
   }
@@ -10577,25 +10595,31 @@ export class DescribeCheckFixDetailsResponse extends $tea.Model {
 }
 
 export class DescribeCheckWarningDetailRequest extends $tea.Model {
+  checkId?: string;
   checkWarningId?: number;
   lang?: string;
   resourceDirectoryAccountId?: number;
   sourceIp?: string;
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      checkId: 'CheckId',
       checkWarningId: 'CheckWarningId',
       lang: 'Lang',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
+      uuid: 'Uuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      checkId: 'string',
       checkWarningId: 'number',
       lang: 'string',
       resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
+      uuid: 'string',
     };
   }
 
@@ -32554,6 +32578,28 @@ export class GetOssBucketScanStatisticResponse extends $tea.Model {
   }
 }
 
+export class GetOssScanConfigRequest extends $tea.Model {
+  bucketName?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOssScanConfigResponseBody extends $tea.Model {
   data?: GetOssScanConfigResponseBodyData;
   requestId?: string;
@@ -33752,6 +33798,7 @@ export class HandleSimilarSecurityEventsResponse extends $tea.Model {
 
 export class IgnoreCheckItemsRequest extends $tea.Model {
   checkAndRiskTypeList?: IgnoreCheckItemsRequestCheckAndRiskTypeList[];
+  checkIds?: number[];
   lang?: string;
   reason?: string;
   source?: string;
@@ -33760,6 +33807,7 @@ export class IgnoreCheckItemsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       checkAndRiskTypeList: 'CheckAndRiskTypeList',
+      checkIds: 'CheckIds',
       lang: 'Lang',
       reason: 'Reason',
       source: 'Source',
@@ -33771,6 +33819,7 @@ export class IgnoreCheckItemsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       checkAndRiskTypeList: { 'type': 'array', 'itemType': IgnoreCheckItemsRequestCheckAndRiskTypeList },
+      checkIds: { 'type': 'array', 'itemType': 'number' },
       lang: 'string',
       reason: 'string',
       source: 'string',
@@ -35521,6 +35570,7 @@ export class ListCheckItemWarningMachineRequest extends $tea.Model {
   riskType?: string;
   source?: string;
   status?: number;
+  uuidList?: string[];
   static names(): { [key: string]: string } {
     return {
       checkId: 'CheckId',
@@ -35534,6 +35584,7 @@ export class ListCheckItemWarningMachineRequest extends $tea.Model {
       riskType: 'RiskType',
       source: 'Source',
       status: 'Status',
+      uuidList: 'UuidList',
     };
   }
 
@@ -35550,6 +35601,7 @@ export class ListCheckItemWarningMachineRequest extends $tea.Model {
       riskType: 'string',
       source: 'string',
       status: 'number',
+      uuidList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -35907,6 +35959,8 @@ export class ListCheckTypesRequest extends $tea.Model {
   lang?: string;
   pageSize?: number;
   riskId?: number;
+  showChecks?: boolean;
+  source?: string;
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35914,6 +35968,8 @@ export class ListCheckTypesRequest extends $tea.Model {
       lang: 'Lang',
       pageSize: 'PageSize',
       riskId: 'RiskId',
+      showChecks: 'ShowChecks',
+      source: 'Source',
       uuid: 'Uuid',
     };
   }
@@ -35924,6 +35980,8 @@ export class ListCheckTypesRequest extends $tea.Model {
       lang: 'string',
       pageSize: 'number',
       riskId: 'number',
+      showChecks: 'boolean',
+      source: 'string',
       uuid: 'string',
     };
   }
@@ -51691,18 +51749,26 @@ export class UpdateOpaStrategyNewResponse extends $tea.Model {
 }
 
 export class UpdateOssScanConfigRequest extends $tea.Model {
+  allKeyPrefix?: boolean;
   bucketNameList?: string[];
   enable?: number;
   endTime?: string;
+  id?: string;
+  keyPrefixList?: string[];
   keySuffixList?: string[];
+  name?: string;
   scanDayList?: number[];
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      allKeyPrefix: 'AllKeyPrefix',
       bucketNameList: 'BucketNameList',
       enable: 'Enable',
       endTime: 'EndTime',
+      id: 'Id',
+      keyPrefixList: 'KeyPrefixList',
       keySuffixList: 'KeySuffixList',
+      name: 'Name',
       scanDayList: 'ScanDayList',
       startTime: 'StartTime',
     };
@@ -51710,10 +51776,14 @@ export class UpdateOssScanConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allKeyPrefix: 'boolean',
       bucketNameList: { 'type': 'array', 'itemType': 'string' },
       enable: 'number',
       endTime: 'string',
+      id: 'string',
+      keyPrefixList: { 'type': 'array', 'itemType': 'string' },
       keySuffixList: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
       scanDayList: { 'type': 'array', 'itemType': 'number' },
       startTime: 'string',
     };
@@ -63037,12 +63107,14 @@ export class DescribeStrategyDetailResponseBodyStrategyRiskTypeWhiteListQueryRes
   alias?: string;
   checkDetails?: DescribeStrategyDetailResponseBodyStrategyRiskTypeWhiteListQueryResultListSubTypesCheckDetails[];
   on?: boolean;
+  supportedOs?: string;
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
       alias: 'Alias',
       checkDetails: 'CheckDetails',
       on: 'On',
+      supportedOs: 'SupportedOs',
       typeName: 'TypeName',
     };
   }
@@ -63052,6 +63124,7 @@ export class DescribeStrategyDetailResponseBodyStrategyRiskTypeWhiteListQueryRes
       alias: 'string',
       checkDetails: { 'type': 'array', 'itemType': DescribeStrategyDetailResponseBodyStrategyRiskTypeWhiteListQueryResultListSubTypesCheckDetails },
       on: 'boolean',
+      supportedOs: 'string',
       typeName: 'string',
     };
   }
@@ -69198,18 +69271,32 @@ export class GetOssBucketScanStatisticResponseBodyData extends $tea.Model {
 }
 
 export class GetOssScanConfigResponseBodyData extends $tea.Model {
+  allKeyPrefix?: boolean;
+  bucketCount?: number;
+  bucketName?: string;
   bucketNameList?: string[];
   enable?: number;
   endTime?: string;
+  id?: string;
+  keyPrefixList?: string[];
   keySuffixList?: string[];
+  lastUpdateTime?: number;
+  name?: string;
   scanDayList?: number[];
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      allKeyPrefix: 'AllKeyPrefix',
+      bucketCount: 'BucketCount',
+      bucketName: 'BucketName',
       bucketNameList: 'BucketNameList',
       enable: 'Enable',
       endTime: 'EndTime',
+      id: 'Id',
+      keyPrefixList: 'KeyPrefixList',
       keySuffixList: 'KeySuffixList',
+      lastUpdateTime: 'LastUpdateTime',
+      name: 'Name',
       scanDayList: 'ScanDayList',
       startTime: 'StartTime',
     };
@@ -69217,10 +69304,17 @@ export class GetOssScanConfigResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allKeyPrefix: 'boolean',
+      bucketCount: 'number',
+      bucketName: 'string',
       bucketNameList: { 'type': 'array', 'itemType': 'string' },
       enable: 'number',
       endTime: 'string',
+      id: 'string',
+      keyPrefixList: { 'type': 'array', 'itemType': 'string' },
       keySuffixList: { 'type': 'array', 'itemType': 'string' },
+      lastUpdateTime: 'number',
+      name: 'string',
       scanDayList: { 'type': 'array', 'itemType': 'number' },
       startTime: 'string',
     };
@@ -70954,10 +71048,12 @@ export class ListCheckItemWarningMachineResponseBodyList extends $tea.Model {
   containerId?: string;
   containerName?: string;
   fixList?: ListCheckItemWarningMachineResponseBodyListFixList[];
+  fixStatus?: number;
   instanceId?: string;
   instanceName?: string;
   internetIp?: string;
   intranetIp?: string;
+  lastHandleTime?: number;
   lastScanTime?: number;
   portOpen?: boolean;
   prompt?: string;
@@ -70975,10 +71071,12 @@ export class ListCheckItemWarningMachineResponseBodyList extends $tea.Model {
       containerId: 'ContainerId',
       containerName: 'ContainerName',
       fixList: 'FixList',
+      fixStatus: 'FixStatus',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       internetIp: 'InternetIp',
       intranetIp: 'IntranetIp',
+      lastHandleTime: 'LastHandleTime',
       lastScanTime: 'LastScanTime',
       portOpen: 'PortOpen',
       prompt: 'Prompt',
@@ -70999,10 +71097,12 @@ export class ListCheckItemWarningMachineResponseBodyList extends $tea.Model {
       containerId: 'string',
       containerName: 'string',
       fixList: { 'type': 'array', 'itemType': ListCheckItemWarningMachineResponseBodyListFixList },
+      fixStatus: 'number',
       instanceId: 'string',
       instanceName: 'string',
       internetIp: 'string',
       intranetIp: 'string',
+      lastHandleTime: 'number',
       lastScanTime: 'number',
       portOpen: 'boolean',
       prompt: 'string',
@@ -71302,11 +71402,41 @@ export class ListCheckStandardResponseBodyStandards extends $tea.Model {
   }
 }
 
+export class ListCheckTypesResponseBodyDataCheckDetails extends $tea.Model {
+  affiliatedRiskTypes?: string[];
+  affiliatedRisks?: string[];
+  checkId?: number;
+  checkItem?: string;
+  static names(): { [key: string]: string } {
+    return {
+      affiliatedRiskTypes: 'AffiliatedRiskTypes',
+      affiliatedRisks: 'AffiliatedRisks',
+      checkId: 'CheckId',
+      checkItem: 'CheckItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      affiliatedRiskTypes: { 'type': 'array', 'itemType': 'string' },
+      affiliatedRisks: { 'type': 'array', 'itemType': 'string' },
+      checkId: 'number',
+      checkItem: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCheckTypesResponseBodyData extends $tea.Model {
+  checkDetails?: ListCheckTypesResponseBodyDataCheckDetails[];
   checkType?: string;
   checkTypeDisName?: string;
   static names(): { [key: string]: string } {
     return {
+      checkDetails: 'CheckDetails',
       checkType: 'CheckType',
       checkTypeDisName: 'CheckTypeDisName',
     };
@@ -71314,6 +71444,7 @@ export class ListCheckTypesResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      checkDetails: { 'type': 'array', 'itemType': ListCheckTypesResponseBodyDataCheckDetails },
       checkType: 'string',
       checkTypeDisName: 'string',
     };
@@ -74016,6 +74147,7 @@ export class ListOssBucketResponseBodyData extends $tea.Model {
   regionId?: string;
   storageClass?: string;
   support?: boolean;
+  supportConfig?: string;
   static names(): { [key: string]: string } {
     return {
       bucketName: 'BucketName',
@@ -74023,6 +74155,7 @@ export class ListOssBucketResponseBodyData extends $tea.Model {
       regionId: 'RegionId',
       storageClass: 'StorageClass',
       support: 'Support',
+      supportConfig: 'SupportConfig',
     };
   }
 
@@ -74033,6 +74166,7 @@ export class ListOssBucketResponseBodyData extends $tea.Model {
       regionId: 'string',
       storageClass: 'string',
       support: 'boolean',
+      supportConfig: 'string',
     };
   }
 
@@ -74043,6 +74177,7 @@ export class ListOssBucketResponseBodyData extends $tea.Model {
 
 export class ListOssBucketScanInfoResponseBodyData extends $tea.Model {
   bucketName?: string;
+  configStatus?: number;
   highRisk?: number;
   lastScanEndTime?: number;
   lastScanTime?: number;
@@ -74059,6 +74194,7 @@ export class ListOssBucketScanInfoResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       bucketName: 'BucketName',
+      configStatus: 'ConfigStatus',
       highRisk: 'HighRisk',
       lastScanEndTime: 'LastScanEndTime',
       lastScanTime: 'LastScanTime',
@@ -74078,6 +74214,7 @@ export class ListOssBucketScanInfoResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       bucketName: 'string',
+      configStatus: 'number',
       highRisk: 'number',
       lastScanEndTime: 'number',
       lastScanTime: 'number',
@@ -79984,12 +80121,20 @@ export default class Client extends OpenApi {
   async createOssBucketScanTaskWithOptions(request: CreateOssBucketScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateOssBucketScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.allKeyPrefix)) {
+      query["AllKeyPrefix"] = request.allKeyPrefix;
+    }
+
     if (!Util.isUnset(request.bucketNameList)) {
       query["BucketNameList"] = request.bucketNameList;
     }
 
     if (!Util.isUnset(request.excludeKeySuffixList)) {
       query["ExcludeKeySuffixList"] = request.excludeKeySuffixList;
+    }
+
+    if (!Util.isUnset(request.keyPrefixList)) {
+      query["KeyPrefixList"] = request.keyPrefixList;
     }
 
     if (!Util.isUnset(request.keySuffixList)) {
@@ -80025,6 +80170,10 @@ export default class Client extends OpenApi {
   async createOssScanConfigWithOptions(request: CreateOssScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateOssScanConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.allKeyPrefix)) {
+      query["AllKeyPrefix"] = request.allKeyPrefix;
+    }
+
     if (!Util.isUnset(request.bucketNameList)) {
       query["BucketNameList"] = request.bucketNameList;
     }
@@ -80037,8 +80186,16 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
+    if (!Util.isUnset(request.keyPrefixList)) {
+      query["KeyPrefixList"] = request.keyPrefixList;
+    }
+
     if (!Util.isUnset(request.keySuffixList)) {
       query["KeySuffixList"] = request.keySuffixList;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
     }
 
     if (!Util.isUnset(request.scanDayList)) {
@@ -82964,6 +83121,10 @@ export default class Client extends OpenApi {
   async describeCheckWarningDetailWithOptions(request: DescribeCheckWarningDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCheckWarningDetailResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.checkId)) {
+      query["CheckId"] = request.checkId;
+    }
+
     if (!Util.isUnset(request.checkWarningId)) {
       query["CheckWarningId"] = request.checkWarningId;
     }
@@ -82978,6 +83139,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -94491,8 +94656,20 @@ export default class Client extends OpenApi {
     return await this.getOssBucketScanStatisticWithOptions(request, runtime);
   }
 
-  async getOssScanConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<GetOssScanConfigResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  async getOssScanConfigWithOptions(request: GetOssScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetOssScanConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucketName)) {
+      query["BucketName"] = request.bucketName;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApi.Params({
       action: "GetOssScanConfig",
       version: "2018-12-03",
@@ -94507,9 +94684,9 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOssScanConfigResponse>(await this.callApi(params, req, runtime), new GetOssScanConfigResponse({}));
   }
 
-  async getOssScanConfig(): Promise<GetOssScanConfigResponse> {
+  async getOssScanConfig(request: GetOssScanConfigRequest): Promise<GetOssScanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getOssScanConfigWithOptions(runtime);
+    return await this.getOssScanConfigWithOptions(request, runtime);
   }
 
   async getPropertyScheduleConfigWithOptions(request: GetPropertyScheduleConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetPropertyScheduleConfigResponse> {
@@ -95050,6 +95227,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.checkAndRiskTypeList)) {
       query["CheckAndRiskTypeList"] = request.checkAndRiskTypeList;
+    }
+
+    if (!Util.isUnset(request.checkIds)) {
+      query["CheckIds"] = request.checkIds;
     }
 
     if (!Util.isUnset(request.lang)) {
@@ -96080,6 +96261,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -96326,6 +96511,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.riskId)) {
       query["RiskId"] = request.riskId;
+    }
+
+    if (!Util.isUnset(request.showChecks)) {
+      query["ShowChecks"] = request.showChecks;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
     }
 
     if (!Util.isUnset(request.uuid)) {
@@ -104653,6 +104846,10 @@ export default class Client extends OpenApi {
   async updateOssScanConfigWithOptions(request: UpdateOssScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOssScanConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.allKeyPrefix)) {
+      query["AllKeyPrefix"] = request.allKeyPrefix;
+    }
+
     if (!Util.isUnset(request.bucketNameList)) {
       query["BucketNameList"] = request.bucketNameList;
     }
@@ -104665,8 +104862,20 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.keyPrefixList)) {
+      query["KeyPrefixList"] = request.keyPrefixList;
+    }
+
     if (!Util.isUnset(request.keySuffixList)) {
       query["KeySuffixList"] = request.keySuffixList;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
     }
 
     if (!Util.isUnset(request.scanDayList)) {
