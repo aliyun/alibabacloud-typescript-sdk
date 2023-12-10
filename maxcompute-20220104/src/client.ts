@@ -561,10 +561,16 @@ export class GetPackageRequest extends $tea.Model {
 
 export class GetPackageResponseBody extends $tea.Model {
   data?: GetPackageResponseBodyData;
+  errorCode?: string;
+  errorMsg?: string;
+  httpCode?: number;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      httpCode: 'httpCode',
       requestId: 'requestId',
     };
   }
@@ -572,6 +578,9 @@ export class GetPackageResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: GetPackageResponseBodyData,
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpCode: 'number',
       requestId: 'string',
     };
   }
@@ -937,10 +946,16 @@ export class GetQuotaScheduleResponse extends $tea.Model {
 
 export class GetRoleAclResponseBody extends $tea.Model {
   data?: GetRoleAclResponseBodyData;
+  errorCode?: string;
+  errorMsg?: string;
+  httpCode?: number;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      httpCode: 'httpCode',
       requestId: 'requestId',
     };
   }
@@ -948,6 +963,9 @@ export class GetRoleAclResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: GetRoleAclResponseBodyData,
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpCode: 'number',
       requestId: 'string',
     };
   }
@@ -2541,10 +2559,12 @@ export class GetPackageResponseBodyDataAllowedProjectList extends $tea.Model {
 export class GetPackageResponseBodyDataResourceListFunction extends $tea.Model {
   actions?: string[];
   name?: string;
+  schemaName?: string;
   static names(): { [key: string]: string } {
     return {
       actions: 'actions',
       name: 'name',
+      schemaName: 'schemaName',
     };
   }
 
@@ -2552,6 +2572,7 @@ export class GetPackageResponseBodyDataResourceListFunction extends $tea.Model {
     return {
       actions: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      schemaName: 'string',
     };
   }
 
@@ -2563,10 +2584,12 @@ export class GetPackageResponseBodyDataResourceListFunction extends $tea.Model {
 export class GetPackageResponseBodyDataResourceListResource extends $tea.Model {
   actions?: string[];
   name?: string;
+  schemaName?: string;
   static names(): { [key: string]: string } {
     return {
       actions: 'actions',
       name: 'name',
+      schemaName: 'schemaName',
     };
   }
 
@@ -2574,6 +2597,7 @@ export class GetPackageResponseBodyDataResourceListResource extends $tea.Model {
     return {
       actions: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      schemaName: 'string',
     };
   }
 
@@ -2585,10 +2609,12 @@ export class GetPackageResponseBodyDataResourceListResource extends $tea.Model {
 export class GetPackageResponseBodyDataResourceListTable extends $tea.Model {
   actions?: string[];
   name?: string;
+  schemaName?: string;
   static names(): { [key: string]: string } {
     return {
       actions: 'actions',
       name: 'name',
+      schemaName: 'schemaName',
     };
   }
 
@@ -2596,6 +2622,7 @@ export class GetPackageResponseBodyDataResourceListTable extends $tea.Model {
     return {
       actions: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      schemaName: 'string',
     };
   }
 
@@ -2909,6 +2936,7 @@ export class GetProjectResponseBodyData extends $tea.Model {
   saleTag?: GetProjectResponseBodyDataSaleTag;
   securityProperties?: GetProjectResponseBodyDataSecurityProperties;
   status?: string;
+  superAdmins?: string[];
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2923,6 +2951,7 @@ export class GetProjectResponseBodyData extends $tea.Model {
       saleTag: 'saleTag',
       securityProperties: 'securityProperties',
       status: 'status',
+      superAdmins: 'superAdmins',
       type: 'type',
     };
   }
@@ -2940,6 +2969,7 @@ export class GetProjectResponseBodyData extends $tea.Model {
       saleTag: GetProjectResponseBodyDataSaleTag,
       securityProperties: GetProjectResponseBodyDataSecurityProperties,
       status: 'string',
+      superAdmins: { 'type': 'array', 'itemType': 'string' },
       type: 'string',
     };
   }
@@ -3840,10 +3870,12 @@ export class GetQuotaScheduleResponseBodyData extends $tea.Model {
 export class GetRoleAclResponseBodyDataFunction extends $tea.Model {
   actions?: string[];
   name?: string;
+  schemaName?: string;
   static names(): { [key: string]: string } {
     return {
       actions: 'actions',
       name: 'name',
+      schemaName: 'schemaName',
     };
   }
 
@@ -3851,6 +3883,7 @@ export class GetRoleAclResponseBodyDataFunction extends $tea.Model {
     return {
       actions: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      schemaName: 'string',
     };
   }
 
@@ -3862,10 +3895,12 @@ export class GetRoleAclResponseBodyDataFunction extends $tea.Model {
 export class GetRoleAclResponseBodyDataInstance extends $tea.Model {
   actions?: string[];
   name?: string;
+  schemaName?: string;
   static names(): { [key: string]: string } {
     return {
       actions: 'actions',
       name: 'name',
+      schemaName: 'schemaName',
     };
   }
 
@@ -3873,6 +3908,7 @@ export class GetRoleAclResponseBodyDataInstance extends $tea.Model {
     return {
       actions: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      schemaName: 'string',
     };
   }
 
@@ -3884,10 +3920,12 @@ export class GetRoleAclResponseBodyDataInstance extends $tea.Model {
 export class GetRoleAclResponseBodyDataPackage extends $tea.Model {
   actions?: string[];
   name?: string;
+  schemaName?: string;
   static names(): { [key: string]: string } {
     return {
       actions: 'actions',
       name: 'name',
+      schemaName: 'schemaName',
     };
   }
 
@@ -3895,6 +3933,7 @@ export class GetRoleAclResponseBodyDataPackage extends $tea.Model {
     return {
       actions: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      schemaName: 'string',
     };
   }
 
@@ -3906,10 +3945,12 @@ export class GetRoleAclResponseBodyDataPackage extends $tea.Model {
 export class GetRoleAclResponseBodyDataProject extends $tea.Model {
   actions?: string[];
   name?: string;
+  schemaName?: string;
   static names(): { [key: string]: string } {
     return {
       actions: 'actions',
       name: 'name',
+      schemaName: 'schemaName',
     };
   }
 
@@ -3917,6 +3958,7 @@ export class GetRoleAclResponseBodyDataProject extends $tea.Model {
     return {
       actions: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      schemaName: 'string',
     };
   }
 
@@ -3928,10 +3970,12 @@ export class GetRoleAclResponseBodyDataProject extends $tea.Model {
 export class GetRoleAclResponseBodyDataResource extends $tea.Model {
   actions?: string[];
   name?: string;
+  schemaName?: string;
   static names(): { [key: string]: string } {
     return {
       actions: 'actions',
       name: 'name',
+      schemaName: 'schemaName',
     };
   }
 
@@ -3939,6 +3983,7 @@ export class GetRoleAclResponseBodyDataResource extends $tea.Model {
     return {
       actions: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      schemaName: 'string',
     };
   }
 
@@ -3950,10 +3995,12 @@ export class GetRoleAclResponseBodyDataResource extends $tea.Model {
 export class GetRoleAclResponseBodyDataTable extends $tea.Model {
   actions?: string[];
   name?: string;
+  schemaName?: string;
   static names(): { [key: string]: string } {
     return {
       actions: 'actions',
       name: 'name',
+      schemaName: 'schemaName',
     };
   }
 
@@ -3961,6 +4008,7 @@ export class GetRoleAclResponseBodyDataTable extends $tea.Model {
     return {
       actions: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      schemaName: 'string',
     };
   }
 
