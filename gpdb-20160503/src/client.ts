@@ -2147,6 +2147,7 @@ export class DescribeDBClusterPerformanceRequest extends $tea.Model {
   key?: string;
   nodeType?: string;
   nodes?: string;
+  resourceGroupName?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2155,6 +2156,7 @@ export class DescribeDBClusterPerformanceRequest extends $tea.Model {
       key: 'Key',
       nodeType: 'NodeType',
       nodes: 'Nodes',
+      resourceGroupName: 'ResourceGroupName',
       startTime: 'StartTime',
     };
   }
@@ -2166,6 +2168,7 @@ export class DescribeDBClusterPerformanceRequest extends $tea.Model {
       key: 'string',
       nodeType: 'string',
       nodes: 'string',
+      resourceGroupName: 'string',
       startTime: 'string',
     };
   }
@@ -3226,6 +3229,7 @@ export class DescribeDBInstancesRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   tag?: DescribeDBInstancesRequestTag[];
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceCategories: 'DBInstanceCategories',
@@ -3241,6 +3245,7 @@ export class DescribeDBInstancesRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
+      vpcId: 'VpcId',
     };
   }
 
@@ -3259,6 +3264,7 @@ export class DescribeDBInstancesRequest extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': DescribeDBInstancesRequestTag },
+      vpcId: 'string',
     };
   }
 
@@ -3281,6 +3287,7 @@ export class DescribeDBInstancesShrinkRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   tag?: DescribeDBInstancesShrinkRequestTag[];
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceCategoriesShrink: 'DBInstanceCategories',
@@ -3296,6 +3303,7 @@ export class DescribeDBInstancesShrinkRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
+      vpcId: 'VpcId',
     };
   }
 
@@ -3314,6 +3322,7 @@ export class DescribeDBInstancesShrinkRequest extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': DescribeDBInstancesShrinkRequestTag },
+      vpcId: 'string',
     };
   }
 
@@ -14467,6 +14476,10 @@ export default class Client extends OpenApi {
       query["Nodes"] = request.nodes;
     }
 
+    if (!Util.isUnset(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
+    }
+
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -15204,6 +15217,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
