@@ -466,6 +466,7 @@ export class DescribeMfaDevicesResponse extends $tea.Model {
 }
 
 export class DescribeUsersRequest extends $tea.Model {
+  bizType?: string;
   endUserIds?: string[];
   excludeEndUserIds?: string[];
   filter?: string;
@@ -473,8 +474,10 @@ export class DescribeUsersRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   orgId?: string;
+  solutionId?: string;
   static names(): { [key: string]: string } {
     return {
+      bizType: 'BizType',
       endUserIds: 'EndUserIds',
       excludeEndUserIds: 'ExcludeEndUserIds',
       filter: 'Filter',
@@ -482,11 +485,13 @@ export class DescribeUsersRequest extends $tea.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       orgId: 'OrgId',
+      solutionId: 'SolutionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizType: 'string',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       excludeEndUserIds: { 'type': 'array', 'itemType': 'string' },
       filter: 'string',
@@ -494,6 +499,7 @@ export class DescribeUsersRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       orgId: 'string',
+      solutionId: 'string',
     };
   }
 
@@ -2318,6 +2324,7 @@ export class FilterUsersResponseBodyUsers extends $tea.Model {
   isTenantManager?: boolean;
   ownerType?: string;
   phone?: string;
+  realNickName?: string;
   remark?: string;
   status?: number;
   userSetPropertiesModels?: FilterUsersResponseBodyUsersUserSetPropertiesModels[];
@@ -2333,6 +2340,7 @@ export class FilterUsersResponseBodyUsers extends $tea.Model {
       isTenantManager: 'IsTenantManager',
       ownerType: 'OwnerType',
       phone: 'Phone',
+      realNickName: 'RealNickName',
       remark: 'Remark',
       status: 'Status',
       userSetPropertiesModels: 'UserSetPropertiesModels',
@@ -2351,6 +2359,7 @@ export class FilterUsersResponseBodyUsers extends $tea.Model {
       isTenantManager: 'boolean',
       ownerType: 'string',
       phone: 'string',
+      realNickName: 'string',
       remark: 'string',
       status: 'number',
       userSetPropertiesModels: { 'type': 'array', 'itemType': FilterUsersResponseBodyUsersUserSetPropertiesModels },
@@ -3075,6 +3084,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
     if (!Util.isUnset(request.endUserIds)) {
       body["EndUserIds"] = request.endUserIds;
     }
@@ -3089,6 +3102,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.orgId)) {
       body["OrgId"] = request.orgId;
+    }
+
+    if (!Util.isUnset(request.solutionId)) {
+      body["SolutionId"] = request.solutionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
