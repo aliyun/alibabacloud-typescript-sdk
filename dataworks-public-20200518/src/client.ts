@@ -33275,8 +33275,6 @@ export class ListEnabledExtensionsForProjectResponseBodyExtensions extends $tea.
   extensionCode?: string;
   extensionDesc?: string;
   extensionName?: string;
-  gmtCreate?: number;
-  gmtModified?: number;
   modifyUser?: string;
   owner?: string;
   parameterSetting?: string;
@@ -33287,8 +33285,6 @@ export class ListEnabledExtensionsForProjectResponseBodyExtensions extends $tea.
       extensionCode: 'ExtensionCode',
       extensionDesc: 'ExtensionDesc',
       extensionName: 'ExtensionName',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
       modifyUser: 'ModifyUser',
       owner: 'Owner',
       parameterSetting: 'ParameterSetting',
@@ -33302,8 +33298,6 @@ export class ListEnabledExtensionsForProjectResponseBodyExtensions extends $tea.
       extensionCode: 'string',
       extensionDesc: 'string',
       extensionName: 'string',
-      gmtCreate: 'number',
-      gmtModified: 'number',
       modifyUser: 'string',
       owner: 'string',
       parameterSetting: 'string',
