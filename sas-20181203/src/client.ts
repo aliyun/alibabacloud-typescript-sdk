@@ -7563,6 +7563,69 @@ export class DeleteOpaStrategyNewResponse extends $tea.Model {
   }
 }
 
+export class DeleteOssScanConfigRequest extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOssScanConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOssScanConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteOssScanConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteOssScanConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeletePrivateRegistryRequest extends $tea.Model {
   registryId?: number;
   static names(): { [key: string]: string } {
@@ -39261,6 +39324,81 @@ export class ListOssBucketScanInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListOssBucketScanInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssScanConfigRequest extends $tea.Model {
+  currentPage?: number;
+  name?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      name: 'Name',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      name: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssScanConfigResponseBody extends $tea.Model {
+  data?: ListOssScanConfigResponseBodyData[];
+  pageInfo?: ListOssScanConfigResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListOssScanConfigResponseBodyData },
+      pageInfo: ListOssScanConfigResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssScanConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListOssScanConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListOssScanConfigResponseBody,
     };
   }
 
@@ -74261,6 +74399,83 @@ export class ListOssBucketScanInfoResponseBodyPageInfo extends $tea.Model {
   }
 }
 
+export class ListOssScanConfigResponseBodyData extends $tea.Model {
+  allKeyPrefix?: boolean;
+  bucketCount?: number;
+  bucketNameList?: string[];
+  enable?: number;
+  endTime?: string;
+  id?: number;
+  keyPrefixList?: string[];
+  keySuffixList?: string[];
+  lastUpdateTime?: number;
+  name?: string;
+  scanDayList?: number[];
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allKeyPrefix: 'AllKeyPrefix',
+      bucketCount: 'BucketCount',
+      bucketNameList: 'BucketNameList',
+      enable: 'Enable',
+      endTime: 'EndTime',
+      id: 'Id',
+      keyPrefixList: 'KeyPrefixList',
+      keySuffixList: 'KeySuffixList',
+      lastUpdateTime: 'LastUpdateTime',
+      name: 'Name',
+      scanDayList: 'ScanDayList',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allKeyPrefix: 'boolean',
+      bucketCount: 'number',
+      bucketNameList: { 'type': 'array', 'itemType': 'string' },
+      enable: 'number',
+      endTime: 'string',
+      id: 'number',
+      keyPrefixList: { 'type': 'array', 'itemType': 'string' },
+      keySuffixList: { 'type': 'array', 'itemType': 'string' },
+      lastUpdateTime: 'number',
+      name: 'string',
+      scanDayList: { 'type': 'array', 'itemType': 'number' },
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssScanConfigResponseBodyPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigListAegisSuspiciousConfigList extends $tea.Model {
   config?: boolean;
   msg?: string;
@@ -81493,6 +81708,35 @@ export default class Client extends OpenApi {
   async deleteOpaStrategyNew(request: DeleteOpaStrategyNewRequest): Promise<DeleteOpaStrategyNewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteOpaStrategyNewWithOptions(request, runtime);
+  }
+
+  async deleteOssScanConfigWithOptions(request: DeleteOssScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOssScanConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteOssScanConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteOssScanConfigResponse>(await this.callApi(params, req, runtime), new DeleteOssScanConfigResponse({}));
+  }
+
+  async deleteOssScanConfig(request: DeleteOssScanConfigRequest): Promise<DeleteOssScanConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteOssScanConfigWithOptions(request, runtime);
   }
 
   async deletePrivateRegistryWithOptions(request: DeletePrivateRegistryRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateRegistryResponse> {
@@ -98136,6 +98380,31 @@ export default class Client extends OpenApi {
   async listOssBucketScanInfo(request: ListOssBucketScanInfoRequest): Promise<ListOssBucketScanInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOssBucketScanInfoWithOptions(request, runtime);
+  }
+
+  async listOssScanConfigWithOptions(request: ListOssScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListOssScanConfigResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListOssScanConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListOssScanConfigResponse>(await this.callApi(params, req, runtime), new ListOssScanConfigResponse({}));
+  }
+
+  async listOssScanConfig(request: ListOssScanConfigRequest): Promise<ListOssScanConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listOssScanConfigWithOptions(request, runtime);
   }
 
   async listPluginForUuidWithOptions(tmpReq: ListPluginForUuidRequest, runtime: $Util.RuntimeOptions): Promise<ListPluginForUuidResponse> {
