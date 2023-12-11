@@ -1851,6 +1851,7 @@ export class AddServiceSourceRequest extends $tea.Model {
   name?: string;
   pathList?: string[];
   source?: string;
+  toAuthorizeSecurityGroups?: AddServiceSourceRequestToAuthorizeSecurityGroups[];
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1862,6 +1863,7 @@ export class AddServiceSourceRequest extends $tea.Model {
       name: 'Name',
       pathList: 'PathList',
       source: 'Source',
+      toAuthorizeSecurityGroups: 'ToAuthorizeSecurityGroups',
       type: 'Type',
     };
   }
@@ -1876,6 +1878,7 @@ export class AddServiceSourceRequest extends $tea.Model {
       name: 'string',
       pathList: { 'type': 'array', 'itemType': 'string' },
       source: 'string',
+      toAuthorizeSecurityGroups: { 'type': 'array', 'itemType': AddServiceSourceRequestToAuthorizeSecurityGroups },
       type: 'string',
     };
   }
@@ -1894,6 +1897,7 @@ export class AddServiceSourceShrinkRequest extends $tea.Model {
   name?: string;
   pathListShrink?: string;
   source?: string;
+  toAuthorizeSecurityGroupsShrink?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1905,6 +1909,7 @@ export class AddServiceSourceShrinkRequest extends $tea.Model {
       name: 'Name',
       pathListShrink: 'PathList',
       source: 'Source',
+      toAuthorizeSecurityGroupsShrink: 'ToAuthorizeSecurityGroups',
       type: 'Type',
     };
   }
@@ -1919,6 +1924,7 @@ export class AddServiceSourceShrinkRequest extends $tea.Model {
       name: 'string',
       pathListShrink: 'string',
       source: 'string',
+      toAuthorizeSecurityGroupsShrink: 'string',
       type: 'string',
     };
   }
@@ -5359,11 +5365,13 @@ export class DeleteNamespaceResponse extends $tea.Model {
 
 export class DeleteSecurityGroupRuleRequest extends $tea.Model {
   acceptLanguage?: string;
+  cascadingDelete?: boolean;
   gatewayUniqueId?: string;
   id?: number;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      cascadingDelete: 'CascadingDelete',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
     };
@@ -5372,6 +5380,7 @@ export class DeleteSecurityGroupRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      cascadingDelete: 'boolean',
       gatewayUniqueId: 'string',
       id: 'number',
     };
@@ -21056,6 +21065,31 @@ export class AddServiceSourceRequestIngressOptionsRequest extends $tea.Model {
   }
 }
 
+export class AddServiceSourceRequestToAuthorizeSecurityGroups extends $tea.Model {
+  description?: string;
+  portRange?: string;
+  securityGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      portRange: 'PortRange',
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      portRange: 'string',
+      securityGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyTagPoliciesResponseBodyData extends $tea.Model {
   carryData?: boolean;
   enable?: boolean;
@@ -27963,6 +27997,7 @@ export class ListSecurityGroupResponseBodyData extends $tea.Model {
 }
 
 export class ListSecurityGroupRuleResponseBodyData extends $tea.Model {
+  authCidrs?: string[];
   description?: string;
   gatewayId?: number;
   gatewayUniqueId?: string;
@@ -27974,6 +28009,7 @@ export class ListSecurityGroupRuleResponseBodyData extends $tea.Model {
   securityGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      authCidrs: 'AuthCidrs',
       description: 'Description',
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
@@ -27988,6 +28024,7 @@ export class ListSecurityGroupRuleResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authCidrs: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
       gatewayId: 'number',
       gatewayUniqueId: 'string',
@@ -31580,6 +31617,10 @@ export default class Client extends OpenApi {
       request.pathListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.pathList, "PathList", "json");
     }
 
+    if (!Util.isUnset(tmpReq.toAuthorizeSecurityGroups)) {
+      request.toAuthorizeSecurityGroupsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.toAuthorizeSecurityGroups, "ToAuthorizeSecurityGroups", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -31611,6 +31652,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.source)) {
       query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.toAuthorizeSecurityGroupsShrink)) {
+      query["ToAuthorizeSecurityGroups"] = request.toAuthorizeSecurityGroupsShrink;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -33533,6 +33578,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.cascadingDelete)) {
+      query["CascadingDelete"] = request.cascadingDelete;
     }
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
