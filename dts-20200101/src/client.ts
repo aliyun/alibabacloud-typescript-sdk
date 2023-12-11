@@ -2012,6 +2012,87 @@ export class CreateMigrationJobResponse extends $tea.Model {
   }
 }
 
+export class CreateReverseDtsJobRequest extends $tea.Model {
+  dtsJobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateReverseDtsJobResponseBody extends $tea.Model {
+  dtsInstanceId?: string;
+  dtsJobId?: string;
+  errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsInstanceId: 'DtsInstanceId',
+      dtsJobId: 'DtsJobId',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsInstanceId: 'string',
+      dtsJobId: 'string',
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateReverseDtsJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateReverseDtsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateReverseDtsJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSubscriptionInstanceRequest extends $tea.Model {
   sourceEndpoint?: CreateSubscriptionInstanceRequestSourceEndpoint;
   accountId?: string;
@@ -7905,6 +7986,7 @@ export class ModifyDtsJobRequest extends $tea.Model {
   dataSynchronization?: boolean;
   dbList?: { [key: string]: any };
   dtsInstanceId?: string;
+  dtsJobId?: string;
   etlOperatorColumnReference?: string;
   fileOssUrl?: string;
   filterTableName?: string;
@@ -7920,6 +8002,7 @@ export class ModifyDtsJobRequest extends $tea.Model {
       dataSynchronization: 'DataSynchronization',
       dbList: 'DbList',
       dtsInstanceId: 'DtsInstanceId',
+      dtsJobId: 'DtsJobId',
       etlOperatorColumnReference: 'EtlOperatorColumnReference',
       fileOssUrl: 'FileOssUrl',
       filterTableName: 'FilterTableName',
@@ -7938,6 +8021,7 @@ export class ModifyDtsJobRequest extends $tea.Model {
       dataSynchronization: 'boolean',
       dbList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       dtsInstanceId: 'string',
+      dtsJobId: 'string',
       etlOperatorColumnReference: 'string',
       fileOssUrl: 'string',
       filterTableName: 'string',
@@ -7960,6 +8044,7 @@ export class ModifyDtsJobAdvanceRequest extends $tea.Model {
   dataSynchronization?: boolean;
   dbList?: { [key: string]: any };
   dtsInstanceId?: string;
+  dtsJobId?: string;
   etlOperatorColumnReference?: string;
   fileOssUrlObject?: Readable;
   filterTableName?: string;
@@ -7975,6 +8060,7 @@ export class ModifyDtsJobAdvanceRequest extends $tea.Model {
       dataSynchronization: 'DataSynchronization',
       dbList: 'DbList',
       dtsInstanceId: 'DtsInstanceId',
+      dtsJobId: 'DtsJobId',
       etlOperatorColumnReference: 'EtlOperatorColumnReference',
       fileOssUrlObject: 'FileOssUrl',
       filterTableName: 'FilterTableName',
@@ -7993,6 +8079,7 @@ export class ModifyDtsJobAdvanceRequest extends $tea.Model {
       dataSynchronization: 'boolean',
       dbList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       dtsInstanceId: 'string',
+      dtsJobId: 'string',
       etlOperatorColumnReference: 'string',
       fileOssUrlObject: 'Readable',
       filterTableName: 'string',
@@ -8015,6 +8102,7 @@ export class ModifyDtsJobShrinkRequest extends $tea.Model {
   dataSynchronization?: boolean;
   dbListShrink?: string;
   dtsInstanceId?: string;
+  dtsJobId?: string;
   etlOperatorColumnReference?: string;
   fileOssUrl?: string;
   filterTableName?: string;
@@ -8030,6 +8118,7 @@ export class ModifyDtsJobShrinkRequest extends $tea.Model {
       dataSynchronization: 'DataSynchronization',
       dbListShrink: 'DbList',
       dtsInstanceId: 'DtsInstanceId',
+      dtsJobId: 'DtsJobId',
       etlOperatorColumnReference: 'EtlOperatorColumnReference',
       fileOssUrl: 'FileOssUrl',
       filterTableName: 'FilterTableName',
@@ -8048,6 +8137,7 @@ export class ModifyDtsJobShrinkRequest extends $tea.Model {
       dataSynchronization: 'boolean',
       dbListShrink: 'string',
       dtsInstanceId: 'string',
+      dtsJobId: 'string',
       etlOperatorColumnReference: 'string',
       fileOssUrl: 'string',
       filterTableName: 'string',
@@ -9711,6 +9801,81 @@ export class StartMigrationJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartMigrationJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartReverseWriterRequest extends $tea.Model {
+  checkPoint?: string;
+  dtsJobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkPoint: 'CheckPoint',
+      dtsJobId: 'DtsJobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkPoint: 'string',
+      dtsJobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartReverseWriterResponseBody extends $tea.Model {
+  errCode?: string;
+  errMessage?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errCode: 'string',
+      errMessage: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartReverseWriterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartReverseWriterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartReverseWriterResponseBody,
     };
   }
 
@@ -15428,14 +15593,74 @@ export class DescribeDtsJobsResponseBodyDtsJobListReverseJobErrorDetails extends
   }
 }
 
+export class DescribeDtsJobsResponseBodyDtsJobListReverseJobFullDataCheckStatus extends $tea.Model {
+  errorMessage?: string;
+  percent?: string;
+  progress?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      percent: 'Percent',
+      progress: 'Progress',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      percent: 'string',
+      progress: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListReverseJobIncDataCheckStatus extends $tea.Model {
+  errorMessage?: string;
+  percent?: string;
+  progress?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      percent: 'Percent',
+      progress: 'Progress',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      percent: 'string',
+      progress: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDtsJobsResponseBodyDtsJobListReverseJobMigrationMode extends $tea.Model {
   dataInitialization?: boolean;
   dataSynchronization?: boolean;
+  fullDataCheck?: boolean;
+  incDataCheck?: boolean;
   structureInitialization?: boolean;
   static names(): { [key: string]: string } {
     return {
       dataInitialization: 'DataInitialization',
       dataSynchronization: 'DataSynchronization',
+      fullDataCheck: 'FullDataCheck',
+      incDataCheck: 'IncDataCheck',
       structureInitialization: 'StructureInitialization',
     };
   }
@@ -15444,6 +15669,8 @@ export class DescribeDtsJobsResponseBodyDtsJobListReverseJobMigrationMode extend
     return {
       dataInitialization: 'boolean',
       dataSynchronization: 'boolean',
+      fullDataCheck: 'boolean',
+      incDataCheck: 'boolean',
       structureInitialization: 'boolean',
     };
   }
@@ -15628,6 +15855,8 @@ export class DescribeDtsJobsResponseBodyDtsJobListReverseJob extends $tea.Model 
   errorMessage?: string;
   etlSafeCheckpoint?: string;
   expireTime?: string;
+  fullDataCheckStatus?: DescribeDtsJobsResponseBodyDtsJobListReverseJobFullDataCheckStatus;
+  incDataCheckStatus?: DescribeDtsJobsResponseBodyDtsJobListReverseJobIncDataCheckStatus;
   memUsage?: string;
   migrationMode?: DescribeDtsJobsResponseBodyDtsJobListReverseJobMigrationMode;
   payType?: string;
@@ -15658,6 +15887,8 @@ export class DescribeDtsJobsResponseBodyDtsJobListReverseJob extends $tea.Model 
       errorMessage: 'ErrorMessage',
       etlSafeCheckpoint: 'EtlSafeCheckpoint',
       expireTime: 'ExpireTime',
+      fullDataCheckStatus: 'FullDataCheckStatus',
+      incDataCheckStatus: 'IncDataCheckStatus',
       memUsage: 'MemUsage',
       migrationMode: 'MigrationMode',
       payType: 'PayType',
@@ -15691,6 +15922,8 @@ export class DescribeDtsJobsResponseBodyDtsJobListReverseJob extends $tea.Model 
       errorMessage: 'string',
       etlSafeCheckpoint: 'string',
       expireTime: 'string',
+      fullDataCheckStatus: DescribeDtsJobsResponseBodyDtsJobListReverseJobFullDataCheckStatus,
+      incDataCheckStatus: DescribeDtsJobsResponseBodyDtsJobListReverseJobIncDataCheckStatus,
       memUsage: 'string',
       migrationMode: DescribeDtsJobsResponseBodyDtsJobListReverseJobMigrationMode,
       payType: 'string',
@@ -21852,6 +22085,35 @@ export default class Client extends OpenApi {
     return await this.createMigrationJobWithOptions(request, runtime);
   }
 
+  async createReverseDtsJobWithOptions(request: CreateReverseDtsJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateReverseDtsJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dtsJobId)) {
+      query["DtsJobId"] = request.dtsJobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateReverseDtsJob",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateReverseDtsJobResponse>(await this.callApi(params, req, runtime), new CreateReverseDtsJobResponse({}));
+  }
+
+  async createReverseDtsJob(request: CreateReverseDtsJobRequest): Promise<CreateReverseDtsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createReverseDtsJobWithOptions(request, runtime);
+  }
+
   /**
     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
     *
@@ -24922,6 +25184,10 @@ export default class Client extends OpenApi {
       query["DtsInstanceId"] = request.dtsInstanceId;
     }
 
+    if (!Util.isUnset(request.dtsJobId)) {
+      query["DtsJobId"] = request.dtsJobId;
+    }
+
     if (!Util.isUnset(request.fileOssUrl)) {
       query["FileOssUrl"] = request.fileOssUrl;
     }
@@ -25917,6 +26183,39 @@ export default class Client extends OpenApi {
   async startMigrationJob(request: StartMigrationJobRequest): Promise<StartMigrationJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startMigrationJobWithOptions(request, runtime);
+  }
+
+  async startReverseWriterWithOptions(request: StartReverseWriterRequest, runtime: $Util.RuntimeOptions): Promise<StartReverseWriterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.checkPoint)) {
+      query["CheckPoint"] = request.checkPoint;
+    }
+
+    if (!Util.isUnset(request.dtsJobId)) {
+      query["DtsJobId"] = request.dtsJobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartReverseWriter",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartReverseWriterResponse>(await this.callApi(params, req, runtime), new StartReverseWriterResponse({}));
+  }
+
+  async startReverseWriter(request: StartReverseWriterRequest): Promise<StartReverseWriterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startReverseWriterWithOptions(request, runtime);
   }
 
   /**
