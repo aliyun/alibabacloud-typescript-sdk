@@ -577,8 +577,10 @@ export class CreateDBClusterRequest extends $tea.Model {
   DBClusterVersion?: string;
   DBNodeGroupCount?: string;
   DBNodeStorage?: string;
+  diskEncryption?: string;
   elasticIOResource?: string;
   executorCount?: string;
+  kmsId?: string;
   mode?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -610,8 +612,10 @@ export class CreateDBClusterRequest extends $tea.Model {
       DBClusterVersion: 'DBClusterVersion',
       DBNodeGroupCount: 'DBNodeGroupCount',
       DBNodeStorage: 'DBNodeStorage',
+      diskEncryption: 'DiskEncryption',
       elasticIOResource: 'ElasticIOResource',
       executorCount: 'ExecutorCount',
+      kmsId: 'KmsId',
       mode: 'Mode',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -646,8 +650,10 @@ export class CreateDBClusterRequest extends $tea.Model {
       DBClusterVersion: 'string',
       DBNodeGroupCount: 'string',
       DBNodeStorage: 'string',
+      diskEncryption: 'string',
       elasticIOResource: 'string',
       executorCount: 'string',
+      kmsId: 'string',
       mode: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -5138,6 +5144,186 @@ export class DescribeRegionsResponse extends $tea.Model {
   }
 }
 
+export class DescribeResubmitConfigRequest extends $tea.Model {
+  DBClusterId?: string;
+  groupName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      groupName: 'GroupName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      groupName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResubmitConfigResponseBody extends $tea.Model {
+  DBClusterId?: string;
+  requestId?: string;
+  rules?: DescribeResubmitConfigResponseBodyRules[];
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      requestId: 'RequestId',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      requestId: 'string',
+      rules: { 'type': 'array', 'itemType': DescribeResubmitConfigResponseBodyRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResubmitConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeResubmitConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeResubmitConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSQAConfigRequest extends $tea.Model {
+  DBClusterId?: string;
+  groupName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      groupName: 'GroupName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      groupName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSQAConfigResponseBody extends $tea.Model {
+  DBClusterId?: string;
+  groupName?: string;
+  requestId?: string;
+  SQAStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      groupName: 'GroupName',
+      requestId: 'RequestId',
+      SQAStatus: 'SQAStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      groupName: 'string',
+      requestId: 'string',
+      SQAStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSQAConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSQAConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSQAConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSQLPatternsRequest extends $tea.Model {
   DBClusterId?: string;
   endTime?: string;
@@ -6087,6 +6273,7 @@ export class DescribeTableStatisticsRequest extends $tea.Model {
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -6097,6 +6284,7 @@ export class DescribeTableStatisticsRequest extends $tea.Model {
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -6110,6 +6298,7 @@ export class DescribeTableStatisticsRequest extends $tea.Model {
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -8486,6 +8675,208 @@ export class ModifyMaintenanceActionResponse extends $tea.Model {
   }
 }
 
+export class ModifyResubmitConfigRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  rules?: ModifyResubmitConfigRequestRules[];
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      rules: { 'type': 'array', 'itemType': ModifyResubmitConfigRequestRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyResubmitConfigShrinkRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  rulesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      rulesShrink: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      rulesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyResubmitConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyResubmitConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyResubmitConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyResubmitConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySQAConfigRequest extends $tea.Model {
+  DBClusterId?: string;
+  groupName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  SQAStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      groupName: 'GroupName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      SQAStatus: 'SQAStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      groupName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      SQAStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySQAConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySQAConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifySQAConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifySQAConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReleaseClusterPublicConnectionRequest extends $tea.Model {
   DBClusterId?: string;
   ownerAccount?: string;
@@ -10004,6 +10395,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
   DBNodeCount?: number;
   DBNodeStorage?: number;
   DBVersion?: string;
+  diskEncryption?: string;
   diskPerformanceLevel?: string;
   diskType?: string;
   dtsJobId?: string;
@@ -10051,6 +10443,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       DBNodeCount: 'DBNodeCount',
       DBNodeStorage: 'DBNodeStorage',
       DBVersion: 'DBVersion',
+      diskEncryption: 'DiskEncryption',
       diskPerformanceLevel: 'DiskPerformanceLevel',
       diskType: 'DiskType',
       dtsJobId: 'DtsJobId',
@@ -10101,6 +10494,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       DBNodeCount: 'number',
       DBNodeStorage: 'number',
       DBVersion: 'string',
+      diskEncryption: 'string',
       diskPerformanceLevel: 'string',
       diskType: 'string',
       dtsJobId: 'string',
@@ -11447,6 +11841,37 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
+export class DescribeResubmitConfigResponseBodyRules extends $tea.Model {
+  exceedMemoryException?: boolean;
+  groupName?: string;
+  peakMemory?: string;
+  queryTime?: string;
+  targetGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exceedMemoryException: 'ExceedMemoryException',
+      groupName: 'GroupName',
+      peakMemory: 'PeakMemory',
+      queryTime: 'QueryTime',
+      targetGroupName: 'TargetGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exceedMemoryException: 'boolean',
+      groupName: 'string',
+      peakMemory: 'string',
+      queryTime: 'string',
+      targetGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSQLPatternsResponseBodyPatternDetails extends $tea.Model {
   accessIp?: string;
   averageExecutionTime?: number;
@@ -12341,6 +12766,37 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
+export class ModifyResubmitConfigRequestRules extends $tea.Model {
+  exceedMemoryException?: boolean;
+  groupName?: string;
+  peakMemory?: string;
+  queryTime?: string;
+  targetGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exceedMemoryException: 'ExceedMemoryException',
+      groupName: 'GroupName',
+      peakMemory: 'PeakMemory',
+      queryTime: 'QueryTime',
+      targetGroupName: 'TargetGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exceedMemoryException: 'boolean',
+      groupName: 'string',
+      peakMemory: 'string',
+      queryTime: 'string',
+      targetGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -12870,12 +13326,20 @@ export default class Client extends OpenApi {
       query["DBNodeStorage"] = request.DBNodeStorage;
     }
 
+    if (!Util.isUnset(request.diskEncryption)) {
+      query["DiskEncryption"] = request.diskEncryption;
+    }
+
     if (!Util.isUnset(request.elasticIOResource)) {
       query["ElasticIOResource"] = request.elasticIOResource;
     }
 
     if (!Util.isUnset(request.executorCount)) {
       query["ExecutorCount"] = request.executorCount;
+    }
+
+    if (!Util.isUnset(request.kmsId)) {
+      query["KmsId"] = request.kmsId;
     }
 
     if (!Util.isUnset(request.mode)) {
@@ -13810,7 +14274,7 @@ export default class Client extends OpenApi {
 
   /**
     * Before you call the DescribeAuditLogRecords operation to query the SQL audit logs of an AnalyticDB for MySQL cluster, you must enable SQL audit for the cluster. You can call the [DescribeAuditLogConfig](~~190628~~) operation to query the status of SQL audit. If SQL audit is disabled, you can call the [ModifyAuditLogConfig](~~190629~~) operation to enable SQL audit.
-    * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried.
+    * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
     *
     * @param request DescribeAuditLogRecordsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -13910,7 +14374,7 @@ export default class Client extends OpenApi {
 
   /**
     * Before you call the DescribeAuditLogRecords operation to query the SQL audit logs of an AnalyticDB for MySQL cluster, you must enable SQL audit for the cluster. You can call the [DescribeAuditLogConfig](~~190628~~) operation to query the status of SQL audit. If SQL audit is disabled, you can call the [ModifyAuditLogConfig](~~190629~~) operation to enable SQL audit.
-    * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried.
+    * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
     *
     * @param request DescribeAuditLogRecordsRequest
     * @return DescribeAuditLogRecordsResponse
@@ -15853,6 +16317,116 @@ export default class Client extends OpenApi {
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  async describeResubmitConfigWithOptions(request: DescribeResubmitConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResubmitConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeResubmitConfig",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeResubmitConfigResponse>(await this.callApi(params, req, runtime), new DescribeResubmitConfigResponse({}));
+  }
+
+  async describeResubmitConfig(request: DescribeResubmitConfigRequest): Promise<DescribeResubmitConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeResubmitConfigWithOptions(request, runtime);
+  }
+
+  async describeSQAConfigWithOptions(request: DescribeSQAConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQAConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSQAConfig",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSQAConfigResponse>(await this.callApi(params, req, runtime), new DescribeSQAConfigResponse({}));
+  }
+
+  async describeSQAConfig(request: DescribeSQAConfigRequest): Promise<DescribeSQAConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSQAConfigWithOptions(request, runtime);
+  }
+
   async describeSQLPatternsWithOptions(request: DescribeSQLPatternsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLPatternsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16453,6 +17027,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -16866,6 +17444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * If you need Alibaba Cloud technical support to perform operations on your AnalyticDB for MySQL cluster, you must grant permissions to the service account of your cluster. When the validity period of the authorization ends, the granted permissions are automatically revoked.
     *
     * @param request GrantOperatorPermissionRequest
@@ -16921,6 +17500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * If you need Alibaba Cloud technical support to perform operations on your AnalyticDB for MySQL cluster, you must grant permissions to the service account of your cluster. When the validity period of the authorization ends, the granted permissions are automatically revoked.
     *
     * @param request GrantOperatorPermissionRequest
@@ -18096,6 +18676,122 @@ export default class Client extends OpenApi {
   async modifyMaintenanceAction(request: ModifyMaintenanceActionRequest): Promise<ModifyMaintenanceActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyMaintenanceActionWithOptions(request, runtime);
+  }
+
+  async modifyResubmitConfigWithOptions(tmpReq: ModifyResubmitConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyResubmitConfigResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyResubmitConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.rules)) {
+      request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.rulesShrink)) {
+      query["Rules"] = request.rulesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyResubmitConfig",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyResubmitConfigResponse>(await this.callApi(params, req, runtime), new ModifyResubmitConfigResponse({}));
+  }
+
+  async modifyResubmitConfig(request: ModifyResubmitConfigRequest): Promise<ModifyResubmitConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyResubmitConfigWithOptions(request, runtime);
+  }
+
+  async modifySQAConfigWithOptions(request: ModifySQAConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifySQAConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.SQAStatus)) {
+      query["SQAStatus"] = request.SQAStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifySQAConfig",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifySQAConfigResponse>(await this.callApi(params, req, runtime), new ModifySQAConfigResponse({}));
+  }
+
+  async modifySQAConfig(request: ModifySQAConfigRequest): Promise<ModifySQAConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifySQAConfigWithOptions(request, runtime);
   }
 
   async releaseClusterPublicConnectionWithOptions(request: ReleaseClusterPublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseClusterPublicConnectionResponse> {
