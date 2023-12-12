@@ -8,6 +8,93 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CreateLdpsComputeGroupRequest extends $tea.Model {
+  groupName?: string;
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  properties?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      properties: 'Properties',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      properties: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLdpsComputeGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLdpsComputeGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateLdpsComputeGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateLdpsComputeGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateLdpsNamespaceRequest extends $tea.Model {
   instanceId?: string;
   namespace?: string;
@@ -96,6 +183,8 @@ export class CreateLindormInstanceRequest extends $tea.Model {
   arbiterVSwitchId?: string;
   arbiterZoneId?: string;
   archVersion?: string;
+  autoRenewDuration?: string;
+  autoRenewal?: boolean;
   coldStorage?: number;
   coreSingleStorage?: number;
   coreSpec?: string;
@@ -139,6 +228,8 @@ export class CreateLindormInstanceRequest extends $tea.Model {
       arbiterVSwitchId: 'ArbiterVSwitchId',
       arbiterZoneId: 'ArbiterZoneId',
       archVersion: 'ArchVersion',
+      autoRenewDuration: 'AutoRenewDuration',
+      autoRenewal: 'AutoRenewal',
       coldStorage: 'ColdStorage',
       coreSingleStorage: 'CoreSingleStorage',
       coreSpec: 'CoreSpec',
@@ -185,6 +276,8 @@ export class CreateLindormInstanceRequest extends $tea.Model {
       arbiterVSwitchId: 'string',
       arbiterZoneId: 'string',
       archVersion: 'string',
+      autoRenewDuration: 'string',
+      autoRenewal: 'boolean',
       coldStorage: 'number',
       coreSingleStorage: 'number',
       coreSpec: 'string',
@@ -281,6 +374,90 @@ export class CreateLindormInstanceResponse extends $tea.Model {
   }
 }
 
+export class DeleteLdpsComputeGroupRequest extends $tea.Model {
+  groupName?: string;
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLdpsComputeGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLdpsComputeGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteLdpsComputeGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteLdpsComputeGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsRequest extends $tea.Model {
   acceptLanguage?: string;
   ownerAccount?: string;
@@ -354,6 +531,93 @@ export class DescribeRegionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEngineDefaultAuthRequest extends $tea.Model {
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEngineDefaultAuthResponseBody extends $tea.Model {
+  authInfos?: GetEngineDefaultAuthResponseBodyAuthInfos[];
+  instanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authInfos: 'AuthInfos',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authInfos: { 'type': 'array', 'itemType': GetEngineDefaultAuthResponseBodyAuthInfos },
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEngineDefaultAuthResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetEngineDefaultAuthResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEngineDefaultAuthResponseBody,
     };
   }
 
@@ -441,6 +705,96 @@ export class GetInstanceIpWhiteListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetInstanceIpWhiteListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLdpsComputeGroupRequest extends $tea.Model {
+  groupName?: string;
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLdpsComputeGroupResponseBody extends $tea.Model {
+  groupName?: string;
+  properties?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      properties: 'Properties',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLdpsComputeGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetLdpsComputeGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLdpsComputeGroupResponseBody,
     };
   }
 
@@ -1076,6 +1430,90 @@ export class GetLindormInstanceListResponse extends $tea.Model {
   }
 }
 
+export class ListLdpsComputeGroupsRequest extends $tea.Model {
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLdpsComputeGroupsResponseBody extends $tea.Model {
+  groupList?: ListLdpsComputeGroupsResponseBodyGroupList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupList: 'GroupList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupList: { 'type': 'array', 'itemType': ListLdpsComputeGroupsResponseBodyGroupList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLdpsComputeGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListLdpsComputeGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLdpsComputeGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequest extends $tea.Model {
   nextToken?: string;
   ownerAccount?: string;
@@ -1439,6 +1877,90 @@ export class RenewLindormInstanceResponse extends $tea.Model {
   }
 }
 
+export class RestartLdpsComputeGroupRequest extends $tea.Model {
+  groupName?: string;
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartLdpsComputeGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartLdpsComputeGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RestartLdpsComputeGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RestartLdpsComputeGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SwitchLSQLV3MySQLServiceRequest extends $tea.Model {
   actionType?: number;
   instanceId?: string;
@@ -1781,6 +2303,93 @@ export class UpdateInstanceIpWhiteListResponse extends $tea.Model {
   }
 }
 
+export class UpdateLdpsComputeGroupRequest extends $tea.Model {
+  groupName?: string;
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  properties?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      properties: 'Properties',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      properties: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLdpsComputeGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLdpsComputeGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateLdpsComputeGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateLdpsComputeGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeLindormInstanceRequest extends $tea.Model {
   clusterStorage?: number;
   coldStorage?: number;
@@ -1942,6 +2551,31 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
       localName: 'string',
       regionEndpoint: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEngineDefaultAuthResponseBodyAuthInfos extends $tea.Model {
+  engine?: string;
+  password?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      engine: 'Engine',
+      password: 'Password',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      engine: 'string',
+      password: 'string',
+      username: 'string',
     };
   }
 
@@ -2210,6 +2844,28 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
   }
 }
 
+export class ListLdpsComputeGroupsResponseBodyGroupList extends $tea.Model {
+  groupName?: string;
+  properties?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      properties: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -2305,6 +2961,67 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async createLdpsComputeGroupWithOptions(request: CreateLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateLdpsComputeGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.properties)) {
+      query["Properties"] = request.properties;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateLdpsComputeGroup",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new CreateLdpsComputeGroupResponse({}));
+  }
+
+  async createLdpsComputeGroup(request: CreateLdpsComputeGroupRequest): Promise<CreateLdpsComputeGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLdpsComputeGroupWithOptions(request, runtime);
+  }
+
   async createLdpsNamespaceWithOptions(request: CreateLdpsNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateLdpsNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2382,6 +3099,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.archVersion)) {
       query["ArchVersion"] = request.archVersion;
+    }
+
+    if (!Util.isUnset(request.autoRenewDuration)) {
+      query["AutoRenewDuration"] = request.autoRenewDuration;
+    }
+
+    if (!Util.isUnset(request.autoRenewal)) {
+      query["AutoRenewal"] = request.autoRenewal;
     }
 
     if (!Util.isUnset(request.coldStorage)) {
@@ -2564,6 +3289,63 @@ export default class Client extends OpenApi {
     return await this.createLindormInstanceWithOptions(request, runtime);
   }
 
+  async deleteLdpsComputeGroupWithOptions(request: DeleteLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLdpsComputeGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteLdpsComputeGroup",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new DeleteLdpsComputeGroupResponse({}));
+  }
+
+  async deleteLdpsComputeGroup(request: DeleteLdpsComputeGroupRequest): Promise<DeleteLdpsComputeGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteLdpsComputeGroupWithOptions(request, runtime);
+  }
+
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2613,6 +3395,59 @@ export default class Client extends OpenApi {
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  async getEngineDefaultAuthWithOptions(request: GetEngineDefaultAuthRequest, runtime: $Util.RuntimeOptions): Promise<GetEngineDefaultAuthResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEngineDefaultAuth",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEngineDefaultAuthResponse>(await this.callApi(params, req, runtime), new GetEngineDefaultAuthResponse({}));
+  }
+
+  async getEngineDefaultAuth(request: GetEngineDefaultAuthRequest): Promise<GetEngineDefaultAuthResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEngineDefaultAuthWithOptions(request, runtime);
+  }
+
   async getInstanceIpWhiteListWithOptions(request: GetInstanceIpWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceIpWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2660,6 +3495,63 @@ export default class Client extends OpenApi {
   async getInstanceIpWhiteList(request: GetInstanceIpWhiteListRequest): Promise<GetInstanceIpWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceIpWhiteListWithOptions(request, runtime);
+  }
+
+  async getLdpsComputeGroupWithOptions(request: GetLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetLdpsComputeGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLdpsComputeGroup",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new GetLdpsComputeGroupResponse({}));
+  }
+
+  async getLdpsComputeGroup(request: GetLdpsComputeGroupRequest): Promise<GetLdpsComputeGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLdpsComputeGroupWithOptions(request, runtime);
   }
 
   async getLdpsNamespacedQuotaWithOptions(request: GetLdpsNamespacedQuotaRequest, runtime: $Util.RuntimeOptions): Promise<GetLdpsNamespacedQuotaResponse> {
@@ -2963,6 +3855,59 @@ export default class Client extends OpenApi {
     return await this.getLindormInstanceListWithOptions(request, runtime);
   }
 
+  async listLdpsComputeGroupsWithOptions(request: ListLdpsComputeGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListLdpsComputeGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLdpsComputeGroups",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLdpsComputeGroupsResponse>(await this.callApi(params, req, runtime), new ListLdpsComputeGroupsResponse({}));
+  }
+
+  async listLdpsComputeGroups(request: ListLdpsComputeGroupsRequest): Promise<ListLdpsComputeGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listLdpsComputeGroupsWithOptions(request, runtime);
+  }
+
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3233,6 +4178,63 @@ export default class Client extends OpenApi {
     return await this.renewLindormInstanceWithOptions(request, runtime);
   }
 
+  async restartLdpsComputeGroupWithOptions(request: RestartLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<RestartLdpsComputeGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RestartLdpsComputeGroup",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RestartLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new RestartLdpsComputeGroupResponse({}));
+  }
+
+  async restartLdpsComputeGroup(request: RestartLdpsComputeGroupRequest): Promise<RestartLdpsComputeGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.restartLdpsComputeGroupWithOptions(request, runtime);
+  }
+
   async switchLSQLV3MySQLServiceWithOptions(request: SwitchLSQLV3MySQLServiceRequest, runtime: $Util.RuntimeOptions): Promise<SwitchLSQLV3MySQLServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3467,6 +4469,67 @@ export default class Client extends OpenApi {
   async updateInstanceIpWhiteList(request: UpdateInstanceIpWhiteListRequest): Promise<UpdateInstanceIpWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateInstanceIpWhiteListWithOptions(request, runtime);
+  }
+
+  async updateLdpsComputeGroupWithOptions(request: UpdateLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLdpsComputeGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.properties)) {
+      query["Properties"] = request.properties;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateLdpsComputeGroup",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new UpdateLdpsComputeGroupResponse({}));
+  }
+
+  async updateLdpsComputeGroup(request: UpdateLdpsComputeGroupRequest): Promise<UpdateLdpsComputeGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateLdpsComputeGroupWithOptions(request, runtime);
   }
 
   /**
