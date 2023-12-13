@@ -905,6 +905,111 @@ export class DescribePhoneTwiceTelVerifyResponse extends $tea.Model {
   }
 }
 
+export class GetUAIDApplyTokenSignRequest extends $tea.Model {
+  authCode?: string;
+  carrier?: string;
+  clientType?: string;
+  format?: string;
+  outId?: string;
+  ownerId?: number;
+  paramKey?: string;
+  paramStr?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      carrier: 'Carrier',
+      clientType: 'ClientType',
+      format: 'Format',
+      outId: 'OutId',
+      ownerId: 'OwnerId',
+      paramKey: 'ParamKey',
+      paramStr: 'ParamStr',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      carrier: 'string',
+      clientType: 'string',
+      format: 'string',
+      outId: 'string',
+      ownerId: 'number',
+      paramKey: 'string',
+      paramStr: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUAIDApplyTokenSignResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: GetUAIDApplyTokenSignResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: GetUAIDApplyTokenSignResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUAIDApplyTokenSignResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUAIDApplyTokenSignResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUAIDApplyTokenSignResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvalidPhoneNumberFilterRequest extends $tea.Model {
   authCode?: string;
   inputNumber?: string;
@@ -2312,6 +2417,105 @@ export class TwoElementsVerificationResponse extends $tea.Model {
   }
 }
 
+export class UAIDVerificationRequest extends $tea.Model {
+  authCode?: string;
+  carrier?: string;
+  ip?: string;
+  outId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  token?: string;
+  userGrantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      carrier: 'Carrier',
+      ip: 'Ip',
+      outId: 'OutId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      token: 'Token',
+      userGrantId: 'UserGrantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      carrier: 'string',
+      ip: 'string',
+      outId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      token: 'string',
+      userGrantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UAIDVerificationResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: UAIDVerificationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: UAIDVerificationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UAIDVerificationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UAIDVerificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UAIDVerificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CompanyFourElementsVerificationResponseBodyDataDetailInfo extends $tea.Model {
   enterpriseStatus?: string;
   openTime?: string;
@@ -2659,6 +2863,31 @@ export class DescribePhoneTwiceTelVerifyResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetUAIDApplyTokenSignResponseBodyData extends $tea.Model {
+  carrier?: string;
+  outId?: string;
+  sign?: string;
+  static names(): { [key: string]: string } {
+    return {
+      carrier: 'Carrier',
+      outId: 'OutId',
+      sign: 'Sign',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      carrier: 'string',
+      outId: 'string',
+      sign: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvalidPhoneNumberFilterResponseBodyData extends $tea.Model {
   code?: string;
   encryptedNumber?: string;
@@ -2961,6 +3190,7 @@ export class QueryTagInfoBySelectionResponseBodyDataParamList extends $tea.Model
 
 export class QueryTagInfoBySelectionResponseBodyData extends $tea.Model {
   authCodeList?: string[];
+  complexityType?: string;
   demoAddress?: string;
   docAddress?: string;
   enumDefinitionAddress?: string;
@@ -2968,6 +3198,7 @@ export class QueryTagInfoBySelectionResponseBodyData extends $tea.Model {
   industryId?: number;
   industryName?: string;
   paramList?: QueryTagInfoBySelectionResponseBodyDataParamList[];
+  richTextDescription?: string;
   sceneId?: number;
   sceneName?: string;
   tagId?: number;
@@ -2975,6 +3206,7 @@ export class QueryTagInfoBySelectionResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authCodeList: 'AuthCodeList',
+      complexityType: 'ComplexityType',
       demoAddress: 'DemoAddress',
       docAddress: 'DocAddress',
       enumDefinitionAddress: 'EnumDefinitionAddress',
@@ -2982,6 +3214,7 @@ export class QueryTagInfoBySelectionResponseBodyData extends $tea.Model {
       industryId: 'IndustryId',
       industryName: 'IndustryName',
       paramList: 'ParamList',
+      richTextDescription: 'RichTextDescription',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
       tagId: 'TagId',
@@ -2992,6 +3225,7 @@ export class QueryTagInfoBySelectionResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authCodeList: { 'type': 'array', 'itemType': 'string' },
+      complexityType: 'string',
       demoAddress: 'string',
       docAddress: 'string',
       enumDefinitionAddress: 'string',
@@ -2999,6 +3233,7 @@ export class QueryTagInfoBySelectionResponseBodyData extends $tea.Model {
       industryId: 'number',
       industryName: 'string',
       paramList: { 'type': 'array', 'itemType': QueryTagInfoBySelectionResponseBodyDataParamList },
+      richTextDescription: 'string',
       sceneId: 'number',
       sceneName: 'string',
       tagId: 'number',
@@ -3187,6 +3422,25 @@ export class TwoElementsVerificationResponseBodyData extends $tea.Model {
   }
 }
 
+export class UAIDVerificationResponseBodyData extends $tea.Model {
+  uaid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uaid: 'Uaid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uaid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -3210,6 +3464,15 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the billing of services related to four-element verification for enterprises. For more information, see [Billing](https://help.aliyun.com/document_detail/154751.html?spm=a2c4g.154007.0.0.3edd7eb6E90YT4).
+    * *   You are charged only if the value of VerifyResult is true or false and the value of ReasonCode is 0, 1, or 2.
+    * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    *
+    * @param request CompanyFourElementsVerificationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CompanyFourElementsVerificationResponse
+   */
   async companyFourElementsVerificationWithOptions(request: CompanyFourElementsVerificationRequest, runtime: $Util.RuntimeOptions): Promise<CompanyFourElementsVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3262,11 +3525,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CompanyFourElementsVerificationResponse>(await this.callApi(params, req, runtime), new CompanyFourElementsVerificationResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the billing of services related to four-element verification for enterprises. For more information, see [Billing](https://help.aliyun.com/document_detail/154751.html?spm=a2c4g.154007.0.0.3edd7eb6E90YT4).
+    * *   You are charged only if the value of VerifyResult is true or false and the value of ReasonCode is 0, 1, or 2.
+    * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    *
+    * @param request CompanyFourElementsVerificationRequest
+    * @return CompanyFourElementsVerificationResponse
+   */
   async companyFourElementsVerification(request: CompanyFourElementsVerificationRequest): Promise<CompanyFourElementsVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.companyFourElementsVerificationWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the billing of services related to three-element verification for enterprises. For more information, see [Billing](https://help.aliyun.com/document_detail/154751.html?spm=a2c4g.154007.0.0.3edd7eb6E90YT4).
+    * *   You are charged only if the value of VerifyResult is true or false and the value of ReasonCode is 0, 1, or 2.
+    * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    *
+    * @param request CompanyThreeElementsVerificationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CompanyThreeElementsVerificationResponse
+   */
   async companyThreeElementsVerificationWithOptions(request: CompanyThreeElementsVerificationRequest, runtime: $Util.RuntimeOptions): Promise<CompanyThreeElementsVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3315,11 +3595,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CompanyThreeElementsVerificationResponse>(await this.callApi(params, req, runtime), new CompanyThreeElementsVerificationResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the billing of services related to three-element verification for enterprises. For more information, see [Billing](https://help.aliyun.com/document_detail/154751.html?spm=a2c4g.154007.0.0.3edd7eb6E90YT4).
+    * *   You are charged only if the value of VerifyResult is true or false and the value of ReasonCode is 0, 1, or 2.
+    * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    *
+    * @param request CompanyThreeElementsVerificationRequest
+    * @return CompanyThreeElementsVerificationResponse
+   */
   async companyThreeElementsVerification(request: CompanyThreeElementsVerificationRequest): Promise<CompanyThreeElementsVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.companyThreeElementsVerificationWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the billing of services related to two-element verification for enterprises. For more information, see [Billing](https://help.aliyun.com/document_detail/154751.html?spm=a2c4g.154007.0.0.3edd7eb6E90YT4).
+    * *   You are charged only if the value of VerifyResult is true or false and the value of ReasonCode is 0 or 1.
+    * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    *
+    * @param request CompanyTwoElementsVerificationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CompanyTwoElementsVerificationResponse
+   */
   async companyTwoElementsVerificationWithOptions(request: CompanyTwoElementsVerificationRequest, runtime: $Util.RuntimeOptions): Promise<CompanyTwoElementsVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3364,11 +3661,33 @@ export default class Client extends OpenApi {
     return $tea.cast<CompanyTwoElementsVerificationResponse>(await this.callApi(params, req, runtime), new CompanyTwoElementsVerificationResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the billing of services related to two-element verification for enterprises. For more information, see [Billing](https://help.aliyun.com/document_detail/154751.html?spm=a2c4g.154007.0.0.3edd7eb6E90YT4).
+    * *   You are charged only if the value of VerifyResult is true or false and the value of ReasonCode is 0 or 1.
+    * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    *
+    * @param request CompanyTwoElementsVerificationRequest
+    * @return CompanyTwoElementsVerificationResponse
+   */
   async companyTwoElementsVerification(request: CompanyTwoElementsVerificationRequest): Promise<CompanyTwoElementsVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.companyTwoElementsVerificationWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call this operation to verify whether a phone number is a nonexistent number. When you call this operation to verify a number, the system charges you CNY 0.01 per verification based on the number of verifications. **Before you call this operation, make sure that you are familiar with the billing of Cell Phone Number Service.**
+    * *   You are charged only if the value of Code is OK and the value of Status is not UNKNOWN.
+    * *   The prediction is not strictly accurate because Cell Phone Number Service predicts the nonexistent number probability by using AI algorithms. The accuracy rate of the prediction and the recall rate of empty numbers are about 95%. **Pay attention to this point when you call this operation**.
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * ### [](#)Authorization information
+    * By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    *
+    * @param request DescribeEmptyNumberRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeEmptyNumberResponse
+   */
   async describeEmptyNumberWithOptions(request: DescribeEmptyNumberRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEmptyNumberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3413,6 +3732,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEmptyNumberResponse>(await this.callApi(params, req, runtime), new DescribeEmptyNumberResponse({}));
   }
 
+  /**
+    * *   You can call this operation to verify whether a phone number is a nonexistent number. When you call this operation to verify a number, the system charges you CNY 0.01 per verification based on the number of verifications. **Before you call this operation, make sure that you are familiar with the billing of Cell Phone Number Service.**
+    * *   You are charged only if the value of Code is OK and the value of Status is not UNKNOWN.
+    * *   The prediction is not strictly accurate because Cell Phone Number Service predicts the nonexistent number probability by using AI algorithms. The accuracy rate of the prediction and the recall rate of empty numbers are about 95%. **Pay attention to this point when you call this operation**.
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * ### [](#)Authorization information
+    * By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    *
+    * @param request DescribeEmptyNumberRequest
+    * @return DescribeEmptyNumberResponse
+   */
   async describeEmptyNumber(request: DescribeEmptyNumberRequest): Promise<DescribeEmptyNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEmptyNumberWithOptions(request, runtime);
@@ -3475,6 +3807,13 @@ export default class Client extends OpenApi {
     return await this.describePhoneNumberAnalysisWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the Labels page, find the label that you want to use, click Activate Now, enter the required information, and then submit your application. After your application is approved, you can use the label. Before you call this operation, make sure that you are familiar with the billing of Cell Phone Number Service.
+    *
+    * @param request DescribePhoneNumberAnalysisAIRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePhoneNumberAnalysisAIResponse
+   */
   async describePhoneNumberAnalysisAIWithOptions(request: DescribePhoneNumberAnalysisAIRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhoneNumberAnalysisAIResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3523,11 +3862,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePhoneNumberAnalysisAIResponse>(await this.callApi(params, req, runtime), new DescribePhoneNumberAnalysisAIResponse({}));
   }
 
+  /**
+    * Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the Labels page, find the label that you want to use, click Activate Now, enter the required information, and then submit your application. After your application is approved, you can use the label. Before you call this operation, make sure that you are familiar with the billing of Cell Phone Number Service.
+    *
+    * @param request DescribePhoneNumberAnalysisAIRequest
+    * @return DescribePhoneNumberAnalysisAIResponse
+   */
   async describePhoneNumberAnalysisAI(request: DescribePhoneNumberAnalysisAIRequest): Promise<DescribePhoneNumberAnalysisAIResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePhoneNumberAnalysisAIWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : DescribePhoneNumberAttribute is deprecated, please use Dytnsapi::2020-02-17::DescribePhoneNumberOperatorAttribute instead.
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 2,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePhoneNumberAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePhoneNumberAttributeResponse
+   */
+  // Deprecated
   async describePhoneNumberAttributeWithOptions(request: DescribePhoneNumberAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhoneNumberAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3564,11 +3921,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePhoneNumberAttributeResponse>(await this.callApi(params, req, runtime), new DescribePhoneNumberAttributeResponse({}));
   }
 
+  /**
+    * @deprecated : DescribePhoneNumberAttribute is deprecated, please use Dytnsapi::2020-02-17::DescribePhoneNumberOperatorAttribute instead.
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 2,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePhoneNumberAttributeRequest
+    * @return DescribePhoneNumberAttributeResponse
+   */
+  // Deprecated
   async describePhoneNumberAttribute(request: DescribePhoneNumberAttributeRequest): Promise<DescribePhoneNumberAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePhoneNumberAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePhoneNumberOnlineTimeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePhoneNumberOnlineTimeResponse
+   */
   async describePhoneNumberOnlineTimeWithOptions(request: DescribePhoneNumberOnlineTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhoneNumberOnlineTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3617,11 +3995,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePhoneNumberOnlineTimeResponse>(await this.callApi(params, req, runtime), new DescribePhoneNumberOnlineTimeResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePhoneNumberOnlineTimeRequest
+    * @return DescribePhoneNumberOnlineTimeResponse
+   */
   async describePhoneNumberOnlineTime(request: DescribePhoneNumberOnlineTimeRequest): Promise<DescribePhoneNumberOnlineTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePhoneNumberOnlineTimeWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154008~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   You can call this operation to obtain the carrier, registration location, and mobile number portability information about a phone number. You can query phone numbers in **plaintext** and phone numbers that are encrypted by using **MD5** and **SHA256**.
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    *
+    * @param request DescribePhoneNumberOperatorAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePhoneNumberOperatorAttributeResponse
+   */
   async describePhoneNumberOperatorAttributeWithOptions(request: DescribePhoneNumberOperatorAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhoneNumberOperatorAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3666,11 +4063,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePhoneNumberOperatorAttributeResponse>(await this.callApi(params, req, runtime), new DescribePhoneNumberOperatorAttributeResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154008~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   You can call this operation to obtain the carrier, registration location, and mobile number portability information about a phone number. You can query phone numbers in **plaintext** and phone numbers that are encrypted by using **MD5** and **SHA256**.
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    *
+    * @param request DescribePhoneNumberOperatorAttributeRequest
+    * @return DescribePhoneNumberOperatorAttributeResponse
+   */
   async describePhoneNumberOperatorAttribute(request: DescribePhoneNumberOperatorAttributeRequest): Promise<DescribePhoneNumberOperatorAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePhoneNumberOperatorAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   You are charged for phone number verifications only if the value of Code is OK and the value of VerifyResult is not 0.
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ## [](#qps)QPS limits
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * ## [](#)Authorization information
+    * By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    *
+    * @param request DescribePhoneTwiceTelVerifyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePhoneTwiceTelVerifyResponse
+   */
   async describePhoneTwiceTelVerifyWithOptions(request: DescribePhoneTwiceTelVerifyRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhoneTwiceTelVerifyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3719,11 +4138,101 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePhoneTwiceTelVerifyResponse>(await this.callApi(params, req, runtime), new DescribePhoneTwiceTelVerifyResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   You are charged for phone number verifications only if the value of Code is OK and the value of VerifyResult is not 0.
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ## [](#qps)QPS limits
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * ## [](#)Authorization information
+    * By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    *
+    * @param request DescribePhoneTwiceTelVerifyRequest
+    * @return DescribePhoneTwiceTelVerifyResponse
+   */
   async describePhoneTwiceTelVerify(request: DescribePhoneTwiceTelVerifyRequest): Promise<DescribePhoneTwiceTelVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePhoneTwiceTelVerifyWithOptions(request, runtime);
   }
 
+  async getUAIDApplyTokenSignWithOptions(request: GetUAIDApplyTokenSignRequest, runtime: $Util.RuntimeOptions): Promise<GetUAIDApplyTokenSignResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.carrier)) {
+      query["Carrier"] = request.carrier;
+    }
+
+    if (!Util.isUnset(request.clientType)) {
+      query["ClientType"] = request.clientType;
+    }
+
+    if (!Util.isUnset(request.format)) {
+      query["Format"] = request.format;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.paramKey)) {
+      query["ParamKey"] = request.paramKey;
+    }
+
+    if (!Util.isUnset(request.paramStr)) {
+      query["ParamStr"] = request.paramStr;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.time)) {
+      query["Time"] = request.time;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUAIDApplyTokenSign",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUAIDApplyTokenSignResponse>(await this.callApi(params, req, runtime), new GetUAIDApplyTokenSignResponse({}));
+  }
+
+  async getUAIDApplyTokenSign(request: GetUAIDApplyTokenSignRequest): Promise<GetUAIDApplyTokenSignResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUAIDApplyTokenSignWithOptions(request, runtime);
+  }
+
+  /**
+    * Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request InvalidPhoneNumberFilterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return InvalidPhoneNumberFilterResponse
+   */
   async invalidPhoneNumberFilterWithOptions(request: InvalidPhoneNumberFilterRequest, runtime: $Util.RuntimeOptions): Promise<InvalidPhoneNumberFilterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3768,6 +4277,14 @@ export default class Client extends OpenApi {
     return $tea.cast<InvalidPhoneNumberFilterResponse>(await this.callApi(params, req, runtime), new InvalidPhoneNumberFilterResponse({}));
   }
 
+  /**
+    * Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request InvalidPhoneNumberFilterRequest
+    * @return InvalidPhoneNumberFilterResponse
+   */
   async invalidPhoneNumberFilter(request: InvalidPhoneNumberFilterRequest): Promise<InvalidPhoneNumberFilterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.invalidPhoneNumberFilterWithOptions(request, runtime);
@@ -3822,6 +4339,15 @@ export default class Client extends OpenApi {
     return await this.phoneNumberConvertServiceWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberEncryptRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PhoneNumberEncryptResponse
+   */
   async phoneNumberEncryptWithOptions(request: PhoneNumberEncryptRequest, runtime: $Util.RuntimeOptions): Promise<PhoneNumberEncryptResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3866,11 +4392,30 @@ export default class Client extends OpenApi {
     return $tea.cast<PhoneNumberEncryptResponse>(await this.callApi(params, req, runtime), new PhoneNumberEncryptResponse({}));
   }
 
+  /**
+    * Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberEncryptRequest
+    * @return PhoneNumberEncryptResponse
+   */
   async phoneNumberEncrypt(request: PhoneNumberEncryptRequest): Promise<PhoneNumberEncryptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.phoneNumberEncryptWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberStatusForAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PhoneNumberStatusForAccountResponse
+   */
   async phoneNumberStatusForAccountWithOptions(request: PhoneNumberStatusForAccountRequest, runtime: $Util.RuntimeOptions): Promise<PhoneNumberStatusForAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3915,11 +4460,32 @@ export default class Client extends OpenApi {
     return $tea.cast<PhoneNumberStatusForAccountResponse>(await this.callApi(params, req, runtime), new PhoneNumberStatusForAccountResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberStatusForAccountRequest
+    * @return PhoneNumberStatusForAccountResponse
+   */
   async phoneNumberStatusForAccount(request: PhoneNumberStatusForAccountRequest): Promise<PhoneNumberStatusForAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.phoneNumberStatusForAccountWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberStatusForPublicRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PhoneNumberStatusForPublicResponse
+   */
   async phoneNumberStatusForPublicWithOptions(request: PhoneNumberStatusForPublicRequest, runtime: $Util.RuntimeOptions): Promise<PhoneNumberStatusForPublicResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3964,11 +4530,32 @@ export default class Client extends OpenApi {
     return $tea.cast<PhoneNumberStatusForPublicResponse>(await this.callApi(params, req, runtime), new PhoneNumberStatusForPublicResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberStatusForPublicRequest
+    * @return PhoneNumberStatusForPublicResponse
+   */
   async phoneNumberStatusForPublic(request: PhoneNumberStatusForPublicRequest): Promise<PhoneNumberStatusForPublicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.phoneNumberStatusForPublicWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberStatusForRealRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PhoneNumberStatusForRealResponse
+   */
   async phoneNumberStatusForRealWithOptions(request: PhoneNumberStatusForRealRequest, runtime: $Util.RuntimeOptions): Promise<PhoneNumberStatusForRealResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4013,11 +4600,32 @@ export default class Client extends OpenApi {
     return $tea.cast<PhoneNumberStatusForRealResponse>(await this.callApi(params, req, runtime), new PhoneNumberStatusForRealResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberStatusForRealRequest
+    * @return PhoneNumberStatusForRealResponse
+   */
   async phoneNumberStatusForReal(request: PhoneNumberStatusForRealRequest): Promise<PhoneNumberStatusForRealResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.phoneNumberStatusForRealWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberStatusForSmsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PhoneNumberStatusForSmsResponse
+   */
   async phoneNumberStatusForSmsWithOptions(request: PhoneNumberStatusForSmsRequest, runtime: $Util.RuntimeOptions): Promise<PhoneNumberStatusForSmsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4062,11 +4670,33 @@ export default class Client extends OpenApi {
     return $tea.cast<PhoneNumberStatusForSmsResponse>(await this.callApi(params, req, runtime), new PhoneNumberStatusForSmsResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberStatusForSmsRequest
+    * @return PhoneNumberStatusForSmsResponse
+   */
   async phoneNumberStatusForSms(request: PhoneNumberStatusForSmsRequest): Promise<PhoneNumberStatusForSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.phoneNumberStatusForSmsWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   You are charged only if the value of Code is OK and the value of IsPrivacyNumber is true or false.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberStatusForVirtualRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PhoneNumberStatusForVirtualResponse
+   */
   async phoneNumberStatusForVirtualWithOptions(request: PhoneNumberStatusForVirtualRequest, runtime: $Util.RuntimeOptions): Promise<PhoneNumberStatusForVirtualResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4111,11 +4741,33 @@ export default class Client extends OpenApi {
     return $tea.cast<PhoneNumberStatusForVirtualResponse>(await this.callApi(params, req, runtime), new PhoneNumberStatusForVirtualResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   You are charged only if the value of Code is OK and the value of IsPrivacyNumber is true or false.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberStatusForVirtualRequest
+    * @return PhoneNumberStatusForVirtualResponse
+   */
   async phoneNumberStatusForVirtual(request: PhoneNumberStatusForVirtualRequest): Promise<PhoneNumberStatusForVirtualResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.phoneNumberStatusForVirtualWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberStatusForVoiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PhoneNumberStatusForVoiceResponse
+   */
   async phoneNumberStatusForVoiceWithOptions(request: PhoneNumberStatusForVoiceRequest, runtime: $Util.RuntimeOptions): Promise<PhoneNumberStatusForVoiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4160,6 +4812,16 @@ export default class Client extends OpenApi {
     return $tea.cast<PhoneNumberStatusForVoiceResponse>(await this.callApi(params, req, runtime), new PhoneNumberStatusForVoiceResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PhoneNumberStatusForVoiceRequest
+    * @return PhoneNumberStatusForVoiceResponse
+   */
   async phoneNumberStatusForVoice(request: PhoneNumberStatusForVoiceRequest): Promise<PhoneNumberStatusForVoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.phoneNumberStatusForVoiceWithOptions(request, runtime);
@@ -4398,6 +5060,17 @@ export default class Client extends OpenApi {
     return await this.queryUsageStatisticsByTagIdWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * *   You are charged only if the value of Code is OK and the value of IsConsistent is not 2.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ThreeElementsVerificationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ThreeElementsVerificationResponse
+   */
   async threeElementsVerificationWithOptions(request: ThreeElementsVerificationRequest, runtime: $Util.RuntimeOptions): Promise<ThreeElementsVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4450,11 +5123,32 @@ export default class Client extends OpenApi {
     return $tea.cast<ThreeElementsVerificationResponse>(await this.callApi(params, req, runtime), new ThreeElementsVerificationResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * *   You are charged only if the value of Code is OK and the value of IsConsistent is not 2.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ThreeElementsVerificationRequest
+    * @return ThreeElementsVerificationResponse
+   */
   async threeElementsVerification(request: ThreeElementsVerificationRequest): Promise<ThreeElementsVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.threeElementsVerificationWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * *   You are charged only if the value of Code is OK and the value of IsConsistent is not 2.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request TwoElementsVerificationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TwoElementsVerificationResponse
+   */
   async twoElementsVerificationWithOptions(request: TwoElementsVerificationRequest, runtime: $Util.RuntimeOptions): Promise<TwoElementsVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4503,9 +5197,80 @@ export default class Client extends OpenApi {
     return $tea.cast<TwoElementsVerificationResponse>(await this.callApi(params, req, runtime), new TwoElementsVerificationResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+    * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+    * *   You are charged only if the value of Code is OK and the value of IsConsistent is not 2.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request TwoElementsVerificationRequest
+    * @return TwoElementsVerificationResponse
+   */
   async twoElementsVerification(request: TwoElementsVerificationRequest): Promise<TwoElementsVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.twoElementsVerificationWithOptions(request, runtime);
+  }
+
+  async uAIDVerificationWithOptions(request: UAIDVerificationRequest, runtime: $Util.RuntimeOptions): Promise<UAIDVerificationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.carrier)) {
+      query["Carrier"] = request.carrier;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    if (!Util.isUnset(request.userGrantId)) {
+      query["UserGrantId"] = request.userGrantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UAIDVerification",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UAIDVerificationResponse>(await this.callApi(params, req, runtime), new UAIDVerificationResponse({}));
+  }
+
+  async uAIDVerification(request: UAIDVerificationRequest): Promise<UAIDVerificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uAIDVerificationWithOptions(request, runtime);
   }
 
 }
