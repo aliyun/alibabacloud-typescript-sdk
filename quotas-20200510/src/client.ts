@@ -3418,6 +3418,7 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplicationsA
 }
 
 export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications extends $tea.Model {
+  aliyunUids?: string[];
   applyTime?: string;
   auditStatusVos?: ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplicationsAuditStatusVos[];
   batchQuotaApplicationId?: string;
@@ -3428,8 +3429,10 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications 
   productCode?: string;
   quotaActionCode?: string;
   quotaCategory?: string;
+  reason?: string;
   static names(): { [key: string]: string } {
     return {
+      aliyunUids: 'AliyunUids',
       applyTime: 'ApplyTime',
       auditStatusVos: 'AuditStatusVos',
       batchQuotaApplicationId: 'BatchQuotaApplicationId',
@@ -3440,11 +3443,13 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications 
       productCode: 'ProductCode',
       quotaActionCode: 'QuotaActionCode',
       quotaCategory: 'QuotaCategory',
+      reason: 'Reason',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aliyunUids: { 'type': 'array', 'itemType': 'string' },
       applyTime: 'string',
       auditStatusVos: { 'type': 'array', 'itemType': ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplicationsAuditStatusVos },
       batchQuotaApplicationId: 'string',
@@ -3455,6 +3460,7 @@ export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications 
       productCode: 'string',
       quotaActionCode: 'string',
       quotaCategory: 'string',
+      reason: 'string',
     };
   }
 
