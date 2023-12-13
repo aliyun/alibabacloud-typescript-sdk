@@ -860,6 +860,49 @@ export class Permission extends $tea.Model {
   }
 }
 
+export class QueueInfo extends $tea.Model {
+  gmtEnqueuedTime?: string;
+  gmtPositionModifiedTime?: string;
+  position?: number;
+  priority?: number;
+  queueStrategy?: string;
+  quotaId?: string;
+  workloadId?: string;
+  workloadType?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtEnqueuedTime: 'GmtEnqueuedTime',
+      gmtPositionModifiedTime: 'GmtPositionModifiedTime',
+      position: 'Position',
+      priority: 'Priority',
+      queueStrategy: 'QueueStrategy',
+      quotaId: 'QuotaId',
+      workloadId: 'WorkloadId',
+      workloadType: 'WorkloadType',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtEnqueuedTime: 'string',
+      gmtPositionModifiedTime: 'string',
+      position: 'number',
+      priority: 'number',
+      queueStrategy: 'string',
+      quotaId: 'string',
+      workloadId: 'string',
+      workloadType: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Quota extends $tea.Model {
   allocateStrategy?: string;
   creatorId?: string;
@@ -2994,6 +3037,7 @@ export class GetTrainingJobResponseBody extends $tea.Model {
   latestMetrics?: GetTrainingJobResponseBodyLatestMetrics[];
   latestProgress?: GetTrainingJobResponseBodyLatestProgress;
   outputChannels?: GetTrainingJobResponseBodyOutputChannels[];
+  outputModel?: GetTrainingJobResponseBodyOutputModel;
   reasonCode?: string;
   reasonMessage?: string;
   requestId?: string;
@@ -3026,6 +3070,7 @@ export class GetTrainingJobResponseBody extends $tea.Model {
       latestMetrics: 'LatestMetrics',
       latestProgress: 'LatestProgress',
       outputChannels: 'OutputChannels',
+      outputModel: 'OutputModel',
       reasonCode: 'ReasonCode',
       reasonMessage: 'ReasonMessage',
       requestId: 'RequestId',
@@ -3061,6 +3106,7 @@ export class GetTrainingJobResponseBody extends $tea.Model {
       latestMetrics: { 'type': 'array', 'itemType': GetTrainingJobResponseBodyLatestMetrics },
       latestProgress: GetTrainingJobResponseBodyLatestProgress,
       outputChannels: { 'type': 'array', 'itemType': GetTrainingJobResponseBodyOutputChannels },
+      outputModel: GetTrainingJobResponseBodyOutputModel,
       reasonCode: 'string',
       reasonMessage: 'string',
       requestId: 'string',
@@ -4243,10 +4289,12 @@ export class UpdateAlgorithmVersionResponse extends $tea.Model {
 export class UpdateQuotaRequest extends $tea.Model {
   description?: string;
   labels?: Label[];
+  queueStrategy?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       labels: 'Labels',
+      queueStrategy: 'QueueStrategy',
     };
   }
 
@@ -4254,6 +4302,7 @@ export class UpdateQuotaRequest extends $tea.Model {
     return {
       description: 'string',
       labels: { 'type': 'array', 'itemType': Label },
+      queueStrategy: 'string',
     };
   }
 
@@ -4789,13 +4838,50 @@ export class CreateTrainingJobRequestUserVpc extends $tea.Model {
   }
 }
 
+export class GetTrainingJobResponseBodyComputeResourceInstanceSpec extends $tea.Model {
+  CPU?: string;
+  GPU?: string;
+  GPUType?: string;
+  memory?: string;
+  sharedMemory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+      GPU: 'GPU',
+      GPUType: 'GPUType',
+      memory: 'Memory',
+      sharedMemory: 'SharedMemory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: 'string',
+      GPU: 'string',
+      GPUType: 'string',
+      memory: 'string',
+      sharedMemory: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTrainingJobResponseBodyComputeResource extends $tea.Model {
   ecsCount?: number;
   ecsSpec?: string;
+  instanceCount?: number;
+  instanceSpec?: GetTrainingJobResponseBodyComputeResourceInstanceSpec;
+  resourceId?: string;
   static names(): { [key: string]: string } {
     return {
       ecsCount: 'EcsCount',
       ecsSpec: 'EcsSpec',
+      instanceCount: 'InstanceCount',
+      instanceSpec: 'InstanceSpec',
+      resourceId: 'ResourceId',
     };
   }
 
@@ -4803,6 +4889,9 @@ export class GetTrainingJobResponseBodyComputeResource extends $tea.Model {
     return {
       ecsCount: 'number',
       ecsSpec: 'string',
+      instanceCount: 'number',
+      instanceSpec: GetTrainingJobResponseBodyComputeResourceInstanceSpec,
+      resourceId: 'string',
     };
   }
 
@@ -5013,6 +5102,28 @@ export class GetTrainingJobResponseBodyOutputChannels extends $tea.Model {
       datasetId: 'string',
       name: 'string',
       outputUri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrainingJobResponseBodyOutputModel extends $tea.Model {
+  outputChannelName?: string;
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outputChannelName: 'OutputChannelName',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputChannelName: 'string',
+      uri: 'string',
     };
   }
 
@@ -6935,6 +7046,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.labels)) {
       body["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.queueStrategy)) {
+      body["QueueStrategy"] = request.queueStrategy;
     }
 
     let req = new $OpenApi.OpenApiRequest({
