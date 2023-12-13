@@ -8933,6 +8933,90 @@ export class GetAppApiByPageResponse extends $tea.Model {
   }
 }
 
+export class GetAppJVMConfigRequest extends $tea.Model {
+  endTime?: number;
+  pid?: string;
+  regionId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      pid: 'Pid',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      pid: 'string',
+      regionId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppJVMConfigResponseBody extends $tea.Model {
+  code?: number;
+  jvmInfoList?: GetAppJVMConfigResponseBodyJvmInfoList[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      jvmInfoList: 'JvmInfoList',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      jvmInfoList: { 'type': 'array', 'itemType': GetAppJVMConfigResponseBodyJvmInfoList },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppJVMConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAppJVMConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAppJVMConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAuthTokenRequest extends $tea.Model {
   clusterId?: string;
   regionId?: string;
@@ -23392,6 +23476,40 @@ export class GetAppApiByPageResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetAppJVMConfigResponseBodyJvmInfoList extends $tea.Model {
+  agentVersion?: string;
+  hostName?: string;
+  ip?: string;
+  pid?: string;
+  procId?: string;
+  vmArgs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentVersion: 'AgentVersion',
+      hostName: 'HostName',
+      ip: 'Ip',
+      pid: 'Pid',
+      procId: 'ProcId',
+      vmArgs: 'VmArgs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentVersion: 'string',
+      hostName: 'string',
+      ip: 'string',
+      pid: 'string',
+      procId: 'string',
+      vmArgs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCloudClusterAllUrlResponseBodyDataRemoteUrl extends $tea.Model {
   authToken?: boolean;
   grafanaUrl?: string;
@@ -26525,25 +26643,37 @@ export class ListAlertsResponseBodyPageBeanListAlertsAlertEvents extends $tea.Mo
 }
 
 export class ListAlertsResponseBodyPageBeanListAlerts extends $tea.Model {
+  acknowledgeTime?: number;
   activities?: ListAlertsResponseBodyPageBeanListAlertsActivities[];
   alertEvents?: ListAlertsResponseBodyPageBeanListAlertsAlertEvents[];
   alertId?: number;
   alertName?: string;
   createTime?: string;
+  describe?: string;
   dispatchRuleId?: number;
   dispatchRuleName?: string;
+  handler?: string;
+  notifyRobots?: string;
+  owner?: string;
+  recoverTime?: number;
   severity?: string;
   solution?: string;
   state?: number;
   static names(): { [key: string]: string } {
     return {
+      acknowledgeTime: 'AcknowledgeTime',
       activities: 'Activities',
       alertEvents: 'AlertEvents',
       alertId: 'AlertId',
       alertName: 'AlertName',
       createTime: 'CreateTime',
+      describe: 'Describe',
       dispatchRuleId: 'DispatchRuleId',
       dispatchRuleName: 'DispatchRuleName',
+      handler: 'Handler',
+      notifyRobots: 'NotifyRobots',
+      owner: 'Owner',
+      recoverTime: 'RecoverTime',
       severity: 'Severity',
       solution: 'Solution',
       state: 'State',
@@ -26552,13 +26682,19 @@ export class ListAlertsResponseBodyPageBeanListAlerts extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acknowledgeTime: 'number',
       activities: { 'type': 'array', 'itemType': ListAlertsResponseBodyPageBeanListAlertsActivities },
       alertEvents: { 'type': 'array', 'itemType': ListAlertsResponseBodyPageBeanListAlertsAlertEvents },
       alertId: 'number',
       alertName: 'string',
       createTime: 'string',
+      describe: 'string',
       dispatchRuleId: 'number',
       dispatchRuleName: 'string',
+      handler: 'string',
+      notifyRobots: 'string',
+      owner: 'string',
+      recoverTime: 'number',
       severity: 'string',
       solution: 'string',
       state: 'number',
@@ -28234,12 +28370,21 @@ export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPromet
 }
 
 export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPrometheusInstances extends $tea.Model {
+  authToken?: string;
   clusterId?: string;
   clusterName?: string;
   clusterType?: string;
   grafanaInstanceId?: string;
+  httpApiInterUrl?: string;
+  httpApiIntraUrl?: string;
   paymentType?: string;
+  pushGatewayInterUrl?: string;
+  pushGatewayIntraUrl?: string;
   regionId?: string;
+  remoteReadInterUrl?: string;
+  remoteReadIntraUrl?: string;
+  remoteWriteInterUrl?: string;
+  remoteWriteIntraUrl?: string;
   resourceGroupId?: string;
   resourceType?: string;
   securityGroupId?: string;
@@ -28250,12 +28395,21 @@ export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPromet
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      authToken: 'AuthToken',
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
       grafanaInstanceId: 'GrafanaInstanceId',
+      httpApiInterUrl: 'HttpApiInterUrl',
+      httpApiIntraUrl: 'HttpApiIntraUrl',
       paymentType: 'PaymentType',
+      pushGatewayInterUrl: 'PushGatewayInterUrl',
+      pushGatewayIntraUrl: 'PushGatewayIntraUrl',
       regionId: 'RegionId',
+      remoteReadInterUrl: 'RemoteReadInterUrl',
+      remoteReadIntraUrl: 'RemoteReadIntraUrl',
+      remoteWriteInterUrl: 'RemoteWriteInterUrl',
+      remoteWriteIntraUrl: 'RemoteWriteIntraUrl',
       resourceGroupId: 'ResourceGroupId',
       resourceType: 'ResourceType',
       securityGroupId: 'SecurityGroupId',
@@ -28269,12 +28423,21 @@ export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPromet
 
   static types(): { [key: string]: any } {
     return {
+      authToken: 'string',
       clusterId: 'string',
       clusterName: 'string',
       clusterType: 'string',
       grafanaInstanceId: 'string',
+      httpApiInterUrl: 'string',
+      httpApiIntraUrl: 'string',
       paymentType: 'string',
+      pushGatewayInterUrl: 'string',
+      pushGatewayIntraUrl: 'string',
       regionId: 'string',
+      remoteReadInterUrl: 'string',
+      remoteReadIntraUrl: 'string',
+      remoteWriteInterUrl: 'string',
+      remoteWriteIntraUrl: 'string',
       resourceGroupId: 'string',
       resourceType: 'string',
       securityGroupId: 'string',
@@ -35427,6 +35590,31 @@ export default class Client extends OpenApi {
   async getAppApiByPage(request: GetAppApiByPageRequest): Promise<GetAppApiByPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppApiByPageWithOptions(request, runtime);
+  }
+
+  async getAppJVMConfigWithOptions(request: GetAppJVMConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetAppJVMConfigResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAppJVMConfig",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAppJVMConfigResponse>(await this.callApi(params, req, runtime), new GetAppJVMConfigResponse({}));
+  }
+
+  async getAppJVMConfig(request: GetAppJVMConfigRequest): Promise<GetAppJVMConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAppJVMConfigWithOptions(request, runtime);
   }
 
   async getAuthTokenWithOptions(request: GetAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthTokenResponse> {
