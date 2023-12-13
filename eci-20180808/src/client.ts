@@ -8,30 +8,236 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CommitContainerRequest extends $tea.Model {
+  acrRegistryInfo?: CommitContainerRequestAcrRegistryInfo;
+  arn?: CommitContainerRequestArn;
+  containerGroupId?: string;
+  containerName?: string;
+  image?: CommitContainerRequestImage;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acrRegistryInfo: 'AcrRegistryInfo',
+      arn: 'Arn',
+      containerGroupId: 'ContainerGroupId',
+      containerName: 'ContainerName',
+      image: 'Image',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acrRegistryInfo: CommitContainerRequestAcrRegistryInfo,
+      arn: CommitContainerRequestArn,
+      containerGroupId: 'string',
+      containerName: 'string',
+      image: CommitContainerRequestImage,
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitContainerResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitContainerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CommitContainerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CommitContainerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDataCacheRequest extends $tea.Model {
+  bucket?: string;
+  clientToken?: string;
+  dataCacheId?: string;
+  destinationRegionId?: string;
+  name?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  path?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  retentionDays?: number;
+  tag?: CopyDataCacheRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      clientToken: 'ClientToken',
+      dataCacheId: 'DataCacheId',
+      destinationRegionId: 'DestinationRegionId',
+      name: 'Name',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      path: 'Path',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      retentionDays: 'RetentionDays',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      clientToken: 'string',
+      dataCacheId: 'string',
+      destinationRegionId: 'string',
+      name: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      path: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      retentionDays: 'number',
+      tag: { 'type': 'array', 'itemType': CopyDataCacheRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDataCacheResponseBody extends $tea.Model {
+  dataCacheId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataCacheId: 'DataCacheId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataCacheId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDataCacheResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CopyDataCacheResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CopyDataCacheResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateContainerGroupRequest extends $tea.Model {
   dnsConfig?: CreateContainerGroupRequestDnsConfig;
   hostSecurityContext?: CreateContainerGroupRequestHostSecurityContext;
   securityContext?: CreateContainerGroupRequestSecurityContext;
   acrRegistryInfo?: CreateContainerGroupRequestAcrRegistryInfo[];
   activeDeadlineSeconds?: number;
-  arn?: CreateContainerGroupRequestArn[];
   autoCreateEip?: boolean;
   autoMatchImageCache?: boolean;
   clientToken?: string;
   container?: CreateContainerGroupRequestContainer[];
   containerGroupName?: string;
+  containerResourceView?: boolean;
   corePattern?: string;
   cpu?: number;
+  cpuArchitecture?: string;
   cpuOptionsCore?: number;
   cpuOptionsNuma?: string;
   cpuOptionsThreadsPerCore?: number;
+  dataCacheBucket?: string;
+  dataCacheBurstingEnabled?: boolean;
+  dataCachePL?: string;
+  dataCacheProvisionedIops?: number;
   dnsPolicy?: string;
+  dryRun?: boolean;
   egressBandwidth?: number;
   eipBandwidth?: number;
   eipCommonBandwidthPackage?: string;
   eipISP?: string;
   eipInstanceId?: string;
   ephemeralStorage?: number;
+  fixedIp?: string;
+  fixedIpRetainHour?: number;
   hostAliase?: CreateContainerGroupRequestHostAliase[];
   hostName?: string;
   imageAccelerateMode?: string;
@@ -46,10 +252,12 @@ export class CreateContainerGroupRequest extends $tea.Model {
   ipv6GatewayBandwidthEnable?: boolean;
   memory?: number;
   ntpServer?: string[];
+  osType?: string;
+  overheadReservationOption?: CreateContainerGroupRequestOverheadReservationOption;
   ownerAccount?: string;
   ownerId?: number;
   plainHttpRegistry?: string;
-  productOnEciMode?: string;
+  privateIpAddress?: string;
   ramRoleName?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -57,17 +265,13 @@ export class CreateContainerGroupRequest extends $tea.Model {
   resourceOwnerId?: number;
   restartPolicy?: string;
   scheduleStrategy?: string;
-  secondaryENIPolicy?: string;
   securityGroupId?: string;
   shareProcessNamespace?: boolean;
-  slsEnable?: boolean;
   spotDuration?: number;
   spotPriceLimit?: number;
   spotStrategy?: string;
   strictSpot?: boolean;
   tag?: CreateContainerGroupRequestTag[];
-  tenantSecurityGroupId?: string;
-  tenantVSwitchId?: string;
   terminationGracePeriodSeconds?: number;
   vSwitchId?: string;
   volume?: CreateContainerGroupRequestVolume[];
@@ -79,24 +283,32 @@ export class CreateContainerGroupRequest extends $tea.Model {
       securityContext: 'SecurityContext',
       acrRegistryInfo: 'AcrRegistryInfo',
       activeDeadlineSeconds: 'ActiveDeadlineSeconds',
-      arn: 'Arn',
       autoCreateEip: 'AutoCreateEip',
       autoMatchImageCache: 'AutoMatchImageCache',
       clientToken: 'ClientToken',
       container: 'Container',
       containerGroupName: 'ContainerGroupName',
+      containerResourceView: 'ContainerResourceView',
       corePattern: 'CorePattern',
       cpu: 'Cpu',
+      cpuArchitecture: 'CpuArchitecture',
       cpuOptionsCore: 'CpuOptionsCore',
       cpuOptionsNuma: 'CpuOptionsNuma',
       cpuOptionsThreadsPerCore: 'CpuOptionsThreadsPerCore',
+      dataCacheBucket: 'DataCacheBucket',
+      dataCacheBurstingEnabled: 'DataCacheBurstingEnabled',
+      dataCachePL: 'DataCachePL',
+      dataCacheProvisionedIops: 'DataCacheProvisionedIops',
       dnsPolicy: 'DnsPolicy',
+      dryRun: 'DryRun',
       egressBandwidth: 'EgressBandwidth',
       eipBandwidth: 'EipBandwidth',
       eipCommonBandwidthPackage: 'EipCommonBandwidthPackage',
       eipISP: 'EipISP',
       eipInstanceId: 'EipInstanceId',
       ephemeralStorage: 'EphemeralStorage',
+      fixedIp: 'FixedIp',
+      fixedIpRetainHour: 'FixedIpRetainHour',
       hostAliase: 'HostAliase',
       hostName: 'HostName',
       imageAccelerateMode: 'ImageAccelerateMode',
@@ -111,10 +323,12 @@ export class CreateContainerGroupRequest extends $tea.Model {
       ipv6GatewayBandwidthEnable: 'Ipv6GatewayBandwidthEnable',
       memory: 'Memory',
       ntpServer: 'NtpServer',
+      osType: 'OsType',
+      overheadReservationOption: 'OverheadReservationOption',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       plainHttpRegistry: 'PlainHttpRegistry',
-      productOnEciMode: 'ProductOnEciMode',
+      privateIpAddress: 'PrivateIpAddress',
       ramRoleName: 'RamRoleName',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -122,17 +336,13 @@ export class CreateContainerGroupRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       restartPolicy: 'RestartPolicy',
       scheduleStrategy: 'ScheduleStrategy',
-      secondaryENIPolicy: 'SecondaryENIPolicy',
       securityGroupId: 'SecurityGroupId',
       shareProcessNamespace: 'ShareProcessNamespace',
-      slsEnable: 'SlsEnable',
       spotDuration: 'SpotDuration',
       spotPriceLimit: 'SpotPriceLimit',
       spotStrategy: 'SpotStrategy',
       strictSpot: 'StrictSpot',
       tag: 'Tag',
-      tenantSecurityGroupId: 'TenantSecurityGroupId',
-      tenantVSwitchId: 'TenantVSwitchId',
       terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
       vSwitchId: 'VSwitchId',
       volume: 'Volume',
@@ -147,24 +357,32 @@ export class CreateContainerGroupRequest extends $tea.Model {
       securityContext: CreateContainerGroupRequestSecurityContext,
       acrRegistryInfo: { 'type': 'array', 'itemType': CreateContainerGroupRequestAcrRegistryInfo },
       activeDeadlineSeconds: 'number',
-      arn: { 'type': 'array', 'itemType': CreateContainerGroupRequestArn },
       autoCreateEip: 'boolean',
       autoMatchImageCache: 'boolean',
       clientToken: 'string',
       container: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainer },
       containerGroupName: 'string',
+      containerResourceView: 'boolean',
       corePattern: 'string',
       cpu: 'number',
+      cpuArchitecture: 'string',
       cpuOptionsCore: 'number',
       cpuOptionsNuma: 'string',
       cpuOptionsThreadsPerCore: 'number',
+      dataCacheBucket: 'string',
+      dataCacheBurstingEnabled: 'boolean',
+      dataCachePL: 'string',
+      dataCacheProvisionedIops: 'number',
       dnsPolicy: 'string',
+      dryRun: 'boolean',
       egressBandwidth: 'number',
       eipBandwidth: 'number',
       eipCommonBandwidthPackage: 'string',
       eipISP: 'string',
       eipInstanceId: 'string',
       ephemeralStorage: 'number',
+      fixedIp: 'string',
+      fixedIpRetainHour: 'number',
       hostAliase: { 'type': 'array', 'itemType': CreateContainerGroupRequestHostAliase },
       hostName: 'string',
       imageAccelerateMode: 'string',
@@ -179,10 +397,12 @@ export class CreateContainerGroupRequest extends $tea.Model {
       ipv6GatewayBandwidthEnable: 'boolean',
       memory: 'number',
       ntpServer: { 'type': 'array', 'itemType': 'string' },
+      osType: 'string',
+      overheadReservationOption: CreateContainerGroupRequestOverheadReservationOption,
       ownerAccount: 'string',
       ownerId: 'number',
       plainHttpRegistry: 'string',
-      productOnEciMode: 'string',
+      privateIpAddress: 'string',
       ramRoleName: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -190,17 +410,13 @@ export class CreateContainerGroupRequest extends $tea.Model {
       resourceOwnerId: 'number',
       restartPolicy: 'string',
       scheduleStrategy: 'string',
-      secondaryENIPolicy: 'string',
       securityGroupId: 'string',
       shareProcessNamespace: 'boolean',
-      slsEnable: 'boolean',
       spotDuration: 'number',
       spotPriceLimit: 'number',
       spotStrategy: 'string',
       strictSpot: 'boolean',
       tag: { 'type': 'array', 'itemType': CreateContainerGroupRequestTag },
-      tenantSecurityGroupId: 'string',
-      tenantVSwitchId: 'string',
       terminationGracePeriodSeconds: 'number',
       vSwitchId: 'string',
       volume: { 'type': 'array', 'itemType': CreateContainerGroupRequestVolume },
@@ -252,6 +468,123 @@ export class CreateContainerGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateContainerGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCacheRequest extends $tea.Model {
+  bucket?: string;
+  clientToken?: string;
+  dataSource?: CreateDataCacheRequestDataSource;
+  eipCreateParam?: CreateDataCacheRequestEipCreateParam;
+  eipInstanceId?: string;
+  name?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  path?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  retentionDays?: number;
+  securityGroupId?: string;
+  size?: number;
+  tag?: CreateDataCacheRequestTag[];
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      clientToken: 'ClientToken',
+      dataSource: 'DataSource',
+      eipCreateParam: 'EipCreateParam',
+      eipInstanceId: 'EipInstanceId',
+      name: 'Name',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      path: 'Path',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      retentionDays: 'RetentionDays',
+      securityGroupId: 'SecurityGroupId',
+      size: 'Size',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      clientToken: 'string',
+      dataSource: CreateDataCacheRequestDataSource,
+      eipCreateParam: CreateDataCacheRequestEipCreateParam,
+      eipInstanceId: 'string',
+      name: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      path: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      retentionDays: 'number',
+      securityGroupId: 'string',
+      size: 'number',
+      tag: { 'type': 'array', 'itemType': CreateDataCacheRequestTag },
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCacheResponseBody extends $tea.Model {
+  dataCacheId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataCacheId: 'DataCacheId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataCacheId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCacheResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDataCacheResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataCacheResponseBody,
     };
   }
 
@@ -493,6 +826,9 @@ export class CreateInstanceOpsTaskResponse extends $tea.Model {
 
 export class CreateVirtualNodeRequest extends $tea.Model {
   clientToken?: string;
+  clusterDNS?: string;
+  clusterDomain?: string;
+  customResources?: string;
   eipInstanceId?: string;
   enablePublicNetwork?: boolean;
   kubeConfig?: string;
@@ -502,7 +838,6 @@ export class CreateVirtualNodeRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  rotateCertificateEnabled?: boolean;
   securityGroupId?: string;
   tag?: CreateVirtualNodeRequestTag[];
   taint?: CreateVirtualNodeRequestTaint[];
@@ -513,6 +848,9 @@ export class CreateVirtualNodeRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      clusterDNS: 'ClusterDNS',
+      clusterDomain: 'ClusterDomain',
+      customResources: 'CustomResources',
       eipInstanceId: 'EipInstanceId',
       enablePublicNetwork: 'EnablePublicNetwork',
       kubeConfig: 'KubeConfig',
@@ -522,7 +860,6 @@ export class CreateVirtualNodeRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      rotateCertificateEnabled: 'RotateCertificateEnabled',
       securityGroupId: 'SecurityGroupId',
       tag: 'Tag',
       taint: 'Taint',
@@ -536,6 +873,9 @@ export class CreateVirtualNodeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      clusterDNS: 'string',
+      clusterDomain: 'string',
+      customResources: 'string',
       eipInstanceId: 'string',
       enablePublicNetwork: 'boolean',
       kubeConfig: 'string',
@@ -545,7 +885,6 @@ export class CreateVirtualNodeRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      rotateCertificateEnabled: 'boolean',
       securityGroupId: 'string',
       tag: { 'type': 'array', 'itemType': CreateVirtualNodeRequestTag },
       taint: { 'type': 'array', 'itemType': CreateVirtualNodeRequestTaint },
@@ -681,6 +1020,93 @@ export class DeleteContainerGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteContainerGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataCacheRequest extends $tea.Model {
+  bucket?: string;
+  clientToken?: string;
+  dataCacheId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  path?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      clientToken: 'ClientToken',
+      dataCacheId: 'DataCacheId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      path: 'Path',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      clientToken: 'string',
+      dataCacheId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      path: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataCacheResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataCacheResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDataCacheResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataCacheResponseBody,
     };
   }
 
@@ -938,8 +1364,109 @@ export class DescribeAvailableResourceResponse extends $tea.Model {
   }
 }
 
+export class DescribeCommitContainerTaskRequest extends $tea.Model {
+  containerGroupId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  taskId?: string[];
+  taskStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containerGroupId: 'ContainerGroupId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      taskId: 'TaskId',
+      taskStatus: 'TaskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerGroupId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      taskId: { 'type': 'array', 'itemType': 'string' },
+      taskStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommitContainerTaskResponseBody extends $tea.Model {
+  commitTasks?: DescribeCommitContainerTaskResponseBodyCommitTasks[];
+  maxResults?: string;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commitTasks: 'CommitTasks',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commitTasks: { 'type': 'array', 'itemType': DescribeCommitContainerTaskResponseBodyCommitTasks },
+      maxResults: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommitContainerTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCommitContainerTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCommitContainerTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeContainerGroupEventsRequest extends $tea.Model {
-  condition?: DescribeContainerGroupEventsRequestCondition[];
   containerGroupIds?: string;
   eventSource?: string;
   limit?: number;
@@ -952,7 +1479,6 @@ export class DescribeContainerGroupEventsRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      condition: 'Condition',
       containerGroupIds: 'ContainerGroupIds',
       eventSource: 'EventSource',
       limit: 'Limit',
@@ -968,7 +1494,6 @@ export class DescribeContainerGroupEventsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      condition: { 'type': 'array', 'itemType': DescribeContainerGroupEventsRequestCondition },
       containerGroupIds: 'string',
       eventSource: 'string',
       limit: 'number',
@@ -1140,6 +1665,7 @@ export class DescribeContainerGroupPriceRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  spotDuration?: number;
   spotPriceLimit?: number;
   spotStrategy?: string;
   zoneId?: string;
@@ -1154,6 +1680,7 @@ export class DescribeContainerGroupPriceRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      spotDuration: 'SpotDuration',
       spotPriceLimit: 'SpotPriceLimit',
       spotStrategy: 'SpotStrategy',
       zoneId: 'ZoneId',
@@ -1171,6 +1698,7 @@ export class DescribeContainerGroupPriceRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      spotDuration: 'number',
       spotPriceLimit: 'number',
       spotStrategy: 'string',
       zoneId: 'string',
@@ -1230,7 +1758,6 @@ export class DescribeContainerGroupPriceResponse extends $tea.Model {
 }
 
 export class DescribeContainerGroupStatusRequest extends $tea.Model {
-  condition?: DescribeContainerGroupStatusRequestCondition[];
   containerGroupIds?: string;
   limit?: number;
   nextToken?: string;
@@ -1242,7 +1769,6 @@ export class DescribeContainerGroupStatusRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      condition: 'Condition',
       containerGroupIds: 'ContainerGroupIds',
       limit: 'Limit',
       nextToken: 'NextToken',
@@ -1257,7 +1783,6 @@ export class DescribeContainerGroupStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      condition: { 'type': 'array', 'itemType': DescribeContainerGroupStatusRequestCondition },
       containerGroupIds: 'string',
       limit: 'number',
       nextToken: 'string',
@@ -1547,11 +2072,120 @@ export class DescribeContainerLogResponse extends $tea.Model {
   }
 }
 
+export class DescribeDataCachesRequest extends $tea.Model {
+  bucket?: string;
+  dataCacheId?: string[];
+  limit?: number;
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  path?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tag?: DescribeDataCachesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      dataCacheId: 'DataCacheId',
+      limit: 'Limit',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      path: 'Path',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      dataCacheId: { 'type': 'array', 'itemType': 'string' },
+      limit: 'number',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      path: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeDataCachesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataCachesResponseBody extends $tea.Model {
+  dataCaches?: DescribeDataCachesResponseBodyDataCaches[];
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataCaches: 'DataCaches',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataCaches: { 'type': 'array', 'itemType': DescribeDataCachesResponseBodyDataCaches },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataCachesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDataCachesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataCachesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageCachesRequest extends $tea.Model {
   image?: string;
   imageCacheId?: string;
   imageCacheName?: string;
+  imageFullMatch?: boolean;
+  imageMatchCountRequest?: number;
+  limit?: number;
   matchImage?: string[];
+  nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -1565,7 +2199,11 @@ export class DescribeImageCachesRequest extends $tea.Model {
       image: 'Image',
       imageCacheId: 'ImageCacheId',
       imageCacheName: 'ImageCacheName',
+      imageFullMatch: 'ImageFullMatch',
+      imageMatchCountRequest: 'ImageMatchCountRequest',
+      limit: 'Limit',
       matchImage: 'MatchImage',
+      nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -1582,7 +2220,11 @@ export class DescribeImageCachesRequest extends $tea.Model {
       image: 'string',
       imageCacheId: 'string',
       imageCacheName: 'string',
+      imageFullMatch: 'boolean',
+      imageMatchCountRequest: 'number',
+      limit: 'number',
       matchImage: { 'type': 'array', 'itemType': 'string' },
+      nextToken: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -1601,18 +2243,24 @@ export class DescribeImageCachesRequest extends $tea.Model {
 
 export class DescribeImageCachesResponseBody extends $tea.Model {
   imageCaches?: DescribeImageCachesResponseBodyImageCaches[];
+  nextToken?: string;
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       imageCaches: 'ImageCaches',
+      nextToken: 'NextToken',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageCaches: { 'type': 'array', 'itemType': DescribeImageCachesResponseBodyImageCaches },
+      nextToken: 'string',
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -1905,13 +2553,10 @@ export class DescribeVirtualNodesRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  securityGroupId?: string;
   status?: string;
   tag?: DescribeVirtualNodesRequestTag[];
-  vSwitchId?: string;
   virtualNodeIds?: string;
   virtualNodeName?: string;
-  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -1923,13 +2568,10 @@ export class DescribeVirtualNodesRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      securityGroupId: 'SecurityGroupId',
       status: 'Status',
       tag: 'Tag',
-      vSwitchId: 'VSwitchId',
       virtualNodeIds: 'VirtualNodeIds',
       virtualNodeName: 'VirtualNodeName',
-      zoneId: 'ZoneId',
     };
   }
 
@@ -1944,13 +2586,10 @@ export class DescribeVirtualNodesRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      securityGroupId: 'string',
       status: 'string',
       tag: { 'type': 'array', 'itemType': DescribeVirtualNodesRequestTag },
-      vSwitchId: 'string',
       virtualNodeIds: 'string',
       virtualNodeName: 'string',
-      zoneId: 'string',
     };
   }
 
@@ -2362,6 +3001,7 @@ export class RestartContainerGroupResponse extends $tea.Model {
 
 export class UpdateContainerGroupRequest extends $tea.Model {
   dnsConfig?: UpdateContainerGroupRequestDnsConfig;
+  acrRegistryInfo?: UpdateContainerGroupRequestAcrRegistryInfo[];
   clientToken?: string;
   container?: UpdateContainerGroupRequestContainer[];
   containerGroupId?: string;
@@ -2382,6 +3022,7 @@ export class UpdateContainerGroupRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       dnsConfig: 'DnsConfig',
+      acrRegistryInfo: 'AcrRegistryInfo',
       clientToken: 'ClientToken',
       container: 'Container',
       containerGroupId: 'ContainerGroupId',
@@ -2405,6 +3046,7 @@ export class UpdateContainerGroupRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dnsConfig: UpdateContainerGroupRequestDnsConfig,
+      acrRegistryInfo: { 'type': 'array', 'itemType': UpdateContainerGroupRequestAcrRegistryInfo },
       clientToken: 'string',
       container: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainer },
       containerGroupId: 'string',
@@ -2466,6 +3108,120 @@ export class UpdateContainerGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateContainerGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataCacheRequest extends $tea.Model {
+  bucket?: string;
+  clientToken?: string;
+  dataCacheId?: string;
+  dataSource?: UpdateDataCacheRequestDataSource;
+  eipCreateParam?: UpdateDataCacheRequestEipCreateParam;
+  eipInstanceId?: string;
+  name?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  retentionDays?: number;
+  securityGroupId?: string;
+  size?: number;
+  tag?: UpdateDataCacheRequestTag[];
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      clientToken: 'ClientToken',
+      dataCacheId: 'DataCacheId',
+      dataSource: 'DataSource',
+      eipCreateParam: 'EipCreateParam',
+      eipInstanceId: 'EipInstanceId',
+      name: 'Name',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      retentionDays: 'RetentionDays',
+      securityGroupId: 'SecurityGroupId',
+      size: 'Size',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      clientToken: 'string',
+      dataCacheId: 'string',
+      dataSource: UpdateDataCacheRequestDataSource,
+      eipCreateParam: UpdateDataCacheRequestEipCreateParam,
+      eipInstanceId: 'string',
+      name: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      retentionDays: 'number',
+      securityGroupId: 'string',
+      size: 'number',
+      tag: { 'type': 'array', 'itemType': UpdateDataCacheRequestTag },
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataCacheResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataCacheResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateDataCacheResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDataCacheResponseBody,
     };
   }
 
@@ -2605,29 +3361,29 @@ export class UpdateImageCacheResponse extends $tea.Model {
 
 export class UpdateVirtualNodeRequest extends $tea.Model {
   clientToken?: string;
+  clusterDNS?: string;
+  clusterDomain?: string;
+  customResources?: string;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
-  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  securityGroupId?: string;
   tag?: UpdateVirtualNodeRequestTag[];
-  vSwitchId?: string;
   virtualNodeId?: string;
   virtualNodeName?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      clusterDNS: 'ClusterDNS',
+      clusterDomain: 'ClusterDomain',
+      customResources: 'CustomResources',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      securityGroupId: 'SecurityGroupId',
       tag: 'Tag',
-      vSwitchId: 'VSwitchId',
       virtualNodeId: 'VirtualNodeId',
       virtualNodeName: 'VirtualNodeName',
     };
@@ -2636,15 +3392,15 @@ export class UpdateVirtualNodeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      clusterDNS: 'string',
+      clusterDomain: 'string',
+      customResources: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
-      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      securityGroupId: 'string',
       tag: { 'type': 'array', 'itemType': UpdateVirtualNodeRequestTag },
-      vSwitchId: 'string',
       virtualNodeId: 'string',
       virtualNodeName: 'string',
     };
@@ -2691,6 +3447,106 @@ export class UpdateVirtualNodeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateVirtualNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitContainerRequestAcrRegistryInfo extends $tea.Model {
+  arnService?: string;
+  arnUser?: string;
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arnService: 'ArnService',
+      arnUser: 'ArnUser',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arnService: 'string',
+      arnUser: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitContainerRequestArn extends $tea.Model {
+  roleArn?: string;
+  roleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      roleArn: 'RoleArn',
+      roleType: 'RoleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleArn: 'string',
+      roleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitContainerRequestImage extends $tea.Model {
+  author?: string;
+  message?: string;
+  repository?: string;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'Author',
+      message: 'Message',
+      repository: 'Repository',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: 'string',
+      message: 'string',
+      repository: 'string',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDataCacheRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -2829,12 +3685,16 @@ export class CreateContainerGroupRequestSecurityContext extends $tea.Model {
 }
 
 export class CreateContainerGroupRequestAcrRegistryInfo extends $tea.Model {
+  arnService?: string;
+  arnUser?: string;
   domain?: string[];
   instanceId?: string;
   instanceName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      arnService: 'ArnService',
+      arnUser: 'ArnUser',
       domain: 'Domain',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
@@ -2844,35 +3704,12 @@ export class CreateContainerGroupRequestAcrRegistryInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      arnService: 'string',
+      arnUser: 'string',
       domain: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
       instanceName: 'string',
       regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateContainerGroupRequestArn extends $tea.Model {
-  assumeRoleFor?: string;
-  roleArn?: string;
-  roleType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      assumeRoleFor: 'AssumeRoleFor',
-      roleArn: 'RoleArn',
-      roleType: 'RoleType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      assumeRoleFor: 'string',
-      roleArn: 'string',
-      roleType: 'string',
     };
   }
 
@@ -2945,13 +3782,13 @@ export class CreateContainerGroupRequestContainerLivenessProbeTcpSocket extends 
 }
 
 export class CreateContainerGroupRequestContainerLivenessProbe extends $tea.Model {
-  exec: CreateContainerGroupRequestContainerLivenessProbeExec;
+  exec?: CreateContainerGroupRequestContainerLivenessProbeExec;
   failureThreshold?: number;
-  httpGet: CreateContainerGroupRequestContainerLivenessProbeHttpGet;
+  httpGet?: CreateContainerGroupRequestContainerLivenessProbeHttpGet;
   initialDelaySeconds?: number;
   periodSeconds?: number;
   successThreshold?: number;
-  tcpSocket: CreateContainerGroupRequestContainerLivenessProbeTcpSocket;
+  tcpSocket?: CreateContainerGroupRequestContainerLivenessProbeTcpSocket;
   timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3048,13 +3885,13 @@ export class CreateContainerGroupRequestContainerReadinessProbeTcpSocket extends
 }
 
 export class CreateContainerGroupRequestContainerReadinessProbe extends $tea.Model {
-  exec: CreateContainerGroupRequestContainerReadinessProbeExec;
+  exec?: CreateContainerGroupRequestContainerReadinessProbeExec;
   failureThreshold?: number;
-  httpGet: CreateContainerGroupRequestContainerReadinessProbeHttpGet;
+  httpGet?: CreateContainerGroupRequestContainerReadinessProbeHttpGet;
   initialDelaySeconds?: number;
   periodSeconds?: number;
   successThreshold?: number;
-  tcpSocket: CreateContainerGroupRequestContainerReadinessProbeTcpSocket;
+  tcpSocket?: CreateContainerGroupRequestContainerReadinessProbeTcpSocket;
   timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3107,7 +3944,7 @@ export class CreateContainerGroupRequestContainerSecurityContextCapability exten
 }
 
 export class CreateContainerGroupRequestContainerSecurityContext extends $tea.Model {
-  capability: CreateContainerGroupRequestContainerSecurityContextCapability;
+  capability?: CreateContainerGroupRequestContainerSecurityContextCapability;
   readOnlyRootFilesystem?: boolean;
   runAsUser?: number;
   static names(): { [key: string]: string } {
@@ -3151,7 +3988,7 @@ export class CreateContainerGroupRequestContainerEnvironmentVarFieldRef extends 
 }
 
 export class CreateContainerGroupRequestContainerEnvironmentVar extends $tea.Model {
-  fieldRef: CreateContainerGroupRequestContainerEnvironmentVarFieldRef;
+  fieldRef?: CreateContainerGroupRequestContainerEnvironmentVarFieldRef;
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -3273,13 +4110,14 @@ export class CreateContainerGroupRequestContainerVolumeMount extends $tea.Model 
 }
 
 export class CreateContainerGroupRequestContainer extends $tea.Model {
-  livenessProbe: CreateContainerGroupRequestContainerLivenessProbe;
-  readinessProbe: CreateContainerGroupRequestContainerReadinessProbe;
-  securityContext: CreateContainerGroupRequestContainerSecurityContext;
+  livenessProbe?: CreateContainerGroupRequestContainerLivenessProbe;
+  readinessProbe?: CreateContainerGroupRequestContainerReadinessProbe;
+  securityContext?: CreateContainerGroupRequestContainerSecurityContext;
   arg?: string[];
   command?: string[];
   cpu?: number;
   environmentVar?: CreateContainerGroupRequestContainerEnvironmentVar[];
+  environmentVarHide?: boolean;
   gpu?: number;
   image?: string;
   imagePullPolicy?: string;
@@ -3302,6 +4140,8 @@ export class CreateContainerGroupRequestContainer extends $tea.Model {
   memory?: number;
   name?: string;
   port?: CreateContainerGroupRequestContainerPort[];
+  securityContextRunAsGroup?: number;
+  securityContextRunAsNonRoot?: boolean;
   stdin?: boolean;
   stdinOnce?: boolean;
   terminationMessagePath?: string;
@@ -3318,6 +4158,7 @@ export class CreateContainerGroupRequestContainer extends $tea.Model {
       command: 'Command',
       cpu: 'Cpu',
       environmentVar: 'EnvironmentVar',
+      environmentVarHide: 'EnvironmentVarHide',
       gpu: 'Gpu',
       image: 'Image',
       imagePullPolicy: 'ImagePullPolicy',
@@ -3340,6 +4181,8 @@ export class CreateContainerGroupRequestContainer extends $tea.Model {
       memory: 'Memory',
       name: 'Name',
       port: 'Port',
+      securityContextRunAsGroup: 'SecurityContextRunAsGroup',
+      securityContextRunAsNonRoot: 'SecurityContextRunAsNonRoot',
       stdin: 'Stdin',
       stdinOnce: 'StdinOnce',
       terminationMessagePath: 'TerminationMessagePath',
@@ -3359,6 +4202,7 @@ export class CreateContainerGroupRequestContainer extends $tea.Model {
       command: { 'type': 'array', 'itemType': 'string' },
       cpu: 'number',
       environmentVar: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainerEnvironmentVar },
+      environmentVarHide: 'boolean',
       gpu: 'number',
       image: 'string',
       imagePullPolicy: 'string',
@@ -3381,6 +4225,8 @@ export class CreateContainerGroupRequestContainer extends $tea.Model {
       memory: 'number',
       name: 'string',
       port: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainerPort },
+      securityContextRunAsGroup: 'number',
+      securityContextRunAsNonRoot: 'boolean',
       stdin: 'boolean',
       stdinOnce: 'boolean',
       terminationMessagePath: 'string',
@@ -3463,7 +4309,7 @@ export class CreateContainerGroupRequestInitContainerSecurityContextCapability e
 }
 
 export class CreateContainerGroupRequestInitContainerSecurityContext extends $tea.Model {
-  capability: CreateContainerGroupRequestInitContainerSecurityContextCapability;
+  capability?: CreateContainerGroupRequestInitContainerSecurityContextCapability;
   readOnlyRootFilesystem?: boolean;
   runAsUser?: number;
   static names(): { [key: string]: string } {
@@ -3507,7 +4353,7 @@ export class CreateContainerGroupRequestInitContainerEnvironmentVarFieldRef exte
 }
 
 export class CreateContainerGroupRequestInitContainerEnvironmentVar extends $tea.Model {
-  fieldRef: CreateContainerGroupRequestInitContainerEnvironmentVarFieldRef;
+  fieldRef?: CreateContainerGroupRequestInitContainerEnvironmentVarFieldRef;
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -3585,7 +4431,7 @@ export class CreateContainerGroupRequestInitContainerVolumeMount extends $tea.Mo
 }
 
 export class CreateContainerGroupRequestInitContainer extends $tea.Model {
-  securityContext: CreateContainerGroupRequestInitContainerSecurityContext;
+  securityContext?: CreateContainerGroupRequestInitContainerSecurityContext;
   arg?: string[];
   command?: string[];
   cpu?: number;
@@ -3637,6 +4483,25 @@ export class CreateContainerGroupRequestInitContainer extends $tea.Model {
       terminationMessagePolicy: 'string',
       volumeMount: { 'type': 'array', 'itemType': CreateContainerGroupRequestInitContainerVolumeMount },
       workingDir: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestOverheadReservationOption extends $tea.Model {
+  enableOverheadReservation?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableOverheadReservation: 'EnableOverheadReservation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableOverheadReservation: 'boolean',
     };
   }
 
@@ -3834,12 +4699,12 @@ export class CreateContainerGroupRequestVolumeNFSVolume extends $tea.Model {
 }
 
 export class CreateContainerGroupRequestVolume extends $tea.Model {
-  configFileVolume: CreateContainerGroupRequestVolumeConfigFileVolume;
-  diskVolume: CreateContainerGroupRequestVolumeDiskVolume;
-  emptyDirVolume: CreateContainerGroupRequestVolumeEmptyDirVolume;
-  flexVolume: CreateContainerGroupRequestVolumeFlexVolume;
-  hostPathVolume: CreateContainerGroupRequestVolumeHostPathVolume;
-  NFSVolume: CreateContainerGroupRequestVolumeNFSVolume;
+  configFileVolume?: CreateContainerGroupRequestVolumeConfigFileVolume;
+  diskVolume?: CreateContainerGroupRequestVolumeDiskVolume;
+  emptyDirVolume?: CreateContainerGroupRequestVolumeEmptyDirVolume;
+  flexVolume?: CreateContainerGroupRequestVolumeFlexVolume;
+  hostPathVolume?: CreateContainerGroupRequestVolumeHostPathVolume;
+  NFSVolume?: CreateContainerGroupRequestVolumeNFSVolume;
   name?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -3873,13 +4738,92 @@ export class CreateContainerGroupRequestVolume extends $tea.Model {
   }
 }
 
+export class CreateDataCacheRequestDataSource extends $tea.Model {
+  options?: { [key: string]: string };
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      options: 'Options',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      options: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCacheRequestEipCreateParam extends $tea.Model {
+  bandwidth?: number;
+  commonBandwidthPackage?: string;
+  ISP?: string;
+  internetChargeType?: string;
+  publicIpAddressPoolId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      commonBandwidthPackage: 'CommonBandwidthPackage',
+      ISP: 'ISP',
+      internetChargeType: 'InternetChargeType',
+      publicIpAddressPoolId: 'PublicIpAddressPoolId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      commonBandwidthPackage: 'string',
+      ISP: 'string',
+      internetChargeType: 'string',
+      publicIpAddressPoolId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCacheRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateImageCacheRequestAcrRegistryInfo extends $tea.Model {
+  arnService?: string;
+  arnUser?: string;
   domain?: string[];
   instanceId?: string;
   instanceName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      arnService: 'ArnService',
+      arnUser: 'ArnUser',
       domain: 'Domain',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
@@ -3889,6 +4833,8 @@ export class CreateImageCacheRequestAcrRegistryInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      arnService: 'string',
+      arnUser: 'string',
       domain: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
       instanceName: 'string',
@@ -4174,20 +5120,66 @@ export class DescribeAvailableResourceResponseBodyAvailableZones extends $tea.Mo
   }
 }
 
-export class DescribeContainerGroupEventsRequestCondition extends $tea.Model {
+export class DescribeCommitContainerTaskResponseBodyCommitTasksCommitPhaseInfos extends $tea.Model {
+  message?: string;
+  phase?: string;
+  recordTime?: string;
   status?: string;
-  type?: string;
   static names(): { [key: string]: string } {
     return {
+      message: 'Message',
+      phase: 'Phase',
+      recordTime: 'RecordTime',
       status: 'Status',
-      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      message: 'string',
+      phase: 'string',
+      recordTime: 'string',
       status: 'string',
-      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommitContainerTaskResponseBodyCommitTasks extends $tea.Model {
+  commitPhaseInfos?: DescribeCommitContainerTaskResponseBodyCommitTasksCommitPhaseInfos[];
+  containerName?: string;
+  statusMessage?: string;
+  taskCreationTime?: string;
+  taskFinishedTime?: string;
+  taskId?: string;
+  taskProgress?: string;
+  taskStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commitPhaseInfos: 'CommitPhaseInfos',
+      containerName: 'ContainerName',
+      statusMessage: 'StatusMessage',
+      taskCreationTime: 'TaskCreationTime',
+      taskFinishedTime: 'TaskFinishedTime',
+      taskId: 'TaskId',
+      taskProgress: 'TaskProgress',
+      taskStatus: 'TaskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commitPhaseInfos: { 'type': 'array', 'itemType': DescribeCommitContainerTaskResponseBodyCommitTasksCommitPhaseInfos },
+      containerName: 'string',
+      statusMessage: 'string',
+      taskCreationTime: 'string',
+      taskFinishedTime: 'string',
+      taskId: 'string',
+      taskProgress: 'string',
+      taskStatus: 'string',
     };
   }
 
@@ -4343,19 +5335,31 @@ export class DescribeContainerGroupEventsResponseBodyDataEvents extends $tea.Mod
 }
 
 export class DescribeContainerGroupEventsResponseBodyData extends $tea.Model {
+  annotations?: string;
   containerGroupId?: string;
   events?: DescribeContainerGroupEventsResponseBodyDataEvents[];
+  name?: string;
+  namespace?: string;
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      annotations: 'Annotations',
       containerGroupId: 'ContainerGroupId',
       events: 'Events',
+      name: 'Name',
+      namespace: 'Namespace',
+      uuid: 'uuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      annotations: 'string',
       containerGroupId: 'string',
       events: { 'type': 'array', 'itemType': DescribeContainerGroupEventsResponseBodyDataEvents },
+      name: 'string',
+      namespace: 'string',
+      uuid: 'string',
     };
   }
 
@@ -4903,28 +5907,6 @@ export class DescribeContainerGroupPriceResponseBodyPriceInfo extends $tea.Model
   }
 }
 
-export class DescribeContainerGroupStatusRequestCondition extends $tea.Model {
-  status?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeContainerGroupStatusRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -5284,6 +6266,7 @@ export class DescribeContainerGroupStatusResponseBodyDataPodStatus extends $tea.
 }
 
 export class DescribeContainerGroupStatusResponseBodyData extends $tea.Model {
+  annotations?: string;
   containerGroupId?: string;
   name?: string;
   namespace?: string;
@@ -5292,6 +6275,7 @@ export class DescribeContainerGroupStatusResponseBodyData extends $tea.Model {
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      annotations: 'Annotations',
       containerGroupId: 'ContainerGroupId',
       name: 'Name',
       namespace: 'Namespace',
@@ -5303,6 +6287,7 @@ export class DescribeContainerGroupStatusResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      annotations: 'string',
       containerGroupId: 'string',
       name: 'string',
       namespace: 'string',
@@ -5727,12 +6712,14 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsContainersVolumeM
   mountPropagation?: string;
   name?: string;
   readOnly?: boolean;
+  subPath?: string;
   static names(): { [key: string]: string } {
     return {
       mountPath: 'MountPath',
       mountPropagation: 'MountPropagation',
       name: 'Name',
       readOnly: 'ReadOnly',
+      subPath: 'SubPath',
     };
   }
 
@@ -5742,6 +6729,7 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsContainersVolumeM
       mountPropagation: 'string',
       name: 'string',
       readOnly: 'boolean',
+      subPath: 'string',
     };
   }
 
@@ -6331,6 +7319,8 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsVolumes extends $
   configFileVolumeConfigFileToPaths?: DescribeContainerGroupsResponseBodyContainerGroupsVolumesConfigFileVolumeConfigFileToPaths[];
   diskVolumeDiskId?: string;
   diskVolumeFsType?: string;
+  emptyDirVolumeMedium?: string;
+  emptyDirVolumeSizeLimit?: string;
   flexVolumeDriver?: string;
   flexVolumeFsType?: string;
   flexVolumeOptions?: string;
@@ -6344,6 +7334,8 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsVolumes extends $
       configFileVolumeConfigFileToPaths: 'ConfigFileVolumeConfigFileToPaths',
       diskVolumeDiskId: 'DiskVolumeDiskId',
       diskVolumeFsType: 'DiskVolumeFsType',
+      emptyDirVolumeMedium: 'EmptyDirVolumeMedium',
+      emptyDirVolumeSizeLimit: 'EmptyDirVolumeSizeLimit',
       flexVolumeDriver: 'FlexVolumeDriver',
       flexVolumeFsType: 'FlexVolumeFsType',
       flexVolumeOptions: 'FlexVolumeOptions',
@@ -6360,6 +7352,8 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsVolumes extends $
       configFileVolumeConfigFileToPaths: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsVolumesConfigFileVolumeConfigFileToPaths },
       diskVolumeDiskId: 'string',
       diskVolumeFsType: 'string',
+      emptyDirVolumeMedium: 'string',
+      emptyDirVolumeSizeLimit: 'string',
       flexVolumeDriver: 'string',
       flexVolumeFsType: 'string',
       flexVolumeOptions: 'string',
@@ -6506,6 +7500,179 @@ export class DescribeContainerGroupsResponseBodyContainerGroups extends $tea.Mod
   }
 }
 
+export class DescribeDataCachesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataCachesResponseBodyDataCachesDataSource extends $tea.Model {
+  options?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      options: 'Options',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      options: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataCachesResponseBodyDataCachesEvents extends $tea.Model {
+  count?: number;
+  firstTimestamp?: string;
+  lastTimestamp?: string;
+  message?: string;
+  name?: string;
+  reason?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      firstTimestamp: 'FirstTimestamp',
+      lastTimestamp: 'LastTimestamp',
+      message: 'Message',
+      name: 'Name',
+      reason: 'Reason',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      firstTimestamp: 'string',
+      lastTimestamp: 'string',
+      message: 'string',
+      name: 'string',
+      reason: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataCachesResponseBodyDataCachesTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataCachesResponseBodyDataCaches extends $tea.Model {
+  bucket?: string;
+  containerGroupId?: string;
+  creationTime?: string;
+  dataCacheId?: string;
+  dataSource?: DescribeDataCachesResponseBodyDataCachesDataSource;
+  events?: DescribeDataCachesResponseBodyDataCachesEvents[];
+  expireDateTime?: string;
+  flashSnapshotId?: string;
+  lastMatchedTime?: string;
+  name?: string;
+  path?: string;
+  progress?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  size?: number;
+  snapshotId?: string;
+  status?: string;
+  tags?: DescribeDataCachesResponseBodyDataCachesTags[];
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      containerGroupId: 'ContainerGroupId',
+      creationTime: 'CreationTime',
+      dataCacheId: 'DataCacheId',
+      dataSource: 'DataSource',
+      events: 'Events',
+      expireDateTime: 'ExpireDateTime',
+      flashSnapshotId: 'FlashSnapshotId',
+      lastMatchedTime: 'LastMatchedTime',
+      name: 'Name',
+      path: 'Path',
+      progress: 'Progress',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      size: 'Size',
+      snapshotId: 'SnapshotId',
+      status: 'Status',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      containerGroupId: 'string',
+      creationTime: 'string',
+      dataCacheId: 'string',
+      dataSource: DescribeDataCachesResponseBodyDataCachesDataSource,
+      events: { 'type': 'array', 'itemType': DescribeDataCachesResponseBodyDataCachesEvents },
+      expireDateTime: 'string',
+      flashSnapshotId: 'string',
+      lastMatchedTime: 'string',
+      name: 'string',
+      path: 'string',
+      progress: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      size: 'number',
+      snapshotId: 'string',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeDataCachesResponseBodyDataCachesTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageCachesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -6534,6 +7701,7 @@ export class DescribeImageCachesResponseBodyImageCachesEvents extends $tea.Model
   lastTimestamp?: string;
   message?: string;
   name?: string;
+  reason?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6542,6 +7710,7 @@ export class DescribeImageCachesResponseBodyImageCachesEvents extends $tea.Model
       lastTimestamp: 'LastTimestamp',
       message: 'Message',
       name: 'Name',
+      reason: 'Reason',
       type: 'Type',
     };
   }
@@ -6553,6 +7722,7 @@ export class DescribeImageCachesResponseBodyImageCachesEvents extends $tea.Model
       lastTimestamp: 'string',
       message: 'string',
       name: 'string',
+      reason: 'string',
       type: 'string',
     };
   }
@@ -7118,70 +8288,52 @@ export class DescribeVirtualNodesResponseBodyVirtualNodesTags extends $tea.Model
 }
 
 export class DescribeVirtualNodesResponseBodyVirtualNodes extends $tea.Model {
-  clusterId?: string;
-  cpu?: number;
   creationTime?: string;
-  eniInstanceId?: string;
   events?: DescribeVirtualNodesResponseBodyVirtualNodesEvents[];
   internetIp?: string;
   intranetIp?: string;
-  memory?: number;
-  ramRoleName?: string;
   regionId?: string;
   resourceGroupId?: string;
-  securityGroupId?: string;
   status?: string;
   tags?: DescribeVirtualNodesResponseBodyVirtualNodesTags[];
-  vSwitchId?: string;
   virtualNodeId?: string;
   virtualNodeName?: string;
+  virtualNodeSecurityGroupId?: string;
+  virtualNodeVSwitchId?: string;
   vpcId?: string;
-  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      clusterId: 'ClusterId',
-      cpu: 'Cpu',
       creationTime: 'CreationTime',
-      eniInstanceId: 'EniInstanceId',
       events: 'Events',
       internetIp: 'InternetIp',
       intranetIp: 'IntranetIp',
-      memory: 'Memory',
-      ramRoleName: 'RamRoleName',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
-      securityGroupId: 'SecurityGroupId',
       status: 'Status',
       tags: 'Tags',
-      vSwitchId: 'VSwitchId',
       virtualNodeId: 'VirtualNodeId',
       virtualNodeName: 'VirtualNodeName',
+      virtualNodeSecurityGroupId: 'VirtualNodeSecurityGroupId',
+      virtualNodeVSwitchId: 'VirtualNodeVSwitchId',
       vpcId: 'VpcId',
-      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clusterId: 'string',
-      cpu: 'number',
       creationTime: 'string',
-      eniInstanceId: 'string',
       events: { 'type': 'array', 'itemType': DescribeVirtualNodesResponseBodyVirtualNodesEvents },
       internetIp: 'string',
       intranetIp: 'string',
-      memory: 'number',
-      ramRoleName: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
-      securityGroupId: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': DescribeVirtualNodesResponseBodyVirtualNodesTags },
-      vSwitchId: 'string',
       virtualNodeId: 'string',
       virtualNodeName: 'string',
+      virtualNodeSecurityGroupId: 'string',
+      virtualNodeVSwitchId: 'string',
       vpcId: 'string',
-      zoneId: 'string',
     };
   }
 
@@ -7229,6 +8381,34 @@ export class UpdateContainerGroupRequestDnsConfig extends $tea.Model {
       nameServer: { 'type': 'array', 'itemType': 'string' },
       option: { 'type': 'array', 'itemType': UpdateContainerGroupRequestDnsConfigOption },
       search: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestAcrRegistryInfo extends $tea.Model {
+  domain?: string[];
+  instanceId?: string;
+  instanceName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      instanceName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -7301,13 +8481,13 @@ export class UpdateContainerGroupRequestContainerLivenessProbeTcpSocket extends 
 }
 
 export class UpdateContainerGroupRequestContainerLivenessProbe extends $tea.Model {
-  exec: UpdateContainerGroupRequestContainerLivenessProbeExec;
+  exec?: UpdateContainerGroupRequestContainerLivenessProbeExec;
   failureThreshold?: number;
-  httpGet: UpdateContainerGroupRequestContainerLivenessProbeHttpGet;
+  httpGet?: UpdateContainerGroupRequestContainerLivenessProbeHttpGet;
   initialDelaySeconds?: number;
   periodSeconds?: number;
   successThreshold?: number;
-  tcpSocket: UpdateContainerGroupRequestContainerLivenessProbeTcpSocket;
+  tcpSocket?: UpdateContainerGroupRequestContainerLivenessProbeTcpSocket;
   timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7404,13 +8584,13 @@ export class UpdateContainerGroupRequestContainerReadinessProbeTcpSocket extends
 }
 
 export class UpdateContainerGroupRequestContainerReadinessProbe extends $tea.Model {
-  exec: UpdateContainerGroupRequestContainerReadinessProbeExec;
+  exec?: UpdateContainerGroupRequestContainerReadinessProbeExec;
   failureThreshold?: number;
-  httpGet: UpdateContainerGroupRequestContainerReadinessProbeHttpGet;
+  httpGet?: UpdateContainerGroupRequestContainerReadinessProbeHttpGet;
   initialDelaySeconds?: number;
   periodSeconds?: number;
   successThreshold?: number;
-  tcpSocket: UpdateContainerGroupRequestContainerReadinessProbeTcpSocket;
+  tcpSocket?: UpdateContainerGroupRequestContainerReadinessProbeTcpSocket;
   timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7463,7 +8643,7 @@ export class UpdateContainerGroupRequestContainerSecurityContextCapability exten
 }
 
 export class UpdateContainerGroupRequestContainerSecurityContext extends $tea.Model {
-  capability: UpdateContainerGroupRequestContainerSecurityContextCapability;
+  capability?: UpdateContainerGroupRequestContainerSecurityContextCapability;
   readOnlyRootFilesystem?: boolean;
   runAsUser?: number;
   static names(): { [key: string]: string } {
@@ -7507,7 +8687,7 @@ export class UpdateContainerGroupRequestContainerEnvironmentVarFieldRef extends 
 }
 
 export class UpdateContainerGroupRequestContainerEnvironmentVar extends $tea.Model {
-  fieldRef: UpdateContainerGroupRequestContainerEnvironmentVarFieldRef;
+  fieldRef?: UpdateContainerGroupRequestContainerEnvironmentVarFieldRef;
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -7629,9 +8809,9 @@ export class UpdateContainerGroupRequestContainerVolumeMount extends $tea.Model 
 }
 
 export class UpdateContainerGroupRequestContainer extends $tea.Model {
-  livenessProbe: UpdateContainerGroupRequestContainerLivenessProbe;
-  readinessProbe: UpdateContainerGroupRequestContainerReadinessProbe;
-  securityContext: UpdateContainerGroupRequestContainerSecurityContext;
+  livenessProbe?: UpdateContainerGroupRequestContainerLivenessProbe;
+  readinessProbe?: UpdateContainerGroupRequestContainerReadinessProbe;
+  securityContext?: UpdateContainerGroupRequestContainerSecurityContext;
   arg?: string[];
   command?: string[];
   cpu?: number;
@@ -7791,7 +8971,7 @@ export class UpdateContainerGroupRequestInitContainerSecurityContextCapability e
 }
 
 export class UpdateContainerGroupRequestInitContainerSecurityContext extends $tea.Model {
-  capability: UpdateContainerGroupRequestInitContainerSecurityContextCapability;
+  capability?: UpdateContainerGroupRequestInitContainerSecurityContextCapability;
   readOnlyRootFilesystem?: boolean;
   runAsUser?: number;
   static names(): { [key: string]: string } {
@@ -7835,7 +9015,7 @@ export class UpdateContainerGroupRequestInitContainerEnvironmentVarFieldRef exte
 }
 
 export class UpdateContainerGroupRequestInitContainerEnvironmentVar extends $tea.Model {
-  fieldRef: UpdateContainerGroupRequestInitContainerEnvironmentVarFieldRef;
+  fieldRef?: UpdateContainerGroupRequestInitContainerEnvironmentVarFieldRef;
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -7913,7 +9093,7 @@ export class UpdateContainerGroupRequestInitContainerVolumeMount extends $tea.Mo
 }
 
 export class UpdateContainerGroupRequestInitContainer extends $tea.Model {
-  securityContext: UpdateContainerGroupRequestInitContainerSecurityContext;
+  securityContext?: UpdateContainerGroupRequestInitContainerSecurityContext;
   arg?: string[];
   command?: string[];
   cpu?: number;
@@ -8134,11 +9314,11 @@ export class UpdateContainerGroupRequestVolumeNFSVolume extends $tea.Model {
 }
 
 export class UpdateContainerGroupRequestVolume extends $tea.Model {
-  configFileVolume: UpdateContainerGroupRequestVolumeConfigFileVolume;
-  emptyDirVolume: UpdateContainerGroupRequestVolumeEmptyDirVolume;
-  flexVolume: UpdateContainerGroupRequestVolumeFlexVolume;
-  hostPathVolume: UpdateContainerGroupRequestVolumeHostPathVolume;
-  NFSVolume: UpdateContainerGroupRequestVolumeNFSVolume;
+  configFileVolume?: UpdateContainerGroupRequestVolumeConfigFileVolume;
+  emptyDirVolume?: UpdateContainerGroupRequestVolumeEmptyDirVolume;
+  flexVolume?: UpdateContainerGroupRequestVolumeFlexVolume;
+  hostPathVolume?: UpdateContainerGroupRequestVolumeHostPathVolume;
+  NFSVolume?: UpdateContainerGroupRequestVolumeNFSVolume;
   name?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -8162,6 +9342,81 @@ export class UpdateContainerGroupRequestVolume extends $tea.Model {
       NFSVolume: UpdateContainerGroupRequestVolumeNFSVolume,
       name: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataCacheRequestDataSource extends $tea.Model {
+  options?: { [key: string]: string };
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      options: 'Options',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      options: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataCacheRequestEipCreateParam extends $tea.Model {
+  bandwidth?: number;
+  commonBandwidthPackage?: string;
+  ISP?: string;
+  internetChargeType?: string;
+  publicIpAddressPoolId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      commonBandwidthPackage: 'CommonBandwidthPackage',
+      ISP: 'ISP',
+      internetChargeType: 'InternetChargeType',
+      publicIpAddressPoolId: 'PublicIpAddressPoolId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      commonBandwidthPackage: 'string',
+      ISP: 'string',
+      internetChargeType: 'string',
+      publicIpAddressPoolId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataCacheRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -8290,6 +9545,237 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * You must specify the Alibaba Cloud Resource Name (ARN) of the RAM role of the Container Registry Enterprise Edition instance to grant the elastic container instance to assume the RAM role to push images.
+    *
+    * @param request CommitContainerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CommitContainerResponse
+   */
+  async commitContainerWithOptions(request: CommitContainerRequest, runtime: $Util.RuntimeOptions): Promise<CommitContainerResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acrRegistryInfo)) {
+      query["AcrRegistryInfo"] = request.acrRegistryInfo;
+    }
+
+    if (!Util.isUnset(request.arn)) {
+      query["Arn"] = request.arn;
+    }
+
+    if (!Util.isUnset(request.containerGroupId)) {
+      query["ContainerGroupId"] = request.containerGroupId;
+    }
+
+    if (!Util.isUnset(request.containerName)) {
+      query["ContainerName"] = request.containerName;
+    }
+
+    if (!Util.isUnset(request.image)) {
+      query["Image"] = request.image;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CommitContainer",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CommitContainerResponse>(await this.callApi(params, req, runtime), new CommitContainerResponse({}));
+  }
+
+  /**
+    * You must specify the Alibaba Cloud Resource Name (ARN) of the RAM role of the Container Registry Enterprise Edition instance to grant the elastic container instance to assume the RAM role to push images.
+    *
+    * @param request CommitContainerRequest
+    * @return CommitContainerResponse
+   */
+  async commitContainer(request: CommitContainerRequest): Promise<CommitContainerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.commitContainerWithOptions(request, runtime);
+  }
+
+  /**
+    * You cannot directly use a DataCache across regions. You can call this operation to copy a DataCache from one region to another region. This operation is suitable for the following scenarios:
+    * *   If you want to use a DataCache across regions and the DataCache exists in Region A, you can call this operation to quickly copy the DataCache to Region B.
+    * *   If you directly pull data from a region outside China to a region inside the Chinese mainland when you create a DataCache, the data may be pulled at a slow speed due to network limits. In this case, you can create a DataCache in a region outside the Chinese mainland but inside China, such as the China (Hong Kong) region, and call this operation to copy the data to the region inside the Chinese mainland.
+    * > The process of copying a DataCache is equivalent to copying a snapshot. You are charged for the traffic generated during the copy process and the storage of the generated DataCache.
+    *
+    * @param request CopyDataCacheRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CopyDataCacheResponse
+   */
+  async copyDataCacheWithOptions(request: CopyDataCacheRequest, runtime: $Util.RuntimeOptions): Promise<CopyDataCacheResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucket)) {
+      query["Bucket"] = request.bucket;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataCacheId)) {
+      query["DataCacheId"] = request.dataCacheId;
+    }
+
+    if (!Util.isUnset(request.destinationRegionId)) {
+      query["DestinationRegionId"] = request.destinationRegionId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.retentionDays)) {
+      query["RetentionDays"] = request.retentionDays;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CopyDataCache",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CopyDataCacheResponse>(await this.callApi(params, req, runtime), new CopyDataCacheResponse({}));
+  }
+
+  /**
+    * You cannot directly use a DataCache across regions. You can call this operation to copy a DataCache from one region to another region. This operation is suitable for the following scenarios:
+    * *   If you want to use a DataCache across regions and the DataCache exists in Region A, you can call this operation to quickly copy the DataCache to Region B.
+    * *   If you directly pull data from a region outside China to a region inside the Chinese mainland when you create a DataCache, the data may be pulled at a slow speed due to network limits. In this case, you can create a DataCache in a region outside the Chinese mainland but inside China, such as the China (Hong Kong) region, and call this operation to copy the data to the region inside the Chinese mainland.
+    * > The process of copying a DataCache is equivalent to copying a snapshot. You are charged for the traffic generated during the copy process and the storage of the generated DataCache.
+    *
+    * @param request CopyDataCacheRequest
+    * @return CopyDataCacheResponse
+   */
+  async copyDataCache(request: CopyDataCacheRequest): Promise<CopyDataCacheResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.copyDataCacheWithOptions(request, runtime);
+  }
+
+  /**
+    * When you call the CreateContainerGroup operation to create an elastic container instance, the system creates a service-linked role named AliyunServiceRoleForECI. This role is used to access other Alibaba Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](~~212914~~).
+    * When you create an elastic container instance, you can configure features such as instances, images, and storage based on your business requirements. For information about parameters configured for the features and the description of the parameters, see the following documents:
+    * **Instances** You can use one of the following methods to create an elastic container instance:
+    * *   [Specify the number of vCPUs and memory size to create an elastic container instance](~~114662~~)
+    *     *   [Create job-optimized elastic container instances](~~324246~~)
+    *     *   [Ignore special containers during resource adjustment](~~446853~~)
+    * *   [Specify ECS instance types to create an elastic container instance](~~114664~~)
+    * Both the preceding creation methods support the following features:
+    * *   [Specify custom CPU options](~~197781~~)
+    * *   [Create a preemptible elastic container instance](~~157759~~)
+    * *   [Configure multiple zones](~~157290~~)
+    * *   [Configure multiple specifications](~~146468~~)
+    * *   [Use tags to manage elastic container instances](~~146608~~)
+    * **Images**
+    * *   [Configure a container image](~~461311~~)
+    * *   [Use the image cache feature to accelerate the creation of an elastic container instance](~~141281~~)
+    * *   [Specify a Container Registry Enterprise Edition instance](~~194250~~)
+    * *   [Use self-managed image repositories](~~378059~~)
+    * **Networking**
+    * *   [Create and Associate an EIP](~~99146~~)
+    * *   [Assign a security group](~~176237~~)
+    * *   [Assign an IPv6 address to an elastic container instance](~~451282~~)
+    * *   [Configure maximum bandwidth](~~190635~~)
+    * **Storage**
+    * *   [Mount a disk volume](~~144571~~)
+    * *   [Mount a NAS volume](~~464075~~)
+    * *   [Mount an OSS bucket to an elastic container instance as a volume](~~464076~~)
+    * *   [Mount an emptyDir volume](~~464078~~)
+    * *   [Mount a ConfigFile volume](~~464080~~)
+    * *   [Increase the size of the temporary storage space](~~204066~~)
+    * **Container configuration**
+    * *   [Configure startup commands and arguments for a container](~~94593~~)
+    * *   [Use probes to perform health checks on a container](~~99053~~)
+    * *   [Obtain metadata by using environment variables](~~141788~~)
+    * *   [Configure a security context](~~462313~~)
+    * *   [Configure the NTP service](~~462768~~)
+    * **Logging and O\\&M**
+    * *   [Use environment variables to configure log collection](~~121973~~)
+    * *   [Save core files to volumes](~~167801~~)
+    *
+    * @param request CreateContainerGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateContainerGroupResponse
+   */
   async createContainerGroupWithOptions(request: CreateContainerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateContainerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8299,10 +9785,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.activeDeadlineSeconds)) {
       query["ActiveDeadlineSeconds"] = request.activeDeadlineSeconds;
-    }
-
-    if (!Util.isUnset(request.arn)) {
-      query["Arn"] = request.arn;
     }
 
     if (!Util.isUnset(request.autoCreateEip)) {
@@ -8325,12 +9807,20 @@ export default class Client extends OpenApi {
       query["ContainerGroupName"] = request.containerGroupName;
     }
 
+    if (!Util.isUnset(request.containerResourceView)) {
+      query["ContainerResourceView"] = request.containerResourceView;
+    }
+
     if (!Util.isUnset(request.corePattern)) {
       query["CorePattern"] = request.corePattern;
     }
 
     if (!Util.isUnset(request.cpu)) {
       query["Cpu"] = request.cpu;
+    }
+
+    if (!Util.isUnset(request.cpuArchitecture)) {
+      query["CpuArchitecture"] = request.cpuArchitecture;
     }
 
     if (!Util.isUnset(request.cpuOptionsCore)) {
@@ -8345,8 +9835,28 @@ export default class Client extends OpenApi {
       query["CpuOptionsThreadsPerCore"] = request.cpuOptionsThreadsPerCore;
     }
 
+    if (!Util.isUnset(request.dataCacheBucket)) {
+      query["DataCacheBucket"] = request.dataCacheBucket;
+    }
+
+    if (!Util.isUnset(request.dataCacheBurstingEnabled)) {
+      query["DataCacheBurstingEnabled"] = request.dataCacheBurstingEnabled;
+    }
+
+    if (!Util.isUnset(request.dataCachePL)) {
+      query["DataCachePL"] = request.dataCachePL;
+    }
+
+    if (!Util.isUnset(request.dataCacheProvisionedIops)) {
+      query["DataCacheProvisionedIops"] = request.dataCacheProvisionedIops;
+    }
+
     if (!Util.isUnset(request.dnsPolicy)) {
       query["DnsPolicy"] = request.dnsPolicy;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.egressBandwidth)) {
@@ -8371,6 +9881,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ephemeralStorage)) {
       query["EphemeralStorage"] = request.ephemeralStorage;
+    }
+
+    if (!Util.isUnset(request.fixedIp)) {
+      query["FixedIp"] = request.fixedIp;
+    }
+
+    if (!Util.isUnset(request.fixedIpRetainHour)) {
+      query["FixedIpRetainHour"] = request.fixedIpRetainHour;
     }
 
     if (!Util.isUnset(request.hostAliase)) {
@@ -8429,6 +9947,14 @@ export default class Client extends OpenApi {
       query["NtpServer"] = request.ntpServer;
     }
 
+    if (!Util.isUnset(request.osType)) {
+      query["OsType"] = request.osType;
+    }
+
+    if (!Util.isUnset(request.overheadReservationOption)) {
+      query["OverheadReservationOption"] = request.overheadReservationOption;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -8441,8 +9967,8 @@ export default class Client extends OpenApi {
       query["PlainHttpRegistry"] = request.plainHttpRegistry;
     }
 
-    if (!Util.isUnset(request.productOnEciMode)) {
-      query["ProductOnEciMode"] = request.productOnEciMode;
+    if (!Util.isUnset(request.privateIpAddress)) {
+      query["PrivateIpAddress"] = request.privateIpAddress;
     }
 
     if (!Util.isUnset(request.ramRoleName)) {
@@ -8477,20 +10003,12 @@ export default class Client extends OpenApi {
       query["ScheduleStrategy"] = request.scheduleStrategy;
     }
 
-    if (!Util.isUnset(request.secondaryENIPolicy)) {
-      query["SecondaryENIPolicy"] = request.secondaryENIPolicy;
-    }
-
     if (!Util.isUnset(request.securityGroupId)) {
       query["SecurityGroupId"] = request.securityGroupId;
     }
 
     if (!Util.isUnset(request.shareProcessNamespace)) {
       query["ShareProcessNamespace"] = request.shareProcessNamespace;
-    }
-
-    if (!Util.isUnset(request.slsEnable)) {
-      query["SlsEnable"] = request.slsEnable;
     }
 
     if (!Util.isUnset(request.spotDuration)) {
@@ -8513,14 +10031,6 @@ export default class Client extends OpenApi {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.tenantSecurityGroupId)) {
-      query["TenantSecurityGroupId"] = request.tenantSecurityGroupId;
-    }
-
-    if (!Util.isUnset(request.tenantVSwitchId)) {
-      query["TenantVSwitchId"] = request.tenantVSwitchId;
-    }
-
     if (!Util.isUnset(request.terminationGracePeriodSeconds)) {
       query["TerminationGracePeriodSeconds"] = request.terminationGracePeriodSeconds;
     }
@@ -8537,15 +10047,15 @@ export default class Client extends OpenApi {
       query["ZoneId"] = request.zoneId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.dnsConfig))) {
+    if (!Util.isUnset(request.dnsConfig)) {
       query["DnsConfig"] = request.dnsConfig;
     }
 
-    if (!Util.isUnset($tea.toMap(request.hostSecurityContext))) {
+    if (!Util.isUnset(request.hostSecurityContext)) {
       query["HostSecurityContext"] = request.hostSecurityContext;
     }
 
-    if (!Util.isUnset($tea.toMap(request.securityContext))) {
+    if (!Util.isUnset(request.securityContext)) {
       query["SecurityContext"] = request.securityContext;
     }
 
@@ -8566,11 +10076,191 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateContainerGroupResponse>(await this.callApi(params, req, runtime), new CreateContainerGroupResponse({}));
   }
 
+  /**
+    * When you call the CreateContainerGroup operation to create an elastic container instance, the system creates a service-linked role named AliyunServiceRoleForECI. This role is used to access other Alibaba Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](~~212914~~).
+    * When you create an elastic container instance, you can configure features such as instances, images, and storage based on your business requirements. For information about parameters configured for the features and the description of the parameters, see the following documents:
+    * **Instances** You can use one of the following methods to create an elastic container instance:
+    * *   [Specify the number of vCPUs and memory size to create an elastic container instance](~~114662~~)
+    *     *   [Create job-optimized elastic container instances](~~324246~~)
+    *     *   [Ignore special containers during resource adjustment](~~446853~~)
+    * *   [Specify ECS instance types to create an elastic container instance](~~114664~~)
+    * Both the preceding creation methods support the following features:
+    * *   [Specify custom CPU options](~~197781~~)
+    * *   [Create a preemptible elastic container instance](~~157759~~)
+    * *   [Configure multiple zones](~~157290~~)
+    * *   [Configure multiple specifications](~~146468~~)
+    * *   [Use tags to manage elastic container instances](~~146608~~)
+    * **Images**
+    * *   [Configure a container image](~~461311~~)
+    * *   [Use the image cache feature to accelerate the creation of an elastic container instance](~~141281~~)
+    * *   [Specify a Container Registry Enterprise Edition instance](~~194250~~)
+    * *   [Use self-managed image repositories](~~378059~~)
+    * **Networking**
+    * *   [Create and Associate an EIP](~~99146~~)
+    * *   [Assign a security group](~~176237~~)
+    * *   [Assign an IPv6 address to an elastic container instance](~~451282~~)
+    * *   [Configure maximum bandwidth](~~190635~~)
+    * **Storage**
+    * *   [Mount a disk volume](~~144571~~)
+    * *   [Mount a NAS volume](~~464075~~)
+    * *   [Mount an OSS bucket to an elastic container instance as a volume](~~464076~~)
+    * *   [Mount an emptyDir volume](~~464078~~)
+    * *   [Mount a ConfigFile volume](~~464080~~)
+    * *   [Increase the size of the temporary storage space](~~204066~~)
+    * **Container configuration**
+    * *   [Configure startup commands and arguments for a container](~~94593~~)
+    * *   [Use probes to perform health checks on a container](~~99053~~)
+    * *   [Obtain metadata by using environment variables](~~141788~~)
+    * *   [Configure a security context](~~462313~~)
+    * *   [Configure the NTP service](~~462768~~)
+    * **Logging and O\\&M**
+    * *   [Use environment variables to configure log collection](~~121973~~)
+    * *   [Save core files to volumes](~~167801~~)
+    *
+    * @param request CreateContainerGroupRequest
+    * @return CreateContainerGroupResponse
+   */
   async createContainerGroup(request: CreateContainerGroupRequest): Promise<CreateContainerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createContainerGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   You are charged for the creation of image caches. We recommend that you learn the relevant billing information in advance. For more information, see [DataCaches](~~2503093~~).
+    * *   Before you create an image cache, you must evaluate the size of the data to be cached. If the size of the data exceeds the specified cache size, the image cache fails to be created.
+    * *   When a data cache is being created, the system automatically creates a temporary elastic container instance (ECI) and an enhanced SSD (ESSD) for the data cache. During the creation, do not delete the ECI and ESSD. Otherwise, the data cache fails to be created.
+    * *   When a data cache is being created, a snapshot is generated for the data cache. Do not delete the snapshot. Otherwise, the data cache becomes invalid.
+    *
+    * @param request CreateDataCacheRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDataCacheResponse
+   */
+  async createDataCacheWithOptions(request: CreateDataCacheRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataCacheResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucket)) {
+      query["Bucket"] = request.bucket;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataSource)) {
+      query["DataSource"] = request.dataSource;
+    }
+
+    if (!Util.isUnset(request.eipCreateParam)) {
+      query["EipCreateParam"] = request.eipCreateParam;
+    }
+
+    if (!Util.isUnset(request.eipInstanceId)) {
+      query["EipInstanceId"] = request.eipInstanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.retentionDays)) {
+      query["RetentionDays"] = request.retentionDays;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataCache",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataCacheResponse>(await this.callApi(params, req, runtime), new CreateDataCacheResponse({}));
+  }
+
+  /**
+    * *   You are charged for the creation of image caches. We recommend that you learn the relevant billing information in advance. For more information, see [DataCaches](~~2503093~~).
+    * *   Before you create an image cache, you must evaluate the size of the data to be cached. If the size of the data exceeds the specified cache size, the image cache fails to be created.
+    * *   When a data cache is being created, the system automatically creates a temporary elastic container instance (ECI) and an enhanced SSD (ESSD) for the data cache. During the creation, do not delete the ECI and ESSD. Otherwise, the data cache fails to be created.
+    * *   When a data cache is being created, a snapshot is generated for the data cache. Do not delete the snapshot. Otherwise, the data cache becomes invalid.
+    *
+    * @param request CreateDataCacheRequest
+    * @return CreateDataCacheResponse
+   */
+  async createDataCache(request: CreateDataCacheRequest): Promise<CreateDataCacheResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataCacheWithOptions(request, runtime);
+  }
+
+  /**
+    * *   **Precautions**
+    *     *   You are charged for creation of image caches. We recommend that you learn the relevant billing information in advance. For more information about billing of image caches, see [Image caches](~~447682~~).
+    *     *   Before you create an image cache, you must estimate the total size of the images that you want to cache. If the total size of the images exceeds the specified cache size, the image cache cannot be created.
+    *     *   When an image cache is being created, the system creates an intermediate elastic container instance and an intermediate enhanced SSD (ESSD) at performance level 1 (PL1). Do not delete the intermediate instance and the ESSD while the image cache is being created. If you delete the intermediate instance or the ESSD, the image cache cannot be created.
+    *     *   A temporary local snapshot and a specific number of regular snapshots are generated during the creation of the image cache. Do not delete these snapshots. If you delete these snapshots, the image cache becomes invalid.
+    *     *   If you use SDKs, SDK for Java 1.0.10 or later and SDK for Python 1.0.7 or later are supported.
+    * *   **Usage notes**
+    *     *   For images that are created based on Container Registry Enterprise Edition instances and use custom domain names, if you want to configure password-free access to the image caches, you must use AcrRegistryInfo-related parameters to specify Container Registry instances. When you configure AcrRegistryInfo-related parameters, you must set the AcrRegistryInfo.N.InstanceId parameter.
+    *     *   If the image cache that you created will be used to create more than 1,000 elastic container instances at a time, we recommend that you use the StandardCopyCount and FlashCopyCount parameters to create multiple temporary local snapshots and regular snapshots of the image. The multiple snapshots are billed based on incremental data. If no incremental data exists on the multiple snapshots, you are not charged for the multiple snapshots.
+    * >  When you call the CreateImageCache operation to create an image cache, the system automatically creates a service-linked role named AliyunServiceRoleForECI. The role is used to access other Alibaba Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](~~212914~~).
+    *
+    * @param request CreateImageCacheRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateImageCacheResponse
+   */
   async createImageCacheWithOptions(request: CreateImageCacheRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageCacheResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8699,11 +10389,35 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateImageCacheResponse>(await this.callApi(params, req, runtime), new CreateImageCacheResponse({}));
   }
 
+  /**
+    * *   **Precautions**
+    *     *   You are charged for creation of image caches. We recommend that you learn the relevant billing information in advance. For more information about billing of image caches, see [Image caches](~~447682~~).
+    *     *   Before you create an image cache, you must estimate the total size of the images that you want to cache. If the total size of the images exceeds the specified cache size, the image cache cannot be created.
+    *     *   When an image cache is being created, the system creates an intermediate elastic container instance and an intermediate enhanced SSD (ESSD) at performance level 1 (PL1). Do not delete the intermediate instance and the ESSD while the image cache is being created. If you delete the intermediate instance or the ESSD, the image cache cannot be created.
+    *     *   A temporary local snapshot and a specific number of regular snapshots are generated during the creation of the image cache. Do not delete these snapshots. If you delete these snapshots, the image cache becomes invalid.
+    *     *   If you use SDKs, SDK for Java 1.0.10 or later and SDK for Python 1.0.7 or later are supported.
+    * *   **Usage notes**
+    *     *   For images that are created based on Container Registry Enterprise Edition instances and use custom domain names, if you want to configure password-free access to the image caches, you must use AcrRegistryInfo-related parameters to specify Container Registry instances. When you configure AcrRegistryInfo-related parameters, you must set the AcrRegistryInfo.N.InstanceId parameter.
+    *     *   If the image cache that you created will be used to create more than 1,000 elastic container instances at a time, we recommend that you use the StandardCopyCount and FlashCopyCount parameters to create multiple temporary local snapshots and regular snapshots of the image. The multiple snapshots are billed based on incremental data. If no incremental data exists on the multiple snapshots, you are not charged for the multiple snapshots.
+    * >  When you call the CreateImageCache operation to create an image cache, the system automatically creates a service-linked role named AliyunServiceRoleForECI. The role is used to access other Alibaba Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](~~212914~~).
+    *
+    * @param request CreateImageCacheRequest
+    * @return CreateImageCacheResponse
+   */
   async createImageCache(request: CreateImageCacheRequest): Promise<CreateImageCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImageCacheWithOptions(request, runtime);
   }
 
+  /**
+    * O&M tasks are classified into:
+    * *   coredump: After you enable coredump, the system generates a core dump file when a container unexpectedly stops. You can use the core dump file to analyze the exception and find out the cause of the problem. For more information, see [Enable coredump](~~167801~~).
+    * *   tcpdump: After you enable tcpdump, the system captures network packets when a container unexpectedly stops. You can analyze the packets and locate network problems. For more information, see Enable [tcpdump](~~429749~~).
+    *
+    * @param request CreateInstanceOpsTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateInstanceOpsTaskResponse
+   */
   async createInstanceOpsTaskWithOptions(request: CreateInstanceOpsTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceOpsTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8760,16 +10474,44 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceOpsTaskResponse>(await this.callApi(params, req, runtime), new CreateInstanceOpsTaskResponse({}));
   }
 
+  /**
+    * O&M tasks are classified into:
+    * *   coredump: After you enable coredump, the system generates a core dump file when a container unexpectedly stops. You can use the core dump file to analyze the exception and find out the cause of the problem. For more information, see [Enable coredump](~~167801~~).
+    * *   tcpdump: After you enable tcpdump, the system captures network packets when a container unexpectedly stops. You can analyze the packets and locate network problems. For more information, see Enable [tcpdump](~~429749~~).
+    *
+    * @param request CreateInstanceOpsTaskRequest
+    * @return CreateInstanceOpsTaskResponse
+   */
   async createInstanceOpsTask(request: CreateInstanceOpsTaskRequest): Promise<CreateInstanceOpsTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceOpsTaskWithOptions(request, runtime);
   }
 
+  /**
+    * *   When you call this operation to create a virtual node, the system automatically creates a service-linked role AliyunServiceRoleForECIVnode. This way, you can use the service-linked role to access relevant cloud services such as Elastic Container Instance, Elastic Compute Service (ECS), and Virtual Private Cloud (VPC). For more information, see [Service-linked role for virtual nodes](~~311014~~).
+    * *   You are charged for virtual nodes based on number of virtual nodes that you use. Each virtual node has a resident node, which is equivalent to an ECI instance with 2 vCPU cores and 8 GiB memory. You are charged for virtual nodes based on elastic container instances.
+    *
+    * @param request CreateVirtualNodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVirtualNodeResponse
+   */
   async createVirtualNodeWithOptions(request: CreateVirtualNodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualNodeResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clusterDNS)) {
+      query["ClusterDNS"] = request.clusterDNS;
+    }
+
+    if (!Util.isUnset(request.clusterDomain)) {
+      query["ClusterDomain"] = request.clusterDomain;
+    }
+
+    if (!Util.isUnset(request.customResources)) {
+      query["CustomResources"] = request.customResources;
     }
 
     if (!Util.isUnset(request.eipInstanceId)) {
@@ -8810,10 +10552,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.rotateCertificateEnabled)) {
-      query["RotateCertificateEnabled"] = request.rotateCertificateEnabled;
     }
 
     if (!Util.isUnset(request.securityGroupId)) {
@@ -8861,6 +10599,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVirtualNodeResponse>(await this.callApi(params, req, runtime), new CreateVirtualNodeResponse({}));
   }
 
+  /**
+    * *   When you call this operation to create a virtual node, the system automatically creates a service-linked role AliyunServiceRoleForECIVnode. This way, you can use the service-linked role to access relevant cloud services such as Elastic Container Instance, Elastic Compute Service (ECS), and Virtual Private Cloud (VPC). For more information, see [Service-linked role for virtual nodes](~~311014~~).
+    * *   You are charged for virtual nodes based on number of virtual nodes that you use. Each virtual node has a resident node, which is equivalent to an ECI instance with 2 vCPU cores and 8 GiB memory. You are charged for virtual nodes based on elastic container instances.
+    *
+    * @param request CreateVirtualNodeRequest
+    * @return CreateVirtualNodeResponse
+   */
   async createVirtualNode(request: CreateVirtualNodeRequest): Promise<CreateVirtualNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVirtualNodeWithOptions(request, runtime);
@@ -8921,6 +10666,71 @@ export default class Client extends OpenApi {
   async deleteContainerGroup(request: DeleteContainerGroupRequest): Promise<DeleteContainerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteContainerGroupWithOptions(request, runtime);
+  }
+
+  async deleteDataCacheWithOptions(request: DeleteDataCacheRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataCacheResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucket)) {
+      query["Bucket"] = request.bucket;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataCacheId)) {
+      query["DataCacheId"] = request.dataCacheId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataCache",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataCacheResponse>(await this.callApi(params, req, runtime), new DeleteDataCacheResponse({}));
+  }
+
+  async deleteDataCache(request: DeleteDataCacheRequest): Promise<DeleteDataCacheResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataCacheWithOptions(request, runtime);
   }
 
   async deleteImageCacheWithOptions(request: DeleteImageCacheRequest, runtime: $Util.RuntimeOptions): Promise<DeleteImageCacheResponse> {
@@ -9037,10 +10847,17 @@ export default class Client extends OpenApi {
     return await this.deleteVirtualNodeWithOptions(request, runtime);
   }
 
+  /**
+    * When you call the CreateContainerGroup operation to create an elastic container instance, you can use the InstanceType parameter to specify ECS instance types that fit your specific needs. To ensure that the elastic container instance can be created, you can call the DescribeAvailableResource operation to query which ECS instance types and instance families are available in the specified region and zone before you create the elastic container instance.
+    *
+    * @param request DescribeAvailableResourceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAvailableResourceResponse
+   */
   async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset($tea.toMap(request.destinationResource))) {
+    if (!Util.isUnset(request.destinationResource)) {
       query["DestinationResource"] = request.destinationResource;
     }
 
@@ -9068,7 +10885,7 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.spotResource))) {
+    if (!Util.isUnset(request.spotResource)) {
       query["SpotResource"] = request.spotResource;
     }
 
@@ -9093,18 +10910,96 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableResourceResponse>(await this.callApi(params, req, runtime), new DescribeAvailableResourceResponse({}));
   }
 
+  /**
+    * When you call the CreateContainerGroup operation to create an elastic container instance, you can use the InstanceType parameter to specify ECS instance types that fit your specific needs. To ensure that the elastic container instance can be created, you can call the DescribeAvailableResource operation to query which ECS instance types and instance families are available in the specified region and zone before you create the elastic container instance.
+    *
+    * @param request DescribeAvailableResourceRequest
+    * @return DescribeAvailableResourceResponse
+   */
   async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableResourceWithOptions(request, runtime);
   }
 
+  async describeCommitContainerTaskWithOptions(request: DescribeCommitContainerTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommitContainerTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.containerGroupId)) {
+      query["ContainerGroupId"] = request.containerGroupId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskStatus)) {
+      query["TaskStatus"] = request.taskStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCommitContainerTask",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCommitContainerTaskResponse>(await this.callApi(params, req, runtime), new DescribeCommitContainerTaskResponse({}));
+  }
+
+  async describeCommitContainerTask(request: DescribeCommitContainerTaskRequest): Promise<DescribeCommitContainerTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCommitContainerTaskWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call this operation to query the event information about multiple elastic container instances at a time. By default, the most recent 50 entries of events of each elastic container instance are returned.
+    *
+    * @param request DescribeContainerGroupEventsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeContainerGroupEventsResponse
+   */
   async describeContainerGroupEventsWithOptions(request: DescribeContainerGroupEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupEventsResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.condition)) {
-      query["Condition"] = request.condition;
-    }
-
     if (!Util.isUnset(request.containerGroupIds)) {
       query["ContainerGroupIds"] = request.containerGroupIds;
     }
@@ -9162,11 +11057,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContainerGroupEventsResponse>(await this.callApi(params, req, runtime), new DescribeContainerGroupEventsResponse({}));
   }
 
+  /**
+    * You can call this operation to query the event information about multiple elastic container instances at a time. By default, the most recent 50 entries of events of each elastic container instance are returned.
+    *
+    * @param request DescribeContainerGroupEventsRequest
+    * @return DescribeContainerGroupEventsResponse
+   */
   async describeContainerGroupEvents(request: DescribeContainerGroupEventsRequest): Promise<DescribeContainerGroupEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerGroupEventsWithOptions(request, runtime);
   }
 
+  /**
+    * *   A maximum of 50 monitoring data entries can be returned. If the number of monitoring data entries exceeds this limit, an error message is returned.
+    * *   You can query real-time monitoring data (data generated within the last 5 minutes) and historical data (data generated more than 5 minutes ago). If the time range to query starts or ends later than the current time, historical monitoring data generated more than 5 minutes ago is returned.
+    * *   The elastic container instance whose monitoring data you want to query must be created after April 3, 2019, 15:00 UTC+8.
+    *
+    * @param request DescribeContainerGroupMetricRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeContainerGroupMetricResponse
+   */
   async describeContainerGroupMetricWithOptions(request: DescribeContainerGroupMetricRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9223,11 +11133,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContainerGroupMetricResponse>(await this.callApi(params, req, runtime), new DescribeContainerGroupMetricResponse({}));
   }
 
+  /**
+    * *   A maximum of 50 monitoring data entries can be returned. If the number of monitoring data entries exceeds this limit, an error message is returned.
+    * *   You can query real-time monitoring data (data generated within the last 5 minutes) and historical data (data generated more than 5 minutes ago). If the time range to query starts or ends later than the current time, historical monitoring data generated more than 5 minutes ago is returned.
+    * *   The elastic container instance whose monitoring data you want to query must be created after April 3, 2019, 15:00 UTC+8.
+    *
+    * @param request DescribeContainerGroupMetricRequest
+    * @return DescribeContainerGroupMetricResponse
+   */
   async describeContainerGroupMetric(request: DescribeContainerGroupMetricRequest): Promise<DescribeContainerGroupMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerGroupMetricWithOptions(request, runtime);
   }
 
+  /**
+    * *   When you call this operation, you cannot use resource groups to control the permissions of a RAM user.
+    * *   You can create an elastic container instance by specifying vCPU and memory resource specifications or by specifying ECS instance types. When you call this operation to query the prices of elastic container instances, pass in specifications of the elastic container instances.
+    *     *   [vCPU and memory specifications](~~114662~~).
+    *     *   [ECS instance types that are supported by Elastic Container Instance](~~114664~~).
+    *
+    * @param request DescribeContainerGroupPriceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeContainerGroupPriceResponse
+   */
   async describeContainerGroupPriceWithOptions(request: DescribeContainerGroupPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupPriceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9271,6 +11199,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.spotDuration)) {
+      query["SpotDuration"] = request.spotDuration;
+    }
+
     if (!Util.isUnset(request.spotPriceLimit)) {
       query["SpotPriceLimit"] = request.spotPriceLimit;
     }
@@ -9300,6 +11232,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContainerGroupPriceResponse>(await this.callApi(params, req, runtime), new DescribeContainerGroupPriceResponse({}));
   }
 
+  /**
+    * *   When you call this operation, you cannot use resource groups to control the permissions of a RAM user.
+    * *   You can create an elastic container instance by specifying vCPU and memory resource specifications or by specifying ECS instance types. When you call this operation to query the prices of elastic container instances, pass in specifications of the elastic container instances.
+    *     *   [vCPU and memory specifications](~~114662~~).
+    *     *   [ECS instance types that are supported by Elastic Container Instance](~~114664~~).
+    *
+    * @param request DescribeContainerGroupPriceRequest
+    * @return DescribeContainerGroupPriceResponse
+   */
   async describeContainerGroupPrice(request: DescribeContainerGroupPriceRequest): Promise<DescribeContainerGroupPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerGroupPriceWithOptions(request, runtime);
@@ -9308,10 +11249,6 @@ export default class Client extends OpenApi {
   async describeContainerGroupStatusWithOptions(request: DescribeContainerGroupStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.condition)) {
-      query["Condition"] = request.condition;
-    }
-
     if (!Util.isUnset(request.containerGroupIds)) {
       query["ContainerGroupIds"] = request.containerGroupIds;
     }
@@ -9370,6 +11307,16 @@ export default class Client extends OpenApi {
     return await this.describeContainerGroupStatusWithOptions(request, runtime);
   }
 
+  /**
+    * *   After an elastic container instance is terminated, its underlying computing resources are recycled. By default, other resources, such as elastic IP addresses (EIPs), that are created together with the instance are released together with the instance.
+    * *   The metadata of an instance in the final status (Failed, Succeeded, or Expired) is retained based on the following rules:
+    *     *   All metadata information is retained within 1 hour since the instance enters the final status.
+    *     *   One hour after the instance enters the final status, only the latest 100 entries of metadata information in each region are retained.
+    *
+    * @param request DescribeContainerGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeContainerGroupsResponse
+   */
   async describeContainerGroupsWithOptions(request: DescribeContainerGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9454,6 +11401,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContainerGroupsResponse>(await this.callApi(params, req, runtime), new DescribeContainerGroupsResponse({}));
   }
 
+  /**
+    * *   After an elastic container instance is terminated, its underlying computing resources are recycled. By default, other resources, such as elastic IP addresses (EIPs), that are created together with the instance are released together with the instance.
+    * *   The metadata of an instance in the final status (Failed, Succeeded, or Expired) is retained based on the following rules:
+    *     *   All metadata information is retained within 1 hour since the instance enters the final status.
+    *     *   One hour after the instance enters the final status, only the latest 100 entries of metadata information in each region are retained.
+    *
+    * @param request DescribeContainerGroupsRequest
+    * @return DescribeContainerGroupsResponse
+   */
   async describeContainerGroups(request: DescribeContainerGroupsRequest): Promise<DescribeContainerGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerGroupsWithOptions(request, runtime);
@@ -9536,6 +11492,83 @@ export default class Client extends OpenApi {
     return await this.describeContainerLogWithOptions(request, runtime);
   }
 
+  async describeDataCachesWithOptions(request: DescribeDataCachesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataCachesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucket)) {
+      query["Bucket"] = request.bucket;
+    }
+
+    if (!Util.isUnset(request.dataCacheId)) {
+      query["DataCacheId"] = request.dataCacheId;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDataCaches",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataCachesResponse>(await this.callApi(params, req, runtime), new DescribeDataCachesResponse({}));
+  }
+
+  async describeDataCaches(request: DescribeDataCachesRequest): Promise<DescribeDataCachesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDataCachesWithOptions(request, runtime);
+  }
+
   async describeImageCachesWithOptions(request: DescribeImageCachesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageCachesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9551,8 +11584,24 @@ export default class Client extends OpenApi {
       query["ImageCacheName"] = request.imageCacheName;
     }
 
+    if (!Util.isUnset(request.imageFullMatch)) {
+      query["ImageFullMatch"] = request.imageFullMatch;
+    }
+
+    if (!Util.isUnset(request.imageMatchCountRequest)) {
+      query["ImageMatchCountRequest"] = request.imageMatchCountRequest;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
     if (!Util.isUnset(request.matchImage)) {
       query["MatchImage"] = request.matchImage;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -9670,6 +11719,14 @@ export default class Client extends OpenApi {
     return await this.describeInstanceOpsRecordsWithOptions(request, runtime);
   }
 
+  /**
+    * *   Only the latest entry of monitoring data of each elastic container instance is returned.
+    * *   You can query only the monitoring data of elastic container instances that are created after April 3, 2019 15:00:00 UTC+8.
+    *
+    * @param request DescribeMultiContainerGroupMetricRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeMultiContainerGroupMetricResponse
+   */
   async describeMultiContainerGroupMetricWithOptions(request: DescribeMultiContainerGroupMetricRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMultiContainerGroupMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9722,6 +11779,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMultiContainerGroupMetricResponse>(await this.callApi(params, req, runtime), new DescribeMultiContainerGroupMetricResponse({}));
   }
 
+  /**
+    * *   Only the latest entry of monitoring data of each elastic container instance is returned.
+    * *   You can query only the monitoring data of elastic container instances that are created after April 3, 2019 15:00:00 UTC+8.
+    *
+    * @param request DescribeMultiContainerGroupMetricRequest
+    * @return DescribeMultiContainerGroupMetricResponse
+   */
   async describeMultiContainerGroupMetric(request: DescribeMultiContainerGroupMetricRequest): Promise<DescribeMultiContainerGroupMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMultiContainerGroupMetricWithOptions(request, runtime);
@@ -9819,10 +11883,6 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityGroupId)) {
-      query["SecurityGroupId"] = request.securityGroupId;
-    }
-
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
     }
@@ -9831,20 +11891,12 @@ export default class Client extends OpenApi {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.vSwitchId)) {
-      query["VSwitchId"] = request.vSwitchId;
-    }
-
     if (!Util.isUnset(request.virtualNodeIds)) {
       query["VirtualNodeIds"] = request.virtualNodeIds;
     }
 
     if (!Util.isUnset(request.virtualNodeName)) {
       query["VirtualNodeName"] = request.virtualNodeName;
-    }
-
-    if (!Util.isUnset(request.zoneId)) {
-      query["ZoneId"] = request.zoneId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -9942,6 +11994,13 @@ export default class Client extends OpenApi {
     return await this.execContainerCommandWithOptions(request, runtime);
   }
 
+  /**
+    * This operation does not support resource group authentication.
+    *
+    * @param request ListUsageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListUsageResponse
+   */
   async listUsageWithOptions(request: ListUsageRequest, runtime: $Util.RuntimeOptions): Promise<ListUsageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9986,11 +12045,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsageResponse>(await this.callApi(params, req, runtime), new ListUsageResponse({}));
   }
 
+  /**
+    * This operation does not support resource group authentication.
+    *
+    * @param request ListUsageRequest
+    * @return ListUsageResponse
+   */
   async listUsage(request: ListUsageRequest): Promise<ListUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsageWithOptions(request, runtime);
   }
 
+  /**
+    * You can scale up volumes by calling this operation. You cannot scale down volumes by calling this operation. Only volumes of Alibaba Cloud disks can be scaled up.
+    *
+    * @param request ResizeContainerGroupVolumeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ResizeContainerGroupVolumeResponse
+   */
   async resizeContainerGroupVolumeWithOptions(request: ResizeContainerGroupVolumeRequest, runtime: $Util.RuntimeOptions): Promise<ResizeContainerGroupVolumeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10051,11 +12123,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ResizeContainerGroupVolumeResponse>(await this.callApi(params, req, runtime), new ResizeContainerGroupVolumeResponse({}));
   }
 
+  /**
+    * You can scale up volumes by calling this operation. You cannot scale down volumes by calling this operation. Only volumes of Alibaba Cloud disks can be scaled up.
+    *
+    * @param request ResizeContainerGroupVolumeRequest
+    * @return ResizeContainerGroupVolumeResponse
+   */
   async resizeContainerGroupVolume(request: ResizeContainerGroupVolumeRequest): Promise<ResizeContainerGroupVolumeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resizeContainerGroupVolumeWithOptions(request, runtime);
   }
 
+  /**
+    * *   Only elastic container instances that are in the Pending or Running state can be restarted. Instances that are in the Succeeded or Failed state cannot be restarted.
+    * *   Elastic container instances that were created before 15:00:00 on March 7, 2019 cannot be restarted.
+    * *   When an elastic container instance is being restarted, its status changes into Restarting.
+    *
+    * @param request RestartContainerGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RestartContainerGroupResponse
+   */
   async restartContainerGroupWithOptions(request: RestartContainerGroupRequest, runtime: $Util.RuntimeOptions): Promise<RestartContainerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10108,14 +12195,34 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartContainerGroupResponse>(await this.callApi(params, req, runtime), new RestartContainerGroupResponse({}));
   }
 
+  /**
+    * *   Only elastic container instances that are in the Pending or Running state can be restarted. Instances that are in the Succeeded or Failed state cannot be restarted.
+    * *   Elastic container instances that were created before 15:00:00 on March 7, 2019 cannot be restarted.
+    * *   When an elastic container instance is being restarted, its status changes into Restarting.
+    *
+    * @param request RestartContainerGroupRequest
+    * @return RestartContainerGroupResponse
+   */
   async restartContainerGroup(request: RestartContainerGroupRequest): Promise<RestartContainerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartContainerGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can update only elastic container instances that are in the Pending or Running state. After you call this operation to update an elastic container instance, the instance enters the Updating state.
+    * *   You cannot update elastic container instances that were created before 15:00:00 March 7, 2019.
+    *
+    * @param request UpdateContainerGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateContainerGroupResponse
+   */
   async updateContainerGroupWithOptions(request: UpdateContainerGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateContainerGroupResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.acrRegistryInfo)) {
+      query["AcrRegistryInfo"] = request.acrRegistryInfo;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -10188,7 +12295,7 @@ export default class Client extends OpenApi {
       query["Volume"] = request.volume;
     }
 
-    if (!Util.isUnset($tea.toMap(request.dnsConfig))) {
+    if (!Util.isUnset(request.dnsConfig)) {
       query["DnsConfig"] = request.dnsConfig;
     }
 
@@ -10209,11 +12316,126 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateContainerGroupResponse>(await this.callApi(params, req, runtime), new UpdateContainerGroupResponse({}));
   }
 
+  /**
+    * *   You can update only elastic container instances that are in the Pending or Running state. After you call this operation to update an elastic container instance, the instance enters the Updating state.
+    * *   You cannot update elastic container instances that were created before 15:00:00 March 7, 2019.
+    *
+    * @param request UpdateContainerGroupRequest
+    * @return UpdateContainerGroupResponse
+   */
   async updateContainerGroup(request: UpdateContainerGroupRequest): Promise<UpdateContainerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateContainerGroupWithOptions(request, runtime);
   }
 
+  async updateDataCacheWithOptions(request: UpdateDataCacheRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataCacheResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bucket)) {
+      query["Bucket"] = request.bucket;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataCacheId)) {
+      query["DataCacheId"] = request.dataCacheId;
+    }
+
+    if (!Util.isUnset(request.dataSource)) {
+      query["DataSource"] = request.dataSource;
+    }
+
+    if (!Util.isUnset(request.eipCreateParam)) {
+      query["EipCreateParam"] = request.eipCreateParam;
+    }
+
+    if (!Util.isUnset(request.eipInstanceId)) {
+      query["EipInstanceId"] = request.eipInstanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.retentionDays)) {
+      query["RetentionDays"] = request.retentionDays;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDataCache",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDataCacheResponse>(await this.callApi(params, req, runtime), new UpdateDataCacheResponse({}));
+  }
+
+  async updateDataCache(request: UpdateDataCacheRequest): Promise<UpdateDataCacheResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDataCacheWithOptions(request, runtime);
+  }
+
+  /**
+    * Only image caches that are in the Ready or UpdateFailed state can be updated.
+    *
+    * @param request UpdateImageCacheRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateImageCacheResponse
+   */
   async updateImageCacheWithOptions(request: UpdateImageCacheRequest, runtime: $Util.RuntimeOptions): Promise<UpdateImageCacheResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10330,16 +12552,42 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateImageCacheResponse>(await this.callApi(params, req, runtime), new UpdateImageCacheResponse({}));
   }
 
+  /**
+    * Only image caches that are in the Ready or UpdateFailed state can be updated.
+    *
+    * @param request UpdateImageCacheRequest
+    * @return UpdateImageCacheResponse
+   */
   async updateImageCache(request: UpdateImageCacheRequest): Promise<UpdateImageCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateImageCacheWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * Only virtual nodes that are in the Ready state can be updated.
+    *
+    * @param request UpdateVirtualNodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateVirtualNodeResponse
+   */
   async updateVirtualNodeWithOptions(request: UpdateVirtualNodeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVirtualNodeResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clusterDNS)) {
+      query["ClusterDNS"] = request.clusterDNS;
+    }
+
+    if (!Util.isUnset(request.clusterDomain)) {
+      query["ClusterDomain"] = request.clusterDomain;
+    }
+
+    if (!Util.isUnset(request.customResources)) {
+      query["CustomResources"] = request.customResources;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -10358,10 +12606,6 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -10370,16 +12614,8 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityGroupId)) {
-      query["SecurityGroupId"] = request.securityGroupId;
-    }
-
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
-    }
-
-    if (!Util.isUnset(request.vSwitchId)) {
-      query["VSwitchId"] = request.vSwitchId;
     }
 
     if (!Util.isUnset(request.virtualNodeId)) {
@@ -10407,6 +12643,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVirtualNodeResponse>(await this.callApi(params, req, runtime), new UpdateVirtualNodeResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * Only virtual nodes that are in the Ready state can be updated.
+    *
+    * @param request UpdateVirtualNodeRequest
+    * @return UpdateVirtualNodeResponse
+   */
   async updateVirtualNode(request: UpdateVirtualNodeRequest): Promise<UpdateVirtualNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVirtualNodeWithOptions(request, runtime);
