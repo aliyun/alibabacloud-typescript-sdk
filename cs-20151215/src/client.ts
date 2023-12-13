@@ -43,6 +43,7 @@ export class DataDisk extends $tea.Model {
   category?: string;
   encrypted?: string;
   fileSystem?: string;
+  kmsKeyId?: string;
   mountTarget?: string;
   performanceLevel?: string;
   provisionedIops?: number;
@@ -55,6 +56,7 @@ export class DataDisk extends $tea.Model {
       category: 'category',
       encrypted: 'encrypted',
       fileSystem: 'file_system',
+      kmsKeyId: 'kms_key_id',
       mountTarget: 'mount_target',
       performanceLevel: 'performance_level',
       provisionedIops: 'provisioned_iops',
@@ -70,6 +72,7 @@ export class DataDisk extends $tea.Model {
       category: 'string',
       encrypted: 'string',
       fileSystem: 'string',
+      kmsKeyId: 'string',
       mountTarget: 'string',
       performanceLevel: 'string',
       provisionedIops: 'number',
@@ -191,6 +194,7 @@ export class Nodepool extends $tea.Model {
   kubernetesConfig?: NodepoolKubernetesConfig;
   management?: NodepoolManagement;
   maxNodes?: number;
+  nodeConfig?: NodepoolNodeConfig;
   nodepoolInfo?: NodepoolNodepoolInfo;
   scalingGroup?: NodepoolScalingGroup;
   teeConfig?: NodepoolTeeConfig;
@@ -203,6 +207,7 @@ export class Nodepool extends $tea.Model {
       kubernetesConfig: 'kubernetes_config',
       management: 'management',
       maxNodes: 'max_nodes',
+      nodeConfig: 'node_config',
       nodepoolInfo: 'nodepool_info',
       scalingGroup: 'scaling_group',
       teeConfig: 'tee_config',
@@ -218,6 +223,7 @@ export class Nodepool extends $tea.Model {
       kubernetesConfig: NodepoolKubernetesConfig,
       management: NodepoolManagement,
       maxNodes: 'number',
+      nodeConfig: NodepoolNodeConfig,
       nodepoolInfo: NodepoolNodepoolInfo,
       scalingGroup: NodepoolScalingGroup,
       teeConfig: NodepoolTeeConfig,
@@ -570,6 +576,50 @@ export class CancelComponentUpgradeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelOperationPlanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelOperationPlanResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CancelOperationPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelOperationPlanResponseBody,
     };
   }
 
@@ -1118,6 +1168,7 @@ export class CreateClusterNodePoolRequest extends $tea.Model {
   kubernetesConfig?: CreateClusterNodePoolRequestKubernetesConfig;
   management?: CreateClusterNodePoolRequestManagement;
   maxNodes?: number;
+  nodeConfig?: CreateClusterNodePoolRequestNodeConfig;
   nodepoolInfo?: CreateClusterNodePoolRequestNodepoolInfo;
   scalingGroup?: CreateClusterNodePoolRequestScalingGroup;
   teeConfig?: CreateClusterNodePoolRequestTeeConfig;
@@ -1130,6 +1181,7 @@ export class CreateClusterNodePoolRequest extends $tea.Model {
       kubernetesConfig: 'kubernetes_config',
       management: 'management',
       maxNodes: 'max_nodes',
+      nodeConfig: 'node_config',
       nodepoolInfo: 'nodepool_info',
       scalingGroup: 'scaling_group',
       teeConfig: 'tee_config',
@@ -1145,6 +1197,7 @@ export class CreateClusterNodePoolRequest extends $tea.Model {
       kubernetesConfig: CreateClusterNodePoolRequestKubernetesConfig,
       management: CreateClusterNodePoolRequestManagement,
       maxNodes: 'number',
+      nodeConfig: CreateClusterNodePoolRequestNodeConfig,
       nodepoolInfo: CreateClusterNodePoolRequestNodepoolInfo,
       scalingGroup: CreateClusterNodePoolRequestScalingGroup,
       teeConfig: CreateClusterNodePoolRequestTeeConfig,
@@ -1677,15 +1730,18 @@ export class DeleteClusterNodepoolRequest extends $tea.Model {
 
 export class DeleteClusterNodepoolResponseBody extends $tea.Model {
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'request_id',
+      taskId: 'task_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -4655,6 +4711,62 @@ export class FixNodePoolVulsResponse extends $tea.Model {
   }
 }
 
+export class GetClusterAddonInstanceResponseBody extends $tea.Model {
+  config?: string;
+  logging?: GetClusterAddonInstanceResponseBodyLogging;
+  name?: string;
+  state?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'config',
+      logging: 'logging',
+      name: 'name',
+      state: 'state',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      logging: GetClusterAddonInstanceResponseBodyLogging,
+      name: 'string',
+      state: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterAddonInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetClusterAddonInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClusterAddonInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetClusterCheckResponseBody extends $tea.Model {
   checkId?: string;
   checkItems?: { [key: string]: {[key: string ]: any}[] };
@@ -4900,6 +5012,128 @@ export class InstallClusterAddonsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAddonsRequest extends $tea.Model {
+  clusterId?: string;
+  clusterSpec?: string;
+  clusterType?: string;
+  clusterVersion?: string;
+  profile?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      clusterSpec: 'cluster_spec',
+      clusterType: 'cluster_type',
+      clusterVersion: 'cluster_version',
+      profile: 'profile',
+      regionId: 'region_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterSpec: 'string',
+      clusterType: 'string',
+      clusterVersion: 'string',
+      profile: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAddonsResponseBody extends $tea.Model {
+  addons?: ListAddonsResponseBodyAddons[];
+  static names(): { [key: string]: string } {
+    return {
+      addons: 'addons',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addons: { 'type': 'array', 'itemType': ListAddonsResponseBodyAddons },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAddonsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAddonsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAddonsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterAddonInstancesResponseBody extends $tea.Model {
+  addons?: ListClusterAddonInstancesResponseBodyAddons[];
+  static names(): { [key: string]: string } {
+    return {
+      addons: 'addons',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addons: { 'type': 'array', 'itemType': ListClusterAddonInstancesResponseBodyAddons },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterAddonInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListClusterAddonInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListClusterAddonInstancesResponseBody,
     };
   }
 
@@ -7395,6 +7629,66 @@ export class NodepoolKubernetesConfig extends $tea.Model {
   }
 }
 
+export class NodepoolManagementAutoRepairPolicy extends $tea.Model {
+  restartNode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      restartNode: 'restart_node',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      restartNode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolManagementAutoUpgradePolicy extends $tea.Model {
+  autoUpgradeKubelet?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoUpgradeKubelet: 'auto_upgrade_kubelet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoUpgradeKubelet: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolManagementAutoVulFixPolicy extends $tea.Model {
+  restartNode?: boolean;
+  vulLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      restartNode: 'restart_node',
+      vulLevel: 'vul_level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      restartNode: 'boolean',
+      vulLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class NodepoolManagementUpgradeConfig extends $tea.Model {
   autoUpgrade?: boolean;
   maxUnavailable?: number;
@@ -7425,11 +7719,21 @@ export class NodepoolManagementUpgradeConfig extends $tea.Model {
 
 export class NodepoolManagement extends $tea.Model {
   autoRepair?: boolean;
+  autoRepairPolicy?: NodepoolManagementAutoRepairPolicy;
+  autoUpgrade?: boolean;
+  autoUpgradePolicy?: NodepoolManagementAutoUpgradePolicy;
+  autoVulFix?: boolean;
+  autoVulFixPolicy?: NodepoolManagementAutoVulFixPolicy;
   enable?: boolean;
   upgradeConfig?: NodepoolManagementUpgradeConfig;
   static names(): { [key: string]: string } {
     return {
       autoRepair: 'auto_repair',
+      autoRepairPolicy: 'auto_repair_policy',
+      autoUpgrade: 'auto_upgrade',
+      autoUpgradePolicy: 'auto_upgrade_policy',
+      autoVulFix: 'auto_vul_fix',
+      autoVulFixPolicy: 'auto_vul_fix_policy',
       enable: 'enable',
       upgradeConfig: 'upgrade_config',
     };
@@ -7438,8 +7742,32 @@ export class NodepoolManagement extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoRepair: 'boolean',
+      autoRepairPolicy: NodepoolManagementAutoRepairPolicy,
+      autoUpgrade: 'boolean',
+      autoUpgradePolicy: NodepoolManagementAutoUpgradePolicy,
+      autoVulFix: 'boolean',
+      autoVulFixPolicy: NodepoolManagementAutoVulFixPolicy,
       enable: 'boolean',
       upgradeConfig: NodepoolManagementUpgradeConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolNodeConfig extends $tea.Model {
+  kubeletConfiguration?: KubeletConfig;
+  static names(): { [key: string]: string } {
+    return {
+      kubeletConfiguration: 'kubelet_configuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kubeletConfiguration: KubeletConfig,
     };
   }
 
@@ -7553,6 +7881,7 @@ export class NodepoolScalingGroup extends $tea.Model {
   internetChargeType?: string;
   internetMaxBandwidthOut?: number;
   keyPair?: string;
+  loginAsNonRoot?: boolean;
   loginPassword?: string;
   multiAzPolicy?: string;
   onDemandBaseCapacity?: number;
@@ -7570,7 +7899,11 @@ export class NodepoolScalingGroup extends $tea.Model {
   spotPriceLimit?: NodepoolScalingGroupSpotPriceLimit[];
   spotStrategy?: string;
   systemDiskBurstingEnabled?: boolean;
+  systemDiskCategories?: string[];
   systemDiskCategory?: string;
+  systemDiskEncryptAlgorithm?: string;
+  systemDiskEncrypted?: boolean;
+  systemDiskKmsKeyId?: string;
   systemDiskPerformanceLevel?: string;
   systemDiskProvisionedIops?: number;
   systemDiskSize?: number;
@@ -7591,6 +7924,7 @@ export class NodepoolScalingGroup extends $tea.Model {
       internetChargeType: 'internet_charge_type',
       internetMaxBandwidthOut: 'internet_max_bandwidth_out',
       keyPair: 'key_pair',
+      loginAsNonRoot: 'login_as_non_root',
       loginPassword: 'login_password',
       multiAzPolicy: 'multi_az_policy',
       onDemandBaseCapacity: 'on_demand_base_capacity',
@@ -7608,7 +7942,11 @@ export class NodepoolScalingGroup extends $tea.Model {
       spotPriceLimit: 'spot_price_limit',
       spotStrategy: 'spot_strategy',
       systemDiskBurstingEnabled: 'system_disk_bursting_enabled',
+      systemDiskCategories: 'system_disk_categories',
       systemDiskCategory: 'system_disk_category',
+      systemDiskEncryptAlgorithm: 'system_disk_encrypt_algorithm',
+      systemDiskEncrypted: 'system_disk_encrypted',
+      systemDiskKmsKeyId: 'system_disk_kms_key_id',
       systemDiskPerformanceLevel: 'system_disk_performance_level',
       systemDiskProvisionedIops: 'system_disk_provisioned_iops',
       systemDiskSize: 'system_disk_size',
@@ -7632,6 +7970,7 @@ export class NodepoolScalingGroup extends $tea.Model {
       internetChargeType: 'string',
       internetMaxBandwidthOut: 'number',
       keyPair: 'string',
+      loginAsNonRoot: 'boolean',
       loginPassword: 'string',
       multiAzPolicy: 'string',
       onDemandBaseCapacity: 'number',
@@ -7649,7 +7988,11 @@ export class NodepoolScalingGroup extends $tea.Model {
       spotPriceLimit: { 'type': 'array', 'itemType': NodepoolScalingGroupSpotPriceLimit },
       spotStrategy: 'string',
       systemDiskBurstingEnabled: 'boolean',
+      systemDiskCategories: { 'type': 'array', 'itemType': 'string' },
       systemDiskCategory: 'string',
+      systemDiskEncryptAlgorithm: 'string',
+      systemDiskEncrypted: 'boolean',
+      systemDiskKmsKeyId: 'string',
       systemDiskPerformanceLevel: 'string',
       systemDiskProvisionedIops: 'number',
       systemDiskSize: 'number',
@@ -7811,6 +8154,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $tea.Model {
   runtime?: string;
   runtimeVersion?: string;
   taints?: Taint[];
+  unschedulable?: boolean;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7821,6 +8165,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $tea.Model {
       runtime: 'runtime',
       runtimeVersion: 'runtime_version',
       taints: 'taints',
+      unschedulable: 'unschedulable',
       userData: 'user_data',
     };
   }
@@ -7834,6 +8179,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $tea.Model {
       runtime: 'string',
       runtimeVersion: 'string',
       taints: { 'type': 'array', 'itemType': Taint },
+      unschedulable: 'boolean',
       userData: 'string',
     };
   }
@@ -7971,6 +8317,25 @@ export class CreateClusterNodePoolRequestManagement extends $tea.Model {
   }
 }
 
+export class CreateClusterNodePoolRequestNodeConfig extends $tea.Model {
+  kubeletConfiguration?: KubeletConfig;
+  static names(): { [key: string]: string } {
+    return {
+      kubeletConfiguration: 'kubelet_configuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kubeletConfiguration: KubeletConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterNodePoolRequestNodepoolInfo extends $tea.Model {
   name?: string;
   resourceGroupId?: string;
@@ -8065,6 +8430,7 @@ export class CreateClusterNodePoolRequestScalingGroupTags extends $tea.Model {
 export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
   autoRenew?: boolean;
   autoRenewPeriod?: number;
+  cisEnabled?: boolean;
   compensateWithOnDemand?: boolean;
   dataDisks?: DataDisk[];
   deploymentsetId?: string;
@@ -8076,6 +8442,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
   internetChargeType?: string;
   internetMaxBandwidthOut?: number;
   keyPair?: string;
+  loginAsNonRoot?: boolean;
   loginPassword?: string;
   multiAzPolicy?: string;
   onDemandBaseCapacity?: number;
@@ -8088,12 +8455,17 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
   scalingPolicy?: string;
   securityGroupId?: string;
   securityGroupIds?: string[];
+  socEnabled?: boolean;
   spotInstancePools?: number;
   spotInstanceRemedy?: boolean;
   spotPriceLimit?: CreateClusterNodePoolRequestScalingGroupSpotPriceLimit[];
   spotStrategy?: string;
   systemDiskBurstingEnabled?: boolean;
+  systemDiskCategories?: string[];
   systemDiskCategory?: string;
+  systemDiskEncryptAlgorithm?: string;
+  systemDiskEncrypted?: boolean;
+  systemDiskKmsKeyId?: string;
   systemDiskPerformanceLevel?: string;
   systemDiskProvisionedIops?: number;
   systemDiskSize?: number;
@@ -8103,6 +8475,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
     return {
       autoRenew: 'auto_renew',
       autoRenewPeriod: 'auto_renew_period',
+      cisEnabled: 'cis_enabled',
       compensateWithOnDemand: 'compensate_with_on_demand',
       dataDisks: 'data_disks',
       deploymentsetId: 'deploymentset_id',
@@ -8114,6 +8487,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       internetChargeType: 'internet_charge_type',
       internetMaxBandwidthOut: 'internet_max_bandwidth_out',
       keyPair: 'key_pair',
+      loginAsNonRoot: 'login_as_non_root',
       loginPassword: 'login_password',
       multiAzPolicy: 'multi_az_policy',
       onDemandBaseCapacity: 'on_demand_base_capacity',
@@ -8126,12 +8500,17 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       scalingPolicy: 'scaling_policy',
       securityGroupId: 'security_group_id',
       securityGroupIds: 'security_group_ids',
+      socEnabled: 'soc_enabled',
       spotInstancePools: 'spot_instance_pools',
       spotInstanceRemedy: 'spot_instance_remedy',
       spotPriceLimit: 'spot_price_limit',
       spotStrategy: 'spot_strategy',
       systemDiskBurstingEnabled: 'system_disk_bursting_enabled',
+      systemDiskCategories: 'system_disk_categories',
       systemDiskCategory: 'system_disk_category',
+      systemDiskEncryptAlgorithm: 'system_disk_encrypt_algorithm',
+      systemDiskEncrypted: 'system_disk_encrypted',
+      systemDiskKmsKeyId: 'system_disk_kms_key_id',
       systemDiskPerformanceLevel: 'system_disk_performance_level',
       systemDiskProvisionedIops: 'system_disk_provisioned_iops',
       systemDiskSize: 'system_disk_size',
@@ -8144,6 +8523,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
     return {
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
+      cisEnabled: 'boolean',
       compensateWithOnDemand: 'boolean',
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
       deploymentsetId: 'string',
@@ -8155,6 +8535,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       internetChargeType: 'string',
       internetMaxBandwidthOut: 'number',
       keyPair: 'string',
+      loginAsNonRoot: 'boolean',
       loginPassword: 'string',
       multiAzPolicy: 'string',
       onDemandBaseCapacity: 'number',
@@ -8167,12 +8548,17 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       scalingPolicy: 'string',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      socEnabled: 'boolean',
       spotInstancePools: 'number',
       spotInstanceRemedy: 'boolean',
       spotPriceLimit: { 'type': 'array', 'itemType': CreateClusterNodePoolRequestScalingGroupSpotPriceLimit },
       spotStrategy: 'string',
       systemDiskBurstingEnabled: 'boolean',
+      systemDiskCategories: { 'type': 'array', 'itemType': 'string' },
       systemDiskCategory: 'string',
+      systemDiskEncryptAlgorithm: 'string',
+      systemDiskEncrypted: 'boolean',
+      systemDiskKmsKeyId: 'string',
       systemDiskPerformanceLevel: 'string',
       systemDiskProvisionedIops: 'number',
       systemDiskSize: 'number',
@@ -8440,6 +8826,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
   runtime?: string;
   runtimeVersion?: string;
   taints?: Taint[];
+  unschedulable?: boolean;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8450,6 +8837,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
       runtime: 'runtime',
       runtimeVersion: 'runtime_version',
       taints: 'taints',
+      unschedulable: 'unschedulable',
       userData: 'user_data',
     };
   }
@@ -8463,6 +8851,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
       runtime: 'string',
       runtimeVersion: 'string',
       taints: { 'type': 'array', 'itemType': Taint },
+      unschedulable: 'boolean',
       userData: 'string',
     };
   }
@@ -8706,16 +9095,19 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroupSpotPriceLimit
 export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.Model {
   autoRenew?: boolean;
   autoRenewPeriod?: number;
+  cisEnabled?: boolean;
   compensateWithOnDemand?: boolean;
   dataDisks?: DataDisk[];
   deploymentsetId?: string;
   desiredSize?: number;
   imageId?: string;
+  imageType?: string;
   instanceChargeType?: string;
   instanceTypes?: string[];
   internetChargeType?: string;
   internetMaxBandwidthOut?: number;
   keyPair?: string;
+  loginAsNonRoot?: boolean;
   loginPassword?: string;
   multiAzPolicy?: string;
   onDemandBaseCapacity?: number;
@@ -8730,12 +9122,19 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   scalingPolicy?: string;
   securityGroupId?: string;
   securityGroupIds?: string[];
+  socEnabled?: boolean;
   spotInstancePools?: number;
   spotInstanceRemedy?: boolean;
   spotPriceLimit?: DescribeClusterNodePoolDetailResponseBodyScalingGroupSpotPriceLimit[];
   spotStrategy?: string;
+  systemDiskBurstingEnabled?: boolean;
+  systemDiskCategories?: string[];
   systemDiskCategory?: string;
+  systemDiskEncryptAlgorithm?: string;
+  systemDiskEncrypted?: boolean;
+  systemDiskKmsKeyId?: string;
   systemDiskPerformanceLevel?: string;
+  systemDiskProvisionedIops?: number;
   systemDiskSize?: number;
   tags?: Tag[];
   vswitchIds?: string[];
@@ -8743,16 +9142,19 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
     return {
       autoRenew: 'auto_renew',
       autoRenewPeriod: 'auto_renew_period',
+      cisEnabled: 'cis_enabled',
       compensateWithOnDemand: 'compensate_with_on_demand',
       dataDisks: 'data_disks',
       deploymentsetId: 'deploymentset_id',
       desiredSize: 'desired_size',
       imageId: 'image_id',
+      imageType: 'image_type',
       instanceChargeType: 'instance_charge_type',
       instanceTypes: 'instance_types',
       internetChargeType: 'internet_charge_type',
       internetMaxBandwidthOut: 'internet_max_bandwidth_out',
       keyPair: 'key_pair',
+      loginAsNonRoot: 'login_as_non_root',
       loginPassword: 'login_password',
       multiAzPolicy: 'multi_az_policy',
       onDemandBaseCapacity: 'on_demand_base_capacity',
@@ -8767,12 +9169,19 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       scalingPolicy: 'scaling_policy',
       securityGroupId: 'security_group_id',
       securityGroupIds: 'security_group_ids',
+      socEnabled: 'soc_enabled',
       spotInstancePools: 'spot_instance_pools',
       spotInstanceRemedy: 'spot_instance_remedy',
       spotPriceLimit: 'spot_price_limit',
       spotStrategy: 'spot_strategy',
+      systemDiskBurstingEnabled: 'system_disk_bursting_enabled',
+      systemDiskCategories: 'system_disk_categories',
       systemDiskCategory: 'system_disk_category',
+      systemDiskEncryptAlgorithm: 'system_disk_encrypt_algorithm',
+      systemDiskEncrypted: 'system_disk_encrypted',
+      systemDiskKmsKeyId: 'system_disk_kms_key_id',
       systemDiskPerformanceLevel: 'system_disk_performance_level',
+      systemDiskProvisionedIops: 'system_disk_provisioned_iops',
       systemDiskSize: 'system_disk_size',
       tags: 'tags',
       vswitchIds: 'vswitch_ids',
@@ -8783,16 +9192,19 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
     return {
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
+      cisEnabled: 'boolean',
       compensateWithOnDemand: 'boolean',
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
       deploymentsetId: 'string',
       desiredSize: 'number',
       imageId: 'string',
+      imageType: 'string',
       instanceChargeType: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       internetChargeType: 'string',
       internetMaxBandwidthOut: 'number',
       keyPair: 'string',
+      loginAsNonRoot: 'boolean',
       loginPassword: 'string',
       multiAzPolicy: 'string',
       onDemandBaseCapacity: 'number',
@@ -8807,12 +9219,19 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       scalingPolicy: 'string',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      socEnabled: 'boolean',
       spotInstancePools: 'number',
       spotInstanceRemedy: 'boolean',
       spotPriceLimit: { 'type': 'array', 'itemType': DescribeClusterNodePoolDetailResponseBodyScalingGroupSpotPriceLimit },
       spotStrategy: 'string',
+      systemDiskBurstingEnabled: 'boolean',
+      systemDiskCategories: { 'type': 'array', 'itemType': 'string' },
       systemDiskCategory: 'string',
+      systemDiskEncryptAlgorithm: 'string',
+      systemDiskEncrypted: 'boolean',
+      systemDiskKmsKeyId: 'string',
       systemDiskPerformanceLevel: 'string',
+      systemDiskProvisionedIops: 'number',
       systemDiskSize: 'number',
       tags: { 'type': 'array', 'itemType': Tag },
       vswitchIds: { 'type': 'array', 'itemType': 'string' },
@@ -8959,6 +9378,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig exten
   runtime?: string;
   runtimeVersion?: string;
   taints?: Taint[];
+  unschedulable?: boolean;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8969,6 +9389,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig exten
       runtime: 'runtime',
       runtimeVersion: 'runtime_version',
       taints: 'taints',
+      unschedulable: 'unschedulable',
       userData: 'user_data',
     };
   }
@@ -8982,6 +9403,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig exten
       runtime: 'string',
       runtimeVersion: 'string',
       taints: { 'type': 'array', 'itemType': Taint },
+      unschedulable: 'boolean',
       userData: 'string',
     };
   }
@@ -9225,16 +9647,19 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupSpotPriceL
 export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $tea.Model {
   autoRenew?: boolean;
   autoRenewPeriod?: number;
+  cisEnabled?: boolean;
   compensateWithOnDemand?: boolean;
   dataDisks?: DataDisk[];
   deploymentsetId?: string;
   desiredSize?: number;
   imageId?: string;
+  imageType?: string;
   instanceChargeType?: string;
   instanceTypes?: string[];
   internetChargeType?: string;
   internetMaxBandwidthOut?: number;
   keyPair?: string;
+  loginAsNonRoot?: boolean;
   loginPassword?: string;
   multiAzPolicy?: string;
   onDemandBaseCapacity?: number;
@@ -9249,12 +9674,19 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   scalingPolicy?: string;
   securityGroupId?: string;
   securityGroupIds?: string[];
+  socEnabled?: boolean;
   spotInstancePools?: number;
   spotInstanceRemedy?: boolean;
   spotPriceLimit?: DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupSpotPriceLimit[];
   spotStrategy?: string;
+  systemDiskBurstingEnabled?: boolean;
+  systemDiskCategories?: string[];
   systemDiskCategory?: string;
+  systemDiskEncryptAlgorithm?: string;
+  systemDiskEncrypted?: boolean;
+  systemDiskKmsKeyId?: string;
   systemDiskPerformanceLevel?: string;
+  systemDiskProvisionedIops?: number;
   systemDiskSize?: number;
   tags?: Tag[];
   vswitchIds?: string[];
@@ -9262,16 +9694,19 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
     return {
       autoRenew: 'auto_renew',
       autoRenewPeriod: 'auto_renew_period',
+      cisEnabled: 'cis_enabled',
       compensateWithOnDemand: 'compensate_with_on_demand',
       dataDisks: 'data_disks',
       deploymentsetId: 'deploymentset_id',
       desiredSize: 'desired_size',
       imageId: 'image_id',
+      imageType: 'image_type',
       instanceChargeType: 'instance_charge_type',
       instanceTypes: 'instance_types',
       internetChargeType: 'internet_charge_type',
       internetMaxBandwidthOut: 'internet_max_bandwidth_out',
       keyPair: 'key_pair',
+      loginAsNonRoot: 'login_as_non_root',
       loginPassword: 'login_password',
       multiAzPolicy: 'multi_az_policy',
       onDemandBaseCapacity: 'on_demand_base_capacity',
@@ -9286,12 +9721,19 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       scalingPolicy: 'scaling_policy',
       securityGroupId: 'security_group_id',
       securityGroupIds: 'security_group_ids',
+      socEnabled: 'soc_enabled',
       spotInstancePools: 'spot_instance_pools',
       spotInstanceRemedy: 'spot_instance_remedy',
       spotPriceLimit: 'spot_price_limit',
       spotStrategy: 'spot_strategy',
+      systemDiskBurstingEnabled: 'system_disk_bursting_enabled',
+      systemDiskCategories: 'system_disk_categories',
       systemDiskCategory: 'system_disk_category',
+      systemDiskEncryptAlgorithm: 'system_disk_encrypt_algorithm',
+      systemDiskEncrypted: 'system_disk_encrypted',
+      systemDiskKmsKeyId: 'system_disk_kms_key_id',
       systemDiskPerformanceLevel: 'system_disk_performance_level',
+      systemDiskProvisionedIops: 'system_disk_provisioned_iops',
       systemDiskSize: 'system_disk_size',
       tags: 'tags',
       vswitchIds: 'vswitch_ids',
@@ -9302,16 +9744,19 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
     return {
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
+      cisEnabled: 'boolean',
       compensateWithOnDemand: 'boolean',
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
       deploymentsetId: 'string',
       desiredSize: 'number',
       imageId: 'string',
+      imageType: 'string',
       instanceChargeType: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       internetChargeType: 'string',
       internetMaxBandwidthOut: 'number',
       keyPair: 'string',
+      loginAsNonRoot: 'boolean',
       loginPassword: 'string',
       multiAzPolicy: 'string',
       onDemandBaseCapacity: 'number',
@@ -9326,12 +9771,19 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       scalingPolicy: 'string',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      socEnabled: 'boolean',
       spotInstancePools: 'number',
       spotInstanceRemedy: 'boolean',
       spotPriceLimit: { 'type': 'array', 'itemType': DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupSpotPriceLimit },
       spotStrategy: 'string',
+      systemDiskBurstingEnabled: 'boolean',
+      systemDiskCategories: { 'type': 'array', 'itemType': 'string' },
       systemDiskCategory: 'string',
+      systemDiskEncryptAlgorithm: 'string',
+      systemDiskEncrypted: 'boolean',
+      systemDiskKmsKeyId: 'string',
       systemDiskPerformanceLevel: 'string',
+      systemDiskProvisionedIops: 'number',
       systemDiskSize: 'number',
       tags: { 'type': 'array', 'itemType': Tag },
       vswitchIds: { 'type': 'array', 'itemType': 'string' },
@@ -11015,6 +11467,34 @@ export class FixNodePoolVulsRequestRolloutPolicy extends $tea.Model {
   }
 }
 
+export class GetClusterAddonInstanceResponseBodyLogging extends $tea.Model {
+  capable?: boolean;
+  enabled?: boolean;
+  logProject?: string;
+  logstore?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capable: 'capable',
+      enabled: 'enabled',
+      logProject: 'log_project',
+      logstore: 'logstore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capable: 'boolean',
+      enabled: 'boolean',
+      logProject: 'string',
+      logstore: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetKubernetesTriggerResponseBody extends $tea.Model {
   id?: string;
   name?: string;
@@ -11124,6 +11604,71 @@ export class InstallClusterAddonsRequestBody extends $tea.Model {
     return {
       config: 'string',
       name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAddonsResponseBodyAddons extends $tea.Model {
+  architecture?: string[];
+  category?: string;
+  configSchema?: string;
+  installByDefault?: boolean;
+  managed?: boolean;
+  name?: string;
+  supportedActions?: string[];
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'architecture',
+      category: 'category',
+      configSchema: 'config_schema',
+      installByDefault: 'install_by_default',
+      managed: 'managed',
+      name: 'name',
+      supportedActions: 'supported_actions',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: { 'type': 'array', 'itemType': 'string' },
+      category: 'string',
+      configSchema: 'string',
+      installByDefault: 'boolean',
+      managed: 'boolean',
+      name: 'string',
+      supportedActions: { 'type': 'array', 'itemType': 'string' },
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterAddonInstancesResponseBodyAddons extends $tea.Model {
+  name?: string;
+  state?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      state: 'state',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      state: 'string',
       version: 'string',
     };
   }
@@ -11555,6 +12100,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   dataDisks?: DataDisk[];
   desiredSize?: number;
   imageId?: string;
+  imageType?: string;
   instanceChargeType?: string;
   instanceTypes?: string[];
   internetChargeType?: string;
@@ -11574,8 +12120,14 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   spotInstanceRemedy?: boolean;
   spotPriceLimit?: ModifyClusterNodePoolRequestScalingGroupSpotPriceLimit[];
   spotStrategy?: string;
+  systemDiskBurstingEnabled?: boolean;
+  systemDiskCategories?: string[];
   systemDiskCategory?: string;
+  systemDiskEncryptAlgorithm?: string;
+  systemDiskEncrypted?: boolean;
+  systemDiskKmsKeyId?: string;
   systemDiskPerformanceLevel?: string;
+  systemDiskProvisionedIops?: number;
   systemDiskSize?: number;
   tags?: Tag[];
   vswitchIds?: string[];
@@ -11587,6 +12139,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
       dataDisks: 'data_disks',
       desiredSize: 'desired_size',
       imageId: 'image_id',
+      imageType: 'image_type',
       instanceChargeType: 'instance_charge_type',
       instanceTypes: 'instance_types',
       internetChargeType: 'internet_charge_type',
@@ -11606,8 +12159,14 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
       spotInstanceRemedy: 'spot_instance_remedy',
       spotPriceLimit: 'spot_price_limit',
       spotStrategy: 'spot_strategy',
+      systemDiskBurstingEnabled: 'system_disk_bursting_enabled',
+      systemDiskCategories: 'system_disk_categories',
       systemDiskCategory: 'system_disk_category',
+      systemDiskEncryptAlgorithm: 'system_disk_encrypt_algorithm',
+      systemDiskEncrypted: 'system_disk_encrypted',
+      systemDiskKmsKeyId: 'system_disk_kms_key_id',
       systemDiskPerformanceLevel: 'system_disk_performance_level',
+      systemDiskProvisionedIops: 'system_disk_provisioned_iops',
       systemDiskSize: 'system_disk_size',
       tags: 'tags',
       vswitchIds: 'vswitch_ids',
@@ -11622,6 +12181,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
       desiredSize: 'number',
       imageId: 'string',
+      imageType: 'string',
       instanceChargeType: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       internetChargeType: 'string',
@@ -11641,8 +12201,14 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
       spotInstanceRemedy: 'boolean',
       spotPriceLimit: { 'type': 'array', 'itemType': ModifyClusterNodePoolRequestScalingGroupSpotPriceLimit },
       spotStrategy: 'string',
+      systemDiskBurstingEnabled: 'boolean',
+      systemDiskCategories: { 'type': 'array', 'itemType': 'string' },
       systemDiskCategory: 'string',
+      systemDiskEncryptAlgorithm: 'string',
+      systemDiskEncrypted: 'boolean',
+      systemDiskKmsKeyId: 'string',
       systemDiskPerformanceLevel: 'string',
+      systemDiskProvisionedIops: 'number',
       systemDiskSize: 'number',
       tags: { 'type': 'array', 'itemType': Tag },
       vswitchIds: { 'type': 'array', 'itemType': 'string' },
@@ -12066,6 +12632,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelComponentUpgradeWithOptions(clusterId, componentId, headers, runtime);
+  }
+
+  async cancelOperationPlanWithOptions(planId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelOperationPlanResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelOperationPlan",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/operation/plans/${OpenApiUtil.getEncodeParam(planId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelOperationPlanResponse>(await this.callApi(params, req, runtime), new CancelOperationPlanResponse({}));
+  }
+
+  async cancelOperationPlan(planId: string): Promise<CancelOperationPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cancelOperationPlanWithOptions(planId, headers, runtime);
   }
 
   async cancelTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
@@ -12646,6 +13236,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.maxNodes)) {
       body["max_nodes"] = request.maxNodes;
+    }
+
+    if (!Util.isUnset(request.nodeConfig)) {
+      body["node_config"] = request.nodeConfig;
     }
 
     if (!Util.isUnset(request.nodepoolInfo)) {
@@ -14748,6 +15342,30 @@ export default class Client extends OpenApi {
     return await this.fixNodePoolVulsWithOptions(clusterId, nodepoolId, request, headers, runtime);
   }
 
+  async getClusterAddonInstanceWithOptions(clusterId: string, instanceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterAddonInstanceResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClusterAddonInstance",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/addon_instances/${OpenApiUtil.getEncodeParam(instanceName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClusterAddonInstanceResponse>(await this.callApi(params, req, runtime), new GetClusterAddonInstanceResponse({}));
+  }
+
+  async getClusterAddonInstance(clusterId: string, instanceName: string): Promise<GetClusterAddonInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getClusterAddonInstanceWithOptions(clusterId, instanceName, headers, runtime);
+  }
+
   async getClusterCheckWithOptions(clusterId: string, checkId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterCheckResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -14909,6 +15527,81 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.installClusterAddonsWithOptions(ClusterId, request, headers, runtime);
+  }
+
+  async listAddonsWithOptions(request: ListAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAddonsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["cluster_id"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.clusterSpec)) {
+      query["cluster_spec"] = request.clusterSpec;
+    }
+
+    if (!Util.isUnset(request.clusterType)) {
+      query["cluster_type"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.clusterVersion)) {
+      query["cluster_version"] = request.clusterVersion;
+    }
+
+    if (!Util.isUnset(request.profile)) {
+      query["profile"] = request.profile;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["region_id"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAddons",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/addons`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAddonsResponse>(await this.callApi(params, req, runtime), new ListAddonsResponse({}));
+  }
+
+  async listAddons(request: ListAddonsRequest): Promise<ListAddonsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAddonsWithOptions(request, headers, runtime);
+  }
+
+  async listClusterAddonInstancesWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterAddonInstancesResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListClusterAddonInstances",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/addon_instances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListClusterAddonInstancesResponse>(await this.callApi(params, req, runtime), new ListClusterAddonInstancesResponse({}));
+  }
+
+  async listClusterAddonInstances(clusterId: string): Promise<ListClusterAddonInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listClusterAddonInstancesWithOptions(clusterId, headers, runtime);
   }
 
   async listClusterChecksWithOptions(clusterId: string, request: ListClusterChecksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterChecksResponse> {
