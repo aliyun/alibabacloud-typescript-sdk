@@ -485,6 +485,78 @@ export class AddVodDomainResponse extends $tea.Model {
   }
 }
 
+export class AddVodStorageForAppRequest extends $tea.Model {
+  appId?: string;
+  storageLocation?: string;
+  storageType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      storageLocation: 'StorageLocation',
+      storageType: 'StorageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      storageLocation: 'string',
+      storageType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddVodStorageForAppResponseBody extends $tea.Model {
+  requestId?: string;
+  storageLocation?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      storageLocation: 'StorageLocation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      storageLocation: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddVodStorageForAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddVodStorageForAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddVodStorageForAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddVodTemplateRequest extends $tea.Model {
   appId?: string;
   name?: string;
@@ -10974,12 +11046,14 @@ export class UpdateImageInfosResponse extends $tea.Model {
 }
 
 export class UpdateMediaStorageClassRequest extends $tea.Model {
+  allowUpdateWithoutTimeLimit?: boolean;
   mediaIds?: string;
   restoreTier?: string;
   scope?: string;
   storageClass?: string;
   static names(): { [key: string]: string } {
     return {
+      allowUpdateWithoutTimeLimit: 'AllowUpdateWithoutTimeLimit',
       mediaIds: 'MediaIds',
       restoreTier: 'RestoreTier',
       scope: 'Scope',
@@ -10989,6 +11063,7 @@ export class UpdateMediaStorageClassRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowUpdateWithoutTimeLimit: 'boolean',
       mediaIds: 'string',
       restoreTier: 'string',
       scope: 'string',
@@ -16211,6 +16286,7 @@ export class GetPlayInfoResponseBodyVideoBase extends $tea.Model {
   duration?: string;
   mediaType?: string;
   status?: string;
+  storageClass?: string;
   title?: string;
   videoId?: string;
   static names(): { [key: string]: string } {
@@ -16221,6 +16297,7 @@ export class GetPlayInfoResponseBodyVideoBase extends $tea.Model {
       duration: 'Duration',
       mediaType: 'MediaType',
       status: 'Status',
+      storageClass: 'StorageClass',
       title: 'Title',
       videoId: 'VideoId',
     };
@@ -16234,6 +16311,7 @@ export class GetPlayInfoResponseBodyVideoBase extends $tea.Model {
       duration: 'string',
       mediaType: 'string',
       status: 'string',
+      storageClass: 'string',
       title: 'string',
       videoId: 'string',
     };
@@ -19105,6 +19183,43 @@ export default class Client extends OpenApi {
   async addVodDomain(request: AddVodDomainRequest): Promise<AddVodDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addVodDomainWithOptions(request, runtime);
+  }
+
+  async addVodStorageForAppWithOptions(request: AddVodStorageForAppRequest, runtime: $Util.RuntimeOptions): Promise<AddVodStorageForAppResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.storageLocation)) {
+      query["StorageLocation"] = request.storageLocation;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddVodStorageForApp",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddVodStorageForAppResponse>(await this.callApi(params, req, runtime), new AddVodStorageForAppResponse({}));
+  }
+
+  async addVodStorageForApp(request: AddVodStorageForAppRequest): Promise<AddVodStorageForAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addVodStorageForAppWithOptions(request, runtime);
   }
 
   /**
@@ -26422,6 +26537,10 @@ export default class Client extends OpenApi {
   async updateMediaStorageClassWithOptions(request: UpdateMediaStorageClassRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaStorageClassResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.allowUpdateWithoutTimeLimit)) {
+      query["AllowUpdateWithoutTimeLimit"] = request.allowUpdateWithoutTimeLimit;
+    }
+
     if (!Util.isUnset(request.mediaIds)) {
       query["MediaIds"] = request.mediaIds;
     }
