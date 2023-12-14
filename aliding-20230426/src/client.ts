@@ -2290,6 +2290,168 @@ export class CommentListReportResponse extends $tea.Model {
   }
 }
 
+export class CreateDeliveryPlanHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: CreateDeliveryPlanHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: CreateDeliveryPlanHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeliveryPlanShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeliveryPlanRequest extends $tea.Model {
+  content?: { [key: string]: any };
+  endTime?: number;
+  resId?: string;
+  startTime?: number;
+  userIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      endTime: 'EndTime',
+      resId: 'ResId',
+      startTime: 'StartTime',
+      userIdList: 'UserIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      endTime: 'number',
+      resId: 'string',
+      startTime: 'number',
+      userIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeliveryPlanShrinkRequest extends $tea.Model {
+  contentShrink?: string;
+  endTime?: number;
+  resId?: string;
+  startTime?: number;
+  userIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentShrink: 'Content',
+      endTime: 'EndTime',
+      resId: 'ResId',
+      startTime: 'StartTime',
+      userIdListShrink: 'UserIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentShrink: 'string',
+      endTime: 'number',
+      resId: 'string',
+      startTime: 'number',
+      userIdListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeliveryPlanResponseBody extends $tea.Model {
+  arguments?: any[];
+  requestId?: string;
+  success?: boolean;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arguments: 'arguments',
+      requestId: 'requestId',
+      success: 'success',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arguments: { 'type': 'array', 'itemType': 'any' },
+      requestId: 'string',
+      success: 'boolean',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeliveryPlanResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDeliveryPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDeliveryPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: CreateEventHeadersAccountContext;
@@ -5256,6 +5418,128 @@ export class DeleteFormDataResponse extends $tea.Model {
   }
 }
 
+export class DeleteInstanceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: DeleteInstanceHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: DeleteInstanceHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceRequest extends $tea.Model {
+  appType?: string;
+  language?: string;
+  processInstanceId?: string;
+  systemToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      language: 'Language',
+      processInstanceId: 'ProcessInstanceId',
+      systemToken: 'SystemToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      language: 'string',
+      processInstanceId: 'string',
+      systemToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteLiveHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: DeleteLiveHeadersAccountContext;
@@ -6601,6 +6885,405 @@ export class DeleteWorkspaceMembersResponse extends $tea.Model {
   }
 }
 
+export class ExecutePlatformTaskHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: ExecutePlatformTaskHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: ExecutePlatformTaskHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecutePlatformTaskShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecutePlatformTaskRequest extends $tea.Model {
+  appType?: string;
+  formDataJson?: string;
+  language?: string;
+  noExecuteExpressions?: string;
+  outResult?: string;
+  processInstanceId?: string;
+  remark?: string;
+  systemToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      formDataJson: 'FormDataJson',
+      language: 'Language',
+      noExecuteExpressions: 'NoExecuteExpressions',
+      outResult: 'OutResult',
+      processInstanceId: 'ProcessInstanceId',
+      remark: 'Remark',
+      systemToken: 'SystemToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      formDataJson: 'string',
+      language: 'string',
+      noExecuteExpressions: 'string',
+      outResult: 'string',
+      processInstanceId: 'string',
+      remark: 'string',
+      systemToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecutePlatformTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecutePlatformTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ExecutePlatformTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecutePlatformTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteTaskHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: ExecuteTaskHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: ExecuteTaskHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteTaskShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteTaskRequest extends $tea.Model {
+  appType?: string;
+  digitalSignUrl?: string;
+  formDataJson?: string;
+  language?: string;
+  noExecuteExpressions?: string;
+  outResult?: string;
+  processInstanceId?: string;
+  remark?: string;
+  systemToken?: string;
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      digitalSignUrl: 'DigitalSignUrl',
+      formDataJson: 'FormDataJson',
+      language: 'Language',
+      noExecuteExpressions: 'NoExecuteExpressions',
+      outResult: 'OutResult',
+      processInstanceId: 'ProcessInstanceId',
+      remark: 'Remark',
+      systemToken: 'SystemToken',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      digitalSignUrl: 'string',
+      formDataJson: 'string',
+      language: 'string',
+      noExecuteExpressions: 'string',
+      outResult: 'string',
+      processInstanceId: 'string',
+      remark: 'string',
+      systemToken: 'string',
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ExecuteTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetActivityListHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetActivityListHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetActivityListHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetActivityListShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetActivityListRequest extends $tea.Model {
+  appType?: string;
+  language?: string;
+  processCode?: string;
+  systemToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      language: 'Language',
+      processCode: 'ProcessCode',
+      systemToken: 'SystemToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      language: 'string',
+      processCode: 'string',
+      systemToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetActivityListResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetActivityListResponseBodyResult[];
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': GetActivityListResponseBodyResult },
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetActivityListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetActivityListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetActivityListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAllSheetsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: GetAllSheetsHeadersAccountContext;
@@ -7433,6 +8116,769 @@ export class GetFormListInAppResponse extends $tea.Model {
   }
 }
 
+export class GetInstanceByIdHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetInstanceByIdHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetInstanceByIdHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceByIdShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceByIdRequest extends $tea.Model {
+  appType?: string;
+  id?: string;
+  language?: string;
+  systemToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      id: 'Id',
+      language: 'Language',
+      systemToken: 'SystemToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      id: 'string',
+      language: 'string',
+      systemToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceByIdResponseBody extends $tea.Model {
+  actionExecutor?: GetInstanceByIdResponseBodyActionExecutor[];
+  approvedResult?: string;
+  createTimeGMT?: string;
+  data?: { [key: string]: any };
+  formUuid?: string;
+  instanceStatus?: string;
+  modifiedTimeGMT?: string;
+  originator?: GetInstanceByIdResponseBodyOriginator;
+  processCode?: string;
+  processInstanceId?: string;
+  requestId?: string;
+  title?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      actionExecutor: 'actionExecutor',
+      approvedResult: 'approvedResult',
+      createTimeGMT: 'createTimeGMT',
+      data: 'data',
+      formUuid: 'formUuid',
+      instanceStatus: 'instanceStatus',
+      modifiedTimeGMT: 'modifiedTimeGMT',
+      originator: 'originator',
+      processCode: 'processCode',
+      processInstanceId: 'processInstanceId',
+      requestId: 'requestId',
+      title: 'title',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionExecutor: { 'type': 'array', 'itemType': GetInstanceByIdResponseBodyActionExecutor },
+      approvedResult: 'string',
+      createTimeGMT: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      formUuid: 'string',
+      instanceStatus: 'string',
+      modifiedTimeGMT: 'string',
+      originator: GetInstanceByIdResponseBodyOriginator,
+      processCode: 'string',
+      processInstanceId: 'string',
+      requestId: 'string',
+      title: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+      version: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceByIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetInstanceByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInstanceByIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceIdListHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetInstanceIdListHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetInstanceIdListHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceIdListShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceIdListRequest extends $tea.Model {
+  appType?: string;
+  approvedResult?: string;
+  createFromTimeGMT?: string;
+  createToTimeGMT?: string;
+  formUuid?: string;
+  instanceStatus?: string;
+  language?: string;
+  modifiedFromTimeGMT?: string;
+  modifiedToTimeGMT?: string;
+  originatorId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  searchFieldJson?: string;
+  systemToken?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      approvedResult: 'ApprovedResult',
+      createFromTimeGMT: 'CreateFromTimeGMT',
+      createToTimeGMT: 'CreateToTimeGMT',
+      formUuid: 'FormUuid',
+      instanceStatus: 'InstanceStatus',
+      language: 'Language',
+      modifiedFromTimeGMT: 'ModifiedFromTimeGMT',
+      modifiedToTimeGMT: 'ModifiedToTimeGMT',
+      originatorId: 'OriginatorId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchFieldJson: 'SearchFieldJson',
+      systemToken: 'SystemToken',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      approvedResult: 'string',
+      createFromTimeGMT: 'string',
+      createToTimeGMT: 'string',
+      formUuid: 'string',
+      instanceStatus: 'string',
+      language: 'string',
+      modifiedFromTimeGMT: 'string',
+      modifiedToTimeGMT: 'string',
+      originatorId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      searchFieldJson: 'string',
+      systemToken: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceIdListResponseBody extends $tea.Model {
+  data?: string[];
+  pageNumber?: number;
+  requestId?: string;
+  totalCount?: number;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      pageNumber: 'pageNumber',
+      requestId: 'requestId',
+      totalCount: 'totalCount',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceIdListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetInstanceIdListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInstanceIdListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetInstancesHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetInstancesHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesRequest extends $tea.Model {
+  appType?: string;
+  approvedResult?: string;
+  createFromTimeGMT?: string;
+  createToTimeGMT?: string;
+  formUuid?: string;
+  instanceStatus?: string;
+  language?: string;
+  modifiedFromTimeGMT?: string;
+  modifiedToTimeGMT?: string;
+  orderConfigJson?: string;
+  originatorId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  searchFieldJson?: string;
+  systemToken?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      approvedResult: 'ApprovedResult',
+      createFromTimeGMT: 'CreateFromTimeGMT',
+      createToTimeGMT: 'CreateToTimeGMT',
+      formUuid: 'FormUuid',
+      instanceStatus: 'InstanceStatus',
+      language: 'Language',
+      modifiedFromTimeGMT: 'ModifiedFromTimeGMT',
+      modifiedToTimeGMT: 'ModifiedToTimeGMT',
+      orderConfigJson: 'OrderConfigJson',
+      originatorId: 'OriginatorId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchFieldJson: 'SearchFieldJson',
+      systemToken: 'SystemToken',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      approvedResult: 'string',
+      createFromTimeGMT: 'string',
+      createToTimeGMT: 'string',
+      formUuid: 'string',
+      instanceStatus: 'string',
+      language: 'string',
+      modifiedFromTimeGMT: 'string',
+      modifiedToTimeGMT: 'string',
+      orderConfigJson: 'string',
+      originatorId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      searchFieldJson: 'string',
+      systemToken: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesResponseBody extends $tea.Model {
+  data?: GetInstancesResponseBodyData[];
+  pageNumber?: number;
+  requestId?: string;
+  totalCount?: number;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      pageNumber: 'pageNumber',
+      requestId: 'requestId',
+      totalCount: 'totalCount',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GetInstancesResponseBodyData },
+      pageNumber: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesByIdListHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetInstancesByIdListHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetInstancesByIdListHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesByIdListShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesByIdListRequest extends $tea.Model {
+  appType?: string;
+  language?: string;
+  processInstanceIds?: string;
+  systemToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      language: 'Language',
+      processInstanceIds: 'ProcessInstanceIds',
+      systemToken: 'SystemToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      language: 'string',
+      processInstanceIds: 'string',
+      systemToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesByIdListResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetInstancesByIdListResponseBodyResult[];
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': GetInstancesByIdListResponseBodyResult },
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesByIdListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetInstancesByIdListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInstancesByIdListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMeCorpSubmissionHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetMeCorpSubmissionHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetMeCorpSubmissionHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMeCorpSubmissionShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMeCorpSubmissionRequest extends $tea.Model {
+  appTypes?: string;
+  corpId?: string;
+  createFromTimeGMT?: number;
+  createToTimeGMT?: number;
+  keyword?: string;
+  language?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  processCodes?: string;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appTypes: 'AppTypes',
+      corpId: 'CorpId',
+      createFromTimeGMT: 'CreateFromTimeGMT',
+      createToTimeGMT: 'CreateToTimeGMT',
+      keyword: 'Keyword',
+      language: 'Language',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      processCodes: 'ProcessCodes',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appTypes: 'string',
+      corpId: 'string',
+      createFromTimeGMT: 'number',
+      createToTimeGMT: 'number',
+      keyword: 'string',
+      language: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      processCodes: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMeCorpSubmissionResponseBody extends $tea.Model {
+  data?: GetMeCorpSubmissionResponseBodyData[];
+  pageNumber?: number;
+  requestId?: string;
+  totalCount?: number;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      pageNumber: 'pageNumber',
+      requestId: 'requestId',
+      totalCount: 'totalCount',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GetMeCorpSubmissionResponseBodyData },
+      pageNumber: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMeCorpSubmissionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMeCorpSubmissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMeCorpSubmissionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMeetingRoomsScheduleHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: GetMeetingRoomsScheduleHeadersAccountContext;
@@ -8252,6 +9698,298 @@ export class GetOpenUrlResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetOpenUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOperationRecordsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetOperationRecordsHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetOperationRecordsHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOperationRecordsShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOperationRecordsRequest extends $tea.Model {
+  appType?: string;
+  language?: string;
+  processInstanceId?: string;
+  systemToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      language: 'Language',
+      processInstanceId: 'ProcessInstanceId',
+      systemToken: 'SystemToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      language: 'string',
+      processInstanceId: 'string',
+      systemToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOperationRecordsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetOperationRecordsResponseBodyResult[];
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': GetOperationRecordsResponseBodyResult },
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOperationRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetOperationRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOperationRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProcessDefinitionHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetProcessDefinitionHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetProcessDefinitionHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProcessDefinitionShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProcessDefinitionRequest extends $tea.Model {
+  appType?: string;
+  corpId?: string;
+  groupId?: string;
+  language?: string;
+  nameSpace?: string;
+  orderNumber?: string;
+  processInstanceId?: string;
+  systemToken?: string;
+  systemType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      corpId: 'CorpId',
+      groupId: 'GroupId',
+      language: 'Language',
+      nameSpace: 'NameSpace',
+      orderNumber: 'OrderNumber',
+      processInstanceId: 'ProcessInstanceId',
+      systemToken: 'SystemToken',
+      systemType: 'SystemType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      corpId: 'string',
+      groupId: 'string',
+      language: 'string',
+      nameSpace: 'string',
+      orderNumber: 'string',
+      processInstanceId: 'string',
+      systemToken: 'string',
+      systemType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProcessDefinitionResponseBody extends $tea.Model {
+  formUuid?: string;
+  originator?: GetProcessDefinitionResponseBodyOriginator;
+  outResult?: string;
+  owners?: GetProcessDefinitionResponseBodyOwners[];
+  processId?: string;
+  processInstanceId?: string;
+  requestId?: string;
+  status?: string;
+  tasks?: GetProcessDefinitionResponseBodyTasks[];
+  title?: string;
+  variables?: { [key: string]: any };
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      formUuid: 'formUuid',
+      originator: 'originator',
+      outResult: 'outResult',
+      owners: 'owners',
+      processId: 'processId',
+      processInstanceId: 'processInstanceId',
+      requestId: 'requestId',
+      status: 'status',
+      tasks: 'tasks',
+      title: 'title',
+      variables: 'variables',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      formUuid: 'string',
+      originator: GetProcessDefinitionResponseBodyOriginator,
+      outResult: 'string',
+      owners: { 'type': 'array', 'itemType': GetProcessDefinitionResponseBodyOwners },
+      processId: 'string',
+      processInstanceId: 'string',
+      requestId: 'string',
+      status: 'string',
+      tasks: { 'type': 'array', 'itemType': GetProcessDefinitionResponseBodyTasks },
+      title: 'string',
+      variables: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProcessDefinitionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetProcessDefinitionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetProcessDefinitionResponseBody,
     };
   }
 
@@ -16198,6 +17936,456 @@ export class SearchFormDatasResponse extends $tea.Model {
   }
 }
 
+export class SendBannerHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: SendBannerHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: SendBannerHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendBannerShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendBannerRequest extends $tea.Model {
+  content?: { [key: string]: any };
+  endTime?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendBannerShrinkRequest extends $tea.Model {
+  contentShrink?: string;
+  endTime?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contentShrink: 'Content',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentShrink: 'string',
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendBannerResponseBody extends $tea.Model {
+  arguments?: any[];
+  requestId?: string;
+  success?: boolean;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arguments: 'arguments',
+      requestId: 'requestId',
+      success: 'success',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arguments: { 'type': 'array', 'itemType': 'any' },
+      requestId: 'string',
+      success: 'boolean',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendBannerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendBannerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendBannerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendPopupHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: SendPopupHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: SendPopupHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendPopupShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendPopupRequest extends $tea.Model {
+  content?: { [key: string]: any };
+  endTime?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendPopupShrinkRequest extends $tea.Model {
+  contentShrink?: string;
+  endTime?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contentShrink: 'Content',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentShrink: 'string',
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendPopupResponseBody extends $tea.Model {
+  arguments?: any[];
+  requestId?: string;
+  success?: boolean;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arguments: 'arguments',
+      requestId: 'requestId',
+      success: 'success',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arguments: { 'type': 'array', 'itemType': 'any' },
+      requestId: 'string',
+      success: 'boolean',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendPopupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendPopupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendPopupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSearchShadeHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: SendSearchShadeHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: SendSearchShadeHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSearchShadeShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSearchShadeRequest extends $tea.Model {
+  content?: { [key: string]: any };
+  endTime?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSearchShadeShrinkRequest extends $tea.Model {
+  contentShrink?: string;
+  endTime?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contentShrink: 'Content',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentShrink: 'string',
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSearchShadeResponseBody extends $tea.Model {
+  arguments?: any[];
+  requestId?: string;
+  success?: boolean;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arguments: 'arguments',
+      requestId: 'requestId',
+      success: 'success',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arguments: { 'type': 'array', 'itemType': 'any' },
+      requestId: 'string',
+      success: 'boolean',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSearchShadeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendSearchShadeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendSearchShadeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetColumnsVisibilityHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: SetColumnsVisibilityHeadersAccountContext;
@@ -16831,6 +19019,140 @@ export class StartCloudRecordResponse extends $tea.Model {
   }
 }
 
+export class StartInstanceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: StartInstanceHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: StartInstanceHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartInstanceShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartInstanceRequest extends $tea.Model {
+  appType?: string;
+  departmentId?: string;
+  formDataJson?: string;
+  formUuid?: string;
+  language?: string;
+  processCode?: string;
+  systemToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      departmentId: 'DepartmentId',
+      formDataJson: 'FormDataJson',
+      formUuid: 'FormUuid',
+      language: 'Language',
+      processCode: 'ProcessCode',
+      systemToken: 'SystemToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      departmentId: 'string',
+      formDataJson: 'string',
+      formUuid: 'string',
+      language: 'string',
+      processCode: 'string',
+      systemToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StatisticsListByTypeReportHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: StatisticsListByTypeReportHeadersAccountContext;
@@ -17376,6 +19698,128 @@ export class SubscribeCalendarResponse extends $tea.Model {
   }
 }
 
+export class TerminateInstanceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: TerminateInstanceHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: TerminateInstanceHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateInstanceShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateInstanceRequest extends $tea.Model {
+  appType?: string;
+  language?: string;
+  processInstanceId?: string;
+  systemToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      language: 'Language',
+      processInstanceId: 'ProcessInstanceId',
+      systemToken: 'SystemToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      language: 'string',
+      processInstanceId: 'string',
+      systemToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TerminateInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TerminateInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnsubscribeCalendarHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: UnsubscribeCalendarHeadersAccountContext;
@@ -17606,6 +20050,131 @@ export class UpdateFormDataResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateFormDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: UpdateInstanceHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: UpdateInstanceHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceRequest extends $tea.Model {
+  appType?: string;
+  language?: string;
+  processInstanceId?: string;
+  systemToken?: string;
+  updateFormDataJson?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      language: 'Language',
+      processInstanceId: 'ProcessInstanceId',
+      systemToken: 'SystemToken',
+      updateFormDataJson: 'UpdateFormDataJson',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      language: 'string',
+      processInstanceId: 'string',
+      systemToken: 'string',
+      updateFormDataJson: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateInstanceResponseBody,
     };
   }
 
@@ -19060,6 +21629,125 @@ export class UpdateTodoTaskExecutorStatusResponse extends $tea.Model {
   }
 }
 
+export class UpdateUserAvatarHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: UpdateUserAvatarHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: UpdateUserAvatarHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserAvatarShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserAvatarRequest extends $tea.Model {
+  avatarMediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarMediaId: 'AvatarMediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarMediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserAvatarResponseBody extends $tea.Model {
+  errcode?: string;
+  errmsg?: string;
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errcode: 'errcode',
+      errmsg: 'errmsg',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errcode: 'string',
+      errmsg: 'string',
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserAvatarResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateUserAvatarResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUserAvatarResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWorkspaceDocMembersHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: UpdateWorkspaceDocMembersHeadersAccountContext;
@@ -20470,6 +23158,25 @@ export class CommentListReportResponseBodyComments extends $tea.Model {
   }
 }
 
+export class CreateDeliveryPlanHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -21745,6 +24452,25 @@ export class DeleteFormDataHeadersAccountContext extends $tea.Model {
   }
 }
 
+export class DeleteInstanceHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteLiveHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -22123,6 +24849,88 @@ export class DeleteWorkspaceMembersRequestTenantContext extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecutePlatformTaskHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteTaskHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetActivityListHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetActivityListResponseBodyResult extends $tea.Model {
+  activityId?: string;
+  activityName?: string;
+  activityNameInEnglish?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activityId: 'ActivityId',
+      activityName: 'ActivityName',
+      activityNameInEnglish: 'ActivityNameInEnglish',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityId: 'string',
+      activityName: 'string',
+      activityNameInEnglish: 'string',
     };
   }
 
@@ -22839,6 +25647,709 @@ export class GetFormListInAppResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetInstanceByIdHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceByIdResponseBodyActionExecutorName extends $tea.Model {
+  nameInChinese?: string;
+  nameInEnglish?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nameInChinese: 'NameInChinese',
+      nameInEnglish: 'NameInEnglish',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameInChinese: 'string',
+      nameInEnglish: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceByIdResponseBodyActionExecutor extends $tea.Model {
+  deptName?: string;
+  email?: string;
+  name?: GetInstanceByIdResponseBodyActionExecutorName;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'DeptName',
+      email: 'Email',
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      email: 'string',
+      name: GetInstanceByIdResponseBodyActionExecutorName,
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceByIdResponseBodyOriginatorName extends $tea.Model {
+  nameInChinese?: string;
+  nameInEnglish?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nameInChinese: 'NameInChinese',
+      nameInEnglish: 'NameInEnglish',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameInChinese: 'string',
+      nameInEnglish: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceByIdResponseBodyOriginator extends $tea.Model {
+  deptName?: string;
+  email?: string;
+  name?: GetInstanceByIdResponseBodyOriginatorName;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'DeptName',
+      email: 'Email',
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      email: 'string',
+      name: GetInstanceByIdResponseBodyOriginatorName,
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceIdListHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesResponseBodyDataActionExecutorName extends $tea.Model {
+  nameInChinese?: string;
+  nameInEnglish?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nameInChinese: 'NameInChinese',
+      nameInEnglish: 'NameInEnglish',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameInChinese: 'string',
+      nameInEnglish: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesResponseBodyDataActionExecutor extends $tea.Model {
+  deptName?: string;
+  email?: string;
+  name?: GetInstancesResponseBodyDataActionExecutorName;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'DeptName',
+      email: 'Email',
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      email: 'string',
+      name: GetInstancesResponseBodyDataActionExecutorName,
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesResponseBodyDataOriginatorName extends $tea.Model {
+  nameInChinese?: string;
+  nameInEnglish?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nameInChinese: 'NameInChinese',
+      nameInEnglish: 'NameInEnglish',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameInChinese: 'string',
+      nameInEnglish: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesResponseBodyDataOriginator extends $tea.Model {
+  deptName?: string;
+  email?: string;
+  name?: GetInstancesResponseBodyDataOriginatorName;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'DeptName',
+      email: 'Email',
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      email: 'string',
+      name: GetInstancesResponseBodyDataOriginatorName,
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesResponseBodyData extends $tea.Model {
+  actionExecutor?: GetInstancesResponseBodyDataActionExecutor[];
+  approvedResult?: string;
+  createTimeGMT?: string;
+  data?: { [key: string]: any };
+  formUuid?: string;
+  instanceStatus?: string;
+  modifiedTimeGMT?: string;
+  originator?: GetInstancesResponseBodyDataOriginator;
+  processCode?: string;
+  processInstanceId?: string;
+  title?: string;
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      actionExecutor: 'ActionExecutor',
+      approvedResult: 'ApprovedResult',
+      createTimeGMT: 'CreateTimeGMT',
+      data: 'Data',
+      formUuid: 'FormUuid',
+      instanceStatus: 'InstanceStatus',
+      modifiedTimeGMT: 'ModifiedTimeGMT',
+      originator: 'Originator',
+      processCode: 'ProcessCode',
+      processInstanceId: 'ProcessInstanceId',
+      title: 'Title',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionExecutor: { 'type': 'array', 'itemType': GetInstancesResponseBodyDataActionExecutor },
+      approvedResult: 'string',
+      createTimeGMT: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      formUuid: 'string',
+      instanceStatus: 'string',
+      modifiedTimeGMT: 'string',
+      originator: GetInstancesResponseBodyDataOriginator,
+      processCode: 'string',
+      processInstanceId: 'string',
+      title: 'string',
+      version: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesByIdListHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesByIdListResponseBodyResultActionExecutorName extends $tea.Model {
+  nameInChinese?: string;
+  nameInEnglish?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nameInChinese: 'NameInChinese',
+      nameInEnglish: 'NameInEnglish',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameInChinese: 'string',
+      nameInEnglish: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesByIdListResponseBodyResultActionExecutor extends $tea.Model {
+  departmentName?: string;
+  email?: string;
+  name?: GetInstancesByIdListResponseBodyResultActionExecutorName;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentName: 'DepartmentName',
+      email: 'Email',
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentName: 'string',
+      email: 'string',
+      name: GetInstancesByIdListResponseBodyResultActionExecutorName,
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesByIdListResponseBodyResultOriginatorName extends $tea.Model {
+  nameInChinese?: string;
+  nameInEnglish?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nameInChinese: 'NameInChinese',
+      nameInEnglish: 'NameInEnglish',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameInChinese: 'string',
+      nameInEnglish: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesByIdListResponseBodyResultOriginator extends $tea.Model {
+  departmentName?: string;
+  email?: string;
+  name?: GetInstancesByIdListResponseBodyResultOriginatorName;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentName: 'DepartmentName',
+      email: 'Email',
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentName: 'string',
+      email: 'string',
+      name: GetInstancesByIdListResponseBodyResultOriginatorName,
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstancesByIdListResponseBodyResult extends $tea.Model {
+  actionExecutor?: GetInstancesByIdListResponseBodyResultActionExecutor[];
+  approvedResult?: string;
+  data?: { [key: string]: any };
+  formUuid?: string;
+  instanceStatus?: string;
+  originator?: GetInstancesByIdListResponseBodyResultOriginator;
+  processCode?: string;
+  processInstanceId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionExecutor: 'ActionExecutor',
+      approvedResult: 'ApprovedResult',
+      data: 'Data',
+      formUuid: 'FormUuid',
+      instanceStatus: 'InstanceStatus',
+      originator: 'Originator',
+      processCode: 'ProcessCode',
+      processInstanceId: 'ProcessInstanceId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionExecutor: { 'type': 'array', 'itemType': GetInstancesByIdListResponseBodyResultActionExecutor },
+      approvedResult: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      formUuid: 'string',
+      instanceStatus: 'string',
+      originator: GetInstancesByIdListResponseBodyResultOriginator,
+      processCode: 'string',
+      processInstanceId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMeCorpSubmissionHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMeCorpSubmissionResponseBodyDataActioner extends $tea.Model {
+  buName?: string;
+  email?: string;
+  employeeType?: string;
+  employeeTypeInformation?: string;
+  humanResourceGroupWorkNumber?: string;
+  isSystemAdmin?: boolean;
+  level?: string;
+  name?: string;
+  nickName?: string;
+  orderNumber?: string;
+  personalPhoto?: string;
+  personalPhotoUrl?: string;
+  pinyinNameAll?: string;
+  pinyinNickName?: string;
+  state?: string;
+  superUserId?: string;
+  tbWang?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buName: 'BuName',
+      email: 'Email',
+      employeeType: 'EmployeeType',
+      employeeTypeInformation: 'EmployeeTypeInformation',
+      humanResourceGroupWorkNumber: 'HumanResourceGroupWorkNumber',
+      isSystemAdmin: 'IsSystemAdmin',
+      level: 'Level',
+      name: 'Name',
+      nickName: 'NickName',
+      orderNumber: 'OrderNumber',
+      personalPhoto: 'PersonalPhoto',
+      personalPhotoUrl: 'PersonalPhotoUrl',
+      pinyinNameAll: 'PinyinNameAll',
+      pinyinNickName: 'PinyinNickName',
+      state: 'State',
+      superUserId: 'SuperUserId',
+      tbWang: 'TbWang',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buName: 'string',
+      email: 'string',
+      employeeType: 'string',
+      employeeTypeInformation: 'string',
+      humanResourceGroupWorkNumber: 'string',
+      isSystemAdmin: 'boolean',
+      level: 'string',
+      name: 'string',
+      nickName: 'string',
+      orderNumber: 'string',
+      personalPhoto: 'string',
+      personalPhotoUrl: 'string',
+      pinyinNameAll: 'string',
+      pinyinNickName: 'string',
+      state: 'string',
+      superUserId: 'string',
+      tbWang: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances extends $tea.Model {
+  activityId?: string;
+  activityInstanceStatus?: string;
+  activityName?: string;
+  activityNameEn?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      activityId: 'ActivityId',
+      activityInstanceStatus: 'ActivityInstanceStatus',
+      activityName: 'ActivityName',
+      activityNameEn: 'ActivityNameEn',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityId: 'string',
+      activityInstanceStatus: 'string',
+      activityName: 'string',
+      activityNameEn: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMeCorpSubmissionResponseBodyData extends $tea.Model {
+  actioner?: GetMeCorpSubmissionResponseBodyDataActioner[];
+  actionerId?: string[];
+  actionerName?: string[];
+  appType?: string;
+  createTimeGMT?: string;
+  currentActivityInstances?: GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances[];
+  dataMap?: { [key: string]: any };
+  dataType?: string;
+  finishTimeGMT?: string;
+  formInstanceId?: string;
+  formUuid?: string;
+  instanceValue?: string;
+  modifiedTimeGMT?: string;
+  originatorAvatar?: string;
+  originatorDisplayName?: string;
+  originatorId?: string;
+  processApprovedResult?: string;
+  processApprovedResultText?: string;
+  processCode?: string;
+  processId?: number;
+  processInstanceId?: string;
+  processInstanceStatus?: string;
+  processInstanceStatusText?: string;
+  processName?: string;
+  title?: string;
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      actioner: 'Actioner',
+      actionerId: 'ActionerId',
+      actionerName: 'ActionerName',
+      appType: 'AppType',
+      createTimeGMT: 'CreateTimeGMT',
+      currentActivityInstances: 'CurrentActivityInstances',
+      dataMap: 'DataMap',
+      dataType: 'DataType',
+      finishTimeGMT: 'FinishTimeGMT',
+      formInstanceId: 'FormInstanceId',
+      formUuid: 'FormUuid',
+      instanceValue: 'InstanceValue',
+      modifiedTimeGMT: 'ModifiedTimeGMT',
+      originatorAvatar: 'OriginatorAvatar',
+      originatorDisplayName: 'OriginatorDisplayName',
+      originatorId: 'OriginatorId',
+      processApprovedResult: 'ProcessApprovedResult',
+      processApprovedResultText: 'ProcessApprovedResultText',
+      processCode: 'ProcessCode',
+      processId: 'ProcessId',
+      processInstanceId: 'ProcessInstanceId',
+      processInstanceStatus: 'ProcessInstanceStatus',
+      processInstanceStatusText: 'ProcessInstanceStatusText',
+      processName: 'ProcessName',
+      title: 'Title',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actioner: { 'type': 'array', 'itemType': GetMeCorpSubmissionResponseBodyDataActioner },
+      actionerId: { 'type': 'array', 'itemType': 'string' },
+      actionerName: { 'type': 'array', 'itemType': 'string' },
+      appType: 'string',
+      createTimeGMT: 'string',
+      currentActivityInstances: { 'type': 'array', 'itemType': GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances },
+      dataMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      dataType: 'string',
+      finishTimeGMT: 'string',
+      formInstanceId: 'string',
+      formUuid: 'string',
+      instanceValue: 'string',
+      modifiedTimeGMT: 'string',
+      originatorAvatar: 'string',
+      originatorDisplayName: 'string',
+      originatorId: 'string',
+      processApprovedResult: 'string',
+      processApprovedResultText: 'string',
+      processCode: 'string',
+      processId: 'number',
+      processInstanceId: 'string',
+      processInstanceStatus: 'string',
+      processInstanceStatusText: 'string',
+      processName: 'string',
+      title: 'string',
+      version: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMeetingRoomsScheduleHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -23507,6 +27018,363 @@ export class GetOpenUrlHeadersAccountContext extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOperationRecordsHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOperationRecordsResponseBodyResult extends $tea.Model {
+  action?: string;
+  actionExit?: string;
+  activeTimeGMT?: string;
+  activityId?: string;
+  dataId?: number;
+  digitalSign?: string;
+  files?: string;
+  operateTimeGMT?: string;
+  operateType?: string;
+  operatorDisplayName?: string;
+  operatorName?: string;
+  operatorNickName?: string;
+  operatorPhotoUrl?: string;
+  operatorStatus?: string;
+  operatorUserId?: string;
+  processInstanceId?: string;
+  remark?: string;
+  showName?: string;
+  size?: number;
+  taskExecuteType?: string;
+  taskHoldTimeGMT?: number;
+  taskId?: string;
+  taskType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      actionExit: 'ActionExit',
+      activeTimeGMT: 'ActiveTimeGMT',
+      activityId: 'ActivityId',
+      dataId: 'DataId',
+      digitalSign: 'DigitalSign',
+      files: 'Files',
+      operateTimeGMT: 'OperateTimeGMT',
+      operateType: 'OperateType',
+      operatorDisplayName: 'OperatorDisplayName',
+      operatorName: 'OperatorName',
+      operatorNickName: 'OperatorNickName',
+      operatorPhotoUrl: 'OperatorPhotoUrl',
+      operatorStatus: 'OperatorStatus',
+      operatorUserId: 'OperatorUserId',
+      processInstanceId: 'ProcessInstanceId',
+      remark: 'Remark',
+      showName: 'ShowName',
+      size: 'Size',
+      taskExecuteType: 'TaskExecuteType',
+      taskHoldTimeGMT: 'TaskHoldTimeGMT',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      actionExit: 'string',
+      activeTimeGMT: 'string',
+      activityId: 'string',
+      dataId: 'number',
+      digitalSign: 'string',
+      files: 'string',
+      operateTimeGMT: 'string',
+      operateType: 'string',
+      operatorDisplayName: 'string',
+      operatorName: 'string',
+      operatorNickName: 'string',
+      operatorPhotoUrl: 'string',
+      operatorStatus: 'string',
+      operatorUserId: 'string',
+      processInstanceId: 'string',
+      remark: 'string',
+      showName: 'string',
+      size: 'number',
+      taskExecuteType: 'string',
+      taskHoldTimeGMT: 'number',
+      taskId: 'string',
+      taskType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProcessDefinitionHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments extends $tea.Model {
+  deptName?: string;
+  deptNameInEnglish?: string;
+  deptNo?: string;
+  deptPath?: string;
+  humanSourceGroupOrderNumber?: string;
+  humanSourceGroupWorkNo?: string;
+  id?: number;
+  masterWorkNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'DeptName',
+      deptNameInEnglish: 'DeptNameInEnglish',
+      deptNo: 'DeptNo',
+      deptPath: 'DeptPath',
+      humanSourceGroupOrderNumber: 'HumanSourceGroupOrderNumber',
+      humanSourceGroupWorkNo: 'HumanSourceGroupWorkNo',
+      id: 'Id',
+      masterWorkNo: 'MasterWorkNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      deptNameInEnglish: 'string',
+      deptNo: 'string',
+      deptPath: 'string',
+      humanSourceGroupOrderNumber: 'string',
+      humanSourceGroupWorkNo: 'string',
+      id: 'number',
+      masterWorkNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProcessDefinitionResponseBodyOriginator extends $tea.Model {
+  departmentDescription?: string;
+  displayEnName?: string;
+  displayName?: string;
+  masterDataDepartments?: GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments[];
+  orderNumber?: string;
+  personalPhoto?: string;
+  status?: string;
+  tbWang?: string;
+  userId?: string;
+  userInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentDescription: 'DepartmentDescription',
+      displayEnName: 'DisplayEnName',
+      displayName: 'DisplayName',
+      masterDataDepartments: 'MasterDataDepartments',
+      orderNumber: 'OrderNumber',
+      personalPhoto: 'PersonalPhoto',
+      status: 'Status',
+      tbWang: 'TbWang',
+      userId: 'UserId',
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentDescription: 'string',
+      displayEnName: 'string',
+      displayName: 'string',
+      masterDataDepartments: { 'type': 'array', 'itemType': GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments },
+      orderNumber: 'string',
+      personalPhoto: 'string',
+      status: 'string',
+      tbWang: 'string',
+      userId: 'string',
+      userInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProcessDefinitionResponseBodyOwnersMasterDataDepartments extends $tea.Model {
+  deptName?: string;
+  deptNameInEnglish?: string;
+  deptNo?: string;
+  deptPath?: string;
+  humanSourceGroupOrderNumber?: string;
+  humanSourceGroupWorkNo?: string;
+  id?: number;
+  masterWorkNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'DeptName',
+      deptNameInEnglish: 'DeptNameInEnglish',
+      deptNo: 'DeptNo',
+      deptPath: 'DeptPath',
+      humanSourceGroupOrderNumber: 'HumanSourceGroupOrderNumber',
+      humanSourceGroupWorkNo: 'HumanSourceGroupWorkNo',
+      id: 'Id',
+      masterWorkNo: 'MasterWorkNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      deptNameInEnglish: 'string',
+      deptNo: 'string',
+      deptPath: 'string',
+      humanSourceGroupOrderNumber: 'string',
+      humanSourceGroupWorkNo: 'string',
+      id: 'number',
+      masterWorkNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProcessDefinitionResponseBodyOwners extends $tea.Model {
+  departmentDescription?: string;
+  displayEnName?: string;
+  displayName?: string;
+  masterDataDepartments?: GetProcessDefinitionResponseBodyOwnersMasterDataDepartments[];
+  orderNumber?: string;
+  personalPhoto?: string;
+  status?: string;
+  tbWang?: string;
+  userId?: string;
+  userInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentDescription: 'DepartmentDescription',
+      displayEnName: 'DisplayEnName',
+      displayName: 'DisplayName',
+      masterDataDepartments: 'MasterDataDepartments',
+      orderNumber: 'OrderNumber',
+      personalPhoto: 'PersonalPhoto',
+      status: 'Status',
+      tbWang: 'TbWang',
+      userId: 'UserId',
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentDescription: 'string',
+      displayEnName: 'string',
+      displayName: 'string',
+      masterDataDepartments: { 'type': 'array', 'itemType': GetProcessDefinitionResponseBodyOwnersMasterDataDepartments },
+      orderNumber: 'string',
+      personalPhoto: 'string',
+      status: 'string',
+      tbWang: 'string',
+      userId: 'string',
+      userInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProcessDefinitionResponseBodyTasksActivity extends $tea.Model {
+  activityId?: string;
+  activityInstanceStatus?: string;
+  activityName?: string;
+  activityNameInEnglish?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      activityId: 'ActivityId',
+      activityInstanceStatus: 'ActivityInstanceStatus',
+      activityName: 'ActivityName',
+      activityNameInEnglish: 'ActivityNameInEnglish',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityId: 'string',
+      activityInstanceStatus: 'string',
+      activityName: 'string',
+      activityNameInEnglish: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProcessDefinitionResponseBodyTasks extends $tea.Model {
+  actionerId?: string;
+  activity?: GetProcessDefinitionResponseBodyTasksActivity;
+  status?: string;
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      actionerId: 'ActionerId',
+      activity: 'Activity',
+      status: 'Status',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionerId: 'string',
+      activity: GetProcessDefinitionResponseBodyTasksActivity,
+      status: 'string',
+      taskId: 'number',
     };
   }
 
@@ -29404,6 +33272,63 @@ export class SearchFormDatasResponseBodyData extends $tea.Model {
   }
 }
 
+export class SendBannerHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendPopupHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSearchShadeHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetColumnsVisibilityHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -29593,6 +33518,25 @@ export class StartCloudRecordRequestTenantContext extends $tea.Model {
   }
 }
 
+export class StartInstanceHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StatisticsListByTypeReportHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -29726,6 +33670,25 @@ export class SubscribeCalendarHeadersAccountContext extends $tea.Model {
   }
 }
 
+export class TerminateInstanceHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnsubscribeCalendarHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -29746,6 +33709,25 @@ export class UnsubscribeCalendarHeadersAccountContext extends $tea.Model {
 }
 
 export class UpdateFormDataHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30148,6 +34130,25 @@ export class UpdateTodoTaskExecutorStatusRequestExecutorStatusList extends $tea.
     return {
       id: 'string',
       isDone: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserAvatarHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
     };
   }
 
@@ -31400,6 +35401,78 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CommentListReportHeaders({ });
     return await this.commentListReportWithOptions(request, headers, runtime);
+  }
+
+  async createDeliveryPlanWithOptions(tmpReq: CreateDeliveryPlanRequest, tmpHeader: CreateDeliveryPlanHeaders, runtime: $Util.RuntimeOptions): Promise<CreateDeliveryPlanResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDeliveryPlanShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new CreateDeliveryPlanShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.userIdList)) {
+      request.userIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userIdList, "UserIdList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.contentShrink)) {
+      body["Content"] = request.contentShrink;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.resId)) {
+      body["ResId"] = request.resId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.userIdListShrink)) {
+      body["UserIdList"] = request.userIdListShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDeliveryPlan",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/watt/createDeliveryPlan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDeliveryPlanResponse>(await this.callApi(params, req, runtime), new CreateDeliveryPlanResponse({}));
+  }
+
+  async createDeliveryPlan(request: CreateDeliveryPlanRequest): Promise<CreateDeliveryPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateDeliveryPlanHeaders({ });
+    return await this.createDeliveryPlanWithOptions(request, headers, runtime);
   }
 
   async createEventWithOptions(tmpReq: CreateEventRequest, tmpHeader: CreateEventHeaders, runtime: $Util.RuntimeOptions): Promise<CreateEventResponse> {
@@ -32816,6 +36889,64 @@ export default class Client extends OpenApi {
     return await this.deleteFormDataWithOptions(request, headers, runtime);
   }
 
+  async deleteInstanceWithOptions(request: DeleteInstanceRequest, tmpHeader: DeleteInstanceHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
+    Util.validateModel(request);
+    let headers = new DeleteInstanceShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.processInstanceId)) {
+      body["ProcessInstanceId"] = request.processInstanceId;
+    }
+
+    if (!Util.isUnset(request.systemToken)) {
+      body["SystemToken"] = request.systemToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteInstance",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/deleteInstance`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+  }
+
+  async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteInstanceHeaders({ });
+    return await this.deleteInstanceWithOptions(request, headers, runtime);
+  }
+
   async deleteLiveWithOptions(tmpReq: DeleteLiveRequest, tmpHeader: DeleteLiveHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteLiveResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteLiveShrinkRequest({ });
@@ -33400,6 +37531,220 @@ export default class Client extends OpenApi {
     return await this.deleteWorkspaceMembersWithOptions(request, headers, runtime);
   }
 
+  async executePlatformTaskWithOptions(request: ExecutePlatformTaskRequest, tmpHeader: ExecutePlatformTaskHeaders, runtime: $Util.RuntimeOptions): Promise<ExecutePlatformTaskResponse> {
+    Util.validateModel(request);
+    let headers = new ExecutePlatformTaskShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.formDataJson)) {
+      body["FormDataJson"] = request.formDataJson;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.noExecuteExpressions)) {
+      body["NoExecuteExpressions"] = request.noExecuteExpressions;
+    }
+
+    if (!Util.isUnset(request.outResult)) {
+      body["OutResult"] = request.outResult;
+    }
+
+    if (!Util.isUnset(request.processInstanceId)) {
+      body["ProcessInstanceId"] = request.processInstanceId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      body["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.systemToken)) {
+      body["SystemToken"] = request.systemToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecutePlatformTask",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/executePlatformTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecutePlatformTaskResponse>(await this.callApi(params, req, runtime), new ExecutePlatformTaskResponse({}));
+  }
+
+  async executePlatformTask(request: ExecutePlatformTaskRequest): Promise<ExecutePlatformTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ExecutePlatformTaskHeaders({ });
+    return await this.executePlatformTaskWithOptions(request, headers, runtime);
+  }
+
+  async executeTaskWithOptions(request: ExecuteTaskRequest, tmpHeader: ExecuteTaskHeaders, runtime: $Util.RuntimeOptions): Promise<ExecuteTaskResponse> {
+    Util.validateModel(request);
+    let headers = new ExecuteTaskShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.digitalSignUrl)) {
+      body["DigitalSignUrl"] = request.digitalSignUrl;
+    }
+
+    if (!Util.isUnset(request.formDataJson)) {
+      body["FormDataJson"] = request.formDataJson;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.noExecuteExpressions)) {
+      body["NoExecuteExpressions"] = request.noExecuteExpressions;
+    }
+
+    if (!Util.isUnset(request.outResult)) {
+      body["OutResult"] = request.outResult;
+    }
+
+    if (!Util.isUnset(request.processInstanceId)) {
+      body["ProcessInstanceId"] = request.processInstanceId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      body["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.systemToken)) {
+      body["SystemToken"] = request.systemToken;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteTask",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/executeTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteTaskResponse>(await this.callApi(params, req, runtime), new ExecuteTaskResponse({}));
+  }
+
+  async executeTask(request: ExecuteTaskRequest): Promise<ExecuteTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ExecuteTaskHeaders({ });
+    return await this.executeTaskWithOptions(request, headers, runtime);
+  }
+
+  async getActivityListWithOptions(request: GetActivityListRequest, tmpHeader: GetActivityListHeaders, runtime: $Util.RuntimeOptions): Promise<GetActivityListResponse> {
+    Util.validateModel(request);
+    let headers = new GetActivityListShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.processCode)) {
+      body["ProcessCode"] = request.processCode;
+    }
+
+    if (!Util.isUnset(request.systemToken)) {
+      body["SystemToken"] = request.systemToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetActivityList",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/getActivityList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetActivityListResponse>(await this.callApi(params, req, runtime), new GetActivityListResponse({}));
+  }
+
+  async getActivityList(request: GetActivityListRequest): Promise<GetActivityListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetActivityListHeaders({ });
+    return await this.getActivityListWithOptions(request, headers, runtime);
+  }
+
   async getAllSheetsWithOptions(tmpReq: GetAllSheetsRequest, tmpHeader: GetAllSheetsHeaders, runtime: $Util.RuntimeOptions): Promise<GetAllSheetsResponse> {
     Util.validateModel(tmpReq);
     let request = new GetAllSheetsShrinkRequest({ });
@@ -33742,6 +38087,412 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetFormListInAppHeaders({ });
     return await this.getFormListInAppWithOptions(request, headers, runtime);
+  }
+
+  async getInstanceByIdWithOptions(request: GetInstanceByIdRequest, tmpHeader: GetInstanceByIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetInstanceByIdResponse> {
+    Util.validateModel(request);
+    let headers = new GetInstanceByIdShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.systemToken)) {
+      body["SystemToken"] = request.systemToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInstanceById",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/getInstanceById`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceByIdResponse>(await this.callApi(params, req, runtime), new GetInstanceByIdResponse({}));
+  }
+
+  async getInstanceById(request: GetInstanceByIdRequest): Promise<GetInstanceByIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetInstanceByIdHeaders({ });
+    return await this.getInstanceByIdWithOptions(request, headers, runtime);
+  }
+
+  async getInstanceIdListWithOptions(request: GetInstanceIdListRequest, tmpHeader: GetInstanceIdListHeaders, runtime: $Util.RuntimeOptions): Promise<GetInstanceIdListResponse> {
+    Util.validateModel(request);
+    let headers = new GetInstanceIdListShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.approvedResult)) {
+      body["ApprovedResult"] = request.approvedResult;
+    }
+
+    if (!Util.isUnset(request.createFromTimeGMT)) {
+      body["CreateFromTimeGMT"] = request.createFromTimeGMT;
+    }
+
+    if (!Util.isUnset(request.createToTimeGMT)) {
+      body["CreateToTimeGMT"] = request.createToTimeGMT;
+    }
+
+    if (!Util.isUnset(request.formUuid)) {
+      body["FormUuid"] = request.formUuid;
+    }
+
+    if (!Util.isUnset(request.instanceStatus)) {
+      body["InstanceStatus"] = request.instanceStatus;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.modifiedFromTimeGMT)) {
+      body["ModifiedFromTimeGMT"] = request.modifiedFromTimeGMT;
+    }
+
+    if (!Util.isUnset(request.modifiedToTimeGMT)) {
+      body["ModifiedToTimeGMT"] = request.modifiedToTimeGMT;
+    }
+
+    if (!Util.isUnset(request.originatorId)) {
+      body["OriginatorId"] = request.originatorId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchFieldJson)) {
+      body["SearchFieldJson"] = request.searchFieldJson;
+    }
+
+    if (!Util.isUnset(request.systemToken)) {
+      body["SystemToken"] = request.systemToken;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInstanceIdList",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/getInstanceIdList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceIdListResponse>(await this.callApi(params, req, runtime), new GetInstanceIdListResponse({}));
+  }
+
+  async getInstanceIdList(request: GetInstanceIdListRequest): Promise<GetInstanceIdListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetInstanceIdListHeaders({ });
+    return await this.getInstanceIdListWithOptions(request, headers, runtime);
+  }
+
+  async getInstancesWithOptions(request: GetInstancesRequest, tmpHeader: GetInstancesHeaders, runtime: $Util.RuntimeOptions): Promise<GetInstancesResponse> {
+    Util.validateModel(request);
+    let headers = new GetInstancesShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.approvedResult)) {
+      body["ApprovedResult"] = request.approvedResult;
+    }
+
+    if (!Util.isUnset(request.createFromTimeGMT)) {
+      body["CreateFromTimeGMT"] = request.createFromTimeGMT;
+    }
+
+    if (!Util.isUnset(request.createToTimeGMT)) {
+      body["CreateToTimeGMT"] = request.createToTimeGMT;
+    }
+
+    if (!Util.isUnset(request.formUuid)) {
+      body["FormUuid"] = request.formUuid;
+    }
+
+    if (!Util.isUnset(request.instanceStatus)) {
+      body["InstanceStatus"] = request.instanceStatus;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.modifiedFromTimeGMT)) {
+      body["ModifiedFromTimeGMT"] = request.modifiedFromTimeGMT;
+    }
+
+    if (!Util.isUnset(request.modifiedToTimeGMT)) {
+      body["ModifiedToTimeGMT"] = request.modifiedToTimeGMT;
+    }
+
+    if (!Util.isUnset(request.orderConfigJson)) {
+      body["OrderConfigJson"] = request.orderConfigJson;
+    }
+
+    if (!Util.isUnset(request.originatorId)) {
+      body["OriginatorId"] = request.originatorId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchFieldJson)) {
+      body["SearchFieldJson"] = request.searchFieldJson;
+    }
+
+    if (!Util.isUnset(request.systemToken)) {
+      body["SystemToken"] = request.systemToken;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInstances",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/getInstances`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstancesResponse>(await this.callApi(params, req, runtime), new GetInstancesResponse({}));
+  }
+
+  async getInstances(request: GetInstancesRequest): Promise<GetInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetInstancesHeaders({ });
+    return await this.getInstancesWithOptions(request, headers, runtime);
+  }
+
+  async getInstancesByIdListWithOptions(request: GetInstancesByIdListRequest, tmpHeader: GetInstancesByIdListHeaders, runtime: $Util.RuntimeOptions): Promise<GetInstancesByIdListResponse> {
+    Util.validateModel(request);
+    let headers = new GetInstancesByIdListShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.processInstanceIds)) {
+      body["ProcessInstanceIds"] = request.processInstanceIds;
+    }
+
+    if (!Util.isUnset(request.systemToken)) {
+      body["SystemToken"] = request.systemToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInstancesByIdList",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/getInstancesByIdList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstancesByIdListResponse>(await this.callApi(params, req, runtime), new GetInstancesByIdListResponse({}));
+  }
+
+  async getInstancesByIdList(request: GetInstancesByIdListRequest): Promise<GetInstancesByIdListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetInstancesByIdListHeaders({ });
+    return await this.getInstancesByIdListWithOptions(request, headers, runtime);
+  }
+
+  async getMeCorpSubmissionWithOptions(request: GetMeCorpSubmissionRequest, tmpHeader: GetMeCorpSubmissionHeaders, runtime: $Util.RuntimeOptions): Promise<GetMeCorpSubmissionResponse> {
+    Util.validateModel(request);
+    let headers = new GetMeCorpSubmissionShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appTypes)) {
+      body["AppTypes"] = request.appTypes;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.createFromTimeGMT)) {
+      body["CreateFromTimeGMT"] = request.createFromTimeGMT;
+    }
+
+    if (!Util.isUnset(request.createToTimeGMT)) {
+      body["CreateToTimeGMT"] = request.createToTimeGMT;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.processCodes)) {
+      body["ProcessCodes"] = request.processCodes;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      body["Token"] = request.token;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMeCorpSubmission",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/getMeCorpSubmission`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMeCorpSubmissionResponse>(await this.callApi(params, req, runtime), new GetMeCorpSubmissionResponse({}));
+  }
+
+  async getMeCorpSubmission(request: GetMeCorpSubmissionRequest): Promise<GetMeCorpSubmissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetMeCorpSubmissionHeaders({ });
+    return await this.getMeCorpSubmissionWithOptions(request, headers, runtime);
   }
 
   async getMeetingRoomsScheduleWithOptions(tmpReq: GetMeetingRoomsScheduleRequest, tmpHeader: GetMeetingRoomsScheduleHeaders, runtime: $Util.RuntimeOptions): Promise<GetMeetingRoomsScheduleResponse> {
@@ -34120,6 +38871,142 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetOpenUrlHeaders({ });
     return await this.getOpenUrlWithOptions(request, headers, runtime);
+  }
+
+  async getOperationRecordsWithOptions(request: GetOperationRecordsRequest, tmpHeader: GetOperationRecordsHeaders, runtime: $Util.RuntimeOptions): Promise<GetOperationRecordsResponse> {
+    Util.validateModel(request);
+    let headers = new GetOperationRecordsShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.processInstanceId)) {
+      body["ProcessInstanceId"] = request.processInstanceId;
+    }
+
+    if (!Util.isUnset(request.systemToken)) {
+      body["SystemToken"] = request.systemToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOperationRecords",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/getOperationRecords`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOperationRecordsResponse>(await this.callApi(params, req, runtime), new GetOperationRecordsResponse({}));
+  }
+
+  async getOperationRecords(request: GetOperationRecordsRequest): Promise<GetOperationRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetOperationRecordsHeaders({ });
+    return await this.getOperationRecordsWithOptions(request, headers, runtime);
+  }
+
+  async getProcessDefinitionWithOptions(request: GetProcessDefinitionRequest, tmpHeader: GetProcessDefinitionHeaders, runtime: $Util.RuntimeOptions): Promise<GetProcessDefinitionResponse> {
+    Util.validateModel(request);
+    let headers = new GetProcessDefinitionShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.nameSpace)) {
+      body["NameSpace"] = request.nameSpace;
+    }
+
+    if (!Util.isUnset(request.orderNumber)) {
+      body["OrderNumber"] = request.orderNumber;
+    }
+
+    if (!Util.isUnset(request.processInstanceId)) {
+      body["ProcessInstanceId"] = request.processInstanceId;
+    }
+
+    if (!Util.isUnset(request.systemToken)) {
+      body["SystemToken"] = request.systemToken;
+    }
+
+    if (!Util.isUnset(request.systemType)) {
+      body["SystemType"] = request.systemType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetProcessDefinition",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/getProcessDefinition`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetProcessDefinitionResponse>(await this.callApi(params, req, runtime), new GetProcessDefinitionResponse({}));
+  }
+
+  async getProcessDefinition(request: GetProcessDefinitionRequest): Promise<GetProcessDefinitionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetProcessDefinitionHeaders({ });
+    return await this.getProcessDefinitionWithOptions(request, headers, runtime);
   }
 
   async getRangeWithOptions(tmpReq: GetRangeRequest, tmpHeader: GetRangeHeaders, runtime: $Util.RuntimeOptions): Promise<GetRangeResponse> {
@@ -37602,6 +42489,186 @@ export default class Client extends OpenApi {
     return await this.searchFormDatasWithOptions(request, headers, runtime);
   }
 
+  async sendBannerWithOptions(tmpReq: SendBannerRequest, tmpHeader: SendBannerHeaders, runtime: $Util.RuntimeOptions): Promise<SendBannerResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SendBannerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new SendBannerShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.contentShrink)) {
+      body["Content"] = request.contentShrink;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendBanner",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/watt/sendBanner`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendBannerResponse>(await this.callApi(params, req, runtime), new SendBannerResponse({}));
+  }
+
+  async sendBanner(request: SendBannerRequest): Promise<SendBannerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new SendBannerHeaders({ });
+    return await this.sendBannerWithOptions(request, headers, runtime);
+  }
+
+  async sendPopupWithOptions(tmpReq: SendPopupRequest, tmpHeader: SendPopupHeaders, runtime: $Util.RuntimeOptions): Promise<SendPopupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SendPopupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new SendPopupShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.contentShrink)) {
+      body["Content"] = request.contentShrink;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendPopup",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/watt/sendPopup`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendPopupResponse>(await this.callApi(params, req, runtime), new SendPopupResponse({}));
+  }
+
+  async sendPopup(request: SendPopupRequest): Promise<SendPopupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new SendPopupHeaders({ });
+    return await this.sendPopupWithOptions(request, headers, runtime);
+  }
+
+  async sendSearchShadeWithOptions(tmpReq: SendSearchShadeRequest, tmpHeader: SendSearchShadeHeaders, runtime: $Util.RuntimeOptions): Promise<SendSearchShadeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SendSearchShadeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new SendSearchShadeShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.contentShrink)) {
+      body["Content"] = request.contentShrink;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendSearchShade",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/watt/sendSearchShade`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendSearchShadeResponse>(await this.callApi(params, req, runtime), new SendSearchShadeResponse({}));
+  }
+
+  async sendSearchShade(request: SendSearchShadeRequest): Promise<SendSearchShadeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new SendSearchShadeHeaders({ });
+    return await this.sendSearchShadeWithOptions(request, headers, runtime);
+  }
+
   async setColumnsVisibilityWithOptions(tmpReq: SetColumnsVisibilityRequest, tmpHeader: SetColumnsVisibilityHeaders, runtime: $Util.RuntimeOptions): Promise<SetColumnsVisibilityResponse> {
     Util.validateModel(tmpReq);
     let request = new SetColumnsVisibilityShrinkRequest({ });
@@ -37882,6 +42949,76 @@ export default class Client extends OpenApi {
     return await this.startCloudRecordWithOptions(request, headers, runtime);
   }
 
+  async startInstanceWithOptions(request: StartInstanceRequest, tmpHeader: StartInstanceHeaders, runtime: $Util.RuntimeOptions): Promise<StartInstanceResponse> {
+    Util.validateModel(request);
+    let headers = new StartInstanceShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.departmentId)) {
+      body["DepartmentId"] = request.departmentId;
+    }
+
+    if (!Util.isUnset(request.formDataJson)) {
+      body["FormDataJson"] = request.formDataJson;
+    }
+
+    if (!Util.isUnset(request.formUuid)) {
+      body["FormUuid"] = request.formUuid;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.processCode)) {
+      body["ProcessCode"] = request.processCode;
+    }
+
+    if (!Util.isUnset(request.systemToken)) {
+      body["SystemToken"] = request.systemToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartInstance",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/startInstance`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartInstanceResponse>(await this.callApi(params, req, runtime), new StartInstanceResponse({}));
+  }
+
+  async startInstance(request: StartInstanceRequest): Promise<StartInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new StartInstanceHeaders({ });
+    return await this.startInstanceWithOptions(request, headers, runtime);
+  }
+
   async statisticsListByTypeReportWithOptions(tmpReq: StatisticsListByTypeReportRequest, tmpHeader: StatisticsListByTypeReportHeaders, runtime: $Util.RuntimeOptions): Promise<StatisticsListByTypeReportResponse> {
     Util.validateModel(tmpReq);
     let request = new StatisticsListByTypeReportShrinkRequest({ });
@@ -38108,6 +43245,64 @@ export default class Client extends OpenApi {
     return await this.subscribeCalendarWithOptions(request, headers, runtime);
   }
 
+  async terminateInstanceWithOptions(request: TerminateInstanceRequest, tmpHeader: TerminateInstanceHeaders, runtime: $Util.RuntimeOptions): Promise<TerminateInstanceResponse> {
+    Util.validateModel(request);
+    let headers = new TerminateInstanceShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.processInstanceId)) {
+      body["ProcessInstanceId"] = request.processInstanceId;
+    }
+
+    if (!Util.isUnset(request.systemToken)) {
+      body["SystemToken"] = request.systemToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TerminateInstance",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/terminateInstance`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TerminateInstanceResponse>(await this.callApi(params, req, runtime), new TerminateInstanceResponse({}));
+  }
+
+  async terminateInstance(request: TerminateInstanceRequest): Promise<TerminateInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TerminateInstanceHeaders({ });
+    return await this.terminateInstanceWithOptions(request, headers, runtime);
+  }
+
   async unsubscribeCalendarWithOptions(request: UnsubscribeCalendarRequest, tmpHeader: UnsubscribeCalendarHeaders, runtime: $Util.RuntimeOptions): Promise<UnsubscribeCalendarResponse> {
     Util.validateModel(request);
     let headers = new UnsubscribeCalendarShrinkHeaders({ });
@@ -38218,6 +43413,68 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new UpdateFormDataHeaders({ });
     return await this.updateFormDataWithOptions(request, headers, runtime);
+  }
+
+  async updateInstanceWithOptions(request: UpdateInstanceRequest, tmpHeader: UpdateInstanceHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
+    Util.validateModel(request);
+    let headers = new UpdateInstanceShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.processInstanceId)) {
+      body["ProcessInstanceId"] = request.processInstanceId;
+    }
+
+    if (!Util.isUnset(request.systemToken)) {
+      body["SystemToken"] = request.systemToken;
+    }
+
+    if (!Util.isUnset(request.updateFormDataJson)) {
+      body["UpdateFormDataJson"] = request.updateFormDataJson;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateInstance",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/yida/updateInstance`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
+  }
+
+  async updateInstance(request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateInstanceHeaders({ });
+    return await this.updateInstanceWithOptions(request, headers, runtime);
   }
 
   async updateLiveWithOptions(tmpReq: UpdateLiveRequest, tmpHeader: UpdateLiveHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateLiveResponse> {
@@ -38910,6 +44167,52 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new UpdateTodoTaskExecutorStatusHeaders({ });
     return await this.updateTodoTaskExecutorStatusWithOptions(request, headers, runtime);
+  }
+
+  async updateUserAvatarWithOptions(request: UpdateUserAvatarRequest, tmpHeader: UpdateUserAvatarHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateUserAvatarResponse> {
+    Util.validateModel(request);
+    let headers = new UpdateUserAvatarShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.avatarMediaId)) {
+      body["AvatarMediaId"] = request.avatarMediaId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateUserAvatar",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/contact/updateUserAvatar`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUserAvatarResponse>(await this.callApi(params, req, runtime), new UpdateUserAvatarResponse({}));
+  }
+
+  async updateUserAvatar(request: UpdateUserAvatarRequest): Promise<UpdateUserAvatarResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateUserAvatarHeaders({ });
+    return await this.updateUserAvatarWithOptions(request, headers, runtime);
   }
 
   async updateWorkspaceDocMembersWithOptions(tmpReq: UpdateWorkspaceDocMembersRequest, tmpHeader: UpdateWorkspaceDocMembersHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateWorkspaceDocMembersResponse> {
