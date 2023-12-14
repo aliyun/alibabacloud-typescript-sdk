@@ -72,10 +72,12 @@ export class GetOssUploadParamResponseBody extends $tea.Model {
 
 export class GetOssUploadParamResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetOssUploadParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -83,6 +85,7 @@ export class GetOssUploadParamResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetOssUploadParamResponseBody,
     };
   }
@@ -122,10 +125,12 @@ export class UploadNotaryResponseBody extends $tea.Model {
 
 export class UploadNotaryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UploadNotaryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -133,6 +138,7 @@ export class UploadNotaryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UploadNotaryResponseBody,
     };
   }
@@ -181,6 +187,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("um-test", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
