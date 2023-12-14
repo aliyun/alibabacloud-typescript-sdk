@@ -2479,6 +2479,156 @@ export class DescribeAvailableMemResourceResponse extends $tea.Model {
   }
 }
 
+export class DescribeAvailableSpecRequest extends $tea.Model {
+  instanceId?: string;
+  spec?: string;
+  upgradeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      spec: 'Spec',
+      upgradeType: 'UpgradeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      spec: 'string',
+      upgradeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableSpecResponseBody extends $tea.Model {
+  data?: DescribeAvailableSpecResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeAvailableSpecResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableSpecResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAvailableSpecResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAvailableSpecResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableZoneRequest extends $tea.Model {
+  deployType?: string;
+  instanceType?: string;
+  obVersion?: string;
+  series?: string;
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deployType: 'DeployType',
+      instanceType: 'InstanceType',
+      obVersion: 'ObVersion',
+      series: 'Series',
+      spec: 'Spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deployType: 'string',
+      instanceType: 'string',
+      obVersion: 'string',
+      series: 'string',
+      spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableZoneResponseBody extends $tea.Model {
+  data?: DescribeAvailableZoneResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeAvailableZoneResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableZoneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAvailableZoneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAvailableZoneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCharsetRequest extends $tea.Model {
   instanceId?: string;
   series?: string;
@@ -5666,6 +5816,87 @@ export class DescribeTenantResponse extends $tea.Model {
   }
 }
 
+export class DescribeTenantEncryptionRequest extends $tea.Model {
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  tenantId?: string;
+  tenantName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      tenantId: 'TenantId',
+      tenantName: 'TenantName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      tenantId: 'string',
+      tenantName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTenantEncryptionResponseBody extends $tea.Model {
+  requestId?: string;
+  tenantEncryptions?: DescribeTenantEncryptionResponseBodyTenantEncryptions[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tenantEncryptions: 'TenantEncryptions',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tenantEncryptions: { 'type': 'array', 'itemType': DescribeTenantEncryptionResponseBodyTenantEncryptions },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTenantEncryptionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTenantEncryptionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTenantEncryptionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTenantMetricsRequest extends $tea.Model {
   endTime?: string;
   instanceId?: string;
@@ -7830,6 +8061,75 @@ export class ModifyInstanceTagsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyInstanceTagsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceTemporaryCapacityRequest extends $tea.Model {
+  diskSize?: string;
+  instanceId?: string;
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskSize: 'DiskSize',
+      instanceId: 'InstanceId',
+      spec: 'Spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskSize: 'string',
+      instanceId: 'string',
+      spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceTemporaryCapacityResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceTemporaryCapacityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyInstanceTemporaryCapacityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyInstanceTemporaryCapacityResponseBody,
     };
   }
 
@@ -11867,6 +12167,243 @@ export class DescribeAvailableMemResourceResponseBodyData extends $tea.Model {
       minMem: 'number',
       safeMem: 'string',
       usedMem: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableSpecResponseBodyDataAvailableSpecificationsDiskSizeRange extends $tea.Model {
+  max?: number;
+  min?: number;
+  step?: number;
+  static names(): { [key: string]: string } {
+    return {
+      max: 'Max',
+      min: 'Min',
+      step: 'Step',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      max: 'number',
+      min: 'number',
+      step: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableSpecResponseBodyDataAvailableSpecificationsLogDiskSizeRange extends $tea.Model {
+  max?: number;
+  min?: number;
+  step?: number;
+  static names(): { [key: string]: string } {
+    return {
+      max: 'Max',
+      min: 'Min',
+      step: 'Step',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      max: 'number',
+      min: 'number',
+      step: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableSpecResponseBodyDataAvailableSpecifications extends $tea.Model {
+  diskSizeRange?: DescribeAvailableSpecResponseBodyDataAvailableSpecificationsDiskSizeRange;
+  instanceClass?: string;
+  logDiskSizeRange?: DescribeAvailableSpecResponseBodyDataAvailableSpecificationsLogDiskSizeRange;
+  nodeNum?: number[];
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskSizeRange: 'DiskSizeRange',
+      instanceClass: 'InstanceClass',
+      logDiskSizeRange: 'LogDiskSizeRange',
+      nodeNum: 'NodeNum',
+      spec: 'Spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskSizeRange: DescribeAvailableSpecResponseBodyDataAvailableSpecificationsDiskSizeRange,
+      instanceClass: 'string',
+      logDiskSizeRange: DescribeAvailableSpecResponseBodyDataAvailableSpecificationsLogDiskSizeRange,
+      nodeNum: { 'type': 'array', 'itemType': 'number' },
+      spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableSpecResponseBodyData extends $tea.Model {
+  availableSpecifications?: DescribeAvailableSpecResponseBodyDataAvailableSpecifications[];
+  static names(): { [key: string]: string } {
+    return {
+      availableSpecifications: 'AvailableSpecifications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableSpecifications: { 'type': 'array', 'itemType': DescribeAvailableSpecResponseBodyDataAvailableSpecifications },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecificationsDiskSizeRange extends $tea.Model {
+  max?: number;
+  min?: number;
+  step?: number;
+  static names(): { [key: string]: string } {
+    return {
+      max: 'Max',
+      min: 'Min',
+      step: 'Step',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      max: 'number',
+      min: 'number',
+      step: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecificationsSupportEngineVersions extends $tea.Model {
+  obVersion?: string;
+  supportIsolationOptimization?: boolean;
+  supportReplicaModes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      obVersion: 'ObVersion',
+      supportIsolationOptimization: 'SupportIsolationOptimization',
+      supportReplicaModes: 'SupportReplicaModes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      obVersion: 'string',
+      supportIsolationOptimization: 'boolean',
+      supportReplicaModes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecifications extends $tea.Model {
+  diskSizeRange?: DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecificationsDiskSizeRange;
+  diskTypes?: string[];
+  instanceClass?: string;
+  spec?: string;
+  supportEngineVersions?: DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecificationsSupportEngineVersions[];
+  static names(): { [key: string]: string } {
+    return {
+      diskSizeRange: 'DiskSizeRange',
+      diskTypes: 'DiskTypes',
+      instanceClass: 'InstanceClass',
+      spec: 'Spec',
+      supportEngineVersions: 'SupportEngineVersions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskSizeRange: DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecificationsDiskSizeRange,
+      diskTypes: { 'type': 'array', 'itemType': 'string' },
+      instanceClass: 'string',
+      spec: 'string',
+      supportEngineVersions: { 'type': 'array', 'itemType': DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecificationsSupportEngineVersions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableZoneResponseBodyDataAvailableZones extends $tea.Model {
+  channel?: string;
+  deployType?: string;
+  instanceType?: string;
+  region?: string;
+  series?: string;
+  supportSpecifications?: DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecifications[];
+  zones?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'Channel',
+      deployType: 'DeployType',
+      instanceType: 'InstanceType',
+      region: 'Region',
+      series: 'Series',
+      supportSpecifications: 'SupportSpecifications',
+      zones: 'Zones',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: 'string',
+      deployType: 'string',
+      instanceType: 'string',
+      region: 'string',
+      series: 'string',
+      supportSpecifications: { 'type': 'array', 'itemType': DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecifications },
+      zones: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableZoneResponseBodyData extends $tea.Model {
+  availableZones?: DescribeAvailableZoneResponseBodyDataAvailableZones[];
+  static names(): { [key: string]: string } {
+    return {
+      availableZones: 'AvailableZones',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableZones: { 'type': 'array', 'itemType': DescribeAvailableZoneResponseBodyDataAvailableZones },
     };
   }
 
@@ -18528,11 +19065,11 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
   diskReads?: number;
   elapsedTime?: number;
   executeTime?: number;
-  executorRpc?: number;
+  executorRpc?: boolean;
   expectedWorkerCount?: number;
   fullSqlText?: string;
   getPlanTime?: number;
-  hitPlan?: number;
+  hitPlan?: boolean;
   inner?: boolean;
   memstoreReadRows?: number;
   netTime?: number;
@@ -18556,7 +19093,7 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
   sqlType?: string;
   ssstoreReadRows?: number;
   statement?: string;
-  tableScan?: number;
+  tableScan?: boolean;
   traceId?: string;
   transHash?: string;
   usedWorkerCount?: number;
@@ -18639,11 +19176,11 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
       diskReads: 'number',
       elapsedTime: 'number',
       executeTime: 'number',
-      executorRpc: 'number',
+      executorRpc: 'boolean',
       expectedWorkerCount: 'number',
       fullSqlText: 'string',
       getPlanTime: 'number',
-      hitPlan: 'number',
+      hitPlan: 'boolean',
       inner: 'boolean',
       memstoreReadRows: 'number',
       netTime: 'number',
@@ -18667,7 +19204,7 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
       sqlType: 'string',
       ssstoreReadRows: 'number',
       statement: 'string',
-      tableScan: 'number',
+      tableScan: 'boolean',
       traceId: 'string',
       transHash: 'string',
       usedWorkerCount: 'number',
@@ -19340,6 +19877,46 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       tenantZones: { 'type': 'array', 'itemType': DescribeTenantResponseBodyTenantTenantZones },
       timeZone: 'string',
       vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTenantEncryptionResponseBodyTenantEncryptions extends $tea.Model {
+  enableEncryption?: boolean;
+  encryptionKeyId?: string;
+  encryptionType?: string;
+  status?: string;
+  tenantId?: string;
+  tenantMode?: string;
+  tenantName?: string;
+  tenantStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableEncryption: 'EnableEncryption',
+      encryptionKeyId: 'EncryptionKeyId',
+      encryptionType: 'EncryptionType',
+      status: 'Status',
+      tenantId: 'TenantId',
+      tenantMode: 'TenantMode',
+      tenantName: 'TenantName',
+      tenantStatus: 'TenantStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableEncryption: 'boolean',
+      encryptionKeyId: 'string',
+      encryptionType: 'string',
+      status: 'string',
+      tenantId: 'string',
+      tenantMode: 'string',
+      tenantName: 'string',
+      tenantStatus: 'string',
     };
   }
 
@@ -24109,6 +24686,88 @@ export default class Client extends OpenApi {
     return await this.describeAvailableMemResourceWithOptions(request, runtime);
   }
 
+  async describeAvailableSpecWithOptions(request: DescribeAvailableSpecRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableSpecResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.spec)) {
+      body["Spec"] = request.spec;
+    }
+
+    if (!Util.isUnset(request.upgradeType)) {
+      body["UpgradeType"] = request.upgradeType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAvailableSpec",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAvailableSpecResponse>(await this.callApi(params, req, runtime), new DescribeAvailableSpecResponse({}));
+  }
+
+  async describeAvailableSpec(request: DescribeAvailableSpecRequest): Promise<DescribeAvailableSpecResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAvailableSpecWithOptions(request, runtime);
+  }
+
+  async describeAvailableZoneWithOptions(request: DescribeAvailableZoneRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableZoneResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deployType)) {
+      body["DeployType"] = request.deployType;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      body["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.obVersion)) {
+      body["ObVersion"] = request.obVersion;
+    }
+
+    if (!Util.isUnset(request.series)) {
+      body["Series"] = request.series;
+    }
+
+    if (!Util.isUnset(request.spec)) {
+      body["Spec"] = request.spec;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAvailableZone",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAvailableZoneResponse>(await this.callApi(params, req, runtime), new DescribeAvailableZoneResponse({}));
+  }
+
+  async describeAvailableZone(request: DescribeAvailableZoneRequest): Promise<DescribeAvailableZoneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAvailableZoneWithOptions(request, runtime);
+  }
+
   async describeCharsetWithOptions(request: DescribeCharsetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCharsetResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25824,6 +26483,51 @@ export default class Client extends OpenApi {
     return await this.describeTenantWithOptions(request, runtime);
   }
 
+  async describeTenantEncryptionWithOptions(request: DescribeTenantEncryptionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantEncryptionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.tenantName)) {
+      body["TenantName"] = request.tenantName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTenantEncryption",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTenantEncryptionResponse>(await this.callApi(params, req, runtime), new DescribeTenantEncryptionResponse({}));
+  }
+
+  async describeTenantEncryption(request: DescribeTenantEncryptionRequest): Promise<DescribeTenantEncryptionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTenantEncryptionWithOptions(request, runtime);
+  }
+
   async describeTenantMetricsWithOptions(request: DescribeTenantMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantMetricsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26868,6 +27572,43 @@ export default class Client extends OpenApi {
   async modifyInstanceTags(request: ModifyInstanceTagsRequest): Promise<ModifyInstanceTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceTagsWithOptions(request, runtime);
+  }
+
+  async modifyInstanceTemporaryCapacityWithOptions(request: ModifyInstanceTemporaryCapacityRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceTemporaryCapacityResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.diskSize)) {
+      body["DiskSize"] = request.diskSize;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.spec)) {
+      body["Spec"] = request.spec;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyInstanceTemporaryCapacity",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInstanceTemporaryCapacityResponse>(await this.callApi(params, req, runtime), new ModifyInstanceTemporaryCapacityResponse({}));
+  }
+
+  async modifyInstanceTemporaryCapacity(request: ModifyInstanceTemporaryCapacityRequest): Promise<ModifyInstanceTemporaryCapacityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyInstanceTemporaryCapacityWithOptions(request, runtime);
   }
 
   async modifyParametersWithOptions(request: ModifyParametersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParametersResponse> {
