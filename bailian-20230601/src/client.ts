@@ -8,6 +8,84 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddEnterpriseTagRequest extends $tea.Model {
+  agentKey?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEnterpriseTagResponseBody extends $tea.Model {
+  data?: AddEnterpriseTagResponseBodyData;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: AddEnterpriseTagResponseBodyData,
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEnterpriseTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddEnterpriseTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddEnterpriseTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelFineTuneJobRequest extends $tea.Model {
   agentKey?: string;
   jobId?: string;
@@ -449,6 +527,84 @@ export class CreateTokenResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DelEnterpriseTagRequest extends $tea.Model {
+  agentKey?: string;
+  tagId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      tagId: 'TagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      tagId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DelEnterpriseTagResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DelEnterpriseTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DelEnterpriseTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DelEnterpriseTagResponseBody,
     };
   }
 
@@ -1159,6 +1315,90 @@ export class GetEnterpriseDataParseResultResponse extends $tea.Model {
   }
 }
 
+export class GetFileStoreUploadPolicyRequest extends $tea.Model {
+  agentKey?: string;
+  fileName?: string;
+  fileStoreId?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      fileName: 'FileName',
+      fileStoreId: 'FileStoreId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      fileName: 'string',
+      fileStoreId: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileStoreUploadPolicyResponseBody extends $tea.Model {
+  data?: GetFileStoreUploadPolicyResponseBodyData;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetFileStoreUploadPolicyResponseBodyData,
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileStoreUploadPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetFileStoreUploadPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFileStoreUploadPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetImportTaskResultRequest extends $tea.Model {
   agentKey?: string;
   taskId?: string;
@@ -1237,8 +1477,93 @@ export class GetImportTaskResultResponse extends $tea.Model {
   }
 }
 
+export class GetPromptRequest extends $tea.Model {
+  agentKey?: string;
+  promptId?: string;
+  vars?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      promptId: 'PromptId',
+      vars: 'Vars',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      promptId: 'string',
+      vars: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPromptResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetPromptResponseBodyData;
+  httpStatusCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetPromptResponseBodyData,
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPromptResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPromptResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPromptResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportEnterpriseDocumentRequest extends $tea.Model {
   agentKey?: string;
+  dataType?: number;
   documentList?: ImportEnterpriseDocumentRequestDocumentList[];
   ownerId?: number;
   storeId?: number;
@@ -1246,6 +1571,7 @@ export class ImportEnterpriseDocumentRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
+      dataType: 'DataType',
       documentList: 'DocumentList',
       ownerId: 'OwnerId',
       storeId: 'StoreId',
@@ -1256,6 +1582,7 @@ export class ImportEnterpriseDocumentRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       agentKey: 'string',
+      dataType: 'number',
       documentList: { 'type': 'array', 'itemType': ImportEnterpriseDocumentRequestDocumentList },
       ownerId: 'number',
       storeId: 'number',
@@ -1270,6 +1597,7 @@ export class ImportEnterpriseDocumentRequest extends $tea.Model {
 
 export class ImportEnterpriseDocumentShrinkRequest extends $tea.Model {
   agentKey?: string;
+  dataType?: number;
   documentListShrink?: string;
   ownerId?: number;
   storeId?: number;
@@ -1277,6 +1605,7 @@ export class ImportEnterpriseDocumentShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
+      dataType: 'DataType',
       documentListShrink: 'DocumentList',
       ownerId: 'OwnerId',
       storeId: 'StoreId',
@@ -1287,6 +1616,7 @@ export class ImportEnterpriseDocumentShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       agentKey: 'string',
+      dataType: 'number',
       documentListShrink: 'string',
       ownerId: 'number',
       storeId: 'number',
@@ -1347,6 +1677,96 @@ export class ImportEnterpriseDocumentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ImportEnterpriseDocumentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportUserDocumentRequest extends $tea.Model {
+  agentKey?: string;
+  fileName?: string;
+  fileStoreId?: number;
+  ossPath?: string;
+  storeId?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      fileName: 'FileName',
+      fileStoreId: 'FileStoreId',
+      ossPath: 'OssPath',
+      storeId: 'StoreId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      fileName: 'string',
+      fileStoreId: 'number',
+      ossPath: 'string',
+      storeId: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportUserDocumentResponseBody extends $tea.Model {
+  data?: ImportUserDocumentResponseBodyData;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ImportUserDocumentResponseBodyData,
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportUserDocumentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ImportUserDocumentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportUserDocumentResponseBody,
     };
   }
 
@@ -1641,6 +2061,246 @@ export class QueryEnterpriseDataListResponse extends $tea.Model {
   }
 }
 
+export class QueryEnterpriseDataTagRequest extends $tea.Model {
+  agentKey?: string;
+  dataId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      dataId: 'DataId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      dataId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEnterpriseDataTagResponseBody extends $tea.Model {
+  data?: QueryEnterpriseDataTagResponseBodyData[];
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryEnterpriseDataTagResponseBodyData },
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEnterpriseDataTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryEnterpriseDataTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryEnterpriseDataTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEnterpriseTagListRequest extends $tea.Model {
+  agentKey?: string;
+  pageNo?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEnterpriseTagListResponseBody extends $tea.Model {
+  data?: QueryEnterpriseTagListResponseBodyData;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: QueryEnterpriseTagListResponseBodyData,
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEnterpriseTagListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryEnterpriseTagListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryEnterpriseTagListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUserDocumentRequest extends $tea.Model {
+  agentKey?: string;
+  dataId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      dataId: 'DataId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      dataId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUserDocumentResponseBody extends $tea.Model {
+  data?: QueryUserDocumentResponseBodyData;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: QueryUserDocumentResponseBodyData,
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUserDocumentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryUserDocumentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryUserDocumentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchEnterpriseDataRequest extends $tea.Model {
   agentKey?: string;
   dataIdList?: string[];
@@ -1763,6 +2423,302 @@ export class SearchEnterpriseDataResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SearchEnterpriseDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseDataInfoRequest extends $tea.Model {
+  agentKey?: string;
+  bizId?: string;
+  dataId?: string;
+  dataName?: string;
+  filePreviewLink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      bizId: 'BizId',
+      dataId: 'DataId',
+      dataName: 'DataName',
+      filePreviewLink: 'FilePreviewLink',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      bizId: 'string',
+      dataId: 'string',
+      dataName: 'string',
+      filePreviewLink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseDataInfoResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseDataInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateEnterpriseDataInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEnterpriseDataInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseDataTagRequest extends $tea.Model {
+  agentKey?: string;
+  dataId?: string;
+  tags?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      dataId: 'DataId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      dataId: 'string',
+      tags: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseDataTagShrinkRequest extends $tea.Model {
+  agentKey?: string;
+  dataId?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      dataId: 'DataId',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      dataId: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseDataTagResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseDataTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateEnterpriseDataTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEnterpriseDataTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseTagRequest extends $tea.Model {
+  agentKey?: string;
+  tagId?: number;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      tagId: 'TagId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      tagId: 'number',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseTagResponseBody extends $tea.Model {
+  data?: UpdateEnterpriseTagResponseBodyData;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UpdateEnterpriseTagResponseBodyData,
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateEnterpriseTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEnterpriseTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEnterpriseTagResponseBodyData extends $tea.Model {
+  tagId?: number;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagId: 'TagId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagId: 'number',
+      tagName: 'string',
     };
   }
 
@@ -1898,7 +2854,6 @@ export class GetEnterpriseDataByDataIdResponseBodyData extends $tea.Model {
   dataStatusCode?: number;
   dataType?: string;
   dataTypeCode?: number;
-  downloadUrl?: string;
   statusDetail?: string;
   storeType?: string;
   tags?: string;
@@ -1912,7 +2867,6 @@ export class GetEnterpriseDataByDataIdResponseBodyData extends $tea.Model {
       dataStatusCode: 'DataStatusCode',
       dataType: 'DataType',
       dataTypeCode: 'DataTypeCode',
-      downloadUrl: 'DownloadUrl',
       statusDetail: 'StatusDetail',
       storeType: 'StoreType',
       tags: 'Tags',
@@ -1929,7 +2883,6 @@ export class GetEnterpriseDataByDataIdResponseBodyData extends $tea.Model {
       dataStatusCode: 'number',
       dataType: 'string',
       dataTypeCode: 'number',
-      downloadUrl: 'string',
       statusDetail: 'string',
       storeType: 'string',
       tags: 'string',
@@ -1995,6 +2948,46 @@ export class GetEnterpriseDataPageImageResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetFileStoreUploadPolicyResponseBodyData extends $tea.Model {
+  accessId?: string;
+  dir?: string;
+  expire?: string;
+  host?: string;
+  key?: string;
+  policy?: string;
+  securityToken?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessId: 'AccessId',
+      dir: 'Dir',
+      expire: 'Expire',
+      host: 'Host',
+      key: 'Key',
+      policy: 'Policy',
+      securityToken: 'SecurityToken',
+      signature: 'Signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessId: 'string',
+      dir: 'string',
+      expire: 'string',
+      host: 'string',
+      key: 'string',
+      policy: 'string',
+      securityToken: 'string',
+      signature: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetImportTaskResultResponseBodyDataDetails extends $tea.Model {
   dataId?: string;
   dataName?: string;
@@ -2051,6 +3044,28 @@ export class GetImportTaskResultResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetPromptResponseBodyData extends $tea.Model {
+  promptContent?: string;
+  promptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      promptContent: 'PromptContent',
+      promptId: 'PromptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      promptContent: 'string',
+      promptId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportEnterpriseDocumentRequestDocumentList extends $tea.Model {
   bizId?: string;
   fileCanDownload?: boolean;
@@ -2074,6 +3089,28 @@ export class ImportEnterpriseDocumentRequestDocumentList extends $tea.Model {
       fileLink: 'string',
       fileName: 'string',
       filePreviewLink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportUserDocumentResponseBodyData extends $tea.Model {
+  dataId?: string;
+  dataStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+      dataStatus: 'DataStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+      dataStatus: 'number',
     };
   }
 
@@ -2189,7 +3226,6 @@ export class QueryEnterpriseDataListResponseBodyDataList extends $tea.Model {
   dataStatusCode?: number;
   dataType?: string;
   dataTypeCode?: number;
-  downloadUrl?: string;
   statusDetail?: string;
   storeType?: string;
   tags?: string;
@@ -2203,7 +3239,6 @@ export class QueryEnterpriseDataListResponseBodyDataList extends $tea.Model {
       dataStatusCode: 'DataStatusCode',
       dataType: 'DataType',
       dataTypeCode: 'DataTypeCode',
-      downloadUrl: 'DownloadUrl',
       statusDetail: 'StatusDetail',
       storeType: 'StoreType',
       tags: 'Tags',
@@ -2220,7 +3255,6 @@ export class QueryEnterpriseDataListResponseBodyDataList extends $tea.Model {
       dataStatusCode: 'number',
       dataType: 'string',
       dataTypeCode: 'number',
-      downloadUrl: 'string',
       statusDetail: 'string',
       storeType: 'string',
       tags: 'string',
@@ -2253,6 +3287,103 @@ export class QueryEnterpriseDataListResponseBodyData extends $tea.Model {
       pageNo: 'number',
       pageSize: 'number',
       total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEnterpriseDataTagResponseBodyData extends $tea.Model {
+  dataId?: string;
+  tagId?: number;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+      tagId: 'TagId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+      tagId: 'number',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEnterpriseTagListResponseBodyDataList extends $tea.Model {
+  tagId?: number;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagId: 'TagId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagId: 'number',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEnterpriseTagListResponseBodyData extends $tea.Model {
+  list?: QueryEnterpriseTagListResponseBodyDataList[];
+  pageNo?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': QueryEnterpriseTagListResponseBodyDataList },
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUserDocumentResponseBodyData extends $tea.Model {
+  dataId?: string;
+  dataStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+      dataStatus: 'DataStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+      dataStatus: 'number',
     };
   }
 
@@ -2298,6 +3429,28 @@ export class SearchEnterpriseDataResponseBodyData extends $tea.Model {
   }
 }
 
+export class UpdateEnterpriseTagResponseBodyData extends $tea.Model {
+  tagId?: number;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagId: 'TagId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagId: 'number',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -2319,6 +3472,39 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async addEnterpriseTagWithOptions(request: AddEnterpriseTagRequest, runtime: $Util.RuntimeOptions): Promise<AddEnterpriseTagResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.tagName)) {
+      query["TagName"] = request.tagName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddEnterpriseTag",
+      version: "2023-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddEnterpriseTagResponse>(await this.callApi(params, req, runtime), new AddEnterpriseTagResponse({}));
+  }
+
+  async addEnterpriseTag(request: AddEnterpriseTagRequest): Promise<AddEnterpriseTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addEnterpriseTagWithOptions(request, runtime);
   }
 
   async cancelFineTuneJobWithOptions(request: CancelFineTuneJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelFineTuneJobResponse> {
@@ -2530,6 +3716,39 @@ export default class Client extends OpenApi {
   async createToken(request: CreateTokenRequest): Promise<CreateTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTokenWithOptions(request, runtime);
+  }
+
+  async delEnterpriseTagWithOptions(request: DelEnterpriseTagRequest, runtime: $Util.RuntimeOptions): Promise<DelEnterpriseTagResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.tagId)) {
+      query["TagId"] = request.tagId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DelEnterpriseTag",
+      version: "2023-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DelEnterpriseTagResponse>(await this.callApi(params, req, runtime), new DelEnterpriseTagResponse({}));
+  }
+
+  async delEnterpriseTag(request: DelEnterpriseTagRequest): Promise<DelEnterpriseTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.delEnterpriseTagWithOptions(request, runtime);
   }
 
   async deleteEnterpriseDataWithOptions(request: DeleteEnterpriseDataRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnterpriseDataResponse> {
@@ -2841,6 +4060,47 @@ export default class Client extends OpenApi {
     return await this.getEnterpriseDataParseResultWithOptions(request, runtime);
   }
 
+  async getFileStoreUploadPolicyWithOptions(request: GetFileStoreUploadPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetFileStoreUploadPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.fileStoreId)) {
+      query["FileStoreId"] = request.fileStoreId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFileStoreUploadPolicy",
+      version: "2023-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFileStoreUploadPolicyResponse>(await this.callApi(params, req, runtime), new GetFileStoreUploadPolicyResponse({}));
+  }
+
+  async getFileStoreUploadPolicy(request: GetFileStoreUploadPolicyRequest): Promise<GetFileStoreUploadPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFileStoreUploadPolicyWithOptions(request, runtime);
+  }
+
   async getImportTaskResultWithOptions(request: GetImportTaskResultRequest, runtime: $Util.RuntimeOptions): Promise<GetImportTaskResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2874,6 +4134,43 @@ export default class Client extends OpenApi {
     return await this.getImportTaskResultWithOptions(request, runtime);
   }
 
+  async getPromptWithOptions(request: GetPromptRequest, runtime: $Util.RuntimeOptions): Promise<GetPromptResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.promptId)) {
+      query["PromptId"] = request.promptId;
+    }
+
+    if (!Util.isUnset(request.vars)) {
+      query["Vars"] = request.vars;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPrompt",
+      version: "2023-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPromptResponse>(await this.callApi(params, req, runtime), new GetPromptResponse({}));
+  }
+
+  async getPrompt(request: GetPromptRequest): Promise<GetPromptResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPromptWithOptions(request, runtime);
+  }
+
   async importEnterpriseDocumentWithOptions(tmpReq: ImportEnterpriseDocumentRequest, runtime: $Util.RuntimeOptions): Promise<ImportEnterpriseDocumentResponse> {
     Util.validateModel(tmpReq);
     let request = new ImportEnterpriseDocumentShrinkRequest({ });
@@ -2889,6 +4186,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.agentKey)) {
       query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dataType)) {
+      query["DataType"] = request.dataType;
     }
 
     if (!Util.isUnset(request.documentListShrink)) {
@@ -2927,6 +4228,55 @@ export default class Client extends OpenApi {
   async importEnterpriseDocument(request: ImportEnterpriseDocumentRequest): Promise<ImportEnterpriseDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importEnterpriseDocumentWithOptions(request, runtime);
+  }
+
+  async importUserDocumentWithOptions(request: ImportUserDocumentRequest, runtime: $Util.RuntimeOptions): Promise<ImportUserDocumentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.fileStoreId)) {
+      query["FileStoreId"] = request.fileStoreId;
+    }
+
+    if (!Util.isUnset(request.ossPath)) {
+      query["OssPath"] = request.ossPath;
+    }
+
+    if (!Util.isUnset(request.storeId)) {
+      query["StoreId"] = request.storeId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportUserDocument",
+      version: "2023-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportUserDocumentResponse>(await this.callApi(params, req, runtime), new ImportUserDocumentResponse({}));
+  }
+
+  async importUserDocument(request: ImportUserDocumentRequest): Promise<ImportUserDocumentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importUserDocumentWithOptions(request, runtime);
   }
 
   async listFineTuneJobsWithOptions(request: ListFineTuneJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListFineTuneJobsResponse> {
@@ -3060,6 +4410,113 @@ export default class Client extends OpenApi {
     return await this.queryEnterpriseDataListWithOptions(request, runtime);
   }
 
+  async queryEnterpriseDataTagWithOptions(request: QueryEnterpriseDataTagRequest, runtime: $Util.RuntimeOptions): Promise<QueryEnterpriseDataTagResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dataId)) {
+      query["DataId"] = request.dataId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryEnterpriseDataTag",
+      version: "2023-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryEnterpriseDataTagResponse>(await this.callApi(params, req, runtime), new QueryEnterpriseDataTagResponse({}));
+  }
+
+  async queryEnterpriseDataTag(request: QueryEnterpriseDataTagRequest): Promise<QueryEnterpriseDataTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryEnterpriseDataTagWithOptions(request, runtime);
+  }
+
+  async queryEnterpriseTagListWithOptions(request: QueryEnterpriseTagListRequest, runtime: $Util.RuntimeOptions): Promise<QueryEnterpriseTagListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryEnterpriseTagList",
+      version: "2023-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryEnterpriseTagListResponse>(await this.callApi(params, req, runtime), new QueryEnterpriseTagListResponse({}));
+  }
+
+  async queryEnterpriseTagList(request: QueryEnterpriseTagListRequest): Promise<QueryEnterpriseTagListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryEnterpriseTagListWithOptions(request, runtime);
+  }
+
+  async queryUserDocumentWithOptions(request: QueryUserDocumentRequest, runtime: $Util.RuntimeOptions): Promise<QueryUserDocumentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dataId)) {
+      query["DataId"] = request.dataId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryUserDocument",
+      version: "2023-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryUserDocumentResponse>(await this.callApi(params, req, runtime), new QueryUserDocumentResponse({}));
+  }
+
+  async queryUserDocument(request: QueryUserDocumentRequest): Promise<QueryUserDocumentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryUserDocumentWithOptions(request, runtime);
+  }
+
   async searchEnterpriseDataWithOptions(tmpReq: SearchEnterpriseDataRequest, runtime: $Util.RuntimeOptions): Promise<SearchEnterpriseDataResponse> {
     Util.validateModel(tmpReq);
     let request = new SearchEnterpriseDataShrinkRequest({ });
@@ -3121,6 +4578,131 @@ export default class Client extends OpenApi {
   async searchEnterpriseData(request: SearchEnterpriseDataRequest): Promise<SearchEnterpriseDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchEnterpriseDataWithOptions(request, runtime);
+  }
+
+  async updateEnterpriseDataInfoWithOptions(request: UpdateEnterpriseDataInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnterpriseDataInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!Util.isUnset(request.dataId)) {
+      query["DataId"] = request.dataId;
+    }
+
+    if (!Util.isUnset(request.dataName)) {
+      query["DataName"] = request.dataName;
+    }
+
+    if (!Util.isUnset(request.filePreviewLink)) {
+      query["FilePreviewLink"] = request.filePreviewLink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEnterpriseDataInfo",
+      version: "2023-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEnterpriseDataInfoResponse>(await this.callApi(params, req, runtime), new UpdateEnterpriseDataInfoResponse({}));
+  }
+
+  async updateEnterpriseDataInfo(request: UpdateEnterpriseDataInfoRequest): Promise<UpdateEnterpriseDataInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateEnterpriseDataInfoWithOptions(request, runtime);
+  }
+
+  async updateEnterpriseDataTagWithOptions(tmpReq: UpdateEnterpriseDataTagRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnterpriseDataTagResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateEnterpriseDataTagShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dataId)) {
+      query["DataId"] = request.dataId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEnterpriseDataTag",
+      version: "2023-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEnterpriseDataTagResponse>(await this.callApi(params, req, runtime), new UpdateEnterpriseDataTagResponse({}));
+  }
+
+  async updateEnterpriseDataTag(request: UpdateEnterpriseDataTagRequest): Promise<UpdateEnterpriseDataTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateEnterpriseDataTagWithOptions(request, runtime);
+  }
+
+  async updateEnterpriseTagWithOptions(request: UpdateEnterpriseTagRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnterpriseTagResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.tagId)) {
+      query["TagId"] = request.tagId;
+    }
+
+    if (!Util.isUnset(request.tagName)) {
+      query["TagName"] = request.tagName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEnterpriseTag",
+      version: "2023-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEnterpriseTagResponse>(await this.callApi(params, req, runtime), new UpdateEnterpriseTagResponse({}));
+  }
+
+  async updateEnterpriseTag(request: UpdateEnterpriseTagRequest): Promise<UpdateEnterpriseTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateEnterpriseTagWithOptions(request, runtime);
   }
 
 }
