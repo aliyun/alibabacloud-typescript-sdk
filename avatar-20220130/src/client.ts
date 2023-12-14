@@ -4221,15 +4221,27 @@ export class SubmitAudioTo2DAvatarVideoTaskRequestApp extends $tea.Model {
 
 export class SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo extends $tea.Model {
   code?: string;
+  height?: number;
+  width?: number;
+  x?: number;
+  y?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      height: 'Height',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      height: 'number',
+      width: 'number',
+      x: 'number',
+      y: 'number',
     };
   }
 
@@ -4466,15 +4478,27 @@ export class SubmitTextTo2DAvatarVideoTaskRequestAudioInfo extends $tea.Model {
 
 export class SubmitTextTo2DAvatarVideoTaskRequestAvatarInfo extends $tea.Model {
   code?: string;
+  height?: number;
+  width?: number;
+  x?: number;
+  y?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      height: 'Height',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      height: 'number',
+      width: 'number',
+      x: 'number',
+      y: 'number',
     };
   }
 
