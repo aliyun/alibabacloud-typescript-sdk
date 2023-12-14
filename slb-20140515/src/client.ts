@@ -819,8 +819,10 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
   unhealthyThreshold?: number;
   VServerGroupId?: string;
   XForwardedFor?: string;
+  XForwardedFor_ClientSrcPort?: string;
   XForwardedFor_SLBID?: string;
   XForwardedFor_SLBIP?: string;
+  XForwardedFor_SLBPORT?: string;
   XForwardedFor_proto?: string;
   static names(): { [key: string]: string } {
     return {
@@ -860,8 +862,10 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
       unhealthyThreshold: 'UnhealthyThreshold',
       VServerGroupId: 'VServerGroupId',
       XForwardedFor: 'XForwardedFor',
+      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
       XForwardedFor_SLBID: 'XForwardedFor_SLBID',
       XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
       XForwardedFor_proto: 'XForwardedFor_proto',
     };
   }
@@ -904,8 +908,10 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
       unhealthyThreshold: 'number',
       VServerGroupId: 'string',
       XForwardedFor: 'string',
+      XForwardedFor_ClientSrcPort: 'string',
       XForwardedFor_SLBID: 'string',
       XForwardedFor_SLBIP: 'string',
+      XForwardedFor_SLBPORT: 'string',
       XForwardedFor_proto: 'string',
     };
   }
@@ -998,8 +1004,10 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
   unhealthyThreshold?: number;
   VServerGroupId?: string;
   XForwardedFor?: string;
+  XForwardedFor_ClientSrcPort?: string;
   XForwardedFor_SLBID?: string;
   XForwardedFor_SLBIP?: string;
+  XForwardedFor_SLBPORT?: string;
   XForwardedFor_proto?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1041,8 +1049,10 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       unhealthyThreshold: 'UnhealthyThreshold',
       VServerGroupId: 'VServerGroupId',
       XForwardedFor: 'XForwardedFor',
+      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
       XForwardedFor_SLBID: 'XForwardedFor_SLBID',
       XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
       XForwardedFor_proto: 'XForwardedFor_proto',
     };
   }
@@ -1087,8 +1097,10 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       unhealthyThreshold: 'number',
       VServerGroupId: 'string',
       XForwardedFor: 'string',
+      XForwardedFor_ClientSrcPort: 'string',
       XForwardedFor_SLBID: 'string',
       XForwardedFor_SLBIP: 'string',
+      XForwardedFor_SLBPORT: 'string',
       XForwardedFor_proto: 'string',
     };
   }
@@ -3864,8 +3876,10 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
   unhealthyThreshold?: number;
   VServerGroupId?: string;
   XForwardedFor?: string;
+  XForwardedFor_ClientSrcPort?: string;
   XForwardedFor_SLBID?: string;
   XForwardedFor_SLBIP?: string;
+  XForwardedFor_SLBPORT?: string;
   XForwardedFor_proto?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3904,8 +3918,10 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
       unhealthyThreshold: 'UnhealthyThreshold',
       VServerGroupId: 'VServerGroupId',
       XForwardedFor: 'XForwardedFor',
+      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
       XForwardedFor_SLBID: 'XForwardedFor_SLBID',
       XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
       XForwardedFor_proto: 'XForwardedFor_proto',
     };
   }
@@ -3947,8 +3963,10 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
       unhealthyThreshold: 'number',
       VServerGroupId: 'string',
       XForwardedFor: 'string',
+      XForwardedFor_ClientSrcPort: 'string',
       XForwardedFor_SLBID: 'string',
       XForwardedFor_SLBIP: 'string',
+      XForwardedFor_SLBPORT: 'string',
       XForwardedFor_proto: 'string',
     };
   }
@@ -7674,8 +7692,10 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
   VServerGroup?: string;
   VServerGroupId?: string;
   XForwardedFor?: string;
+  XForwardedFor_ClientSrcPort?: string;
   XForwardedFor_SLBID?: string;
   XForwardedFor_SLBIP?: string;
+  XForwardedFor_SLBPORT?: string;
   XForwardedFor_proto?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7712,8 +7732,10 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
       VServerGroup: 'VServerGroup',
       VServerGroupId: 'VServerGroupId',
       XForwardedFor: 'XForwardedFor',
+      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
       XForwardedFor_SLBID: 'XForwardedFor_SLBID',
       XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
       XForwardedFor_proto: 'XForwardedFor_proto',
     };
   }
@@ -7753,8 +7775,10 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
       VServerGroup: 'string',
       VServerGroupId: 'string',
       XForwardedFor: 'string',
+      XForwardedFor_ClientSrcPort: 'string',
       XForwardedFor_SLBID: 'string',
       XForwardedFor_SLBIP: 'string',
+      XForwardedFor_SLBPORT: 'string',
       XForwardedFor_proto: 'string',
     };
   }
@@ -7846,8 +7870,10 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
   VServerGroup?: string;
   VServerGroupId?: string;
   XForwardedFor?: string;
+  XForwardedFor_ClientSrcPort?: string;
   XForwardedFor_SLBID?: string;
   XForwardedFor_SLBIP?: string;
+  XForwardedFor_SLBPORT?: string;
   XForwardedFor_proto?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7888,8 +7914,10 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
       VServerGroup: 'VServerGroup',
       VServerGroupId: 'VServerGroupId',
       XForwardedFor: 'XForwardedFor',
+      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
       XForwardedFor_SLBID: 'XForwardedFor_SLBID',
       XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
       XForwardedFor_proto: 'XForwardedFor_proto',
     };
   }
@@ -7933,8 +7961,10 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
       VServerGroup: 'string',
       VServerGroupId: 'string',
       XForwardedFor: 'string',
+      XForwardedFor_ClientSrcPort: 'string',
       XForwardedFor_SLBID: 'string',
       XForwardedFor_SLBIP: 'string',
+      XForwardedFor_SLBPORT: 'string',
       XForwardedFor_proto: 'string',
     };
   }
@@ -13985,12 +14015,20 @@ export default class Client extends OpenApi {
       query["XForwardedFor"] = request.XForwardedFor;
     }
 
+    if (!Util.isUnset(request.XForwardedFor_ClientSrcPort)) {
+      query["XForwardedFor_ClientSrcPort"] = request.XForwardedFor_ClientSrcPort;
+    }
+
     if (!Util.isUnset(request.XForwardedFor_SLBID)) {
       query["XForwardedFor_SLBID"] = request.XForwardedFor_SLBID;
     }
 
     if (!Util.isUnset(request.XForwardedFor_SLBIP)) {
       query["XForwardedFor_SLBIP"] = request.XForwardedFor_SLBIP;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_SLBPORT)) {
+      query["XForwardedFor_SLBPORT"] = request.XForwardedFor_SLBPORT;
     }
 
     if (!Util.isUnset(request.XForwardedFor_proto)) {
@@ -14191,12 +14229,20 @@ export default class Client extends OpenApi {
       query["XForwardedFor"] = request.XForwardedFor;
     }
 
+    if (!Util.isUnset(request.XForwardedFor_ClientSrcPort)) {
+      query["XForwardedFor_ClientSrcPort"] = request.XForwardedFor_ClientSrcPort;
+    }
+
     if (!Util.isUnset(request.XForwardedFor_SLBID)) {
       query["XForwardedFor_SLBID"] = request.XForwardedFor_SLBID;
     }
 
     if (!Util.isUnset(request.XForwardedFor_SLBIP)) {
       query["XForwardedFor_SLBIP"] = request.XForwardedFor_SLBIP;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_SLBPORT)) {
+      query["XForwardedFor_SLBPORT"] = request.XForwardedFor_SLBPORT;
     }
 
     if (!Util.isUnset(request.XForwardedFor_proto)) {
@@ -15320,6 +15366,14 @@ export default class Client extends OpenApi {
     return await this.deleteServerCertificateWithOptions(request, runtime);
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Slb\\&api=DeleteTLSCipherPolicy\\&type=RPC\\&version=2014-05-15)
+    *
+    * @param request DeleteTLSCipherPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTLSCipherPolicyResponse
+   */
   async deleteTLSCipherPolicyWithOptions(request: DeleteTLSCipherPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTLSCipherPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15364,6 +15418,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTLSCipherPolicyResponse>(await this.callApi(params, req, runtime), new DeleteTLSCipherPolicyResponse({}));
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Slb\\&api=DeleteTLSCipherPolicy\\&type=RPC\\&version=2014-05-15)
+    *
+    * @param request DeleteTLSCipherPolicyRequest
+    * @return DeleteTLSCipherPolicyResponse
+   */
   async deleteTLSCipherPolicy(request: DeleteTLSCipherPolicyRequest): Promise<DeleteTLSCipherPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTLSCipherPolicyWithOptions(request, runtime);
@@ -18634,12 +18695,20 @@ export default class Client extends OpenApi {
       query["XForwardedFor"] = request.XForwardedFor;
     }
 
+    if (!Util.isUnset(request.XForwardedFor_ClientSrcPort)) {
+      query["XForwardedFor_ClientSrcPort"] = request.XForwardedFor_ClientSrcPort;
+    }
+
     if (!Util.isUnset(request.XForwardedFor_SLBID)) {
       query["XForwardedFor_SLBID"] = request.XForwardedFor_SLBID;
     }
 
     if (!Util.isUnset(request.XForwardedFor_SLBIP)) {
       query["XForwardedFor_SLBIP"] = request.XForwardedFor_SLBIP;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_SLBPORT)) {
+      query["XForwardedFor_SLBPORT"] = request.XForwardedFor_SLBPORT;
     }
 
     if (!Util.isUnset(request.XForwardedFor_proto)) {
@@ -18835,12 +18904,20 @@ export default class Client extends OpenApi {
       query["XForwardedFor"] = request.XForwardedFor;
     }
 
+    if (!Util.isUnset(request.XForwardedFor_ClientSrcPort)) {
+      query["XForwardedFor_ClientSrcPort"] = request.XForwardedFor_ClientSrcPort;
+    }
+
     if (!Util.isUnset(request.XForwardedFor_SLBID)) {
       query["XForwardedFor_SLBID"] = request.XForwardedFor_SLBID;
     }
 
     if (!Util.isUnset(request.XForwardedFor_SLBIP)) {
       query["XForwardedFor_SLBIP"] = request.XForwardedFor_SLBIP;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_SLBPORT)) {
+      query["XForwardedFor_SLBPORT"] = request.XForwardedFor_SLBPORT;
     }
 
     if (!Util.isUnset(request.XForwardedFor_proto)) {
