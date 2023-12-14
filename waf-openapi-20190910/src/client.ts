@@ -14,6 +14,8 @@ export class CreateCertificateRequest extends $tea.Model {
   domain?: string;
   instanceId?: string;
   privateKey?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       certificate: 'Certificate',
@@ -21,6 +23,8 @@ export class CreateCertificateRequest extends $tea.Model {
       domain: 'Domain',
       instanceId: 'InstanceId',
       privateKey: 'PrivateKey',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -31,6 +35,8 @@ export class CreateCertificateRequest extends $tea.Model {
       domain: 'string',
       instanceId: 'string',
       privateKey: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -63,10 +69,12 @@ export class CreateCertificateResponseBody extends $tea.Model {
 
 export class CreateCertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -74,6 +82,7 @@ export class CreateCertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateCertificateResponseBody,
     };
   }
@@ -87,11 +96,15 @@ export class CreateCertificateByCertificateIdRequest extends $tea.Model {
   certificateId?: number;
   domain?: string;
   instanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       certificateId: 'CertificateId',
       domain: 'Domain',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -100,6 +113,8 @@ export class CreateCertificateByCertificateIdRequest extends $tea.Model {
       certificateId: 'number',
       domain: 'string',
       instanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -132,10 +147,12 @@ export class CreateCertificateByCertificateIdResponseBody extends $tea.Model {
 
 export class CreateCertificateByCertificateIdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateCertificateByCertificateIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -143,6 +160,7 @@ export class CreateCertificateByCertificateIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateCertificateByCertificateIdResponseBody,
     };
   }
@@ -168,10 +186,15 @@ export class CreateDomainRequest extends $tea.Model {
   instanceId?: string;
   ipFollowStatus?: number;
   isAccessProduct?: number;
+  keepalive?: boolean;
+  keepaliveRequests?: number;
+  keepaliveTimeout?: number;
   loadBalancing?: number;
   logHeaders?: string;
   readTime?: number;
+  regionId?: string;
   resourceGroupId?: string;
+  retry?: boolean;
   sniHost?: string;
   sniStatus?: number;
   sourceIps?: string;
@@ -193,10 +216,15 @@ export class CreateDomainRequest extends $tea.Model {
       instanceId: 'InstanceId',
       ipFollowStatus: 'IpFollowStatus',
       isAccessProduct: 'IsAccessProduct',
+      keepalive: 'Keepalive',
+      keepaliveRequests: 'KeepaliveRequests',
+      keepaliveTimeout: 'KeepaliveTimeout',
       loadBalancing: 'LoadBalancing',
       logHeaders: 'LogHeaders',
       readTime: 'ReadTime',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      retry: 'Retry',
       sniHost: 'SniHost',
       sniStatus: 'SniStatus',
       sourceIps: 'SourceIps',
@@ -221,10 +249,15 @@ export class CreateDomainRequest extends $tea.Model {
       instanceId: 'string',
       ipFollowStatus: 'number',
       isAccessProduct: 'number',
+      keepalive: 'boolean',
+      keepaliveRequests: 'number',
+      keepaliveTimeout: 'number',
       loadBalancing: 'number',
       logHeaders: 'string',
       readTime: 'number',
+      regionId: 'string',
       resourceGroupId: 'string',
+      retry: 'boolean',
       sniHost: 'string',
       sniStatus: 'number',
       sourceIps: 'string',
@@ -261,10 +294,12 @@ export class CreateDomainResponseBody extends $tea.Model {
 
 export class CreateDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -272,6 +307,7 @@ export class CreateDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateDomainResponseBody,
     };
   }
@@ -285,12 +321,16 @@ export class CreateProtectionModuleRuleRequest extends $tea.Model {
   defenseType?: string;
   domain?: string;
   instanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   rule?: string;
   static names(): { [key: string]: string } {
     return {
       defenseType: 'DefenseType',
       domain: 'Domain',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       rule: 'Rule',
     };
   }
@@ -300,6 +340,8 @@ export class CreateProtectionModuleRuleRequest extends $tea.Model {
       defenseType: 'string',
       domain: 'string',
       instanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
       rule: 'string',
     };
   }
@@ -330,10 +372,12 @@ export class CreateProtectionModuleRuleResponseBody extends $tea.Model {
 
 export class CreateProtectionModuleRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateProtectionModuleRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -341,6 +385,7 @@ export class CreateProtectionModuleRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateProtectionModuleRuleResponseBody,
     };
   }
@@ -353,10 +398,14 @@ export class CreateProtectionModuleRuleResponse extends $tea.Model {
 export class DeleteDomainRequest extends $tea.Model {
   domain?: string;
   instanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -364,6 +413,8 @@ export class DeleteDomainRequest extends $tea.Model {
     return {
       domain: 'string',
       instanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -393,10 +444,12 @@ export class DeleteDomainResponseBody extends $tea.Model {
 
 export class DeleteDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -404,6 +457,7 @@ export class DeleteDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDomainResponseBody,
     };
   }
@@ -415,10 +469,12 @@ export class DeleteDomainResponse extends $tea.Model {
 
 export class DeleteInstanceRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -426,6 +482,7 @@ export class DeleteInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -456,10 +513,12 @@ export class DeleteInstanceResponseBody extends $tea.Model {
 
 export class DeleteInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -467,6 +526,7 @@ export class DeleteInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteInstanceResponseBody,
     };
   }
@@ -480,12 +540,16 @@ export class DeleteProtectionModuleRuleRequest extends $tea.Model {
   defenseType?: string;
   domain?: string;
   instanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
       defenseType: 'DefenseType',
       domain: 'Domain',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       ruleId: 'RuleId',
     };
   }
@@ -495,6 +559,8 @@ export class DeleteProtectionModuleRuleRequest extends $tea.Model {
       defenseType: 'string',
       domain: 'string',
       instanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
       ruleId: 'number',
     };
   }
@@ -525,10 +591,12 @@ export class DeleteProtectionModuleRuleResponseBody extends $tea.Model {
 
 export class DeleteProtectionModuleRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteProtectionModuleRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -536,6 +604,7 @@ export class DeleteProtectionModuleRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteProtectionModuleRuleResponseBody,
     };
   }
@@ -550,12 +619,16 @@ export class DescribeCertMatchStatusRequest extends $tea.Model {
   domain?: string;
   instanceId?: string;
   privateKey?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       certificate: 'Certificate',
       domain: 'Domain',
       instanceId: 'InstanceId',
       privateKey: 'PrivateKey',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -565,6 +638,8 @@ export class DescribeCertMatchStatusRequest extends $tea.Model {
       domain: 'string',
       instanceId: 'string',
       privateKey: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -597,10 +672,12 @@ export class DescribeCertMatchStatusResponseBody extends $tea.Model {
 
 export class DescribeCertMatchStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeCertMatchStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -608,6 +685,7 @@ export class DescribeCertMatchStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeCertMatchStatusResponseBody,
     };
   }
@@ -620,10 +698,14 @@ export class DescribeCertMatchStatusResponse extends $tea.Model {
 export class DescribeCertificatesRequest extends $tea.Model {
   domain?: string;
   instanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -631,6 +713,8 @@ export class DescribeCertificatesRequest extends $tea.Model {
     return {
       domain: 'string',
       instanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -663,10 +747,12 @@ export class DescribeCertificatesResponseBody extends $tea.Model {
 
 export class DescribeCertificatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeCertificatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -674,6 +760,7 @@ export class DescribeCertificatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeCertificatesResponseBody,
     };
   }
@@ -686,10 +773,14 @@ export class DescribeCertificatesResponse extends $tea.Model {
 export class DescribeDomainRequest extends $tea.Model {
   domain?: string;
   instanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -697,6 +788,8 @@ export class DescribeDomainRequest extends $tea.Model {
     return {
       domain: 'string',
       instanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -729,10 +822,12 @@ export class DescribeDomainResponseBody extends $tea.Model {
 
 export class DescribeDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -740,6 +835,7 @@ export class DescribeDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainResponseBody,
     };
   }
@@ -752,11 +848,13 @@ export class DescribeDomainResponse extends $tea.Model {
 export class DescribeDomainAdvanceConfigsRequest extends $tea.Model {
   domainList?: string;
   instanceId?: string;
+  regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       domainList: 'DomainList',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -765,6 +863,7 @@ export class DescribeDomainAdvanceConfigsRequest extends $tea.Model {
     return {
       domainList: 'string',
       instanceId: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -798,10 +897,12 @@ export class DescribeDomainAdvanceConfigsResponseBody extends $tea.Model {
 
 export class DescribeDomainAdvanceConfigsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainAdvanceConfigsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -809,6 +910,7 @@ export class DescribeDomainAdvanceConfigsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainAdvanceConfigsResponseBody,
     };
   }
@@ -825,6 +927,7 @@ export class DescribeDomainBasicConfigsRequest extends $tea.Model {
   instanceId?: string;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -834,6 +937,7 @@ export class DescribeDomainBasicConfigsRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -846,6 +950,7 @@ export class DescribeDomainBasicConfigsRequest extends $tea.Model {
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -882,10 +987,12 @@ export class DescribeDomainBasicConfigsResponseBody extends $tea.Model {
 
 export class DescribeDomainBasicConfigsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainBasicConfigsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -893,6 +1000,7 @@ export class DescribeDomainBasicConfigsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainBasicConfigsResponseBody,
     };
   }
@@ -909,6 +1017,7 @@ export class DescribeDomainListRequest extends $tea.Model {
   isSub?: number;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -918,6 +1027,7 @@ export class DescribeDomainListRequest extends $tea.Model {
       isSub: 'IsSub',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -930,6 +1040,7 @@ export class DescribeDomainListRequest extends $tea.Model {
       isSub: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -966,10 +1077,12 @@ export class DescribeDomainListResponseBody extends $tea.Model {
 
 export class DescribeDomainListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -977,6 +1090,7 @@ export class DescribeDomainListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainListResponseBody,
     };
   }
@@ -988,10 +1102,12 @@ export class DescribeDomainListResponse extends $tea.Model {
 
 export class DescribeDomainNamesRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -999,6 +1115,7 @@ export class DescribeDomainNamesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -1032,10 +1149,12 @@ export class DescribeDomainNamesResponseBody extends $tea.Model {
 
 export class DescribeDomainNamesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainNamesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1043,6 +1162,7 @@ export class DescribeDomainNamesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainNamesResponseBody,
     };
   }
@@ -1055,10 +1175,14 @@ export class DescribeDomainNamesResponse extends $tea.Model {
 export class DescribeDomainRuleGroupRequest extends $tea.Model {
   domain?: string;
   instanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1066,6 +1190,8 @@ export class DescribeDomainRuleGroupRequest extends $tea.Model {
     return {
       domain: 'string',
       instanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1077,10 +1203,12 @@ export class DescribeDomainRuleGroupRequest extends $tea.Model {
 export class DescribeDomainRuleGroupResponseBody extends $tea.Model {
   requestId?: string;
   ruleGroupId?: number;
+  wafAiStatus?: number;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       ruleGroupId: 'RuleGroupId',
+      wafAiStatus: 'WafAiStatus',
     };
   }
 
@@ -1088,6 +1216,7 @@ export class DescribeDomainRuleGroupResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       ruleGroupId: 'number',
+      wafAiStatus: 'number',
     };
   }
 
@@ -1098,10 +1227,12 @@ export class DescribeDomainRuleGroupResponseBody extends $tea.Model {
 
 export class DescribeDomainRuleGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainRuleGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1109,6 +1240,7 @@ export class DescribeDomainRuleGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainRuleGroupResponseBody,
     };
   }
@@ -1120,10 +1252,12 @@ export class DescribeDomainRuleGroupResponse extends $tea.Model {
 
 export class DescribeInstanceInfoRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -1131,6 +1265,7 @@ export class DescribeInstanceInfoRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -1164,10 +1299,12 @@ export class DescribeInstanceInfoResponseBody extends $tea.Model {
 
 export class DescribeInstanceInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeInstanceInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1175,6 +1312,7 @@ export class DescribeInstanceInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeInstanceInfoResponseBody,
     };
   }
@@ -1186,10 +1324,12 @@ export class DescribeInstanceInfoResponse extends $tea.Model {
 
 export class DescribeInstanceSpecInfoRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -1197,6 +1337,7 @@ export class DescribeInstanceSpecInfoRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -1239,10 +1380,12 @@ export class DescribeInstanceSpecInfoResponseBody extends $tea.Model {
 
 export class DescribeInstanceSpecInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeInstanceSpecInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1250,6 +1393,7 @@ export class DescribeInstanceSpecInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeInstanceSpecInfoResponseBody,
     };
   }
@@ -1265,6 +1409,7 @@ export class DescribeLogServiceStatusRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   region?: string;
+  regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1273,6 +1418,7 @@ export class DescribeLogServiceStatusRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       region: 'Region',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -1284,6 +1430,7 @@ export class DescribeLogServiceStatusRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       region: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -1320,10 +1467,12 @@ export class DescribeLogServiceStatusResponseBody extends $tea.Model {
 
 export class DescribeLogServiceStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeLogServiceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1331,6 +1480,7 @@ export class DescribeLogServiceStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeLogServiceStatusResponseBody,
     };
   }
@@ -1344,12 +1494,14 @@ export class DescribeProtectionModuleCodeConfigRequest extends $tea.Model {
   codeType?: number;
   codeValue?: number;
   instanceId?: string;
+  regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       codeType: 'CodeType',
       codeValue: 'CodeValue',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -1359,6 +1511,7 @@ export class DescribeProtectionModuleCodeConfigRequest extends $tea.Model {
       codeType: 'number',
       codeValue: 'number',
       instanceId: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -1392,10 +1545,12 @@ export class DescribeProtectionModuleCodeConfigResponseBody extends $tea.Model {
 
 export class DescribeProtectionModuleCodeConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeProtectionModuleCodeConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1403,7 +1558,86 @@ export class DescribeProtectionModuleCodeConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeProtectionModuleCodeConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProtectionModuleModeRequest extends $tea.Model {
+  defenseType?: string;
+  domain?: string;
+  instanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defenseType: 'DefenseType',
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseType: 'string',
+      domain: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProtectionModuleModeResponseBody extends $tea.Model {
+  mode?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mode: 'Mode',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mode: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProtectionModuleModeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeProtectionModuleModeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeProtectionModuleModeResponseBody,
     };
   }
 
@@ -1420,6 +1654,7 @@ export class DescribeProtectionModuleRulesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   query?: string;
+  regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1430,6 +1665,7 @@ export class DescribeProtectionModuleRulesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       query: 'Query',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -1443,6 +1679,7 @@ export class DescribeProtectionModuleRulesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       query: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -1479,10 +1716,12 @@ export class DescribeProtectionModuleRulesResponseBody extends $tea.Model {
 
 export class DescribeProtectionModuleRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeProtectionModuleRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1490,6 +1729,7 @@ export class DescribeProtectionModuleRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeProtectionModuleRulesResponseBody,
     };
   }
@@ -1503,11 +1743,15 @@ export class DescribeProtectionModuleStatusRequest extends $tea.Model {
   defenseType?: string;
   domain?: string;
   instanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       defenseType: 'DefenseType',
       domain: 'Domain',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1516,6 +1760,8 @@ export class DescribeProtectionModuleStatusRequest extends $tea.Model {
       defenseType: 'string',
       domain: 'string',
       instanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1548,10 +1794,12 @@ export class DescribeProtectionModuleStatusResponseBody extends $tea.Model {
 
 export class DescribeProtectionModuleStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeProtectionModuleStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1559,6 +1807,7 @@ export class DescribeProtectionModuleStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeProtectionModuleStatusResponseBody,
     };
   }
@@ -1570,10 +1819,12 @@ export class DescribeProtectionModuleStatusResponse extends $tea.Model {
 
 export class DescribeWafSourceIpSegmentRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -1581,6 +1832,7 @@ export class DescribeWafSourceIpSegmentRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -1617,10 +1869,12 @@ export class DescribeWafSourceIpSegmentResponseBody extends $tea.Model {
 
 export class DescribeWafSourceIpSegmentResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeWafSourceIpSegmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1628,6 +1882,7 @@ export class DescribeWafSourceIpSegmentResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeWafSourceIpSegmentResponseBody,
     };
   }
@@ -1653,9 +1908,15 @@ export class ModifyDomainRequest extends $tea.Model {
   instanceId?: string;
   ipFollowStatus?: number;
   isAccessProduct?: number;
+  keepalive?: boolean;
+  keepaliveRequests?: number;
+  keepaliveTimeout?: number;
   loadBalancing?: number;
   logHeaders?: string;
   readTime?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  retry?: boolean;
   sniHost?: string;
   sniStatus?: number;
   sourceIps?: string;
@@ -1677,9 +1938,15 @@ export class ModifyDomainRequest extends $tea.Model {
       instanceId: 'InstanceId',
       ipFollowStatus: 'IpFollowStatus',
       isAccessProduct: 'IsAccessProduct',
+      keepalive: 'Keepalive',
+      keepaliveRequests: 'KeepaliveRequests',
+      keepaliveTimeout: 'KeepaliveTimeout',
       loadBalancing: 'LoadBalancing',
       logHeaders: 'LogHeaders',
       readTime: 'ReadTime',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      retry: 'Retry',
       sniHost: 'SniHost',
       sniStatus: 'SniStatus',
       sourceIps: 'SourceIps',
@@ -1704,9 +1971,15 @@ export class ModifyDomainRequest extends $tea.Model {
       instanceId: 'string',
       ipFollowStatus: 'number',
       isAccessProduct: 'number',
+      keepalive: 'boolean',
+      keepaliveRequests: 'number',
+      keepaliveTimeout: 'number',
       loadBalancing: 'number',
       logHeaders: 'string',
       readTime: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      retry: 'boolean',
       sniHost: 'string',
       sniStatus: 'number',
       sourceIps: 'string',
@@ -1740,10 +2013,12 @@ export class ModifyDomainResponseBody extends $tea.Model {
 
 export class ModifyDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1751,6 +2026,7 @@ export class ModifyDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyDomainResponseBody,
     };
   }
@@ -1764,11 +2040,15 @@ export class ModifyDomainIpv6StatusRequest extends $tea.Model {
   domain?: string;
   enabled?: string;
   instanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
       enabled: 'Enabled',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1777,6 +2057,8 @@ export class ModifyDomainIpv6StatusRequest extends $tea.Model {
       domain: 'string',
       enabled: 'string',
       instanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1806,10 +2088,12 @@ export class ModifyDomainIpv6StatusResponseBody extends $tea.Model {
 
 export class ModifyDomainIpv6StatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyDomainIpv6StatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1817,6 +2101,7 @@ export class ModifyDomainIpv6StatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyDomainIpv6StatusResponseBody,
     };
   }
@@ -1830,11 +2115,15 @@ export class ModifyLogRetrievalStatusRequest extends $tea.Model {
   domain?: string;
   enabled?: number;
   instanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
       enabled: 'Enabled',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1843,6 +2132,8 @@ export class ModifyLogRetrievalStatusRequest extends $tea.Model {
       domain: 'string',
       enabled: 'number',
       instanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1872,10 +2163,12 @@ export class ModifyLogRetrievalStatusResponseBody extends $tea.Model {
 
 export class ModifyLogRetrievalStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyLogRetrievalStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1883,6 +2176,7 @@ export class ModifyLogRetrievalStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyLogRetrievalStatusResponseBody,
     };
   }
@@ -1896,11 +2190,15 @@ export class ModifyLogServiceStatusRequest extends $tea.Model {
   domain?: string;
   enabled?: number;
   instanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
       enabled: 'Enabled',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1909,6 +2207,8 @@ export class ModifyLogServiceStatusRequest extends $tea.Model {
       domain: 'string',
       enabled: 'number',
       instanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1938,10 +2238,12 @@ export class ModifyLogServiceStatusResponseBody extends $tea.Model {
 
 export class ModifyLogServiceStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyLogServiceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1949,6 +2251,7 @@ export class ModifyLogServiceStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyLogServiceStatusResponseBody,
     };
   }
@@ -1963,12 +2266,16 @@ export class ModifyProtectionModuleModeRequest extends $tea.Model {
   domain?: string;
   instanceId?: string;
   mode?: number;
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       defenseType: 'DefenseType',
       domain: 'Domain',
       instanceId: 'InstanceId',
       mode: 'Mode',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1978,6 +2285,8 @@ export class ModifyProtectionModuleModeRequest extends $tea.Model {
       domain: 'string',
       instanceId: 'string',
       mode: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -2007,10 +2316,12 @@ export class ModifyProtectionModuleModeResponseBody extends $tea.Model {
 
 export class ModifyProtectionModuleModeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyProtectionModuleModeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2018,6 +2329,7 @@ export class ModifyProtectionModuleModeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyProtectionModuleModeResponseBody,
     };
   }
@@ -2032,6 +2344,8 @@ export class ModifyProtectionModuleRuleRequest extends $tea.Model {
   domain?: string;
   instanceId?: string;
   lockVersion?: number;
+  regionId?: string;
+  resourceGroupId?: string;
   rule?: string;
   ruleId?: number;
   static names(): { [key: string]: string } {
@@ -2040,6 +2354,8 @@ export class ModifyProtectionModuleRuleRequest extends $tea.Model {
       domain: 'Domain',
       instanceId: 'InstanceId',
       lockVersion: 'LockVersion',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       rule: 'Rule',
       ruleId: 'RuleId',
     };
@@ -2051,6 +2367,8 @@ export class ModifyProtectionModuleRuleRequest extends $tea.Model {
       domain: 'string',
       instanceId: 'string',
       lockVersion: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
       rule: 'string',
       ruleId: 'number',
     };
@@ -2082,10 +2400,12 @@ export class ModifyProtectionModuleRuleResponseBody extends $tea.Model {
 
 export class ModifyProtectionModuleRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyProtectionModuleRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2093,6 +2413,7 @@ export class ModifyProtectionModuleRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyProtectionModuleRuleResponseBody,
     };
   }
@@ -2107,12 +2428,16 @@ export class ModifyProtectionModuleStatusRequest extends $tea.Model {
   domain?: string;
   instanceId?: string;
   moduleStatus?: number;
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       defenseType: 'DefenseType',
       domain: 'Domain',
       instanceId: 'InstanceId',
       moduleStatus: 'ModuleStatus',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -2122,6 +2447,8 @@ export class ModifyProtectionModuleStatusRequest extends $tea.Model {
       domain: 'string',
       instanceId: 'string',
       moduleStatus: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -2151,10 +2478,12 @@ export class ModifyProtectionModuleStatusResponseBody extends $tea.Model {
 
 export class ModifyProtectionModuleStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyProtectionModuleStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2162,6 +2491,7 @@ export class ModifyProtectionModuleStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyProtectionModuleStatusResponseBody,
     };
   }
@@ -2175,12 +2505,16 @@ export class ModifyProtectionRuleCacheStatusRequest extends $tea.Model {
   defenseType?: string;
   domain?: string;
   instanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
       defenseType: 'DefenseType',
       domain: 'Domain',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       ruleId: 'RuleId',
     };
   }
@@ -2190,6 +2524,8 @@ export class ModifyProtectionRuleCacheStatusRequest extends $tea.Model {
       defenseType: 'string',
       domain: 'string',
       instanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
       ruleId: 'number',
     };
   }
@@ -2220,10 +2556,12 @@ export class ModifyProtectionRuleCacheStatusResponseBody extends $tea.Model {
 
 export class ModifyProtectionRuleCacheStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyProtectionRuleCacheStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2231,6 +2569,7 @@ export class ModifyProtectionRuleCacheStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyProtectionRuleCacheStatusResponseBody,
     };
   }
@@ -2245,6 +2584,8 @@ export class ModifyProtectionRuleStatusRequest extends $tea.Model {
   domain?: string;
   instanceId?: string;
   lockVersion?: number;
+  regionId?: string;
+  resourceGroupId?: string;
   ruleId?: number;
   ruleStatus?: number;
   static names(): { [key: string]: string } {
@@ -2253,6 +2594,8 @@ export class ModifyProtectionRuleStatusRequest extends $tea.Model {
       domain: 'Domain',
       instanceId: 'InstanceId',
       lockVersion: 'LockVersion',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       ruleId: 'RuleId',
       ruleStatus: 'RuleStatus',
     };
@@ -2264,6 +2607,8 @@ export class ModifyProtectionRuleStatusRequest extends $tea.Model {
       domain: 'string',
       instanceId: 'string',
       lockVersion: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
       ruleId: 'number',
       ruleStatus: 'number',
     };
@@ -2295,10 +2640,12 @@ export class ModifyProtectionRuleStatusResponseBody extends $tea.Model {
 
 export class ModifyProtectionRuleStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyProtectionRuleStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2306,6 +2653,7 @@ export class ModifyProtectionRuleStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyProtectionRuleStatusResponseBody,
     };
   }
@@ -2364,10 +2712,12 @@ export class MoveResourceGroupResponseBody extends $tea.Model {
 
 export class MoveResourceGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: MoveResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2375,6 +2725,7 @@ export class MoveResourceGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: MoveResourceGroupResponseBody,
     };
   }
@@ -2387,15 +2738,19 @@ export class MoveResourceGroupResponse extends $tea.Model {
 export class SetDomainRuleGroupRequest extends $tea.Model {
   domains?: string;
   instanceId?: string;
+  regionId?: string;
   resourceGroupId?: string;
   ruleGroupId?: number;
+  wafAiStatus?: number;
   wafVersion?: number;
   static names(): { [key: string]: string } {
     return {
       domains: 'Domains',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       ruleGroupId: 'RuleGroupId',
+      wafAiStatus: 'WafAiStatus',
       wafVersion: 'WafVersion',
     };
   }
@@ -2404,8 +2759,10 @@ export class SetDomainRuleGroupRequest extends $tea.Model {
     return {
       domains: 'string',
       instanceId: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
       ruleGroupId: 'number',
+      wafAiStatus: 'number',
       wafVersion: 'number',
     };
   }
@@ -2436,10 +2793,12 @@ export class SetDomainRuleGroupResponseBody extends $tea.Model {
 
 export class SetDomainRuleGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetDomainRuleGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2447,6 +2806,7 @@ export class SetDomainRuleGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetDomainRuleGroupResponseBody,
     };
   }
@@ -2460,6 +2820,7 @@ export class DescribeCertificatesResponseBodyCertificates extends $tea.Model {
   certificateId?: number;
   certificateName?: string;
   commonName?: string;
+  endTime?: number;
   isUsing?: boolean;
   sans?: string[];
   static names(): { [key: string]: string } {
@@ -2467,6 +2828,7 @@ export class DescribeCertificatesResponseBodyCertificates extends $tea.Model {
       certificateId: 'CertificateId',
       certificateName: 'CertificateName',
       commonName: 'CommonName',
+      endTime: 'EndTime',
       isUsing: 'IsUsing',
       sans: 'Sans',
     };
@@ -2477,6 +2839,7 @@ export class DescribeCertificatesResponseBodyCertificates extends $tea.Model {
       certificateId: 'number',
       certificateName: 'string',
       commonName: 'string',
+      endTime: 'number',
       isUsing: 'boolean',
       sans: { 'type': 'array', 'itemType': 'string' },
     };
@@ -2488,7 +2851,7 @@ export class DescribeCertificatesResponseBodyCertificates extends $tea.Model {
 }
 
 export class DescribeDomainResponseBodyDomainCloudNativeInstancesProtocolPortConfigs extends $tea.Model {
-  ports?: string;
+  ports?: number[];
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2499,7 +2862,7 @@ export class DescribeDomainResponseBodyDomainCloudNativeInstancesProtocolPortCon
 
   static types(): { [key: string]: any } {
     return {
-      ports: 'string',
+      ports: { 'type': 'array', 'itemType': 'number' },
       protocol: 'string',
     };
   }
@@ -2511,7 +2874,7 @@ export class DescribeDomainResponseBodyDomainCloudNativeInstancesProtocolPortCon
 
 export class DescribeDomainResponseBodyDomainCloudNativeInstances extends $tea.Model {
   cloudNativeProductName?: string;
-  IPAddressList?: string;
+  IPAddressList?: string[];
   instanceId?: string;
   protocolPortConfigs?: DescribeDomainResponseBodyDomainCloudNativeInstancesProtocolPortConfigs[];
   redirectionTypeName?: string;
@@ -2528,7 +2891,7 @@ export class DescribeDomainResponseBodyDomainCloudNativeInstances extends $tea.M
   static types(): { [key: string]: any } {
     return {
       cloudNativeProductName: 'string',
-      IPAddressList: 'string',
+      IPAddressList: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
       protocolPortConfigs: { 'type': 'array', 'itemType': DescribeDomainResponseBodyDomainCloudNativeInstancesProtocolPortConfigs },
       redirectionTypeName: 'string',
@@ -2570,17 +2933,21 @@ export class DescribeDomainResponseBodyDomain extends $tea.Model {
   clusterType?: number;
   cname?: string;
   connectionTime?: number;
-  http2Port?: string[];
-  httpPort?: string[];
+  http2Port?: number[];
+  httpPort?: number[];
   httpToUserIp?: number;
-  httpsPort?: string[];
+  httpsPort?: number[];
   httpsRedirect?: number;
   ipFollowStatus?: number;
   isAccessProduct?: number;
+  keepalive?: boolean;
+  keepaliveRequests?: number;
+  keepaliveTimeout?: number;
   loadBalancing?: number;
   logHeaders?: DescribeDomainResponseBodyDomainLogHeaders[];
   readTime?: number;
   resourceGroupId?: string;
+  retry?: boolean;
   sniHost?: string;
   sniStatus?: number;
   sourceIps?: string[];
@@ -2602,10 +2969,14 @@ export class DescribeDomainResponseBodyDomain extends $tea.Model {
       httpsRedirect: 'HttpsRedirect',
       ipFollowStatus: 'IpFollowStatus',
       isAccessProduct: 'IsAccessProduct',
+      keepalive: 'Keepalive',
+      keepaliveRequests: 'KeepaliveRequests',
+      keepaliveTimeout: 'KeepaliveTimeout',
       loadBalancing: 'LoadBalancing',
       logHeaders: 'LogHeaders',
       readTime: 'ReadTime',
       resourceGroupId: 'ResourceGroupId',
+      retry: 'Retry',
       sniHost: 'SniHost',
       sniStatus: 'SniStatus',
       sourceIps: 'SourceIps',
@@ -2623,17 +2994,21 @@ export class DescribeDomainResponseBodyDomain extends $tea.Model {
       clusterType: 'number',
       cname: 'string',
       connectionTime: 'number',
-      http2Port: { 'type': 'array', 'itemType': 'string' },
-      httpPort: { 'type': 'array', 'itemType': 'string' },
+      http2Port: { 'type': 'array', 'itemType': 'number' },
+      httpPort: { 'type': 'array', 'itemType': 'number' },
       httpToUserIp: 'number',
-      httpsPort: { 'type': 'array', 'itemType': 'string' },
+      httpsPort: { 'type': 'array', 'itemType': 'number' },
       httpsRedirect: 'number',
       ipFollowStatus: 'number',
       isAccessProduct: 'number',
+      keepalive: 'boolean',
+      keepaliveRequests: 'number',
+      keepaliveTimeout: 'number',
       loadBalancing: 'number',
       logHeaders: { 'type': 'array', 'itemType': DescribeDomainResponseBodyDomainLogHeaders },
       readTime: 'number',
       resourceGroupId: 'string',
+      retry: 'boolean',
       sniHost: 'string',
       sniStatus: 'number',
       sourceIps: { 'type': 'array', 'itemType': 'string' },
@@ -2940,11 +3315,34 @@ export default class Client extends OpenApi {
   async createCertificateWithOptions(request: CreateCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Certificate"] = request.certificate;
-    query["CertificateName"] = request.certificateName;
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
-    query["PrivateKey"] = request.privateKey;
+    if (!Util.isUnset(request.certificate)) {
+      query["Certificate"] = request.certificate;
+    }
+
+    if (!Util.isUnset(request.certificateName)) {
+      query["CertificateName"] = request.certificateName;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.privateKey)) {
+      query["PrivateKey"] = request.privateKey;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2970,9 +3368,26 @@ export default class Client extends OpenApi {
   async createCertificateByCertificateIdWithOptions(request: CreateCertificateByCertificateIdRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateByCertificateIdResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertificateId"] = request.certificateId;
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2998,29 +3413,118 @@ export default class Client extends OpenApi {
   async createDomainWithOptions(request: CreateDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessHeaderMode"] = request.accessHeaderMode;
-    query["AccessHeaders"] = request.accessHeaders;
-    query["AccessType"] = request.accessType;
-    query["CloudNativeInstances"] = request.cloudNativeInstances;
-    query["ClusterType"] = request.clusterType;
-    query["ConnectionTime"] = request.connectionTime;
-    query["Domain"] = request.domain;
-    query["Http2Port"] = request.http2Port;
-    query["HttpPort"] = request.httpPort;
-    query["HttpToUserIp"] = request.httpToUserIp;
-    query["HttpsPort"] = request.httpsPort;
-    query["HttpsRedirect"] = request.httpsRedirect;
-    query["InstanceId"] = request.instanceId;
-    query["IpFollowStatus"] = request.ipFollowStatus;
-    query["IsAccessProduct"] = request.isAccessProduct;
-    query["LoadBalancing"] = request.loadBalancing;
-    query["LogHeaders"] = request.logHeaders;
-    query["ReadTime"] = request.readTime;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["SniHost"] = request.sniHost;
-    query["SniStatus"] = request.sniStatus;
-    query["SourceIps"] = request.sourceIps;
-    query["WriteTime"] = request.writeTime;
+    if (!Util.isUnset(request.accessHeaderMode)) {
+      query["AccessHeaderMode"] = request.accessHeaderMode;
+    }
+
+    if (!Util.isUnset(request.accessHeaders)) {
+      query["AccessHeaders"] = request.accessHeaders;
+    }
+
+    if (!Util.isUnset(request.accessType)) {
+      query["AccessType"] = request.accessType;
+    }
+
+    if (!Util.isUnset(request.cloudNativeInstances)) {
+      query["CloudNativeInstances"] = request.cloudNativeInstances;
+    }
+
+    if (!Util.isUnset(request.clusterType)) {
+      query["ClusterType"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.connectionTime)) {
+      query["ConnectionTime"] = request.connectionTime;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.http2Port)) {
+      query["Http2Port"] = request.http2Port;
+    }
+
+    if (!Util.isUnset(request.httpPort)) {
+      query["HttpPort"] = request.httpPort;
+    }
+
+    if (!Util.isUnset(request.httpToUserIp)) {
+      query["HttpToUserIp"] = request.httpToUserIp;
+    }
+
+    if (!Util.isUnset(request.httpsPort)) {
+      query["HttpsPort"] = request.httpsPort;
+    }
+
+    if (!Util.isUnset(request.httpsRedirect)) {
+      query["HttpsRedirect"] = request.httpsRedirect;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ipFollowStatus)) {
+      query["IpFollowStatus"] = request.ipFollowStatus;
+    }
+
+    if (!Util.isUnset(request.isAccessProduct)) {
+      query["IsAccessProduct"] = request.isAccessProduct;
+    }
+
+    if (!Util.isUnset(request.keepalive)) {
+      query["Keepalive"] = request.keepalive;
+    }
+
+    if (!Util.isUnset(request.keepaliveRequests)) {
+      query["KeepaliveRequests"] = request.keepaliveRequests;
+    }
+
+    if (!Util.isUnset(request.keepaliveTimeout)) {
+      query["KeepaliveTimeout"] = request.keepaliveTimeout;
+    }
+
+    if (!Util.isUnset(request.loadBalancing)) {
+      query["LoadBalancing"] = request.loadBalancing;
+    }
+
+    if (!Util.isUnset(request.logHeaders)) {
+      query["LogHeaders"] = request.logHeaders;
+    }
+
+    if (!Util.isUnset(request.readTime)) {
+      query["ReadTime"] = request.readTime;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.retry)) {
+      query["Retry"] = request.retry;
+    }
+
+    if (!Util.isUnset(request.sniHost)) {
+      query["SniHost"] = request.sniHost;
+    }
+
+    if (!Util.isUnset(request.sniStatus)) {
+      query["SniStatus"] = request.sniStatus;
+    }
+
+    if (!Util.isUnset(request.sourceIps)) {
+      query["SourceIps"] = request.sourceIps;
+    }
+
+    if (!Util.isUnset(request.writeTime)) {
+      query["WriteTime"] = request.writeTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3046,10 +3550,30 @@ export default class Client extends OpenApi {
   async createProtectionModuleRuleWithOptions(request: CreateProtectionModuleRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateProtectionModuleRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DefenseType"] = request.defenseType;
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
-    query["Rule"] = request.rule;
+    if (!Util.isUnset(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3075,8 +3599,22 @@ export default class Client extends OpenApi {
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3102,8 +3640,18 @@ export default class Client extends OpenApi {
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3129,10 +3677,30 @@ export default class Client extends OpenApi {
   async deleteProtectionModuleRuleWithOptions(request: DeleteProtectionModuleRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProtectionModuleRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DefenseType"] = request.defenseType;
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
-    query["RuleId"] = request.ruleId;
+    if (!Util.isUnset(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3158,10 +3726,30 @@ export default class Client extends OpenApi {
   async describeCertMatchStatusWithOptions(request: DescribeCertMatchStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertMatchStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Certificate"] = request.certificate;
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
-    query["PrivateKey"] = request.privateKey;
+    if (!Util.isUnset(request.certificate)) {
+      query["Certificate"] = request.certificate;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.privateKey)) {
+      query["PrivateKey"] = request.privateKey;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3187,8 +3775,22 @@ export default class Client extends OpenApi {
   async describeCertificatesWithOptions(request: DescribeCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertificatesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3214,8 +3816,22 @@ export default class Client extends OpenApi {
   async describeDomainWithOptions(request: DescribeDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3241,9 +3857,22 @@ export default class Client extends OpenApi {
   async describeDomainAdvanceConfigsWithOptions(request: DescribeDomainAdvanceConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainAdvanceConfigsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainList"] = request.domainList;
-    query["InstanceId"] = request.instanceId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.domainList)) {
+      query["DomainList"] = request.domainList;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3269,13 +3898,38 @@ export default class Client extends OpenApi {
   async describeDomainBasicConfigsWithOptions(request: DescribeDomainBasicConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainBasicConfigsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessType"] = request.accessType;
-    query["CloudNativeProductId"] = request.cloudNativeProductId;
-    query["DomainKey"] = request.domainKey;
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.accessType)) {
+      query["AccessType"] = request.accessType;
+    }
+
+    if (!Util.isUnset(request.cloudNativeProductId)) {
+      query["CloudNativeProductId"] = request.cloudNativeProductId;
+    }
+
+    if (!Util.isUnset(request.domainKey)) {
+      query["DomainKey"] = request.domainKey;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3301,13 +3955,38 @@ export default class Client extends OpenApi {
   async describeDomainListWithOptions(request: DescribeDomainListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["DomainNames"] = request.domainNames;
-    query["InstanceId"] = request.instanceId;
-    query["IsSub"] = request.isSub;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.isSub)) {
+      query["IsSub"] = request.isSub;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3333,8 +4012,18 @@ export default class Client extends OpenApi {
   async describeDomainNamesWithOptions(request: DescribeDomainNamesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainNamesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3360,8 +4049,22 @@ export default class Client extends OpenApi {
   async describeDomainRuleGroupWithOptions(request: DescribeDomainRuleGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRuleGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3387,8 +4090,18 @@ export default class Client extends OpenApi {
   async describeInstanceInfoWithOptions(request: DescribeInstanceInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3414,8 +4127,18 @@ export default class Client extends OpenApi {
   async describeInstanceSpecInfoWithOptions(request: DescribeInstanceSpecInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSpecInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3441,12 +4164,34 @@ export default class Client extends OpenApi {
   async describeLogServiceStatusWithOptions(request: DescribeLogServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogServiceStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainNames"] = request.domainNames;
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["Region"] = request.region;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3472,10 +4217,26 @@ export default class Client extends OpenApi {
   async describeProtectionModuleCodeConfigWithOptions(request: DescribeProtectionModuleCodeConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleCodeConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CodeType"] = request.codeType;
-    query["CodeValue"] = request.codeValue;
-    query["InstanceId"] = request.instanceId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.codeType)) {
+      query["CodeType"] = request.codeType;
+    }
+
+    if (!Util.isUnset(request.codeValue)) {
+      query["CodeValue"] = request.codeValue;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3498,17 +4259,90 @@ export default class Client extends OpenApi {
     return await this.describeProtectionModuleCodeConfigWithOptions(request, runtime);
   }
 
+  async describeProtectionModuleModeWithOptions(request: DescribeProtectionModuleModeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleModeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeProtectionModuleMode",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProtectionModuleModeResponse>(await this.callApi(params, req, runtime), new DescribeProtectionModuleModeResponse({}));
+  }
+
+  async describeProtectionModuleMode(request: DescribeProtectionModuleModeRequest): Promise<DescribeProtectionModuleModeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProtectionModuleModeWithOptions(request, runtime);
+  }
+
   async describeProtectionModuleRulesWithOptions(request: DescribeProtectionModuleRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleRulesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DefenseType"] = request.defenseType;
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
-    query["Lang"] = request.lang;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["Query"] = request.query;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3534,9 +4368,26 @@ export default class Client extends OpenApi {
   async describeProtectionModuleStatusWithOptions(request: DescribeProtectionModuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DefenseType"] = request.defenseType;
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3562,8 +4413,18 @@ export default class Client extends OpenApi {
   async describeWafSourceIpSegmentWithOptions(request: DescribeWafSourceIpSegmentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWafSourceIpSegmentResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3589,29 +4450,122 @@ export default class Client extends OpenApi {
   async modifyDomainWithOptions(request: ModifyDomainRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessHeaderMode"] = request.accessHeaderMode;
-    query["AccessHeaders"] = request.accessHeaders;
-    query["AccessType"] = request.accessType;
-    query["CloudNativeInstances"] = request.cloudNativeInstances;
-    query["ClusterType"] = request.clusterType;
-    query["ConnectionTime"] = request.connectionTime;
-    query["Domain"] = request.domain;
-    query["Http2Port"] = request.http2Port;
-    query["HttpPort"] = request.httpPort;
-    query["HttpToUserIp"] = request.httpToUserIp;
-    query["HttpsPort"] = request.httpsPort;
-    query["HttpsRedirect"] = request.httpsRedirect;
-    query["InstanceId"] = request.instanceId;
-    query["InstanceId"] = request.instanceId;
-    query["IpFollowStatus"] = request.ipFollowStatus;
-    query["IsAccessProduct"] = request.isAccessProduct;
-    query["LoadBalancing"] = request.loadBalancing;
-    query["LogHeaders"] = request.logHeaders;
-    query["ReadTime"] = request.readTime;
-    query["SniHost"] = request.sniHost;
-    query["SniStatus"] = request.sniStatus;
-    query["SourceIps"] = request.sourceIps;
-    query["WriteTime"] = request.writeTime;
+    if (!Util.isUnset(request.accessHeaderMode)) {
+      query["AccessHeaderMode"] = request.accessHeaderMode;
+    }
+
+    if (!Util.isUnset(request.accessHeaders)) {
+      query["AccessHeaders"] = request.accessHeaders;
+    }
+
+    if (!Util.isUnset(request.accessType)) {
+      query["AccessType"] = request.accessType;
+    }
+
+    if (!Util.isUnset(request.cloudNativeInstances)) {
+      query["CloudNativeInstances"] = request.cloudNativeInstances;
+    }
+
+    if (!Util.isUnset(request.clusterType)) {
+      query["ClusterType"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.connectionTime)) {
+      query["ConnectionTime"] = request.connectionTime;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.http2Port)) {
+      query["Http2Port"] = request.http2Port;
+    }
+
+    if (!Util.isUnset(request.httpPort)) {
+      query["HttpPort"] = request.httpPort;
+    }
+
+    if (!Util.isUnset(request.httpToUserIp)) {
+      query["HttpToUserIp"] = request.httpToUserIp;
+    }
+
+    if (!Util.isUnset(request.httpsPort)) {
+      query["HttpsPort"] = request.httpsPort;
+    }
+
+    if (!Util.isUnset(request.httpsRedirect)) {
+      query["HttpsRedirect"] = request.httpsRedirect;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ipFollowStatus)) {
+      query["IpFollowStatus"] = request.ipFollowStatus;
+    }
+
+    if (!Util.isUnset(request.isAccessProduct)) {
+      query["IsAccessProduct"] = request.isAccessProduct;
+    }
+
+    if (!Util.isUnset(request.keepalive)) {
+      query["Keepalive"] = request.keepalive;
+    }
+
+    if (!Util.isUnset(request.keepaliveRequests)) {
+      query["KeepaliveRequests"] = request.keepaliveRequests;
+    }
+
+    if (!Util.isUnset(request.keepaliveTimeout)) {
+      query["KeepaliveTimeout"] = request.keepaliveTimeout;
+    }
+
+    if (!Util.isUnset(request.loadBalancing)) {
+      query["LoadBalancing"] = request.loadBalancing;
+    }
+
+    if (!Util.isUnset(request.logHeaders)) {
+      query["LogHeaders"] = request.logHeaders;
+    }
+
+    if (!Util.isUnset(request.readTime)) {
+      query["ReadTime"] = request.readTime;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.retry)) {
+      query["Retry"] = request.retry;
+    }
+
+    if (!Util.isUnset(request.sniHost)) {
+      query["SniHost"] = request.sniHost;
+    }
+
+    if (!Util.isUnset(request.sniStatus)) {
+      query["SniStatus"] = request.sniStatus;
+    }
+
+    if (!Util.isUnset(request.sourceIps)) {
+      query["SourceIps"] = request.sourceIps;
+    }
+
+    if (!Util.isUnset(request.writeTime)) {
+      query["WriteTime"] = request.writeTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3637,9 +4591,26 @@ export default class Client extends OpenApi {
   async modifyDomainIpv6StatusWithOptions(request: ModifyDomainIpv6StatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainIpv6StatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domain"] = request.domain;
-    query["Enabled"] = request.enabled;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3665,9 +4636,26 @@ export default class Client extends OpenApi {
   async modifyLogRetrievalStatusWithOptions(request: ModifyLogRetrievalStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLogRetrievalStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domain"] = request.domain;
-    query["Enabled"] = request.enabled;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3693,9 +4681,26 @@ export default class Client extends OpenApi {
   async modifyLogServiceStatusWithOptions(request: ModifyLogServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLogServiceStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domain"] = request.domain;
-    query["Enabled"] = request.enabled;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3721,10 +4726,30 @@ export default class Client extends OpenApi {
   async modifyProtectionModuleModeWithOptions(request: ModifyProtectionModuleModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionModuleModeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DefenseType"] = request.defenseType;
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
-    query["Mode"] = request.mode;
+    if (!Util.isUnset(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3750,12 +4775,38 @@ export default class Client extends OpenApi {
   async modifyProtectionModuleRuleWithOptions(request: ModifyProtectionModuleRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionModuleRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DefenseType"] = request.defenseType;
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
-    query["LockVersion"] = request.lockVersion;
-    query["Rule"] = request.rule;
-    query["RuleId"] = request.ruleId;
+    if (!Util.isUnset(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lockVersion)) {
+      query["LockVersion"] = request.lockVersion;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3781,10 +4832,30 @@ export default class Client extends OpenApi {
   async modifyProtectionModuleStatusWithOptions(request: ModifyProtectionModuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionModuleStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DefenseType"] = request.defenseType;
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
-    query["ModuleStatus"] = request.moduleStatus;
+    if (!Util.isUnset(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.moduleStatus)) {
+      query["ModuleStatus"] = request.moduleStatus;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3810,10 +4881,30 @@ export default class Client extends OpenApi {
   async modifyProtectionRuleCacheStatusWithOptions(request: ModifyProtectionRuleCacheStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionRuleCacheStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DefenseType"] = request.defenseType;
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
-    query["RuleId"] = request.ruleId;
+    if (!Util.isUnset(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3839,12 +4930,38 @@ export default class Client extends OpenApi {
   async modifyProtectionRuleStatusWithOptions(request: ModifyProtectionRuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionRuleStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DefenseType"] = request.defenseType;
-    query["Domain"] = request.domain;
-    query["InstanceId"] = request.instanceId;
-    query["LockVersion"] = request.lockVersion;
-    query["RuleId"] = request.ruleId;
-    query["RuleStatus"] = request.ruleStatus;
+    if (!Util.isUnset(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lockVersion)) {
+      query["LockVersion"] = request.lockVersion;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.ruleStatus)) {
+      query["RuleStatus"] = request.ruleStatus;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3870,9 +4987,22 @@ export default class Client extends OpenApi {
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3898,11 +5028,34 @@ export default class Client extends OpenApi {
   async setDomainRuleGroupWithOptions(request: SetDomainRuleGroupRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainRuleGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domains"] = request.domains;
-    query["InstanceId"] = request.instanceId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["RuleGroupId"] = request.ruleGroupId;
-    query["WafVersion"] = request.wafVersion;
+    if (!Util.isUnset(request.domains)) {
+      query["Domains"] = request.domains;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.ruleGroupId)) {
+      query["RuleGroupId"] = request.ruleGroupId;
+    }
+
+    if (!Util.isUnset(request.wafAiStatus)) {
+      query["WafAiStatus"] = request.wafAiStatus;
+    }
+
+    if (!Util.isUnset(request.wafVersion)) {
+      query["WafVersion"] = request.wafVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
