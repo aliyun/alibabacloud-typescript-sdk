@@ -861,6 +861,8 @@ export class JobSettings extends $tea.Model {
   enableRDMA?: boolean;
   enableTideResource?: boolean;
   errorMonitoringArgs?: string;
+  jobReservedMinutes?: number;
+  jobReservedPolicy?: string;
   oversoldType?: string;
   pipelineId?: string;
   tags?: { [key: string]: string };
@@ -875,6 +877,8 @@ export class JobSettings extends $tea.Model {
       enableRDMA: 'EnableRDMA',
       enableTideResource: 'EnableTideResource',
       errorMonitoringArgs: 'ErrorMonitoringArgs',
+      jobReservedMinutes: 'JobReservedMinutes',
+      jobReservedPolicy: 'JobReservedPolicy',
       oversoldType: 'OversoldType',
       pipelineId: 'PipelineId',
       tags: 'Tags',
@@ -892,6 +896,8 @@ export class JobSettings extends $tea.Model {
       enableRDMA: 'boolean',
       enableTideResource: 'boolean',
       errorMonitoringArgs: 'string',
+      jobReservedMinutes: 'number',
+      jobReservedPolicy: 'string',
       oversoldType: 'string',
       pipelineId: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -2657,6 +2663,7 @@ export class ListJobsRequest extends $tea.Model {
   startTime?: string;
   status?: string;
   tags?: { [key: string]: string };
+  userIdForFilter?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2677,6 +2684,7 @@ export class ListJobsRequest extends $tea.Model {
       startTime: 'StartTime',
       status: 'Status',
       tags: 'Tags',
+      userIdForFilter: 'UserIdForFilter',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -2700,6 +2708,7 @@ export class ListJobsRequest extends $tea.Model {
       startTime: 'string',
       status: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      userIdForFilter: 'string',
       workspaceId: 'string',
     };
   }
@@ -2727,6 +2736,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
   startTime?: string;
   status?: string;
   tagsShrink?: string;
+  userIdForFilter?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2747,6 +2757,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       startTime: 'StartTime',
       status: 'Status',
       tagsShrink: 'Tags',
+      userIdForFilter: 'UserIdForFilter',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -2770,6 +2781,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       startTime: 'string',
       status: 'string',
       tagsShrink: 'string',
+      userIdForFilter: 'string',
       workspaceId: 'string',
     };
   }
@@ -3335,10 +3347,12 @@ export class CreateJobRequestCodeSource extends $tea.Model {
 export class CreateJobRequestDataSources extends $tea.Model {
   dataSourceId?: string;
   mountPath?: string;
+  uri?: string;
   static names(): { [key: string]: string } {
     return {
       dataSourceId: 'DataSourceId',
       mountPath: 'MountPath',
+      uri: 'Uri',
     };
   }
 
@@ -3346,6 +3360,7 @@ export class CreateJobRequestDataSources extends $tea.Model {
     return {
       dataSourceId: 'string',
       mountPath: 'string',
+      uri: 'string',
     };
   }
 
@@ -3416,10 +3431,12 @@ export class GetJobResponseBodyCodeSource extends $tea.Model {
 export class GetJobResponseBodyDataSources extends $tea.Model {
   dataSourceId?: string;
   mountPath?: string;
+  uri?: string;
   static names(): { [key: string]: string } {
     return {
       dataSourceId: 'DataSourceId',
       mountPath: 'MountPath',
+      uri: 'Uri',
     };
   }
 
@@ -3427,6 +3444,7 @@ export class GetJobResponseBodyDataSources extends $tea.Model {
     return {
       dataSourceId: 'string',
       mountPath: 'string',
+      uri: 'string',
     };
   }
 
@@ -4323,6 +4341,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tagsShrink)) {
       query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.userIdForFilter)) {
+      query["UserIdForFilter"] = request.userIdForFilter;
     }
 
     if (!Util.isUnset(request.workspaceId)) {
