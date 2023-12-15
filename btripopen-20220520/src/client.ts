@@ -3101,6 +3101,109 @@ export class ApplyQueryResponse extends $tea.Model {
   }
 }
 
+export class BaseCityInfoSearchHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripAccessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripAccessToken: 'x-acs-btrip-access-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripAccessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BaseCityInfoSearchRequest extends $tea.Model {
+  keyword?: string;
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'keyword',
+      region: 'region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BaseCityInfoSearchResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: BaseCityInfoSearchResponseBodyModule[];
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: { 'type': 'array', 'itemType': BaseCityInfoSearchResponseBodyModule },
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BaseCityInfoSearchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BaseCityInfoSearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BaseCityInfoSearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BtripBillInfoAdjustHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripCorpToken?: string;
@@ -22132,6 +22235,34 @@ export class ApplyQueryResponseBodyModule extends $tea.Model {
   }
 }
 
+export class BaseCityInfoSearchResponseBodyModule extends $tea.Model {
+  code?: string;
+  name?: string;
+  nameTree?: string;
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      name: 'name',
+      nameTree: 'nameTree',
+      region: 'region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      nameTree: 'string',
+      region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CarApplyAddRequestTravelerStandardCarCitySet extends $tea.Model {
   cityCode?: string;
   cityName?: string;
@@ -23983,6 +24114,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
   advanceDay?: number;
   airlineCorpCode?: string;
   airlineCorpName?: string;
+  alipayId?: string;
   alipayTradeNo?: string;
   applyArrCityCode?: string;
   applyArrCityName?: string;
@@ -24079,6 +24211,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       advanceDay: 'advance_day',
       airlineCorpCode: 'airline_corp_code',
       airlineCorpName: 'airline_corp_name',
+      alipayId: 'alipay_id',
       alipayTradeNo: 'alipay_trade_no',
       applyArrCityCode: 'apply_arr_city_code',
       applyArrCityName: 'apply_arr_city_name',
@@ -24178,6 +24311,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       advanceDay: 'number',
       airlineCorpCode: 'string',
       airlineCorpName: 'string',
+      alipayId: 'string',
       alipayTradeNo: 'string',
       applyArrCityCode: 'string',
       applyArrCityName: 'string',
@@ -45979,6 +46113,7 @@ export class TrainOrderQueryV2ResponseBodyModuleChangeTicketInfoList extends $te
   segmentIndex?: number;
   startTime?: string;
   ticketNo?: string;
+  ticketStatus?: number;
   toCityName?: string;
   toStationName?: string;
   useTicket?: string;
@@ -46005,6 +46140,7 @@ export class TrainOrderQueryV2ResponseBodyModuleChangeTicketInfoList extends $te
       segmentIndex: 'segment_index',
       startTime: 'start_time',
       ticketNo: 'ticket_no',
+      ticketStatus: 'ticket_status',
       toCityName: 'to_city_name',
       toStationName: 'to_station_name',
       useTicket: 'use_ticket',
@@ -46034,6 +46170,7 @@ export class TrainOrderQueryV2ResponseBodyModuleChangeTicketInfoList extends $te
       segmentIndex: 'number',
       startTime: 'string',
       ticketNo: 'string',
+      ticketStatus: 'number',
       toCityName: 'string',
       toStationName: 'string',
       useTicket: 'string',
@@ -47916,6 +48053,50 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ApplyQueryHeaders({ });
     return await this.applyQueryWithOptions(request, headers, runtime);
+  }
+
+  async baseCityInfoSearchWithOptions(request: BaseCityInfoSearchRequest, headers: BaseCityInfoSearchHeaders, runtime: $Util.RuntimeOptions): Promise<BaseCityInfoSearchResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["region"] = request.region;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripAccessToken)) {
+      realHeaders["x-acs-btrip-access-token"] = Util.toJSONString(headers.xAcsBtripAccessToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BaseCityInfoSearch",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/city/v1/cities/action/search`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<BaseCityInfoSearchResponse>(await this.callApi(params, req, runtime), new BaseCityInfoSearchResponse({}));
+  }
+
+  async baseCityInfoSearch(request: BaseCityInfoSearchRequest): Promise<BaseCityInfoSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new BaseCityInfoSearchHeaders({ });
+    return await this.baseCityInfoSearchWithOptions(request, headers, runtime);
   }
 
   async btripBillInfoAdjustWithOptions(request: BtripBillInfoAdjustRequest, headers: BtripBillInfoAdjustHeaders, runtime: $Util.RuntimeOptions): Promise<BtripBillInfoAdjustResponse> {
