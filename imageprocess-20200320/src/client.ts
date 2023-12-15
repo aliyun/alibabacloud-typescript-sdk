@@ -2351,6 +2351,28 @@ export class ScreenECRequest extends $tea.Model {
   }
 }
 
+export class ScreenECAdvanceRequest extends $tea.Model {
+  dataSourceType?: string;
+  URLList?: ScreenECAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceType: 'DataSourceType',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceType: 'string',
+      URLList: { 'type': 'array', 'itemType': ScreenECAdvanceRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScreenECResponseBody extends $tea.Model {
   data?: ScreenECResponseBodyData;
   message?: string;
@@ -6070,6 +6092,25 @@ export class ScreenECRequestURLList extends $tea.Model {
   }
 }
 
+export class ScreenECAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScreenECResponseBodyDataLesion extends $tea.Model {
   benignVolume?: string;
   ecVolume?: string;
@@ -9190,6 +9231,89 @@ export default class Client extends OpenApi {
   async screenEC(request: ScreenECRequest): Promise<ScreenECResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.screenECWithOptions(request, runtime);
+  }
+
+  async screenECAdvance(request: ScreenECAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ScreenECResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let screenECReq = new ScreenECRequest({ });
+    OpenApiUtil.convert(request, screenECReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : ScreenECRequestURLList = screenECReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let screenECResp = await this.screenECWithOptions(screenECReq, runtime);
+    return screenECResp;
   }
 
   async screenGCWithOptions(request: ScreenGCRequest, runtime: $Util.RuntimeOptions): Promise<ScreenGCResponse> {
