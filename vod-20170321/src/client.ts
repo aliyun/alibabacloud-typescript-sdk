@@ -10379,6 +10379,7 @@ export class SubmitSnapshotJobRequest extends $tea.Model {
   interval?: number;
   snapshotTemplateId?: string;
   specifiedOffsetTime?: number;
+  specifiedOffsetTimes?: number[];
   spriteSnapshotConfig?: string;
   userData?: string;
   videoId?: string;
@@ -10390,6 +10391,7 @@ export class SubmitSnapshotJobRequest extends $tea.Model {
       interval: 'Interval',
       snapshotTemplateId: 'SnapshotTemplateId',
       specifiedOffsetTime: 'SpecifiedOffsetTime',
+      specifiedOffsetTimes: 'SpecifiedOffsetTimes',
       spriteSnapshotConfig: 'SpriteSnapshotConfig',
       userData: 'UserData',
       videoId: 'VideoId',
@@ -10404,6 +10406,53 @@ export class SubmitSnapshotJobRequest extends $tea.Model {
       interval: 'number',
       snapshotTemplateId: 'string',
       specifiedOffsetTime: 'number',
+      specifiedOffsetTimes: { 'type': 'array', 'itemType': 'number' },
+      spriteSnapshotConfig: 'string',
+      userData: 'string',
+      videoId: 'string',
+      width: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSnapshotJobShrinkRequest extends $tea.Model {
+  count?: number;
+  height?: string;
+  interval?: number;
+  snapshotTemplateId?: string;
+  specifiedOffsetTime?: number;
+  specifiedOffsetTimesShrink?: string;
+  spriteSnapshotConfig?: string;
+  userData?: string;
+  videoId?: string;
+  width?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      height: 'Height',
+      interval: 'Interval',
+      snapshotTemplateId: 'SnapshotTemplateId',
+      specifiedOffsetTime: 'SpecifiedOffsetTime',
+      specifiedOffsetTimesShrink: 'SpecifiedOffsetTimes',
+      spriteSnapshotConfig: 'SpriteSnapshotConfig',
+      userData: 'UserData',
+      videoId: 'VideoId',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      height: 'string',
+      interval: 'number',
+      snapshotTemplateId: 'string',
+      specifiedOffsetTime: 'number',
+      specifiedOffsetTimesShrink: 'string',
       spriteSnapshotConfig: 'string',
       userData: 'string',
       videoId: 'string',
@@ -26076,12 +26125,18 @@ export default class Client extends OpenApi {
     * > *   Only snapshots in the JPG format are generated.
     * > *   After a snapshot job is complete, ApsaraVideo VOD sends a [SnapshotComplete](~~57337~~) event notification that contains EventType=SnapshotComplete and SubType=SpecifiedTime.
     *
-    * @param request SubmitSnapshotJobRequest
+    * @param tmpReq SubmitSnapshotJobRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return SubmitSnapshotJobResponse
    */
-  async submitSnapshotJobWithOptions(request: SubmitSnapshotJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSnapshotJobResponse> {
-    Util.validateModel(request);
+  async submitSnapshotJobWithOptions(tmpReq: SubmitSnapshotJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSnapshotJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitSnapshotJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.specifiedOffsetTimes)) {
+      request.specifiedOffsetTimesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.specifiedOffsetTimes, "SpecifiedOffsetTimes", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.count)) {
       query["Count"] = request.count;
@@ -26101,6 +26156,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.specifiedOffsetTime)) {
       query["SpecifiedOffsetTime"] = request.specifiedOffsetTime;
+    }
+
+    if (!Util.isUnset(request.specifiedOffsetTimesShrink)) {
+      query["SpecifiedOffsetTimes"] = request.specifiedOffsetTimesShrink;
     }
 
     if (!Util.isUnset(request.spriteSnapshotConfig)) {
