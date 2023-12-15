@@ -8,50 +8,44 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class SearchObjectRequest extends $tea.Model {
+export class AddCdrsMonitorRequest extends $tea.Model {
+  algorithmVendor?: string;
+  batchIndicator?: number;
   corpId?: string;
-  objectType?: string;
-  vendor?: string;
-  feature?: string;
-  imageContent?: string;
-  imageUrl?: string;
-  deviceList?: string;
-  attributes?: string;
-  shotTimeStart?: string;
-  shotTimeEnd?: string;
-  pageNumber?: number;
-  pageSize?: number;
+  description?: string;
+  monitorType?: string;
+  notifierAppSecret?: string;
+  notifierExtendValues?: string;
+  notifierTimeOut?: number;
+  notifierType?: string;
+  notifierUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      algorithmVendor: 'AlgorithmVendor',
+      batchIndicator: 'BatchIndicator',
       corpId: 'CorpId',
-      objectType: 'ObjectType',
-      vendor: 'Vendor',
-      feature: 'Feature',
-      imageContent: 'ImageContent',
-      imageUrl: 'ImageUrl',
-      deviceList: 'DeviceList',
-      attributes: 'Attributes',
-      shotTimeStart: 'ShotTimeStart',
-      shotTimeEnd: 'ShotTimeEnd',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
+      description: 'Description',
+      monitorType: 'MonitorType',
+      notifierAppSecret: 'NotifierAppSecret',
+      notifierExtendValues: 'NotifierExtendValues',
+      notifierTimeOut: 'NotifierTimeOut',
+      notifierType: 'NotifierType',
+      notifierUrl: 'NotifierUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      algorithmVendor: 'string',
+      batchIndicator: 'number',
       corpId: 'string',
-      objectType: 'string',
-      vendor: 'string',
-      feature: 'string',
-      imageContent: 'string',
-      imageUrl: 'string',
-      deviceList: 'string',
-      attributes: 'string',
-      shotTimeStart: 'string',
-      shotTimeEnd: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
+      description: 'string',
+      monitorType: 'string',
+      notifierAppSecret: 'string',
+      notifierExtendValues: 'string',
+      notifierTimeOut: 'number',
+      notifierType: 'string',
+      notifierUrl: 'string',
     };
   }
 
@@ -60,35 +54,26 @@ export class SearchObjectRequest extends $tea.Model {
   }
 }
 
-export class SearchObjectResponseBody extends $tea.Model {
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  total?: number;
-  data?: SearchObjectResponseBodyData;
+export class AddCdrsMonitorResponseBody extends $tea.Model {
   code?: string;
-  success?: boolean;
+  data?: AddCdrsMonitorResponseBodyData;
+  message?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      total: 'Total',
-      data: 'Data',
       code: 'Code',
-      success: 'Success',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      total: 'number',
-      data: SearchObjectResponseBodyData,
       code: 'string',
-      success: 'boolean',
+      data: AddCdrsMonitorResponseBodyData,
+      message: 'string',
+      requestId: 'string',
     };
   }
 
@@ -97,12 +82,14 @@ export class SearchObjectResponseBody extends $tea.Model {
   }
 }
 
-export class SearchObjectResponse extends $tea.Model {
+export class AddCdrsMonitorResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: SearchObjectResponseBody;
+  statusCode: number;
+  body: AddCdrsMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -110,7 +97,8 @@ export class SearchObjectResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SearchObjectResponseBody,
+      statusCode: 'number',
+      body: AddCdrsMonitorResponseBody,
     };
   }
 
@@ -119,35 +107,44 @@ export class SearchObjectResponse extends $tea.Model {
   }
 }
 
-export class ListAreaHotSpotMetricsRequest extends $tea.Model {
+export class AddMonitorRequest extends $tea.Model {
+  algorithmVendor?: string;
+  batchIndicator?: number;
   corpId?: string;
-  personId?: string;
-  deviceId?: string;
-  startTime?: string;
-  endTime?: string;
-  pageNumber?: string;
-  pageSize?: string;
+  description?: string;
+  monitorType?: string;
+  notifierAppSecret?: string;
+  notifierExtendValues?: string;
+  notifierTimeOut?: number;
+  notifierType?: string;
+  notifierUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      algorithmVendor: 'AlgorithmVendor',
+      batchIndicator: 'BatchIndicator',
       corpId: 'CorpId',
-      personId: 'PersonId',
-      deviceId: 'DeviceId',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
+      description: 'Description',
+      monitorType: 'MonitorType',
+      notifierAppSecret: 'NotifierAppSecret',
+      notifierExtendValues: 'NotifierExtendValues',
+      notifierTimeOut: 'NotifierTimeOut',
+      notifierType: 'NotifierType',
+      notifierUrl: 'NotifierUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      algorithmVendor: 'string',
+      batchIndicator: 'number',
       corpId: 'string',
-      personId: 'string',
-      deviceId: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
+      description: 'string',
+      monitorType: 'string',
+      notifierAppSecret: 'string',
+      notifierExtendValues: 'string',
+      notifierTimeOut: 'number',
+      notifierType: 'string',
+      notifierUrl: 'string',
     };
   }
 
@@ -156,35 +153,26 @@ export class ListAreaHotSpotMetricsRequest extends $tea.Model {
   }
 }
 
-export class ListAreaHotSpotMetricsResponseBody extends $tea.Model {
-  totalCount?: string;
-  requestId?: string;
-  message?: string;
-  pageSize?: string;
-  pageNumber?: string;
-  data?: ListAreaHotSpotMetricsResponseBodyData[];
+export class AddMonitorResponseBody extends $tea.Model {
   code?: string;
+  data?: AddMonitorResponseBodyData;
+  message?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
       code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'string',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'string',
-      pageNumber: 'string',
-      data: { 'type': 'array', 'itemType': ListAreaHotSpotMetricsResponseBodyData },
       code: 'string',
+      data: AddMonitorResponseBodyData,
+      message: 'string',
+      requestId: 'string',
     };
   }
 
@@ -193,12 +181,14 @@ export class ListAreaHotSpotMetricsResponseBody extends $tea.Model {
   }
 }
 
-export class ListAreaHotSpotMetricsResponse extends $tea.Model {
+export class AddMonitorResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListAreaHotSpotMetricsResponseBody;
+  statusCode: number;
+  body: AddMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -206,7 +196,8 @@ export class ListAreaHotSpotMetricsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListAreaHotSpotMetricsResponseBody,
+      statusCode: 'number',
+      body: AddMonitorResponseBody,
     };
   }
 
@@ -238,25 +229,25 @@ export class BindDeviceRequest extends $tea.Model {
 }
 
 export class BindDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: BindDeviceResponseBodyData[];
   message?: string;
   requestId?: string;
-  data?: BindDeviceResponseBodyData[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': BindDeviceResponseBodyData },
       message: 'string',
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': BindDeviceResponseBodyData },
-      code: 'string',
     };
   }
 
@@ -267,10 +258,12 @@ export class BindDeviceResponseBody extends $tea.Model {
 
 export class BindDeviceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: BindDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -278,6 +271,7 @@ export class BindDeviceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: BindDeviceResponseBody,
     };
   }
@@ -287,32 +281,26 @@ export class BindDeviceResponse extends $tea.Model {
   }
 }
 
-export class GetCdrsMonitorResultRequest extends $tea.Model {
-  corpId?: string;
-  taskId?: string;
-  minRecordId?: string;
-  startTime?: number;
-  endTime?: number;
-  algorithmVendor?: string;
+export class CreateProjectRequest extends $tea.Model {
+  aggregateSceneCode?: string;
+  description?: string;
+  icon?: string;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
-      corpId: 'CorpId',
-      taskId: 'TaskId',
-      minRecordId: 'MinRecordId',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      algorithmVendor: 'AlgorithmVendor',
+      aggregateSceneCode: 'AggregateSceneCode',
+      description: 'Description',
+      icon: 'Icon',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      corpId: 'string',
-      taskId: 'string',
-      minRecordId: 'string',
-      startTime: 'number',
-      endTime: 'number',
-      algorithmVendor: 'string',
+      aggregateSceneCode: 'string',
+      description: 'string',
+      icon: 'string',
+      name: 'string',
     };
   }
 
@@ -321,26 +309,26 @@ export class GetCdrsMonitorResultRequest extends $tea.Model {
   }
 }
 
-export class GetCdrsMonitorResultResponseBody extends $tea.Model {
+export class CreateProjectResponseBody extends $tea.Model {
+  code?: string;
+  corpId?: string;
   message?: string;
   requestId?: string;
-  data?: GetCdrsMonitorResultResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      corpId: 'CorpId',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      corpId: 'string',
       message: 'string',
       requestId: 'string',
-      data: GetCdrsMonitorResultResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -349,12 +337,14 @@ export class GetCdrsMonitorResultResponseBody extends $tea.Model {
   }
 }
 
-export class GetCdrsMonitorResultResponse extends $tea.Model {
+export class CreateProjectResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetCdrsMonitorResultResponseBody;
+  statusCode: number;
+  body: CreateProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -362,7 +352,8 @@ export class GetCdrsMonitorResultResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetCdrsMonitorResultResponseBody,
+      statusCode: 'number',
+      body: CreateProjectResponseBody,
     };
   }
 
@@ -371,32 +362,26 @@ export class GetCdrsMonitorResultResponse extends $tea.Model {
   }
 }
 
-export class ListVehicleDetailsRequest extends $tea.Model {
+export class DetectTrajectoryRegularPatternRequest extends $tea.Model {
   corpId?: string;
-  plateId?: string;
-  startTime?: string;
-  endTime?: string;
-  pageNumber?: string;
-  pageSize?: string;
+  idType?: string;
+  idValue?: string;
+  predictDate?: string;
   static names(): { [key: string]: string } {
     return {
       corpId: 'CorpId',
-      plateId: 'PlateId',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
+      idType: 'IdType',
+      idValue: 'IdValue',
+      predictDate: 'PredictDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       corpId: 'string',
-      plateId: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
+      idType: 'string',
+      idValue: 'string',
+      predictDate: 'string',
     };
   }
 
@@ -405,35 +390,29 @@ export class ListVehicleDetailsRequest extends $tea.Model {
   }
 }
 
-export class ListVehicleDetailsResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
+export class DetectTrajectoryRegularPatternResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
   message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListVehicleDetailsResponseBodyData[];
-  code?: string;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
       code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
+      code: 'number',
+      data: 'string',
       message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListVehicleDetailsResponseBodyData },
-      code: 'string',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -442,12 +421,14 @@ export class ListVehicleDetailsResponseBody extends $tea.Model {
   }
 }
 
-export class ListVehicleDetailsResponse extends $tea.Model {
+export class DetectTrajectoryRegularPatternResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListVehicleDetailsResponseBody;
+  statusCode: number;
+  body: DetectTrajectoryRegularPatternResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -455,7 +436,8 @@ export class ListVehicleDetailsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListVehicleDetailsResponseBody,
+      statusCode: 'number',
+      body: DetectTrajectoryRegularPatternResponseBody,
     };
   }
 
@@ -490,25 +472,25 @@ export class GetCdrsMonitorListRequest extends $tea.Model {
 }
 
 export class GetCdrsMonitorListResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetCdrsMonitorListResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: GetCdrsMonitorListResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: GetCdrsMonitorListResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: GetCdrsMonitorListResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -519,10 +501,12 @@ export class GetCdrsMonitorListResponseBody extends $tea.Model {
 
 export class GetCdrsMonitorListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetCdrsMonitorListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -530,6 +514,7 @@ export class GetCdrsMonitorListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetCdrsMonitorListResponseBody,
     };
   }
@@ -539,1324 +524,32 @@ export class GetCdrsMonitorListResponse extends $tea.Model {
   }
 }
 
-export class UpdateMonitorRequest extends $tea.Model {
-  corpId?: string;
-  taskId?: string;
-  ruleName?: string;
-  deviceOperateType?: string;
-  deviceList?: string;
-  picOperateType?: string;
-  picList?: string;
-  attributeOperateType?: string;
-  attributeName?: string;
-  attributeValueList?: string;
-  description?: string;
-  ruleExpression?: string;
-  algorithmVendor?: string;
-  notifierType?: string;
-  notifierUrl?: string;
-  notifierAppSecret?: string;
-  notifierTimeOut?: number;
-  notifierExtendValues?: string;
-  picExtendList?: string;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      taskId: 'TaskId',
-      ruleName: 'RuleName',
-      deviceOperateType: 'DeviceOperateType',
-      deviceList: 'DeviceList',
-      picOperateType: 'PicOperateType',
-      picList: 'PicList',
-      attributeOperateType: 'AttributeOperateType',
-      attributeName: 'AttributeName',
-      attributeValueList: 'AttributeValueList',
-      description: 'Description',
-      ruleExpression: 'RuleExpression',
-      algorithmVendor: 'AlgorithmVendor',
-      notifierType: 'NotifierType',
-      notifierUrl: 'NotifierUrl',
-      notifierAppSecret: 'NotifierAppSecret',
-      notifierTimeOut: 'NotifierTimeOut',
-      notifierExtendValues: 'NotifierExtendValues',
-      picExtendList: 'PicExtendList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      taskId: 'string',
-      ruleName: 'string',
-      deviceOperateType: 'string',
-      deviceList: 'string',
-      picOperateType: 'string',
-      picList: 'string',
-      attributeOperateType: 'string',
-      attributeName: 'string',
-      attributeValueList: 'string',
-      description: 'string',
-      ruleExpression: 'string',
-      algorithmVendor: 'string',
-      notifierType: 'string',
-      notifierUrl: 'string',
-      notifierAppSecret: 'string',
-      notifierTimeOut: 'number',
-      notifierExtendValues: 'string',
-      picExtendList: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMonitorResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateMonitorResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateMonitorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDataStatisticsRequest extends $tea.Model {
-  backCategory?: string;
-  schema?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backCategory: 'BackCategory',
-      schema: 'Schema',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backCategory: 'string',
-      schema: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDataStatisticsResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListDataStatisticsResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListDataStatisticsResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDataStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListDataStatisticsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDataStatisticsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindDeviceRequest extends $tea.Model {
-  corpId?: string;
-  deviceIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      deviceIds: 'DeviceIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      deviceIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindDeviceResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: UnbindDeviceResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: { 'type': 'array', 'itemType': UnbindDeviceResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UnbindDeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UnbindDeviceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonDetailsRequest extends $tea.Model {
-  corpId?: string;
-  personId?: string;
-  startTime?: string;
-  endTime?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  schema?: string;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      personId: 'PersonId',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      schema: 'Schema',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      personId: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      schema: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonDetailsResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListPersonDetailsResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListPersonDetailsResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonDetailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListPersonDetailsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListPersonDetailsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVehicleTagDistributeRequest extends $tea.Model {
-  corpId?: string;
-  tagCode?: string;
-  startTime?: string;
-  endTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      tagCode: 'TagCode',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      tagCode: 'string',
-      startTime: 'string',
-      endTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVehicleTagDistributeResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListVehicleTagDistributeResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListVehicleTagDistributeResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVehicleTagDistributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListVehicleTagDistributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListVehicleTagDistributeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicePersonStatisticsRequest extends $tea.Model {
-  dataSourceId?: string;
-  statisticsType?: string;
-  startTime?: string;
-  endTime?: string;
-  corpId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceId: 'DataSourceId',
-      statisticsType: 'StatisticsType',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      corpId: 'CorpId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceId: 'string',
-      statisticsType: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      corpId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicePersonStatisticsResponseBody extends $tea.Model {
-  totalCount?: number;
-  message?: string;
-  requestId?: string;
-  data?: ListDevicePersonStatisticsResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      message: 'string',
-      requestId: 'string',
-      data: { 'type': 'array', 'itemType': ListDevicePersonStatisticsResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicePersonStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListDevicePersonStatisticsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDevicePersonStatisticsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddMonitorRequest extends $tea.Model {
-  corpId?: string;
-  monitorType?: string;
-  description?: string;
-  batchIndicator?: number;
-  algorithmVendor?: string;
-  notifierType?: string;
-  notifierUrl?: string;
-  notifierAppSecret?: string;
-  notifierTimeOut?: number;
-  notifierExtendValues?: string;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      monitorType: 'MonitorType',
-      description: 'Description',
-      batchIndicator: 'BatchIndicator',
-      algorithmVendor: 'AlgorithmVendor',
-      notifierType: 'NotifierType',
-      notifierUrl: 'NotifierUrl',
-      notifierAppSecret: 'NotifierAppSecret',
-      notifierTimeOut: 'NotifierTimeOut',
-      notifierExtendValues: 'NotifierExtendValues',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      monitorType: 'string',
-      description: 'string',
-      batchIndicator: 'number',
-      algorithmVendor: 'string',
-      notifierType: 'string',
-      notifierUrl: 'string',
-      notifierAppSecret: 'string',
-      notifierTimeOut: 'number',
-      notifierExtendValues: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddMonitorResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: AddMonitorResponseBodyData;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: AddMonitorResponseBodyData,
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddMonitorResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AddMonitorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PaginateDeviceRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  countTotalNum?: boolean;
-  corpId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      countTotalNum: 'CountTotalNum',
-      corpId: 'CorpId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      countTotalNum: 'boolean',
-      corpId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PaginateDeviceResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: PaginateDeviceResponseBodyData;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: PaginateDeviceResponseBodyData,
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PaginateDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: PaginateDeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: PaginateDeviceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopCdrsMonitorRequest extends $tea.Model {
-  taskId?: string;
+export class GetCdrsMonitorResultRequest extends $tea.Model {
   algorithmVendor?: string;
   corpId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-      algorithmVendor: 'AlgorithmVendor',
-      corpId: 'CorpId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-      algorithmVendor: 'string',
-      corpId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopCdrsMonitorResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopCdrsMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StopCdrsMonitorResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: StopCdrsMonitorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecallTrajectoryByCoordinateTimeRequest extends $tea.Model {
-  startTime?: string;
-  endTime?: string;
-  corpId?: string;
-  outputIdCount?: number;
-  pointList?: RecallTrajectoryByCoordinateTimeRequestPointList[];
-  outputIdTypeList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      corpId: 'CorpId',
-      outputIdCount: 'OutputIdCount',
-      pointList: 'PointList',
-      outputIdTypeList: 'OutputIdTypeList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      startTime: 'string',
-      endTime: 'string',
-      corpId: 'string',
-      outputIdCount: 'number',
-      pointList: { 'type': 'array', 'itemType': RecallTrajectoryByCoordinateTimeRequestPointList },
-      outputIdTypeList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecallTrajectoryByCoordinateTimeResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
-  code?: number;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
-      code: 'number',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecallTrajectoryByCoordinateTimeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecallTrajectoryByCoordinateTimeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecallTrajectoryByCoordinateTimeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapPersonFlowRequest extends $tea.Model {
-  originDataSourceIdList?: { [key: string]: any };
-  pageNumber?: number;
-  pageSize?: number;
-  targetDataSourceIdList?: { [key: string]: any };
-  endTime?: string;
-  startTime?: string;
-  range?: string;
-  static names(): { [key: string]: string } {
-    return {
-      originDataSourceIdList: 'OriginDataSourceIdList',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      targetDataSourceIdList: 'TargetDataSourceIdList',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      range: 'Range',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      originDataSourceIdList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      pageNumber: 'number',
-      pageSize: 'number',
-      targetDataSourceIdList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      endTime: 'string',
-      startTime: 'string',
-      range: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapPersonFlowShrinkRequest extends $tea.Model {
-  originDataSourceIdListShrink?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  targetDataSourceIdListShrink?: string;
-  endTime?: string;
-  startTime?: string;
-  range?: string;
-  static names(): { [key: string]: string } {
-    return {
-      originDataSourceIdListShrink: 'OriginDataSourceIdList',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      targetDataSourceIdListShrink: 'TargetDataSourceIdList',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      range: 'Range',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      originDataSourceIdListShrink: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      targetDataSourceIdListShrink: 'string',
-      endTime: 'string',
-      startTime: 'string',
-      range: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapPersonFlowResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListCityMapPersonFlowResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListCityMapPersonFlowResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapPersonFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListCityMapPersonFlowResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListCityMapPersonFlowResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddCdrsMonitorRequest extends $tea.Model {
-  corpId?: string;
-  monitorType?: string;
-  description?: string;
-  batchIndicator?: number;
-  algorithmVendor?: string;
-  notifierType?: string;
-  notifierUrl?: string;
-  notifierAppSecret?: string;
-  notifierTimeOut?: number;
-  notifierExtendValues?: string;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      monitorType: 'MonitorType',
-      description: 'Description',
-      batchIndicator: 'BatchIndicator',
-      algorithmVendor: 'AlgorithmVendor',
-      notifierType: 'NotifierType',
-      notifierUrl: 'NotifierUrl',
-      notifierAppSecret: 'NotifierAppSecret',
-      notifierTimeOut: 'NotifierTimeOut',
-      notifierExtendValues: 'NotifierExtendValues',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      monitorType: 'string',
-      description: 'string',
-      batchIndicator: 'number',
-      algorithmVendor: 'string',
-      notifierType: 'string',
-      notifierUrl: 'string',
-      notifierAppSecret: 'string',
-      notifierTimeOut: 'number',
-      notifierExtendValues: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddCdrsMonitorResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: AddCdrsMonitorResponseBodyData;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: AddCdrsMonitorResponseBodyData,
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddCdrsMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddCdrsMonitorResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AddCdrsMonitorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMapRouteDetailsRequest extends $tea.Model {
-  routeList?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      routeList: 'RouteList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      routeList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMapRouteDetailsShrinkRequest extends $tea.Model {
-  routeListShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      routeListShrink: 'RouteList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      routeListShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMapRouteDetailsResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListMapRouteDetailsResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListMapRouteDetailsResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMapRouteDetailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListMapRouteDetailsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListMapRouteDetailsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonTopRequest extends $tea.Model {
-  corpId?: string;
-  personId?: string;
-  startTime?: string;
-  endTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      personId: 'PersonId',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      personId: 'string',
-      startTime: 'string',
-      endTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonTopResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListPersonTopResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListPersonTopResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonTopResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListPersonTopResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListPersonTopResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMonitorResultRequest extends $tea.Model {
-  corpId?: string;
-  taskId?: string;
+  endTime?: number;
   minRecordId?: string;
   startTime?: number;
-  endTime?: number;
-  algorithmVendor?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      algorithmVendor: 'AlgorithmVendor',
       corpId: 'CorpId',
-      taskId: 'TaskId',
+      endTime: 'EndTime',
       minRecordId: 'MinRecordId',
       startTime: 'StartTime',
-      endTime: 'EndTime',
-      algorithmVendor: 'AlgorithmVendor',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      algorithmVendor: 'string',
       corpId: 'string',
-      taskId: 'string',
+      endTime: 'number',
       minRecordId: 'string',
       startTime: 'number',
-      endTime: 'number',
-      algorithmVendor: 'string',
+      taskId: 'string',
     };
   }
 
@@ -1865,26 +558,26 @@ export class GetMonitorResultRequest extends $tea.Model {
   }
 }
 
-export class GetMonitorResultResponseBody extends $tea.Model {
+export class GetCdrsMonitorResultResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetCdrsMonitorResultResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: GetMonitorResultResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: GetCdrsMonitorResultResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: GetMonitorResultResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -1893,12 +586,14 @@ export class GetMonitorResultResponseBody extends $tea.Model {
   }
 }
 
-export class GetMonitorResultResponse extends $tea.Model {
+export class GetCdrsMonitorResultResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetMonitorResultResponseBody;
+  statusCode: number;
+  body: GetCdrsMonitorResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1906,172 +601,8 @@ export class GetMonitorResultResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetMonitorResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapAoisRequest extends $tea.Model {
-  radius?: number;
-  latitude?: string;
-  longitude?: string;
-  static names(): { [key: string]: string } {
-    return {
-      radius: 'Radius',
-      latitude: 'Latitude',
-      longitude: 'Longitude',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      radius: 'number',
-      latitude: 'string',
-      longitude: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapAoisResponseBody extends $tea.Model {
-  totalCount?: number;
-  message?: string;
-  requestId?: string;
-  data?: ListCityMapAoisResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      message: 'string',
-      requestId: 'string',
-      data: { 'type': 'array', 'itemType': ListCityMapAoisResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapAoisResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListCityMapAoisResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListCityMapAoisResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeImageRequest extends $tea.Model {
-  corpId?: string;
-  vendor?: string;
-  imageContent?: string;
-  imageUrl?: string;
-  recognizeType?: string;
-  requireCropImage?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      vendor: 'Vendor',
-      imageContent: 'ImageContent',
-      imageUrl: 'ImageUrl',
-      recognizeType: 'RecognizeType',
-      requireCropImage: 'RequireCropImage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      vendor: 'string',
-      imageContent: 'string',
-      imageUrl: 'string',
-      recognizeType: 'string',
-      requireCropImage: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeImageResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: RecognizeImageResponseBodyData;
-  code?: string;
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: RecognizeImageResponseBodyData,
-      code: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeImageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeImageResponseBody,
+      statusCode: 'number',
+      body: GetCdrsMonitorResultResponseBody,
     };
   }
 
@@ -2106,25 +637,25 @@ export class GetMonitorListRequest extends $tea.Model {
 }
 
 export class GetMonitorListResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetMonitorListResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: GetMonitorListResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: GetMonitorListResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: GetMonitorListResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -2135,10 +666,12 @@ export class GetMonitorListResponseBody extends $tea.Model {
 
 export class GetMonitorListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetMonitorListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2146,6 +679,7 @@ export class GetMonitorListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetMonitorListResponseBody,
     };
   }
@@ -2155,17 +689,32 @@ export class GetMonitorListResponse extends $tea.Model {
   }
 }
 
-export class ListDeviceRelationRequest extends $tea.Model {
-  deviceId?: string;
+export class GetMonitorResultRequest extends $tea.Model {
+  algorithmVendor?: string;
+  corpId?: string;
+  endTime?: number;
+  minRecordId?: string;
+  startTime?: number;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      deviceId: 'DeviceId',
+      algorithmVendor: 'AlgorithmVendor',
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      minRecordId: 'MinRecordId',
+      startTime: 'StartTime',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceId: 'string',
+      algorithmVendor: 'string',
+      corpId: 'string',
+      endTime: 'number',
+      minRecordId: 'string',
+      startTime: 'number',
+      taskId: 'string',
     };
   }
 
@@ -2174,26 +723,26 @@ export class ListDeviceRelationRequest extends $tea.Model {
   }
 }
 
-export class ListDeviceRelationResponseBody extends $tea.Model {
+export class GetMonitorResultResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetMonitorResultResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: ListDeviceRelationResponseBodyData[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: GetMonitorResultResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': ListDeviceRelationResponseBodyData },
-      code: 'string',
     };
   }
 
@@ -2202,12 +751,14 @@ export class ListDeviceRelationResponseBody extends $tea.Model {
   }
 }
 
-export class ListDeviceRelationResponse extends $tea.Model {
+export class GetMonitorResultResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListDeviceRelationResponseBody;
+  statusCode: number;
+  body: GetMonitorResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2215,7 +766,8 @@ export class ListDeviceRelationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDeviceRelationResponseBody,
+      statusCode: 'number',
+      body: GetMonitorResultResponseBody,
     };
   }
 
@@ -2224,41 +776,35 @@ export class ListDeviceRelationResponse extends $tea.Model {
   }
 }
 
-export class ListPersonTrackRequest extends $tea.Model {
+export class ListAreaHotSpotMetricsRequest extends $tea.Model {
   corpId?: string;
+  deviceId?: string;
+  endTime?: string;
+  pageNumber?: string;
+  pageSize?: string;
   personId?: string;
   startTime?: string;
-  endTime?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  imageSourceType?: string;
-  aggregateDimension?: string;
-  qualityScore?: string;
   static names(): { [key: string]: string } {
     return {
       corpId: 'CorpId',
-      personId: 'PersonId',
-      startTime: 'StartTime',
+      deviceId: 'DeviceId',
       endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      imageSourceType: 'ImageSourceType',
-      aggregateDimension: 'AggregateDimension',
-      qualityScore: 'QualityScore',
+      personId: 'PersonId',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       corpId: 'string',
+      deviceId: 'string',
+      endTime: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
       personId: 'string',
       startTime: 'string',
-      endTime: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      imageSourceType: 'string',
-      aggregateDimension: 'string',
-      qualityScore: 'string',
     };
   }
 
@@ -2267,35 +813,35 @@ export class ListPersonTrackRequest extends $tea.Model {
   }
 }
 
-export class ListPersonTrackResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListPersonTrackResponseBodyData[];
+export class ListAreaHotSpotMetricsResponseBody extends $tea.Model {
   code?: string;
+  data?: ListAreaHotSpotMetricsResponseBodyData[];
+  message?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
       code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListPersonTrackResponseBodyData },
       code: 'string',
+      data: { 'type': 'array', 'itemType': ListAreaHotSpotMetricsResponseBodyData },
+      message: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -2304,12 +850,14 @@ export class ListPersonTrackResponseBody extends $tea.Model {
   }
 }
 
-export class ListPersonTrackResponse extends $tea.Model {
+export class ListAreaHotSpotMetricsResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListPersonTrackResponseBody;
+  statusCode: number;
+  body: ListAreaHotSpotMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2317,7 +865,89 @@ export class ListPersonTrackResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListPersonTrackResponseBody,
+      statusCode: 'number',
+      body: ListAreaHotSpotMetricsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCityMapAoisRequest extends $tea.Model {
+  latitude?: string;
+  longitude?: string;
+  radius?: number;
+  static names(): { [key: string]: string } {
+    return {
+      latitude: 'Latitude',
+      longitude: 'Longitude',
+      radius: 'Radius',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      latitude: 'string',
+      longitude: 'string',
+      radius: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCityMapAoisResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListCityMapAoisResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListCityMapAoisResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCityMapAoisResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCityMapAoisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCityMapAoisResponseBody,
     };
   }
 
@@ -2377,34 +1007,34 @@ export class ListCityMapCameraResultsShrinkRequest extends $tea.Model {
 }
 
 export class ListCityMapCameraResultsResponseBody extends $tea.Model {
-  totalCount?: number;
-  pageNum?: string;
-  requestId?: string;
-  message?: string;
-  pageSize?: string;
-  data?: ListCityMapCameraResultsResponseBodyData[];
   code?: string;
+  data?: ListCityMapCameraResultsResponseBodyData[];
+  message?: string;
+  pageNum?: string;
+  pageSize?: string;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      pageNum: 'PageNum',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      data: 'Data',
       code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      pageNum: 'string',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'string',
-      data: { 'type': 'array', 'itemType': ListCityMapCameraResultsResponseBodyData },
       code: 'string',
+      data: { 'type': 'array', 'itemType': ListCityMapCameraResultsResponseBodyData },
+      message: 'string',
+      pageNum: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2415,10 +1045,12 @@ export class ListCityMapCameraResultsResponseBody extends $tea.Model {
 
 export class ListCityMapCameraResultsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListCityMapCameraResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2426,6 +1058,7 @@ export class ListCityMapCameraResultsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListCityMapCameraResultsResponseBody,
     };
   }
@@ -2435,29 +1068,29 @@ export class ListCityMapCameraResultsResponse extends $tea.Model {
   }
 }
 
-export class QueryTrajectoryByIdRequest extends $tea.Model {
-  startTime?: string;
+export class ListCityMapCameraStatisticsRequest extends $tea.Model {
+  dataSourceIdList?: string;
   endTime?: string;
-  corpId?: string;
-  idList?: QueryTrajectoryByIdRequestIdList[];
-  deviceList?: QueryTrajectoryByIdRequestDeviceList[];
+  pageNumber?: number;
+  pageSize?: number;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
-      startTime: 'StartTime',
+      dataSourceIdList: 'DataSourceIdList',
       endTime: 'EndTime',
-      corpId: 'CorpId',
-      idList: 'IdList',
-      deviceList: 'DeviceList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startTime: 'string',
+      dataSourceIdList: 'string',
       endTime: 'string',
-      corpId: 'string',
-      idList: { 'type': 'array', 'itemType': QueryTrajectoryByIdRequestIdList },
-      deviceList: { 'type': 'array', 'itemType': QueryTrajectoryByIdRequestDeviceList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'string',
     };
   }
 
@@ -2466,29 +1099,35 @@ export class QueryTrajectoryByIdRequest extends $tea.Model {
   }
 }
 
-export class QueryTrajectoryByIdResponseBody extends $tea.Model {
+export class ListCityMapCameraStatisticsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListCityMapCameraStatisticsResponseBodyData[];
   message?: string;
+  pageNumber?: number;
+  pageSize?: number;
   requestId?: string;
-  data?: string;
-  code?: number;
-  success?: boolean;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
-      success: 'Success',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListCityMapCameraStatisticsResponseBodyData },
       message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       requestId: 'string',
-      data: 'string',
-      code: 'number',
-      success: 'boolean',
+      totalCount: 'number',
     };
   }
 
@@ -2497,12 +1136,14 @@ export class QueryTrajectoryByIdResponseBody extends $tea.Model {
   }
 }
 
-export class QueryTrajectoryByIdResponse extends $tea.Model {
+export class ListCityMapCameraStatisticsResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: QueryTrajectoryByIdResponseBody;
+  statusCode: number;
+  body: ListCityMapCameraStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2510,7 +1151,8 @@ export class QueryTrajectoryByIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryTrajectoryByIdResponseBody,
+      statusCode: 'number',
+      body: ListCityMapCameraStatisticsResponseBody,
     };
   }
 
@@ -2545,34 +1187,34 @@ export class ListCityMapImageDetailsRequest extends $tea.Model {
 }
 
 export class ListCityMapImageDetailsResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListCityMapImageDetailsResponseBodyData[];
   code?: string;
+  data?: ListCityMapImageDetailsResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
       code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListCityMapImageDetailsResponseBodyData },
       code: 'string',
+      data: { 'type': 'array', 'itemType': ListCityMapImageDetailsResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2583,10 +1225,12 @@ export class ListCityMapImageDetailsResponseBody extends $tea.Model {
 
 export class ListCityMapImageDetailsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListCityMapImageDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2594,6 +1238,7 @@ export class ListCityMapImageDetailsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListCityMapImageDetailsResponseBody,
     };
   }
@@ -2603,231 +1248,35 @@ export class ListCityMapImageDetailsResponse extends $tea.Model {
   }
 }
 
-export class CreateProjectRequest extends $tea.Model {
-  name?: string;
-  icon?: string;
-  description?: string;
-  aggregateSceneCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      icon: 'Icon',
-      description: 'Description',
-      aggregateSceneCode: 'AggregateSceneCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      icon: 'string',
-      description: 'string',
-      aggregateSceneCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProjectResponseBody extends $tea.Model {
-  corpId?: string;
-  message?: string;
-  requestId?: string;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      message: 'Message',
-      requestId: 'RequestId',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      message: 'string',
-      requestId: 'string',
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVehicleTopRequest extends $tea.Model {
-  corpId?: string;
-  plateId?: string;
-  startTime?: string;
+export class ListCityMapPersonFlowRequest extends $tea.Model {
   endTime?: string;
-  pageSize?: string;
-  pageNum?: string;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      plateId: 'PlateId',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      pageSize: 'PageSize',
-      pageNum: 'PageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      plateId: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      pageSize: 'string',
-      pageNum: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVehicleTopResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
+  originDataSourceIdList?: { [key: string]: any };
   pageNumber?: number;
-  data?: ListVehicleTopResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListVehicleTopResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVehicleTopResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListVehicleTopResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListVehicleTopResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDataStatisticsByDayRequest extends $tea.Model {
-  corpId?: string;
+  pageSize?: number;
+  range?: string;
   startTime?: string;
-  endTime?: string;
+  targetDataSourceIdList?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      corpId: 'CorpId',
-      startTime: 'StartTime',
       endTime: 'EndTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      startTime: 'string',
-      endTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDataStatisticsByDayResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListDataStatisticsByDayResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
+      originDataSourceIdList: 'OriginDataSourceIdList',
       pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
+      pageSize: 'PageSize',
+      range: 'Range',
+      startTime: 'StartTime',
+      targetDataSourceIdList: 'TargetDataSourceIdList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
+      endTime: 'string',
+      originDataSourceIdList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListDataStatisticsByDayResponseBodyData },
-      code: 'string',
+      pageSize: 'number',
+      range: 'string',
+      startTime: 'string',
+      targetDataSourceIdList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -2836,60 +1285,35 @@ export class ListDataStatisticsByDayResponseBody extends $tea.Model {
   }
 }
 
-export class ListDataStatisticsByDayResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListDataStatisticsByDayResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDataStatisticsByDayResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVehicleResultsRequest extends $tea.Model {
-  corpId?: string;
-  vehicleColor?: string;
-  vehicleClass?: string;
-  vehicleApplication?: string;
+export class ListCityMapPersonFlowShrinkRequest extends $tea.Model {
+  endTime?: string;
+  originDataSourceIdListShrink?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  range?: string;
   startTime?: string;
-  endTime?: string;
-  pageNumber?: number;
-  pageSize?: number;
+  targetDataSourceIdListShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      corpId: 'CorpId',
-      vehicleColor: 'VehicleColor',
-      vehicleClass: 'VehicleClass',
-      vehicleApplication: 'VehicleApplication',
-      startTime: 'StartTime',
       endTime: 'EndTime',
+      originDataSourceIdListShrink: 'OriginDataSourceIdList',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      range: 'Range',
+      startTime: 'StartTime',
+      targetDataSourceIdListShrink: 'TargetDataSourceIdList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      corpId: 'string',
-      vehicleColor: 'string',
-      vehicleClass: 'string',
-      vehicleApplication: 'string',
-      startTime: 'string',
       endTime: 'string',
+      originDataSourceIdListShrink: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      range: 'string',
+      startTime: 'string',
+      targetDataSourceIdListShrink: 'string',
     };
   }
 
@@ -2898,35 +1322,35 @@ export class ListVehicleResultsRequest extends $tea.Model {
   }
 }
 
-export class ListVehicleResultsResponseBody extends $tea.Model {
+export class ListCityMapPersonFlowResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListCityMapPersonFlowResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
   totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListVehicleResultsResponseBodyData[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
       totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListVehicleResultsResponseBodyData },
       code: 'string',
+      data: { 'type': 'array', 'itemType': ListCityMapPersonFlowResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2935,12 +1359,14 @@ export class ListVehicleResultsResponseBody extends $tea.Model {
   }
 }
 
-export class ListVehicleResultsResponse extends $tea.Model {
+export class ListCityMapPersonFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListVehicleResultsResponseBody;
+  statusCode: number;
+  body: ListCityMapPersonFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2948,7 +1374,8 @@ export class ListVehicleResultsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListVehicleResultsResponseBody,
+      statusCode: 'number',
+      body: ListCityMapPersonFlowResponseBody,
     };
   }
 
@@ -2957,53 +1384,32 @@ export class ListVehicleResultsResponse extends $tea.Model {
   }
 }
 
-export class SearchAggregateObjectRequest extends $tea.Model {
-  corpId?: string;
-  objectType?: string;
-  vendor?: string;
-  feature?: string;
-  imageContent?: string;
-  imageUrl?: string;
-  deviceList?: string;
-  attributes?: string;
-  shotTimeStart?: string;
-  shotTimeEnd?: string;
+export class ListCityMapRangeStatisticRequest extends $tea.Model {
+  endTime?: string;
+  latitude?: string;
+  longitude?: string;
   pageNumber?: number;
   pageSize?: number;
-  requireTotalCount?: boolean;
+  radius?: number;
   static names(): { [key: string]: string } {
     return {
-      corpId: 'CorpId',
-      objectType: 'ObjectType',
-      vendor: 'Vendor',
-      feature: 'Feature',
-      imageContent: 'ImageContent',
-      imageUrl: 'ImageUrl',
-      deviceList: 'DeviceList',
-      attributes: 'Attributes',
-      shotTimeStart: 'ShotTimeStart',
-      shotTimeEnd: 'ShotTimeEnd',
+      endTime: 'EndTime',
+      latitude: 'Latitude',
+      longitude: 'Longitude',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      requireTotalCount: 'RequireTotalCount',
+      radius: 'Radius',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      corpId: 'string',
-      objectType: 'string',
-      vendor: 'string',
-      feature: 'string',
-      imageContent: 'string',
-      imageUrl: 'string',
-      deviceList: 'string',
-      attributes: 'string',
-      shotTimeStart: 'string',
-      shotTimeEnd: 'string',
+      endTime: 'string',
+      latitude: 'string',
+      longitude: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      requireTotalCount: 'boolean',
+      radius: 'number',
     };
   }
 
@@ -3012,35 +1418,35 @@ export class SearchAggregateObjectRequest extends $tea.Model {
   }
 }
 
-export class SearchAggregateObjectResponseBody extends $tea.Model {
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  total?: number;
-  data?: SearchAggregateObjectResponseBodyData;
+export class ListCityMapRangeStatisticResponseBody extends $tea.Model {
   code?: string;
-  success?: boolean;
+  data?: ListCityMapRangeStatisticResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      total: 'Total',
-      data: 'Data',
       code: 'Code',
-      success: 'Success',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      total: 'number',
-      data: SearchAggregateObjectResponseBodyData,
       code: 'string',
-      success: 'boolean',
+      data: { 'type': 'array', 'itemType': ListCityMapRangeStatisticResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -3049,12 +1455,14 @@ export class SearchAggregateObjectResponseBody extends $tea.Model {
   }
 }
 
-export class SearchAggregateObjectResponse extends $tea.Model {
+export class ListCityMapRangeStatisticResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: SearchAggregateObjectResponseBody;
+  statusCode: number;
+  body: ListCityMapRangeStatisticResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3062,7 +1470,8 @@ export class SearchAggregateObjectResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SearchAggregateObjectResponseBody,
+      statusCode: 'number',
+      body: ListCityMapRangeStatisticResponseBody,
     };
   }
 
@@ -3073,42 +1482,42 @@ export class SearchAggregateObjectResponse extends $tea.Model {
 
 export class ListCorpMetricsStatisticRequest extends $tea.Model {
   corpId?: string;
-  tagCode?: string;
-  startTime?: string;
+  deviceGroupList?: { [key: string]: any };
+  deviceIdList?: { [key: string]: any };
   endTime?: string;
   pageNumber?: number;
   pageSize?: number;
-  userGroupList?: { [key: string]: any };
-  deviceGroupList?: { [key: string]: any };
-  deviceIdList?: { [key: string]: any };
   qualitScore?: string;
+  startTime?: string;
+  tagCode?: string;
+  userGroupList?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       corpId: 'CorpId',
-      tagCode: 'TagCode',
-      startTime: 'StartTime',
+      deviceGroupList: 'DeviceGroupList',
+      deviceIdList: 'DeviceIdList',
       endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      userGroupList: 'UserGroupList',
-      deviceGroupList: 'DeviceGroupList',
-      deviceIdList: 'DeviceIdList',
       qualitScore: 'QualitScore',
+      startTime: 'StartTime',
+      tagCode: 'TagCode',
+      userGroupList: 'UserGroupList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       corpId: 'string',
-      tagCode: 'string',
-      startTime: 'string',
+      deviceGroupList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      deviceIdList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       endTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      userGroupList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      deviceGroupList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      deviceIdList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       qualitScore: 'string',
+      startTime: 'string',
+      tagCode: 'string',
+      userGroupList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -3119,42 +1528,42 @@ export class ListCorpMetricsStatisticRequest extends $tea.Model {
 
 export class ListCorpMetricsStatisticShrinkRequest extends $tea.Model {
   corpId?: string;
-  tagCode?: string;
-  startTime?: string;
+  deviceGroupListShrink?: string;
+  deviceIdListShrink?: string;
   endTime?: string;
   pageNumber?: number;
   pageSize?: number;
-  userGroupListShrink?: string;
-  deviceGroupListShrink?: string;
-  deviceIdListShrink?: string;
   qualitScore?: string;
+  startTime?: string;
+  tagCode?: string;
+  userGroupListShrink?: string;
   static names(): { [key: string]: string } {
     return {
       corpId: 'CorpId',
-      tagCode: 'TagCode',
-      startTime: 'StartTime',
+      deviceGroupListShrink: 'DeviceGroupList',
+      deviceIdListShrink: 'DeviceIdList',
       endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      userGroupListShrink: 'UserGroupList',
-      deviceGroupListShrink: 'DeviceGroupList',
-      deviceIdListShrink: 'DeviceIdList',
       qualitScore: 'QualitScore',
+      startTime: 'StartTime',
+      tagCode: 'TagCode',
+      userGroupListShrink: 'UserGroupList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       corpId: 'string',
-      tagCode: 'string',
-      startTime: 'string',
+      deviceGroupListShrink: 'string',
+      deviceIdListShrink: 'string',
       endTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      userGroupListShrink: 'string',
-      deviceGroupListShrink: 'string',
-      deviceIdListShrink: 'string',
       qualitScore: 'string',
+      startTime: 'string',
+      tagCode: 'string',
+      userGroupListShrink: 'string',
     };
   }
 
@@ -3164,37 +1573,37 @@ export class ListCorpMetricsStatisticShrinkRequest extends $tea.Model {
 }
 
 export class ListCorpMetricsStatisticResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListCorpMetricsStatisticResponseBodyData[];
   code?: string;
+  data?: ListCorpMetricsStatisticResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
   success?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
       code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
       success: 'Success',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListCorpMetricsStatisticResponseBodyData },
       code: 'string',
+      data: { 'type': 'array', 'itemType': ListCorpMetricsStatisticResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
       success: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -3205,10 +1614,12 @@ export class ListCorpMetricsStatisticResponseBody extends $tea.Model {
 
 export class ListCorpMetricsStatisticResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListCorpMetricsStatisticResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3216,6 +1627,7 @@ export class ListCorpMetricsStatisticResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListCorpMetricsStatisticResponseBody,
     };
   }
@@ -3225,26 +1637,20 @@ export class ListCorpMetricsStatisticResponse extends $tea.Model {
   }
 }
 
-export class DetectTrajectoryRegularPatternRequest extends $tea.Model {
-  corpId?: string;
-  idType?: string;
-  idValue?: string;
-  predictDate?: string;
+export class ListDataStatisticsRequest extends $tea.Model {
+  backCategory?: string;
+  schema?: string;
   static names(): { [key: string]: string } {
     return {
-      corpId: 'CorpId',
-      idType: 'IdType',
-      idValue: 'IdValue',
-      predictDate: 'PredictDate',
+      backCategory: 'BackCategory',
+      schema: 'Schema',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      corpId: 'string',
-      idType: 'string',
-      idValue: 'string',
-      predictDate: 'string',
+      backCategory: 'string',
+      schema: 'string',
     };
   }
 
@@ -3253,122 +1659,35 @@ export class DetectTrajectoryRegularPatternRequest extends $tea.Model {
   }
 }
 
-export class DetectTrajectoryRegularPatternResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
-  code?: number;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
-      code: 'number',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectTrajectoryRegularPatternResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DetectTrajectoryRegularPatternResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DetectTrajectoryRegularPatternResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVehicleTrackRequest extends $tea.Model {
-  corpId?: string;
-  plateId?: string;
-  startTime?: string;
-  endTime?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      plateId: 'PlateId',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      plateId: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVehicleTrackResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListVehicleTrackResponseBodyData[];
+export class ListDataStatisticsResponseBody extends $tea.Model {
   code?: string;
+  data?: ListDataStatisticsResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
       code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListVehicleTrackResponseBodyData },
       code: 'string',
+      data: { 'type': 'array', 'itemType': ListDataStatisticsResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -3377,12 +1696,14 @@ export class ListVehicleTrackResponseBody extends $tea.Model {
   }
 }
 
-export class ListVehicleTrackResponse extends $tea.Model {
+export class ListDataStatisticsResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListVehicleTrackResponseBody;
+  statusCode: number;
+  body: ListDataStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3390,7 +1711,1284 @@ export class ListVehicleTrackResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListVehicleTrackResponseBody,
+      statusCode: 'number',
+      body: ListDataStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataStatisticsByDayRequest extends $tea.Model {
+  corpId?: string;
+  endTime?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataStatisticsByDayResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListDataStatisticsByDayResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListDataStatisticsByDayResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataStatisticsByDayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDataStatisticsByDayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataStatisticsByDayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceDetailRequest extends $tea.Model {
+  corpId?: string;
+  dataSourceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      dataSourceId: 'DataSourceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      dataSourceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceDetailResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListDeviceDetailResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListDeviceDetailResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDeviceDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDeviceDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceGenderStatisticsRequest extends $tea.Model {
+  corpId?: string;
+  dataSourceId?: string;
+  endTime?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      dataSourceId: 'DataSourceId',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      dataSourceId: 'string',
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceGenderStatisticsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListDeviceGenderStatisticsResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListDeviceGenderStatisticsResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceGenderStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDeviceGenderStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDeviceGenderStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDevicePersonRequest extends $tea.Model {
+  corpId?: string;
+  dataSourceId?: string;
+  endTime?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startTime?: string;
+  statisticsType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      dataSourceId: 'DataSourceId',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      statisticsType: 'StatisticsType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      dataSourceId: 'string',
+      endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'string',
+      statisticsType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDevicePersonResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListDevicePersonResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListDevicePersonResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDevicePersonResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDevicePersonResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDevicePersonResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDevicePersonStatisticsRequest extends $tea.Model {
+  corpId?: string;
+  dataSourceId?: string;
+  endTime?: string;
+  startTime?: string;
+  statisticsType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      dataSourceId: 'DataSourceId',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      statisticsType: 'StatisticsType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      dataSourceId: 'string',
+      endTime: 'string',
+      startTime: 'string',
+      statisticsType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDevicePersonStatisticsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListDevicePersonStatisticsResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListDevicePersonStatisticsResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDevicePersonStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDevicePersonStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDevicePersonStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceRelationRequest extends $tea.Model {
+  deviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceId: 'DeviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceRelationResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListDeviceRelationResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListDeviceRelationResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceRelationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDeviceRelationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDeviceRelationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMapRouteDetailsRequest extends $tea.Model {
+  routeList?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      routeList: 'RouteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routeList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMapRouteDetailsShrinkRequest extends $tea.Model {
+  routeListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      routeListShrink: 'RouteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routeListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMapRouteDetailsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListMapRouteDetailsResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListMapRouteDetailsResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMapRouteDetailsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMapRouteDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMapRouteDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonDetailsRequest extends $tea.Model {
+  corpId?: string;
+  endTime?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  personId?: string;
+  schema?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      personId: 'PersonId',
+      schema: 'Schema',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      personId: 'string',
+      schema: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonDetailsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListPersonDetailsResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListPersonDetailsResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonDetailsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPersonDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPersonDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonResultRequest extends $tea.Model {
+  age?: string;
+  corpId?: string;
+  endTime?: string;
+  gender?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  profession?: string;
+  qualityScore?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      age: 'Age',
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      gender: 'Gender',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      profession: 'Profession',
+      qualityScore: 'QualityScore',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      age: 'string',
+      corpId: 'string',
+      endTime: 'string',
+      gender: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      profession: 'string',
+      qualityScore: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonResultResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListPersonResultResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListPersonResultResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPersonResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPersonResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTagRequest extends $tea.Model {
+  corpId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  tagCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      tagCode: 'TagCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      tagCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTagResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListPersonTagResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListPersonTagResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPersonTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPersonTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTopRequest extends $tea.Model {
+  corpId?: string;
+  endTime?: string;
+  personId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      personId: 'PersonId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      endTime: 'string',
+      personId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTopResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListPersonTopResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListPersonTopResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTopResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPersonTopResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPersonTopResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTrackRequest extends $tea.Model {
+  aggregateDimension?: string;
+  corpId?: string;
+  endTime?: string;
+  imageSourceType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  personId?: string;
+  qualityScore?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregateDimension: 'AggregateDimension',
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      imageSourceType: 'ImageSourceType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      personId: 'PersonId',
+      qualityScore: 'QualityScore',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregateDimension: 'string',
+      corpId: 'string',
+      endTime: 'string',
+      imageSourceType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      personId: 'string',
+      qualityScore: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTrackResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListPersonTrackResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListPersonTrackResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTrackResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPersonTrackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPersonTrackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRangeDeviceRequest extends $tea.Model {
+  corpId?: string;
+  dataSourceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  radius?: number;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      dataSourceId: 'DataSourceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      radius: 'Radius',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      dataSourceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      radius: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRangeDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListRangeDeviceResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListRangeDeviceResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRangeDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListRangeDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRangeDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStorageStatisticsRequest extends $tea.Model {
+  corpId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStorageStatisticsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListStorageStatisticsResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListStorageStatisticsResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStorageStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListStorageStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListStorageStatisticsResponseBody,
     };
   }
 
@@ -3400,19 +2998,19 @@ export class ListVehicleTrackResponse extends $tea.Model {
 }
 
 export class ListStructureStatisticsRequest extends $tea.Model {
-  corpId?: string;
   backCategory?: string;
+  corpId?: string;
   static names(): { [key: string]: string } {
     return {
-      corpId: 'CorpId',
       backCategory: 'BackCategory',
+      corpId: 'CorpId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      corpId: 'string',
       backCategory: 'string',
+      corpId: 'string',
     };
   }
 
@@ -3422,34 +3020,34 @@ export class ListStructureStatisticsRequest extends $tea.Model {
 }
 
 export class ListStructureStatisticsResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListStructureStatisticsResponseBodyData[];
   code?: string;
+  data?: ListStructureStatisticsResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
       code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListStructureStatisticsResponseBodyData },
       code: 'string',
+      data: { 'type': 'array', 'itemType': ListStructureStatisticsResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -3460,10 +3058,12 @@ export class ListStructureStatisticsResponseBody extends $tea.Model {
 
 export class ListStructureStatisticsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListStructureStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3471,6 +3071,7 @@ export class ListStructureStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListStructureStatisticsResponseBody,
     };
   }
@@ -3480,23 +3081,35 @@ export class ListStructureStatisticsResponse extends $tea.Model {
   }
 }
 
-export class StopMonitorRequest extends $tea.Model {
-  taskId?: string;
-  algorithmVendor?: string;
+export class ListTagMetricsRequest extends $tea.Model {
+  aggregateType?: string;
   corpId?: string;
+  endTime?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  startTime?: string;
+  tagCode?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
-      algorithmVendor: 'AlgorithmVendor',
+      aggregateType: 'AggregateType',
       corpId: 'CorpId',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      tagCode: 'TagCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
-      algorithmVendor: 'string',
+      aggregateType: 'string',
       corpId: 'string',
+      endTime: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      startTime: 'string',
+      tagCode: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -3505,26 +3118,35 @@ export class StopMonitorRequest extends $tea.Model {
   }
 }
 
-export class StopMonitorResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
-  code?: string;
+export class ListTagMetricsShrinkRequest extends $tea.Model {
+  aggregateType?: string;
+  corpId?: string;
+  endTime?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  startTime?: string;
+  tagCodeShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
+      aggregateType: 'AggregateType',
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      tagCodeShrink: 'TagCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
-      code: 'string',
+      aggregateType: 'string',
+      corpId: 'string',
+      endTime: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      startTime: 'string',
+      tagCodeShrink: 'string',
     };
   }
 
@@ -3533,12 +3155,51 @@ export class StopMonitorResponseBody extends $tea.Model {
   }
 }
 
-export class StopMonitorResponse extends $tea.Model {
+export class ListTagMetricsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListTagMetricsResponseBodyData[];
+  message?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  requestId?: string;
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListTagMetricsResponseBodyData },
+      message: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagMetricsResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: StopMonitorResponseBody;
+  statusCode: number;
+  body: ListTagMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3546,7 +3207,653 @@ export class StopMonitorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: StopMonitorResponseBody,
+      statusCode: 'number',
+      body: ListTagMetricsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleDetailsRequest extends $tea.Model {
+  corpId?: string;
+  endTime?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  plateId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      plateId: 'PlateId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      endTime: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      plateId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleDetailsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListVehicleDetailsResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListVehicleDetailsResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleDetailsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListVehicleDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVehicleDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleResultsRequest extends $tea.Model {
+  corpId?: string;
+  endTime?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startTime?: string;
+  vehicleApplication?: string;
+  vehicleClass?: string;
+  vehicleColor?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      vehicleApplication: 'VehicleApplication',
+      vehicleClass: 'VehicleClass',
+      vehicleColor: 'VehicleColor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'string',
+      vehicleApplication: 'string',
+      vehicleClass: 'string',
+      vehicleColor: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleResultsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListVehicleResultsResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListVehicleResultsResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleResultsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListVehicleResultsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVehicleResultsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleTagDistributeRequest extends $tea.Model {
+  corpId?: string;
+  endTime?: string;
+  startTime?: string;
+  tagCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      tagCode: 'TagCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      endTime: 'string',
+      startTime: 'string',
+      tagCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleTagDistributeResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListVehicleTagDistributeResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListVehicleTagDistributeResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleTagDistributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListVehicleTagDistributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVehicleTagDistributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleTopRequest extends $tea.Model {
+  corpId?: string;
+  endTime?: string;
+  pageNum?: string;
+  pageSize?: string;
+  plateId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      plateId: 'PlateId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      endTime: 'string',
+      pageNum: 'string',
+      pageSize: 'string',
+      plateId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleTopResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListVehicleTopResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListVehicleTopResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleTopResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListVehicleTopResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVehicleTopResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleTrackRequest extends $tea.Model {
+  corpId?: string;
+  endTime?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  plateId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      plateId: 'PlateId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      plateId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleTrackResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListVehicleTrackResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListVehicleTrackResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleTrackResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListVehicleTrackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVehicleTrackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PaginateDeviceRequest extends $tea.Model {
+  corpId?: string;
+  countTotalNum?: boolean;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      countTotalNum: 'CountTotalNum',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      countTotalNum: 'boolean',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PaginateDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: PaginateDeviceResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: PaginateDeviceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PaginateDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PaginateDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PaginateDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PaginateProjectRequest extends $tea.Model {
+  countTotalNum?: boolean;
+  nameLike?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      countTotalNum: 'CountTotalNum',
+      nameLike: 'NameLike',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      countTotalNum: 'boolean',
+      nameLike: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PaginateProjectResponseBody extends $tea.Model {
+  code?: string;
+  data?: PaginateProjectResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: PaginateProjectResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PaginateProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PaginateProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PaginateProjectResponseBody,
     };
   }
 
@@ -3584,27 +3891,27 @@ export class PredictTrajectoryDestinationRequest extends $tea.Model {
 }
 
 export class PredictTrajectoryDestinationResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
   message?: string;
   requestId?: string;
-  data?: string;
-  code?: number;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
+      data: 'string',
       message: 'string',
       requestId: 'string',
-      data: 'string',
-      code: 'number',
       success: 'boolean',
     };
   }
@@ -3616,10 +3923,12 @@ export class PredictTrajectoryDestinationResponseBody extends $tea.Model {
 
 export class PredictTrajectoryDestinationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: PredictTrajectoryDestinationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3627,6 +3936,7 @@ export class PredictTrajectoryDestinationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: PredictTrajectoryDestinationResponseBody,
     };
   }
@@ -3636,365 +3946,29 @@ export class PredictTrajectoryDestinationResponse extends $tea.Model {
   }
 }
 
-export class ListRangeDeviceRequest extends $tea.Model {
-  radius?: number;
-  dataSourceId?: string;
-  pageNumber?: number;
-  pageSize?: number;
+export class QueryTrajectoryByIdRequest extends $tea.Model {
   corpId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      radius: 'Radius',
-      dataSourceId: 'DataSourceId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      corpId: 'CorpId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      radius: 'number',
-      dataSourceId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      corpId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRangeDeviceResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListRangeDeviceResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListRangeDeviceResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRangeDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListRangeDeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListRangeDeviceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapRangeStatisticRequest extends $tea.Model {
-  radius?: number;
-  latitude?: string;
-  longitude?: string;
+  deviceList?: QueryTrajectoryByIdRequestDeviceList[];
   endTime?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      radius: 'Radius',
-      latitude: 'Latitude',
-      longitude: 'Longitude',
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      radius: 'number',
-      latitude: 'string',
-      longitude: 'string',
-      endTime: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapRangeStatisticResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListCityMapRangeStatisticResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListCityMapRangeStatisticResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapRangeStatisticResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListCityMapRangeStatisticResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListCityMapRangeStatisticResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStorageStatisticsRequest extends $tea.Model {
-  corpId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStorageStatisticsResponseBody extends $tea.Model {
-  totalCount?: number;
-  message?: string;
-  requestId?: string;
-  data?: ListStorageStatisticsResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      message: 'string',
-      requestId: 'string',
-      data: { 'type': 'array', 'itemType': ListStorageStatisticsResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStorageStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListStorageStatisticsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListStorageStatisticsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PaginateProjectRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  countTotalNum?: boolean;
-  type?: string;
-  nameLike?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      countTotalNum: 'CountTotalNum',
-      type: 'Type',
-      nameLike: 'NameLike',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      countTotalNum: 'boolean',
-      type: 'string',
-      nameLike: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PaginateProjectResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: PaginateProjectResponseBodyData;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: PaginateProjectResponseBodyData,
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PaginateProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: PaginateProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: PaginateProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapCameraStatisticsRequest extends $tea.Model {
-  endTime?: string;
+  idList?: QueryTrajectoryByIdRequestIdList[];
   startTime?: string;
-  dataSourceIdList?: string;
-  pageSize?: number;
-  pageNumber?: number;
   static names(): { [key: string]: string } {
     return {
+      corpId: 'CorpId',
+      deviceList: 'DeviceList',
       endTime: 'EndTime',
+      idList: 'IdList',
       startTime: 'StartTime',
-      dataSourceIdList: 'DataSourceIdList',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      corpId: 'string',
+      deviceList: { 'type': 'array', 'itemType': QueryTrajectoryByIdRequestDeviceList },
       endTime: 'string',
+      idList: { 'type': 'array', 'itemType': QueryTrajectoryByIdRequestIdList },
       startTime: 'string',
-      dataSourceIdList: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
     };
   }
 
@@ -4003,35 +3977,29 @@ export class ListCityMapCameraStatisticsRequest extends $tea.Model {
   }
 }
 
-export class ListCityMapCameraStatisticsResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
+export class QueryTrajectoryByIdResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
   message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListCityMapCameraStatisticsResponseBodyData[];
-  code?: string;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
       code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
+      code: 'number',
+      data: 'string',
       message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListCityMapCameraStatisticsResponseBodyData },
-      code: 'string',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -4040,12 +4008,14 @@ export class ListCityMapCameraStatisticsResponseBody extends $tea.Model {
   }
 }
 
-export class ListCityMapCameraStatisticsResponse extends $tea.Model {
+export class QueryTrajectoryByIdResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListCityMapCameraStatisticsResponseBody;
+  statusCode: number;
+  body: QueryTrajectoryByIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4053,7 +4023,650 @@ export class ListCityMapCameraStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListCityMapCameraStatisticsResponseBody,
+      statusCode: 'number',
+      body: QueryTrajectoryByIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecallTrajectoryByCoordinateTimeRequest extends $tea.Model {
+  corpId?: string;
+  endTime?: string;
+  outputIdCount?: number;
+  outputIdTypeList?: string[];
+  pointList?: RecallTrajectoryByCoordinateTimeRequestPointList[];
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      outputIdCount: 'OutputIdCount',
+      outputIdTypeList: 'OutputIdTypeList',
+      pointList: 'PointList',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      endTime: 'string',
+      outputIdCount: 'number',
+      outputIdTypeList: { 'type': 'array', 'itemType': 'string' },
+      pointList: { 'type': 'array', 'itemType': RecallTrajectoryByCoordinateTimeRequestPointList },
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecallTrajectoryByCoordinateTimeResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecallTrajectoryByCoordinateTimeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecallTrajectoryByCoordinateTimeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecallTrajectoryByCoordinateTimeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeImageRequest extends $tea.Model {
+  corpId?: string;
+  imageContent?: string;
+  imageUrl?: string;
+  recognizeType?: string;
+  requireCropImage?: boolean;
+  vendor?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      imageContent: 'ImageContent',
+      imageUrl: 'ImageUrl',
+      recognizeType: 'RecognizeType',
+      requireCropImage: 'RequireCropImage',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      imageContent: 'string',
+      imageUrl: 'string',
+      recognizeType: 'string',
+      requireCropImage: 'boolean',
+      vendor: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeImageResponseBody extends $tea.Model {
+  code?: string;
+  data?: RecognizeImageResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: RecognizeImageResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecognizeImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchAggregateObjectRequest extends $tea.Model {
+  attributes?: string;
+  corpId?: string;
+  deviceList?: string;
+  feature?: string;
+  imageContent?: string;
+  imageUrl?: string;
+  objectType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requireTotalCount?: boolean;
+  shotTimeEnd?: string;
+  shotTimeStart?: string;
+  vendor?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      corpId: 'CorpId',
+      deviceList: 'DeviceList',
+      feature: 'Feature',
+      imageContent: 'ImageContent',
+      imageUrl: 'ImageUrl',
+      objectType: 'ObjectType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requireTotalCount: 'RequireTotalCount',
+      shotTimeEnd: 'ShotTimeEnd',
+      shotTimeStart: 'ShotTimeStart',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: 'string',
+      corpId: 'string',
+      deviceList: 'string',
+      feature: 'string',
+      imageContent: 'string',
+      imageUrl: 'string',
+      objectType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requireTotalCount: 'boolean',
+      shotTimeEnd: 'string',
+      shotTimeStart: 'string',
+      vendor: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchAggregateObjectResponseBody extends $tea.Model {
+  code?: string;
+  data?: SearchAggregateObjectResponseBodyData;
+  message?: string;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SearchAggregateObjectResponseBodyData,
+      message: 'string',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchAggregateObjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SearchAggregateObjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchAggregateObjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchObjectRequest extends $tea.Model {
+  attributes?: string;
+  corpId?: string;
+  deviceList?: string;
+  feature?: string;
+  imageContent?: string;
+  imageUrl?: string;
+  objectType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  shotTimeEnd?: string;
+  shotTimeStart?: string;
+  vendor?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      corpId: 'CorpId',
+      deviceList: 'DeviceList',
+      feature: 'Feature',
+      imageContent: 'ImageContent',
+      imageUrl: 'ImageUrl',
+      objectType: 'ObjectType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      shotTimeEnd: 'ShotTimeEnd',
+      shotTimeStart: 'ShotTimeStart',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: 'string',
+      corpId: 'string',
+      deviceList: 'string',
+      feature: 'string',
+      imageContent: 'string',
+      imageUrl: 'string',
+      objectType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      shotTimeEnd: 'string',
+      shotTimeStart: 'string',
+      vendor: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchObjectResponseBody extends $tea.Model {
+  code?: string;
+  data?: SearchObjectResponseBodyData;
+  message?: string;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SearchObjectResponseBodyData,
+      message: 'string',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchObjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SearchObjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchObjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCdrsMonitorRequest extends $tea.Model {
+  algorithmVendor?: string;
+  corpId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithmVendor: 'AlgorithmVendor',
+      corpId: 'CorpId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithmVendor: 'string',
+      corpId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCdrsMonitorResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCdrsMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StopCdrsMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopCdrsMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopMonitorRequest extends $tea.Model {
+  algorithmVendor?: string;
+  corpId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithmVendor: 'AlgorithmVendor',
+      corpId: 'CorpId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithmVendor: 'string',
+      corpId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopMonitorResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StopMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindDeviceRequest extends $tea.Model {
+  corpId?: string;
+  deviceIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      deviceIds: 'DeviceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      deviceIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: UnbindDeviceResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': UnbindDeviceResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UnbindDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindDeviceResponseBody,
     };
   }
 
@@ -4063,67 +4676,67 @@ export class ListCityMapCameraStatisticsResponse extends $tea.Model {
 }
 
 export class UpdateCdrsMonitorRequest extends $tea.Model {
-  corpId?: string;
-  taskId?: string;
-  ruleName?: string;
-  deviceOperateType?: string;
-  deviceList?: string;
-  picOperateType?: string;
-  picList?: string;
-  attributeOperateType?: string;
-  attributeName?: string;
-  attributeValueList?: string;
-  description?: string;
-  ruleExpression?: string;
   algorithmVendor?: string;
+  attributeName?: string;
+  attributeOperateType?: string;
+  attributeValueList?: string;
+  corpId?: string;
+  description?: string;
+  deviceList?: string;
+  deviceOperateType?: string;
+  notifierAppSecret?: string;
+  notifierExtendValues?: string;
+  notifierTimeOut?: number;
   notifierType?: string;
   notifierUrl?: string;
-  notifierAppSecret?: string;
-  notifierTimeOut?: number;
-  notifierExtendValues?: string;
+  picList?: string;
+  picOperateType?: string;
+  ruleExpression?: string;
+  ruleName?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      corpId: 'CorpId',
-      taskId: 'TaskId',
-      ruleName: 'RuleName',
-      deviceOperateType: 'DeviceOperateType',
-      deviceList: 'DeviceList',
-      picOperateType: 'PicOperateType',
-      picList: 'PicList',
-      attributeOperateType: 'AttributeOperateType',
-      attributeName: 'AttributeName',
-      attributeValueList: 'AttributeValueList',
-      description: 'Description',
-      ruleExpression: 'RuleExpression',
       algorithmVendor: 'AlgorithmVendor',
+      attributeName: 'AttributeName',
+      attributeOperateType: 'AttributeOperateType',
+      attributeValueList: 'AttributeValueList',
+      corpId: 'CorpId',
+      description: 'Description',
+      deviceList: 'DeviceList',
+      deviceOperateType: 'DeviceOperateType',
+      notifierAppSecret: 'NotifierAppSecret',
+      notifierExtendValues: 'NotifierExtendValues',
+      notifierTimeOut: 'NotifierTimeOut',
       notifierType: 'NotifierType',
       notifierUrl: 'NotifierUrl',
-      notifierAppSecret: 'NotifierAppSecret',
-      notifierTimeOut: 'NotifierTimeOut',
-      notifierExtendValues: 'NotifierExtendValues',
+      picList: 'PicList',
+      picOperateType: 'PicOperateType',
+      ruleExpression: 'RuleExpression',
+      ruleName: 'RuleName',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      corpId: 'string',
-      taskId: 'string',
-      ruleName: 'string',
-      deviceOperateType: 'string',
-      deviceList: 'string',
-      picOperateType: 'string',
-      picList: 'string',
-      attributeOperateType: 'string',
-      attributeName: 'string',
-      attributeValueList: 'string',
-      description: 'string',
-      ruleExpression: 'string',
       algorithmVendor: 'string',
+      attributeName: 'string',
+      attributeOperateType: 'string',
+      attributeValueList: 'string',
+      corpId: 'string',
+      description: 'string',
+      deviceList: 'string',
+      deviceOperateType: 'string',
+      notifierAppSecret: 'string',
+      notifierExtendValues: 'string',
+      notifierTimeOut: 'number',
       notifierType: 'string',
       notifierUrl: 'string',
-      notifierAppSecret: 'string',
-      notifierTimeOut: 'number',
-      notifierExtendValues: 'string',
+      picList: 'string',
+      picOperateType: 'string',
+      ruleExpression: 'string',
+      ruleName: 'string',
+      taskId: 'string',
     };
   }
 
@@ -4133,25 +4746,25 @@ export class UpdateCdrsMonitorRequest extends $tea.Model {
 }
 
 export class UpdateCdrsMonitorResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
   message?: string;
   requestId?: string;
-  data?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: 'string',
       message: 'string',
       requestId: 'string',
-      data: 'string',
-      code: 'string',
     };
   }
 
@@ -4162,10 +4775,12 @@ export class UpdateCdrsMonitorResponseBody extends $tea.Model {
 
 export class UpdateCdrsMonitorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateCdrsMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4173,6 +4788,7 @@ export class UpdateCdrsMonitorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateCdrsMonitorResponseBody,
     };
   }
@@ -4182,41 +4798,71 @@ export class UpdateCdrsMonitorResponse extends $tea.Model {
   }
 }
 
-export class ListPersonResultRequest extends $tea.Model {
+export class UpdateMonitorRequest extends $tea.Model {
+  algorithmVendor?: string;
+  attributeName?: string;
+  attributeOperateType?: string;
+  attributeValueList?: string;
   corpId?: string;
-  age?: string;
-  gender?: string;
-  profession?: string;
-  startTime?: string;
-  endTime?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  qualityScore?: string;
+  description?: string;
+  deviceList?: string;
+  deviceOperateType?: string;
+  notifierAppSecret?: string;
+  notifierExtendValues?: string;
+  notifierTimeOut?: number;
+  notifierType?: string;
+  notifierUrl?: string;
+  picExtendList?: string;
+  picList?: string;
+  picOperateType?: string;
+  ruleExpression?: string;
+  ruleName?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      algorithmVendor: 'AlgorithmVendor',
+      attributeName: 'AttributeName',
+      attributeOperateType: 'AttributeOperateType',
+      attributeValueList: 'AttributeValueList',
       corpId: 'CorpId',
-      age: 'Age',
-      gender: 'Gender',
-      profession: 'Profession',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      qualityScore: 'QualityScore',
+      description: 'Description',
+      deviceList: 'DeviceList',
+      deviceOperateType: 'DeviceOperateType',
+      notifierAppSecret: 'NotifierAppSecret',
+      notifierExtendValues: 'NotifierExtendValues',
+      notifierTimeOut: 'NotifierTimeOut',
+      notifierType: 'NotifierType',
+      notifierUrl: 'NotifierUrl',
+      picExtendList: 'PicExtendList',
+      picList: 'PicList',
+      picOperateType: 'PicOperateType',
+      ruleExpression: 'RuleExpression',
+      ruleName: 'RuleName',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      algorithmVendor: 'string',
+      attributeName: 'string',
+      attributeOperateType: 'string',
+      attributeValueList: 'string',
       corpId: 'string',
-      age: 'string',
-      gender: 'string',
-      profession: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      qualityScore: 'string',
+      description: 'string',
+      deviceList: 'string',
+      deviceOperateType: 'string',
+      notifierAppSecret: 'string',
+      notifierExtendValues: 'string',
+      notifierTimeOut: 'number',
+      notifierType: 'string',
+      notifierUrl: 'string',
+      picExtendList: 'string',
+      picList: 'string',
+      picOperateType: 'string',
+      ruleExpression: 'string',
+      ruleName: 'string',
+      taskId: 'string',
     };
   }
 
@@ -4225,35 +4871,26 @@ export class ListPersonResultRequest extends $tea.Model {
   }
 }
 
-export class ListPersonResultResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListPersonResultResponseBodyData[];
+export class UpdateMonitorResponseBody extends $tea.Model {
   code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
       code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListPersonResultResponseBodyData },
       code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
     };
   }
 
@@ -4262,12 +4899,14 @@ export class ListPersonResultResponseBody extends $tea.Model {
   }
 }
 
-export class ListPersonResultResponse extends $tea.Model {
+export class UpdateMonitorResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListPersonResultResponseBody;
+  statusCode: number;
+  body: UpdateMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4275,227 +4914,8 @@ export class ListPersonResultResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListPersonResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagMetricsRequest extends $tea.Model {
-  corpId?: string;
-  tagCode?: { [key: string]: any };
-  aggregateType?: string;
-  startTime?: string;
-  endTime?: string;
-  pageNumber?: string;
-  pageSize?: string;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      tagCode: 'TagCode',
-      aggregateType: 'AggregateType',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      tagCode: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      aggregateType: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagMetricsShrinkRequest extends $tea.Model {
-  corpId?: string;
-  tagCodeShrink?: string;
-  aggregateType?: string;
-  startTime?: string;
-  endTime?: string;
-  pageNumber?: string;
-  pageSize?: string;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      tagCodeShrink: 'TagCode',
-      aggregateType: 'AggregateType',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      tagCodeShrink: 'string',
-      aggregateType: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagMetricsResponseBody extends $tea.Model {
-  totalCount?: string;
-  requestId?: string;
-  message?: string;
-  pageSize?: string;
-  pageNumber?: string;
-  data?: ListTagMetricsResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'string',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'string',
-      pageNumber: 'string',
-      data: { 'type': 'array', 'itemType': ListTagMetricsResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagMetricsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListTagMetricsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListTagMetricsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonTagRequest extends $tea.Model {
-  corpId?: string;
-  tagCode?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-      tagCode: 'TagCode',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-      tagCode: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonTagResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListPersonTagResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListPersonTagResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListPersonTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListPersonTagResponseBody,
+      statusCode: 'number',
+      body: UpdateMonitorResponseBody,
     };
   }
 
@@ -4505,28 +4925,28 @@ export class ListPersonTagResponse extends $tea.Model {
 }
 
 export class UpdateProjectRequest extends $tea.Model {
+  aggregateSceneCode?: string;
   corpId?: string;
+  description?: string;
   icon?: string;
   name?: string;
-  description?: string;
-  aggregateSceneCode?: string;
   static names(): { [key: string]: string } {
     return {
+      aggregateSceneCode: 'AggregateSceneCode',
       corpId: 'CorpId',
+      description: 'Description',
       icon: 'Icon',
       name: 'Name',
-      description: 'Description',
-      aggregateSceneCode: 'AggregateSceneCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aggregateSceneCode: 'string',
       corpId: 'string',
+      description: 'string',
       icon: 'string',
       name: 'string',
-      description: 'string',
-      aggregateSceneCode: 'string',
     };
   }
 
@@ -4536,22 +4956,22 @@ export class UpdateProjectRequest extends $tea.Model {
 }
 
 export class UpdateProjectResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -4562,10 +4982,12 @@ export class UpdateProjectResponseBody extends $tea.Model {
 
 export class UpdateProjectResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4573,6 +4995,7 @@ export class UpdateProjectResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateProjectResponseBody,
     };
   }
@@ -4582,35 +5005,17 @@ export class UpdateProjectResponse extends $tea.Model {
   }
 }
 
-export class ListDevicePersonRequest extends $tea.Model {
-  dataSourceId?: string;
-  statisticsType?: string;
-  startTime?: string;
-  endTime?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  corpId?: string;
+export class AddCdrsMonitorResponseBodyData extends $tea.Model {
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      dataSourceId: 'DataSourceId',
-      statisticsType: 'StatisticsType',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      corpId: 'CorpId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataSourceId: 'string',
-      statisticsType: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      corpId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -4619,468 +5024,17 @@ export class ListDevicePersonRequest extends $tea.Model {
   }
 }
 
-export class ListDevicePersonResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListDevicePersonResponseBodyData[];
-  code?: string;
+export class AddMonitorResponseBodyData extends $tea.Model {
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListDevicePersonResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicePersonResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListDevicePersonResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDevicePersonResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceDetailRequest extends $tea.Model {
-  dataSourceId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  corpId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceId: 'DataSourceId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      corpId: 'CorpId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      corpId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceDetailResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  data?: ListDeviceDetailResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      data: { 'type': 'array', 'itemType': ListDeviceDetailResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListDeviceDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDeviceDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceGenderStatisticsRequest extends $tea.Model {
-  dataSourceId?: string;
-  startTime?: string;
-  endTime?: string;
-  corpId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceId: 'DataSourceId',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      corpId: 'CorpId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceId: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      corpId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceGenderStatisticsResponseBody extends $tea.Model {
-  totalCount?: number;
-  message?: string;
-  requestId?: string;
-  data?: ListDeviceGenderStatisticsResponseBodyData[];
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      message: 'string',
-      requestId: 'string',
-      data: { 'type': 'array', 'itemType': ListDeviceGenderStatisticsResponseBodyData },
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceGenderStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListDeviceGenderStatisticsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDeviceGenderStatisticsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchObjectResponseBodyDataBodyList extends $tea.Model {
-  sourceImageUrl?: string;
-  deviceID?: string;
-  objectType?: string;
-  targetImageUrl?: string;
-  rightBottomY?: number;
-  leftTopY?: number;
-  score?: number;
-  shotTime?: string;
-  rightBottomX?: number;
-  leftTopX?: number;
-  static names(): { [key: string]: string } {
-    return {
-      sourceImageUrl: 'SourceImageUrl',
-      deviceID: 'DeviceID',
-      objectType: 'ObjectType',
-      targetImageUrl: 'TargetImageUrl',
-      rightBottomY: 'RightBottomY',
-      leftTopY: 'LeftTopY',
-      score: 'Score',
-      shotTime: 'ShotTime',
-      rightBottomX: 'RightBottomX',
-      leftTopX: 'LeftTopX',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceImageUrl: 'string',
-      deviceID: 'string',
-      objectType: 'string',
-      targetImageUrl: 'string',
-      rightBottomY: 'number',
-      leftTopY: 'number',
-      score: 'number',
-      shotTime: 'string',
-      rightBottomX: 'number',
-      leftTopX: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchObjectResponseBodyDataFaceList extends $tea.Model {
-  sourceImageUrl?: string;
-  deviceID?: string;
-  objectType?: string;
-  targetImageUrl?: string;
-  rightBottomY?: number;
-  leftTopY?: number;
-  score?: number;
-  shotTime?: string;
-  rightBottomX?: number;
-  leftTopX?: number;
-  static names(): { [key: string]: string } {
-    return {
-      sourceImageUrl: 'SourceImageUrl',
-      deviceID: 'DeviceID',
-      objectType: 'ObjectType',
-      targetImageUrl: 'TargetImageUrl',
-      rightBottomY: 'RightBottomY',
-      leftTopY: 'LeftTopY',
-      score: 'Score',
-      shotTime: 'ShotTime',
-      rightBottomX: 'RightBottomX',
-      leftTopX: 'LeftTopX',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceImageUrl: 'string',
-      deviceID: 'string',
-      objectType: 'string',
-      targetImageUrl: 'string',
-      rightBottomY: 'number',
-      leftTopY: 'number',
-      score: 'number',
-      shotTime: 'string',
-      rightBottomX: 'number',
-      leftTopX: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchObjectResponseBodyDataMotorList extends $tea.Model {
-  sourceImageUrl?: string;
-  deviceID?: string;
-  objectType?: string;
-  targetImageUrl?: string;
-  rightBottomY?: number;
-  leftTopY?: number;
-  score?: number;
-  shotTime?: string;
-  rightBottomX?: number;
-  leftTopX?: number;
-  static names(): { [key: string]: string } {
-    return {
-      sourceImageUrl: 'SourceImageUrl',
-      deviceID: 'DeviceID',
-      objectType: 'ObjectType',
-      targetImageUrl: 'TargetImageUrl',
-      rightBottomY: 'RightBottomY',
-      leftTopY: 'LeftTopY',
-      score: 'Score',
-      shotTime: 'ShotTime',
-      rightBottomX: 'RightBottomX',
-      leftTopX: 'LeftTopX',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceImageUrl: 'string',
-      deviceID: 'string',
-      objectType: 'string',
-      targetImageUrl: 'string',
-      rightBottomY: 'number',
-      leftTopY: 'number',
-      score: 'number',
-      shotTime: 'string',
-      rightBottomX: 'number',
-      leftTopX: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchObjectResponseBodyDataNonMotorList extends $tea.Model {
-  sourceImageUrl?: string;
-  deviceID?: string;
-  objectType?: string;
-  targetImageUrl?: string;
-  rightBottomY?: number;
-  leftTopY?: number;
-  score?: number;
-  shotTime?: string;
-  rightBottomX?: number;
-  leftTopX?: number;
-  static names(): { [key: string]: string } {
-    return {
-      sourceImageUrl: 'SourceImageUrl',
-      deviceID: 'DeviceID',
-      objectType: 'ObjectType',
-      targetImageUrl: 'TargetImageUrl',
-      rightBottomY: 'RightBottomY',
-      leftTopY: 'LeftTopY',
-      score: 'Score',
-      shotTime: 'ShotTime',
-      rightBottomX: 'RightBottomX',
-      leftTopX: 'LeftTopX',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceImageUrl: 'string',
-      deviceID: 'string',
-      objectType: 'string',
-      targetImageUrl: 'string',
-      rightBottomY: 'number',
-      leftTopY: 'number',
-      score: 'number',
-      shotTime: 'string',
-      rightBottomX: 'number',
-      leftTopX: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchObjectResponseBodyData extends $tea.Model {
-  bodyList?: SearchObjectResponseBodyDataBodyList[];
-  faceList?: SearchObjectResponseBodyDataFaceList[];
-  motorList?: SearchObjectResponseBodyDataMotorList[];
-  nonMotorList?: SearchObjectResponseBodyDataNonMotorList[];
-  static names(): { [key: string]: string } {
-    return {
-      bodyList: 'BodyList',
-      faceList: 'FaceList',
-      motorList: 'MotorList',
-      nonMotorList: 'NonMotorList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodyList: { 'type': 'array', 'itemType': SearchObjectResponseBodyDataBodyList },
-      faceList: { 'type': 'array', 'itemType': SearchObjectResponseBodyDataFaceList },
-      motorList: { 'type': 'array', 'itemType': SearchObjectResponseBodyDataMotorList },
-      nonMotorList: { 'type': 'array', 'itemType': SearchObjectResponseBodyDataNonMotorList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAreaHotSpotMetricsResponseBodyData extends $tea.Model {
-  coordinates?: string;
-  deviceId?: string;
-  times?: string;
-  intervalTime?: string;
-  personId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      coordinates: 'Coordinates',
-      deviceId: 'DeviceId',
-      times: 'Times',
-      intervalTime: 'IntervalTime',
-      personId: 'PersonId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      coordinates: 'string',
-      deviceId: 'string',
-      times: 'string',
-      intervalTime: 'string',
-      personId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -5090,19 +5044,19 @@ export class ListAreaHotSpotMetricsResponseBodyData extends $tea.Model {
 }
 
 export class BindDeviceRequestDevices extends $tea.Model {
-  deviceId?: string;
   corpId?: string;
+  deviceId?: string;
   static names(): { [key: string]: string } {
     return {
-      deviceId: 'DeviceId',
       corpId: 'CorpId',
+      deviceId: 'DeviceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceId: 'string',
       corpId: 'string',
+      deviceId: 'string',
     };
   }
 
@@ -5112,25 +5066,117 @@ export class BindDeviceRequestDevices extends $tea.Model {
 }
 
 export class BindDeviceResponseBodyData extends $tea.Model {
-  deviceId?: string;
-  success?: boolean;
   code?: string;
+  deviceId?: string;
   message?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      deviceId: 'DeviceId',
-      success: 'Success',
       code: 'Code',
+      deviceId: 'DeviceId',
       message: 'Message',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceId: 'string',
-      success: 'boolean',
       code: 'string',
+      deviceId: 'string',
       message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCdrsMonitorListResponseBodyDataRecords extends $tea.Model {
+  algorithmVendor?: string;
+  attributes?: string;
+  createDate?: string;
+  description?: string;
+  deviceList?: string;
+  expression?: string;
+  imageMatch?: string;
+  modifiedDate?: string;
+  monitorType?: string;
+  notifierExtra?: string;
+  notifierType?: string;
+  ruleExpression?: string;
+  ruleName?: string;
+  status?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithmVendor: 'AlgorithmVendor',
+      attributes: 'Attributes',
+      createDate: 'CreateDate',
+      description: 'Description',
+      deviceList: 'DeviceList',
+      expression: 'Expression',
+      imageMatch: 'ImageMatch',
+      modifiedDate: 'ModifiedDate',
+      monitorType: 'MonitorType',
+      notifierExtra: 'NotifierExtra',
+      notifierType: 'NotifierType',
+      ruleExpression: 'RuleExpression',
+      ruleName: 'RuleName',
+      status: 'Status',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithmVendor: 'string',
+      attributes: 'string',
+      createDate: 'string',
+      description: 'string',
+      deviceList: 'string',
+      expression: 'string',
+      imageMatch: 'string',
+      modifiedDate: 'string',
+      monitorType: 'string',
+      notifierExtra: 'string',
+      notifierType: 'string',
+      ruleExpression: 'string',
+      ruleName: 'string',
+      status: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCdrsMonitorListResponseBodyData extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  records?: GetCdrsMonitorListResponseBodyDataRecords[];
+  totalCount?: number;
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      records: 'Records',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      records: { 'type': 'array', 'itemType': GetCdrsMonitorListResponseBodyDataRecords },
+      totalCount: 'number',
+      totalPage: 'number',
     };
   }
 
@@ -5159,49 +5205,49 @@ export class GetCdrsMonitorResultResponseBodyDataRecordsExtendInfo extends $tea.
 }
 
 export class GetCdrsMonitorResultResponseBodyDataRecords extends $tea.Model {
-  picUrl?: string;
-  rightBottomY?: string;
-  score?: string;
-  monitorPicUrl?: string;
-  rightBottomX?: string;
   extendInfo?: GetCdrsMonitorResultResponseBodyDataRecordsExtendInfo;
   gbId?: string;
-  leftUpY?: string;
   leftUpX?: string;
+  leftUpY?: string;
+  monitorPicUrl?: string;
+  picUrl?: string;
+  rightBottomX?: string;
+  rightBottomY?: string;
+  score?: string;
   shotTime?: string;
-  taskId?: string;
   targetPicUrl?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      picUrl: 'PicUrl',
-      rightBottomY: 'RightBottomY',
-      score: 'Score',
-      monitorPicUrl: 'MonitorPicUrl',
-      rightBottomX: 'RightBottomX',
       extendInfo: 'ExtendInfo',
       gbId: 'GbId',
-      leftUpY: 'LeftUpY',
       leftUpX: 'LeftUpX',
+      leftUpY: 'LeftUpY',
+      monitorPicUrl: 'MonitorPicUrl',
+      picUrl: 'PicUrl',
+      rightBottomX: 'RightBottomX',
+      rightBottomY: 'RightBottomY',
+      score: 'Score',
       shotTime: 'ShotTime',
-      taskId: 'TaskId',
       targetPicUrl: 'TargetPicUrl',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      picUrl: 'string',
-      rightBottomY: 'string',
-      score: 'string',
-      monitorPicUrl: 'string',
-      rightBottomX: 'string',
       extendInfo: GetCdrsMonitorResultResponseBodyDataRecordsExtendInfo,
       gbId: 'string',
-      leftUpY: 'string',
       leftUpX: 'string',
+      leftUpY: 'string',
+      monitorPicUrl: 'string',
+      picUrl: 'string',
+      rightBottomX: 'string',
+      rightBottomY: 'string',
+      score: 'string',
       shotTime: 'string',
-      taskId: 'string',
       targetPicUrl: 'string',
+      taskId: 'string',
     };
   }
 
@@ -5232,120 +5278,59 @@ export class GetCdrsMonitorResultResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListVehicleDetailsResponseBodyData extends $tea.Model {
-  vehicleApplication?: string;
-  sourceUrl?: string;
-  gender?: string;
-  vehicleColor?: string;
-  vehicleId?: string;
-  sourceImageStoragePath?: string;
-  personType?: string;
-  popularPoi?: string;
-  popularAddress?: string;
-  plateId?: string;
-  targetUrl?: string;
-  vehicleClass?: string;
-  prefOutTime?: string;
-  personId?: string;
-  targetImageStoragePath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      vehicleApplication: 'VehicleApplication',
-      sourceUrl: 'SourceUrl',
-      gender: 'Gender',
-      vehicleColor: 'VehicleColor',
-      vehicleId: 'VehicleId',
-      sourceImageStoragePath: 'SourceImageStoragePath',
-      personType: 'PersonType',
-      popularPoi: 'PopularPoi',
-      popularAddress: 'PopularAddress',
-      plateId: 'PlateId',
-      targetUrl: 'TargetUrl',
-      vehicleClass: 'VehicleClass',
-      prefOutTime: 'PrefOutTime',
-      personId: 'PersonId',
-      targetImageStoragePath: 'TargetImageStoragePath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      vehicleApplication: 'string',
-      sourceUrl: 'string',
-      gender: 'string',
-      vehicleColor: 'string',
-      vehicleId: 'string',
-      sourceImageStoragePath: 'string',
-      personType: 'string',
-      popularPoi: 'string',
-      popularAddress: 'string',
-      plateId: 'string',
-      targetUrl: 'string',
-      vehicleClass: 'string',
-      prefOutTime: 'string',
-      personId: 'string',
-      targetImageStoragePath: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCdrsMonitorListResponseBodyDataRecords extends $tea.Model {
-  status?: string;
-  ruleExpression?: string;
-  imageMatch?: string;
-  monitorType?: string;
-  createDate?: string;
-  ruleName?: string;
-  notifierType?: string;
-  description?: string;
-  expression?: string;
-  notifierExtra?: string;
-  attributes?: string;
-  deviceList?: string;
-  taskId?: string;
-  modifiedDate?: string;
+export class GetMonitorListResponseBodyDataRecords extends $tea.Model {
   algorithmVendor?: string;
+  attributes?: string;
+  createDate?: string;
+  description?: string;
+  deviceList?: string;
+  expression?: string;
+  imageMatch?: string;
+  modifiedDate?: string;
+  monitorType?: string;
+  notifierExtra?: string;
+  notifierType?: string;
+  ruleExpression?: string;
+  ruleName?: string;
+  status?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      ruleExpression: 'RuleExpression',
-      imageMatch: 'ImageMatch',
-      monitorType: 'MonitorType',
-      createDate: 'CreateDate',
-      ruleName: 'RuleName',
-      notifierType: 'NotifierType',
-      description: 'Description',
-      expression: 'Expression',
-      notifierExtra: 'NotifierExtra',
-      attributes: 'Attributes',
-      deviceList: 'DeviceList',
-      taskId: 'TaskId',
-      modifiedDate: 'ModifiedDate',
       algorithmVendor: 'AlgorithmVendor',
+      attributes: 'Attributes',
+      createDate: 'CreateDate',
+      description: 'Description',
+      deviceList: 'DeviceList',
+      expression: 'Expression',
+      imageMatch: 'ImageMatch',
+      modifiedDate: 'ModifiedDate',
+      monitorType: 'MonitorType',
+      notifierExtra: 'NotifierExtra',
+      notifierType: 'NotifierType',
+      ruleExpression: 'RuleExpression',
+      ruleName: 'RuleName',
+      status: 'Status',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      ruleExpression: 'string',
-      imageMatch: 'string',
-      monitorType: 'string',
-      createDate: 'string',
-      ruleName: 'string',
-      notifierType: 'string',
-      description: 'string',
-      expression: 'string',
-      notifierExtra: 'string',
-      attributes: 'string',
-      deviceList: 'string',
-      taskId: 'string',
-      modifiedDate: 'string',
       algorithmVendor: 'string',
+      attributes: 'string',
+      createDate: 'string',
+      description: 'string',
+      deviceList: 'string',
+      expression: 'string',
+      imageMatch: 'string',
+      modifiedDate: 'string',
+      monitorType: 'string',
+      notifierExtra: 'string',
+      notifierType: 'string',
+      ruleExpression: 'string',
+      ruleName: 'string',
+      status: 'string',
+      taskId: 'string',
     };
   }
 
@@ -5354,29 +5339,475 @@ export class GetCdrsMonitorListResponseBodyDataRecords extends $tea.Model {
   }
 }
 
-export class GetCdrsMonitorListResponseBodyData extends $tea.Model {
-  records?: GetCdrsMonitorListResponseBodyDataRecords[];
-  pageNo?: number;
-  totalPage?: number;
+export class GetMonitorListResponseBodyData extends $tea.Model {
+  pageNumber?: number;
   pageSize?: number;
+  records?: GetMonitorListResponseBodyDataRecords[];
   totalCount?: number;
+  totalPage?: number;
   static names(): { [key: string]: string } {
     return {
-      records: 'Records',
-      pageNo: 'PageNo',
-      totalPage: 'TotalPage',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      records: 'Records',
       totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      records: { 'type': 'array', 'itemType': GetCdrsMonitorListResponseBodyDataRecords },
-      pageNo: 'number',
-      totalPage: 'number',
+      pageNumber: 'number',
       pageSize: 'number',
+      records: { 'type': 'array', 'itemType': GetMonitorListResponseBodyDataRecords },
       totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMonitorResultResponseBodyDataRecordsExtendInfo extends $tea.Model {
+  plateNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      plateNo: 'PlateNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      plateNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMonitorResultResponseBodyDataRecords extends $tea.Model {
+  extendInfo?: GetMonitorResultResponseBodyDataRecordsExtendInfo;
+  gbId?: string;
+  leftUpX?: string;
+  leftUpY?: string;
+  monitorPicUrl?: string;
+  picUrl?: string;
+  rightBottomX?: string;
+  rightBottomY?: string;
+  score?: string;
+  shotTime?: string;
+  targetPicUrl?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extendInfo: 'ExtendInfo',
+      gbId: 'GbId',
+      leftUpX: 'LeftUpX',
+      leftUpY: 'LeftUpY',
+      monitorPicUrl: 'MonitorPicUrl',
+      picUrl: 'PicUrl',
+      rightBottomX: 'RightBottomX',
+      rightBottomY: 'RightBottomY',
+      score: 'Score',
+      shotTime: 'ShotTime',
+      targetPicUrl: 'TargetPicUrl',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extendInfo: GetMonitorResultResponseBodyDataRecordsExtendInfo,
+      gbId: 'string',
+      leftUpX: 'string',
+      leftUpY: 'string',
+      monitorPicUrl: 'string',
+      picUrl: 'string',
+      rightBottomX: 'string',
+      rightBottomY: 'string',
+      score: 'string',
+      shotTime: 'string',
+      targetPicUrl: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMonitorResultResponseBodyData extends $tea.Model {
+  maxId?: string;
+  records?: GetMonitorResultResponseBodyDataRecords[];
+  static names(): { [key: string]: string } {
+    return {
+      maxId: 'MaxId',
+      records: 'Records',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxId: 'string',
+      records: { 'type': 'array', 'itemType': GetMonitorResultResponseBodyDataRecords },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAreaHotSpotMetricsResponseBodyData extends $tea.Model {
+  coordinates?: string;
+  deviceId?: string;
+  intervalTime?: string;
+  personId?: string;
+  times?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coordinates: 'Coordinates',
+      deviceId: 'DeviceId',
+      intervalTime: 'IntervalTime',
+      personId: 'PersonId',
+      times: 'Times',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coordinates: 'string',
+      deviceId: 'string',
+      intervalTime: 'string',
+      personId: 'string',
+      times: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCityMapAoisResponseBodyData extends $tea.Model {
+  id?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCityMapCameraResultsResponseBodyData extends $tea.Model {
+  corpId?: string;
+  dataSourceId?: string;
+  dataSourceName?: string;
+  dataSourcePoi?: string;
+  latitude?: string;
+  longitude?: string;
+  nearPoi?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      dataSourceId: 'DataSourceId',
+      dataSourceName: 'DataSourceName',
+      dataSourcePoi: 'DataSourcePoi',
+      latitude: 'Latitude',
+      longitude: 'Longitude',
+      nearPoi: 'NearPoi',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      dataSourceId: 'string',
+      dataSourceName: 'string',
+      dataSourcePoi: 'string',
+      latitude: 'string',
+      longitude: 'string',
+      nearPoi: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCityMapCameraStatisticsResponseBodyData extends $tea.Model {
+  adultValue?: string;
+  childValue?: string;
+  corpId?: string;
+  dataSourceId?: string;
+  dataSourceName?: string;
+  latitude?: string;
+  longitude?: string;
+  manValue?: string;
+  motorValue?: string;
+  oldValue?: string;
+  statisticTime?: string;
+  womanValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adultValue: 'AdultValue',
+      childValue: 'ChildValue',
+      corpId: 'CorpId',
+      dataSourceId: 'DataSourceId',
+      dataSourceName: 'DataSourceName',
+      latitude: 'Latitude',
+      longitude: 'Longitude',
+      manValue: 'ManValue',
+      motorValue: 'MotorValue',
+      oldValue: 'OldValue',
+      statisticTime: 'StatisticTime',
+      womanValue: 'WomanValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adultValue: 'string',
+      childValue: 'string',
+      corpId: 'string',
+      dataSourceId: 'string',
+      dataSourceName: 'string',
+      latitude: 'string',
+      longitude: 'string',
+      manValue: 'string',
+      motorValue: 'string',
+      oldValue: 'string',
+      statisticTime: 'string',
+      womanValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCityMapImageDetailsResponseBodyData extends $tea.Model {
+  ageCodeReliability?: string;
+  ageLowerLimit?: string;
+  ageLowerLimitReliability?: string;
+  ageUpLimit?: string;
+  coatColor?: string;
+  coatColorReliability?: string;
+  dataSourceId?: string;
+  faceTargetImageStoragePath?: string;
+  gender?: string;
+  genderCodeReliability?: string;
+  leftTopX?: string;
+  leftTopY?: string;
+  motorTargetImageStoragePath?: string;
+  personTargetImageStoragePath?: string;
+  recordId?: string;
+  rightBottomX?: string;
+  rightBottomY?: string;
+  shotTime?: string;
+  sourceImageStoragePath?: string;
+  trousersColor?: string;
+  trousersColorReliability?: string;
+  vehicleClass?: string;
+  vehicleClassReliability?: string;
+  vehicleColor?: string;
+  vehicleColorReliability?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ageCodeReliability: 'AgeCodeReliability',
+      ageLowerLimit: 'AgeLowerLimit',
+      ageLowerLimitReliability: 'AgeLowerLimitReliability',
+      ageUpLimit: 'AgeUpLimit',
+      coatColor: 'CoatColor',
+      coatColorReliability: 'CoatColorReliability',
+      dataSourceId: 'DataSourceId',
+      faceTargetImageStoragePath: 'FaceTargetImageStoragePath',
+      gender: 'Gender',
+      genderCodeReliability: 'GenderCodeReliability',
+      leftTopX: 'LeftTopX',
+      leftTopY: 'LeftTopY',
+      motorTargetImageStoragePath: 'MotorTargetImageStoragePath',
+      personTargetImageStoragePath: 'PersonTargetImageStoragePath',
+      recordId: 'RecordId',
+      rightBottomX: 'RightBottomX',
+      rightBottomY: 'RightBottomY',
+      shotTime: 'ShotTime',
+      sourceImageStoragePath: 'SourceImageStoragePath',
+      trousersColor: 'TrousersColor',
+      trousersColorReliability: 'TrousersColorReliability',
+      vehicleClass: 'VehicleClass',
+      vehicleClassReliability: 'VehicleClassReliability',
+      vehicleColor: 'VehicleColor',
+      vehicleColorReliability: 'VehicleColorReliability',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ageCodeReliability: 'string',
+      ageLowerLimit: 'string',
+      ageLowerLimitReliability: 'string',
+      ageUpLimit: 'string',
+      coatColor: 'string',
+      coatColorReliability: 'string',
+      dataSourceId: 'string',
+      faceTargetImageStoragePath: 'string',
+      gender: 'string',
+      genderCodeReliability: 'string',
+      leftTopX: 'string',
+      leftTopY: 'string',
+      motorTargetImageStoragePath: 'string',
+      personTargetImageStoragePath: 'string',
+      recordId: 'string',
+      rightBottomX: 'string',
+      rightBottomY: 'string',
+      shotTime: 'string',
+      sourceImageStoragePath: 'string',
+      trousersColor: 'string',
+      trousersColorReliability: 'string',
+      vehicleClass: 'string',
+      vehicleClassReliability: 'string',
+      vehicleColor: 'string',
+      vehicleColorReliability: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCityMapPersonFlowResponseBodyData extends $tea.Model {
+  flowDirection?: string;
+  flowNumber?: string;
+  originDataSourceId?: string;
+  targetDataSourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowDirection: 'FlowDirection',
+      flowNumber: 'FlowNumber',
+      originDataSourceId: 'OriginDataSourceId',
+      targetDataSourceId: 'TargetDataSourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowDirection: 'string',
+      flowNumber: 'string',
+      originDataSourceId: 'string',
+      targetDataSourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCityMapRangeStatisticResponseBodyData extends $tea.Model {
+  adultValue?: string;
+  childValue?: string;
+  corpId?: string;
+  dataSourceId?: string;
+  dataSourceName?: string;
+  latitude?: string;
+  longitude?: string;
+  manValue?: string;
+  motorValue?: string;
+  oldValue?: string;
+  womanValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adultValue: 'AdultValue',
+      childValue: 'ChildValue',
+      corpId: 'CorpId',
+      dataSourceId: 'DataSourceId',
+      dataSourceName: 'DataSourceName',
+      latitude: 'Latitude',
+      longitude: 'Longitude',
+      manValue: 'ManValue',
+      motorValue: 'MotorValue',
+      oldValue: 'OldValue',
+      womanValue: 'WomanValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adultValue: 'string',
+      childValue: 'string',
+      corpId: 'string',
+      dataSourceId: 'string',
+      dataSourceName: 'string',
+      latitude: 'string',
+      longitude: 'string',
+      manValue: 'string',
+      motorValue: 'string',
+      oldValue: 'string',
+      womanValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCorpMetricsStatisticResponseBodyData extends $tea.Model {
+  corpId?: string;
+  dateId?: string;
+  deviceGroupId?: string;
+  deviceId?: string;
+  personId?: string;
+  tagCode?: string;
+  tagMetrics?: string;
+  tagValue?: string;
+  userGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      dateId: 'DateId',
+      deviceGroupId: 'DeviceGroupId',
+      deviceId: 'DeviceId',
+      personId: 'PersonId',
+      tagCode: 'TagCode',
+      tagMetrics: 'TagMetrics',
+      tagValue: 'TagValue',
+      userGroupId: 'UserGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      dateId: 'string',
+      deviceGroupId: 'string',
+      deviceId: 'string',
+      personId: 'string',
+      tagCode: 'string',
+      tagMetrics: 'string',
+      tagValue: 'string',
+      userGroupId: 'string',
     };
   }
 
@@ -5407,112 +5838,128 @@ export class ListDataStatisticsResponseBodyData extends $tea.Model {
   }
 }
 
-export class UnbindDeviceResponseBodyData extends $tea.Model {
-  deviceId?: string;
-  success?: boolean;
-  code?: string;
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-      success: 'Success',
-      code: 'Code',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: 'string',
-      success: 'boolean',
-      code: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonDetailsResponseBodyData extends $tea.Model {
-  updateTime?: string;
-  gender?: string;
-  bodyTargetImage?: string;
-  preferredColor?: string;
-  hotSpotAddress?: string;
-  age?: string;
-  personType?: string;
-  transportation?: string;
-  profession?: string;
-  address?: string;
-  faceSourceImage?: string;
-  faceTargetImage?: string;
-  prefOutTime?: string;
-  bodySourceImage?: string;
-  personId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      updateTime: 'UpdateTime',
-      gender: 'Gender',
-      bodyTargetImage: 'BodyTargetImage',
-      preferredColor: 'PreferredColor',
-      hotSpotAddress: 'HotSpotAddress',
-      age: 'Age',
-      personType: 'PersonType',
-      transportation: 'Transportation',
-      profession: 'Profession',
-      address: 'Address',
-      faceSourceImage: 'FaceSourceImage',
-      faceTargetImage: 'FaceTargetImage',
-      prefOutTime: 'PrefOutTime',
-      bodySourceImage: 'BodySourceImage',
-      personId: 'PersonId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      updateTime: 'string',
-      gender: 'string',
-      bodyTargetImage: 'string',
-      preferredColor: 'string',
-      hotSpotAddress: 'string',
-      age: 'string',
-      personType: 'string',
-      transportation: 'string',
-      profession: 'string',
-      address: 'string',
-      faceSourceImage: 'string',
-      faceTargetImage: 'string',
-      prefOutTime: 'string',
-      bodySourceImage: 'string',
-      personId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVehicleTagDistributeResponseBodyData extends $tea.Model {
-  value?: string;
+export class ListDataStatisticsByDayResponseBodyData extends $tea.Model {
+  bodyNumber?: number;
   corpId?: string;
-  tagValue?: string;
+  date?: string;
+  faceNumber?: number;
+  motorNumber?: number;
+  nonMotorNumber?: number;
+  totalNumber?: number;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
+      bodyNumber: 'BodyNumber',
       corpId: 'CorpId',
-      tagValue: 'TagValue',
+      date: 'Date',
+      faceNumber: 'FaceNumber',
+      motorNumber: 'MotorNumber',
+      nonMotorNumber: 'NonMotorNumber',
+      totalNumber: 'TotalNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
+      bodyNumber: 'number',
       corpId: 'string',
-      tagValue: 'string',
+      date: 'string',
+      faceNumber: 'number',
+      motorNumber: 'number',
+      nonMotorNumber: 'number',
+      totalNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceDetailResponseBodyData extends $tea.Model {
+  corpId?: string;
+  dataSourceId?: string;
+  dataSourceName?: string;
+  dataSourcePoi?: string;
+  latitude?: string;
+  longitude?: string;
+  nearPoi?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      dataSourceId: 'DataSourceId',
+      dataSourceName: 'DataSourceName',
+      dataSourcePoi: 'DataSourcePoi',
+      latitude: 'Latitude',
+      longitude: 'Longitude',
+      nearPoi: 'NearPoi',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      dataSourceId: 'string',
+      dataSourceName: 'string',
+      dataSourcePoi: 'string',
+      latitude: 'string',
+      longitude: 'string',
+      nearPoi: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceGenderStatisticsResponseBodyData extends $tea.Model {
+  dataSourceId?: string;
+  gender?: string;
+  number?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      gender: 'Gender',
+      number: 'Number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      gender: 'string',
+      number: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDevicePersonResponseBodyData extends $tea.Model {
+  dataSourceId?: string;
+  freqNum?: string;
+  gender?: string;
+  personId?: string;
+  targetPicUrlPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      freqNum: 'FreqNum',
+      gender: 'Gender',
+      personId: 'PersonId',
+      targetPicUrlPath: 'TargetPicUrlPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      freqNum: 'string',
+      gender: 'string',
+      personId: 'string',
+      targetPicUrlPath: 'string',
     };
   }
 
@@ -5546,17 +5993,629 @@ export class ListDevicePersonStatisticsResponseBodyData extends $tea.Model {
   }
 }
 
-export class AddMonitorResponseBodyData extends $tea.Model {
-  taskId?: string;
+export class ListDeviceRelationResponseBodyData extends $tea.Model {
+  corpId?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
+      corpId: 'CorpId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
+      corpId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMapRouteDetailsResponseBodyData extends $tea.Model {
+  destination?: string;
+  origin?: string;
+  route?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destination: 'Destination',
+      origin: 'Origin',
+      route: 'Route',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destination: 'string',
+      origin: 'string',
+      route: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonDetailsResponseBodyData extends $tea.Model {
+  address?: string;
+  age?: string;
+  bodySourceImage?: string;
+  bodyTargetImage?: string;
+  faceSourceImage?: string;
+  faceTargetImage?: string;
+  gender?: string;
+  hotSpotAddress?: string;
+  personId?: string;
+  personType?: string;
+  prefOutTime?: string;
+  preferredColor?: string;
+  profession?: string;
+  transportation?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      age: 'Age',
+      bodySourceImage: 'BodySourceImage',
+      bodyTargetImage: 'BodyTargetImage',
+      faceSourceImage: 'FaceSourceImage',
+      faceTargetImage: 'FaceTargetImage',
+      gender: 'Gender',
+      hotSpotAddress: 'HotSpotAddress',
+      personId: 'PersonId',
+      personType: 'PersonType',
+      prefOutTime: 'PrefOutTime',
+      preferredColor: 'PreferredColor',
+      profession: 'Profession',
+      transportation: 'Transportation',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      age: 'string',
+      bodySourceImage: 'string',
+      bodyTargetImage: 'string',
+      faceSourceImage: 'string',
+      faceTargetImage: 'string',
+      gender: 'string',
+      hotSpotAddress: 'string',
+      personId: 'string',
+      personType: 'string',
+      prefOutTime: 'string',
+      preferredColor: 'string',
+      profession: 'string',
+      transportation: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonResultResponseBodyData extends $tea.Model {
+  address?: string;
+  age?: string;
+  gender?: string;
+  hotSpotAddress?: string;
+  personId?: string;
+  personType?: string;
+  profession?: string;
+  sourceUrl?: string;
+  targetUrl?: string;
+  transportation?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      age: 'Age',
+      gender: 'Gender',
+      hotSpotAddress: 'HotSpotAddress',
+      personId: 'PersonId',
+      personType: 'PersonType',
+      profession: 'Profession',
+      sourceUrl: 'SourceUrl',
+      targetUrl: 'TargetUrl',
+      transportation: 'Transportation',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      age: 'string',
+      gender: 'string',
+      hotSpotAddress: 'string',
+      personId: 'string',
+      personType: 'string',
+      profession: 'string',
+      sourceUrl: 'string',
+      targetUrl: 'string',
+      transportation: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTagResponseBodyData extends $tea.Model {
+  corpId?: string;
+  tagValue?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      tagValue: 'TagValue',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      tagValue: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTopResponseBodyData extends $tea.Model {
+  corpId?: string;
+  frequency?: string;
+  passHour?: string;
+  personId?: string;
+  poiId?: string;
+  poiName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      frequency: 'Frequency',
+      passHour: 'PassHour',
+      personId: 'PersonId',
+      poiId: 'PoiId',
+      poiName: 'PoiName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      frequency: 'string',
+      passHour: 'string',
+      personId: 'string',
+      poiId: 'string',
+      poiName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTrackResponseBodyData extends $tea.Model {
+  corpId?: string;
+  dataSourceId?: string;
+  dataSourceName?: string;
+  latitude?: string;
+  leftTopX?: string;
+  leftTopY?: string;
+  longitude?: string;
+  personId?: string;
+  picUrlPath?: string;
+  rightBottomX?: string;
+  rightBottomY?: string;
+  shotTime?: string;
+  sourceUrl?: string;
+  tagAge?: string;
+  tagGender?: string;
+  targetPicUrlPath?: string;
+  targetUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      dataSourceId: 'DataSourceId',
+      dataSourceName: 'DataSourceName',
+      latitude: 'Latitude',
+      leftTopX: 'LeftTopX',
+      leftTopY: 'LeftTopY',
+      longitude: 'Longitude',
+      personId: 'PersonId',
+      picUrlPath: 'PicUrlPath',
+      rightBottomX: 'RightBottomX',
+      rightBottomY: 'RightBottomY',
+      shotTime: 'ShotTime',
+      sourceUrl: 'SourceUrl',
+      tagAge: 'TagAge',
+      tagGender: 'TagGender',
+      targetPicUrlPath: 'TargetPicUrlPath',
+      targetUrl: 'TargetUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      dataSourceId: 'string',
+      dataSourceName: 'string',
+      latitude: 'string',
+      leftTopX: 'string',
+      leftTopY: 'string',
+      longitude: 'string',
+      personId: 'string',
+      picUrlPath: 'string',
+      rightBottomX: 'string',
+      rightBottomY: 'string',
+      shotTime: 'string',
+      sourceUrl: 'string',
+      tagAge: 'string',
+      tagGender: 'string',
+      targetPicUrlPath: 'string',
+      targetUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRangeDeviceResponseBodyData extends $tea.Model {
+  corpId?: string;
+  dataSourceId?: string;
+  dataSourceIdName?: string;
+  dataSourceIdPoi?: string;
+  distance?: string;
+  latitude?: string;
+  longitude?: string;
+  nearPoi?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      dataSourceId: 'DataSourceId',
+      dataSourceIdName: 'DataSourceIdName',
+      dataSourceIdPoi: 'DataSourceIdPoi',
+      distance: 'Distance',
+      latitude: 'Latitude',
+      longitude: 'Longitude',
+      nearPoi: 'NearPoi',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      dataSourceId: 'string',
+      dataSourceIdName: 'string',
+      dataSourceIdPoi: 'string',
+      distance: 'string',
+      latitude: 'string',
+      longitude: 'string',
+      nearPoi: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStorageStatisticsResponseBodyData extends $tea.Model {
+  corpId?: string;
+  number?: string;
+  totalStore?: string;
+  unusedStore?: string;
+  usedStore?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      number: 'Number',
+      totalStore: 'TotalStore',
+      unusedStore: 'UnusedStore',
+      usedStore: 'UsedStore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      number: 'string',
+      totalStore: 'string',
+      unusedStore: 'string',
+      usedStore: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStructureStatisticsResponseBodyData extends $tea.Model {
+  corpId?: string;
+  number?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      number: 'Number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      number: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagMetricsResponseBodyData extends $tea.Model {
+  corpId?: string;
+  dateTime?: string;
+  tagCode?: string;
+  tagMetric?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      dateTime: 'DateTime',
+      tagCode: 'TagCode',
+      tagMetric: 'TagMetric',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      dateTime: 'string',
+      tagCode: 'string',
+      tagMetric: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleDetailsResponseBodyData extends $tea.Model {
+  gender?: string;
+  personId?: string;
+  personType?: string;
+  plateId?: string;
+  popularAddress?: string;
+  popularPoi?: string;
+  prefOutTime?: string;
+  sourceImageStoragePath?: string;
+  sourceUrl?: string;
+  targetImageStoragePath?: string;
+  targetUrl?: string;
+  vehicleApplication?: string;
+  vehicleClass?: string;
+  vehicleColor?: string;
+  vehicleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gender: 'Gender',
+      personId: 'PersonId',
+      personType: 'PersonType',
+      plateId: 'PlateId',
+      popularAddress: 'PopularAddress',
+      popularPoi: 'PopularPoi',
+      prefOutTime: 'PrefOutTime',
+      sourceImageStoragePath: 'SourceImageStoragePath',
+      sourceUrl: 'SourceUrl',
+      targetImageStoragePath: 'TargetImageStoragePath',
+      targetUrl: 'TargetUrl',
+      vehicleApplication: 'VehicleApplication',
+      vehicleClass: 'VehicleClass',
+      vehicleColor: 'VehicleColor',
+      vehicleId: 'VehicleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gender: 'string',
+      personId: 'string',
+      personType: 'string',
+      plateId: 'string',
+      popularAddress: 'string',
+      popularPoi: 'string',
+      prefOutTime: 'string',
+      sourceImageStoragePath: 'string',
+      sourceUrl: 'string',
+      targetImageStoragePath: 'string',
+      targetUrl: 'string',
+      vehicleApplication: 'string',
+      vehicleClass: 'string',
+      vehicleColor: 'string',
+      vehicleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleResultsResponseBodyData extends $tea.Model {
+  gender?: string;
+  liveAddress?: string;
+  personId?: string;
+  plateId?: string;
+  profession?: string;
+  updateTime?: string;
+  vehicleApplication?: string;
+  vehicleClass?: string;
+  vehicleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gender: 'Gender',
+      liveAddress: 'LiveAddress',
+      personId: 'PersonId',
+      plateId: 'PlateId',
+      profession: 'Profession',
+      updateTime: 'UpdateTime',
+      vehicleApplication: 'VehicleApplication',
+      vehicleClass: 'VehicleClass',
+      vehicleId: 'VehicleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gender: 'string',
+      liveAddress: 'string',
+      personId: 'string',
+      plateId: 'string',
+      profession: 'string',
+      updateTime: 'string',
+      vehicleApplication: 'string',
+      vehicleClass: 'string',
+      vehicleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleTagDistributeResponseBodyData extends $tea.Model {
+  corpId?: string;
+  tagValue?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      tagValue: 'TagValue',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      tagValue: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleTopResponseBodyData extends $tea.Model {
+  corpId?: string;
+  frequency?: string;
+  passHour?: string;
+  poiId?: string;
+  poiName?: string;
+  vehicleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      frequency: 'Frequency',
+      passHour: 'PassHour',
+      poiId: 'PoiId',
+      poiName: 'PoiName',
+      vehicleId: 'VehicleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      frequency: 'string',
+      passHour: 'string',
+      poiId: 'string',
+      poiName: 'string',
+      vehicleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVehicleTrackResponseBodyData extends $tea.Model {
+  corpId?: string;
+  dataSourceId?: string;
+  dataSourceName?: string;
+  latitude?: string;
+  leftTopX?: string;
+  leftTopY?: string;
+  longitude?: string;
+  passTime?: string;
+  picUrlPath?: string;
+  plateId?: string;
+  rightBottomX?: string;
+  rightBottomY?: string;
+  sourceUrl?: string;
+  targetPicUrlPath?: string;
+  targetUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      dataSourceId: 'DataSourceId',
+      dataSourceName: 'DataSourceName',
+      latitude: 'Latitude',
+      leftTopX: 'LeftTopX',
+      leftTopY: 'LeftTopY',
+      longitude: 'Longitude',
+      passTime: 'PassTime',
+      picUrlPath: 'PicUrlPath',
+      plateId: 'PlateId',
+      rightBottomX: 'RightBottomX',
+      rightBottomY: 'RightBottomY',
+      sourceUrl: 'SourceUrl',
+      targetPicUrlPath: 'TargetPicUrlPath',
+      targetUrl: 'TargetUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      dataSourceId: 'string',
+      dataSourceName: 'string',
+      latitude: 'string',
+      leftTopX: 'string',
+      leftTopY: 'string',
+      longitude: 'string',
+      passTime: 'string',
+      picUrlPath: 'string',
+      plateId: 'string',
+      rightBottomX: 'string',
+      rightBottomY: 'string',
+      sourceUrl: 'string',
+      targetPicUrlPath: 'string',
+      targetUrl: 'string',
     };
   }
 
@@ -5585,24 +6644,24 @@ export class PaginateDeviceResponseBodyDataRecords extends $tea.Model {
 }
 
 export class PaginateDeviceResponseBodyData extends $tea.Model {
-  records?: PaginateDeviceResponseBodyDataRecords[];
   pageNumber?: number;
   pageSize?: number;
+  records?: PaginateDeviceResponseBodyDataRecords[];
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      records: 'Records',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      records: 'Records',
       totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      records: { 'type': 'array', 'itemType': PaginateDeviceResponseBodyDataRecords },
       pageNumber: 'number',
       pageSize: 'number',
+      records: { 'type': 'array', 'itemType': PaginateDeviceResponseBodyDataRecords },
       totalCount: 'number',
     };
   }
@@ -5612,138 +6671,41 @@ export class PaginateDeviceResponseBodyData extends $tea.Model {
   }
 }
 
-export class RecallTrajectoryByCoordinateTimeRequestPointList extends $tea.Model {
-  endTime?: string;
-  startTime?: string;
-  longitude?: number;
-  latitude?: number;
-  deltaDistance?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      longitude: 'Longitude',
-      latitude: 'Latitude',
-      deltaDistance: 'DeltaDistance',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      startTime: 'string',
-      longitude: 'number',
-      latitude: 'number',
-      deltaDistance: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapPersonFlowResponseBodyData extends $tea.Model {
-  flowNumber?: string;
-  originDataSourceId?: string;
-  targetDataSourceId?: string;
-  flowDirection?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowNumber: 'FlowNumber',
-      originDataSourceId: 'OriginDataSourceId',
-      targetDataSourceId: 'TargetDataSourceId',
-      flowDirection: 'FlowDirection',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowNumber: 'string',
-      originDataSourceId: 'string',
-      targetDataSourceId: 'string',
-      flowDirection: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddCdrsMonitorResponseBodyData extends $tea.Model {
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMapRouteDetailsResponseBodyData extends $tea.Model {
-  type?: string;
-  destination?: string;
-  origin?: string;
-  route?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      destination: 'Destination',
-      origin: 'Origin',
-      route: 'Route',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      destination: 'string',
-      origin: 'string',
-      route: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonTopResponseBodyData extends $tea.Model {
-  frequency?: string;
-  poiId?: string;
+export class PaginateProjectResponseBodyDataRecords extends $tea.Model {
+  aggregateSceneCode?: string;
   corpId?: string;
-  passHour?: string;
-  poiName?: string;
-  personId?: string;
+  createdTime?: string;
+  description?: string;
+  icon?: string;
+  modifiedTime?: string;
+  name?: string;
+  type?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      frequency: 'Frequency',
-      poiId: 'PoiId',
+      aggregateSceneCode: 'AggregateSceneCode',
       corpId: 'CorpId',
-      passHour: 'PassHour',
-      poiName: 'PoiName',
-      personId: 'PersonId',
+      createdTime: 'CreatedTime',
+      description: 'Description',
+      icon: 'Icon',
+      modifiedTime: 'ModifiedTime',
+      name: 'Name',
+      type: 'Type',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      frequency: 'string',
-      poiId: 'string',
+      aggregateSceneCode: 'string',
       corpId: 'string',
-      passHour: 'string',
-      poiName: 'string',
-      personId: 'string',
+      createdTime: 'string',
+      description: 'string',
+      icon: 'string',
+      modifiedTime: 'string',
+      name: 'string',
+      type: 'string',
+      userId: 'string',
     };
   }
 
@@ -5752,91 +6714,29 @@ export class ListPersonTopResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetMonitorResultResponseBodyDataRecordsExtendInfo extends $tea.Model {
-  plateNo?: string;
+export class PaginateProjectResponseBodyData extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  records?: PaginateProjectResponseBodyDataRecords[];
+  totalCount?: number;
+  totalPage?: number;
   static names(): { [key: string]: string } {
     return {
-      plateNo: 'PlateNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      plateNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMonitorResultResponseBodyDataRecords extends $tea.Model {
-  picUrl?: string;
-  rightBottomY?: string;
-  score?: string;
-  monitorPicUrl?: string;
-  rightBottomX?: string;
-  extendInfo?: GetMonitorResultResponseBodyDataRecordsExtendInfo;
-  gbId?: string;
-  leftUpY?: string;
-  leftUpX?: string;
-  shotTime?: string;
-  taskId?: string;
-  targetPicUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      picUrl: 'PicUrl',
-      rightBottomY: 'RightBottomY',
-      score: 'Score',
-      monitorPicUrl: 'MonitorPicUrl',
-      rightBottomX: 'RightBottomX',
-      extendInfo: 'ExtendInfo',
-      gbId: 'GbId',
-      leftUpY: 'LeftUpY',
-      leftUpX: 'LeftUpX',
-      shotTime: 'ShotTime',
-      taskId: 'TaskId',
-      targetPicUrl: 'TargetPicUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      picUrl: 'string',
-      rightBottomY: 'string',
-      score: 'string',
-      monitorPicUrl: 'string',
-      rightBottomX: 'string',
-      extendInfo: GetMonitorResultResponseBodyDataRecordsExtendInfo,
-      gbId: 'string',
-      leftUpY: 'string',
-      leftUpX: 'string',
-      shotTime: 'string',
-      taskId: 'string',
-      targetPicUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMonitorResultResponseBodyData extends $tea.Model {
-  maxId?: string;
-  records?: GetMonitorResultResponseBodyDataRecords[];
-  static names(): { [key: string]: string } {
-    return {
-      maxId: 'MaxId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       records: 'Records',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxId: 'string',
-      records: { 'type': 'array', 'itemType': GetMonitorResultResponseBodyDataRecords },
+      pageNumber: 'number',
+      pageSize: 'number',
+      records: { 'type': 'array', 'itemType': PaginateProjectResponseBodyDataRecords },
+      totalCount: 'number',
+      totalPage: 'number',
     };
   }
 
@@ -5845,20 +6745,70 @@ export class GetMonitorResultResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListCityMapAoisResponseBodyData extends $tea.Model {
-  value?: string;
-  id?: string;
+export class QueryTrajectoryByIdRequestDeviceList extends $tea.Model {
+  deviceId?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
-      id: 'Id',
+      deviceId: 'DeviceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
-      id: 'string',
+      deviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTrajectoryByIdRequestIdList extends $tea.Model {
+  idType?: string;
+  idValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      idType: 'IdType',
+      idValue: 'IdValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idType: 'string',
+      idValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecallTrajectoryByCoordinateTimeRequestPointList extends $tea.Model {
+  deltaDistance?: number;
+  endTime?: string;
+  latitude?: number;
+  longitude?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deltaDistance: 'DeltaDistance',
+      endTime: 'EndTime',
+      latitude: 'Latitude',
+      longitude: 'Longitude',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deltaDistance: 'number',
+      endTime: 'string',
+      latitude: 'number',
+      longitude: 'number',
+      startTime: 'string',
     };
   }
 
@@ -5869,33 +6819,33 @@ export class ListCityMapAoisResponseBodyData extends $tea.Model {
 
 export class RecognizeImageResponseBodyDataBodyList extends $tea.Model {
   cropAlgorithmCode?: string;
-  rightBottomY?: number;
   feature?: string;
-  leftTopY?: number;
-  targetImageContent?: string;
   leftTopX?: number;
+  leftTopY?: number;
   rightBottomX?: number;
+  rightBottomY?: number;
+  targetImageContent?: string;
   static names(): { [key: string]: string } {
     return {
       cropAlgorithmCode: 'CropAlgorithmCode',
-      rightBottomY: 'RightBottomY',
       feature: 'Feature',
-      leftTopY: 'LeftTopY',
-      targetImageContent: 'TargetImageContent',
       leftTopX: 'LeftTopX',
+      leftTopY: 'LeftTopY',
       rightBottomX: 'RightBottomX',
+      rightBottomY: 'RightBottomY',
+      targetImageContent: 'TargetImageContent',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cropAlgorithmCode: 'string',
-      rightBottomY: 'number',
       feature: 'string',
-      leftTopY: 'number',
-      targetImageContent: 'string',
       leftTopX: 'number',
+      leftTopY: 'number',
       rightBottomX: 'number',
+      rightBottomY: 'number',
+      targetImageContent: 'string',
     };
   }
 
@@ -5906,39 +6856,39 @@ export class RecognizeImageResponseBodyDataBodyList extends $tea.Model {
 
 export class RecognizeImageResponseBodyDataFaceList extends $tea.Model {
   cropAlgorithmCode?: string;
-  feature?: string;
-  rightBottomY?: number;
-  leftTopY?: number;
-  targetImageContent?: string;
-  faceQuality?: number;
-  rightBottomX?: number;
-  leftTopX?: number;
   faceKeyPointQuality?: number;
+  faceQuality?: number;
+  feature?: string;
+  leftTopX?: number;
+  leftTopY?: number;
+  rightBottomX?: number;
+  rightBottomY?: number;
+  targetImageContent?: string;
   static names(): { [key: string]: string } {
     return {
       cropAlgorithmCode: 'CropAlgorithmCode',
-      feature: 'Feature',
-      rightBottomY: 'RightBottomY',
-      leftTopY: 'LeftTopY',
-      targetImageContent: 'TargetImageContent',
-      faceQuality: 'FaceQuality',
-      rightBottomX: 'RightBottomX',
-      leftTopX: 'LeftTopX',
       faceKeyPointQuality: 'FaceKeyPointQuality',
+      faceQuality: 'FaceQuality',
+      feature: 'Feature',
+      leftTopX: 'LeftTopX',
+      leftTopY: 'LeftTopY',
+      rightBottomX: 'RightBottomX',
+      rightBottomY: 'RightBottomY',
+      targetImageContent: 'TargetImageContent',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cropAlgorithmCode: 'string',
-      feature: 'string',
-      rightBottomY: 'number',
-      leftTopY: 'number',
-      targetImageContent: 'string',
-      faceQuality: 'number',
-      rightBottomX: 'number',
-      leftTopX: 'number',
       faceKeyPointQuality: 'number',
+      faceQuality: 'number',
+      feature: 'string',
+      leftTopX: 'number',
+      leftTopY: 'number',
+      rightBottomX: 'number',
+      rightBottomY: 'number',
+      targetImageContent: 'string',
     };
   }
 
@@ -5969,517 +6919,56 @@ export class RecognizeImageResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetMonitorListResponseBodyDataRecords extends $tea.Model {
-  status?: string;
-  ruleExpression?: string;
-  imageMatch?: string;
-  monitorType?: string;
-  createDate?: string;
-  ruleName?: string;
-  notifierType?: string;
-  description?: string;
-  expression?: string;
-  notifierExtra?: string;
-  attributes?: string;
-  deviceList?: string;
-  taskId?: string;
-  modifiedDate?: string;
-  algorithmVendor?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      ruleExpression: 'RuleExpression',
-      imageMatch: 'ImageMatch',
-      monitorType: 'MonitorType',
-      createDate: 'CreateDate',
-      ruleName: 'RuleName',
-      notifierType: 'NotifierType',
-      description: 'Description',
-      expression: 'Expression',
-      notifierExtra: 'NotifierExtra',
-      attributes: 'Attributes',
-      deviceList: 'DeviceList',
-      taskId: 'TaskId',
-      modifiedDate: 'ModifiedDate',
-      algorithmVendor: 'AlgorithmVendor',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      ruleExpression: 'string',
-      imageMatch: 'string',
-      monitorType: 'string',
-      createDate: 'string',
-      ruleName: 'string',
-      notifierType: 'string',
-      description: 'string',
-      expression: 'string',
-      notifierExtra: 'string',
-      attributes: 'string',
-      deviceList: 'string',
-      taskId: 'string',
-      modifiedDate: 'string',
-      algorithmVendor: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMonitorListResponseBodyData extends $tea.Model {
-  records?: GetMonitorListResponseBodyDataRecords[];
-  totalPage?: number;
-  pageNumber?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      records: 'Records',
-      totalPage: 'TotalPage',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      records: { 'type': 'array', 'itemType': GetMonitorListResponseBodyDataRecords },
-      totalPage: 'number',
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceRelationResponseBodyData extends $tea.Model {
-  corpId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      corpId: 'CorpId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      corpId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonTrackResponseBodyData extends $tea.Model {
-  sourceUrl?: string;
-  rightBottomY?: string;
-  dataSourceName?: string;
-  picUrlPath?: string;
-  dataSourceId?: string;
-  rightBottomX?: string;
-  targetPicUrlPath?: string;
-  leftTopY?: string;
-  targetUrl?: string;
-  corpId?: string;
-  longitude?: string;
-  latitude?: string;
-  shotTime?: string;
-  personId?: string;
-  leftTopX?: string;
-  tagGender?: string;
-  tagAge?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceUrl: 'SourceUrl',
-      rightBottomY: 'RightBottomY',
-      dataSourceName: 'DataSourceName',
-      picUrlPath: 'PicUrlPath',
-      dataSourceId: 'DataSourceId',
-      rightBottomX: 'RightBottomX',
-      targetPicUrlPath: 'TargetPicUrlPath',
-      leftTopY: 'LeftTopY',
-      targetUrl: 'TargetUrl',
-      corpId: 'CorpId',
-      longitude: 'Longitude',
-      latitude: 'Latitude',
-      shotTime: 'ShotTime',
-      personId: 'PersonId',
-      leftTopX: 'LeftTopX',
-      tagGender: 'TagGender',
-      tagAge: 'TagAge',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceUrl: 'string',
-      rightBottomY: 'string',
-      dataSourceName: 'string',
-      picUrlPath: 'string',
-      dataSourceId: 'string',
-      rightBottomX: 'string',
-      targetPicUrlPath: 'string',
-      leftTopY: 'string',
-      targetUrl: 'string',
-      corpId: 'string',
-      longitude: 'string',
-      latitude: 'string',
-      shotTime: 'string',
-      personId: 'string',
-      leftTopX: 'string',
-      tagGender: 'string',
-      tagAge: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapCameraResultsResponseBodyData extends $tea.Model {
-  dataSourceName?: string;
-  dataSourceId?: string;
-  corpId?: string;
-  longitude?: string;
-  latitude?: string;
-  dataSourcePoi?: string;
-  nearPoi?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceName: 'DataSourceName',
-      dataSourceId: 'DataSourceId',
-      corpId: 'CorpId',
-      longitude: 'Longitude',
-      latitude: 'Latitude',
-      dataSourcePoi: 'DataSourcePoi',
-      nearPoi: 'NearPoi',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceName: 'string',
-      dataSourceId: 'string',
-      corpId: 'string',
-      longitude: 'string',
-      latitude: 'string',
-      dataSourcePoi: 'string',
-      nearPoi: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTrajectoryByIdRequestIdList extends $tea.Model {
-  idValue?: string;
-  idType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      idValue: 'IdValue',
-      idType: 'IdType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      idValue: 'string',
-      idType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTrajectoryByIdRequestDeviceList extends $tea.Model {
-  deviceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapImageDetailsResponseBodyData extends $tea.Model {
-  motorTargetImageStoragePath?: string;
-  rightBottomY?: string;
-  dataSourceId?: string;
-  recordId?: string;
-  vehicleColor?: string;
-  sourceImageStoragePath?: string;
-  ageUpLimit?: string;
-  coatColor?: string;
-  rightBottomX?: string;
-  trousersColorReliability?: string;
-  ageLowerLimit?: string;
-  leftTopY?: string;
-  shotTime?: string;
-  personTargetImageStoragePath?: string;
-  vehicleClassReliability?: string;
-  genderCodeReliability?: string;
-  gender?: string;
-  trousersColor?: string;
-  ageCodeReliability?: string;
-  faceTargetImageStoragePath?: string;
-  vehicleClass?: string;
-  vehicleColorReliability?: string;
-  leftTopX?: string;
-  ageLowerLimitReliability?: string;
-  coatColorReliability?: string;
-  static names(): { [key: string]: string } {
-    return {
-      motorTargetImageStoragePath: 'MotorTargetImageStoragePath',
-      rightBottomY: 'RightBottomY',
-      dataSourceId: 'DataSourceId',
-      recordId: 'RecordId',
-      vehicleColor: 'VehicleColor',
-      sourceImageStoragePath: 'SourceImageStoragePath',
-      ageUpLimit: 'AgeUpLimit',
-      coatColor: 'CoatColor',
-      rightBottomX: 'RightBottomX',
-      trousersColorReliability: 'TrousersColorReliability',
-      ageLowerLimit: 'AgeLowerLimit',
-      leftTopY: 'LeftTopY',
-      shotTime: 'ShotTime',
-      personTargetImageStoragePath: 'PersonTargetImageStoragePath',
-      vehicleClassReliability: 'VehicleClassReliability',
-      genderCodeReliability: 'GenderCodeReliability',
-      gender: 'Gender',
-      trousersColor: 'TrousersColor',
-      ageCodeReliability: 'AgeCodeReliability',
-      faceTargetImageStoragePath: 'FaceTargetImageStoragePath',
-      vehicleClass: 'VehicleClass',
-      vehicleColorReliability: 'VehicleColorReliability',
-      leftTopX: 'LeftTopX',
-      ageLowerLimitReliability: 'AgeLowerLimitReliability',
-      coatColorReliability: 'CoatColorReliability',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      motorTargetImageStoragePath: 'string',
-      rightBottomY: 'string',
-      dataSourceId: 'string',
-      recordId: 'string',
-      vehicleColor: 'string',
-      sourceImageStoragePath: 'string',
-      ageUpLimit: 'string',
-      coatColor: 'string',
-      rightBottomX: 'string',
-      trousersColorReliability: 'string',
-      ageLowerLimit: 'string',
-      leftTopY: 'string',
-      shotTime: 'string',
-      personTargetImageStoragePath: 'string',
-      vehicleClassReliability: 'string',
-      genderCodeReliability: 'string',
-      gender: 'string',
-      trousersColor: 'string',
-      ageCodeReliability: 'string',
-      faceTargetImageStoragePath: 'string',
-      vehicleClass: 'string',
-      vehicleColorReliability: 'string',
-      leftTopX: 'string',
-      ageLowerLimitReliability: 'string',
-      coatColorReliability: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVehicleTopResponseBodyData extends $tea.Model {
-  frequency?: string;
-  poiId?: string;
-  corpId?: string;
-  vehicleId?: string;
-  passHour?: string;
-  poiName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      frequency: 'Frequency',
-      poiId: 'PoiId',
-      corpId: 'CorpId',
-      vehicleId: 'VehicleId',
-      passHour: 'PassHour',
-      poiName: 'PoiName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      frequency: 'string',
-      poiId: 'string',
-      corpId: 'string',
-      vehicleId: 'string',
-      passHour: 'string',
-      poiName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDataStatisticsByDayResponseBodyData extends $tea.Model {
-  nonMotorNumber?: number;
-  faceNumber?: number;
-  motorNumber?: number;
-  corpId?: string;
-  date?: string;
-  bodyNumber?: number;
-  totalNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nonMotorNumber: 'NonMotorNumber',
-      faceNumber: 'FaceNumber',
-      motorNumber: 'MotorNumber',
-      corpId: 'CorpId',
-      date: 'Date',
-      bodyNumber: 'BodyNumber',
-      totalNumber: 'TotalNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nonMotorNumber: 'number',
-      faceNumber: 'number',
-      motorNumber: 'number',
-      corpId: 'string',
-      date: 'string',
-      bodyNumber: 'number',
-      totalNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVehicleResultsResponseBodyData extends $tea.Model {
-  vehicleApplication?: string;
-  profession?: string;
-  updateTime?: string;
-  gender?: string;
-  plateId?: string;
-  vehicleClass?: string;
-  liveAddress?: string;
-  vehicleId?: string;
-  personId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      vehicleApplication: 'VehicleApplication',
-      profession: 'Profession',
-      updateTime: 'UpdateTime',
-      gender: 'Gender',
-      plateId: 'PlateId',
-      vehicleClass: 'VehicleClass',
-      liveAddress: 'LiveAddress',
-      vehicleId: 'VehicleId',
-      personId: 'PersonId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      vehicleApplication: 'string',
-      profession: 'string',
-      updateTime: 'string',
-      gender: 'string',
-      plateId: 'string',
-      vehicleClass: 'string',
-      liveAddress: 'string',
-      vehicleId: 'string',
-      personId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SearchAggregateObjectResponseBodyDataBodyList extends $tea.Model {
   deviceID?: string;
-  objectType?: string;
+  deviceLatitude?: number;
+  deviceLongitude?: number;
   deviceName?: string;
+  leftTopX?: number;
+  leftTopY?: number;
+  objectType?: string;
+  personId?: string;
+  rightBottomX?: number;
   rightBottomY?: number;
   score?: number;
-  rightBottomX?: number;
-  deviceLongitude?: number;
+  shotTime?: string;
   sourceImageUrl?: string;
   targetImageUrl?: string;
-  leftTopY?: number;
-  shotTime?: string;
-  personId?: string;
-  leftTopX?: number;
-  deviceLatitude?: number;
   static names(): { [key: string]: string } {
     return {
       deviceID: 'DeviceID',
-      objectType: 'ObjectType',
+      deviceLatitude: 'DeviceLatitude',
+      deviceLongitude: 'DeviceLongitude',
       deviceName: 'DeviceName',
+      leftTopX: 'LeftTopX',
+      leftTopY: 'LeftTopY',
+      objectType: 'ObjectType',
+      personId: 'PersonId',
+      rightBottomX: 'RightBottomX',
       rightBottomY: 'RightBottomY',
       score: 'Score',
-      rightBottomX: 'RightBottomX',
-      deviceLongitude: 'DeviceLongitude',
+      shotTime: 'ShotTime',
       sourceImageUrl: 'SourceImageUrl',
       targetImageUrl: 'TargetImageUrl',
-      leftTopY: 'LeftTopY',
-      shotTime: 'ShotTime',
-      personId: 'PersonId',
-      leftTopX: 'LeftTopX',
-      deviceLatitude: 'DeviceLatitude',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceID: 'string',
-      objectType: 'string',
+      deviceLatitude: 'number',
+      deviceLongitude: 'number',
       deviceName: 'string',
+      leftTopX: 'number',
+      leftTopY: 'number',
+      objectType: 'string',
+      personId: 'string',
+      rightBottomX: 'number',
       rightBottomY: 'number',
       score: 'number',
-      rightBottomX: 'number',
-      deviceLongitude: 'number',
+      shotTime: 'string',
       sourceImageUrl: 'string',
       targetImageUrl: 'string',
-      leftTopY: 'number',
-      shotTime: 'string',
-      personId: 'string',
-      leftTopX: 'number',
-      deviceLatitude: 'number',
     };
   }
 
@@ -6490,54 +6979,54 @@ export class SearchAggregateObjectResponseBodyDataBodyList extends $tea.Model {
 
 export class SearchAggregateObjectResponseBodyDataFaceList extends $tea.Model {
   deviceID?: string;
-  objectType?: string;
+  deviceLatitude?: number;
+  deviceLongitude?: number;
   deviceName?: string;
+  leftTopX?: number;
+  leftTopY?: number;
+  objectType?: string;
+  personId?: string;
+  rightBottomX?: number;
   rightBottomY?: number;
   score?: number;
-  rightBottomX?: number;
-  deviceLongitude?: number;
+  shotTime?: string;
   sourceImageUrl?: string;
   targetImageUrl?: string;
-  leftTopY?: number;
-  shotTime?: string;
-  personId?: string;
-  leftTopX?: number;
-  deviceLatitude?: number;
   static names(): { [key: string]: string } {
     return {
       deviceID: 'DeviceID',
-      objectType: 'ObjectType',
+      deviceLatitude: 'DeviceLatitude',
+      deviceLongitude: 'DeviceLongitude',
       deviceName: 'DeviceName',
+      leftTopX: 'LeftTopX',
+      leftTopY: 'LeftTopY',
+      objectType: 'ObjectType',
+      personId: 'PersonId',
+      rightBottomX: 'RightBottomX',
       rightBottomY: 'RightBottomY',
       score: 'Score',
-      rightBottomX: 'RightBottomX',
-      deviceLongitude: 'DeviceLongitude',
+      shotTime: 'ShotTime',
       sourceImageUrl: 'SourceImageUrl',
       targetImageUrl: 'TargetImageUrl',
-      leftTopY: 'LeftTopY',
-      shotTime: 'ShotTime',
-      personId: 'PersonId',
-      leftTopX: 'LeftTopX',
-      deviceLatitude: 'DeviceLatitude',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceID: 'string',
-      objectType: 'string',
+      deviceLatitude: 'number',
+      deviceLongitude: 'number',
       deviceName: 'string',
+      leftTopX: 'number',
+      leftTopY: 'number',
+      objectType: 'string',
+      personId: 'string',
+      rightBottomX: 'number',
       rightBottomY: 'number',
       score: 'number',
-      rightBottomX: 'number',
-      deviceLongitude: 'number',
+      shotTime: 'string',
       sourceImageUrl: 'string',
       targetImageUrl: 'string',
-      leftTopY: 'number',
-      shotTime: 'string',
-      personId: 'string',
-      leftTopX: 'number',
-      deviceLatitude: 'number',
     };
   }
 
@@ -6548,54 +7037,54 @@ export class SearchAggregateObjectResponseBodyDataFaceList extends $tea.Model {
 
 export class SearchAggregateObjectResponseBodyDataMotorList extends $tea.Model {
   deviceID?: string;
-  objectType?: string;
+  deviceLatitude?: number;
+  deviceLongitude?: number;
   deviceName?: string;
+  leftTopX?: number;
+  leftTopY?: number;
+  objectType?: string;
+  personId?: string;
+  rightBottomX?: number;
   rightBottomY?: number;
   score?: number;
-  rightBottomX?: number;
-  deviceLongitude?: number;
+  shotTime?: string;
   sourceImageUrl?: string;
   targetImageUrl?: string;
-  leftTopY?: number;
-  shotTime?: string;
-  personId?: string;
-  leftTopX?: number;
-  deviceLatitude?: number;
   static names(): { [key: string]: string } {
     return {
       deviceID: 'DeviceID',
-      objectType: 'ObjectType',
+      deviceLatitude: 'DeviceLatitude',
+      deviceLongitude: 'DeviceLongitude',
       deviceName: 'DeviceName',
+      leftTopX: 'LeftTopX',
+      leftTopY: 'LeftTopY',
+      objectType: 'ObjectType',
+      personId: 'PersonId',
+      rightBottomX: 'RightBottomX',
       rightBottomY: 'RightBottomY',
       score: 'Score',
-      rightBottomX: 'RightBottomX',
-      deviceLongitude: 'DeviceLongitude',
+      shotTime: 'ShotTime',
       sourceImageUrl: 'SourceImageUrl',
       targetImageUrl: 'TargetImageUrl',
-      leftTopY: 'LeftTopY',
-      shotTime: 'ShotTime',
-      personId: 'PersonId',
-      leftTopX: 'LeftTopX',
-      deviceLatitude: 'DeviceLatitude',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceID: 'string',
-      objectType: 'string',
+      deviceLatitude: 'number',
+      deviceLongitude: 'number',
       deviceName: 'string',
+      leftTopX: 'number',
+      leftTopY: 'number',
+      objectType: 'string',
+      personId: 'string',
+      rightBottomX: 'number',
       rightBottomY: 'number',
       score: 'number',
-      rightBottomX: 'number',
-      deviceLongitude: 'number',
+      shotTime: 'string',
       sourceImageUrl: 'string',
       targetImageUrl: 'string',
-      leftTopY: 'number',
-      shotTime: 'string',
-      personId: 'string',
-      leftTopX: 'number',
-      deviceLatitude: 'number',
     };
   }
 
@@ -6606,54 +7095,54 @@ export class SearchAggregateObjectResponseBodyDataMotorList extends $tea.Model {
 
 export class SearchAggregateObjectResponseBodyDataNonMotorList extends $tea.Model {
   deviceID?: string;
-  objectType?: string;
+  deviceLatitude?: number;
+  deviceLongitude?: number;
   deviceName?: string;
+  leftTopX?: number;
+  leftTopY?: number;
+  objectType?: string;
+  personId?: string;
+  rightBottomX?: number;
   rightBottomY?: number;
   score?: number;
-  rightBottomX?: number;
-  deviceLongitude?: number;
+  shotTime?: string;
   sourceImageUrl?: string;
   targetImageUrl?: string;
-  leftTopY?: number;
-  shotTime?: string;
-  personId?: string;
-  leftTopX?: number;
-  deviceLatitude?: number;
   static names(): { [key: string]: string } {
     return {
       deviceID: 'DeviceID',
-      objectType: 'ObjectType',
+      deviceLatitude: 'DeviceLatitude',
+      deviceLongitude: 'DeviceLongitude',
       deviceName: 'DeviceName',
+      leftTopX: 'LeftTopX',
+      leftTopY: 'LeftTopY',
+      objectType: 'ObjectType',
+      personId: 'PersonId',
+      rightBottomX: 'RightBottomX',
       rightBottomY: 'RightBottomY',
       score: 'Score',
-      rightBottomX: 'RightBottomX',
-      deviceLongitude: 'DeviceLongitude',
+      shotTime: 'ShotTime',
       sourceImageUrl: 'SourceImageUrl',
       targetImageUrl: 'TargetImageUrl',
-      leftTopY: 'LeftTopY',
-      shotTime: 'ShotTime',
-      personId: 'PersonId',
-      leftTopX: 'LeftTopX',
-      deviceLatitude: 'DeviceLatitude',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceID: 'string',
-      objectType: 'string',
+      deviceLatitude: 'number',
+      deviceLongitude: 'number',
       deviceName: 'string',
+      leftTopX: 'number',
+      leftTopY: 'number',
+      objectType: 'string',
+      personId: 'string',
+      rightBottomX: 'number',
       rightBottomY: 'number',
       score: 'number',
-      rightBottomX: 'number',
-      deviceLongitude: 'number',
+      shotTime: 'string',
       sourceImageUrl: 'string',
       targetImageUrl: 'string',
-      leftTopY: 'number',
-      shotTime: 'string',
-      personId: 'string',
-      leftTopX: 'number',
-      deviceLatitude: 'number',
     };
   }
 
@@ -6690,102 +7179,44 @@ export class SearchAggregateObjectResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListCorpMetricsStatisticResponseBodyData extends $tea.Model {
-  dateId?: string;
-  deviceGroupId?: string;
-  deviceId?: string;
-  tagCode?: string;
-  userGroupId?: string;
-  corpId?: string;
-  tagMetrics?: string;
-  tagValue?: string;
-  personId?: string;
+export class SearchObjectResponseBodyDataBodyList extends $tea.Model {
+  deviceID?: string;
+  leftTopX?: number;
+  leftTopY?: number;
+  objectType?: string;
+  rightBottomX?: number;
+  rightBottomY?: number;
+  score?: number;
+  shotTime?: string;
+  sourceImageUrl?: string;
+  targetImageUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      dateId: 'DateId',
-      deviceGroupId: 'DeviceGroupId',
-      deviceId: 'DeviceId',
-      tagCode: 'TagCode',
-      userGroupId: 'UserGroupId',
-      corpId: 'CorpId',
-      tagMetrics: 'TagMetrics',
-      tagValue: 'TagValue',
-      personId: 'PersonId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dateId: 'string',
-      deviceGroupId: 'string',
-      deviceId: 'string',
-      tagCode: 'string',
-      userGroupId: 'string',
-      corpId: 'string',
-      tagMetrics: 'string',
-      tagValue: 'string',
-      personId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVehicleTrackResponseBodyData extends $tea.Model {
-  sourceUrl?: string;
-  rightBottomY?: string;
-  dataSourceName?: string;
-  picUrlPath?: string;
-  dataSourceId?: string;
-  rightBottomX?: string;
-  targetPicUrlPath?: string;
-  plateId?: string;
-  leftTopY?: string;
-  targetUrl?: string;
-  corpId?: string;
-  longitude?: string;
-  latitude?: string;
-  leftTopX?: string;
-  passTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceUrl: 'SourceUrl',
-      rightBottomY: 'RightBottomY',
-      dataSourceName: 'DataSourceName',
-      picUrlPath: 'PicUrlPath',
-      dataSourceId: 'DataSourceId',
-      rightBottomX: 'RightBottomX',
-      targetPicUrlPath: 'TargetPicUrlPath',
-      plateId: 'PlateId',
-      leftTopY: 'LeftTopY',
-      targetUrl: 'TargetUrl',
-      corpId: 'CorpId',
-      longitude: 'Longitude',
-      latitude: 'Latitude',
+      deviceID: 'DeviceID',
       leftTopX: 'LeftTopX',
-      passTime: 'PassTime',
+      leftTopY: 'LeftTopY',
+      objectType: 'ObjectType',
+      rightBottomX: 'RightBottomX',
+      rightBottomY: 'RightBottomY',
+      score: 'Score',
+      shotTime: 'ShotTime',
+      sourceImageUrl: 'SourceImageUrl',
+      targetImageUrl: 'TargetImageUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceUrl: 'string',
-      rightBottomY: 'string',
-      dataSourceName: 'string',
-      picUrlPath: 'string',
-      dataSourceId: 'string',
-      rightBottomX: 'string',
-      targetPicUrlPath: 'string',
-      plateId: 'string',
-      leftTopY: 'string',
-      targetUrl: 'string',
-      corpId: 'string',
-      longitude: 'string',
-      latitude: 'string',
-      leftTopX: 'string',
-      passTime: 'string',
+      deviceID: 'string',
+      leftTopX: 'number',
+      leftTopY: 'number',
+      objectType: 'string',
+      rightBottomX: 'number',
+      rightBottomY: 'number',
+      score: 'number',
+      shotTime: 'string',
+      sourceImageUrl: 'string',
+      targetImageUrl: 'string',
     };
   }
 
@@ -6794,20 +7225,44 @@ export class ListVehicleTrackResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListStructureStatisticsResponseBodyData extends $tea.Model {
-  corpId?: string;
-  number?: string;
+export class SearchObjectResponseBodyDataFaceList extends $tea.Model {
+  deviceID?: string;
+  leftTopX?: number;
+  leftTopY?: number;
+  objectType?: string;
+  rightBottomX?: number;
+  rightBottomY?: number;
+  score?: number;
+  shotTime?: string;
+  sourceImageUrl?: string;
+  targetImageUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      corpId: 'CorpId',
-      number: 'Number',
+      deviceID: 'DeviceID',
+      leftTopX: 'LeftTopX',
+      leftTopY: 'LeftTopY',
+      objectType: 'ObjectType',
+      rightBottomX: 'RightBottomX',
+      rightBottomY: 'RightBottomY',
+      score: 'Score',
+      shotTime: 'ShotTime',
+      sourceImageUrl: 'SourceImageUrl',
+      targetImageUrl: 'TargetImageUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      corpId: 'string',
-      number: 'string',
+      deviceID: 'string',
+      leftTopX: 'number',
+      leftTopY: 'number',
+      objectType: 'string',
+      rightBottomX: 'number',
+      rightBottomY: 'number',
+      score: 'number',
+      shotTime: 'string',
+      sourceImageUrl: 'string',
+      targetImageUrl: 'string',
     };
   }
 
@@ -6816,38 +7271,44 @@ export class ListStructureStatisticsResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListRangeDeviceResponseBodyData extends $tea.Model {
-  dataSourceIdPoi?: string;
-  distance?: string;
-  dataSourceId?: string;
-  corpId?: string;
-  longitude?: string;
-  dataSourceIdName?: string;
-  latitude?: string;
-  nearPoi?: string;
+export class SearchObjectResponseBodyDataMotorList extends $tea.Model {
+  deviceID?: string;
+  leftTopX?: number;
+  leftTopY?: number;
+  objectType?: string;
+  rightBottomX?: number;
+  rightBottomY?: number;
+  score?: number;
+  shotTime?: string;
+  sourceImageUrl?: string;
+  targetImageUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      dataSourceIdPoi: 'DataSourceIdPoi',
-      distance: 'Distance',
-      dataSourceId: 'DataSourceId',
-      corpId: 'CorpId',
-      longitude: 'Longitude',
-      dataSourceIdName: 'DataSourceIdName',
-      latitude: 'Latitude',
-      nearPoi: 'NearPoi',
+      deviceID: 'DeviceID',
+      leftTopX: 'LeftTopX',
+      leftTopY: 'LeftTopY',
+      objectType: 'ObjectType',
+      rightBottomX: 'RightBottomX',
+      rightBottomY: 'RightBottomY',
+      score: 'Score',
+      shotTime: 'ShotTime',
+      sourceImageUrl: 'SourceImageUrl',
+      targetImageUrl: 'TargetImageUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataSourceIdPoi: 'string',
-      distance: 'string',
-      dataSourceId: 'string',
-      corpId: 'string',
-      longitude: 'string',
-      dataSourceIdName: 'string',
-      latitude: 'string',
-      nearPoi: 'string',
+      deviceID: 'string',
+      leftTopX: 'number',
+      leftTopY: 'number',
+      objectType: 'string',
+      rightBottomX: 'number',
+      rightBottomY: 'number',
+      score: 'number',
+      shotTime: 'string',
+      sourceImageUrl: 'string',
+      targetImageUrl: 'string',
     };
   }
 
@@ -6856,47 +7317,44 @@ export class ListRangeDeviceResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListCityMapRangeStatisticResponseBodyData extends $tea.Model {
-  adultValue?: string;
-  childValue?: string;
-  oldValue?: string;
-  manValue?: string;
-  dataSourceName?: string;
-  dataSourceId?: string;
-  corpId?: string;
-  motorValue?: string;
-  longitude?: string;
-  latitude?: string;
-  womanValue?: string;
+export class SearchObjectResponseBodyDataNonMotorList extends $tea.Model {
+  deviceID?: string;
+  leftTopX?: number;
+  leftTopY?: number;
+  objectType?: string;
+  rightBottomX?: number;
+  rightBottomY?: number;
+  score?: number;
+  shotTime?: string;
+  sourceImageUrl?: string;
+  targetImageUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      adultValue: 'AdultValue',
-      childValue: 'ChildValue',
-      oldValue: 'OldValue',
-      manValue: 'ManValue',
-      dataSourceName: 'DataSourceName',
-      dataSourceId: 'DataSourceId',
-      corpId: 'CorpId',
-      motorValue: 'MotorValue',
-      longitude: 'Longitude',
-      latitude: 'Latitude',
-      womanValue: 'WomanValue',
+      deviceID: 'DeviceID',
+      leftTopX: 'LeftTopX',
+      leftTopY: 'LeftTopY',
+      objectType: 'ObjectType',
+      rightBottomX: 'RightBottomX',
+      rightBottomY: 'RightBottomY',
+      score: 'Score',
+      shotTime: 'ShotTime',
+      sourceImageUrl: 'SourceImageUrl',
+      targetImageUrl: 'TargetImageUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      adultValue: 'string',
-      childValue: 'string',
-      oldValue: 'string',
-      manValue: 'string',
-      dataSourceName: 'string',
-      dataSourceId: 'string',
-      corpId: 'string',
-      motorValue: 'string',
-      longitude: 'string',
-      latitude: 'string',
-      womanValue: 'string',
+      deviceID: 'string',
+      leftTopX: 'number',
+      leftTopY: 'number',
+      objectType: 'string',
+      rightBottomX: 'number',
+      rightBottomY: 'number',
+      score: 'number',
+      shotTime: 'string',
+      sourceImageUrl: 'string',
+      targetImageUrl: 'string',
     };
   }
 
@@ -6905,29 +7363,26 @@ export class ListCityMapRangeStatisticResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListStorageStatisticsResponseBodyData extends $tea.Model {
-  usedStore?: string;
-  unusedStore?: string;
-  corpId?: string;
-  number?: string;
-  totalStore?: string;
+export class SearchObjectResponseBodyData extends $tea.Model {
+  bodyList?: SearchObjectResponseBodyDataBodyList[];
+  faceList?: SearchObjectResponseBodyDataFaceList[];
+  motorList?: SearchObjectResponseBodyDataMotorList[];
+  nonMotorList?: SearchObjectResponseBodyDataNonMotorList[];
   static names(): { [key: string]: string } {
     return {
-      usedStore: 'UsedStore',
-      unusedStore: 'UnusedStore',
-      corpId: 'CorpId',
-      number: 'Number',
-      totalStore: 'TotalStore',
+      bodyList: 'BodyList',
+      faceList: 'FaceList',
+      motorList: 'MotorList',
+      nonMotorList: 'NonMotorList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      usedStore: 'string',
-      unusedStore: 'string',
-      corpId: 'string',
-      number: 'string',
-      totalStore: 'string',
+      bodyList: { 'type': 'array', 'itemType': SearchObjectResponseBodyDataBodyList },
+      faceList: { 'type': 'array', 'itemType': SearchObjectResponseBodyDataFaceList },
+      motorList: { 'type': 'array', 'itemType': SearchObjectResponseBodyDataMotorList },
+      nonMotorList: { 'type': 'array', 'itemType': SearchObjectResponseBodyDataNonMotorList },
     };
   }
 
@@ -6936,322 +7391,26 @@ export class ListStorageStatisticsResponseBodyData extends $tea.Model {
   }
 }
 
-export class PaginateProjectResponseBodyDataRecords extends $tea.Model {
-  type?: string;
-  modifiedTime?: string;
-  description?: string;
-  aggregateSceneCode?: string;
-  corpId?: string;
-  userId?: string;
-  icon?: string;
-  name?: string;
-  createdTime?: string;
+export class UnbindDeviceResponseBodyData extends $tea.Model {
+  code?: string;
+  deviceId?: string;
+  message?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      modifiedTime: 'ModifiedTime',
-      description: 'Description',
-      aggregateSceneCode: 'AggregateSceneCode',
-      corpId: 'CorpId',
-      userId: 'UserId',
-      icon: 'Icon',
-      name: 'Name',
-      createdTime: 'CreatedTime',
+      code: 'Code',
+      deviceId: 'DeviceId',
+      message: 'Message',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      modifiedTime: 'string',
-      description: 'string',
-      aggregateSceneCode: 'string',
-      corpId: 'string',
-      userId: 'string',
-      icon: 'string',
-      name: 'string',
-      createdTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PaginateProjectResponseBodyData extends $tea.Model {
-  records?: PaginateProjectResponseBodyDataRecords[];
-  totalPage?: number;
-  pageNumber?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      records: 'Records',
-      totalPage: 'TotalPage',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      records: { 'type': 'array', 'itemType': PaginateProjectResponseBodyDataRecords },
-      totalPage: 'number',
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCityMapCameraStatisticsResponseBodyData extends $tea.Model {
-  oldValue?: string;
-  dataSourceName?: string;
-  dataSourceId?: string;
-  statisticTime?: string;
-  adultValue?: string;
-  childValue?: string;
-  manValue?: string;
-  corpId?: string;
-  motorValue?: string;
-  longitude?: string;
-  latitude?: string;
-  womanValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      oldValue: 'OldValue',
-      dataSourceName: 'DataSourceName',
-      dataSourceId: 'DataSourceId',
-      statisticTime: 'StatisticTime',
-      adultValue: 'AdultValue',
-      childValue: 'ChildValue',
-      manValue: 'ManValue',
-      corpId: 'CorpId',
-      motorValue: 'MotorValue',
-      longitude: 'Longitude',
-      latitude: 'Latitude',
-      womanValue: 'WomanValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      oldValue: 'string',
-      dataSourceName: 'string',
-      dataSourceId: 'string',
-      statisticTime: 'string',
-      adultValue: 'string',
-      childValue: 'string',
-      manValue: 'string',
-      corpId: 'string',
-      motorValue: 'string',
-      longitude: 'string',
-      latitude: 'string',
-      womanValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonResultResponseBodyData extends $tea.Model {
-  sourceUrl?: string;
-  profession?: string;
-  updateTime?: string;
-  gender?: string;
-  targetUrl?: string;
-  address?: string;
-  hotSpotAddress?: string;
-  age?: string;
-  personId?: string;
-  personType?: string;
-  transportation?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceUrl: 'SourceUrl',
-      profession: 'Profession',
-      updateTime: 'UpdateTime',
-      gender: 'Gender',
-      targetUrl: 'TargetUrl',
-      address: 'Address',
-      hotSpotAddress: 'HotSpotAddress',
-      age: 'Age',
-      personId: 'PersonId',
-      personType: 'PersonType',
-      transportation: 'Transportation',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceUrl: 'string',
-      profession: 'string',
-      updateTime: 'string',
-      gender: 'string',
-      targetUrl: 'string',
-      address: 'string',
-      hotSpotAddress: 'string',
-      age: 'string',
-      personId: 'string',
-      personType: 'string',
-      transportation: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagMetricsResponseBodyData extends $tea.Model {
-  tagMetric?: string;
-  tagCode?: string;
-  corpId?: string;
-  tagValue?: string;
-  dateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagMetric: 'TagMetric',
-      tagCode: 'TagCode',
-      corpId: 'CorpId',
-      tagValue: 'TagValue',
-      dateTime: 'DateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagMetric: 'string',
-      tagCode: 'string',
-      corpId: 'string',
-      tagValue: 'string',
-      dateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersonTagResponseBodyData extends $tea.Model {
-  value?: string;
-  corpId?: string;
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      value: 'Value',
-      corpId: 'CorpId',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      value: 'string',
-      corpId: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicePersonResponseBodyData extends $tea.Model {
-  targetPicUrlPath?: string;
-  gender?: string;
-  dataSourceId?: string;
-  freqNum?: string;
-  personId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      targetPicUrlPath: 'TargetPicUrlPath',
-      gender: 'Gender',
-      dataSourceId: 'DataSourceId',
-      freqNum: 'FreqNum',
-      personId: 'PersonId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      targetPicUrlPath: 'string',
-      gender: 'string',
-      dataSourceId: 'string',
-      freqNum: 'string',
-      personId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceDetailResponseBodyData extends $tea.Model {
-  dataSourceName?: string;
-  dataSourceId?: string;
-  corpId?: string;
-  longitude?: string;
-  latitude?: string;
-  dataSourcePoi?: string;
-  nearPoi?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceName: 'DataSourceName',
-      dataSourceId: 'DataSourceId',
-      corpId: 'CorpId',
-      longitude: 'Longitude',
-      latitude: 'Latitude',
-      dataSourcePoi: 'DataSourcePoi',
-      nearPoi: 'NearPoi',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceName: 'string',
-      dataSourceId: 'string',
-      corpId: 'string',
-      longitude: 'string',
-      latitude: 'string',
-      dataSourcePoi: 'string',
-      nearPoi: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceGenderStatisticsResponseBodyData extends $tea.Model {
-  gender?: string;
-  dataSourceId?: string;
-  number?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gender: 'Gender',
-      dataSourceId: 'DataSourceId',
-      number: 'Number',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gender: 'string',
-      dataSourceId: 'string',
-      number: 'string',
+      code: 'string',
+      deviceId: 'string',
+      message: 'string',
+      success: 'boolean',
     };
   }
 
@@ -7283,168 +7442,129 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async searchObjectWithOptions(request: SearchObjectRequest, runtime: $Util.RuntimeOptions): Promise<SearchObjectResponse> {
+  async addCdrsMonitorWithOptions(request: AddCdrsMonitorRequest, runtime: $Util.RuntimeOptions): Promise<AddCdrsMonitorResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.algorithmVendor)) {
+      body["AlgorithmVendor"] = request.algorithmVendor;
+    }
+
+    if (!Util.isUnset(request.batchIndicator)) {
+      body["BatchIndicator"] = request.batchIndicator;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.monitorType)) {
+      body["MonitorType"] = request.monitorType;
+    }
+
+    if (!Util.isUnset(request.notifierAppSecret)) {
+      body["NotifierAppSecret"] = request.notifierAppSecret;
+    }
+
+    if (!Util.isUnset(request.notifierExtendValues)) {
+      body["NotifierExtendValues"] = request.notifierExtendValues;
+    }
+
+    if (!Util.isUnset(request.notifierTimeOut)) {
+      body["NotifierTimeOut"] = request.notifierTimeOut;
+    }
+
+    if (!Util.isUnset(request.notifierType)) {
+      body["NotifierType"] = request.notifierType;
+    }
+
+    if (!Util.isUnset(request.notifierUrl)) {
+      body["NotifierUrl"] = request.notifierUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<SearchObjectResponse>(await this.doRPCRequest("SearchObject", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new SearchObjectResponse({}));
-  }
-
-  async searchObject(request: SearchObjectRequest): Promise<SearchObjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.searchObjectWithOptions(request, runtime);
-  }
-
-  async listAreaHotSpotMetricsWithOptions(request: ListAreaHotSpotMetricsRequest, runtime: $Util.RuntimeOptions): Promise<ListAreaHotSpotMetricsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApi.Params({
+      action: "AddCdrsMonitor",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<ListAreaHotSpotMetricsResponse>(await this.doRPCRequest("ListAreaHotSpotMetrics", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListAreaHotSpotMetricsResponse({}));
+    return $tea.cast<AddCdrsMonitorResponse>(await this.callApi(params, req, runtime), new AddCdrsMonitorResponse({}));
   }
 
-  async listAreaHotSpotMetrics(request: ListAreaHotSpotMetricsRequest): Promise<ListAreaHotSpotMetricsResponse> {
+  async addCdrsMonitor(request: AddCdrsMonitorRequest): Promise<AddCdrsMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listAreaHotSpotMetricsWithOptions(request, runtime);
-  }
-
-  async bindDeviceWithOptions(request: BindDeviceRequest, runtime: $Util.RuntimeOptions): Promise<BindDeviceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<BindDeviceResponse>(await this.doRPCRequest("BindDevice", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new BindDeviceResponse({}));
-  }
-
-  async bindDevice(request: BindDeviceRequest): Promise<BindDeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.bindDeviceWithOptions(request, runtime);
-  }
-
-  async getCdrsMonitorResultWithOptions(request: GetCdrsMonitorResultRequest, runtime: $Util.RuntimeOptions): Promise<GetCdrsMonitorResultResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetCdrsMonitorResultResponse>(await this.doRPCRequest("GetCdrsMonitorResult", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetCdrsMonitorResultResponse({}));
-  }
-
-  async getCdrsMonitorResult(request: GetCdrsMonitorResultRequest): Promise<GetCdrsMonitorResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getCdrsMonitorResultWithOptions(request, runtime);
-  }
-
-  async listVehicleDetailsWithOptions(request: ListVehicleDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListVehicleDetailsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListVehicleDetailsResponse>(await this.doRPCRequest("ListVehicleDetails", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListVehicleDetailsResponse({}));
-  }
-
-  async listVehicleDetails(request: ListVehicleDetailsRequest): Promise<ListVehicleDetailsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listVehicleDetailsWithOptions(request, runtime);
-  }
-
-  async getCdrsMonitorListWithOptions(request: GetCdrsMonitorListRequest, runtime: $Util.RuntimeOptions): Promise<GetCdrsMonitorListResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetCdrsMonitorListResponse>(await this.doRPCRequest("GetCdrsMonitorList", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetCdrsMonitorListResponse({}));
-  }
-
-  async getCdrsMonitorList(request: GetCdrsMonitorListRequest): Promise<GetCdrsMonitorListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getCdrsMonitorListWithOptions(request, runtime);
-  }
-
-  async updateMonitorWithOptions(request: UpdateMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMonitorResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateMonitorResponse>(await this.doRPCRequest("UpdateMonitor", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateMonitorResponse({}));
-  }
-
-  async updateMonitor(request: UpdateMonitorRequest): Promise<UpdateMonitorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateMonitorWithOptions(request, runtime);
-  }
-
-  async listDataStatisticsWithOptions(request: ListDataStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListDataStatisticsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListDataStatisticsResponse>(await this.doRPCRequest("ListDataStatistics", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListDataStatisticsResponse({}));
-  }
-
-  async listDataStatistics(request: ListDataStatisticsRequest): Promise<ListDataStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDataStatisticsWithOptions(request, runtime);
-  }
-
-  async unbindDeviceWithOptions(request: UnbindDeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnbindDeviceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UnbindDeviceResponse>(await this.doRPCRequest("UnbindDevice", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new UnbindDeviceResponse({}));
-  }
-
-  async unbindDevice(request: UnbindDeviceRequest): Promise<UnbindDeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.unbindDeviceWithOptions(request, runtime);
-  }
-
-  async listPersonDetailsWithOptions(request: ListPersonDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListPersonDetailsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListPersonDetailsResponse>(await this.doRPCRequest("ListPersonDetails", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListPersonDetailsResponse({}));
-  }
-
-  async listPersonDetails(request: ListPersonDetailsRequest): Promise<ListPersonDetailsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listPersonDetailsWithOptions(request, runtime);
-  }
-
-  async listVehicleTagDistributeWithOptions(request: ListVehicleTagDistributeRequest, runtime: $Util.RuntimeOptions): Promise<ListVehicleTagDistributeResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListVehicleTagDistributeResponse>(await this.doRPCRequest("ListVehicleTagDistribute", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListVehicleTagDistributeResponse({}));
-  }
-
-  async listVehicleTagDistribute(request: ListVehicleTagDistributeRequest): Promise<ListVehicleTagDistributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listVehicleTagDistributeWithOptions(request, runtime);
-  }
-
-  async listDevicePersonStatisticsWithOptions(request: ListDevicePersonStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListDevicePersonStatisticsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListDevicePersonStatisticsResponse>(await this.doRPCRequest("ListDevicePersonStatistics", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListDevicePersonStatisticsResponse({}));
-  }
-
-  async listDevicePersonStatistics(request: ListDevicePersonStatisticsRequest): Promise<ListDevicePersonStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDevicePersonStatisticsWithOptions(request, runtime);
+    return await this.addCdrsMonitorWithOptions(request, runtime);
   }
 
   async addMonitorWithOptions(request: AddMonitorRequest, runtime: $Util.RuntimeOptions): Promise<AddMonitorResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.algorithmVendor)) {
+      body["AlgorithmVendor"] = request.algorithmVendor;
+    }
+
+    if (!Util.isUnset(request.batchIndicator)) {
+      body["BatchIndicator"] = request.batchIndicator;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.monitorType)) {
+      body["MonitorType"] = request.monitorType;
+    }
+
+    if (!Util.isUnset(request.notifierAppSecret)) {
+      body["NotifierAppSecret"] = request.notifierAppSecret;
+    }
+
+    if (!Util.isUnset(request.notifierExtendValues)) {
+      body["NotifierExtendValues"] = request.notifierExtendValues;
+    }
+
+    if (!Util.isUnset(request.notifierTimeOut)) {
+      body["NotifierTimeOut"] = request.notifierTimeOut;
+    }
+
+    if (!Util.isUnset(request.notifierType)) {
+      body["NotifierType"] = request.notifierType;
+    }
+
+    if (!Util.isUnset(request.notifierUrl)) {
+      body["NotifierUrl"] = request.notifierUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<AddMonitorResponse>(await this.doRPCRequest("AddMonitor", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new AddMonitorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddMonitor",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddMonitorResponse>(await this.callApi(params, req, runtime), new AddMonitorResponse({}));
   }
 
   async addMonitor(request: AddMonitorRequest): Promise<AddMonitorResponse> {
@@ -7452,43 +7572,506 @@ export default class Client extends OpenApi {
     return await this.addMonitorWithOptions(request, runtime);
   }
 
-  async paginateDeviceWithOptions(request: PaginateDeviceRequest, runtime: $Util.RuntimeOptions): Promise<PaginateDeviceResponse> {
+  async bindDeviceWithOptions(request: BindDeviceRequest, runtime: $Util.RuntimeOptions): Promise<BindDeviceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.devices)) {
+      body["Devices"] = request.devices;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<PaginateDeviceResponse>(await this.doRPCRequest("PaginateDevice", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new PaginateDeviceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BindDevice",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindDeviceResponse>(await this.callApi(params, req, runtime), new BindDeviceResponse({}));
   }
 
-  async paginateDevice(request: PaginateDeviceRequest): Promise<PaginateDeviceResponse> {
+  async bindDevice(request: BindDeviceRequest): Promise<BindDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.paginateDeviceWithOptions(request, runtime);
+    return await this.bindDeviceWithOptions(request, runtime);
   }
 
-  async stopCdrsMonitorWithOptions(request: StopCdrsMonitorRequest, runtime: $Util.RuntimeOptions): Promise<StopCdrsMonitorResponse> {
+  async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aggregateSceneCode)) {
+      body["AggregateSceneCode"] = request.aggregateSceneCode;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.icon)) {
+      body["Icon"] = request.icon;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<StopCdrsMonitorResponse>(await this.doRPCRequest("StopCdrsMonitor", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new StopCdrsMonitorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateProject",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
   }
 
-  async stopCdrsMonitor(request: StopCdrsMonitorRequest): Promise<StopCdrsMonitorResponse> {
+  async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.stopCdrsMonitorWithOptions(request, runtime);
+    return await this.createProjectWithOptions(request, runtime);
   }
 
-  async recallTrajectoryByCoordinateTimeWithOptions(request: RecallTrajectoryByCoordinateTimeRequest, runtime: $Util.RuntimeOptions): Promise<RecallTrajectoryByCoordinateTimeResponse> {
+  async detectTrajectoryRegularPatternWithOptions(request: DetectTrajectoryRegularPatternRequest, runtime: $Util.RuntimeOptions): Promise<DetectTrajectoryRegularPatternResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.idType)) {
+      body["IdType"] = request.idType;
+    }
+
+    if (!Util.isUnset(request.idValue)) {
+      body["IdValue"] = request.idValue;
+    }
+
+    if (!Util.isUnset(request.predictDate)) {
+      body["PredictDate"] = request.predictDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecallTrajectoryByCoordinateTimeResponse>(await this.doRPCRequest("RecallTrajectoryByCoordinateTime", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new RecallTrajectoryByCoordinateTimeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectTrajectoryRegularPattern",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectTrajectoryRegularPatternResponse>(await this.callApi(params, req, runtime), new DetectTrajectoryRegularPatternResponse({}));
   }
 
-  async recallTrajectoryByCoordinateTime(request: RecallTrajectoryByCoordinateTimeRequest): Promise<RecallTrajectoryByCoordinateTimeResponse> {
+  async detectTrajectoryRegularPattern(request: DetectTrajectoryRegularPatternRequest): Promise<DetectTrajectoryRegularPatternResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.recallTrajectoryByCoordinateTimeWithOptions(request, runtime);
+    return await this.detectTrajectoryRegularPatternWithOptions(request, runtime);
+  }
+
+  async getCdrsMonitorListWithOptions(request: GetCdrsMonitorListRequest, runtime: $Util.RuntimeOptions): Promise<GetCdrsMonitorListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCdrsMonitorList",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCdrsMonitorListResponse>(await this.callApi(params, req, runtime), new GetCdrsMonitorListResponse({}));
+  }
+
+  async getCdrsMonitorList(request: GetCdrsMonitorListRequest): Promise<GetCdrsMonitorListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCdrsMonitorListWithOptions(request, runtime);
+  }
+
+  async getCdrsMonitorResultWithOptions(request: GetCdrsMonitorResultRequest, runtime: $Util.RuntimeOptions): Promise<GetCdrsMonitorResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.algorithmVendor)) {
+      body["AlgorithmVendor"] = request.algorithmVendor;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.minRecordId)) {
+      body["MinRecordId"] = request.minRecordId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCdrsMonitorResult",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCdrsMonitorResultResponse>(await this.callApi(params, req, runtime), new GetCdrsMonitorResultResponse({}));
+  }
+
+  async getCdrsMonitorResult(request: GetCdrsMonitorResultRequest): Promise<GetCdrsMonitorResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCdrsMonitorResultWithOptions(request, runtime);
+  }
+
+  async getMonitorListWithOptions(request: GetMonitorListRequest, runtime: $Util.RuntimeOptions): Promise<GetMonitorListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMonitorList",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMonitorListResponse>(await this.callApi(params, req, runtime), new GetMonitorListResponse({}));
+  }
+
+  async getMonitorList(request: GetMonitorListRequest): Promise<GetMonitorListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMonitorListWithOptions(request, runtime);
+  }
+
+  async getMonitorResultWithOptions(request: GetMonitorResultRequest, runtime: $Util.RuntimeOptions): Promise<GetMonitorResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.algorithmVendor)) {
+      body["AlgorithmVendor"] = request.algorithmVendor;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.minRecordId)) {
+      body["MinRecordId"] = request.minRecordId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMonitorResult",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMonitorResultResponse>(await this.callApi(params, req, runtime), new GetMonitorResultResponse({}));
+  }
+
+  async getMonitorResult(request: GetMonitorResultRequest): Promise<GetMonitorResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMonitorResultWithOptions(request, runtime);
+  }
+
+  async listAreaHotSpotMetricsWithOptions(request: ListAreaHotSpotMetricsRequest, runtime: $Util.RuntimeOptions): Promise<ListAreaHotSpotMetricsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      body["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.personId)) {
+      body["PersonId"] = request.personId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAreaHotSpotMetrics",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAreaHotSpotMetricsResponse>(await this.callApi(params, req, runtime), new ListAreaHotSpotMetricsResponse({}));
+  }
+
+  async listAreaHotSpotMetrics(request: ListAreaHotSpotMetricsRequest): Promise<ListAreaHotSpotMetricsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAreaHotSpotMetricsWithOptions(request, runtime);
+  }
+
+  async listCityMapAoisWithOptions(request: ListCityMapAoisRequest, runtime: $Util.RuntimeOptions): Promise<ListCityMapAoisResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.latitude)) {
+      body["Latitude"] = request.latitude;
+    }
+
+    if (!Util.isUnset(request.longitude)) {
+      body["Longitude"] = request.longitude;
+    }
+
+    if (!Util.isUnset(request.radius)) {
+      body["Radius"] = request.radius;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCityMapAois",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCityMapAoisResponse>(await this.callApi(params, req, runtime), new ListCityMapAoisResponse({}));
+  }
+
+  async listCityMapAois(request: ListCityMapAoisRequest): Promise<ListCityMapAoisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCityMapAoisWithOptions(request, runtime);
+  }
+
+  async listCityMapCameraResultsWithOptions(tmpReq: ListCityMapCameraResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListCityMapCameraResultsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListCityMapCameraResultsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dataSourceIdList)) {
+      request.dataSourceIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataSourceIdList, "DataSourceIdList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataSourceIdListShrink)) {
+      body["DataSourceIdList"] = request.dataSourceIdListShrink;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCityMapCameraResults",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCityMapCameraResultsResponse>(await this.callApi(params, req, runtime), new ListCityMapCameraResultsResponse({}));
+  }
+
+  async listCityMapCameraResults(request: ListCityMapCameraResultsRequest): Promise<ListCityMapCameraResultsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCityMapCameraResultsWithOptions(request, runtime);
+  }
+
+  async listCityMapCameraStatisticsWithOptions(request: ListCityMapCameraStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListCityMapCameraStatisticsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataSourceIdList)) {
+      body["DataSourceIdList"] = request.dataSourceIdList;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCityMapCameraStatistics",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCityMapCameraStatisticsResponse>(await this.callApi(params, req, runtime), new ListCityMapCameraStatisticsResponse({}));
+  }
+
+  async listCityMapCameraStatistics(request: ListCityMapCameraStatisticsRequest): Promise<ListCityMapCameraStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCityMapCameraStatisticsWithOptions(request, runtime);
+  }
+
+  async listCityMapImageDetailsWithOptions(request: ListCityMapImageDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListCityMapImageDetailsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      body["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.recordNumber)) {
+      body["RecordNumber"] = request.recordNumber;
+    }
+
+    if (!Util.isUnset(request.timeInterval)) {
+      body["TimeInterval"] = request.timeInterval;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCityMapImageDetails",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCityMapImageDetailsResponse>(await this.callApi(params, req, runtime), new ListCityMapImageDetailsResponse({}));
+  }
+
+  async listCityMapImageDetails(request: ListCityMapImageDetailsRequest): Promise<ListCityMapImageDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCityMapImageDetailsWithOptions(request, runtime);
   }
 
   async listCityMapPersonFlowWithOptions(tmpReq: ListCityMapPersonFlowRequest, runtime: $Util.RuntimeOptions): Promise<ListCityMapPersonFlowResponse> {
@@ -7503,10 +8086,50 @@ export default class Client extends OpenApi {
       request.targetDataSourceIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targetDataSourceIdList, "TargetDataSourceIdList", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.originDataSourceIdListShrink)) {
+      body["OriginDataSourceIdList"] = request.originDataSourceIdListShrink;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.range)) {
+      body["Range"] = request.range;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.targetDataSourceIdListShrink)) {
+      body["TargetDataSourceIdList"] = request.targetDataSourceIdListShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListCityMapPersonFlowResponse>(await this.doRPCRequest("ListCityMapPersonFlow", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListCityMapPersonFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListCityMapPersonFlow",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCityMapPersonFlowResponse>(await this.callApi(params, req, runtime), new ListCityMapPersonFlowResponse({}));
   }
 
   async listCityMapPersonFlow(request: ListCityMapPersonFlowRequest): Promise<ListCityMapPersonFlowResponse> {
@@ -7514,17 +8137,411 @@ export default class Client extends OpenApi {
     return await this.listCityMapPersonFlowWithOptions(request, runtime);
   }
 
-  async addCdrsMonitorWithOptions(request: AddCdrsMonitorRequest, runtime: $Util.RuntimeOptions): Promise<AddCdrsMonitorResponse> {
+  async listCityMapRangeStatisticWithOptions(request: ListCityMapRangeStatisticRequest, runtime: $Util.RuntimeOptions): Promise<ListCityMapRangeStatisticResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.latitude)) {
+      body["Latitude"] = request.latitude;
+    }
+
+    if (!Util.isUnset(request.longitude)) {
+      body["Longitude"] = request.longitude;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.radius)) {
+      body["Radius"] = request.radius;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<AddCdrsMonitorResponse>(await this.doRPCRequest("AddCdrsMonitor", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new AddCdrsMonitorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListCityMapRangeStatistic",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCityMapRangeStatisticResponse>(await this.callApi(params, req, runtime), new ListCityMapRangeStatisticResponse({}));
   }
 
-  async addCdrsMonitor(request: AddCdrsMonitorRequest): Promise<AddCdrsMonitorResponse> {
+  async listCityMapRangeStatistic(request: ListCityMapRangeStatisticRequest): Promise<ListCityMapRangeStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.addCdrsMonitorWithOptions(request, runtime);
+    return await this.listCityMapRangeStatisticWithOptions(request, runtime);
+  }
+
+  async listCorpMetricsStatisticWithOptions(tmpReq: ListCorpMetricsStatisticRequest, runtime: $Util.RuntimeOptions): Promise<ListCorpMetricsStatisticResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListCorpMetricsStatisticShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.deviceGroupList)) {
+      request.deviceGroupListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceGroupList, "DeviceGroupList", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.deviceIdList)) {
+      request.deviceIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceIdList, "DeviceIdList", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.userGroupList)) {
+      request.userGroupListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userGroupList, "UserGroupList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.deviceGroupListShrink)) {
+      body["DeviceGroupList"] = request.deviceGroupListShrink;
+    }
+
+    if (!Util.isUnset(request.deviceIdListShrink)) {
+      body["DeviceIdList"] = request.deviceIdListShrink;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.qualitScore)) {
+      body["QualitScore"] = request.qualitScore;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tagCode)) {
+      body["TagCode"] = request.tagCode;
+    }
+
+    if (!Util.isUnset(request.userGroupListShrink)) {
+      body["UserGroupList"] = request.userGroupListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCorpMetricsStatistic",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCorpMetricsStatisticResponse>(await this.callApi(params, req, runtime), new ListCorpMetricsStatisticResponse({}));
+  }
+
+  async listCorpMetricsStatistic(request: ListCorpMetricsStatisticRequest): Promise<ListCorpMetricsStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCorpMetricsStatisticWithOptions(request, runtime);
+  }
+
+  async listDataStatisticsWithOptions(request: ListDataStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListDataStatisticsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.backCategory)) {
+      body["BackCategory"] = request.backCategory;
+    }
+
+    if (!Util.isUnset(request.schema)) {
+      body["Schema"] = request.schema;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataStatistics",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataStatisticsResponse>(await this.callApi(params, req, runtime), new ListDataStatisticsResponse({}));
+  }
+
+  async listDataStatistics(request: ListDataStatisticsRequest): Promise<ListDataStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataStatisticsWithOptions(request, runtime);
+  }
+
+  async listDataStatisticsByDayWithOptions(request: ListDataStatisticsByDayRequest, runtime: $Util.RuntimeOptions): Promise<ListDataStatisticsByDayResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataStatisticsByDay",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataStatisticsByDayResponse>(await this.callApi(params, req, runtime), new ListDataStatisticsByDayResponse({}));
+  }
+
+  async listDataStatisticsByDay(request: ListDataStatisticsByDayRequest): Promise<ListDataStatisticsByDayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataStatisticsByDayWithOptions(request, runtime);
+  }
+
+  async listDeviceDetailWithOptions(request: ListDeviceDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceDetailResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      body["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDeviceDetail",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDeviceDetailResponse>(await this.callApi(params, req, runtime), new ListDeviceDetailResponse({}));
+  }
+
+  async listDeviceDetail(request: ListDeviceDetailRequest): Promise<ListDeviceDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDeviceDetailWithOptions(request, runtime);
+  }
+
+  async listDeviceGenderStatisticsWithOptions(request: ListDeviceGenderStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceGenderStatisticsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      body["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDeviceGenderStatistics",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDeviceGenderStatisticsResponse>(await this.callApi(params, req, runtime), new ListDeviceGenderStatisticsResponse({}));
+  }
+
+  async listDeviceGenderStatistics(request: ListDeviceGenderStatisticsRequest): Promise<ListDeviceGenderStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDeviceGenderStatisticsWithOptions(request, runtime);
+  }
+
+  async listDevicePersonWithOptions(request: ListDevicePersonRequest, runtime: $Util.RuntimeOptions): Promise<ListDevicePersonResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      body["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.statisticsType)) {
+      body["StatisticsType"] = request.statisticsType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDevicePerson",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDevicePersonResponse>(await this.callApi(params, req, runtime), new ListDevicePersonResponse({}));
+  }
+
+  async listDevicePerson(request: ListDevicePersonRequest): Promise<ListDevicePersonResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDevicePersonWithOptions(request, runtime);
+  }
+
+  async listDevicePersonStatisticsWithOptions(request: ListDevicePersonStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListDevicePersonStatisticsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      body["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.statisticsType)) {
+      body["StatisticsType"] = request.statisticsType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDevicePersonStatistics",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDevicePersonStatisticsResponse>(await this.callApi(params, req, runtime), new ListDevicePersonStatisticsResponse({}));
+  }
+
+  async listDevicePersonStatistics(request: ListDevicePersonStatisticsRequest): Promise<ListDevicePersonStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDevicePersonStatisticsWithOptions(request, runtime);
+  }
+
+  async listDeviceRelationWithOptions(request: ListDeviceRelationRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceRelationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceId)) {
+      body["DeviceId"] = request.deviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDeviceRelation",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDeviceRelationResponse>(await this.callApi(params, req, runtime), new ListDeviceRelationResponse({}));
+  }
+
+  async listDeviceRelation(request: ListDeviceRelationRequest): Promise<ListDeviceRelationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDeviceRelationWithOptions(request, runtime);
   }
 
   async listMapRouteDetailsWithOptions(tmpReq: ListMapRouteDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListMapRouteDetailsResponse> {
@@ -7535,10 +8552,26 @@ export default class Client extends OpenApi {
       request.routeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.routeList, "RouteList", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.routeListShrink)) {
+      body["RouteList"] = request.routeListShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListMapRouteDetailsResponse>(await this.doRPCRequest("ListMapRouteDetails", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListMapRouteDetailsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListMapRouteDetails",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMapRouteDetailsResponse>(await this.callApi(params, req, runtime), new ListMapRouteDetailsResponse({}));
   }
 
   async listMapRouteDetails(request: ListMapRouteDetailsRequest): Promise<ListMapRouteDetailsResponse> {
@@ -7546,12 +8579,195 @@ export default class Client extends OpenApi {
     return await this.listMapRouteDetailsWithOptions(request, runtime);
   }
 
+  async listPersonDetailsWithOptions(request: ListPersonDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListPersonDetailsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.personId)) {
+      body["PersonId"] = request.personId;
+    }
+
+    if (!Util.isUnset(request.schema)) {
+      body["Schema"] = request.schema;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPersonDetails",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPersonDetailsResponse>(await this.callApi(params, req, runtime), new ListPersonDetailsResponse({}));
+  }
+
+  async listPersonDetails(request: ListPersonDetailsRequest): Promise<ListPersonDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPersonDetailsWithOptions(request, runtime);
+  }
+
+  async listPersonResultWithOptions(request: ListPersonResultRequest, runtime: $Util.RuntimeOptions): Promise<ListPersonResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.age)) {
+      body["Age"] = request.age;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.gender)) {
+      body["Gender"] = request.gender;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.profession)) {
+      body["Profession"] = request.profession;
+    }
+
+    if (!Util.isUnset(request.qualityScore)) {
+      body["QualityScore"] = request.qualityScore;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPersonResult",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPersonResultResponse>(await this.callApi(params, req, runtime), new ListPersonResultResponse({}));
+  }
+
+  async listPersonResult(request: ListPersonResultRequest): Promise<ListPersonResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPersonResultWithOptions(request, runtime);
+  }
+
+  async listPersonTagWithOptions(request: ListPersonTagRequest, runtime: $Util.RuntimeOptions): Promise<ListPersonTagResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.tagCode)) {
+      body["TagCode"] = request.tagCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPersonTag",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPersonTagResponse>(await this.callApi(params, req, runtime), new ListPersonTagResponse({}));
+  }
+
+  async listPersonTag(request: ListPersonTagRequest): Promise<ListPersonTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPersonTagWithOptions(request, runtime);
+  }
+
   async listPersonTopWithOptions(request: ListPersonTopRequest, runtime: $Util.RuntimeOptions): Promise<ListPersonTopResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.personId)) {
+      body["PersonId"] = request.personId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListPersonTopResponse>(await this.doRPCRequest("ListPersonTop", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListPersonTopResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPersonTop",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPersonTopResponse>(await this.callApi(params, req, runtime), new ListPersonTopResponse({}));
   }
 
   async listPersonTop(request: ListPersonTopRequest): Promise<ListPersonTopResponse> {
@@ -7559,77 +8775,60 @@ export default class Client extends OpenApi {
     return await this.listPersonTopWithOptions(request, runtime);
   }
 
-  async getMonitorResultWithOptions(request: GetMonitorResultRequest, runtime: $Util.RuntimeOptions): Promise<GetMonitorResultResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetMonitorResultResponse>(await this.doRPCRequest("GetMonitorResult", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetMonitorResultResponse({}));
-  }
-
-  async getMonitorResult(request: GetMonitorResultRequest): Promise<GetMonitorResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMonitorResultWithOptions(request, runtime);
-  }
-
-  async listCityMapAoisWithOptions(request: ListCityMapAoisRequest, runtime: $Util.RuntimeOptions): Promise<ListCityMapAoisResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListCityMapAoisResponse>(await this.doRPCRequest("ListCityMapAois", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListCityMapAoisResponse({}));
-  }
-
-  async listCityMapAois(request: ListCityMapAoisRequest): Promise<ListCityMapAoisResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listCityMapAoisWithOptions(request, runtime);
-  }
-
-  async recognizeImageWithOptions(request: RecognizeImageRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeImageResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RecognizeImageResponse>(await this.doRPCRequest("RecognizeImage", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeImageResponse({}));
-  }
-
-  async recognizeImage(request: RecognizeImageRequest): Promise<RecognizeImageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeImageWithOptions(request, runtime);
-  }
-
-  async getMonitorListWithOptions(request: GetMonitorListRequest, runtime: $Util.RuntimeOptions): Promise<GetMonitorListResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetMonitorListResponse>(await this.doRPCRequest("GetMonitorList", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetMonitorListResponse({}));
-  }
-
-  async getMonitorList(request: GetMonitorListRequest): Promise<GetMonitorListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMonitorListWithOptions(request, runtime);
-  }
-
-  async listDeviceRelationWithOptions(request: ListDeviceRelationRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceRelationResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListDeviceRelationResponse>(await this.doRPCRequest("ListDeviceRelation", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListDeviceRelationResponse({}));
-  }
-
-  async listDeviceRelation(request: ListDeviceRelationRequest): Promise<ListDeviceRelationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDeviceRelationWithOptions(request, runtime);
-  }
-
   async listPersonTrackWithOptions(request: ListPersonTrackRequest, runtime: $Util.RuntimeOptions): Promise<ListPersonTrackResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aggregateDimension)) {
+      body["AggregateDimension"] = request.aggregateDimension;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.imageSourceType)) {
+      body["ImageSourceType"] = request.imageSourceType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.personId)) {
+      body["PersonId"] = request.personId;
+    }
+
+    if (!Util.isUnset(request.qualityScore)) {
+      body["QualityScore"] = request.qualityScore;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListPersonTrackResponse>(await this.doRPCRequest("ListPersonTrack", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListPersonTrackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPersonTrack",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPersonTrackResponse>(await this.callApi(params, req, runtime), new ListPersonTrackResponse({}));
   }
 
   async listPersonTrack(request: ListPersonTrackRequest): Promise<ListPersonTrackResponse> {
@@ -7637,214 +8836,44 @@ export default class Client extends OpenApi {
     return await this.listPersonTrackWithOptions(request, runtime);
   }
 
-  async listCityMapCameraResultsWithOptions(tmpReq: ListCityMapCameraResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListCityMapCameraResultsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListCityMapCameraResultsShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.dataSourceIdList)) {
-      request.dataSourceIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataSourceIdList, "DataSourceIdList", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListCityMapCameraResultsResponse>(await this.doRPCRequest("ListCityMapCameraResults", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListCityMapCameraResultsResponse({}));
-  }
-
-  async listCityMapCameraResults(request: ListCityMapCameraResultsRequest): Promise<ListCityMapCameraResultsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listCityMapCameraResultsWithOptions(request, runtime);
-  }
-
-  async queryTrajectoryByIdWithOptions(request: QueryTrajectoryByIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryTrajectoryByIdResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryTrajectoryByIdResponse>(await this.doRPCRequest("QueryTrajectoryById", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new QueryTrajectoryByIdResponse({}));
-  }
-
-  async queryTrajectoryById(request: QueryTrajectoryByIdRequest): Promise<QueryTrajectoryByIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryTrajectoryByIdWithOptions(request, runtime);
-  }
-
-  async listCityMapImageDetailsWithOptions(request: ListCityMapImageDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListCityMapImageDetailsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListCityMapImageDetailsResponse>(await this.doRPCRequest("ListCityMapImageDetails", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListCityMapImageDetailsResponse({}));
-  }
-
-  async listCityMapImageDetails(request: ListCityMapImageDetailsRequest): Promise<ListCityMapImageDetailsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listCityMapImageDetailsWithOptions(request, runtime);
-  }
-
-  async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateProjectResponse>(await this.doRPCRequest("CreateProject", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateProjectResponse({}));
-  }
-
-  async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createProjectWithOptions(request, runtime);
-  }
-
-  async listVehicleTopWithOptions(request: ListVehicleTopRequest, runtime: $Util.RuntimeOptions): Promise<ListVehicleTopResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListVehicleTopResponse>(await this.doRPCRequest("ListVehicleTop", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListVehicleTopResponse({}));
-  }
-
-  async listVehicleTop(request: ListVehicleTopRequest): Promise<ListVehicleTopResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listVehicleTopWithOptions(request, runtime);
-  }
-
-  async listDataStatisticsByDayWithOptions(request: ListDataStatisticsByDayRequest, runtime: $Util.RuntimeOptions): Promise<ListDataStatisticsByDayResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListDataStatisticsByDayResponse>(await this.doRPCRequest("ListDataStatisticsByDay", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListDataStatisticsByDayResponse({}));
-  }
-
-  async listDataStatisticsByDay(request: ListDataStatisticsByDayRequest): Promise<ListDataStatisticsByDayResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDataStatisticsByDayWithOptions(request, runtime);
-  }
-
-  async listVehicleResultsWithOptions(request: ListVehicleResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListVehicleResultsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListVehicleResultsResponse>(await this.doRPCRequest("ListVehicleResults", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListVehicleResultsResponse({}));
-  }
-
-  async listVehicleResults(request: ListVehicleResultsRequest): Promise<ListVehicleResultsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listVehicleResultsWithOptions(request, runtime);
-  }
-
-  async searchAggregateObjectWithOptions(request: SearchAggregateObjectRequest, runtime: $Util.RuntimeOptions): Promise<SearchAggregateObjectResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SearchAggregateObjectResponse>(await this.doRPCRequest("SearchAggregateObject", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new SearchAggregateObjectResponse({}));
-  }
-
-  async searchAggregateObject(request: SearchAggregateObjectRequest): Promise<SearchAggregateObjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.searchAggregateObjectWithOptions(request, runtime);
-  }
-
-  async listCorpMetricsStatisticWithOptions(tmpReq: ListCorpMetricsStatisticRequest, runtime: $Util.RuntimeOptions): Promise<ListCorpMetricsStatisticResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListCorpMetricsStatisticShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.userGroupList)) {
-      request.userGroupListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userGroupList, "UserGroupList", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.deviceGroupList)) {
-      request.deviceGroupListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceGroupList, "DeviceGroupList", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.deviceIdList)) {
-      request.deviceIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceIdList, "DeviceIdList", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListCorpMetricsStatisticResponse>(await this.doRPCRequest("ListCorpMetricsStatistic", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListCorpMetricsStatisticResponse({}));
-  }
-
-  async listCorpMetricsStatistic(request: ListCorpMetricsStatisticRequest): Promise<ListCorpMetricsStatisticResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listCorpMetricsStatisticWithOptions(request, runtime);
-  }
-
-  async detectTrajectoryRegularPatternWithOptions(request: DetectTrajectoryRegularPatternRequest, runtime: $Util.RuntimeOptions): Promise<DetectTrajectoryRegularPatternResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DetectTrajectoryRegularPatternResponse>(await this.doRPCRequest("DetectTrajectoryRegularPattern", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new DetectTrajectoryRegularPatternResponse({}));
-  }
-
-  async detectTrajectoryRegularPattern(request: DetectTrajectoryRegularPatternRequest): Promise<DetectTrajectoryRegularPatternResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectTrajectoryRegularPatternWithOptions(request, runtime);
-  }
-
-  async listVehicleTrackWithOptions(request: ListVehicleTrackRequest, runtime: $Util.RuntimeOptions): Promise<ListVehicleTrackResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListVehicleTrackResponse>(await this.doRPCRequest("ListVehicleTrack", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListVehicleTrackResponse({}));
-  }
-
-  async listVehicleTrack(request: ListVehicleTrackRequest): Promise<ListVehicleTrackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listVehicleTrackWithOptions(request, runtime);
-  }
-
-  async listStructureStatisticsWithOptions(request: ListStructureStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListStructureStatisticsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListStructureStatisticsResponse>(await this.doRPCRequest("ListStructureStatistics", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListStructureStatisticsResponse({}));
-  }
-
-  async listStructureStatistics(request: ListStructureStatisticsRequest): Promise<ListStructureStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listStructureStatisticsWithOptions(request, runtime);
-  }
-
-  async stopMonitorWithOptions(request: StopMonitorRequest, runtime: $Util.RuntimeOptions): Promise<StopMonitorResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<StopMonitorResponse>(await this.doRPCRequest("StopMonitor", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new StopMonitorResponse({}));
-  }
-
-  async stopMonitor(request: StopMonitorRequest): Promise<StopMonitorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.stopMonitorWithOptions(request, runtime);
-  }
-
-  async predictTrajectoryDestinationWithOptions(request: PredictTrajectoryDestinationRequest, runtime: $Util.RuntimeOptions): Promise<PredictTrajectoryDestinationResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<PredictTrajectoryDestinationResponse>(await this.doRPCRequest("PredictTrajectoryDestination", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new PredictTrajectoryDestinationResponse({}));
-  }
-
-  async predictTrajectoryDestination(request: PredictTrajectoryDestinationRequest): Promise<PredictTrajectoryDestinationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.predictTrajectoryDestinationWithOptions(request, runtime);
-  }
-
   async listRangeDeviceWithOptions(request: ListRangeDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ListRangeDeviceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      body["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.radius)) {
+      body["Radius"] = request.radius;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListRangeDeviceResponse>(await this.doRPCRequest("ListRangeDevice", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListRangeDeviceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRangeDevice",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRangeDeviceResponse>(await this.callApi(params, req, runtime), new ListRangeDeviceResponse({}));
   }
 
   async listRangeDevice(request: ListRangeDeviceRequest): Promise<ListRangeDeviceResponse> {
@@ -7852,25 +8881,28 @@ export default class Client extends OpenApi {
     return await this.listRangeDeviceWithOptions(request, runtime);
   }
 
-  async listCityMapRangeStatisticWithOptions(request: ListCityMapRangeStatisticRequest, runtime: $Util.RuntimeOptions): Promise<ListCityMapRangeStatisticResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListCityMapRangeStatisticResponse>(await this.doRPCRequest("ListCityMapRangeStatistic", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListCityMapRangeStatisticResponse({}));
-  }
-
-  async listCityMapRangeStatistic(request: ListCityMapRangeStatisticRequest): Promise<ListCityMapRangeStatisticResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listCityMapRangeStatisticWithOptions(request, runtime);
-  }
-
   async listStorageStatisticsWithOptions(request: ListStorageStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListStorageStatisticsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListStorageStatisticsResponse>(await this.doRPCRequest("ListStorageStatistics", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListStorageStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListStorageStatistics",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStorageStatisticsResponse>(await this.callApi(params, req, runtime), new ListStorageStatisticsResponse({}));
   }
 
   async listStorageStatistics(request: ListStorageStatisticsRequest): Promise<ListStorageStatisticsResponse> {
@@ -7878,56 +8910,37 @@ export default class Client extends OpenApi {
     return await this.listStorageStatisticsWithOptions(request, runtime);
   }
 
-  async paginateProjectWithOptions(request: PaginateProjectRequest, runtime: $Util.RuntimeOptions): Promise<PaginateProjectResponse> {
+  async listStructureStatisticsWithOptions(request: ListStructureStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListStructureStatisticsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.backCategory)) {
+      body["BackCategory"] = request.backCategory;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<PaginateProjectResponse>(await this.doRPCRequest("PaginateProject", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new PaginateProjectResponse({}));
-  }
-
-  async paginateProject(request: PaginateProjectRequest): Promise<PaginateProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.paginateProjectWithOptions(request, runtime);
-  }
-
-  async listCityMapCameraStatisticsWithOptions(request: ListCityMapCameraStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListCityMapCameraStatisticsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApi.Params({
+      action: "ListStructureStatistics",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<ListCityMapCameraStatisticsResponse>(await this.doRPCRequest("ListCityMapCameraStatistics", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListCityMapCameraStatisticsResponse({}));
+    return $tea.cast<ListStructureStatisticsResponse>(await this.callApi(params, req, runtime), new ListStructureStatisticsResponse({}));
   }
 
-  async listCityMapCameraStatistics(request: ListCityMapCameraStatisticsRequest): Promise<ListCityMapCameraStatisticsResponse> {
+  async listStructureStatistics(request: ListStructureStatisticsRequest): Promise<ListStructureStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listCityMapCameraStatisticsWithOptions(request, runtime);
-  }
-
-  async updateCdrsMonitorWithOptions(request: UpdateCdrsMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCdrsMonitorResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateCdrsMonitorResponse>(await this.doRPCRequest("UpdateCdrsMonitor", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateCdrsMonitorResponse({}));
-  }
-
-  async updateCdrsMonitor(request: UpdateCdrsMonitorRequest): Promise<UpdateCdrsMonitorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateCdrsMonitorWithOptions(request, runtime);
-  }
-
-  async listPersonResultWithOptions(request: ListPersonResultRequest, runtime: $Util.RuntimeOptions): Promise<ListPersonResultResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListPersonResultResponse>(await this.doRPCRequest("ListPersonResult", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListPersonResultResponse({}));
-  }
-
-  async listPersonResult(request: ListPersonResultRequest): Promise<ListPersonResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listPersonResultWithOptions(request, runtime);
+    return await this.listStructureStatisticsWithOptions(request, runtime);
   }
 
   async listTagMetricsWithOptions(tmpReq: ListTagMetricsRequest, runtime: $Util.RuntimeOptions): Promise<ListTagMetricsResponse> {
@@ -7938,10 +8951,50 @@ export default class Client extends OpenApi {
       request.tagCodeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagCode, "TagCode", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aggregateType)) {
+      body["AggregateType"] = request.aggregateType;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tagCodeShrink)) {
+      body["TagCode"] = request.tagCodeShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListTagMetricsResponse>(await this.doRPCRequest("ListTagMetrics", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagMetricsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagMetrics",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagMetricsResponse>(await this.callApi(params, req, runtime), new ListTagMetricsResponse({}));
   }
 
   async listTagMetrics(request: ListTagMetricsRequest): Promise<ListTagMetricsResponse> {
@@ -7949,69 +9002,1019 @@ export default class Client extends OpenApi {
     return await this.listTagMetricsWithOptions(request, runtime);
   }
 
-  async listPersonTagWithOptions(request: ListPersonTagRequest, runtime: $Util.RuntimeOptions): Promise<ListPersonTagResponse> {
+  async listVehicleDetailsWithOptions(request: ListVehicleDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListVehicleDetailsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.plateId)) {
+      body["PlateId"] = request.plateId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListPersonTagResponse>(await this.doRPCRequest("ListPersonTag", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListPersonTagResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVehicleDetails",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVehicleDetailsResponse>(await this.callApi(params, req, runtime), new ListVehicleDetailsResponse({}));
   }
 
-  async listPersonTag(request: ListPersonTagRequest): Promise<ListPersonTagResponse> {
+  async listVehicleDetails(request: ListVehicleDetailsRequest): Promise<ListVehicleDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listPersonTagWithOptions(request, runtime);
+    return await this.listVehicleDetailsWithOptions(request, runtime);
+  }
+
+  async listVehicleResultsWithOptions(request: ListVehicleResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListVehicleResultsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.vehicleApplication)) {
+      body["VehicleApplication"] = request.vehicleApplication;
+    }
+
+    if (!Util.isUnset(request.vehicleClass)) {
+      body["VehicleClass"] = request.vehicleClass;
+    }
+
+    if (!Util.isUnset(request.vehicleColor)) {
+      body["VehicleColor"] = request.vehicleColor;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVehicleResults",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVehicleResultsResponse>(await this.callApi(params, req, runtime), new ListVehicleResultsResponse({}));
+  }
+
+  async listVehicleResults(request: ListVehicleResultsRequest): Promise<ListVehicleResultsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVehicleResultsWithOptions(request, runtime);
+  }
+
+  async listVehicleTagDistributeWithOptions(request: ListVehicleTagDistributeRequest, runtime: $Util.RuntimeOptions): Promise<ListVehicleTagDistributeResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tagCode)) {
+      body["TagCode"] = request.tagCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVehicleTagDistribute",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVehicleTagDistributeResponse>(await this.callApi(params, req, runtime), new ListVehicleTagDistributeResponse({}));
+  }
+
+  async listVehicleTagDistribute(request: ListVehicleTagDistributeRequest): Promise<ListVehicleTagDistributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVehicleTagDistributeWithOptions(request, runtime);
+  }
+
+  async listVehicleTopWithOptions(request: ListVehicleTopRequest, runtime: $Util.RuntimeOptions): Promise<ListVehicleTopResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.plateId)) {
+      body["PlateId"] = request.plateId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVehicleTop",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVehicleTopResponse>(await this.callApi(params, req, runtime), new ListVehicleTopResponse({}));
+  }
+
+  async listVehicleTop(request: ListVehicleTopRequest): Promise<ListVehicleTopResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVehicleTopWithOptions(request, runtime);
+  }
+
+  async listVehicleTrackWithOptions(request: ListVehicleTrackRequest, runtime: $Util.RuntimeOptions): Promise<ListVehicleTrackResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.plateId)) {
+      body["PlateId"] = request.plateId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVehicleTrack",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVehicleTrackResponse>(await this.callApi(params, req, runtime), new ListVehicleTrackResponse({}));
+  }
+
+  async listVehicleTrack(request: ListVehicleTrackRequest): Promise<ListVehicleTrackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVehicleTrackWithOptions(request, runtime);
+  }
+
+  async paginateDeviceWithOptions(request: PaginateDeviceRequest, runtime: $Util.RuntimeOptions): Promise<PaginateDeviceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.countTotalNum)) {
+      body["CountTotalNum"] = request.countTotalNum;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PaginateDevice",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PaginateDeviceResponse>(await this.callApi(params, req, runtime), new PaginateDeviceResponse({}));
+  }
+
+  async paginateDevice(request: PaginateDeviceRequest): Promise<PaginateDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.paginateDeviceWithOptions(request, runtime);
+  }
+
+  async paginateProjectWithOptions(request: PaginateProjectRequest, runtime: $Util.RuntimeOptions): Promise<PaginateProjectResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.countTotalNum)) {
+      body["CountTotalNum"] = request.countTotalNum;
+    }
+
+    if (!Util.isUnset(request.nameLike)) {
+      body["NameLike"] = request.nameLike;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PaginateProject",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PaginateProjectResponse>(await this.callApi(params, req, runtime), new PaginateProjectResponse({}));
+  }
+
+  async paginateProject(request: PaginateProjectRequest): Promise<PaginateProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.paginateProjectWithOptions(request, runtime);
+  }
+
+  async predictTrajectoryDestinationWithOptions(request: PredictTrajectoryDestinationRequest, runtime: $Util.RuntimeOptions): Promise<PredictTrajectoryDestinationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.idType)) {
+      body["IdType"] = request.idType;
+    }
+
+    if (!Util.isUnset(request.idValue)) {
+      body["IdValue"] = request.idValue;
+    }
+
+    if (!Util.isUnset(request.predictTimeSpan)) {
+      body["PredictTimeSpan"] = request.predictTimeSpan;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PredictTrajectoryDestination",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PredictTrajectoryDestinationResponse>(await this.callApi(params, req, runtime), new PredictTrajectoryDestinationResponse({}));
+  }
+
+  async predictTrajectoryDestination(request: PredictTrajectoryDestinationRequest): Promise<PredictTrajectoryDestinationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.predictTrajectoryDestinationWithOptions(request, runtime);
+  }
+
+  async queryTrajectoryByIdWithOptions(request: QueryTrajectoryByIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryTrajectoryByIdResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.deviceList)) {
+      body["DeviceList"] = request.deviceList;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.idList)) {
+      body["IdList"] = request.idList;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTrajectoryById",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTrajectoryByIdResponse>(await this.callApi(params, req, runtime), new QueryTrajectoryByIdResponse({}));
+  }
+
+  async queryTrajectoryById(request: QueryTrajectoryByIdRequest): Promise<QueryTrajectoryByIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryTrajectoryByIdWithOptions(request, runtime);
+  }
+
+  async recallTrajectoryByCoordinateTimeWithOptions(request: RecallTrajectoryByCoordinateTimeRequest, runtime: $Util.RuntimeOptions): Promise<RecallTrajectoryByCoordinateTimeResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.outputIdCount)) {
+      body["OutputIdCount"] = request.outputIdCount;
+    }
+
+    if (!Util.isUnset(request.outputIdTypeList)) {
+      body["OutputIdTypeList"] = request.outputIdTypeList;
+    }
+
+    if (!Util.isUnset(request.pointList)) {
+      body["PointList"] = request.pointList;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecallTrajectoryByCoordinateTime",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecallTrajectoryByCoordinateTimeResponse>(await this.callApi(params, req, runtime), new RecallTrajectoryByCoordinateTimeResponse({}));
+  }
+
+  async recallTrajectoryByCoordinateTime(request: RecallTrajectoryByCoordinateTimeRequest): Promise<RecallTrajectoryByCoordinateTimeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recallTrajectoryByCoordinateTimeWithOptions(request, runtime);
+  }
+
+  async recognizeImageWithOptions(request: RecognizeImageRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeImageResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.imageContent)) {
+      body["ImageContent"] = request.imageContent;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.recognizeType)) {
+      body["RecognizeType"] = request.recognizeType;
+    }
+
+    if (!Util.isUnset(request.requireCropImage)) {
+      body["RequireCropImage"] = request.requireCropImage;
+    }
+
+    if (!Util.isUnset(request.vendor)) {
+      body["Vendor"] = request.vendor;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeImage",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeImageResponse>(await this.callApi(params, req, runtime), new RecognizeImageResponse({}));
+  }
+
+  async recognizeImage(request: RecognizeImageRequest): Promise<RecognizeImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeImageWithOptions(request, runtime);
+  }
+
+  async searchAggregateObjectWithOptions(request: SearchAggregateObjectRequest, runtime: $Util.RuntimeOptions): Promise<SearchAggregateObjectResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.attributes)) {
+      body["Attributes"] = request.attributes;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.deviceList)) {
+      body["DeviceList"] = request.deviceList;
+    }
+
+    if (!Util.isUnset(request.feature)) {
+      body["Feature"] = request.feature;
+    }
+
+    if (!Util.isUnset(request.imageContent)) {
+      body["ImageContent"] = request.imageContent;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.objectType)) {
+      body["ObjectType"] = request.objectType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.requireTotalCount)) {
+      body["RequireTotalCount"] = request.requireTotalCount;
+    }
+
+    if (!Util.isUnset(request.shotTimeEnd)) {
+      body["ShotTimeEnd"] = request.shotTimeEnd;
+    }
+
+    if (!Util.isUnset(request.shotTimeStart)) {
+      body["ShotTimeStart"] = request.shotTimeStart;
+    }
+
+    if (!Util.isUnset(request.vendor)) {
+      body["Vendor"] = request.vendor;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchAggregateObject",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchAggregateObjectResponse>(await this.callApi(params, req, runtime), new SearchAggregateObjectResponse({}));
+  }
+
+  async searchAggregateObject(request: SearchAggregateObjectRequest): Promise<SearchAggregateObjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchAggregateObjectWithOptions(request, runtime);
+  }
+
+  async searchObjectWithOptions(request: SearchObjectRequest, runtime: $Util.RuntimeOptions): Promise<SearchObjectResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.attributes)) {
+      body["Attributes"] = request.attributes;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.deviceList)) {
+      body["DeviceList"] = request.deviceList;
+    }
+
+    if (!Util.isUnset(request.feature)) {
+      body["Feature"] = request.feature;
+    }
+
+    if (!Util.isUnset(request.imageContent)) {
+      body["ImageContent"] = request.imageContent;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.objectType)) {
+      body["ObjectType"] = request.objectType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.shotTimeEnd)) {
+      body["ShotTimeEnd"] = request.shotTimeEnd;
+    }
+
+    if (!Util.isUnset(request.shotTimeStart)) {
+      body["ShotTimeStart"] = request.shotTimeStart;
+    }
+
+    if (!Util.isUnset(request.vendor)) {
+      body["Vendor"] = request.vendor;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchObject",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchObjectResponse>(await this.callApi(params, req, runtime), new SearchObjectResponse({}));
+  }
+
+  async searchObject(request: SearchObjectRequest): Promise<SearchObjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchObjectWithOptions(request, runtime);
+  }
+
+  async stopCdrsMonitorWithOptions(request: StopCdrsMonitorRequest, runtime: $Util.RuntimeOptions): Promise<StopCdrsMonitorResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.algorithmVendor)) {
+      body["AlgorithmVendor"] = request.algorithmVendor;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopCdrsMonitor",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopCdrsMonitorResponse>(await this.callApi(params, req, runtime), new StopCdrsMonitorResponse({}));
+  }
+
+  async stopCdrsMonitor(request: StopCdrsMonitorRequest): Promise<StopCdrsMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopCdrsMonitorWithOptions(request, runtime);
+  }
+
+  async stopMonitorWithOptions(request: StopMonitorRequest, runtime: $Util.RuntimeOptions): Promise<StopMonitorResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.algorithmVendor)) {
+      body["AlgorithmVendor"] = request.algorithmVendor;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopMonitor",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopMonitorResponse>(await this.callApi(params, req, runtime), new StopMonitorResponse({}));
+  }
+
+  async stopMonitor(request: StopMonitorRequest): Promise<StopMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopMonitorWithOptions(request, runtime);
+  }
+
+  async unbindDeviceWithOptions(request: UnbindDeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnbindDeviceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.deviceIds)) {
+      body["DeviceIds"] = request.deviceIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnbindDevice",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindDeviceResponse>(await this.callApi(params, req, runtime), new UnbindDeviceResponse({}));
+  }
+
+  async unbindDevice(request: UnbindDeviceRequest): Promise<UnbindDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unbindDeviceWithOptions(request, runtime);
+  }
+
+  async updateCdrsMonitorWithOptions(request: UpdateCdrsMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCdrsMonitorResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.algorithmVendor)) {
+      body["AlgorithmVendor"] = request.algorithmVendor;
+    }
+
+    if (!Util.isUnset(request.attributeName)) {
+      body["AttributeName"] = request.attributeName;
+    }
+
+    if (!Util.isUnset(request.attributeOperateType)) {
+      body["AttributeOperateType"] = request.attributeOperateType;
+    }
+
+    if (!Util.isUnset(request.attributeValueList)) {
+      body["AttributeValueList"] = request.attributeValueList;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.deviceList)) {
+      body["DeviceList"] = request.deviceList;
+    }
+
+    if (!Util.isUnset(request.deviceOperateType)) {
+      body["DeviceOperateType"] = request.deviceOperateType;
+    }
+
+    if (!Util.isUnset(request.notifierAppSecret)) {
+      body["NotifierAppSecret"] = request.notifierAppSecret;
+    }
+
+    if (!Util.isUnset(request.notifierExtendValues)) {
+      body["NotifierExtendValues"] = request.notifierExtendValues;
+    }
+
+    if (!Util.isUnset(request.notifierTimeOut)) {
+      body["NotifierTimeOut"] = request.notifierTimeOut;
+    }
+
+    if (!Util.isUnset(request.notifierType)) {
+      body["NotifierType"] = request.notifierType;
+    }
+
+    if (!Util.isUnset(request.notifierUrl)) {
+      body["NotifierUrl"] = request.notifierUrl;
+    }
+
+    if (!Util.isUnset(request.picList)) {
+      body["PicList"] = request.picList;
+    }
+
+    if (!Util.isUnset(request.picOperateType)) {
+      body["PicOperateType"] = request.picOperateType;
+    }
+
+    if (!Util.isUnset(request.ruleExpression)) {
+      body["RuleExpression"] = request.ruleExpression;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      body["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCdrsMonitor",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCdrsMonitorResponse>(await this.callApi(params, req, runtime), new UpdateCdrsMonitorResponse({}));
+  }
+
+  async updateCdrsMonitor(request: UpdateCdrsMonitorRequest): Promise<UpdateCdrsMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCdrsMonitorWithOptions(request, runtime);
+  }
+
+  async updateMonitorWithOptions(request: UpdateMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMonitorResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.algorithmVendor)) {
+      body["AlgorithmVendor"] = request.algorithmVendor;
+    }
+
+    if (!Util.isUnset(request.attributeName)) {
+      body["AttributeName"] = request.attributeName;
+    }
+
+    if (!Util.isUnset(request.attributeOperateType)) {
+      body["AttributeOperateType"] = request.attributeOperateType;
+    }
+
+    if (!Util.isUnset(request.attributeValueList)) {
+      body["AttributeValueList"] = request.attributeValueList;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.deviceList)) {
+      body["DeviceList"] = request.deviceList;
+    }
+
+    if (!Util.isUnset(request.deviceOperateType)) {
+      body["DeviceOperateType"] = request.deviceOperateType;
+    }
+
+    if (!Util.isUnset(request.notifierAppSecret)) {
+      body["NotifierAppSecret"] = request.notifierAppSecret;
+    }
+
+    if (!Util.isUnset(request.notifierExtendValues)) {
+      body["NotifierExtendValues"] = request.notifierExtendValues;
+    }
+
+    if (!Util.isUnset(request.notifierTimeOut)) {
+      body["NotifierTimeOut"] = request.notifierTimeOut;
+    }
+
+    if (!Util.isUnset(request.notifierType)) {
+      body["NotifierType"] = request.notifierType;
+    }
+
+    if (!Util.isUnset(request.notifierUrl)) {
+      body["NotifierUrl"] = request.notifierUrl;
+    }
+
+    if (!Util.isUnset(request.picExtendList)) {
+      body["PicExtendList"] = request.picExtendList;
+    }
+
+    if (!Util.isUnset(request.picList)) {
+      body["PicList"] = request.picList;
+    }
+
+    if (!Util.isUnset(request.picOperateType)) {
+      body["PicOperateType"] = request.picOperateType;
+    }
+
+    if (!Util.isUnset(request.ruleExpression)) {
+      body["RuleExpression"] = request.ruleExpression;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      body["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMonitor",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMonitorResponse>(await this.callApi(params, req, runtime), new UpdateMonitorResponse({}));
+  }
+
+  async updateMonitor(request: UpdateMonitorRequest): Promise<UpdateMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMonitorWithOptions(request, runtime);
   }
 
   async updateProjectWithOptions(request: UpdateProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aggregateSceneCode)) {
+      body["AggregateSceneCode"] = request.aggregateSceneCode;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.icon)) {
+      body["Icon"] = request.icon;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateProjectResponse>(await this.doRPCRequest("UpdateProject", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateProjectResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateProject",
+      version: "2020-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateProjectResponse>(await this.callApi(params, req, runtime), new UpdateProjectResponse({}));
   }
 
   async updateProject(request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateProjectWithOptions(request, runtime);
-  }
-
-  async listDevicePersonWithOptions(request: ListDevicePersonRequest, runtime: $Util.RuntimeOptions): Promise<ListDevicePersonResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListDevicePersonResponse>(await this.doRPCRequest("ListDevicePerson", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListDevicePersonResponse({}));
-  }
-
-  async listDevicePerson(request: ListDevicePersonRequest): Promise<ListDevicePersonResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDevicePersonWithOptions(request, runtime);
-  }
-
-  async listDeviceDetailWithOptions(request: ListDeviceDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceDetailResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListDeviceDetailResponse>(await this.doRPCRequest("ListDeviceDetail", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListDeviceDetailResponse({}));
-  }
-
-  async listDeviceDetail(request: ListDeviceDetailRequest): Promise<ListDeviceDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDeviceDetailWithOptions(request, runtime);
-  }
-
-  async listDeviceGenderStatisticsWithOptions(request: ListDeviceGenderStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceGenderStatisticsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListDeviceGenderStatisticsResponse>(await this.doRPCRequest("ListDeviceGenderStatistics", "2020-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListDeviceGenderStatisticsResponse({}));
-  }
-
-  async listDeviceGenderStatistics(request: ListDeviceGenderStatisticsRequest): Promise<ListDeviceGenderStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDeviceGenderStatisticsWithOptions(request, runtime);
   }
 
 }
