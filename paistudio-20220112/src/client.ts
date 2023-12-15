@@ -4811,12 +4811,14 @@ export class CreateTrainingJobRequestScheduler extends $tea.Model {
 }
 
 export class CreateTrainingJobRequestUserVpc extends $tea.Model {
+  defaultRoute?: string;
   extendedCIDRs?: string[];
   securityGroupId?: string;
   switchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      defaultRoute: 'DefaultRoute',
       extendedCIDRs: 'ExtendedCIDRs',
       securityGroupId: 'SecurityGroupId',
       switchId: 'SwitchId',
@@ -4826,6 +4828,7 @@ export class CreateTrainingJobRequestUserVpc extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      defaultRoute: 'string',
       extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
       securityGroupId: 'string',
       switchId: 'string',
@@ -5525,12 +5528,14 @@ export class ListTrainingJobsResponseBodyTrainingJobsStatusTransitions extends $
 }
 
 export class ListTrainingJobsResponseBodyTrainingJobsUserVpc extends $tea.Model {
+  defaultRoute?: string;
   extendedCIDRs?: string[];
   securityGroupId?: string;
   switchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      defaultRoute: 'DefaultRoute',
       extendedCIDRs: 'ExtendedCIDRs',
       securityGroupId: 'SecurityGroupId',
       switchId: 'SwitchId',
@@ -5540,6 +5545,7 @@ export class ListTrainingJobsResponseBodyTrainingJobsUserVpc extends $tea.Model 
 
   static types(): { [key: string]: any } {
     return {
+      defaultRoute: 'string',
       extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
       securityGroupId: 'string',
       switchId: 'string',
