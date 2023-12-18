@@ -857,6 +857,7 @@ export class PushRequest extends $tea.Model {
   androidRenderStyle?: number;
   androidTargetUserType?: number;
   androidVivoPushMode?: number;
+  androidVivoReceiptId?: string;
   androidXiaoMiActivity?: string;
   androidXiaoMiNotifyBody?: string;
   androidXiaoMiNotifyTitle?: string;
@@ -931,6 +932,7 @@ export class PushRequest extends $tea.Model {
       androidRenderStyle: 'AndroidRenderStyle',
       androidTargetUserType: 'AndroidTargetUserType',
       androidVivoPushMode: 'AndroidVivoPushMode',
+      androidVivoReceiptId: 'AndroidVivoReceiptId',
       androidXiaoMiActivity: 'AndroidXiaoMiActivity',
       androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
       androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
@@ -1008,6 +1010,7 @@ export class PushRequest extends $tea.Model {
       androidRenderStyle: 'number',
       androidTargetUserType: 'number',
       androidVivoPushMode: 'number',
+      androidVivoReceiptId: 'string',
       androidXiaoMiActivity: 'string',
       androidXiaoMiNotifyBody: 'string',
       androidXiaoMiNotifyTitle: 'string',
@@ -2668,6 +2671,7 @@ export class MassPushRequestPushTask extends $tea.Model {
   androidRenderStyle?: string;
   androidTargetUserType?: number;
   androidVivoPushMode?: number;
+  androidVivoReceiptId?: string;
   androidXiaoMiActivity?: string;
   androidXiaoMiNotifyBody?: string;
   androidXiaoMiNotifyTitle?: string;
@@ -2736,6 +2740,7 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidRenderStyle: 'AndroidRenderStyle',
       androidTargetUserType: 'AndroidTargetUserType',
       androidVivoPushMode: 'AndroidVivoPushMode',
+      androidVivoReceiptId: 'AndroidVivoReceiptId',
       androidXiaoMiActivity: 'AndroidXiaoMiActivity',
       androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
       androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
@@ -2807,6 +2812,7 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidRenderStyle: 'string',
       androidTargetUserType: 'number',
       androidVivoPushMode: 'number',
+      androidVivoReceiptId: 'string',
       androidXiaoMiActivity: 'string',
       androidXiaoMiNotifyBody: 'string',
       androidXiaoMiNotifyTitle: 'string',
@@ -3962,6 +3968,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.androidVivoPushMode)) {
       query["AndroidVivoPushMode"] = request.androidVivoPushMode;
+    }
+
+    if (!Util.isUnset(request.androidVivoReceiptId)) {
+      query["AndroidVivoReceiptId"] = request.androidVivoReceiptId;
     }
 
     if (!Util.isUnset(request.androidXiaoMiActivity)) {
