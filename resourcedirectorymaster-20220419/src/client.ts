@@ -7742,7 +7742,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * Before you disable a resource directory, you must make sure that the following requirements are met:
+    * *   All members of the cloud account type in the resource directory are removed. You can call the [RemoveCloudAccount](~~RemoveCloudAccount~~) operation to remove a member of the cloud account type.
+    * *   All folders except the Root folder are deleted from the resource directory. You can call the [DeleteFolder](~~DeleteFolder~~) operation to delete a folder.
     *
     * @param request DestroyResourceDirectoryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -7765,7 +7767,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * Before you disable a resource directory, you must make sure that the following requirements are met:
+    * *   All members of the cloud account type in the resource directory are removed. You can call the [RemoveCloudAccount](~~RemoveCloudAccount~~) operation to remove a member of the cloud account type.
+    * *   All folders except the Root folder are deleted from the resource directory. You can call the [DeleteFolder](~~DeleteFolder~~) operation to delete a folder.
     *
     * @return DestroyResourceDirectoryResponse
    */
@@ -7889,7 +7893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * The Control Policy feature provided by the Resource Directory service allows you to manage the permission boundaries of the folders or members in your resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](~~178671~~).
     *
     * @param request EnableControlPolicyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -7912,7 +7916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * The Control Policy feature provided by the Resource Directory service allows you to manage the permission boundaries of the folders or members in your resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](~~178671~~).
     *
     * @return EnableControlPolicyResponse
    */
