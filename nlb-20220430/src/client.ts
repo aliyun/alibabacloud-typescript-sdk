@@ -4640,9 +4640,9 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
 }
 
 export class GetListenerAttributeResponseBodyProxyProtocolV2Config extends $tea.Model {
-  ppv2PrivateLinkEpIdEnabled?: string;
-  ppv2PrivateLinkEpsIdEnabled?: string;
-  ppv2VpcIdEnabled?: string;
+  ppv2PrivateLinkEpIdEnabled?: boolean;
+  ppv2PrivateLinkEpsIdEnabled?: boolean;
+  ppv2VpcIdEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       ppv2PrivateLinkEpIdEnabled: 'Ppv2PrivateLinkEpIdEnabled',
@@ -4653,9 +4653,9 @@ export class GetListenerAttributeResponseBodyProxyProtocolV2Config extends $tea.
 
   static types(): { [key: string]: any } {
     return {
-      ppv2PrivateLinkEpIdEnabled: 'string',
-      ppv2PrivateLinkEpsIdEnabled: 'string',
-      ppv2VpcIdEnabled: 'string',
+      ppv2PrivateLinkEpIdEnabled: 'boolean',
+      ppv2PrivateLinkEpsIdEnabled: 'boolean',
+      ppv2VpcIdEnabled: 'boolean',
     };
   }
 
@@ -5018,9 +5018,9 @@ export class ListListenersRequestTag extends $tea.Model {
 }
 
 export class ListListenersResponseBodyListenersProxyProtocolV2Config extends $tea.Model {
-  ppv2PrivateLinkEpIdEnabled?: string;
-  ppv2PrivateLinkEpsIdEnabled?: string;
-  ppv2VpcIdEnabled?: string;
+  ppv2PrivateLinkEpIdEnabled?: boolean;
+  ppv2PrivateLinkEpsIdEnabled?: boolean;
+  ppv2VpcIdEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       ppv2PrivateLinkEpIdEnabled: 'Ppv2PrivateLinkEpIdEnabled',
@@ -5031,9 +5031,9 @@ export class ListListenersResponseBodyListenersProxyProtocolV2Config extends $te
 
   static types(): { [key: string]: any } {
     return {
-      ppv2PrivateLinkEpIdEnabled: 'string',
-      ppv2PrivateLinkEpsIdEnabled: 'string',
-      ppv2VpcIdEnabled: 'string',
+      ppv2PrivateLinkEpIdEnabled: 'boolean',
+      ppv2PrivateLinkEpsIdEnabled: 'boolean',
+      ppv2VpcIdEnabled: 'boolean',
     };
   }
 
