@@ -356,6 +356,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   DBInstanceDescription?: string;
   DBInstanceGroupCount?: string;
   DBInstanceMode?: string;
+  enableSSL?: boolean;
   encryptionKey?: string;
   encryptionType?: string;
   engine?: string;
@@ -396,6 +397,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceGroupCount: 'DBInstanceGroupCount',
       DBInstanceMode: 'DBInstanceMode',
+      enableSSL: 'EnableSSL',
       encryptionKey: 'EncryptionKey',
       encryptionType: 'EncryptionType',
       engine: 'Engine',
@@ -439,6 +441,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       DBInstanceDescription: 'string',
       DBInstanceGroupCount: 'string',
       DBInstanceMode: 'string',
+      enableSSL: 'boolean',
       encryptionKey: 'string',
       encryptionType: 'string',
       engine: 'string',
@@ -13248,6 +13251,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBInstanceMode)) {
       query["DBInstanceMode"] = request.DBInstanceMode;
+    }
+
+    if (!Util.isUnset(request.enableSSL)) {
+      query["EnableSSL"] = request.enableSSL;
     }
 
     if (!Util.isUnset(request.encryptionKey)) {
