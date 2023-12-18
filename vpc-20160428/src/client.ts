@@ -37764,9 +37764,11 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $tea
   instanceType?: string;
   internetChargeType?: string;
   ipAddress?: string;
+  mode?: string;
   name?: string;
   netmode?: string;
   operationLocks?: DescribeEipAddressesResponseBodyEipAddressesEipAddressOperationLocks;
+  privateIpAddress?: string;
   publicIpAddressPoolId?: string;
   regionId?: string;
   reservationActiveTime?: string;
@@ -37805,9 +37807,11 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $tea
       instanceType: 'InstanceType',
       internetChargeType: 'InternetChargeType',
       ipAddress: 'IpAddress',
+      mode: 'Mode',
       name: 'Name',
       netmode: 'Netmode',
       operationLocks: 'OperationLocks',
+      privateIpAddress: 'PrivateIpAddress',
       publicIpAddressPoolId: 'PublicIpAddressPoolId',
       regionId: 'RegionId',
       reservationActiveTime: 'ReservationActiveTime',
@@ -37849,9 +37853,11 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $tea
       instanceType: 'string',
       internetChargeType: 'string',
       ipAddress: 'string',
+      mode: 'string',
       name: 'string',
       netmode: 'string',
       operationLocks: DescribeEipAddressesResponseBodyEipAddressesEipAddressOperationLocks,
+      privateIpAddress: 'string',
       publicIpAddressPoolId: 'string',
       regionId: 'string',
       reservationActiveTime: 'string',
@@ -46184,6 +46190,7 @@ export class ListPrefixListsResponseBodyPrefixLists extends $tea.Model {
   prefixListId?: string;
   prefixListName?: string;
   prefixListStatus?: string;
+  prefixListType?: string;
   regionId?: string;
   resourceGroupId?: string;
   shareType?: string;
@@ -46200,6 +46207,7 @@ export class ListPrefixListsResponseBodyPrefixLists extends $tea.Model {
       prefixListId: 'PrefixListId',
       prefixListName: 'PrefixListName',
       prefixListStatus: 'PrefixListStatus',
+      prefixListType: 'PrefixListType',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
@@ -46219,6 +46227,7 @@ export class ListPrefixListsResponseBodyPrefixLists extends $tea.Model {
       prefixListId: 'string',
       prefixListName: 'string',
       prefixListStatus: 'string',
+      prefixListType: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       shareType: 'string',
@@ -46658,6 +46667,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersTags extend
 }
 
 export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters extends $tea.Model {
+  creationTime?: string;
   egressRules?: ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules[];
   ingressRules?: ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRules[];
   resourceGroupId?: string;
@@ -46668,6 +46678,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters extends $t
   trafficMirrorFilterStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      creationTime: 'CreationTime',
       egressRules: 'EgressRules',
       ingressRules: 'IngressRules',
       resourceGroupId: 'ResourceGroupId',
@@ -46681,6 +46692,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters extends $t
 
   static types(): { [key: string]: any } {
     return {
+      creationTime: 'string',
       egressRules: { 'type': 'array', 'itemType': ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules },
       ingressRules: { 'type': 'array', 'itemType': ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRules },
       resourceGroupId: 'string',
@@ -46742,6 +46754,7 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessionsTags exte
 }
 
 export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends $tea.Model {
+  creationTime?: string;
   enabled?: boolean;
   packetLength?: number;
   priority?: number;
@@ -46759,6 +46772,7 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   virtualNetworkId?: number;
   static names(): { [key: string]: string } {
     return {
+      creationTime: 'CreationTime',
       enabled: 'Enabled',
       packetLength: 'PacketLength',
       priority: 'Priority',
@@ -46779,6 +46793,7 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
 
   static types(): { [key: string]: any } {
     return {
+      creationTime: 'string',
       enabled: 'boolean',
       packetLength: 'number',
       priority: 'number',
