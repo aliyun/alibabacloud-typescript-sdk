@@ -508,6 +508,78 @@ export class VideoModerationResponse extends $tea.Model {
   }
 }
 
+export class VideoModerationCancelRequest extends $tea.Model {
+  service?: string;
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationCancelResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationCancelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: VideoModerationCancelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VideoModerationCancelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoModerationResultRequest extends $tea.Model {
   service?: string;
   serviceParameters?: string;
@@ -831,12 +903,14 @@ export class DescribeImageModerationResultResponseBodyData extends $tea.Model {
   dataId?: string;
   frame?: string;
   frameNum?: number;
+  reqId?: string;
   result?: DescribeImageModerationResultResponseBodyDataResult[];
   static names(): { [key: string]: string } {
     return {
       dataId: 'DataId',
       frame: 'Frame',
       frameNum: 'FrameNum',
+      reqId: 'ReqId',
       result: 'Result',
     };
   }
@@ -846,6 +920,7 @@ export class DescribeImageModerationResultResponseBodyData extends $tea.Model {
       dataId: 'string',
       frame: 'string',
       frameNum: 'number',
+      reqId: 'string',
       result: { 'type': 'array', 'itemType': DescribeImageModerationResultResponseBodyDataResult },
     };
   }
@@ -1641,6 +1716,39 @@ export default class Client extends OpenApi {
   async videoModeration(request: VideoModerationRequest): Promise<VideoModerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.videoModerationWithOptions(request, runtime);
+  }
+
+  async videoModerationCancelWithOptions(request: VideoModerationCancelRequest, runtime: $Util.RuntimeOptions): Promise<VideoModerationCancelResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.service)) {
+      body["Service"] = request.service;
+    }
+
+    if (!Util.isUnset(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "VideoModerationCancel",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VideoModerationCancelResponse>(await this.callApi(params, req, runtime), new VideoModerationCancelResponse({}));
+  }
+
+  async videoModerationCancel(request: VideoModerationCancelRequest): Promise<VideoModerationCancelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.videoModerationCancelWithOptions(request, runtime);
   }
 
   async videoModerationResultWithOptions(request: VideoModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<VideoModerationResultResponse> {
