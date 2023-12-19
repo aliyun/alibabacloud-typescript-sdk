@@ -48904,6 +48904,75 @@ export class RemoveCheckResultWhiteListResponse extends $tea.Model {
   }
 }
 
+export class ResetHoneypotRequest extends $tea.Model {
+  honeypotId?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      honeypotId: 'HoneypotId',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      honeypotId: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetHoneypotResponseBody extends $tea.Model {
+  data?: ResetHoneypotResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ResetHoneypotResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetHoneypotResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ResetHoneypotResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResetHoneypotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RetryAgentlessTaskRequest extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -49732,6 +49801,75 @@ export class StartDiscoverDatabaseTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartDiscoverDatabaseTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartHoneypotRequest extends $tea.Model {
+  honeypotId?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      honeypotId: 'HoneypotId',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      honeypotId: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartHoneypotResponseBody extends $tea.Model {
+  data?: StartHoneypotResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: StartHoneypotResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartHoneypotResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartHoneypotResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartHoneypotResponseBody,
     };
   }
 
@@ -77166,6 +77304,46 @@ export class QueryIncidentVertexNodesResponseBodyVertexNodes extends $tea.Model 
   }
 }
 
+export class ResetHoneypotResponseBodyData extends $tea.Model {
+  controlNodeName?: string;
+  honeypotId?: string;
+  honeypotImageDisplayName?: string;
+  honeypotImageName?: string;
+  honeypotName?: string;
+  nodeId?: string;
+  presetId?: string;
+  state?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      controlNodeName: 'ControlNodeName',
+      honeypotId: 'HoneypotId',
+      honeypotImageDisplayName: 'HoneypotImageDisplayName',
+      honeypotImageName: 'HoneypotImageName',
+      honeypotName: 'HoneypotName',
+      nodeId: 'NodeId',
+      presetId: 'PresetId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      controlNodeName: 'string',
+      honeypotId: 'string',
+      honeypotImageDisplayName: 'string',
+      honeypotImageName: 'string',
+      honeypotName: 'string',
+      nodeId: 'string',
+      presetId: 'string',
+      state: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetImageSensitiveFileStatusResponseBodyData extends $tea.Model {
   id?: number;
   static names(): { [key: string]: string } {
@@ -77196,6 +77374,46 @@ export class SetSensitiveDefineRuleConfigResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartHoneypotResponseBodyData extends $tea.Model {
+  controlNodeName?: string;
+  honeypotId?: string;
+  honeypotImageDisplayName?: string;
+  honeypotImageName?: string;
+  honeypotName?: string;
+  nodeId?: string;
+  presetId?: string;
+  state?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      controlNodeName: 'ControlNodeName',
+      honeypotId: 'HoneypotId',
+      honeypotImageDisplayName: 'HoneypotImageDisplayName',
+      honeypotImageName: 'HoneypotImageName',
+      honeypotName: 'HoneypotName',
+      nodeId: 'NodeId',
+      presetId: 'PresetId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      controlNodeName: 'string',
+      honeypotId: 'string',
+      honeypotImageDisplayName: 'string',
+      honeypotImageName: 'string',
+      honeypotName: 'string',
+      nodeId: 'string',
+      presetId: 'string',
+      state: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -98096,6 +98314,13 @@ export default class Client extends OpenApi {
     return await this.listInterceptionTargetPageWithOptions(request, runtime);
   }
 
+  /**
+    * You can use this operation to query the access information about Kubernetes clusters.
+    *
+    * @param request ListK8sAccessInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListK8sAccessInfoResponse
+   */
   async listK8sAccessInfoWithOptions(request: ListK8sAccessInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListK8sAccessInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98132,6 +98357,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListK8sAccessInfoResponse>(await this.callApi(params, req, runtime), new ListK8sAccessInfoResponse({}));
   }
 
+  /**
+    * You can use this operation to query the access information about Kubernetes clusters.
+    *
+    * @param request ListK8sAccessInfoRequest
+    * @return ListK8sAccessInfoResponse
+   */
   async listK8sAccessInfo(request: ListK8sAccessInfoRequest): Promise<ListK8sAccessInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listK8sAccessInfoWithOptions(request, runtime);
@@ -103587,6 +103818,39 @@ export default class Client extends OpenApi {
     return await this.removeCheckResultWhiteListWithOptions(request, runtime);
   }
 
+  async resetHoneypotWithOptions(request: ResetHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<ResetHoneypotResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.honeypotId)) {
+      query["HoneypotId"] = request.honeypotId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResetHoneypot",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetHoneypotResponse>(await this.callApi(params, req, runtime), new ResetHoneypotResponse({}));
+  }
+
+  async resetHoneypot(request: ResetHoneypotRequest): Promise<ResetHoneypotResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resetHoneypotWithOptions(request, runtime);
+  }
+
   async retryAgentlessTaskWithOptions(request: RetryAgentlessTaskRequest, runtime: $Util.RuntimeOptions): Promise<RetryAgentlessTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104000,6 +104264,39 @@ export default class Client extends OpenApi {
   async startDiscoverDatabaseTask(): Promise<StartDiscoverDatabaseTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startDiscoverDatabaseTaskWithOptions(runtime);
+  }
+
+  async startHoneypotWithOptions(request: StartHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<StartHoneypotResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.honeypotId)) {
+      query["HoneypotId"] = request.honeypotId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartHoneypot",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartHoneypotResponse>(await this.callApi(params, req, runtime), new StartHoneypotResponse({}));
+  }
+
+  async startHoneypot(request: StartHoneypotRequest): Promise<StartHoneypotResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startHoneypotWithOptions(request, runtime);
   }
 
   async startPreCheckDatabaseWithOptions(request: StartPreCheckDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<StartPreCheckDatabaseResponse> {
