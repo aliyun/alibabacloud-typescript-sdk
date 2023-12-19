@@ -1599,6 +1599,7 @@ export class CreateDBResourceGroupRequest extends $tea.Model {
   maxComputeResource?: string;
   minClusterCount?: number;
   minComputeResource?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterMode: 'ClusterMode',
@@ -1610,6 +1611,7 @@ export class CreateDBResourceGroupRequest extends $tea.Model {
       maxComputeResource: 'MaxComputeResource',
       minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
+      regionId: 'RegionId',
     };
   }
 
@@ -1624,6 +1626,7 @@ export class CreateDBResourceGroupRequest extends $tea.Model {
       maxComputeResource: 'string',
       minClusterCount: 'number',
       minComputeResource: 'string',
+      regionId: 'string',
     };
   }
 
@@ -9514,6 +9517,7 @@ export class ModifyDBResourceGroupRequest extends $tea.Model {
   maxComputeResource?: string;
   minClusterCount?: number;
   minComputeResource?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterMode: 'ClusterMode',
@@ -9525,6 +9529,7 @@ export class ModifyDBResourceGroupRequest extends $tea.Model {
       maxComputeResource: 'MaxComputeResource',
       minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
+      regionId: 'RegionId',
     };
   }
 
@@ -9539,6 +9544,7 @@ export class ModifyDBResourceGroupRequest extends $tea.Model {
       maxComputeResource: 'string',
       minClusterCount: 'number',
       minComputeResource: 'string',
+      regionId: 'string',
     };
   }
 
@@ -14151,6 +14157,10 @@ export default class Client extends OpenApi {
       query["MinComputeResource"] = request.minComputeResource;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18393,6 +18403,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.minComputeResource)) {
       query["MinComputeResource"] = request.minComputeResource;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
