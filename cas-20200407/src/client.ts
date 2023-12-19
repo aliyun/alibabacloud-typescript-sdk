@@ -1073,15 +1073,18 @@ export class GetCertWarehouseQuotaResponse extends $tea.Model {
 }
 
 export class GetUserCertificateDetailRequest extends $tea.Model {
+  certFilter?: boolean;
   certId?: number;
   static names(): { [key: string]: string } {
     return {
+      certFilter: 'CertFilter',
       certId: 'CertId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      certFilter: 'boolean',
       certId: 'number',
     };
   }
@@ -1092,6 +1095,7 @@ export class GetUserCertificateDetailRequest extends $tea.Model {
 }
 
 export class GetUserCertificateDetailResponseBody extends $tea.Model {
+  algorithm?: string;
   buyInAliyun?: boolean;
   cert?: string;
   city?: string;
@@ -1117,6 +1121,7 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
+      algorithm: 'Algorithm',
       buyInAliyun: 'BuyInAliyun',
       cert: 'Cert',
       city: 'City',
@@ -1145,6 +1150,7 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      algorithm: 'string',
       buyInAliyun: 'boolean',
       cert: 'string',
       city: 'string',
@@ -1202,6 +1208,7 @@ export class GetUserCertificateDetailResponse extends $tea.Model {
 }
 
 export class ListCertRequest extends $tea.Model {
+  certType?: string;
   currentPage?: number;
   keyWord?: string;
   showSize?: number;
@@ -1210,6 +1217,7 @@ export class ListCertRequest extends $tea.Model {
   warehouseId?: number;
   static names(): { [key: string]: string } {
     return {
+      certType: 'CertType',
       currentPage: 'CurrentPage',
       keyWord: 'KeyWord',
       showSize: 'ShowSize',
@@ -1221,6 +1229,7 @@ export class ListCertRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certType: 'string',
       currentPage: 'number',
       keyWord: 'string',
       showSize: 'number',
@@ -1918,6 +1927,7 @@ export class VerifyResponse extends $tea.Model {
 export class ListCertResponseBodyCertList extends $tea.Model {
   afterDate?: number;
   beforeDate?: number;
+  certType?: string;
   commonName?: string;
   existPrivateKey?: boolean;
   identifier?: string;
@@ -1931,6 +1941,7 @@ export class ListCertResponseBodyCertList extends $tea.Model {
     return {
       afterDate: 'AfterDate',
       beforeDate: 'BeforeDate',
+      certType: 'CertType',
       commonName: 'CommonName',
       existPrivateKey: 'ExistPrivateKey',
       identifier: 'Identifier',
@@ -1947,6 +1958,7 @@ export class ListCertResponseBodyCertList extends $tea.Model {
     return {
       afterDate: 'number',
       beforeDate: 'number',
+      certType: 'string',
       commonName: 'string',
       existPrivateKey: 'boolean',
       identifier: 'string',
@@ -2137,7 +2149,6 @@ export default class Client extends OpenApi {
     this._endpointMap = {
       'cn-hangzhou': "cas.aliyuncs.com",
       'ap-northeast-2-pop': "cas.aliyuncs.com",
-      'ap-southeast-1': "cas.aliyuncs.com",
       'ap-southeast-3': "cas.aliyuncs.com",
       'ap-southeast-5': "cas.aliyuncs.com",
       'cn-beijing': "cas.aliyuncs.com",
@@ -2159,6 +2170,7 @@ export default class Client extends OpenApi {
       'cn-hongkong': "cas.aliyuncs.com",
       'cn-hongkong-finance-pop': "cas.aliyuncs.com",
       'cn-huhehaote': "cas.aliyuncs.com",
+      'cn-huhehaote-nebula-1': "cas.aliyuncs.com",
       'cn-north-2-gov-1': "cas.aliyuncs.com",
       'cn-qingdao': "cas.aliyuncs.com",
       'cn-qingdao-nebula': "cas.aliyuncs.com",
@@ -2174,7 +2186,9 @@ export default class Client extends OpenApi {
       'cn-shenzhen-st4-d01': "cas.aliyuncs.com",
       'cn-shenzhen-su18-b01': "cas.aliyuncs.com",
       'cn-wuhan': "cas.aliyuncs.com",
+      'cn-wulanchabu': "cas.aliyuncs.com",
       'cn-yushanfang': "cas.aliyuncs.com",
+      'cn-zhangbei': "cas.aliyuncs.com",
       'cn-zhangbei-na61-b01': "cas.aliyuncs.com",
       'cn-zhangjiakou': "cas.aliyuncs.com",
       'cn-zhangjiakou-na62-a01': "cas.aliyuncs.com",
@@ -2202,6 +2216,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * Revokes an issued certificate and cancels the application order of the certificate.
+    *
+    * @param request CancelCertificateForPackageRequestRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelCertificateForPackageRequestResponse
+   */
   async cancelCertificateForPackageRequestWithOptions(request: CancelCertificateForPackageRequestRequest, runtime: $Util.RuntimeOptions): Promise<CancelCertificateForPackageRequestResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2226,11 +2247,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelCertificateForPackageRequestResponse>(await this.callApi(params, req, runtime), new CancelCertificateForPackageRequestResponse({}));
   }
 
+  /**
+    * Revokes an issued certificate and cancels the application order of the certificate.
+    *
+    * @param request CancelCertificateForPackageRequestRequest
+    * @return CancelCertificateForPackageRequestResponse
+   */
   async cancelCertificateForPackageRequest(request: CancelCertificateForPackageRequestRequest): Promise<CancelCertificateForPackageRequestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelCertificateForPackageRequestWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the CancelOrderRequest operation to cancel a certificate application order only in the following scenarios:
+    * *   The order is in the **pending validation** state. You have submitted a certificate application but the verification of the domain name ownership is not complete.
+    * *   The order is in the **being reviewed** state. You have submitted a certificate application and the verification of the domain name ownership is complete, but the certificate authority (CA) does not complete the review of the certificate application.
+    * After a certificate application order is canceled, the status of the order changes to the **pending application** state. In this case, you can call the [DeleteCertificateRequest](~~164109~~) operation to delete the certificate application order. Then, the consumed certificate quota is returned to you.
+    *
+    * @param request CancelOrderRequestRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelOrderRequestResponse
+   */
   async cancelOrderRequestWithOptions(request: CancelOrderRequestRequest, runtime: $Util.RuntimeOptions): Promise<CancelOrderRequestResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2255,11 +2292,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelOrderRequestResponse>(await this.callApi(params, req, runtime), new CancelOrderRequestResponse({}));
   }
 
+  /**
+    * You can call the CancelOrderRequest operation to cancel a certificate application order only in the following scenarios:
+    * *   The order is in the **pending validation** state. You have submitted a certificate application but the verification of the domain name ownership is not complete.
+    * *   The order is in the **being reviewed** state. You have submitted a certificate application and the verification of the domain name ownership is complete, but the certificate authority (CA) does not complete the review of the certificate application.
+    * After a certificate application order is canceled, the status of the order changes to the **pending application** state. In this case, you can call the [DeleteCertificateRequest](~~164109~~) operation to delete the certificate application order. Then, the consumed certificate quota is returned to you.
+    *
+    * @param request CancelOrderRequestRequest
+    * @return CancelOrderRequestResponse
+   */
   async cancelOrderRequest(request: CancelOrderRequestRequest): Promise<CancelOrderRequestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelOrderRequestWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](~~28542~~). You can call the [DescribePackageState](~~455800~~) operation to query the usage of certificate resource plans of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that are submitted, and the number of certificates that are issued.
+    * *   After you call this operation to submit a certificate application and the certificate is issued, the certificate quota provided by the resource plan that you purchased is consumed. When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
+    * *   After you call this operation to submit a certificate application, you also need to call the [DescribeCertificateState](~~455800~~) operation to obtain the information that is required to complete the verification of the domain name ownership, and complete the verification. If you use the DNS verification method, you must complete the verification in the management platform of the domain name. If you use the file verification method, you must complete the verification in the DNS server. Then, the certificate application order will be reviewed by the certificate authority (CA).
+    *
+    * @param request CreateCertificateForPackageRequestRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCertificateForPackageRequestResponse
+   */
   async createCertificateForPackageRequestWithOptions(request: CreateCertificateForPackageRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateForPackageRequestResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2312,11 +2367,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCertificateForPackageRequestResponse>(await this.callApi(params, req, runtime), new CreateCertificateForPackageRequestResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](~~28542~~). You can call the [DescribePackageState](~~455800~~) operation to query the usage of certificate resource plans of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that are submitted, and the number of certificates that are issued.
+    * *   After you call this operation to submit a certificate application and the certificate is issued, the certificate quota provided by the resource plan that you purchased is consumed. When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
+    * *   After you call this operation to submit a certificate application, you also need to call the [DescribeCertificateState](~~455800~~) operation to obtain the information that is required to complete the verification of the domain name ownership, and complete the verification. If you use the DNS verification method, you must complete the verification in the management platform of the domain name. If you use the file verification method, you must complete the verification in the DNS server. Then, the certificate application order will be reviewed by the certificate authority (CA).
+    *
+    * @param request CreateCertificateForPackageRequestRequest
+    * @return CreateCertificateForPackageRequestResponse
+   */
   async createCertificateForPackageRequest(request: CreateCertificateForPackageRequestRequest): Promise<CreateCertificateForPackageRequestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCertificateForPackageRequestWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call this operation to apply for only DV certificates. If you want to apply for an organization validated (OV) or extended validation (EV) certificate, we recommend that you call the [CreateCertificateForPackageRequest](~~455296~~) operation. This operation allows you to apply for certificates of all specifications and specify the method to generate a certificate signing request (CSR) file.
+    * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](~~28542~~). You can call the [DescribePackageState](~~455803~~) operation to query the usage of certificate resource plans of specified specifications, including the total number of purchased certificate resource plans of the specified specifications, the number of times that certificate applications have been submitted, and the number of times that certificates have been issued.
+    * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
+    * *   After you call this operation to submit a certificate application, Certificate Management Service automatically creates a CSR file for your application and consumes the certificate quota in the certificate resource plans of the specified specifications that you purchased. After you call this operation, you also need to call the [DescribeCertificateState](~~455800~~) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. Then, the certificate authority (CA) will review your certificate application.
+    *
+    * @param request CreateCertificateRequestRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCertificateRequestResponse
+   */
   async createCertificateRequestWithOptions(request: CreateCertificateRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateRequestResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2361,11 +2434,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCertificateRequestResponse>(await this.callApi(params, req, runtime), new CreateCertificateRequestResponse({}));
   }
 
+  /**
+    * *   You can call this operation to apply for only DV certificates. If you want to apply for an organization validated (OV) or extended validation (EV) certificate, we recommend that you call the [CreateCertificateForPackageRequest](~~455296~~) operation. This operation allows you to apply for certificates of all specifications and specify the method to generate a certificate signing request (CSR) file.
+    * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](~~28542~~). You can call the [DescribePackageState](~~455803~~) operation to query the usage of certificate resource plans of specified specifications, including the total number of purchased certificate resource plans of the specified specifications, the number of times that certificate applications have been submitted, and the number of times that certificates have been issued.
+    * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
+    * *   After you call this operation to submit a certificate application, Certificate Management Service automatically creates a CSR file for your application and consumes the certificate quota in the certificate resource plans of the specified specifications that you purchased. After you call this operation, you also need to call the [DescribeCertificateState](~~455800~~) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. Then, the certificate authority (CA) will review your certificate application.
+    *
+    * @param request CreateCertificateRequestRequest
+    * @return CreateCertificateRequestResponse
+   */
   async createCertificateRequest(request: CreateCertificateRequestRequest): Promise<CreateCertificateRequestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCertificateRequestWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call the CreateCertificateWithCsrRequest operation to apply only for DV certificates. We recommend that you call the [CreateCertificateForPackageRequest](~~455296~~) operation to submit a certificate application. This operation allows you to apply for certificates of all specifications and specify the method to generate a CSR file.
+    * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](~~28542~~). You can call the [DescribePackageState](~~164110~~) operation to query the usage of certificate resource plans of specified specifications. The usage information includes the total number of purchased certificate resource plans of the specified specifications, the number of times that certificate applications are submitted, and the number of times that certificates are issued.
+    * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
+    * *   After you call this operation to submit a certificate application, the certificate quota of the required specifications that you purchased is consumed. After you call this operation, you also need to call the [DescribeCertificateState](~~164111~~) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. The certificate authority (CA) starts to review your certificate application only after the domain name verification is complete.
+    *
+    * @param request CreateCertificateWithCsrRequestRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCertificateWithCsrRequestResponse
+   */
   async createCertificateWithCsrRequestWithOptions(request: CreateCertificateWithCsrRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateWithCsrRequestResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2410,6 +2502,15 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCertificateWithCsrRequestResponse>(await this.callApi(params, req, runtime), new CreateCertificateWithCsrRequestResponse({}));
   }
 
+  /**
+    * *   You can call the CreateCertificateWithCsrRequest operation to apply only for DV certificates. We recommend that you call the [CreateCertificateForPackageRequest](~~455296~~) operation to submit a certificate application. This operation allows you to apply for certificates of all specifications and specify the method to generate a CSR file.
+    * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](~~28542~~). You can call the [DescribePackageState](~~164110~~) operation to query the usage of certificate resource plans of specified specifications. The usage information includes the total number of purchased certificate resource plans of the specified specifications, the number of times that certificate applications are submitted, and the number of times that certificates are issued.
+    * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
+    * *   After you call this operation to submit a certificate application, the certificate quota of the required specifications that you purchased is consumed. After you call this operation, you also need to call the [DescribeCertificateState](~~164111~~) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. The certificate authority (CA) starts to review your certificate application only after the domain name verification is complete.
+    *
+    * @param request CreateCertificateWithCsrRequestRequest
+    * @return CreateCertificateWithCsrRequestResponse
+   */
   async createCertificateWithCsrRequest(request: CreateCertificateWithCsrRequestRequest): Promise<CreateCertificateWithCsrRequestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCertificateWithCsrRequestWithOptions(request, runtime);
@@ -2549,6 +2650,15 @@ export default class Client extends OpenApi {
     return await this.decryptWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to delete a certificate application order only in the following scenarios:
+    * *   The status of the order is review failed. You have called the [DescribeCertificateState](~~455800~~)  operation to query the status of the certificate application order and the value of the **Type** parameter is **verify_fail**.
+    * *   The status of the order is **pending application**. You have called the [CancelOrderRequest](~~455299~~) operation to cancel a certificate application order whose status is pending review or being reviewed. The status of the certificate application order that is canceled in this case changes to **pending application**.
+    *
+    * @param request DeleteCertificateRequestRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteCertificateRequestResponse
+   */
   async deleteCertificateRequestWithOptions(request: DeleteCertificateRequestRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCertificateRequestResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2573,6 +2683,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCertificateRequestResponse>(await this.callApi(params, req, runtime), new DeleteCertificateRequestResponse({}));
   }
 
+  /**
+    * You can call this operation to delete a certificate application order only in the following scenarios:
+    * *   The status of the order is review failed. You have called the [DescribeCertificateState](~~455800~~)  operation to query the status of the certificate application order and the value of the **Type** parameter is **verify_fail**.
+    * *   The status of the order is **pending application**. You have called the [CancelOrderRequest](~~455299~~) operation to cancel a certificate application order whose status is pending review or being reviewed. The status of the certificate application order that is canceled in this case changes to **pending application**.
+    *
+    * @param request DeleteCertificateRequestRequest
+    * @return DeleteCertificateRequestResponse
+   */
   async deleteCertificateRequest(request: DeleteCertificateRequestRequest): Promise<DeleteCertificateRequestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCertificateRequestWithOptions(request, runtime);
@@ -2607,6 +2725,13 @@ export default class Client extends OpenApi {
     return await this.deletePCACertWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteUserCertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteUserCertificateResponse
+   */
   async deleteUserCertificateWithOptions(request: DeleteUserCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2631,11 +2756,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserCertificateResponse>(await this.callApi(params, req, runtime), new DeleteUserCertificateResponse({}));
   }
 
+  /**
+    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteUserCertificateRequest
+    * @return DeleteUserCertificateResponse
+   */
   async deleteUserCertificate(request: DeleteUserCertificateRequest): Promise<DeleteUserCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserCertificateWithOptions(request, runtime);
   }
 
+  /**
+    * If you do not complete the verification of the domain name ownership after you submit a certificate application, you can call this operation to obtain the information that is required to complete the verification. You can complete the verification of the domain name ownership based on the data returned. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on the DNS server.
+    * The certificate authority (CA) reviews your certificate application only after you complete the verification of the domain name ownership. After the CA approves your certificate application, the CA issues the certificate. If a certificate is issued, you can call this operation to obtain the CA certificate and private key of the certificate.
+    *
+    * @param request DescribeCertificateStateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCertificateStateResponse
+   */
   async describeCertificateStateWithOptions(request: DescribeCertificateStateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertificateStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2660,6 +2799,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCertificateStateResponse>(await this.callApi(params, req, runtime), new DescribeCertificateStateResponse({}));
   }
 
+  /**
+    * If you do not complete the verification of the domain name ownership after you submit a certificate application, you can call this operation to obtain the information that is required to complete the verification. You can complete the verification of the domain name ownership based on the data returned. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on the DNS server.
+    * The certificate authority (CA) reviews your certificate application only after you complete the verification of the domain name ownership. After the CA approves your certificate application, the CA issues the certificate. If a certificate is issued, you can call this operation to obtain the CA certificate and private key of the certificate.
+    *
+    * @param request DescribeCertificateStateRequest
+    * @return DescribeCertificateStateResponse
+   */
   async describeCertificateState(request: DescribeCertificateStateRequest): Promise<DescribeCertificateStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCertificateStateWithOptions(request, runtime);
@@ -2756,9 +2902,20 @@ export default class Client extends OpenApi {
     return await this.getCertWarehouseQuotaWithOptions(runtime);
   }
 
+  /**
+    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetUserCertificateDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetUserCertificateDetailResponse
+   */
   async getUserCertificateDetailWithOptions(request: GetUserCertificateDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetUserCertificateDetailResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.certFilter)) {
+      query["CertFilter"] = request.certFilter;
+    }
+
     if (!Util.isUnset(request.certId)) {
       query["CertId"] = request.certId;
     }
@@ -2780,14 +2937,31 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserCertificateDetailResponse>(await this.callApi(params, req, runtime), new GetUserCertificateDetailResponse({}));
   }
 
+  /**
+    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetUserCertificateDetailRequest
+    * @return GetUserCertificateDetailResponse
+   */
   async getUserCertificateDetail(request: GetUserCertificateDetailRequest): Promise<GetUserCertificateDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserCertificateDetailWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ListCertRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListCertResponse
+   */
   async listCertWithOptions(request: ListCertRequest, runtime: $Util.RuntimeOptions): Promise<ListCertResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.certType)) {
+      query["CertType"] = request.certType;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -2829,6 +3003,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCertResponse>(await this.callApi(params, req, runtime), new ListCertResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ListCertRequest
+    * @return ListCertResponse
+   */
   async listCert(request: ListCertRequest): Promise<ListCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCertWithOptions(request, runtime);
@@ -2879,6 +3059,15 @@ export default class Client extends OpenApi {
     return await this.listCertWarehouseWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ListUserCertificateOrder operation to query the certificates or certificate orders of users. If you set OrderType to CERT or UPLOAD, certificates are returned. If you set OrderType to CPACK or BUY, certificate orders are returned.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ListUserCertificateOrderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListUserCertificateOrderResponse
+   */
   async listUserCertificateOrderWithOptions(request: ListUserCertificateOrderRequest, runtime: $Util.RuntimeOptions): Promise<ListUserCertificateOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2923,11 +3112,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserCertificateOrderResponse>(await this.callApi(params, req, runtime), new ListUserCertificateOrderResponse({}));
   }
 
+  /**
+    * You can call the ListUserCertificateOrder operation to query the certificates or certificate orders of users. If you set OrderType to CERT or UPLOAD, certificates are returned. If you set OrderType to CPACK or BUY, certificate orders are returned.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ListUserCertificateOrderRequest
+    * @return ListUserCertificateOrderResponse
+   */
   async listUserCertificateOrder(request: ListUserCertificateOrderRequest): Promise<ListUserCertificateOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserCertificateOrderWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to submit a renewal application for a certificate only when the order of the certificate is in the expiring state. After the renewal is complete, a new certificate order whose status is pending application is generated. You must submit a certificate application for the new certificate order and install the new certificate after the new certificate is issued.
+    * > You can call the [DescribeCertificateState](~~455800~~) operation to query the status of a certificate application order. If the value of the **Type** response parameter is **certificate**, the certificate is issued.
+    *
+    * @param request RenewCertificateOrderForPackageRequestRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RenewCertificateOrderForPackageRequestResponse
+   */
   async renewCertificateOrderForPackageRequestWithOptions(request: RenewCertificateOrderForPackageRequestRequest, runtime: $Util.RuntimeOptions): Promise<RenewCertificateOrderForPackageRequestResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2956,6 +3161,13 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewCertificateOrderForPackageRequestResponse>(await this.callApi(params, req, runtime), new RenewCertificateOrderForPackageRequestResponse({}));
   }
 
+  /**
+    * You can call this operation to submit a renewal application for a certificate only when the order of the certificate is in the expiring state. After the renewal is complete, a new certificate order whose status is pending application is generated. You must submit a certificate application for the new certificate order and install the new certificate after the new certificate is issued.
+    * > You can call the [DescribeCertificateState](~~455800~~) operation to query the status of a certificate application order. If the value of the **Type** response parameter is **certificate**, the certificate is issued.
+    *
+    * @param request RenewCertificateOrderForPackageRequestRequest
+    * @return RenewCertificateOrderForPackageRequestResponse
+   */
   async renewCertificateOrderForPackageRequest(request: RenewCertificateOrderForPackageRequestRequest): Promise<RenewCertificateOrderForPackageRequestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewCertificateOrderForPackageRequestWithOptions(request, runtime);
@@ -3031,6 +3243,13 @@ export default class Client extends OpenApi {
     return await this.signWithOptions(request, runtime);
   }
 
+  /**
+    * The unique identifier of the certificate.
+    *
+    * @param request UploadPCACertRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UploadPCACertResponse
+   */
   async uploadPCACertWithOptions(request: UploadPCACertRequest, runtime: $Util.RuntimeOptions): Promise<UploadPCACertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3067,11 +3286,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadPCACertResponse>(await this.callApi(params, req, runtime), new UploadPCACertResponse({}));
   }
 
+  /**
+    * The unique identifier of the certificate.
+    *
+    * @param request UploadPCACertRequest
+    * @return UploadPCACertResponse
+   */
   async uploadPCACert(request: UploadPCACertRequest): Promise<UploadPCACertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadPCACertWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UploadUserCertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UploadUserCertificateResponse
+   */
   async uploadUserCertificateWithOptions(request: UploadUserCertificateRequest, runtime: $Util.RuntimeOptions): Promise<UploadUserCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3124,6 +3356,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadUserCertificateResponse>(await this.callApi(params, req, runtime), new UploadUserCertificateResponse({}));
   }
 
+  /**
+    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UploadUserCertificateRequest
+    * @return UploadUserCertificateResponse
+   */
   async uploadUserCertificate(request: UploadUserCertificateRequest): Promise<UploadUserCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadUserCertificateWithOptions(request, runtime);
