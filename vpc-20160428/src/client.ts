@@ -20708,6 +20708,93 @@ export class DescribeVpnGatewayResponse extends $tea.Model {
   }
 }
 
+export class DescribeVpnGatewayAvailableZonesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      spec: 'Spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnGatewayAvailableZonesResponseBody extends $tea.Model {
+  availableZoneIdList?: DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList[];
+  regionId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableZoneIdList: 'AvailableZoneIdList',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableZoneIdList: { 'type': 'array', 'itemType': DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList },
+      regionId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnGatewayAvailableZonesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeVpnGatewayAvailableZonesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVpnGatewayAvailableZonesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpnGatewaysRequest extends $tea.Model {
   businessStatus?: string;
   includeReservationData?: boolean;
@@ -21291,6 +21378,99 @@ export class DetachDhcpOptionsSetFromVpcResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetachDhcpOptionsSetFromVpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DiagnoseVpnConnectionsRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceOwnerId?: number;
+  tunnelIds?: string[];
+  vpnConnectionIds?: string[];
+  vpnGatewayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+      tunnelIds: 'TunnelIds',
+      vpnConnectionIds: 'VpnConnectionIds',
+      vpnGatewayId: 'VpnGatewayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+      tunnelIds: { 'type': 'array', 'itemType': 'string' },
+      vpnConnectionIds: { 'type': 'array', 'itemType': 'string' },
+      vpnGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DiagnoseVpnConnectionsResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  vpnConnections?: DiagnoseVpnConnectionsResponseBodyVpnConnections[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      vpnConnections: 'VpnConnections',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      vpnConnections: { 'type': 'array', 'itemType': DiagnoseVpnConnectionsResponseBodyVpnConnections },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DiagnoseVpnConnectionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DiagnoseVpnConnectionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DiagnoseVpnConnectionsResponseBody,
     };
   }
 
@@ -44443,6 +44623,28 @@ export class DescribeVpnGatewayResponseBodyTags extends $tea.Model {
   }
 }
 
+export class DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList extends $tea.Model {
+  zoneId?: string;
+  zoneName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      zoneId: 'ZoneId',
+      zoneName: 'ZoneName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      zoneId: 'string',
+      zoneName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpnGatewaysRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -44841,6 +45043,49 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       zone: { 'type': 'array', 'itemType': DescribeZonesResponseBodyZonesZone },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DiagnoseVpnConnectionsResponseBodyVpnConnections extends $tea.Model {
+  failedReason?: string;
+  failedReasonCode?: string;
+  failedTime?: number;
+  mismatchLocalParam?: string;
+  mismatchRemoteParam?: string;
+  severity?: string;
+  sourceLog?: string;
+  tunnelId?: string;
+  vpnConnectionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failedReason: 'FailedReason',
+      failedReasonCode: 'FailedReasonCode',
+      failedTime: 'FailedTime',
+      mismatchLocalParam: 'MismatchLocalParam',
+      mismatchRemoteParam: 'MismatchRemoteParam',
+      severity: 'Severity',
+      sourceLog: 'SourceLog',
+      tunnelId: 'TunnelId',
+      vpnConnectionId: 'VpnConnectionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedReason: 'string',
+      failedReasonCode: 'string',
+      failedTime: 'number',
+      mismatchLocalParam: 'string',
+      mismatchRemoteParam: 'string',
+      severity: 'string',
+      sourceLog: 'string',
+      tunnelId: 'string',
+      vpnConnectionId: 'string',
     };
   }
 
@@ -54505,10 +54750,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT gateway** refers to both gateway types.
+    * You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT** gateway refers to both gateway types.
     * Before you call this operation, take note of the following limits:
     * *   **CreateSnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of the task.
-    *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
+    *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, and cannot perform other operations.
     *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
     * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
     * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the VPC where the NAT gateway is deployed.
@@ -54588,10 +54833,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT gateway** refers to both gateway types.
+    * You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT** gateway refers to both gateway types.
     * Before you call this operation, take note of the following limits:
     * *   **CreateSnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of the task.
-    *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
+    *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, and cannot perform other operations.
     *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
     * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
     * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the VPC where the NAT gateway is deployed.
@@ -64980,6 +65225,31 @@ export default class Client extends OpenApi {
     return await this.describeVpnGatewayWithOptions(request, runtime);
   }
 
+  async describeVpnGatewayAvailableZonesWithOptions(request: DescribeVpnGatewayAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnGatewayAvailableZonesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVpnGatewayAvailableZones",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVpnGatewayAvailableZonesResponse>(await this.callApi(params, req, runtime), new DescribeVpnGatewayAvailableZonesResponse({}));
+  }
+
+  async describeVpnGatewayAvailableZones(request: DescribeVpnGatewayAvailableZonesRequest): Promise<DescribeVpnGatewayAvailableZonesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVpnGatewayAvailableZonesWithOptions(request, runtime);
+  }
+
   async describeVpnGatewaysWithOptions(request: DescribeVpnGatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnGatewaysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65385,6 +65655,59 @@ export default class Client extends OpenApi {
   async detachDhcpOptionsSetFromVpc(request: DetachDhcpOptionsSetFromVpcRequest): Promise<DetachDhcpOptionsSetFromVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachDhcpOptionsSetFromVpcWithOptions(request, runtime);
+  }
+
+  async diagnoseVpnConnectionsWithOptions(request: DiagnoseVpnConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DiagnoseVpnConnectionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tunnelIds)) {
+      query["TunnelIds"] = request.tunnelIds;
+    }
+
+    if (!Util.isUnset(request.vpnConnectionIds)) {
+      query["VpnConnectionIds"] = request.vpnConnectionIds;
+    }
+
+    if (!Util.isUnset(request.vpnGatewayId)) {
+      query["VpnGatewayId"] = request.vpnGatewayId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DiagnoseVpnConnections",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DiagnoseVpnConnectionsResponse>(await this.callApi(params, req, runtime), new DiagnoseVpnConnectionsResponse({}));
+  }
+
+  async diagnoseVpnConnections(request: DiagnoseVpnConnectionsRequest): Promise<DiagnoseVpnConnectionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.diagnoseVpnConnectionsWithOptions(request, runtime);
   }
 
   /**
