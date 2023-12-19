@@ -2420,6 +2420,7 @@ export class CreateCircuitBreakerRuleRequest extends $tea.Model {
   namespace?: string;
   regionId?: string;
   resource?: string;
+  resourceType?: number;
   retryTimeoutMs?: number;
   statIntervalMs?: number;
   strategy?: number;
@@ -2437,6 +2438,7 @@ export class CreateCircuitBreakerRuleRequest extends $tea.Model {
       namespace: 'Namespace',
       regionId: 'RegionId',
       resource: 'Resource',
+      resourceType: 'ResourceType',
       retryTimeoutMs: 'RetryTimeoutMs',
       statIntervalMs: 'StatIntervalMs',
       strategy: 'Strategy',
@@ -2457,6 +2459,7 @@ export class CreateCircuitBreakerRuleRequest extends $tea.Model {
       namespace: 'string',
       regionId: 'string',
       resource: 'string',
+      resourceType: 'number',
       retryTimeoutMs: 'number',
       statIntervalMs: 'number',
       strategy: 'number',
@@ -2772,6 +2775,7 @@ export class CreateFlowRuleRequest extends $tea.Model {
   namespace?: string;
   regionId?: string;
   resource?: string;
+  resourceType?: number;
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2784,6 +2788,7 @@ export class CreateFlowRuleRequest extends $tea.Model {
       namespace: 'Namespace',
       regionId: 'RegionId',
       resource: 'Resource',
+      resourceType: 'ResourceType',
       threshold: 'Threshold',
     };
   }
@@ -2799,6 +2804,7 @@ export class CreateFlowRuleRequest extends $tea.Model {
       namespace: 'string',
       regionId: 'string',
       resource: 'string',
+      resourceType: 'number',
       threshold: 'number',
     };
   }
@@ -25339,6 +25345,7 @@ export class ListCircuitBreakerRulesResponseBodyDataResult extends $tea.Model {
   namespace?: string;
   regionId?: string;
   resource?: string;
+  resourceType?: number;
   retryTimeoutMs?: number;
   ruleId?: number;
   statIntervalMs?: number;
@@ -25357,6 +25364,7 @@ export class ListCircuitBreakerRulesResponseBodyDataResult extends $tea.Model {
       namespace: 'Namespace',
       regionId: 'RegionId',
       resource: 'Resource',
+      resourceType: 'ResourceType',
       retryTimeoutMs: 'RetryTimeoutMs',
       ruleId: 'RuleId',
       statIntervalMs: 'StatIntervalMs',
@@ -25378,6 +25386,7 @@ export class ListCircuitBreakerRulesResponseBodyDataResult extends $tea.Model {
       namespace: 'string',
       regionId: 'string',
       resource: 'string',
+      resourceType: 'number',
       retryTimeoutMs: 'number',
       ruleId: 'number',
       statIntervalMs: 'number',
@@ -25996,6 +26005,7 @@ export class ListFlowRulesResponseBodyDataResult extends $tea.Model {
   namespace?: string;
   regionId?: string;
   resource?: string;
+  resourceType?: number;
   ruleId?: number;
   threshold?: number;
   trafficTags?: { [key: string]: any };
@@ -26011,6 +26021,7 @@ export class ListFlowRulesResponseBodyDataResult extends $tea.Model {
       namespace: 'Namespace',
       regionId: 'RegionId',
       resource: 'Resource',
+      resourceType: 'ResourceType',
       ruleId: 'RuleId',
       threshold: 'Threshold',
       trafficTags: 'TrafficTags',
@@ -26029,6 +26040,7 @@ export class ListFlowRulesResponseBodyDataResult extends $tea.Model {
       namespace: 'string',
       regionId: 'string',
       resource: 'string',
+      resourceType: 'number',
       ruleId: 'number',
       threshold: 'number',
       trafficTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -31950,6 +31962,10 @@ export default class Client extends OpenApi {
       query["Resource"] = request.resource;
     }
 
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     if (!Util.isUnset(request.retryTimeoutMs)) {
       query["RetryTimeoutMs"] = request.retryTimeoutMs;
     }
@@ -32204,6 +32220,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resource)) {
       query["Resource"] = request.resource;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
     }
 
     if (!Util.isUnset(request.threshold)) {
