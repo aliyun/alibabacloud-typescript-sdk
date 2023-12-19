@@ -494,6 +494,25 @@ export class CreateTaskRequestInput extends $tea.Model {
   }
 }
 
+export class CreateTaskRequestParametersMeetingAssistance extends $tea.Model {
+  types?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      types: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      types: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTaskRequestParametersSummarization extends $tea.Model {
   types?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -615,6 +634,7 @@ export class CreateTaskRequestParametersTranslation extends $tea.Model {
 
 export class CreateTaskRequestParameters extends $tea.Model {
   autoChaptersEnabled?: boolean;
+  meetingAssistance?: CreateTaskRequestParametersMeetingAssistance;
   meetingAssistanceEnabled?: boolean;
   pptExtractionEnabled?: boolean;
   summarization?: CreateTaskRequestParametersSummarization;
@@ -626,6 +646,7 @@ export class CreateTaskRequestParameters extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoChaptersEnabled: 'AutoChaptersEnabled',
+      meetingAssistance: 'MeetingAssistance',
       meetingAssistanceEnabled: 'MeetingAssistanceEnabled',
       pptExtractionEnabled: 'PptExtractionEnabled',
       summarization: 'Summarization',
@@ -640,6 +661,7 @@ export class CreateTaskRequestParameters extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoChaptersEnabled: 'boolean',
+      meetingAssistance: CreateTaskRequestParametersMeetingAssistance,
       meetingAssistanceEnabled: 'boolean',
       pptExtractionEnabled: 'boolean',
       summarization: CreateTaskRequestParametersSummarization,
