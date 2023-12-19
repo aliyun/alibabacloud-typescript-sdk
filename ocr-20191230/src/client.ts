@@ -165,91 +165,6 @@ export class RecognizeBankCardResponse extends $tea.Model {
   }
 }
 
-export class RecognizeBusinessCardRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBusinessCardAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBusinessCardResponseBody extends $tea.Model {
-  data?: RecognizeBusinessCardResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RecognizeBusinessCardResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBusinessCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RecognizeBusinessCardResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RecognizeBusinessCardResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RecognizeBusinessLicenseRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
@@ -1045,91 +960,6 @@ export class RecognizeQuotaInvoiceResponse extends $tea.Model {
   }
 }
 
-export class RecognizeStampRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeStampAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeStampResponseBody extends $tea.Model {
-  data?: RecognizeStampResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RecognizeStampResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeStampResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RecognizeStampResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RecognizeStampResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RecognizeTableRequest extends $tea.Model {
   assureDirection?: boolean;
   hasLine?: boolean;
@@ -1798,11 +1628,13 @@ export class GetAsyncJobResultResponseBodyData extends $tea.Model {
 export class RecognizeBankCardResponseBodyData extends $tea.Model {
   bankName?: string;
   cardNumber?: string;
+  cardType?: string;
   validDate?: string;
   static names(): { [key: string]: string } {
     return {
       bankName: 'BankName',
       cardNumber: 'CardNumber',
+      cardType: 'CardType',
       validDate: 'ValidDate',
     };
   }
@@ -1811,47 +1643,8 @@ export class RecognizeBankCardResponseBodyData extends $tea.Model {
     return {
       bankName: 'string',
       cardNumber: 'string',
+      cardType: 'string',
       validDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBusinessCardResponseBodyData extends $tea.Model {
-  addresses?: string[];
-  cellPhoneNumbers?: string[];
-  companies?: string[];
-  departments?: string[];
-  emails?: string[];
-  name?: string;
-  officePhoneNumbers?: string[];
-  titles?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      addresses: 'Addresses',
-      cellPhoneNumbers: 'CellPhoneNumbers',
-      companies: 'Companies',
-      departments: 'Departments',
-      emails: 'Emails',
-      name: 'Name',
-      officePhoneNumbers: 'OfficePhoneNumbers',
-      titles: 'Titles',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addresses: { 'type': 'array', 'itemType': 'string' },
-      cellPhoneNumbers: { 'type': 'array', 'itemType': 'string' },
-      companies: { 'type': 'array', 'itemType': 'string' },
-      departments: { 'type': 'array', 'itemType': 'string' },
-      emails: { 'type': 'array', 'itemType': 'string' },
-      name: 'string',
-      officePhoneNumbers: { 'type': 'array', 'itemType': 'string' },
-      titles: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -2135,23 +1928,27 @@ export class RecognizeDriverLicenseResponseBodyDataBackResult extends $tea.Model
 
 export class RecognizeDriverLicenseResponseBodyDataFaceResult extends $tea.Model {
   address?: string;
+  birthDate?: string;
   endDate?: string;
   gender?: string;
   issueDate?: string;
   issueUnit?: string;
   licenseNumber?: string;
   name?: string;
+  nationality?: string;
   startDate?: string;
   vehicleType?: string;
   static names(): { [key: string]: string } {
     return {
       address: 'Address',
+      birthDate: 'BirthDate',
       endDate: 'EndDate',
       gender: 'Gender',
       issueDate: 'IssueDate',
       issueUnit: 'IssueUnit',
       licenseNumber: 'LicenseNumber',
       name: 'Name',
+      nationality: 'Nationality',
       startDate: 'StartDate',
       vehicleType: 'VehicleType',
     };
@@ -2160,12 +1957,14 @@ export class RecognizeDriverLicenseResponseBodyDataFaceResult extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       address: 'string',
+      birthDate: 'string',
       endDate: 'string',
       gender: 'string',
       issueDate: 'string',
       issueUnit: 'string',
       licenseNumber: 'string',
       name: 'string',
+      nationality: 'string',
       startDate: 'string',
       vehicleType: 'string',
     };
@@ -2934,122 +2733,6 @@ export class RecognizeQuotaInvoiceResponseBodyData extends $tea.Model {
       orgHeight: 'number',
       orgWidth: 'number',
       width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeStampResponseBodyDataResultsGeneralText extends $tea.Model {
-  confidence?: number;
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      confidence: 'Confidence',
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confidence: 'number',
-      content: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeStampResponseBodyDataResultsRoi extends $tea.Model {
-  height?: number;
-  left?: number;
-  top?: number;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      left: 'Left',
-      top: 'Top',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      left: 'number',
-      top: 'number',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeStampResponseBodyDataResultsText extends $tea.Model {
-  confidence?: number;
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      confidence: 'Confidence',
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confidence: 'number',
-      content: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeStampResponseBodyDataResults extends $tea.Model {
-  generalText?: RecognizeStampResponseBodyDataResultsGeneralText[];
-  roi?: RecognizeStampResponseBodyDataResultsRoi;
-  text?: RecognizeStampResponseBodyDataResultsText;
-  static names(): { [key: string]: string } {
-    return {
-      generalText: 'GeneralText',
-      roi: 'Roi',
-      text: 'Text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      generalText: { 'type': 'array', 'itemType': RecognizeStampResponseBodyDataResultsGeneralText },
-      roi: RecognizeStampResponseBodyDataResultsRoi,
-      text: RecognizeStampResponseBodyDataResultsText,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeStampResponseBodyData extends $tea.Model {
-  results?: RecognizeStampResponseBodyDataResults[];
-  static names(): { [key: string]: string } {
-    return {
-      results: 'Results',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      results: { 'type': 'array', 'itemType': RecognizeStampResponseBodyDataResults },
     };
   }
 
@@ -3996,109 +3679,6 @@ export default class Client extends OpenApi {
 
     let recognizeBankCardResp = await this.recognizeBankCardWithOptions(recognizeBankCardReq, runtime);
     return recognizeBankCardResp;
-  }
-
-  async recognizeBusinessCardWithOptions(request: RecognizeBusinessCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessCardResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "RecognizeBusinessCard",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RecognizeBusinessCardResponse>(await this.callApi(params, req, runtime), new RecognizeBusinessCardResponse({}));
-  }
-
-  async recognizeBusinessCard(request: RecognizeBusinessCardRequest): Promise<RecognizeBusinessCardResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeBusinessCardWithOptions(request, runtime);
-  }
-
-  async recognizeBusinessCardAdvance(request: RecognizeBusinessCardAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessCardResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "ocr",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeBusinessCardReq = new RecognizeBusinessCardRequest({ });
-    OpenApiUtil.convert(request, recognizeBusinessCardReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeBusinessCardReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let recognizeBusinessCardResp = await this.recognizeBusinessCardWithOptions(recognizeBusinessCardReq, runtime);
-    return recognizeBusinessCardResp;
   }
 
   async recognizeBusinessLicenseWithOptions(request: RecognizeBusinessLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessLicenseResponse> {
@@ -5055,109 +4635,6 @@ export default class Client extends OpenApi {
 
     let recognizeQuotaInvoiceResp = await this.recognizeQuotaInvoiceWithOptions(recognizeQuotaInvoiceReq, runtime);
     return recognizeQuotaInvoiceResp;
-  }
-
-  async recognizeStampWithOptions(request: RecognizeStampRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeStampResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "RecognizeStamp",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RecognizeStampResponse>(await this.callApi(params, req, runtime), new RecognizeStampResponse({}));
-  }
-
-  async recognizeStamp(request: RecognizeStampRequest): Promise<RecognizeStampResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeStampWithOptions(request, runtime);
-  }
-
-  async recognizeStampAdvance(request: RecognizeStampAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeStampResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "ocr",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeStampReq = new RecognizeStampRequest({ });
-    OpenApiUtil.convert(request, recognizeStampReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeStampReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let recognizeStampResp = await this.recognizeStampWithOptions(recognizeStampReq, runtime);
-    return recognizeStampResp;
   }
 
   async recognizeTableWithOptions(request: RecognizeTableRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTableResponse> {

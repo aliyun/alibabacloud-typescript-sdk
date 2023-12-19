@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/ocr20191230",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -26,8 +26,8 @@
     "@alicloud/oss-util": "0.0.1",
     "@alicloud/tea-fileform": "^1.0.0",
     "@darabonba/number": "^1.1.0",
-    "@alicloud/openapi-client": "^0.4.4",
-    "@alicloud/openapi-util": "^0.3.1",
+    "@alicloud/openapi-client": "^0.4.7",
+    "@alicloud/openapi-util": "^0.3.2",
     "@alicloud/endpoint-util": "^0.0.1"
   },
   "files": [
