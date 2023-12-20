@@ -2443,24 +2443,24 @@ export class ModifyClusterDescResponse extends $tea.Model {
 export class ModifyClusterOfflineConfigRequest extends $tea.Model {
   buildMode?: string;
   config?: { [key: string]: number };
-  dataSource?: string;
+  dataSourceName?: string;
   dataSourceType?: string;
   dataTimeSec?: number;
   domain?: string;
   generation?: number;
   partition?: string;
-  triggerBuild?: boolean;
+  pushMode?: string;
   static names(): { [key: string]: string } {
     return {
       buildMode: 'buildMode',
       config: 'config',
-      dataSource: 'dataSource',
+      dataSourceName: 'dataSourceName',
       dataSourceType: 'dataSourceType',
       dataTimeSec: 'dataTimeSec',
       domain: 'domain',
       generation: 'generation',
       partition: 'partition',
-      triggerBuild: 'triggerBuild',
+      pushMode: 'pushMode',
     };
   }
 
@@ -2468,13 +2468,13 @@ export class ModifyClusterOfflineConfigRequest extends $tea.Model {
     return {
       buildMode: 'string',
       config: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
-      dataSource: 'string',
+      dataSourceName: 'string',
       dataSourceType: 'string',
       dataTimeSec: 'number',
       domain: 'string',
       generation: 'number',
       partition: 'string',
-      triggerBuild: 'boolean',
+      pushMode: 'string',
     };
   }
 
@@ -6567,7 +6567,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The result returned
+    * ## Method
+    * `DELETE`
+    * ## URI
+    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -6592,7 +6595,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The result returned
+    * ## Method
+    * `DELETE`
+    * ## URI
+    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
     *
     * @return DeleteDataSourceResponse
    */
@@ -7291,7 +7297,7 @@ export default class Client extends OpenApi {
     * @param runtime runtime options for this request RuntimeOptions
     * @return ListClusterNamesResponse
    */
-  async listClusterNamesWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterNamesResponse> {
+  async listClusterNamesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterNamesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -7299,7 +7305,7 @@ export default class Client extends OpenApi {
       action: "ListClusterNames",
       version: "2021-10-25",
       protocol: "HTTPS",
-      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/cluster-names`,
+      pathname: `/openapi/ha3/cluster-names`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -7317,10 +7323,10 @@ export default class Client extends OpenApi {
     *
     * @return ListClusterNamesResponse
    */
-  async listClusterNames(instanceId: string): Promise<ListClusterNamesResponse> {
+  async listClusterNames(): Promise<ListClusterNamesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listClusterNamesWithOptions(instanceId, headers, runtime);
+    return await this.listClusterNamesWithOptions(headers, runtime);
   }
 
   async listClusterTasksWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterTasksResponse> {
@@ -7467,6 +7473,17 @@ export default class Client extends OpenApi {
     return await this.listDataSourcesWithOptions(instanceId, headers, runtime);
   }
 
+  /**
+    * ### Method
+    * `GET`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
+    *
+    * @param request ListDateSourceGenerationsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDateSourceGenerationsResponse
+   */
   async listDateSourceGenerationsWithOptions(instanceId: string, dataSourceName: string, request: ListDateSourceGenerationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDateSourceGenerationsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7496,6 +7513,15 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDateSourceGenerationsResponse>(await this.callApi(params, req, runtime), new ListDateSourceGenerationsResponse({}));
   }
 
+  /**
+    * ### Method
+    * `GET`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
+    *
+    * @param request ListDateSourceGenerationsRequest
+    * @return ListDateSourceGenerationsResponse
+   */
   async listDateSourceGenerations(instanceId: string, dataSourceName: string, request: ListDateSourceGenerationsRequest): Promise<ListDateSourceGenerationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7821,7 +7847,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the cluster
+    * ### Method
+    * `PUT`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
     *
     * @param request ModifyClusterDescRequest
     * @param headers map
@@ -7854,7 +7883,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the cluster
+    * ### Method
+    * `PUT`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
     *
     * @param request ModifyClusterDescRequest
     * @return ModifyClusterDescResponse
@@ -7886,8 +7918,8 @@ export default class Client extends OpenApi {
       body["config"] = request.config;
     }
 
-    if (!Util.isUnset(request.dataSource)) {
-      body["dataSource"] = request.dataSource;
+    if (!Util.isUnset(request.dataSourceName)) {
+      body["dataSourceName"] = request.dataSourceName;
     }
 
     if (!Util.isUnset(request.dataSourceType)) {
@@ -7910,8 +7942,8 @@ export default class Client extends OpenApi {
       body["partition"] = request.partition;
     }
 
-    if (!Util.isUnset(request.triggerBuild)) {
-      body["triggerBuild"] = request.triggerBuild;
+    if (!Util.isUnset(request.pushMode)) {
+      body["pushMode"] = request.pushMode;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -8536,7 +8568,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the index
+    * ### Method
+    * `POST`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}/recover-index`
     *
     * @param request RecoverIndexRequest
     * @param headers map
@@ -8581,7 +8616,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the index
+    * ### Method
+    * `POST`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}/recover-index`
     *
     * @param request RecoverIndexRequest
     * @return RecoverIndexResponse
