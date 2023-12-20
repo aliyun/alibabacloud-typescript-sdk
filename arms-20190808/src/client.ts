@@ -12306,11 +12306,13 @@ export class ListDashboardsRequest extends $tea.Model {
 
 export class ListDashboardsResponseBody extends $tea.Model {
   dashboardVos?: ListDashboardsResponseBodyDashboardVos[];
+  environmentId?: string;
   prometheusServiceOpened?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       dashboardVos: 'DashboardVos',
+      environmentId: 'EnvironmentId',
       prometheusServiceOpened: 'PrometheusServiceOpened',
       requestId: 'RequestId',
     };
@@ -12319,6 +12321,7 @@ export class ListDashboardsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dashboardVos: { 'type': 'array', 'itemType': ListDashboardsResponseBodyDashboardVos },
+      environmentId: 'string',
       prometheusServiceOpened: 'string',
       requestId: 'string',
     };
@@ -15079,6 +15082,154 @@ export class QueryAppMetadataResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryAppMetadataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAppTopologyRequest extends $tea.Model {
+  appType?: string;
+  db?: string;
+  dbName?: string;
+  endTime?: number;
+  filters?: { [key: string]: string };
+  pid?: string;
+  regionId?: string;
+  rpc?: string;
+  startTime?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      db: 'Db',
+      dbName: 'DbName',
+      endTime: 'EndTime',
+      filters: 'Filters',
+      pid: 'Pid',
+      regionId: 'RegionId',
+      rpc: 'Rpc',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      db: 'string',
+      dbName: 'string',
+      endTime: 'number',
+      filters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      pid: 'string',
+      regionId: 'string',
+      rpc: 'string',
+      startTime: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAppTopologyShrinkRequest extends $tea.Model {
+  appType?: string;
+  db?: string;
+  dbName?: string;
+  endTime?: number;
+  filtersShrink?: string;
+  pid?: string;
+  regionId?: string;
+  rpc?: string;
+  startTime?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      db: 'Db',
+      dbName: 'DbName',
+      endTime: 'EndTime',
+      filtersShrink: 'Filters',
+      pid: 'Pid',
+      regionId: 'RegionId',
+      rpc: 'Rpc',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      db: 'string',
+      dbName: 'string',
+      endTime: 'number',
+      filtersShrink: 'string',
+      pid: 'string',
+      regionId: 'string',
+      rpc: 'string',
+      startTime: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAppTopologyResponseBody extends $tea.Model {
+  code?: number;
+  data?: any;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'any',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAppTopologyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryAppTopologyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryAppTopologyResponseBody,
     };
   }
 
@@ -38678,6 +38829,77 @@ export default class Client extends OpenApi {
   async queryAppMetadata(request: QueryAppMetadataRequest): Promise<QueryAppMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAppMetadataWithOptions(request, runtime);
+  }
+
+  async queryAppTopologyWithOptions(tmpReq: QueryAppTopologyRequest, runtime: $Util.RuntimeOptions): Promise<QueryAppTopologyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryAppTopologyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.filters)) {
+      request.filtersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filters, "Filters", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appType)) {
+      query["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.db)) {
+      query["Db"] = request.db;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.filtersShrink)) {
+      query["Filters"] = request.filtersShrink;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.rpc)) {
+      query["Rpc"] = request.rpc;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryAppTopology",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAppTopologyResponse>(await this.callApi(params, req, runtime), new QueryAppTopologyResponse({}));
+  }
+
+  async queryAppTopology(request: QueryAppTopologyRequest): Promise<QueryAppTopologyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryAppTopologyWithOptions(request, runtime);
   }
 
   async queryCommercialUsageWithOptions(request: QueryCommercialUsageRequest, runtime: $Util.RuntimeOptions): Promise<QueryCommercialUsageResponse> {
