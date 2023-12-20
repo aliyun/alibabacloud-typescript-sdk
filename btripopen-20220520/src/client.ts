@@ -22550,6 +22550,8 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
   orderId?: string;
   orderPrice?: number;
   overApplyId?: string;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   personSettleFee?: number;
   primaryId?: number;
   projectCode?: string;
@@ -22625,6 +22627,8 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       orderId: 'order_id',
       orderPrice: 'order_price',
       overApplyId: 'over_apply_id',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       personSettleFee: 'person_settle_fee',
       primaryId: 'primary_id',
       projectCode: 'project_code',
@@ -22703,6 +22707,8 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       orderId: 'string',
       orderPrice: 'number',
       overApplyId: 'string',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       personSettleFee: 'number',
       primaryId: 'number',
       projectCode: 'string',
@@ -24178,6 +24184,8 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
   oilFee?: number;
   orderId?: string;
   overApplyId?: string;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   personSettlePrice?: number;
   preBookTip?: string;
   primaryId?: number;
@@ -24275,6 +24283,8 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       oilFee: 'oil_fee',
       orderId: 'order_id',
       overApplyId: 'over_apply_id',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       personSettlePrice: 'person_settle_price',
       preBookTip: 'pre_book_tip',
       primaryId: 'primary_id',
@@ -24375,6 +24385,8 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       oilFee: 'number',
       orderId: 'string',
       overApplyId: 'string',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       personSettlePrice: 'number',
       preBookTip: 'string',
       primaryId: 'number',
@@ -36265,6 +36277,8 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   orderPrice?: number;
   orderType?: string;
   overApplyId?: string;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   personRefundFee?: number;
   personSettlePrice?: number;
   primaryId?: number;
@@ -36341,6 +36355,8 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       orderPrice: 'order_price',
       orderType: 'order_type',
       overApplyId: 'over_apply_id',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       personRefundFee: 'person_refund_fee',
       personSettlePrice: 'person_settle_price',
       primaryId: 'primary_id',
@@ -36420,6 +36436,8 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       orderPrice: 'number',
       orderType: 'string',
       overApplyId: 'string',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       personRefundFee: 'number',
       personSettlePrice: 'number',
       primaryId: 'number',
@@ -39582,6 +39600,8 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
   orderId?: string;
   orderStatusDesc?: string;
   overApplyId?: string;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   primaryId?: number;
   projectCode?: string;
   projectName?: string;
@@ -39669,6 +39689,8 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       orderId: 'order_id',
       orderStatusDesc: 'order_status_desc',
       overApplyId: 'over_apply_id',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       primaryId: 'primary_id',
       projectCode: 'project_code',
       projectName: 'project_name',
@@ -39759,6 +39781,8 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       orderId: 'string',
       orderStatusDesc: 'string',
       overApplyId: 'string',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       primaryId: 'number',
       projectCode: 'string',
       projectName: 'string',
@@ -39878,6 +39902,8 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
   orderStatusDesc?: string;
   orderType?: string;
   overApplyId?: string;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   personRefundFee?: number;
   personSettlePrice?: number;
   primaryId?: number;
@@ -39962,6 +39988,8 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
       orderStatusDesc: 'order_status_desc',
       orderType: 'order_type',
       overApplyId: 'over_apply_id',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       personRefundFee: 'person_refund_fee',
       personSettlePrice: 'person_settle_price',
       primaryId: 'primary_id',
@@ -40049,6 +40077,8 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $tea.M
       orderStatusDesc: 'string',
       orderType: 'string',
       overApplyId: 'string',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       personRefundFee: 'number',
       personSettlePrice: 'number',
       primaryId: 'number',
@@ -45041,6 +45071,8 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   orderId?: string;
   orderPrice?: number;
   overApplyId?: string;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   primaryId?: number;
   printTicketPrice?: number;
   projectCode?: string;
@@ -45115,6 +45147,8 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       orderId: 'order_id',
       orderPrice: 'order_price',
       overApplyId: 'over_apply_id',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       primaryId: 'primary_id',
       printTicketPrice: 'print_ticket_price',
       projectCode: 'project_code',
@@ -45192,6 +45226,8 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       orderId: 'string',
       orderPrice: 'number',
       overApplyId: 'string',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       primaryId: 'number',
       printTicketPrice: 'number',
       projectCode: 'string',
