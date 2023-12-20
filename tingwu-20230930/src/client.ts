@@ -514,7 +514,7 @@ export class CreateTaskRequestParametersMeetingAssistance extends $tea.Model {
 }
 
 export class CreateTaskRequestParametersSummarization extends $tea.Model {
-  types?: { [key: string]: any };
+  types?: string[];
   static names(): { [key: string]: string } {
     return {
       types: 'Types',
@@ -523,7 +523,7 @@ export class CreateTaskRequestParametersSummarization extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      types: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      types: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -612,7 +612,7 @@ export class CreateTaskRequestParametersTranscription extends $tea.Model {
 
 export class CreateTaskRequestParametersTranslation extends $tea.Model {
   outputLevel?: number;
-  targetLanguages?: { [key: string]: any };
+  targetLanguages?: string[];
   static names(): { [key: string]: string } {
     return {
       outputLevel: 'OutputLevel',
@@ -623,7 +623,7 @@ export class CreateTaskRequestParametersTranslation extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       outputLevel: 'number',
-      targetLanguages: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      targetLanguages: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
