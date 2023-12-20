@@ -8,6 +8,40 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AIMasterMessage extends $tea.Model {
+  extended?: string;
+  jobRestartCount?: number;
+  messageContent?: string;
+  messageEvent?: string;
+  messageVersion?: number;
+  restartType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extended: 'Extended',
+      jobRestartCount: 'JobRestartCount',
+      messageContent: 'MessageContent',
+      messageEvent: 'MessageEvent',
+      messageVersion: 'MessageVersion',
+      restartType: 'RestartType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extended: 'string',
+      jobRestartCount: 'number',
+      messageContent: 'string',
+      messageEvent: 'string',
+      messageVersion: 'number',
+      restartType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AliyunAccounts extends $tea.Model {
   aliyunUid?: string;
   employeeId?: string;
@@ -859,12 +893,14 @@ export class JobSettings extends $tea.Model {
   enableErrorMonitoringInAIMaster?: boolean;
   enableOssAppend?: boolean;
   enableRDMA?: boolean;
+  enableSanityCheck?: boolean;
   enableTideResource?: boolean;
   errorMonitoringArgs?: string;
   jobReservedMinutes?: number;
   jobReservedPolicy?: string;
   oversoldType?: string;
   pipelineId?: string;
+  sanityCheckArgs?: string;
   tags?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -875,12 +911,14 @@ export class JobSettings extends $tea.Model {
       enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
       enableOssAppend: 'EnableOssAppend',
       enableRDMA: 'EnableRDMA',
+      enableSanityCheck: 'EnableSanityCheck',
       enableTideResource: 'EnableTideResource',
       errorMonitoringArgs: 'ErrorMonitoringArgs',
       jobReservedMinutes: 'JobReservedMinutes',
       jobReservedPolicy: 'JobReservedPolicy',
       oversoldType: 'OversoldType',
       pipelineId: 'PipelineId',
+      sanityCheckArgs: 'SanityCheckArgs',
       tags: 'Tags',
     };
   }
@@ -894,12 +932,14 @@ export class JobSettings extends $tea.Model {
       enableErrorMonitoringInAIMaster: 'boolean',
       enableOssAppend: 'boolean',
       enableRDMA: 'boolean',
+      enableSanityCheck: 'boolean',
       enableTideResource: 'boolean',
       errorMonitoringArgs: 'string',
       jobReservedMinutes: 'number',
       jobReservedPolicy: 'string',
       oversoldType: 'string',
       pipelineId: 'string',
+      sanityCheckArgs: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
@@ -1359,6 +1399,37 @@ export class SmartCache extends $tea.Model {
       status: 'string',
       type: 'string',
       userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatusTransitionItem extends $tea.Model {
+  endTime?: string;
+  reasonCode?: string;
+  reasonMessage?: string;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      startTime: 'string',
+      status: 'string',
     };
   }
 
