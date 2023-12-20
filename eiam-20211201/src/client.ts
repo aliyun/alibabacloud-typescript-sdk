@@ -4394,6 +4394,122 @@ export class ListDomainsResponse extends $tea.Model {
   }
 }
 
+export class ListEiamInstancesRequest extends $tea.Model {
+  instanceIds?: string[];
+  instanceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      instanceRegionId: 'InstanceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      instanceRegionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEiamInstancesResponseBody extends $tea.Model {
+  instances?: ListEiamInstancesResponseBodyInstances[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': ListEiamInstancesResponseBodyInstances },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEiamInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListEiamInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEiamInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEiamRegionsResponseBody extends $tea.Model {
+  regions?: ListEiamRegionsResponseBodyRegions[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: { 'type': 'array', 'itemType': ListEiamRegionsResponseBodyRegions },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEiamRegionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListEiamRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEiamRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGroupsRequest extends $tea.Model {
   groupExternalId?: string;
   groupIds?: string[];
@@ -9246,6 +9362,74 @@ export class ListDomainsResponseBodyDomains extends $tea.Model {
   }
 }
 
+export class ListEiamInstancesResponseBodyInstances extends $tea.Model {
+  description?: string;
+  developerAPIPrivateDomain?: string;
+  developerAPIPublicDomain?: string;
+  instanceId?: string;
+  instanceStatus?: string;
+  instanceVersion?: string;
+  openAPIPrivateDomain?: string;
+  openAPIPublicDomain?: string;
+  SSODomain?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      developerAPIPrivateDomain: 'DeveloperAPIPrivateDomain',
+      developerAPIPublicDomain: 'DeveloperAPIPublicDomain',
+      instanceId: 'InstanceId',
+      instanceStatus: 'InstanceStatus',
+      instanceVersion: 'InstanceVersion',
+      openAPIPrivateDomain: 'OpenAPIPrivateDomain',
+      openAPIPublicDomain: 'OpenAPIPublicDomain',
+      SSODomain: 'SSODomain',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      developerAPIPrivateDomain: 'string',
+      developerAPIPublicDomain: 'string',
+      instanceId: 'string',
+      instanceStatus: 'string',
+      instanceVersion: 'string',
+      openAPIPrivateDomain: 'string',
+      openAPIPublicDomain: 'string',
+      SSODomain: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEiamRegionsResponseBodyRegions extends $tea.Model {
+  localName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'LocalName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGroupsResponseBodyGroups extends $tea.Model {
   createTime?: number;
   description?: string;
@@ -12450,6 +12634,60 @@ export default class Client extends OpenApi {
   async listDomains(request: ListDomainsRequest): Promise<ListDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDomainsWithOptions(request, runtime);
+  }
+
+  async listEiamInstancesWithOptions(request: ListEiamInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListEiamInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.instanceRegionId)) {
+      query["InstanceRegionId"] = request.instanceRegionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEiamInstances",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEiamInstancesResponse>(await this.callApi(params, req, runtime), new ListEiamInstancesResponse({}));
+  }
+
+  async listEiamInstances(request: ListEiamInstancesRequest): Promise<ListEiamInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEiamInstancesWithOptions(request, runtime);
+  }
+
+  async listEiamRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListEiamRegionsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListEiamRegions",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEiamRegionsResponse>(await this.callApi(params, req, runtime), new ListEiamRegionsResponse({}));
+  }
+
+  async listEiamRegions(): Promise<ListEiamRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEiamRegionsWithOptions(runtime);
   }
 
   async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
