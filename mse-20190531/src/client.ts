@@ -28867,6 +28867,7 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
   aclEntryList?: string;
   aclId?: string;
   appVersion?: string;
+  canUpdate?: boolean;
   chargeType?: string;
   clusterAliasName?: string;
   clusterName?: string;
@@ -28904,12 +28905,14 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
   securityGroupType?: string;
   tags?: { [key: string]: any };
   vSwitchId?: string;
+  versionCode?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       aclEntryList: 'AclEntryList',
       aclId: 'AclId',
       appVersion: 'AppVersion',
+      canUpdate: 'CanUpdate',
       chargeType: 'ChargeType',
       clusterAliasName: 'ClusterAliasName',
       clusterName: 'ClusterName',
@@ -28947,6 +28950,7 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
       securityGroupType: 'SecurityGroupType',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
+      versionCode: 'VersionCode',
       vpcId: 'VpcId',
     };
   }
@@ -28956,6 +28960,7 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
       aclEntryList: 'string',
       aclId: 'string',
       appVersion: 'string',
+      canUpdate: 'boolean',
       chargeType: 'string',
       clusterAliasName: 'string',
       clusterName: 'string',
@@ -28993,6 +28998,7 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
       securityGroupType: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       vSwitchId: 'string',
+      versionCode: 'string',
       vpcId: 'string',
     };
   }
