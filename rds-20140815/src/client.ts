@@ -10368,6 +10368,7 @@ export class DescribeDBInstanceSSLResponseBody extends $tea.Model {
   clientCACertExpireTime?: string;
   clientCertRevocationList?: string;
   connectionString?: string;
+  forceEncryption?: string;
   lastModifyStatus?: string;
   modifyStatusReason?: string;
   replicationACL?: string;
@@ -10381,6 +10382,7 @@ export class DescribeDBInstanceSSLResponseBody extends $tea.Model {
   serverCAUrl?: string;
   serverCert?: string;
   serverKey?: string;
+  tlsVersion?: string;
   static names(): { [key: string]: string } {
     return {
       ACL: 'ACL',
@@ -10389,6 +10391,7 @@ export class DescribeDBInstanceSSLResponseBody extends $tea.Model {
       clientCACertExpireTime: 'ClientCACertExpireTime',
       clientCertRevocationList: 'ClientCertRevocationList',
       connectionString: 'ConnectionString',
+      forceEncryption: 'ForceEncryption',
       lastModifyStatus: 'LastModifyStatus',
       modifyStatusReason: 'ModifyStatusReason',
       replicationACL: 'ReplicationACL',
@@ -10402,6 +10405,7 @@ export class DescribeDBInstanceSSLResponseBody extends $tea.Model {
       serverCAUrl: 'ServerCAUrl',
       serverCert: 'ServerCert',
       serverKey: 'ServerKey',
+      tlsVersion: 'TlsVersion',
     };
   }
 
@@ -10413,6 +10417,7 @@ export class DescribeDBInstanceSSLResponseBody extends $tea.Model {
       clientCACertExpireTime: 'string',
       clientCertRevocationList: 'string',
       connectionString: 'string',
+      forceEncryption: 'string',
       lastModifyStatus: 'string',
       modifyStatusReason: 'string',
       replicationACL: 'string',
@@ -10426,6 +10431,7 @@ export class DescribeDBInstanceSSLResponseBody extends $tea.Model {
       serverCAUrl: 'string',
       serverCert: 'string',
       serverKey: 'string',
+      tlsVersion: 'string',
     };
   }
 
@@ -21501,6 +21507,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
   clientCrlEnabled?: number;
   connectionString?: string;
   DBInstanceId?: string;
+  forceEncryption?: string;
   ownerAccount?: string;
   ownerId?: number;
   replicationACL?: string;
@@ -21509,6 +21516,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
   SSLEnabled?: number;
   serverCert?: string;
   serverKey?: string;
+  tlsVersion?: string;
   static names(): { [key: string]: string } {
     return {
       ACL: 'ACL',
@@ -21519,6 +21527,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
       clientCrlEnabled: 'ClientCrlEnabled',
       connectionString: 'ConnectionString',
       DBInstanceId: 'DBInstanceId',
+      forceEncryption: 'ForceEncryption',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       replicationACL: 'ReplicationACL',
@@ -21527,6 +21536,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
       SSLEnabled: 'SSLEnabled',
       serverCert: 'ServerCert',
       serverKey: 'ServerKey',
+      tlsVersion: 'TlsVersion',
     };
   }
 
@@ -21540,6 +21550,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
       clientCrlEnabled: 'number',
       connectionString: 'string',
       DBInstanceId: 'string',
+      forceEncryption: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       replicationACL: 'string',
@@ -21548,6 +21559,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
       SSLEnabled: 'number',
       serverCert: 'string',
       serverKey: 'string',
+      tlsVersion: 'string',
     };
   }
 
@@ -54672,6 +54684,10 @@ export default class Client extends OpenApi {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!Util.isUnset(request.forceEncryption)) {
+      query["ForceEncryption"] = request.forceEncryption;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -54702,6 +54718,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serverKey)) {
       query["ServerKey"] = request.serverKey;
+    }
+
+    if (!Util.isUnset(request.tlsVersion)) {
+      query["TlsVersion"] = request.tlsVersion;
     }
 
     let req = new $OpenApi.OpenApiRequest({
