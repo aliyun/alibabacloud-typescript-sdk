@@ -10746,6 +10746,62 @@ export class ListDeployConfigResponseBodyDataContainerCodePath extends $tea.Mode
   }
 }
 
+export class ListDeployConfigResponseBodyDataContainerResourceLimit extends $tea.Model {
+  cpu?: string;
+  gpu?: string;
+  memory?: string;
+  storage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      gpu: 'Gpu',
+      memory: 'Memory',
+      storage: 'Storage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'string',
+      gpu: 'string',
+      memory: 'string',
+      storage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeployConfigResponseBodyDataContainerResourceRequest extends $tea.Model {
+  cpu?: string;
+  gpu?: string;
+  memory?: string;
+  storage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      gpu: 'Gpu',
+      memory: 'Memory',
+      storage: 'Storage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'string',
+      gpu: 'string',
+      memory: 'string',
+      storage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDeployConfigResponseBodyDataContainerYamlConf extends $tea.Model {
   configMap?: string;
   configMapList?: string[];
@@ -10783,6 +10839,8 @@ export class ListDeployConfigResponseBodyDataContainerYamlConf extends $tea.Mode
 export class ListDeployConfigResponseBodyData extends $tea.Model {
   appId?: number;
   containerCodePath?: ListDeployConfigResponseBodyDataContainerCodePath;
+  containerResourceLimit?: ListDeployConfigResponseBodyDataContainerResourceLimit;
+  containerResourceRequest?: ListDeployConfigResponseBodyDataContainerResourceRequest;
   containerYamlConf?: ListDeployConfigResponseBodyDataContainerYamlConf;
   envType?: string;
   id?: number;
@@ -10791,6 +10849,8 @@ export class ListDeployConfigResponseBodyData extends $tea.Model {
     return {
       appId: 'AppId',
       containerCodePath: 'ContainerCodePath',
+      containerResourceLimit: 'ContainerResourceLimit',
+      containerResourceRequest: 'ContainerResourceRequest',
       containerYamlConf: 'ContainerYamlConf',
       envType: 'EnvType',
       id: 'Id',
@@ -10802,6 +10862,8 @@ export class ListDeployConfigResponseBodyData extends $tea.Model {
     return {
       appId: 'number',
       containerCodePath: ListDeployConfigResponseBodyDataContainerCodePath,
+      containerResourceLimit: ListDeployConfigResponseBodyDataContainerResourceLimit,
+      containerResourceRequest: ListDeployConfigResponseBodyDataContainerResourceRequest,
       containerYamlConf: ListDeployConfigResponseBodyDataContainerYamlConf,
       envType: 'string',
       id: 'number',
@@ -15862,12 +15924,12 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateNormalDeployConfigShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.containerResourceLimit))) {
-      request.containerResourceLimitShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.containerResourceLimit), "ContainerResourceLimit", "json");
+    if (!Util.isUnset(tmpReq.containerResourceLimit)) {
+      request.containerResourceLimitShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.containerResourceLimit, "ContainerResourceLimit", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.containerResourceRequest))) {
-      request.containerResourceRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.containerResourceRequest), "ContainerResourceRequest", "json");
+    if (!Util.isUnset(tmpReq.containerResourceRequest)) {
+      request.containerResourceRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.containerResourceRequest, "ContainerResourceRequest", "json");
     }
 
     let query = { };
