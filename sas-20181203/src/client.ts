@@ -29123,10 +29123,12 @@ export class GetCheckSaleResponse extends $tea.Model {
 export class GetCheckSummaryRequest extends $tea.Model {
   lang?: string;
   resourceDirectoryAccountId?: string;
+  vendors?: string[];
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
+      vendors: 'Vendors',
     };
   }
 
@@ -29134,6 +29136,7 @@ export class GetCheckSummaryRequest extends $tea.Model {
     return {
       lang: 'string',
       resourceDirectoryAccountId: 'string',
+      vendors: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -29143,10 +29146,12 @@ export class GetCheckSummaryRequest extends $tea.Model {
 }
 
 export class GetCheckSummaryResponseBody extends $tea.Model {
+  overallStatistic?: GetCheckSummaryResponseBodyOverallStatistic;
   requestId?: string;
   summarys?: GetCheckSummaryResponseBodySummarys[];
   static names(): { [key: string]: string } {
     return {
+      overallStatistic: 'OverallStatistic',
       requestId: 'RequestId',
       summarys: 'Summarys',
     };
@@ -29154,6 +29159,7 @@ export class GetCheckSummaryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      overallStatistic: GetCheckSummaryResponseBodyOverallStatistic,
       requestId: 'string',
       summarys: { 'type': 'array', 'itemType': GetCheckSummaryResponseBodySummarys },
     };
@@ -29544,6 +29550,25 @@ export class GetCloudAssetDetailResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCloudAssetDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCloudAssetSummaryRequest extends $tea.Model {
+  vendors?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      vendors: 'Vendors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vendors: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
@@ -46213,11 +46238,13 @@ export class OperateBucketScanTaskResponse extends $tea.Model {
 
 export class OperateCommonOverallConfigRequest extends $tea.Model {
   config?: string;
+  noTargetAsOn?: boolean;
   sourceIp?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       config: 'Config',
+      noTargetAsOn: 'NoTargetAsOn',
       sourceIp: 'SourceIp',
       type: 'Type',
     };
@@ -46226,6 +46253,7 @@ export class OperateCommonOverallConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       config: 'string',
+      noTargetAsOn: 'boolean',
       sourceIp: 'string',
       type: 'string',
     };
@@ -66847,6 +66875,110 @@ export class GetCheckSaleResponseBodyCheckSale extends $tea.Model {
   }
 }
 
+export class GetCheckSummaryResponseBodyOverallStatistic extends $tea.Model {
+  notCheckCount?: number;
+  notCheckHighCount?: number;
+  notCheckLowCount?: number;
+  notCheckMediumCount?: number;
+  notPassCount?: number;
+  notPassHighCount?: number;
+  notPassLowCount?: number;
+  notPassMediumCount?: number;
+  passCount?: number;
+  passHighCount?: number;
+  passLowCount?: number;
+  passMediumCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      notCheckCount: 'NotCheckCount',
+      notCheckHighCount: 'NotCheckHighCount',
+      notCheckLowCount: 'NotCheckLowCount',
+      notCheckMediumCount: 'NotCheckMediumCount',
+      notPassCount: 'NotPassCount',
+      notPassHighCount: 'NotPassHighCount',
+      notPassLowCount: 'NotPassLowCount',
+      notPassMediumCount: 'NotPassMediumCount',
+      passCount: 'PassCount',
+      passHighCount: 'PassHighCount',
+      passLowCount: 'PassLowCount',
+      passMediumCount: 'PassMediumCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notCheckCount: 'number',
+      notCheckHighCount: 'number',
+      notCheckLowCount: 'number',
+      notCheckMediumCount: 'number',
+      notPassCount: 'number',
+      notPassHighCount: 'number',
+      notPassLowCount: 'number',
+      notPassMediumCount: 'number',
+      passCount: 'number',
+      passHighCount: 'number',
+      passLowCount: 'number',
+      passMediumCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckSummaryResponseBodySummarysStandardsStandardStatistic extends $tea.Model {
+  notCheckCount?: number;
+  notCheckHighCount?: number;
+  notCheckLowCount?: number;
+  notCheckMediumCount?: number;
+  notPassCount?: number;
+  notPassHighCount?: number;
+  notPassLowCount?: number;
+  notPassMediumCount?: number;
+  passCount?: number;
+  passHighCount?: number;
+  passLowCount?: number;
+  passMediumCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      notCheckCount: 'NotCheckCount',
+      notCheckHighCount: 'NotCheckHighCount',
+      notCheckLowCount: 'NotCheckLowCount',
+      notCheckMediumCount: 'NotCheckMediumCount',
+      notPassCount: 'NotPassCount',
+      notPassHighCount: 'NotPassHighCount',
+      notPassLowCount: 'NotPassLowCount',
+      notPassMediumCount: 'NotPassMediumCount',
+      passCount: 'PassCount',
+      passHighCount: 'PassHighCount',
+      passLowCount: 'PassLowCount',
+      passMediumCount: 'PassMediumCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notCheckCount: 'number',
+      notCheckHighCount: 'number',
+      notCheckLowCount: 'number',
+      notCheckMediumCount: 'number',
+      notPassCount: 'number',
+      notPassHighCount: 'number',
+      notPassLowCount: 'number',
+      notPassMediumCount: 'number',
+      passCount: 'number',
+      passHighCount: 'number',
+      passLowCount: 'number',
+      passMediumCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCheckSummaryResponseBodySummarysStandards extends $tea.Model {
   failCount?: number;
   id?: number;
@@ -66855,6 +66987,7 @@ export class GetCheckSummaryResponseBodySummarysStandards extends $tea.Model {
   riskLevelLowCount?: number;
   riskLevelMediumCount?: number;
   showName?: string;
+  standardStatistic?: GetCheckSummaryResponseBodySummarysStandardsStandardStatistic;
   static names(): { [key: string]: string } {
     return {
       failCount: 'FailCount',
@@ -66864,6 +66997,7 @@ export class GetCheckSummaryResponseBodySummarysStandards extends $tea.Model {
       riskLevelLowCount: 'RiskLevelLowCount',
       riskLevelMediumCount: 'RiskLevelMediumCount',
       showName: 'ShowName',
+      standardStatistic: 'StandardStatistic',
     };
   }
 
@@ -66876,6 +67010,59 @@ export class GetCheckSummaryResponseBodySummarysStandards extends $tea.Model {
       riskLevelLowCount: 'number',
       riskLevelMediumCount: 'number',
       showName: 'string',
+      standardStatistic: GetCheckSummaryResponseBodySummarysStandardsStandardStatistic,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckSummaryResponseBodySummarysTypeStatistic extends $tea.Model {
+  notCheckCount?: number;
+  notCheckHighCount?: number;
+  notCheckLowCount?: number;
+  notCheckMediumCount?: number;
+  notPassCount?: number;
+  notPassHighCount?: number;
+  notPassLowCount?: number;
+  notPassMediumCount?: number;
+  passCount?: number;
+  passHighCount?: number;
+  passLowCount?: number;
+  passMediumCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      notCheckCount: 'NotCheckCount',
+      notCheckHighCount: 'NotCheckHighCount',
+      notCheckLowCount: 'NotCheckLowCount',
+      notCheckMediumCount: 'NotCheckMediumCount',
+      notPassCount: 'NotPassCount',
+      notPassHighCount: 'NotPassHighCount',
+      notPassLowCount: 'NotPassLowCount',
+      notPassMediumCount: 'NotPassMediumCount',
+      passCount: 'PassCount',
+      passHighCount: 'PassHighCount',
+      passLowCount: 'PassLowCount',
+      passMediumCount: 'PassMediumCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notCheckCount: 'number',
+      notCheckHighCount: 'number',
+      notCheckLowCount: 'number',
+      notCheckMediumCount: 'number',
+      notPassCount: 'number',
+      notPassHighCount: 'number',
+      notPassLowCount: 'number',
+      notPassMediumCount: 'number',
+      passCount: 'number',
+      passHighCount: 'number',
+      passLowCount: 'number',
+      passMediumCount: 'number',
     };
   }
 
@@ -66889,12 +67076,14 @@ export class GetCheckSummaryResponseBodySummarys extends $tea.Model {
   passCount?: number;
   standards?: GetCheckSummaryResponseBodySummarysStandards[];
   type?: string;
+  typeStatistic?: GetCheckSummaryResponseBodySummarysTypeStatistic;
   static names(): { [key: string]: string } {
     return {
       failCount: 'FailCount',
       passCount: 'PassCount',
       standards: 'Standards',
       type: 'Type',
+      typeStatistic: 'TypeStatistic',
     };
   }
 
@@ -66904,6 +67093,7 @@ export class GetCheckSummaryResponseBodySummarys extends $tea.Model {
       passCount: 'number',
       standards: { 'type': 'array', 'itemType': GetCheckSummaryResponseBodySummarysStandards },
       type: 'string',
+      typeStatistic: GetCheckSummaryResponseBodySummarysTypeStatistic,
     };
   }
 
@@ -93512,6 +93702,10 @@ export default class Client extends OpenApi {
       query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
+    if (!Util.isUnset(request.vendors)) {
+      query["Vendors"] = request.vendors;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -93726,8 +93920,16 @@ export default class Client extends OpenApi {
     return await this.getCloudAssetDetailWithOptions(request, runtime);
   }
 
-  async getCloudAssetSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetCloudAssetSummaryResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  async getCloudAssetSummaryWithOptions(request: GetCloudAssetSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetCloudAssetSummaryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.vendors)) {
+      query["Vendors"] = request.vendors;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApi.Params({
       action: "GetCloudAssetSummary",
       version: "2018-12-03",
@@ -93742,9 +93944,9 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCloudAssetSummaryResponse>(await this.callApi(params, req, runtime), new GetCloudAssetSummaryResponse({}));
   }
 
-  async getCloudAssetSummary(): Promise<GetCloudAssetSummaryResponse> {
+  async getCloudAssetSummary(request: GetCloudAssetSummaryRequest): Promise<GetCloudAssetSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getCloudAssetSummaryWithOptions(runtime);
+    return await this.getCloudAssetSummaryWithOptions(request, runtime);
   }
 
   async getClusterCheckItemWarningStatisticsWithOptions(request: GetClusterCheckItemWarningStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetClusterCheckItemWarningStatisticsResponse> {
@@ -102409,6 +102611,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.config)) {
       query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.noTargetAsOn)) {
+      query["NoTargetAsOn"] = request.noTargetAsOn;
     }
 
     if (!Util.isUnset(request.sourceIp)) {
