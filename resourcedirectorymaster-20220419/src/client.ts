@@ -1600,12 +1600,14 @@ export class EnableControlPolicyResponse extends $tea.Model {
 }
 
 export class EnableResourceDirectoryRequest extends $tea.Model {
+  dryRun?: boolean;
   enableMode?: string;
   MAName?: string;
   MASecureMobilePhone?: string;
   verificationCode?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       enableMode: 'EnableMode',
       MAName: 'MAName',
       MASecureMobilePhone: 'MASecureMobilePhone',
@@ -1615,6 +1617,7 @@ export class EnableResourceDirectoryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       enableMode: 'string',
       MAName: 'string',
       MASecureMobilePhone: 'string',
@@ -7935,6 +7938,10 @@ export default class Client extends OpenApi {
   async enableResourceDirectoryWithOptions(request: EnableResourceDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<EnableResourceDirectoryResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.enableMode)) {
       query["EnableMode"] = request.enableMode;
     }
