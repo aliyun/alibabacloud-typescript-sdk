@@ -89,6 +89,243 @@ export class AuthUserResponse extends $tea.Model {
   }
 }
 
+export class CreateDigitalHumanProjectRequest extends $tea.Model {
+  audioId?: string;
+  audioUrl?: string;
+  backgroundId?: string;
+  backgroundUrl?: string;
+  content?: string;
+  foregroundId?: string;
+  foregroundUrl?: string;
+  humanLayerStyle?: string;
+  intro?: string;
+  jwtToken?: string;
+  mode?: string;
+  modelId?: string;
+  outputConfig?: string;
+  title?: string;
+  ttsVoiceId?: string;
+  watermarkImageUrl?: string;
+  watermarkStyle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioId: 'AudioId',
+      audioUrl: 'AudioUrl',
+      backgroundId: 'BackgroundId',
+      backgroundUrl: 'BackgroundUrl',
+      content: 'Content',
+      foregroundId: 'ForegroundId',
+      foregroundUrl: 'ForegroundUrl',
+      humanLayerStyle: 'HumanLayerStyle',
+      intro: 'Intro',
+      jwtToken: 'JwtToken',
+      mode: 'Mode',
+      modelId: 'ModelId',
+      outputConfig: 'OutputConfig',
+      title: 'Title',
+      ttsVoiceId: 'TtsVoiceId',
+      watermarkImageUrl: 'WatermarkImageUrl',
+      watermarkStyle: 'WatermarkStyle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioId: 'string',
+      audioUrl: 'string',
+      backgroundId: 'string',
+      backgroundUrl: 'string',
+      content: 'string',
+      foregroundId: 'string',
+      foregroundUrl: 'string',
+      humanLayerStyle: 'string',
+      intro: 'string',
+      jwtToken: 'string',
+      mode: 'string',
+      modelId: 'string',
+      outputConfig: 'string',
+      title: 'string',
+      ttsVoiceId: 'string',
+      watermarkImageUrl: 'string',
+      watermarkStyle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDigitalHumanProjectResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateDigitalHumanProjectResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateDigitalHumanProjectResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDigitalHumanProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDigitalHumanProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDigitalHumanProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLivePortraitProjectRequest extends $tea.Model {
+  audioId?: string;
+  audioUrl?: string;
+  content?: string;
+  imageId?: string;
+  imageUrl?: string;
+  intro?: string;
+  jwtToken?: string;
+  lightModel?: boolean;
+  mode?: string;
+  outputConfig?: string;
+  title?: string;
+  ttsVoiceId?: string;
+  watermarkImageUrl?: string;
+  watermarkStyle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioId: 'AudioId',
+      audioUrl: 'AudioUrl',
+      content: 'Content',
+      imageId: 'ImageId',
+      imageUrl: 'ImageUrl',
+      intro: 'Intro',
+      jwtToken: 'JwtToken',
+      lightModel: 'LightModel',
+      mode: 'Mode',
+      outputConfig: 'OutputConfig',
+      title: 'Title',
+      ttsVoiceId: 'TtsVoiceId',
+      watermarkImageUrl: 'WatermarkImageUrl',
+      watermarkStyle: 'WatermarkStyle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioId: 'string',
+      audioUrl: 'string',
+      content: 'string',
+      imageId: 'string',
+      imageUrl: 'string',
+      intro: 'string',
+      jwtToken: 'string',
+      lightModel: 'boolean',
+      mode: 'string',
+      outputConfig: 'string',
+      title: 'string',
+      ttsVoiceId: 'string',
+      watermarkImageUrl: 'string',
+      watermarkStyle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLivePortraitProjectResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateLivePortraitProjectResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateLivePortraitProjectResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLivePortraitProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateLivePortraitProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateLivePortraitProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMapDataRequest extends $tea.Model {
   appId?: string;
   jwtToken?: string;
@@ -341,6 +578,105 @@ export class InitLocateResponse extends $tea.Model {
   }
 }
 
+export class ListDigitalHumanMaterialsRequest extends $tea.Model {
+  current?: number;
+  jwtToken?: string;
+  onlyPersonalMaterials?: boolean;
+  size?: number;
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'Current',
+      jwtToken: 'JwtToken',
+      onlyPersonalMaterials: 'OnlyPersonalMaterials',
+      size: 'Size',
+      types: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      jwtToken: 'string',
+      onlyPersonalMaterials: 'boolean',
+      size: 'number',
+      types: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDigitalHumanMaterialsResponseBody extends $tea.Model {
+  code?: string;
+  current?: number;
+  data?: ListDigitalHumanMaterialsResponseBodyData[];
+  message?: string;
+  pages?: number;
+  requestId?: string;
+  size?: number;
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      current: 'Current',
+      data: 'Data',
+      message: 'Message',
+      pages: 'Pages',
+      requestId: 'RequestId',
+      size: 'Size',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      current: 'number',
+      data: { 'type': 'array', 'itemType': ListDigitalHumanMaterialsResponseBodyData },
+      message: 'string',
+      pages: 'number',
+      requestId: 'string',
+      size: 'number',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDigitalHumanMaterialsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDigitalHumanMaterialsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDigitalHumanMaterialsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListLocationServiceRequest extends $tea.Model {
   current?: number;
   jwtToken?: string;
@@ -438,6 +774,84 @@ export class ListLocationServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListLocationServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LivePortraitFaceDetectRequest extends $tea.Model {
+  imageUrl?: string;
+  jwtToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+      jwtToken: 'JwtToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+      jwtToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LivePortraitFaceDetectResponseBody extends $tea.Model {
+  code?: string;
+  data?: LivePortraitFaceDetectResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: LivePortraitFaceDetectResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LivePortraitFaceDetectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: LivePortraitFaceDetectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LivePortraitFaceDetectResponseBody,
     };
   }
 
@@ -615,6 +1029,84 @@ export class LoginModelScopeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: LoginModelScopeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopBatchQueryObjectGenerationProjectStatusRequest extends $tea.Model {
+  jwtToken?: string;
+  projectIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jwtToken: 'JwtToken',
+      projectIds: 'ProjectIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jwtToken: 'string',
+      projectIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopBatchQueryObjectGenerationProjectStatusResponseBody extends $tea.Model {
+  code?: string;
+  data?: PopBatchQueryObjectGenerationProjectStatusResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': PopBatchQueryObjectGenerationProjectStatusResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopBatchQueryObjectGenerationProjectStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PopBatchQueryObjectGenerationProjectStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PopBatchQueryObjectGenerationProjectStatusResponseBody,
     };
   }
 
@@ -851,6 +1343,81 @@ export class PopBuildLivePortraitModelScopeProjectResponse extends $tea.Model {
   }
 }
 
+export class PopBuildObjectGenerationProjectRequest extends $tea.Model {
+  jwtToken?: string;
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jwtToken: 'JwtToken',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jwtToken: 'string',
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopBuildObjectGenerationProjectResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopBuildObjectGenerationProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PopBuildObjectGenerationProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PopBuildObjectGenerationProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PopBuildObjectProjectRequest extends $tea.Model {
   jwtToken?: string;
   projectId?: string;
@@ -1005,15 +1572,18 @@ export class PopBuildPakRenderProjectResponse extends $tea.Model {
 }
 
 export class PopBuildTextToAvatarProjectRequest extends $tea.Model {
+  jwtToken?: string;
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
+      jwtToken: 'JwtToken',
       projectId: 'ProjectId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      jwtToken: 'string',
       projectId: 'string',
     };
   }
@@ -1334,6 +1904,93 @@ export class PopCreateMaterialResponse extends $tea.Model {
   }
 }
 
+export class PopCreateObjectGenerationProjectRequest extends $tea.Model {
+  bizUsage?: string;
+  extInfo?: string;
+  intro?: string;
+  jwtToken?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizUsage: 'BizUsage',
+      extInfo: 'ExtInfo',
+      intro: 'Intro',
+      jwtToken: 'JwtToken',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUsage: 'string',
+      extInfo: 'string',
+      intro: 'string',
+      jwtToken: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopCreateObjectGenerationProjectResponseBody extends $tea.Model {
+  code?: string;
+  data?: PopCreateObjectGenerationProjectResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: PopCreateObjectGenerationProjectResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopCreateObjectGenerationProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PopCreateObjectGenerationProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PopCreateObjectGenerationProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PopCreateObjectProjectRequest extends $tea.Model {
   autoBuild?: boolean;
   bizUsage?: string;
@@ -1526,11 +2183,13 @@ export class PopCreatePakRenderProjectResponse extends $tea.Model {
 export class PopCreateTextToAvatarProjectRequest extends $tea.Model {
   extInfo?: string;
   intro?: string;
+  jwtToken?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
       extInfo: 'ExtInfo',
       intro: 'Intro',
+      jwtToken: 'JwtToken',
       title: 'Title',
     };
   }
@@ -1539,6 +2198,7 @@ export class PopCreateTextToAvatarProjectRequest extends $tea.Model {
     return {
       extInfo: 'string',
       intro: 'string',
+      jwtToken: 'string',
       title: 'string',
     };
   }
@@ -2336,6 +2996,99 @@ export class PopListObjectCaseResponse extends $tea.Model {
   }
 }
 
+export class PopListObjectGenerationProjectRequest extends $tea.Model {
+  current?: number;
+  jwtToken?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'Current',
+      jwtToken: 'JwtToken',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      jwtToken: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopListObjectGenerationProjectResponseBody extends $tea.Model {
+  code?: string;
+  current?: number;
+  data?: PopListObjectGenerationProjectResponseBodyData[];
+  message?: string;
+  pages?: number;
+  requestId?: string;
+  size?: number;
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      current: 'Current',
+      data: 'Data',
+      message: 'Message',
+      pages: 'Pages',
+      requestId: 'RequestId',
+      size: 'Size',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      current: 'number',
+      data: { 'type': 'array', 'itemType': PopListObjectGenerationProjectResponseBodyData },
+      message: 'string',
+      pages: 'number',
+      requestId: 'string',
+      size: 'number',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopListObjectGenerationProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PopListObjectGenerationProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PopListObjectGenerationProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PopListObjectProjectRequest extends $tea.Model {
   auditStatus?: string;
   current?: number;
@@ -2732,6 +3485,165 @@ export class PopObjectProjectDetailResponse extends $tea.Model {
   }
 }
 
+export class PopObjectRetrievalRequest extends $tea.Model {
+  content?: string;
+  jwtToken?: string;
+  sourceType?: string;
+  topK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      jwtToken: 'JwtToken',
+      sourceType: 'SourceType',
+      topK: 'TopK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      jwtToken: 'string',
+      sourceType: 'string',
+      topK: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopObjectRetrievalResponseBody extends $tea.Model {
+  code?: string;
+  data?: PopObjectRetrievalResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': PopObjectRetrievalResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopObjectRetrievalResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PopObjectRetrievalResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PopObjectRetrievalResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopObjectRetrievalUploadDataRequest extends $tea.Model {
+  jwtToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jwtToken: 'JwtToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jwtToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopObjectRetrievalUploadDataResponseBody extends $tea.Model {
+  code?: string;
+  data?: PopObjectRetrievalUploadDataResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: PopObjectRetrievalUploadDataResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopObjectRetrievalUploadDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PopObjectRetrievalUploadDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PopObjectRetrievalUploadDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PopQueryAvatarProjectDetailRequest extends $tea.Model {
   projectId?: string;
   static names(): { [key: string]: string } {
@@ -2807,6 +3719,81 @@ export class PopQueryAvatarProjectDetailResponse extends $tea.Model {
   }
 }
 
+export class PopQueryLatestAvatarProjectDetailByUserRequest extends $tea.Model {
+  jwtToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jwtToken: 'JwtToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jwtToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopQueryLatestAvatarProjectDetailByUserResponseBody extends $tea.Model {
+  code?: string;
+  data?: PopQueryLatestAvatarProjectDetailByUserResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: PopQueryLatestAvatarProjectDetailByUserResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopQueryLatestAvatarProjectDetailByUserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PopQueryLatestAvatarProjectDetailByUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PopQueryLatestAvatarProjectDetailByUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PopQueryLivePortraitModelScopeProjectDetailRequest extends $tea.Model {
   projectId?: string;
   static names(): { [key: string]: string } {
@@ -2874,6 +3861,84 @@ export class PopQueryLivePortraitModelScopeProjectDetailResponse extends $tea.Mo
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PopQueryLivePortraitModelScopeProjectDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopQueryObjectGenerationProjectDetailRequest extends $tea.Model {
+  jwtToken?: string;
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jwtToken: 'JwtToken',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jwtToken: 'string',
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopQueryObjectGenerationProjectDetailResponseBody extends $tea.Model {
+  code?: string;
+  data?: PopQueryObjectGenerationProjectDetailResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: PopQueryObjectGenerationProjectDetailResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopQueryObjectGenerationProjectDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PopQueryObjectGenerationProjectDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PopQueryObjectGenerationProjectDetailResponseBody,
     };
   }
 
@@ -3209,6 +4274,243 @@ export class PopVideoSaveSourceResponse extends $tea.Model {
   }
 }
 
+export class QueryDigitalHumanProjectRequest extends $tea.Model {
+  ids?: string;
+  jwtToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      jwtToken: 'JwtToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      jwtToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDigitalHumanProjectResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryDigitalHumanProjectResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': QueryDigitalHumanProjectResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDigitalHumanProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryDigitalHumanProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDigitalHumanProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLongTtsResultRequest extends $tea.Model {
+  jobId?: string;
+  jwtToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      jwtToken: 'JwtToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      jwtToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLongTtsResultResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryLongTtsResultResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryLongTtsResultResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLongTtsResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryLongTtsResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryLongTtsResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitLongTtsTaskRequest extends $tea.Model {
+  content?: string;
+  jwtToken?: string;
+  ttsVoiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      jwtToken: 'JwtToken',
+      ttsVoiceId: 'TtsVoiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      jwtToken: 'string',
+      ttsVoiceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitLongTtsTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitLongTtsTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitLongTtsTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitLongTtsTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateUserEmailRequest extends $tea.Model {
   email?: string;
   jwtToken?: string;
@@ -3312,6 +4614,115 @@ export class AuthUserResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateDigitalHumanProjectResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLivePortraitProjectResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDigitalHumanMaterialsResponseBodyDataComponents extends $tea.Model {
+  ext?: string;
+  fileUrl?: string;
+  files?: { [key: string]: any };
+  id?: string;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      fileUrl: 'FileUrl',
+      files: 'Files',
+      id: 'Id',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: 'string',
+      fileUrl: 'string',
+      files: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      id: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDigitalHumanMaterialsResponseBodyData extends $tea.Model {
+  components?: ListDigitalHumanMaterialsResponseBodyDataComponents[];
+  ext?: string;
+  fileUrl?: string;
+  files?: { [key: string]: any };
+  id?: string;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      components: 'Components',
+      ext: 'Ext',
+      fileUrl: 'FileUrl',
+      files: 'Files',
+      id: 'Id',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      components: { 'type': 'array', 'itemType': ListDigitalHumanMaterialsResponseBodyDataComponents },
+      ext: 'string',
+      fileUrl: 'string',
+      files: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      id: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListLocationServiceResponseBodyData extends $tea.Model {
   appId?: string;
   expireTime?: string;
@@ -3361,6 +4772,28 @@ export class ListLocationServiceResponseBodyData extends $tea.Model {
   }
 }
 
+export class LivePortraitFaceDetectResponseBodyData extends $tea.Model {
+  code?: number;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LoginModelScopeResponseBodyData extends $tea.Model {
   email?: string;
   jwtToken?: string;
@@ -3381,6 +4814,53 @@ export class LoginModelScopeResponseBodyData extends $tea.Model {
       jwtToken: 'string',
       nickname: 'string',
       uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopBatchQueryObjectGenerationProjectStatusResponseBodyDataDataset extends $tea.Model {
+  buildResultUrl?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      buildResultUrl: 'BuildResultUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildResultUrl: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopBatchQueryObjectGenerationProjectStatusResponseBodyData extends $tea.Model {
+  bizUsage?: string;
+  dataset?: PopBatchQueryObjectGenerationProjectStatusResponseBodyDataDataset;
+  id?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizUsage: 'BizUsage',
+      dataset: 'Dataset',
+      id: 'Id',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUsage: 'string',
+      dataset: PopBatchQueryObjectGenerationProjectStatusResponseBodyDataDataset,
+      id: 'string',
+      status: 'string',
     };
   }
 
@@ -3688,6 +5168,25 @@ export class PopCreateMaterialResponseBodyData extends $tea.Model {
       ossKey: 'string',
       previewUrl: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopCreateObjectGenerationProjectResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
     };
   }
 
@@ -7578,6 +9077,96 @@ export class PopListObjectCaseResponseBodyData extends $tea.Model {
   }
 }
 
+export class PopListObjectGenerationProjectResponseBodyDataBuildDetail extends $tea.Model {
+  completedTime?: string;
+  errorMessage?: string;
+  estimatedDuration?: number;
+  runningTime?: string;
+  submitTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      completedTime: 'CompletedTime',
+      errorMessage: 'ErrorMessage',
+      estimatedDuration: 'EstimatedDuration',
+      runningTime: 'RunningTime',
+      submitTime: 'SubmitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completedTime: 'string',
+      errorMessage: 'string',
+      estimatedDuration: 'number',
+      runningTime: 'string',
+      submitTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopListObjectGenerationProjectResponseBodyDataDataset extends $tea.Model {
+  buildResultUrl?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      buildResultUrl: 'BuildResultUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildResultUrl: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopListObjectGenerationProjectResponseBodyData extends $tea.Model {
+  bizUsage?: string;
+  buildDetail?: PopListObjectGenerationProjectResponseBodyDataBuildDetail;
+  dataset?: PopListObjectGenerationProjectResponseBodyDataDataset;
+  ext?: string;
+  id?: string;
+  intro?: string;
+  status?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizUsage: 'BizUsage',
+      buildDetail: 'BuildDetail',
+      dataset: 'Dataset',
+      ext: 'Ext',
+      id: 'Id',
+      intro: 'Intro',
+      status: 'Status',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUsage: 'string',
+      buildDetail: PopListObjectGenerationProjectResponseBodyDataBuildDetail,
+      dataset: PopListObjectGenerationProjectResponseBodyDataDataset,
+      ext: 'string',
+      id: 'string',
+      intro: 'string',
+      status: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PopListObjectProjectResponseBodyDataBuildDetail extends $tea.Model {
   completedTime?: string;
   createTime?: string;
@@ -8496,6 +10085,74 @@ export class PopObjectProjectDetailResponseBodyData extends $tea.Model {
   }
 }
 
+export class PopObjectRetrievalResponseBodyData extends $tea.Model {
+  coverUrl?: string;
+  glbUrl?: string;
+  id?: string;
+  modelUrl?: string;
+  previewUrl?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coverUrl: 'CoverUrl',
+      glbUrl: 'GlbUrl',
+      id: 'Id',
+      modelUrl: 'ModelUrl',
+      previewUrl: 'PreviewUrl',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverUrl: 'string',
+      glbUrl: 'string',
+      id: 'string',
+      modelUrl: 'string',
+      previewUrl: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopObjectRetrievalUploadDataResponseBodyData extends $tea.Model {
+  accessId?: string;
+  dir?: string;
+  expire?: string;
+  host?: string;
+  policy?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessId: 'AccessId',
+      dir: 'Dir',
+      expire: 'Expire',
+      host: 'Host',
+      policy: 'Policy',
+      signature: 'Signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessId: 'string',
+      dir: 'string',
+      expire: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PopQueryAvatarProjectDetailResponseBodyDataBuildDetail extends $tea.Model {
   completedTime?: string;
   createTime?: string;
@@ -8661,6 +10318,96 @@ export class PopQueryAvatarProjectDetailResponseBodyData extends $tea.Model {
   }
 }
 
+export class PopQueryLatestAvatarProjectDetailByUserResponseBodyDataBuildDetail extends $tea.Model {
+  runningTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      runningTime: 'RunningTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      runningTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopQueryLatestAvatarProjectDetailByUserResponseBodyDataDataset extends $tea.Model {
+  buildResultUrl?: { [key: string]: any };
+  errorCode?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buildResultUrl: 'BuildResultUrl',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildResultUrl: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errorCode: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopQueryLatestAvatarProjectDetailByUserResponseBodyData extends $tea.Model {
+  bizUsage?: string;
+  buildDetail?: PopQueryLatestAvatarProjectDetailByUserResponseBodyDataBuildDetail;
+  createTime?: string;
+  dataset?: PopQueryLatestAvatarProjectDetailByUserResponseBodyDataDataset;
+  ext?: string;
+  id?: string;
+  intro?: string;
+  status?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizUsage: 'BizUsage',
+      buildDetail: 'BuildDetail',
+      createTime: 'CreateTime',
+      dataset: 'Dataset',
+      ext: 'Ext',
+      id: 'Id',
+      intro: 'Intro',
+      status: 'Status',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUsage: 'string',
+      buildDetail: PopQueryLatestAvatarProjectDetailByUserResponseBodyDataBuildDetail,
+      createTime: 'string',
+      dataset: PopQueryLatestAvatarProjectDetailByUserResponseBodyDataDataset,
+      ext: 'string',
+      id: 'string',
+      intro: 'string',
+      status: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PopQueryLivePortraitModelScopeProjectDetailResponseBodyDataDataset extends $tea.Model {
   buildResultUrl?: { [key: string]: any };
   errorCode?: string;
@@ -8721,6 +10468,96 @@ export class PopQueryLivePortraitModelScopeProjectDetailResponseBodyData extends
       status: 'string',
       title: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopQueryObjectGenerationProjectDetailResponseBodyDataBuildDetail extends $tea.Model {
+  completedTime?: string;
+  errorMessage?: string;
+  estimatedDuration?: number;
+  runningTime?: string;
+  submitTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      completedTime: 'CompletedTime',
+      errorMessage: 'ErrorMessage',
+      estimatedDuration: 'EstimatedDuration',
+      runningTime: 'RunningTime',
+      submitTime: 'SubmitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completedTime: 'string',
+      errorMessage: 'string',
+      estimatedDuration: 'number',
+      runningTime: 'string',
+      submitTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopQueryObjectGenerationProjectDetailResponseBodyDataDataset extends $tea.Model {
+  buildResultUrl?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      buildResultUrl: 'BuildResultUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildResultUrl: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopQueryObjectGenerationProjectDetailResponseBodyData extends $tea.Model {
+  bizUsage?: string;
+  buildDetail?: PopQueryObjectGenerationProjectDetailResponseBodyDataBuildDetail;
+  dataset?: PopQueryObjectGenerationProjectDetailResponseBodyDataDataset;
+  ext?: string;
+  id?: string;
+  intro?: string;
+  status?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizUsage: 'BizUsage',
+      buildDetail: 'BuildDetail',
+      dataset: 'Dataset',
+      ext: 'Ext',
+      id: 'Id',
+      intro: 'Intro',
+      status: 'Status',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizUsage: 'string',
+      buildDetail: PopQueryObjectGenerationProjectDetailResponseBodyDataBuildDetail,
+      dataset: PopQueryObjectGenerationProjectDetailResponseBodyDataDataset,
+      ext: 'string',
+      id: 'string',
+      intro: 'string',
+      status: 'string',
+      title: 'string',
     };
   }
 
@@ -8796,6 +10633,83 @@ export class PopUploadMaterialResponseBodyData extends $tea.Model {
     return {
       ossKey: 'string',
       policy: PopUploadMaterialResponseBodyDataPolicy,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDigitalHumanProjectResponseBodyData extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  estimatedDuration?: number;
+  fileUrl?: string;
+  id?: string;
+  intro?: string;
+  runningTime?: string;
+  status?: string;
+  subtitleUrl?: string;
+  title?: string;
+  videoLength?: number;
+  waitingTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      estimatedDuration: 'EstimatedDuration',
+      fileUrl: 'FileUrl',
+      id: 'Id',
+      intro: 'Intro',
+      runningTime: 'RunningTime',
+      status: 'Status',
+      subtitleUrl: 'SubtitleUrl',
+      title: 'Title',
+      videoLength: 'VideoLength',
+      waitingTime: 'WaitingTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      estimatedDuration: 'number',
+      fileUrl: 'string',
+      id: 'string',
+      intro: 'string',
+      runningTime: 'string',
+      status: 'string',
+      subtitleUrl: 'string',
+      title: 'string',
+      videoLength: 'number',
+      waitingTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLongTtsResultResponseBodyData extends $tea.Model {
+  audioUrl?: string;
+  duration?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioUrl: 'AudioUrl',
+      duration: 'Duration',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioUrl: 'string',
+      duration: 'number',
+      status: 'string',
     };
   }
 
@@ -8914,6 +10828,184 @@ export default class Client extends OpenApi {
     return await this.authUserWithOptions(request, runtime);
   }
 
+  async createDigitalHumanProjectWithOptions(request: CreateDigitalHumanProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateDigitalHumanProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.audioId)) {
+      body["AudioId"] = request.audioId;
+    }
+
+    if (!Util.isUnset(request.audioUrl)) {
+      body["AudioUrl"] = request.audioUrl;
+    }
+
+    if (!Util.isUnset(request.backgroundId)) {
+      body["BackgroundId"] = request.backgroundId;
+    }
+
+    if (!Util.isUnset(request.backgroundUrl)) {
+      body["BackgroundUrl"] = request.backgroundUrl;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.foregroundId)) {
+      body["ForegroundId"] = request.foregroundId;
+    }
+
+    if (!Util.isUnset(request.foregroundUrl)) {
+      body["ForegroundUrl"] = request.foregroundUrl;
+    }
+
+    if (!Util.isUnset(request.humanLayerStyle)) {
+      body["HumanLayerStyle"] = request.humanLayerStyle;
+    }
+
+    if (!Util.isUnset(request.intro)) {
+      body["Intro"] = request.intro;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      body["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      body["ModelId"] = request.modelId;
+    }
+
+    if (!Util.isUnset(request.outputConfig)) {
+      body["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.ttsVoiceId)) {
+      body["TtsVoiceId"] = request.ttsVoiceId;
+    }
+
+    if (!Util.isUnset(request.watermarkImageUrl)) {
+      body["WatermarkImageUrl"] = request.watermarkImageUrl;
+    }
+
+    if (!Util.isUnset(request.watermarkStyle)) {
+      body["WatermarkStyle"] = request.watermarkStyle;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDigitalHumanProject",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDigitalHumanProjectResponse>(await this.callApi(params, req, runtime), new CreateDigitalHumanProjectResponse({}));
+  }
+
+  async createDigitalHumanProject(request: CreateDigitalHumanProjectRequest): Promise<CreateDigitalHumanProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDigitalHumanProjectWithOptions(request, runtime);
+  }
+
+  async createLivePortraitProjectWithOptions(request: CreateLivePortraitProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateLivePortraitProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.audioId)) {
+      body["AudioId"] = request.audioId;
+    }
+
+    if (!Util.isUnset(request.audioUrl)) {
+      body["AudioUrl"] = request.audioUrl;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.intro)) {
+      body["Intro"] = request.intro;
+    }
+
+    if (!Util.isUnset(request.lightModel)) {
+      body["LightModel"] = request.lightModel;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      body["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.outputConfig)) {
+      body["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.ttsVoiceId)) {
+      body["TtsVoiceId"] = request.ttsVoiceId;
+    }
+
+    if (!Util.isUnset(request.watermarkImageUrl)) {
+      body["WatermarkImageUrl"] = request.watermarkImageUrl;
+    }
+
+    if (!Util.isUnset(request.watermarkStyle)) {
+      body["WatermarkStyle"] = request.watermarkStyle;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateLivePortraitProject",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLivePortraitProjectResponse>(await this.callApi(params, req, runtime), new CreateLivePortraitProjectResponse({}));
+  }
+
+  async createLivePortraitProject(request: CreateLivePortraitProjectRequest): Promise<CreateLivePortraitProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLivePortraitProjectWithOptions(request, runtime);
+  }
+
   async getMapDataWithOptions(request: GetMapDataRequest, runtime: $Util.RuntimeOptions): Promise<GetMapDataResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9013,6 +11105,53 @@ export default class Client extends OpenApi {
     return await this.initLocateWithOptions(request, runtime);
   }
 
+  async listDigitalHumanMaterialsWithOptions(request: ListDigitalHumanMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<ListDigitalHumanMaterialsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.current)) {
+      body["Current"] = request.current;
+    }
+
+    if (!Util.isUnset(request.onlyPersonalMaterials)) {
+      body["OnlyPersonalMaterials"] = request.onlyPersonalMaterials;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      body["Size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.types)) {
+      body["Types"] = request.types;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDigitalHumanMaterials",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDigitalHumanMaterialsResponse>(await this.callApi(params, req, runtime), new ListDigitalHumanMaterialsResponse({}));
+  }
+
+  async listDigitalHumanMaterials(request: ListDigitalHumanMaterialsRequest): Promise<ListDigitalHumanMaterialsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDigitalHumanMaterialsWithOptions(request, runtime);
+  }
+
   async listLocationServiceWithOptions(request: ListLocationServiceRequest, runtime: $Util.RuntimeOptions): Promise<ListLocationServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9056,6 +11195,41 @@ export default class Client extends OpenApi {
   async listLocationService(request: ListLocationServiceRequest): Promise<ListLocationServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLocationServiceWithOptions(request, runtime);
+  }
+
+  async livePortraitFaceDetectWithOptions(request: LivePortraitFaceDetectRequest, runtime: $Util.RuntimeOptions): Promise<LivePortraitFaceDetectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "LivePortraitFaceDetect",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<LivePortraitFaceDetectResponse>(await this.callApi(params, req, runtime), new LivePortraitFaceDetectResponse({}));
+  }
+
+  async livePortraitFaceDetect(request: LivePortraitFaceDetectRequest): Promise<LivePortraitFaceDetectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.livePortraitFaceDetectWithOptions(request, runtime);
   }
 
   async locateWithOptions(request: LocateRequest, runtime: $Util.RuntimeOptions): Promise<LocateResponse> {
@@ -9134,6 +11308,41 @@ export default class Client extends OpenApi {
   async loginModelScope(request: LoginModelScopeRequest): Promise<LoginModelScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.loginModelScopeWithOptions(request, runtime);
+  }
+
+  async popBatchQueryObjectGenerationProjectStatusWithOptions(request: PopBatchQueryObjectGenerationProjectStatusRequest, runtime: $Util.RuntimeOptions): Promise<PopBatchQueryObjectGenerationProjectStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectIds)) {
+      body["ProjectIds"] = request.projectIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PopBatchQueryObjectGenerationProjectStatus",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PopBatchQueryObjectGenerationProjectStatusResponse>(await this.callApi(params, req, runtime), new PopBatchQueryObjectGenerationProjectStatusResponse({}));
+  }
+
+  async popBatchQueryObjectGenerationProjectStatus(request: PopBatchQueryObjectGenerationProjectStatusRequest): Promise<PopBatchQueryObjectGenerationProjectStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.popBatchQueryObjectGenerationProjectStatusWithOptions(request, runtime);
   }
 
   async popBatchQueryObjectProjectStatusWithOptions(request: PopBatchQueryObjectProjectStatusRequest, runtime: $Util.RuntimeOptions): Promise<PopBatchQueryObjectProjectStatusResponse> {
@@ -9227,6 +11436,41 @@ export default class Client extends OpenApi {
     return await this.popBuildLivePortraitModelScopeProjectWithOptions(request, runtime);
   }
 
+  async popBuildObjectGenerationProjectWithOptions(request: PopBuildObjectGenerationProjectRequest, runtime: $Util.RuntimeOptions): Promise<PopBuildObjectGenerationProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PopBuildObjectGenerationProject",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PopBuildObjectGenerationProjectResponse>(await this.callApi(params, req, runtime), new PopBuildObjectGenerationProjectResponse({}));
+  }
+
+  async popBuildObjectGenerationProject(request: PopBuildObjectGenerationProjectRequest): Promise<PopBuildObjectGenerationProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.popBuildObjectGenerationProjectWithOptions(request, runtime);
+  }
+
   async popBuildObjectProjectWithOptions(request: PopBuildObjectProjectRequest, runtime: $Util.RuntimeOptions): Promise<PopBuildObjectProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9293,12 +11537,18 @@ export default class Client extends OpenApi {
 
   async popBuildTextToAvatarProjectWithOptions(request: PopBuildTextToAvatarProjectRequest, runtime: $Util.RuntimeOptions): Promise<PopBuildTextToAvatarProjectResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.projectId)) {
       body["ProjectId"] = request.projectId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -9453,6 +11703,53 @@ export default class Client extends OpenApi {
     return await this.popCreateMaterialWithOptions(request, runtime);
   }
 
+  async popCreateObjectGenerationProjectWithOptions(request: PopCreateObjectGenerationProjectRequest, runtime: $Util.RuntimeOptions): Promise<PopCreateObjectGenerationProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizUsage)) {
+      body["BizUsage"] = request.bizUsage;
+    }
+
+    if (!Util.isUnset(request.extInfo)) {
+      body["ExtInfo"] = request.extInfo;
+    }
+
+    if (!Util.isUnset(request.intro)) {
+      body["Intro"] = request.intro;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PopCreateObjectGenerationProject",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PopCreateObjectGenerationProjectResponse>(await this.callApi(params, req, runtime), new PopCreateObjectGenerationProjectResponse({}));
+  }
+
+  async popCreateObjectGenerationProject(request: PopCreateObjectGenerationProjectRequest): Promise<PopCreateObjectGenerationProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.popCreateObjectGenerationProjectWithOptions(request, runtime);
+  }
+
   async popCreateObjectProjectWithOptions(request: PopCreateObjectProjectRequest, runtime: $Util.RuntimeOptions): Promise<PopCreateObjectProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9557,6 +11854,11 @@ export default class Client extends OpenApi {
 
   async popCreateTextToAvatarProjectWithOptions(request: PopCreateTextToAvatarProjectRequest, runtime: $Util.RuntimeOptions): Promise<PopCreateTextToAvatarProjectResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.extInfo)) {
       body["ExtInfo"] = request.extInfo;
@@ -9571,6 +11873,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -9920,6 +12223,45 @@ export default class Client extends OpenApi {
     return await this.popListObjectCaseWithOptions(request, runtime);
   }
 
+  async popListObjectGenerationProjectWithOptions(request: PopListObjectGenerationProjectRequest, runtime: $Util.RuntimeOptions): Promise<PopListObjectGenerationProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.current)) {
+      body["Current"] = request.current;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      body["Size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PopListObjectGenerationProject",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PopListObjectGenerationProjectResponse>(await this.callApi(params, req, runtime), new PopListObjectGenerationProjectResponse({}));
+  }
+
+  async popListObjectGenerationProject(request: PopListObjectGenerationProjectRequest): Promise<PopListObjectGenerationProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.popListObjectGenerationProjectWithOptions(request, runtime);
+  }
+
   async popListObjectProjectWithOptions(request: PopListObjectProjectRequest, runtime: $Util.RuntimeOptions): Promise<PopListObjectProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10106,6 +12448,78 @@ export default class Client extends OpenApi {
     return await this.popObjectProjectDetailWithOptions(request, runtime);
   }
 
+  async popObjectRetrievalWithOptions(request: PopObjectRetrievalRequest, runtime: $Util.RuntimeOptions): Promise<PopObjectRetrievalResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      body["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.topK)) {
+      body["TopK"] = request.topK;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PopObjectRetrieval",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PopObjectRetrievalResponse>(await this.callApi(params, req, runtime), new PopObjectRetrievalResponse({}));
+  }
+
+  async popObjectRetrieval(request: PopObjectRetrievalRequest): Promise<PopObjectRetrievalResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.popObjectRetrievalWithOptions(request, runtime);
+  }
+
+  async popObjectRetrievalUploadDataWithOptions(request: PopObjectRetrievalUploadDataRequest, runtime: $Util.RuntimeOptions): Promise<PopObjectRetrievalUploadDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PopObjectRetrievalUploadData",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PopObjectRetrievalUploadDataResponse>(await this.callApi(params, req, runtime), new PopObjectRetrievalUploadDataResponse({}));
+  }
+
+  async popObjectRetrievalUploadData(request: PopObjectRetrievalUploadDataRequest): Promise<PopObjectRetrievalUploadDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.popObjectRetrievalUploadDataWithOptions(request, runtime);
+  }
+
   async popQueryAvatarProjectDetailWithOptions(request: PopQueryAvatarProjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<PopQueryAvatarProjectDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10135,6 +12549,35 @@ export default class Client extends OpenApi {
     return await this.popQueryAvatarProjectDetailWithOptions(request, runtime);
   }
 
+  async popQueryLatestAvatarProjectDetailByUserWithOptions(request: PopQueryLatestAvatarProjectDetailByUserRequest, runtime: $Util.RuntimeOptions): Promise<PopQueryLatestAvatarProjectDetailByUserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PopQueryLatestAvatarProjectDetailByUser",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PopQueryLatestAvatarProjectDetailByUserResponse>(await this.callApi(params, req, runtime), new PopQueryLatestAvatarProjectDetailByUserResponse({}));
+  }
+
+  async popQueryLatestAvatarProjectDetailByUser(request: PopQueryLatestAvatarProjectDetailByUserRequest): Promise<PopQueryLatestAvatarProjectDetailByUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.popQueryLatestAvatarProjectDetailByUserWithOptions(request, runtime);
+  }
+
   async popQueryLivePortraitModelScopeProjectDetailWithOptions(request: PopQueryLivePortraitModelScopeProjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<PopQueryLivePortraitModelScopeProjectDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10162,6 +12605,41 @@ export default class Client extends OpenApi {
   async popQueryLivePortraitModelScopeProjectDetail(request: PopQueryLivePortraitModelScopeProjectDetailRequest): Promise<PopQueryLivePortraitModelScopeProjectDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.popQueryLivePortraitModelScopeProjectDetailWithOptions(request, runtime);
+  }
+
+  async popQueryObjectGenerationProjectDetailWithOptions(request: PopQueryObjectGenerationProjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<PopQueryObjectGenerationProjectDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PopQueryObjectGenerationProjectDetail",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PopQueryObjectGenerationProjectDetailResponse>(await this.callApi(params, req, runtime), new PopQueryObjectGenerationProjectDetailResponse({}));
+  }
+
+  async popQueryObjectGenerationProjectDetail(request: PopQueryObjectGenerationProjectDetailRequest): Promise<PopQueryObjectGenerationProjectDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.popQueryObjectGenerationProjectDetailWithOptions(request, runtime);
   }
 
   async popRetryAITryOnTaskWithOptions(request: PopRetryAITryOnTaskRequest, runtime: $Util.RuntimeOptions): Promise<PopRetryAITryOnTaskResponse> {
@@ -10316,6 +12794,115 @@ export default class Client extends OpenApi {
   async popVideoSaveSource(request: PopVideoSaveSourceRequest): Promise<PopVideoSaveSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.popVideoSaveSourceWithOptions(request, runtime);
+  }
+
+  async queryDigitalHumanProjectWithOptions(request: QueryDigitalHumanProjectRequest, runtime: $Util.RuntimeOptions): Promise<QueryDigitalHumanProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ids)) {
+      body["Ids"] = request.ids;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDigitalHumanProject",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDigitalHumanProjectResponse>(await this.callApi(params, req, runtime), new QueryDigitalHumanProjectResponse({}));
+  }
+
+  async queryDigitalHumanProject(request: QueryDigitalHumanProjectRequest): Promise<QueryDigitalHumanProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDigitalHumanProjectWithOptions(request, runtime);
+  }
+
+  async queryLongTtsResultWithOptions(request: QueryLongTtsResultRequest, runtime: $Util.RuntimeOptions): Promise<QueryLongTtsResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryLongTtsResult",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryLongTtsResultResponse>(await this.callApi(params, req, runtime), new QueryLongTtsResultResponse({}));
+  }
+
+  async queryLongTtsResult(request: QueryLongTtsResultRequest): Promise<QueryLongTtsResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryLongTtsResultWithOptions(request, runtime);
+  }
+
+  async submitLongTtsTaskWithOptions(request: SubmitLongTtsTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitLongTtsTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.ttsVoiceId)) {
+      body["TtsVoiceId"] = request.ttsVoiceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitLongTtsTask",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitLongTtsTaskResponse>(await this.callApi(params, req, runtime), new SubmitLongTtsTaskResponse({}));
+  }
+
+  async submitLongTtsTask(request: SubmitLongTtsTaskRequest): Promise<SubmitLongTtsTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitLongTtsTaskWithOptions(request, runtime);
   }
 
   async updateUserEmailWithOptions(request: UpdateUserEmailRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserEmailResponse> {
