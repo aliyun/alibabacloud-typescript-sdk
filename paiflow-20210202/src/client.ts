@@ -8,6 +8,199 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class BriefPipelineRun extends $tea.Model {
+  accessibility?: string;
+  duration?: number;
+  finishedAt?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  message?: string;
+  name?: string;
+  nodeId?: string;
+  parentUserId?: string;
+  pipelineId?: string;
+  pipelineRunId?: string;
+  sourceId?: string;
+  sourceType?: string;
+  startedAt?: string;
+  status?: string;
+  userId?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessibility: 'Accessibility',
+      duration: 'Duration',
+      finishedAt: 'FinishedAt',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      message: 'Message',
+      name: 'Name',
+      nodeId: 'NodeId',
+      parentUserId: 'ParentUserId',
+      pipelineId: 'PipelineId',
+      pipelineRunId: 'PipelineRunId',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
+      startedAt: 'StartedAt',
+      status: 'Status',
+      userId: 'UserId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessibility: 'string',
+      duration: 'number',
+      finishedAt: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      message: 'string',
+      name: 'string',
+      nodeId: 'string',
+      parentUserId: 'string',
+      pipelineId: 'string',
+      pipelineRunId: 'string',
+      sourceId: 'string',
+      sourceType: 'string',
+      startedAt: 'string',
+      status: 'string',
+      userId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FullPipelineRun extends $tea.Model {
+  accessibility?: string;
+  arguments?: string;
+  duration?: number;
+  finishedAt?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  manifest?: string;
+  message?: string;
+  name?: string;
+  nodeId?: string;
+  options?: string;
+  parentUserId?: string;
+  pipelineId?: string;
+  pipelineRunId?: string;
+  sourceId?: string;
+  sourceType?: string;
+  startedAt?: string;
+  status?: string;
+  userId?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessibility: 'Accessibility',
+      arguments: 'Arguments',
+      duration: 'Duration',
+      finishedAt: 'FinishedAt',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      manifest: 'Manifest',
+      message: 'Message',
+      name: 'Name',
+      nodeId: 'NodeId',
+      options: 'Options',
+      parentUserId: 'ParentUserId',
+      pipelineId: 'PipelineId',
+      pipelineRunId: 'PipelineRunId',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
+      startedAt: 'StartedAt',
+      status: 'Status',
+      userId: 'UserId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessibility: 'string',
+      arguments: 'string',
+      duration: 'number',
+      finishedAt: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      manifest: 'string',
+      message: 'string',
+      name: 'string',
+      nodeId: 'string',
+      options: 'string',
+      parentUserId: 'string',
+      pipelineId: 'string',
+      pipelineRunId: 'string',
+      sourceId: 'string',
+      sourceType: 'string',
+      startedAt: 'string',
+      status: 'string',
+      userId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Node extends $tea.Model {
+  apiVersion?: string;
+  metadata?: NodeMetadata;
+  spec?: NodeSpec;
+  statusInfo?: NodeStatusInfo;
+  static names(): { [key: string]: string } {
+    return {
+      apiVersion: 'ApiVersion',
+      metadata: 'Metadata',
+      spec: 'Spec',
+      statusInfo: 'StatusInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiVersion: 'string',
+      metadata: NodeMetadata,
+      spec: NodeSpec,
+      statusInfo: NodeStatusInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodeIO extends $tea.Model {
+  artifacts?: { [key: string]: any }[];
+  parameters?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      artifacts: 'Artifacts',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifacts: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      parameters: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Pipeline extends $tea.Model {
   gmtCreateTime?: string;
   gmtModifiedTime?: string;
@@ -158,10 +351,12 @@ export class CreatePipelineResponseBody extends $tea.Model {
 
 export class CreatePipelineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreatePipelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -169,6 +364,7 @@ export class CreatePipelineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreatePipelineResponseBody,
     };
   }
@@ -178,91 +374,28 @@ export class CreatePipelineResponse extends $tea.Model {
   }
 }
 
-export class CreatePipelineReleaseRequest extends $tea.Model {
-  targetPipelineProvider?: string;
-  static names(): { [key: string]: string } {
-    return {
-      targetPipelineProvider: 'TargetPipelineProvider',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      targetPipelineProvider: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePipelineReleaseResponseBody extends $tea.Model {
-  pipelineId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pipelineId: 'PipelineId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pipelineId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePipelineReleaseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreatePipelineReleaseResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreatePipelineReleaseResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRunRequest extends $tea.Model {
+export class CreatePipelineRunRequest extends $tea.Model {
   accessibility?: string;
   arguments?: string;
-  experimentId?: string;
   name?: string;
   noConfirmRequired?: boolean;
   options?: string;
   pipelineId?: string;
   pipelineManifest?: string;
-  source?: string;
+  sourceId?: string;
+  sourceType?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
       arguments: 'Arguments',
-      experimentId: 'ExperimentId',
       name: 'Name',
       noConfirmRequired: 'NoConfirmRequired',
       options: 'Options',
       pipelineId: 'PipelineId',
       pipelineManifest: 'PipelineManifest',
-      source: 'Source',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -271,13 +404,13 @@ export class CreateRunRequest extends $tea.Model {
     return {
       accessibility: 'string',
       arguments: 'string',
-      experimentId: 'string',
       name: 'string',
       noConfirmRequired: 'boolean',
       options: 'string',
       pipelineId: 'string',
       pipelineManifest: 'string',
-      source: 'string',
+      sourceId: 'string',
+      sourceType: 'string',
       workspaceId: 'string',
     };
   }
@@ -287,20 +420,20 @@ export class CreateRunRequest extends $tea.Model {
   }
 }
 
-export class CreateRunResponseBody extends $tea.Model {
+export class CreatePipelineRunResponseBody extends $tea.Model {
+  pipelineRunId?: string;
   requestId?: string;
-  runId?: string;
   static names(): { [key: string]: string } {
     return {
+      pipelineRunId: 'PipelineRunId',
       requestId: 'RequestId',
-      runId: 'RunId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pipelineRunId: 'string',
       requestId: 'string',
-      runId: 'string',
     };
   }
 
@@ -309,12 +442,14 @@ export class CreateRunResponseBody extends $tea.Model {
   }
 }
 
-export class CreateRunResponse extends $tea.Model {
+export class CreatePipelineRunResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: CreateRunResponseBody;
+  statusCode: number;
+  body: CreatePipelineRunResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -322,7 +457,8 @@ export class CreateRunResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateRunResponseBody,
+      statusCode: 'number',
+      body: CreatePipelineRunResponseBody,
     };
   }
 
@@ -352,10 +488,12 @@ export class DeletePipelineResponseBody extends $tea.Model {
 
 export class DeletePipelineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeletePipelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -363,6 +501,7 @@ export class DeletePipelineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeletePipelineResponseBody,
     };
   }
@@ -372,7 +511,7 @@ export class DeletePipelineResponse extends $tea.Model {
   }
 }
 
-export class DeleteRunResponseBody extends $tea.Model {
+export class DeletePipelineRunResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -391,12 +530,14 @@ export class DeleteRunResponseBody extends $tea.Model {
   }
 }
 
-export class DeleteRunResponse extends $tea.Model {
+export class DeletePipelineRunResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DeleteRunResponseBody;
+  statusCode: number;
+  body: DeletePipelineRunResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -404,123 +545,8 @@ export class DeleteRunResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteRunResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCallerProviderResponseBody extends $tea.Model {
-  provider?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      provider: 'Provider',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      provider: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCallerProviderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetCallerProviderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetCallerProviderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNodeRequest extends $tea.Model {
-  depth?: number;
-  static names(): { [key: string]: string } {
-    return {
-      depth: 'Depth',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      depth: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNodeResponseBody extends $tea.Model {
-  apiVersion?: string;
-  metadata?: GetNodeResponseBodyMetadata;
-  requestId?: string;
-  spec?: GetNodeResponseBodySpec;
-  statusInfo?: GetNodeResponseBodyStatusInfo;
-  static names(): { [key: string]: string } {
-    return {
-      apiVersion: 'ApiVersion',
-      metadata: 'Metadata',
-      requestId: 'RequestId',
-      spec: 'Spec',
-      statusInfo: 'StatusInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiVersion: 'string',
-      metadata: GetNodeResponseBodyMetadata,
-      requestId: 'string',
-      spec: GetNodeResponseBodySpec,
-      statusInfo: GetNodeResponseBodyStatusInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetNodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetNodeResponseBody,
+      statusCode: 'number',
+      body: DeletePipelineRunResponseBody,
     };
   }
 
@@ -577,10 +603,12 @@ export class GetPipelineResponseBody extends $tea.Model {
 
 export class GetPipelineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPipelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -588,6 +616,7 @@ export class GetPipelineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPipelineResponseBody,
     };
   }
@@ -597,80 +626,14 @@ export class GetPipelineResponse extends $tea.Model {
   }
 }
 
-export class GetPipelineSchemaResponseBody extends $tea.Model {
-  gmtCreateTime?: string;
-  gmtModifiedTime?: string;
-  identifier?: string;
-  manifest?: string;
-  pipelineId?: string;
-  provider?: string;
-  requestId?: string;
-  uuid?: string;
-  version?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreateTime: 'GmtCreateTime',
-      gmtModifiedTime: 'GmtModifiedTime',
-      identifier: 'Identifier',
-      manifest: 'Manifest',
-      pipelineId: 'PipelineId',
-      provider: 'Provider',
-      requestId: 'RequestId',
-      uuid: 'Uuid',
-      version: 'Version',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
-      identifier: 'string',
-      manifest: 'string',
-      pipelineId: 'string',
-      provider: 'string',
-      requestId: 'string',
-      uuid: 'string',
-      version: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPipelineSchemaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetPipelineSchemaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetPipelineSchemaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRunRequest extends $tea.Model {
+export class GetPipelineRunRequest extends $tea.Model {
   manifestType?: string;
+  tokenId?: string;
   verbose?: boolean;
   static names(): { [key: string]: string } {
     return {
       manifestType: 'ManifestType',
+      tokenId: 'TokenId',
       verbose: 'Verbose',
     };
   }
@@ -678,6 +641,7 @@ export class GetRunRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       manifestType: 'string',
+      tokenId: 'string',
       verbose: 'boolean',
     };
   }
@@ -687,11 +651,11 @@ export class GetRunRequest extends $tea.Model {
   }
 }
 
-export class GetRunResponseBody extends $tea.Model {
+export class GetPipelineRunResponseBody extends $tea.Model {
+  accessibility?: string;
   arguments?: string;
   duration?: number;
-  experimentId?: string;
-  finishedAt?: number;
+  finishedAt?: string;
   gmtCreateTime?: string;
   gmtModifiedTime?: string;
   manifest?: string;
@@ -701,18 +665,20 @@ export class GetRunResponseBody extends $tea.Model {
   options?: string;
   parentUserId?: string;
   pipelineId?: string;
+  pipelineRunId?: string;
+  pipelineRunUri?: string;
   requestId?: string;
-  runId?: string;
-  source?: string;
-  startedAt?: number;
+  sourceId?: string;
+  sourceType?: string;
+  startedAt?: string;
   status?: string;
   userId?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       arguments: 'Arguments',
       duration: 'Duration',
-      experimentId: 'ExperimentId',
       finishedAt: 'FinishedAt',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
@@ -723,9 +689,11 @@ export class GetRunResponseBody extends $tea.Model {
       options: 'Options',
       parentUserId: 'ParentUserId',
       pipelineId: 'PipelineId',
+      pipelineRunId: 'PipelineRunId',
+      pipelineRunUri: 'PipelineRunUri',
       requestId: 'RequestId',
-      runId: 'RunId',
-      source: 'Source',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
       startedAt: 'StartedAt',
       status: 'Status',
       userId: 'UserId',
@@ -735,10 +703,10 @@ export class GetRunResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       arguments: 'string',
       duration: 'number',
-      experimentId: 'string',
-      finishedAt: 'number',
+      finishedAt: 'string',
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       manifest: 'string',
@@ -748,10 +716,12 @@ export class GetRunResponseBody extends $tea.Model {
       options: 'string',
       parentUserId: 'string',
       pipelineId: 'string',
+      pipelineRunId: 'string',
+      pipelineRunUri: 'string',
       requestId: 'string',
-      runId: 'string',
-      source: 'string',
-      startedAt: 'number',
+      sourceId: 'string',
+      sourceType: 'string',
+      startedAt: 'string',
       status: 'string',
       userId: 'string',
       workspaceId: 'string',
@@ -763,12 +733,14 @@ export class GetRunResponseBody extends $tea.Model {
   }
 }
 
-export class GetRunResponse extends $tea.Model {
+export class GetPipelineRunResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetRunResponseBody;
+  statusCode: number;
+  body: GetPipelineRunResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -776,7 +748,8 @@ export class GetRunResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetRunResponseBody,
+      statusCode: 'number',
+      body: GetPipelineRunResponseBody,
     };
   }
 
@@ -785,38 +758,23 @@ export class GetRunResponse extends $tea.Model {
   }
 }
 
-export class GetRunStatisticsRequest extends $tea.Model {
-  experimentId?: string;
-  isShowAll?: boolean;
-  name?: string;
-  pipelineId?: string;
-  scope?: string;
-  source?: string;
-  status?: string[];
-  workspaceId?: string;
+export class GetPipelineRunNodeRequest extends $tea.Model {
+  depth?: number;
+  tokenId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      experimentId: 'ExperimentId',
-      isShowAll: 'IsShowAll',
-      name: 'Name',
-      pipelineId: 'PipelineId',
-      scope: 'Scope',
-      source: 'Source',
-      status: 'Status',
-      workspaceId: 'WorkspaceId',
+      depth: 'Depth',
+      tokenId: 'TokenId',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      experimentId: 'string',
-      isShowAll: 'boolean',
-      name: 'string',
-      pipelineId: 'string',
-      scope: 'string',
-      source: 'string',
-      status: { 'type': 'array', 'itemType': 'string' },
-      workspaceId: 'string',
+      depth: 'number',
+      tokenId: 'string',
+      type: 'string',
     };
   }
 
@@ -825,63 +783,29 @@ export class GetRunStatisticsRequest extends $tea.Model {
   }
 }
 
-export class GetRunStatisticsShrinkRequest extends $tea.Model {
-  experimentId?: string;
-  isShowAll?: boolean;
-  name?: string;
-  pipelineId?: string;
-  scope?: string;
-  source?: string;
-  statusShrink?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      experimentId: 'ExperimentId',
-      isShowAll: 'IsShowAll',
-      name: 'Name',
-      pipelineId: 'PipelineId',
-      scope: 'Scope',
-      source: 'Source',
-      statusShrink: 'Status',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      experimentId: 'string',
-      isShowAll: 'boolean',
-      name: 'string',
-      pipelineId: 'string',
-      scope: 'string',
-      source: 'string',
-      statusShrink: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRunStatisticsResponseBody extends $tea.Model {
-  failed?: number;
-  running?: number;
+export class GetPipelineRunNodeResponseBody extends $tea.Model {
+  apiVersion?: string;
+  metadata?: GetPipelineRunNodeResponseBodyMetadata;
   requestId?: string;
+  spec?: GetPipelineRunNodeResponseBodySpec;
+  statusInfo?: GetPipelineRunNodeResponseBodyStatusInfo;
   static names(): { [key: string]: string } {
     return {
-      failed: 'Failed',
-      running: 'Running',
-      requestId: 'requestId',
+      apiVersion: 'ApiVersion',
+      metadata: 'Metadata',
+      requestId: 'RequestId',
+      spec: 'Spec',
+      statusInfo: 'StatusInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      failed: 'number',
-      running: 'number',
+      apiVersion: 'string',
+      metadata: GetPipelineRunNodeResponseBodyMetadata,
       requestId: 'string',
+      spec: GetPipelineRunNodeResponseBodySpec,
+      statusInfo: GetPipelineRunNodeResponseBodyStatusInfo,
     };
   }
 
@@ -890,12 +814,14 @@ export class GetRunStatisticsResponseBody extends $tea.Model {
   }
 }
 
-export class GetRunStatisticsResponse extends $tea.Model {
+export class GetPipelineRunNodeResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetRunStatisticsResponseBody;
+  statusCode: number;
+  body: GetPipelineRunNodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -903,7 +829,8 @@ export class GetRunStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetRunStatisticsResponseBody,
+      statusCode: 'number',
+      body: GetPipelineRunNodeResponseBody,
     };
   }
 
@@ -912,13 +839,14 @@ export class GetRunStatisticsResponse extends $tea.Model {
   }
 }
 
-export class ListNodeLogsRequest extends $tea.Model {
+export class ListPipelineRunNodeLogsRequest extends $tea.Model {
   fromTimeInSeconds?: number;
   keyword?: string;
   offset?: number;
   pageSize?: number;
   reverse?: boolean;
   toTimeInSeconds?: number;
+  tokenId?: string;
   static names(): { [key: string]: string } {
     return {
       fromTimeInSeconds: 'FromTimeInSeconds',
@@ -927,6 +855,7 @@ export class ListNodeLogsRequest extends $tea.Model {
       pageSize: 'PageSize',
       reverse: 'Reverse',
       toTimeInSeconds: 'ToTimeInSeconds',
+      tokenId: 'TokenId',
     };
   }
 
@@ -938,6 +867,7 @@ export class ListNodeLogsRequest extends $tea.Model {
       pageSize: 'number',
       reverse: 'boolean',
       toTimeInSeconds: 'number',
+      tokenId: 'string',
     };
   }
 
@@ -946,7 +876,7 @@ export class ListNodeLogsRequest extends $tea.Model {
   }
 }
 
-export class ListNodeLogsResponseBody extends $tea.Model {
+export class ListPipelineRunNodeLogsResponseBody extends $tea.Model {
   logs?: string[];
   requestId?: string;
   totalCount?: number;
@@ -971,12 +901,14 @@ export class ListNodeLogsResponseBody extends $tea.Model {
   }
 }
 
-export class ListNodeLogsResponse extends $tea.Model {
+export class ListPipelineRunNodeLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListNodeLogsResponseBody;
+  statusCode: number;
+  body: ListPipelineRunNodeLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -984,7 +916,8 @@ export class ListNodeLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListNodeLogsResponseBody,
+      statusCode: 'number',
+      body: ListPipelineRunNodeLogsResponseBody,
     };
   }
 
@@ -993,13 +926,14 @@ export class ListNodeLogsResponse extends $tea.Model {
   }
 }
 
-export class ListNodeOutputsRequest extends $tea.Model {
+export class ListPipelineRunNodeOutputsRequest extends $tea.Model {
   depth?: number;
   name?: string;
   order?: string;
   pageNumber?: number;
   pageSize?: number;
   sortBy?: string;
+  tokenId?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1009,6 +943,7 @@ export class ListNodeOutputsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       sortBy: 'SortBy',
+      tokenId: 'TokenId',
       type: 'Type',
     };
   }
@@ -1021,6 +956,7 @@ export class ListNodeOutputsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       sortBy: 'string',
+      tokenId: 'string',
       type: 'string',
     };
   }
@@ -1030,8 +966,8 @@ export class ListNodeOutputsRequest extends $tea.Model {
   }
 }
 
-export class ListNodeOutputsResponseBody extends $tea.Model {
-  outputs?: ListNodeOutputsResponseBodyOutputs[];
+export class ListPipelineRunNodeOutputsResponseBody extends $tea.Model {
+  outputs?: ListPipelineRunNodeOutputsResponseBodyOutputs[];
   requestId?: string;
   totalCount?: number;
   static names(): { [key: string]: string } {
@@ -1044,7 +980,7 @@ export class ListNodeOutputsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      outputs: { 'type': 'array', 'itemType': ListNodeOutputsResponseBodyOutputs },
+      outputs: { 'type': 'array', 'itemType': ListPipelineRunNodeOutputsResponseBodyOutputs },
       requestId: 'string',
       totalCount: 'number',
     };
@@ -1055,12 +991,14 @@ export class ListNodeOutputsResponseBody extends $tea.Model {
   }
 }
 
-export class ListNodeOutputsResponse extends $tea.Model {
+export class ListPipelineRunNodeOutputsResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListNodeOutputsResponseBody;
+  statusCode: number;
+  body: ListPipelineRunNodeOutputsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1068,7 +1006,8 @@ export class ListNodeOutputsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListNodeOutputsResponseBody,
+      statusCode: 'number',
+      body: ListPipelineRunNodeOutputsResponseBody,
     };
   }
 
@@ -1077,12 +1016,14 @@ export class ListNodeOutputsResponse extends $tea.Model {
   }
 }
 
-export class ListNodeStatusRequest extends $tea.Model {
+export class ListPipelineRunNodeStatusRequest extends $tea.Model {
   depth?: number;
+  tokenId?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       depth: 'Depth',
+      tokenId: 'TokenId',
       type: 'Type',
     };
   }
@@ -1090,6 +1031,7 @@ export class ListNodeStatusRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       depth: 'number',
+      tokenId: 'string',
       type: 'string',
     };
   }
@@ -1099,9 +1041,9 @@ export class ListNodeStatusRequest extends $tea.Model {
   }
 }
 
-export class ListNodeStatusResponseBody extends $tea.Model {
+export class ListPipelineRunNodeStatusResponseBody extends $tea.Model {
   requestId?: string;
-  status?: ListNodeStatusResponseBodyStatus[];
+  status?: ListPipelineRunNodeStatusResponseBodyStatus[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -1112,7 +1054,7 @@ export class ListNodeStatusResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      status: { 'type': 'array', 'itemType': ListNodeStatusResponseBodyStatus },
+      status: { 'type': 'array', 'itemType': ListPipelineRunNodeStatusResponseBodyStatus },
     };
   }
 
@@ -1121,12 +1063,14 @@ export class ListNodeStatusResponseBody extends $tea.Model {
   }
 }
 
-export class ListNodeStatusResponse extends $tea.Model {
+export class ListPipelineRunNodeStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListNodeStatusResponseBody;
+  statusCode: number;
+  body: ListPipelineRunNodeStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1134,7 +1078,8 @@ export class ListNodeStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListNodeStatusResponseBody,
+      statusCode: 'number',
+      body: ListPipelineRunNodeStatusResponseBody,
     };
   }
 
@@ -1143,26 +1088,75 @@ export class ListNodeStatusResponse extends $tea.Model {
   }
 }
 
-export class ListPipelinePrivilegesResponseBody extends $tea.Model {
-  actions?: string[];
-  pipelineId?: string;
+export class ListPipelineRunsRequest extends $tea.Model {
+  name?: string;
+  order?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  pipelineIds?: string;
+  pipelineRunId?: string;
+  sortBy?: string;
+  sourceId?: string;
+  sourceType?: string;
+  status?: string;
+  userId?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      pipelineIds: 'PipelineIds',
+      pipelineRunId: 'PipelineRunId',
+      sortBy: 'SortBy',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
+      status: 'Status',
+      userId: 'UserId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      pipelineIds: 'string',
+      pipelineRunId: 'string',
+      sortBy: 'string',
+      sourceId: 'string',
+      sourceType: 'string',
+      status: 'string',
+      userId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineRunsResponseBody extends $tea.Model {
+  pipelineRuns?: ListPipelineRunsResponseBodyPipelineRuns[];
   requestId?: string;
-  users?: string[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      actions: 'Actions',
-      pipelineId: 'PipelineId',
+      pipelineRuns: 'PipelineRuns',
       requestId: 'RequestId',
-      users: 'Users',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      actions: { 'type': 'array', 'itemType': 'string' },
-      pipelineId: 'string',
+      pipelineRuns: { 'type': 'array', 'itemType': ListPipelineRunsResponseBodyPipelineRuns },
       requestId: 'string',
-      users: { 'type': 'array', 'itemType': 'string' },
+      totalCount: 'number',
     };
   }
 
@@ -1171,12 +1165,14 @@ export class ListPipelinePrivilegesResponseBody extends $tea.Model {
   }
 }
 
-export class ListPipelinePrivilegesResponse extends $tea.Model {
+export class ListPipelineRunsResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListPipelinePrivilegesResponseBody;
+  statusCode: number;
+  body: ListPipelineRunsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1184,7 +1180,89 @@ export class ListPipelinePrivilegesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListPipelinePrivilegesResponseBody,
+      statusCode: 'number',
+      body: ListPipelineRunsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineRunsStatusRequest extends $tea.Model {
+  nodes?: ListPipelineRunsStatusRequestNodes[];
+  outputType?: string;
+  pipelineRuns?: string[];
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      outputType: 'OutputType',
+      pipelineRuns: 'PipelineRuns',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': ListPipelineRunsStatusRequestNodes },
+      outputType: 'string',
+      pipelineRuns: { 'type': 'array', 'itemType': 'string' },
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineRunsStatusResponseBody extends $tea.Model {
+  nodes?: ListPipelineRunsStatusResponseBodyNodes[];
+  outputs?: ListPipelineRunsStatusResponseBodyOutputs[];
+  pipelineRuns?: ListPipelineRunsStatusResponseBodyPipelineRuns[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      outputs: 'Outputs',
+      pipelineRuns: 'PipelineRuns',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': ListPipelineRunsStatusResponseBodyNodes },
+      outputs: { 'type': 'array', 'itemType': ListPipelineRunsStatusResponseBodyOutputs },
+      pipelineRuns: { 'type': 'array', 'itemType': ListPipelineRunsStatusResponseBodyPipelineRuns },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineRunsStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPipelineRunsStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPipelineRunsStatusResponseBody,
     };
   }
 
@@ -1257,10 +1335,12 @@ export class ListPipelinesResponseBody extends $tea.Model {
 
 export class ListPipelinesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPipelinesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1268,6 +1348,7 @@ export class ListPipelinesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPipelinesResponseBody,
     };
   }
@@ -1277,181 +1358,7 @@ export class ListPipelinesResponse extends $tea.Model {
   }
 }
 
-export class ListRunsRequest extends $tea.Model {
-  experimentId?: string;
-  name?: string;
-  order?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  pipelineId?: string;
-  pipelineIds?: string;
-  runId?: string;
-  sortBy?: string;
-  source?: string;
-  status?: string;
-  userId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      experimentId: 'ExperimentId',
-      name: 'Name',
-      order: 'Order',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      pipelineId: 'PipelineId',
-      pipelineIds: 'PipelineIds',
-      runId: 'RunId',
-      sortBy: 'SortBy',
-      source: 'Source',
-      status: 'Status',
-      userId: 'UserId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      experimentId: 'string',
-      name: 'string',
-      order: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      pipelineId: 'string',
-      pipelineIds: 'string',
-      runId: 'string',
-      sortBy: 'string',
-      source: 'string',
-      status: 'string',
-      userId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRunsResponseBody extends $tea.Model {
-  requestId?: string;
-  runs?: ListRunsResponseBodyRuns[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      runs: 'Runs',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      runs: { 'type': 'array', 'itemType': ListRunsResponseBodyRuns },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRunsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListRunsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListRunsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRunsStatusRequest extends $tea.Model {
-  nodes?: ListRunsStatusRequestNodes[];
-  runs?: string[];
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nodes: 'Nodes',
-      runs: 'Runs',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodes: { 'type': 'array', 'itemType': ListRunsStatusRequestNodes },
-      runs: { 'type': 'array', 'itemType': 'string' },
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRunsStatusResponseBody extends $tea.Model {
-  nodes?: ListRunsStatusResponseBodyNodes[];
-  requestId?: string;
-  runs?: ListRunsStatusResponseBodyRuns[];
-  static names(): { [key: string]: string } {
-    return {
-      nodes: 'Nodes',
-      requestId: 'RequestId',
-      runs: 'Runs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodes: { 'type': 'array', 'itemType': ListRunsStatusResponseBodyNodes },
-      requestId: 'string',
-      runs: { 'type': 'array', 'itemType': ListRunsStatusResponseBodyRuns },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRunsStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListRunsStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListRunsStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartRunResponseBody extends $tea.Model {
+export class RerunPipelineRunResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1470,12 +1377,14 @@ export class StartRunResponseBody extends $tea.Model {
   }
 }
 
-export class StartRunResponse extends $tea.Model {
+export class RerunPipelineRunResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: StartRunResponseBody;
+  statusCode: number;
+  body: RerunPipelineRunResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1483,7 +1392,8 @@ export class StartRunResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: StartRunResponseBody,
+      statusCode: 'number',
+      body: RerunPipelineRunResponseBody,
     };
   }
 
@@ -1492,7 +1402,7 @@ export class StartRunResponse extends $tea.Model {
   }
 }
 
-export class TerminateRunResponseBody extends $tea.Model {
+export class StartPipelineRunResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1511,12 +1421,14 @@ export class TerminateRunResponseBody extends $tea.Model {
   }
 }
 
-export class TerminateRunResponse extends $tea.Model {
+export class StartPipelineRunResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: TerminateRunResponseBody;
+  statusCode: number;
+  body: StartPipelineRunResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1524,7 +1436,52 @@ export class TerminateRunResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: TerminateRunResponseBody,
+      statusCode: 'number',
+      body: StartPipelineRunResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminatePipelineRunResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminatePipelineRunResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TerminatePipelineRunResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TerminatePipelineRunResponseBody,
     };
   }
 
@@ -1573,10 +1530,12 @@ export class UpdatePipelineResponseBody extends $tea.Model {
 
 export class UpdatePipelineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdatePipelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1584,6 +1543,7 @@ export class UpdatePipelineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdatePipelineResponseBody,
     };
   }
@@ -1593,67 +1553,7 @@ export class UpdatePipelineResponse extends $tea.Model {
   }
 }
 
-export class UpdatePipelinePrivilegesRequest extends $tea.Model {
-  users?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      users: 'Users',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      users: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePipelinePrivilegesResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePipelinePrivilegesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdatePipelinePrivilegesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdatePipelinePrivilegesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRunRequest extends $tea.Model {
+export class UpdatePipelineRunRequest extends $tea.Model {
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1672,7 +1572,7 @@ export class UpdateRunRequest extends $tea.Model {
   }
 }
 
-export class UpdateRunResponseBody extends $tea.Model {
+export class UpdatePipelineRunResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1691,12 +1591,14 @@ export class UpdateRunResponseBody extends $tea.Model {
   }
 }
 
-export class UpdateRunResponse extends $tea.Model {
+export class UpdatePipelineRunResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: UpdateRunResponseBody;
+  statusCode: number;
+  body: UpdatePipelineRunResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1704,7 +1606,8 @@ export class UpdateRunResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateRunResponseBody,
+      statusCode: 'number',
+      body: UpdatePipelineRunResponseBody,
     };
   }
 
@@ -1713,11 +1616,10 @@ export class UpdateRunResponse extends $tea.Model {
   }
 }
 
-export class GetNodeResponseBodyMetadata extends $tea.Model {
+export class NodeMetadata extends $tea.Model {
   displayName?: string;
   identifier?: string;
   name?: string;
-  namespace?: string;
   nodeId?: string;
   nodeType?: string;
   provider?: string;
@@ -1728,7 +1630,6 @@ export class GetNodeResponseBodyMetadata extends $tea.Model {
       displayName: 'DisplayName',
       identifier: 'Identifier',
       name: 'Name',
-      namespace: 'Namespace',
       nodeId: 'NodeId',
       nodeType: 'NodeType',
       provider: 'Provider',
@@ -1742,7 +1643,6 @@ export class GetNodeResponseBodyMetadata extends $tea.Model {
       displayName: 'string',
       identifier: 'string',
       name: 'string',
-      namespace: 'string',
       nodeId: 'string',
       nodeType: 'string',
       provider: 'string',
@@ -1756,20 +1656,23 @@ export class GetNodeResponseBodyMetadata extends $tea.Model {
   }
 }
 
-export class GetNodeResponseBodySpecInputs extends $tea.Model {
-  artifacts?: { [key: string]: any }[];
-  parameters?: { [key: string]: any }[];
+export class NodeSpecWithSequence extends $tea.Model {
+  end?: number;
+  format?: string;
+  start?: number;
   static names(): { [key: string]: string } {
     return {
-      artifacts: 'Artifacts',
-      parameters: 'Parameters',
+      end: 'End',
+      format: 'Format',
+      start: 'Start',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      artifacts: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      parameters: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      end: 'number',
+      format: 'string',
+      start: 'number',
     };
   }
 
@@ -1778,41 +1681,29 @@ export class GetNodeResponseBodySpecInputs extends $tea.Model {
   }
 }
 
-export class GetNodeResponseBodySpecOutputs extends $tea.Model {
-  artifacts?: { [key: string]: any }[];
-  parameters?: { [key: string]: any }[];
-  static names(): { [key: string]: string } {
-    return {
-      artifacts: 'Artifacts',
-      parameters: 'Parameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      artifacts: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      parameters: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNodeResponseBodySpec extends $tea.Model {
+export class NodeSpec extends $tea.Model {
   dependencies?: string[];
   hasPipelines?: boolean;
-  inputs?: GetNodeResponseBodySpecInputs;
-  outputs?: GetNodeResponseBodySpecOutputs;
-  pipelines?: { [key: string]: any }[];
+  inputs?: NodeIO;
+  outputs?: NodeIO;
+  parallelism?: number;
+  pipelines?: Node[];
+  when?: string;
+  withItems?: string[];
+  withParam?: string;
+  withSequence?: NodeSpecWithSequence;
   static names(): { [key: string]: string } {
     return {
       dependencies: 'Dependencies',
       hasPipelines: 'HasPipelines',
       inputs: 'Inputs',
       outputs: 'Outputs',
+      parallelism: 'Parallelism',
       pipelines: 'Pipelines',
+      when: 'When',
+      withItems: 'WithItems',
+      withParam: 'WithParam',
+      withSequence: 'WithSequence',
     };
   }
 
@@ -1820,9 +1711,14 @@ export class GetNodeResponseBodySpec extends $tea.Model {
     return {
       dependencies: { 'type': 'array', 'itemType': 'string' },
       hasPipelines: 'boolean',
-      inputs: GetNodeResponseBodySpecInputs,
-      outputs: GetNodeResponseBodySpecOutputs,
-      pipelines: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      inputs: NodeIO,
+      outputs: NodeIO,
+      parallelism: 'number',
+      pipelines: { 'type': 'array', 'itemType': Node },
+      when: 'string',
+      withItems: { 'type': 'array', 'itemType': 'string' },
+      withParam: 'string',
+      withSequence: NodeSpecWithSequence,
     };
   }
 
@@ -1831,13 +1727,39 @@ export class GetNodeResponseBodySpec extends $tea.Model {
   }
 }
 
-export class GetNodeResponseBodyStatusInfo extends $tea.Model {
+export class NodeStatusInfoConditions extends $tea.Model {
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodeStatusInfo extends $tea.Model {
+  conditions?: NodeStatusInfoConditions[];
   finishedAt?: string;
+  progress?: string;
   startedAt?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      conditions: 'Conditions',
       finishedAt: 'FinishedAt',
+      progress: 'Progress',
       startedAt: 'StartedAt',
       status: 'Status',
     };
@@ -1845,7 +1767,9 @@ export class GetNodeResponseBodyStatusInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      conditions: { 'type': 'array', 'itemType': NodeStatusInfoConditions },
       finishedAt: 'string',
+      progress: 'string',
       startedAt: 'string',
       status: 'string',
     };
@@ -1856,7 +1780,193 @@ export class GetNodeResponseBodyStatusInfo extends $tea.Model {
   }
 }
 
-export class ListNodeOutputsResponseBodyOutputs extends $tea.Model {
+export class GetPipelineRunNodeResponseBodyMetadata extends $tea.Model {
+  displayName?: string;
+  identifier?: string;
+  name?: string;
+  nodeId?: string;
+  nodeType?: string;
+  provider?: string;
+  relatedNodeIds?: string[];
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      identifier: 'Identifier',
+      name: 'Name',
+      nodeId: 'NodeId',
+      nodeType: 'NodeType',
+      provider: 'Provider',
+      relatedNodeIds: 'RelatedNodeIds',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      identifier: 'string',
+      name: 'string',
+      nodeId: 'string',
+      nodeType: 'string',
+      provider: 'string',
+      relatedNodeIds: { 'type': 'array', 'itemType': 'string' },
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineRunNodeResponseBodySpecInputs extends $tea.Model {
+  artifacts?: { [key: string]: any }[];
+  parameters?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      artifacts: 'Artifacts',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifacts: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      parameters: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineRunNodeResponseBodySpecOutputs extends $tea.Model {
+  artifacts?: { [key: string]: any }[];
+  parameters?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      artifacts: 'Artifacts',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifacts: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      parameters: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineRunNodeResponseBodySpecWithSequence extends $tea.Model {
+  end?: number;
+  format?: string;
+  start?: number;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      format: 'Format',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'number',
+      format: 'string',
+      start: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineRunNodeResponseBodySpec extends $tea.Model {
+  dependencies?: string[];
+  hasPipelines?: boolean;
+  inputs?: GetPipelineRunNodeResponseBodySpecInputs;
+  outputs?: GetPipelineRunNodeResponseBodySpecOutputs;
+  parallelism?: number;
+  pipelines?: { [key: string]: any }[];
+  when?: string;
+  withItems?: string[];
+  withParam?: string;
+  withSequence?: GetPipelineRunNodeResponseBodySpecWithSequence;
+  static names(): { [key: string]: string } {
+    return {
+      dependencies: 'Dependencies',
+      hasPipelines: 'HasPipelines',
+      inputs: 'Inputs',
+      outputs: 'Outputs',
+      parallelism: 'Parallelism',
+      pipelines: 'Pipelines',
+      when: 'When',
+      withItems: 'WithItems',
+      withParam: 'WithParam',
+      withSequence: 'WithSequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dependencies: { 'type': 'array', 'itemType': 'string' },
+      hasPipelines: 'boolean',
+      inputs: GetPipelineRunNodeResponseBodySpecInputs,
+      outputs: GetPipelineRunNodeResponseBodySpecOutputs,
+      parallelism: 'number',
+      pipelines: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      when: 'string',
+      withItems: { 'type': 'array', 'itemType': 'string' },
+      withParam: 'string',
+      withSequence: GetPipelineRunNodeResponseBodySpecWithSequence,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineRunNodeResponseBodyStatusInfo extends $tea.Model {
+  conditions?: { [key: string]: any }[];
+  finishedAt?: string;
+  progress?: string;
+  startedAt?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      finishedAt: 'FinishedAt',
+      progress: 'Progress',
+      startedAt: 'StartedAt',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      finishedAt: 'string',
+      progress: 'string',
+      startedAt: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineRunNodeOutputsResponseBodyOutputs extends $tea.Model {
   expandableArtifactName?: string;
   expandedArtifactIndex?: number;
   gmtCreateTime?: string;
@@ -1866,7 +1976,6 @@ export class ListNodeOutputsResponseBodyOutputs extends $tea.Model {
   nodeId?: string;
   producer?: string;
   type?: string;
-  value?: string;
   static names(): { [key: string]: string } {
     return {
       expandableArtifactName: 'ExpandableArtifactName',
@@ -1878,7 +1987,6 @@ export class ListNodeOutputsResponseBodyOutputs extends $tea.Model {
       nodeId: 'NodeId',
       producer: 'Producer',
       type: 'Type',
-      value: 'Value',
     };
   }
 
@@ -1893,7 +2001,6 @@ export class ListNodeOutputsResponseBodyOutputs extends $tea.Model {
       nodeId: 'string',
       producer: 'string',
       type: 'string',
-      value: 'string',
     };
   }
 
@@ -1902,7 +2009,7 @@ export class ListNodeOutputsResponseBodyOutputs extends $tea.Model {
   }
 }
 
-export class ListNodeStatusResponseBodyStatus extends $tea.Model {
+export class ListPipelineRunNodeStatusResponseBodyStatus extends $tea.Model {
   finishedAt?: string;
   nodeId?: string;
   nodeName?: string;
@@ -1928,6 +2035,227 @@ export class ListNodeStatusResponseBodyStatus extends $tea.Model {
       runtimeInfo: 'string',
       startedAt: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineRunsResponseBodyPipelineRuns extends $tea.Model {
+  accessibility?: string;
+  duration?: number;
+  finishedAt?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  message?: string;
+  name?: string;
+  nodeId?: string;
+  parentUserId?: string;
+  pipelineId?: string;
+  pipelineRunId?: string;
+  pipelineRunUri?: string;
+  sourceId?: string;
+  sourceType?: string;
+  startedAt?: string;
+  status?: string;
+  userId?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessibility: 'Accessibility',
+      duration: 'Duration',
+      finishedAt: 'FinishedAt',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      message: 'Message',
+      name: 'Name',
+      nodeId: 'NodeId',
+      parentUserId: 'ParentUserId',
+      pipelineId: 'PipelineId',
+      pipelineRunId: 'PipelineRunId',
+      pipelineRunUri: 'PipelineRunUri',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
+      startedAt: 'StartedAt',
+      status: 'Status',
+      userId: 'UserId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessibility: 'string',
+      duration: 'number',
+      finishedAt: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      message: 'string',
+      name: 'string',
+      nodeId: 'string',
+      parentUserId: 'string',
+      pipelineId: 'string',
+      pipelineRunId: 'string',
+      pipelineRunUri: 'string',
+      sourceId: 'string',
+      sourceType: 'string',
+      startedAt: 'string',
+      status: 'string',
+      userId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineRunsStatusRequestNodes extends $tea.Model {
+  nodeId?: string;
+  pipelineRunId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      pipelineRunId: 'PipelineRunId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      pipelineRunId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineRunsStatusResponseBodyNodes extends $tea.Model {
+  finishedAt?: string;
+  inputArtifactArchived?: boolean;
+  nodeId?: string;
+  nodeName?: string;
+  outputArtifactArchived?: boolean;
+  pipelineRunId?: string;
+  startedAt?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      finishedAt: 'FinishedAt',
+      inputArtifactArchived: 'InputArtifactArchived',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      outputArtifactArchived: 'OutputArtifactArchived',
+      pipelineRunId: 'PipelineRunId',
+      startedAt: 'StartedAt',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      finishedAt: 'string',
+      inputArtifactArchived: 'boolean',
+      nodeId: 'string',
+      nodeName: 'string',
+      outputArtifactArchived: 'boolean',
+      pipelineRunId: 'string',
+      startedAt: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineRunsStatusResponseBodyOutputs extends $tea.Model {
+  expandableArtifactName?: string;
+  expandedArtifactIndex?: number;
+  gmtCreateTime?: string;
+  id?: string;
+  metadata?: { [key: string]: any };
+  name?: string;
+  nodeId?: string;
+  pipelineRunId?: string;
+  producer?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expandableArtifactName: 'ExpandableArtifactName',
+      expandedArtifactIndex: 'ExpandedArtifactIndex',
+      gmtCreateTime: 'GmtCreateTime',
+      id: 'Id',
+      metadata: 'Metadata',
+      name: 'Name',
+      nodeId: 'NodeId',
+      pipelineRunId: 'PipelineRunId',
+      producer: 'Producer',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expandableArtifactName: 'string',
+      expandedArtifactIndex: 'number',
+      gmtCreateTime: 'string',
+      id: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      name: 'string',
+      nodeId: 'string',
+      pipelineRunId: 'string',
+      producer: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineRunsStatusResponseBodyPipelineRuns extends $tea.Model {
+  isDeleted?: boolean;
+  name?: string;
+  nodeId?: string;
+  parentUserId?: string;
+  pipelineRunId?: string;
+  sourceId?: string;
+  status?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isDeleted: 'IsDeleted',
+      name: 'Name',
+      nodeId: 'NodeId',
+      parentUserId: 'ParentUserId',
+      pipelineRunId: 'PipelineRunId',
+      sourceId: 'SourceId',
+      status: 'Status',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isDeleted: 'boolean',
+      name: 'string',
+      nodeId: 'string',
+      parentUserId: 'string',
+      pipelineRunId: 'string',
+      sourceId: 'string',
+      status: 'string',
+      userId: 'string',
     };
   }
 
@@ -1976,194 +2304,12 @@ export class ListPipelinesResponseBodyPipelines extends $tea.Model {
   }
 }
 
-export class ListRunsResponseBodyRuns extends $tea.Model {
-  accessibility?: string;
-  duration?: number;
-  experimentId?: string;
-  finishedAt?: number;
-  gmtCreateTime?: string;
-  gmtModifiedTime?: string;
-  message?: string;
-  name?: string;
-  nodeId?: string;
-  parentUserId?: string;
-  runId?: string;
-  source?: string;
-  startedAt?: number;
-  status?: string;
-  userId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessibility: 'Accessibility',
-      duration: 'Duration',
-      experimentId: 'ExperimentId',
-      finishedAt: 'FinishedAt',
-      gmtCreateTime: 'GmtCreateTime',
-      gmtModifiedTime: 'GmtModifiedTime',
-      message: 'Message',
-      name: 'Name',
-      nodeId: 'NodeId',
-      parentUserId: 'ParentUserId',
-      runId: 'RunId',
-      source: 'Source',
-      startedAt: 'StartedAt',
-      status: 'Status',
-      userId: 'UserId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessibility: 'string',
-      duration: 'number',
-      experimentId: 'string',
-      finishedAt: 'number',
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
-      message: 'string',
-      name: 'string',
-      nodeId: 'string',
-      parentUserId: 'string',
-      runId: 'string',
-      source: 'string',
-      startedAt: 'number',
-      status: 'string',
-      userId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRunsStatusRequestNodes extends $tea.Model {
-  nodeId?: string;
-  runId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nodeId: 'NodeId',
-      runId: 'RunId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodeId: 'string',
-      runId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRunsStatusResponseBodyNodes extends $tea.Model {
-  finishedAt?: string;
-  inputArtifactArchived?: boolean;
-  nodeId?: string;
-  nodeName?: string;
-  outputArtifactArchived?: boolean;
-  runId?: string;
-  startedAt?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      finishedAt: 'FinishedAt',
-      inputArtifactArchived: 'InputArtifactArchived',
-      nodeId: 'NodeId',
-      nodeName: 'NodeName',
-      outputArtifactArchived: 'OutputArtifactArchived',
-      runId: 'RunId',
-      startedAt: 'StartedAt',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      finishedAt: 'string',
-      inputArtifactArchived: 'boolean',
-      nodeId: 'string',
-      nodeName: 'string',
-      outputArtifactArchived: 'boolean',
-      runId: 'string',
-      startedAt: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRunsStatusResponseBodyRuns extends $tea.Model {
-  experimentId?: string;
-  isDeleted?: boolean;
-  name?: string;
-  nodeId?: string;
-  parentUserId?: string;
-  runId?: string;
-  status?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      experimentId: 'ExperimentId',
-      isDeleted: 'IsDeleted',
-      name: 'Name',
-      nodeId: 'NodeId',
-      parentUserId: 'ParentUserId',
-      runId: 'RunId',
-      status: 'Status',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      experimentId: 'string',
-      isDeleted: 'boolean',
-      name: 'string',
-      nodeId: 'string',
-      parentUserId: 'string',
-      runId: 'string',
-      status: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 
 export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._endpointRule = "central";
-    this._endpointMap = {
-      'cn-beijing': "pai.cn-beijing.aliyuncs.com",
-      'cn-hangzhou': "pai.cn-hangzhou.data.aliyun.com",
-      'cn-shanghai': "pai.cn-shanghai.aliyuncs.com",
-      'cn-shenzhen': "pai.cn-shenzhen.aliyuncs.com",
-      'cn-hongkong': "pai.cn-hongkong.aliyuncs.com",
-      'ap-southeast-1': "pai.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-2': "pai.ap-southeast-2.aliyuncs.com",
-      'ap-southeast-3': "pai.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-5': "pai.ap-southeast-5.aliyuncs.com",
-      'us-west-1': "pai.us-west-1.aliyuncs.com",
-      'us-east-1': "pai.us-east-1.aliyuncs.com",
-      'eu-central-1': "pai.eu-central-1.aliyuncs.com",
-      'me-east-1': "pai.me-east-1.aliyuncs.com",
-      'ap-south-1': "pai.ap-south-1.aliyuncs.com",
-    };
+    this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("paiflow", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -2179,12 +2325,6 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
-  }
-
-  async createPipeline(request: CreatePipelineRequest): Promise<CreatePipelineResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createPipelineWithOptions(request, headers, runtime);
   }
 
   async createPipelineWithOptions(request: CreatePipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelineResponse> {
@@ -2216,45 +2356,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePipelineResponse>(await this.callApi(params, req, runtime), new CreatePipelineResponse({}));
   }
 
-  async createPipelineRelease(PipelineId: string, request: CreatePipelineReleaseRequest): Promise<CreatePipelineReleaseResponse> {
+  async createPipeline(request: CreatePipelineRequest): Promise<CreatePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createPipelineReleaseWithOptions(PipelineId, request, headers, runtime);
+    return await this.createPipelineWithOptions(request, headers, runtime);
   }
 
-  async createPipelineReleaseWithOptions(PipelineId: string, request: CreatePipelineReleaseRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelineReleaseResponse> {
-    Util.validateModel(request);
-    PipelineId = OpenApiUtil.getEncodeParam(PipelineId);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.targetPipelineProvider)) {
-      body["TargetPipelineProvider"] = request.targetPipelineProvider;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreatePipelineRelease",
-      version: "2021-02-02",
-      protocol: "HTTPS",
-      pathname: `/api/v1/pipelines/${PipelineId}/releases`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreatePipelineReleaseResponse>(await this.callApi(params, req, runtime), new CreatePipelineReleaseResponse({}));
-  }
-
-  async createRun(request: CreateRunRequest): Promise<CreateRunResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createRunWithOptions(request, headers, runtime);
-  }
-
-  async createRunWithOptions(request: CreateRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRunResponse> {
+  async createPipelineRunWithOptions(request: CreatePipelineRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelineRunResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessibility)) {
@@ -2263,10 +2371,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.arguments)) {
       body["Arguments"] = request.arguments;
-    }
-
-    if (!Util.isUnset(request.experimentId)) {
-      body["ExperimentId"] = request.experimentId;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -2289,8 +2393,12 @@ export default class Client extends OpenApi {
       body["PipelineManifest"] = request.pipelineManifest;
     }
 
-    if (!Util.isUnset(request.source)) {
-      body["Source"] = request.source;
+    if (!Util.isUnset(request.sourceId)) {
+      body["SourceId"] = request.sourceId;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      body["SourceType"] = request.sourceType;
     }
 
     if (!Util.isUnset(request.workspaceId)) {
@@ -2302,27 +2410,26 @@ export default class Client extends OpenApi {
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
-      action: "CreateRun",
+      action: "CreatePipelineRun",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/runs`,
+      pathname: `/api/v1/pipelineruns`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateRunResponse>(await this.callApi(params, req, runtime), new CreateRunResponse({}));
+    return $tea.cast<CreatePipelineRunResponse>(await this.callApi(params, req, runtime), new CreatePipelineRunResponse({}));
   }
 
-  async deletePipeline(PipelineId: string): Promise<DeletePipelineResponse> {
+  async createPipelineRun(request: CreatePipelineRunRequest): Promise<CreatePipelineRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deletePipelineWithOptions(PipelineId, headers, runtime);
+    return await this.createPipelineRunWithOptions(request, headers, runtime);
   }
 
   async deletePipelineWithOptions(PipelineId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePipelineResponse> {
-    PipelineId = OpenApiUtil.getEncodeParam(PipelineId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -2330,7 +2437,7 @@ export default class Client extends OpenApi {
       action: "DeletePipeline",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/pipelines/${PipelineId}`,
+      pathname: `/api/v1/pipelines/${OpenApiUtil.getEncodeParam(PipelineId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -2340,96 +2447,37 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePipelineResponse>(await this.callApi(params, req, runtime), new DeletePipelineResponse({}));
   }
 
-  async deleteRun(RunId: string): Promise<DeleteRunResponse> {
+  async deletePipeline(PipelineId: string): Promise<DeletePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteRunWithOptions(RunId, headers, runtime);
+    return await this.deletePipelineWithOptions(PipelineId, headers, runtime);
   }
 
-  async deleteRunWithOptions(RunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRunResponse> {
-    RunId = OpenApiUtil.getEncodeParam(RunId);
+  async deletePipelineRunWithOptions(PipelineRunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePipelineRunResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
     let params = new $OpenApi.Params({
-      action: "DeleteRun",
+      action: "DeletePipelineRun",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/runs/${RunId}`,
+      pathname: `/api/v1/pipelineruns/${OpenApiUtil.getEncodeParam(PipelineRunId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteRunResponse>(await this.callApi(params, req, runtime), new DeleteRunResponse({}));
+    return $tea.cast<DeletePipelineRunResponse>(await this.callApi(params, req, runtime), new DeletePipelineRunResponse({}));
   }
 
-  async getCallerProvider(): Promise<GetCallerProviderResponse> {
+  async deletePipelineRun(PipelineRunId: string): Promise<DeletePipelineRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getCallerProviderWithOptions(headers, runtime);
-  }
-
-  async getCallerProviderWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCallerProviderResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetCallerProvider",
-      version: "2021-02-02",
-      protocol: "HTTPS",
-      pathname: `/api/v1/provider`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetCallerProviderResponse>(await this.callApi(params, req, runtime), new GetCallerProviderResponse({}));
-  }
-
-  async getNode(RunId: string, NodeId: string, request: GetNodeRequest): Promise<GetNodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getNodeWithOptions(RunId, NodeId, request, headers, runtime);
-  }
-
-  async getNodeWithOptions(RunId: string, NodeId: string, request: GetNodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetNodeResponse> {
-    Util.validateModel(request);
-    RunId = OpenApiUtil.getEncodeParam(RunId);
-    NodeId = OpenApiUtil.getEncodeParam(NodeId);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.depth)) {
-      query["Depth"] = request.depth;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetNode",
-      version: "2021-02-02",
-      protocol: "HTTPS",
-      pathname: `/api/v1/runs/${RunId}/nodes/${NodeId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetNodeResponse>(await this.callApi(params, req, runtime), new GetNodeResponse({}));
-  }
-
-  async getPipeline(PipelineId: string): Promise<GetPipelineResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getPipelineWithOptions(PipelineId, headers, runtime);
+    return await this.deletePipelineRunWithOptions(PipelineRunId, headers, runtime);
   }
 
   async getPipelineWithOptions(PipelineId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineResponse> {
-    PipelineId = OpenApiUtil.getEncodeParam(PipelineId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -2437,7 +2485,7 @@ export default class Client extends OpenApi {
       action: "GetPipeline",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/pipelines/${PipelineId}`,
+      pathname: `/api/v1/pipelines/${OpenApiUtil.getEncodeParam(PipelineId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -2447,43 +2495,21 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPipelineResponse>(await this.callApi(params, req, runtime), new GetPipelineResponse({}));
   }
 
-  async getPipelineSchema(PipelineId: string): Promise<GetPipelineSchemaResponse> {
+  async getPipeline(PipelineId: string): Promise<GetPipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getPipelineSchemaWithOptions(PipelineId, headers, runtime);
+    return await this.getPipelineWithOptions(PipelineId, headers, runtime);
   }
 
-  async getPipelineSchemaWithOptions(PipelineId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineSchemaResponse> {
-    PipelineId = OpenApiUtil.getEncodeParam(PipelineId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetPipelineSchema",
-      version: "2021-02-02",
-      protocol: "HTTPS",
-      pathname: `/api/v1/pipelines/${PipelineId}/schema`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetPipelineSchemaResponse>(await this.callApi(params, req, runtime), new GetPipelineSchemaResponse({}));
-  }
-
-  async getRun(RunId: string, request: GetRunRequest): Promise<GetRunResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getRunWithOptions(RunId, request, headers, runtime);
-  }
-
-  async getRunWithOptions(RunId: string, request: GetRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRunResponse> {
+  async getPipelineRunWithOptions(PipelineRunId: string, request: GetPipelineRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineRunResponse> {
     Util.validateModel(request);
-    RunId = OpenApiUtil.getEncodeParam(RunId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.manifestType)) {
       query["ManifestType"] = request.manifestType;
+    }
+
+    if (!Util.isUnset(request.tokenId)) {
+      query["TokenId"] = request.tokenId;
     }
 
     if (!Util.isUnset(request.verbose)) {
@@ -2495,64 +2521,38 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "GetRun",
+      action: "GetPipelineRun",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/runs/${RunId}`,
+      pathname: `/api/v1/pipelineruns/${OpenApiUtil.getEncodeParam(PipelineRunId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetRunResponse>(await this.callApi(params, req, runtime), new GetRunResponse({}));
+    return $tea.cast<GetPipelineRunResponse>(await this.callApi(params, req, runtime), new GetPipelineRunResponse({}));
   }
 
-  async getRunStatistics(request: GetRunStatisticsRequest): Promise<GetRunStatisticsResponse> {
+  async getPipelineRun(PipelineRunId: string, request: GetPipelineRunRequest): Promise<GetPipelineRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getRunStatisticsWithOptions(request, headers, runtime);
+    return await this.getPipelineRunWithOptions(PipelineRunId, request, headers, runtime);
   }
 
-  async getRunStatisticsWithOptions(tmpReq: GetRunStatisticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRunStatisticsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new GetRunStatisticsShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.status)) {
-      request.statusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.status, "Status", "json");
-    }
-
+  async getPipelineRunNodeWithOptions(PipelineRunId: string, NodeId: string, request: GetPipelineRunNodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineRunNodeResponse> {
+    Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.experimentId)) {
-      query["ExperimentId"] = request.experimentId;
+    if (!Util.isUnset(request.depth)) {
+      query["Depth"] = request.depth;
     }
 
-    if (!Util.isUnset(request.isShowAll)) {
-      query["IsShowAll"] = request.isShowAll;
+    if (!Util.isUnset(request.tokenId)) {
+      query["TokenId"] = request.tokenId;
     }
 
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.pipelineId)) {
-      query["PipelineId"] = request.pipelineId;
-    }
-
-    if (!Util.isUnset(request.scope)) {
-      query["Scope"] = request.scope;
-    }
-
-    if (!Util.isUnset(request.source)) {
-      query["Source"] = request.source;
-    }
-
-    if (!Util.isUnset(request.statusShrink)) {
-      query["Status"] = request.statusShrink;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      query["WorkspaceId"] = request.workspaceId;
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2560,29 +2560,27 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "GetRunStatistics",
+      action: "GetPipelineRunNode",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/statistics/runs`,
+      pathname: `/api/v1/pipelineruns/${OpenApiUtil.getEncodeParam(PipelineRunId)}/nodes/${OpenApiUtil.getEncodeParam(NodeId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetRunStatisticsResponse>(await this.callApi(params, req, runtime), new GetRunStatisticsResponse({}));
+    return $tea.cast<GetPipelineRunNodeResponse>(await this.callApi(params, req, runtime), new GetPipelineRunNodeResponse({}));
   }
 
-  async listNodeLogs(RunId: string, NodeId: string, request: ListNodeLogsRequest): Promise<ListNodeLogsResponse> {
+  async getPipelineRunNode(PipelineRunId: string, NodeId: string, request: GetPipelineRunNodeRequest): Promise<GetPipelineRunNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listNodeLogsWithOptions(RunId, NodeId, request, headers, runtime);
+    return await this.getPipelineRunNodeWithOptions(PipelineRunId, NodeId, request, headers, runtime);
   }
 
-  async listNodeLogsWithOptions(RunId: string, NodeId: string, request: ListNodeLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListNodeLogsResponse> {
+  async listPipelineRunNodeLogsWithOptions(PipelineRunId: string, NodeId: string, request: ListPipelineRunNodeLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineRunNodeLogsResponse> {
     Util.validateModel(request);
-    RunId = OpenApiUtil.getEncodeParam(RunId);
-    NodeId = OpenApiUtil.getEncodeParam(NodeId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.fromTimeInSeconds)) {
       query["FromTimeInSeconds"] = request.fromTimeInSeconds;
@@ -2608,34 +2606,36 @@ export default class Client extends OpenApi {
       query["ToTimeInSeconds"] = request.toTimeInSeconds;
     }
 
+    if (!Util.isUnset(request.tokenId)) {
+      query["TokenId"] = request.tokenId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "ListNodeLogs",
+      action: "ListPipelineRunNodeLogs",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/runs/${RunId}/nodes/${NodeId}/logs`,
+      pathname: `/api/v1/pipelineruns/${OpenApiUtil.getEncodeParam(PipelineRunId)}/nodes/${OpenApiUtil.getEncodeParam(NodeId)}/logs`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListNodeLogsResponse>(await this.callApi(params, req, runtime), new ListNodeLogsResponse({}));
+    return $tea.cast<ListPipelineRunNodeLogsResponse>(await this.callApi(params, req, runtime), new ListPipelineRunNodeLogsResponse({}));
   }
 
-  async listNodeOutputs(RunId: string, NodeId: string, request: ListNodeOutputsRequest): Promise<ListNodeOutputsResponse> {
+  async listPipelineRunNodeLogs(PipelineRunId: string, NodeId: string, request: ListPipelineRunNodeLogsRequest): Promise<ListPipelineRunNodeLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listNodeOutputsWithOptions(RunId, NodeId, request, headers, runtime);
+    return await this.listPipelineRunNodeLogsWithOptions(PipelineRunId, NodeId, request, headers, runtime);
   }
 
-  async listNodeOutputsWithOptions(RunId: string, NodeId: string, request: ListNodeOutputsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListNodeOutputsResponse> {
+  async listPipelineRunNodeOutputsWithOptions(PipelineRunId: string, NodeId: string, request: ListPipelineRunNodeOutputsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineRunNodeOutputsResponse> {
     Util.validateModel(request);
-    RunId = OpenApiUtil.getEncodeParam(RunId);
-    NodeId = OpenApiUtil.getEncodeParam(NodeId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.depth)) {
       query["Depth"] = request.depth;
@@ -2661,6 +2661,10 @@ export default class Client extends OpenApi {
       query["SortBy"] = request.sortBy;
     }
 
+    if (!Util.isUnset(request.tokenId)) {
+      query["TokenId"] = request.tokenId;
+    }
+
     if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
     }
@@ -2670,34 +2674,36 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "ListNodeOutputs",
+      action: "ListPipelineRunNodeOutputs",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/runs/${RunId}/nodes/${NodeId}/outputs`,
+      pathname: `/api/v1/pipelineruns/${OpenApiUtil.getEncodeParam(PipelineRunId)}/nodes/${OpenApiUtil.getEncodeParam(NodeId)}/outputs`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListNodeOutputsResponse>(await this.callApi(params, req, runtime), new ListNodeOutputsResponse({}));
+    return $tea.cast<ListPipelineRunNodeOutputsResponse>(await this.callApi(params, req, runtime), new ListPipelineRunNodeOutputsResponse({}));
   }
 
-  async listNodeStatus(RunId: string, NodeId: string, request: ListNodeStatusRequest): Promise<ListNodeStatusResponse> {
+  async listPipelineRunNodeOutputs(PipelineRunId: string, NodeId: string, request: ListPipelineRunNodeOutputsRequest): Promise<ListPipelineRunNodeOutputsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listNodeStatusWithOptions(RunId, NodeId, request, headers, runtime);
+    return await this.listPipelineRunNodeOutputsWithOptions(PipelineRunId, NodeId, request, headers, runtime);
   }
 
-  async listNodeStatusWithOptions(RunId: string, NodeId: string, request: ListNodeStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListNodeStatusResponse> {
+  async listPipelineRunNodeStatusWithOptions(PipelineRunId: string, NodeId: string, request: ListPipelineRunNodeStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineRunNodeStatusResponse> {
     Util.validateModel(request);
-    RunId = OpenApiUtil.getEncodeParam(RunId);
-    NodeId = OpenApiUtil.getEncodeParam(NodeId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.depth)) {
       query["Depth"] = request.depth;
     }
 
+    if (!Util.isUnset(request.tokenId)) {
+      query["TokenId"] = request.tokenId;
+    }
+
     if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
     }
@@ -2707,48 +2713,141 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "ListNodeStatus",
+      action: "ListPipelineRunNodeStatus",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/runs/${RunId}/nodes/${NodeId}/status`,
+      pathname: `/api/v1/pipelineruns/${OpenApiUtil.getEncodeParam(PipelineRunId)}/nodes/${OpenApiUtil.getEncodeParam(NodeId)}/status`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListNodeStatusResponse>(await this.callApi(params, req, runtime), new ListNodeStatusResponse({}));
+    return $tea.cast<ListPipelineRunNodeStatusResponse>(await this.callApi(params, req, runtime), new ListPipelineRunNodeStatusResponse({}));
   }
 
-  async listPipelinePrivileges(PipelineId: string): Promise<ListPipelinePrivilegesResponse> {
+  async listPipelineRunNodeStatus(PipelineRunId: string, NodeId: string, request: ListPipelineRunNodeStatusRequest): Promise<ListPipelineRunNodeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listPipelinePrivilegesWithOptions(PipelineId, headers, runtime);
+    return await this.listPipelineRunNodeStatusWithOptions(PipelineRunId, NodeId, request, headers, runtime);
   }
 
-  async listPipelinePrivilegesWithOptions(PipelineId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelinePrivilegesResponse> {
-    PipelineId = OpenApiUtil.getEncodeParam(PipelineId);
+  async listPipelineRunsWithOptions(request: ListPipelineRunsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineRunsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.pipelineIds)) {
+      query["PipelineIds"] = request.pipelineIds;
+    }
+
+    if (!Util.isUnset(request.pipelineRunId)) {
+      query["PipelineRunId"] = request.pipelineRunId;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "ListPipelinePrivileges",
+      action: "ListPipelineRuns",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/pipelines/${PipelineId}/privileges`,
+      pathname: `/api/v1/pipelineruns`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListPipelinePrivilegesResponse>(await this.callApi(params, req, runtime), new ListPipelinePrivilegesResponse({}));
+    return $tea.cast<ListPipelineRunsResponse>(await this.callApi(params, req, runtime), new ListPipelineRunsResponse({}));
   }
 
-  async listPipelines(request: ListPipelinesRequest): Promise<ListPipelinesResponse> {
+  async listPipelineRuns(request: ListPipelineRunsRequest): Promise<ListPipelineRunsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listPipelinesWithOptions(request, headers, runtime);
+    return await this.listPipelineRunsWithOptions(request, headers, runtime);
+  }
+
+  async listPipelineRunsStatusWithOptions(request: ListPipelineRunsStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineRunsStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodes)) {
+      body["Nodes"] = request.nodes;
+    }
+
+    if (!Util.isUnset(request.outputType)) {
+      body["OutputType"] = request.outputType;
+    }
+
+    if (!Util.isUnset(request.pipelineRuns)) {
+      body["PipelineRuns"] = request.pipelineRuns;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPipelineRunsStatus",
+      version: "2021-02-02",
+      protocol: "HTTPS",
+      pathname: `/api/v1/pipelineruns`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPipelineRunsStatusResponse>(await this.callApi(params, req, runtime), new ListPipelineRunsStatusResponse({}));
+  }
+
+  async listPipelineRunsStatus(request: ListPipelineRunsStatusRequest): Promise<ListPipelineRunsStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPipelineRunsStatusWithOptions(request, headers, runtime);
   }
 
   async listPipelinesWithOptions(request: ListPipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelinesResponse> {
@@ -2800,183 +2899,86 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPipelinesResponse>(await this.callApi(params, req, runtime), new ListPipelinesResponse({}));
   }
 
-  async listRuns(request: ListRunsRequest): Promise<ListRunsResponse> {
+  async listPipelines(request: ListPipelinesRequest): Promise<ListPipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listRunsWithOptions(request, headers, runtime);
+    return await this.listPipelinesWithOptions(request, headers, runtime);
   }
 
-  async listRunsWithOptions(request: ListRunsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRunsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.experimentId)) {
-      query["ExperimentId"] = request.experimentId;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.order)) {
-      query["Order"] = request.order;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.pipelineId)) {
-      query["PipelineId"] = request.pipelineId;
-    }
-
-    if (!Util.isUnset(request.pipelineIds)) {
-      query["PipelineIds"] = request.pipelineIds;
-    }
-
-    if (!Util.isUnset(request.runId)) {
-      query["RunId"] = request.runId;
-    }
-
-    if (!Util.isUnset(request.sortBy)) {
-      query["SortBy"] = request.sortBy;
-    }
-
-    if (!Util.isUnset(request.source)) {
-      query["Source"] = request.source;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      query["UserId"] = request.userId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      query["WorkspaceId"] = request.workspaceId;
-    }
-
+  async rerunPipelineRunWithOptions(PipelineRunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RerunPipelineRunResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "ListRuns",
+      action: "RerunPipelineRun",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/runs`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListRunsResponse>(await this.callApi(params, req, runtime), new ListRunsResponse({}));
-  }
-
-  async listRunsStatus(request: ListRunsStatusRequest): Promise<ListRunsStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listRunsStatusWithOptions(request, headers, runtime);
-  }
-
-  async listRunsStatusWithOptions(request: ListRunsStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRunsStatusResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.nodes)) {
-      body["Nodes"] = request.nodes;
-    }
-
-    if (!Util.isUnset(request.runs)) {
-      body["Runs"] = request.runs;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListRunsStatus",
-      version: "2021-02-02",
-      protocol: "HTTPS",
-      pathname: `/api/v1/runs`,
+      pathname: `/api/v1/pipelineruns/${OpenApiUtil.getEncodeParam(PipelineRunId)}/rerun`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListRunsStatusResponse>(await this.callApi(params, req, runtime), new ListRunsStatusResponse({}));
+    return $tea.cast<RerunPipelineRunResponse>(await this.callApi(params, req, runtime), new RerunPipelineRunResponse({}));
   }
 
-  async startRun(RunId: string): Promise<StartRunResponse> {
+  async rerunPipelineRun(PipelineRunId: string): Promise<RerunPipelineRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.startRunWithOptions(RunId, headers, runtime);
+    return await this.rerunPipelineRunWithOptions(PipelineRunId, headers, runtime);
   }
 
-  async startRunWithOptions(RunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartRunResponse> {
-    RunId = OpenApiUtil.getEncodeParam(RunId);
+  async startPipelineRunWithOptions(PipelineRunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartPipelineRunResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
     let params = new $OpenApi.Params({
-      action: "StartRun",
+      action: "StartPipelineRun",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/runs/${RunId}/start`,
+      pathname: `/api/v1/pipelineruns/${OpenApiUtil.getEncodeParam(PipelineRunId)}/start`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StartRunResponse>(await this.callApi(params, req, runtime), new StartRunResponse({}));
+    return $tea.cast<StartPipelineRunResponse>(await this.callApi(params, req, runtime), new StartPipelineRunResponse({}));
   }
 
-  async terminateRun(RunId: string): Promise<TerminateRunResponse> {
+  async startPipelineRun(PipelineRunId: string): Promise<StartPipelineRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.terminateRunWithOptions(RunId, headers, runtime);
+    return await this.startPipelineRunWithOptions(PipelineRunId, headers, runtime);
   }
 
-  async terminateRunWithOptions(RunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TerminateRunResponse> {
-    RunId = OpenApiUtil.getEncodeParam(RunId);
+  async terminatePipelineRunWithOptions(PipelineRunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TerminatePipelineRunResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
     let params = new $OpenApi.Params({
-      action: "TerminateRun",
+      action: "TerminatePipelineRun",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/runs/${RunId}/termination`,
+      pathname: `/api/v1/pipelineruns/${OpenApiUtil.getEncodeParam(PipelineRunId)}/termination`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<TerminateRunResponse>(await this.callApi(params, req, runtime), new TerminateRunResponse({}));
+    return $tea.cast<TerminatePipelineRunResponse>(await this.callApi(params, req, runtime), new TerminatePipelineRunResponse({}));
   }
 
-  async updatePipeline(PipelineId: string, request: UpdatePipelineRequest): Promise<UpdatePipelineResponse> {
+  async terminatePipelineRun(PipelineRunId: string): Promise<TerminatePipelineRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updatePipelineWithOptions(PipelineId, request, headers, runtime);
+    return await this.terminatePipelineRunWithOptions(PipelineRunId, headers, runtime);
   }
 
   async updatePipelineWithOptions(PipelineId: string, request: UpdatePipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineResponse> {
     Util.validateModel(request);
-    PipelineId = OpenApiUtil.getEncodeParam(PipelineId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.manifest)) {
       body["Manifest"] = request.manifest;
@@ -2990,7 +2992,7 @@ export default class Client extends OpenApi {
       action: "UpdatePipeline",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/pipelines/${PipelineId}`,
+      pathname: `/api/v1/pipelines/${OpenApiUtil.getEncodeParam(PipelineId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -3000,47 +3002,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePipelineResponse>(await this.callApi(params, req, runtime), new UpdatePipelineResponse({}));
   }
 
-  async updatePipelinePrivileges(PipelineId: string, request: UpdatePipelinePrivilegesRequest): Promise<UpdatePipelinePrivilegesResponse> {
+  async updatePipeline(PipelineId: string, request: UpdatePipelineRequest): Promise<UpdatePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updatePipelinePrivilegesWithOptions(PipelineId, request, headers, runtime);
+    return await this.updatePipelineWithOptions(PipelineId, request, headers, runtime);
   }
 
-  async updatePipelinePrivilegesWithOptions(PipelineId: string, request: UpdatePipelinePrivilegesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelinePrivilegesResponse> {
+  async updatePipelineRunWithOptions(PipelineRunId: string, request: UpdatePipelineRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineRunResponse> {
     Util.validateModel(request);
-    PipelineId = OpenApiUtil.getEncodeParam(PipelineId);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.users)) {
-      body["Users"] = request.users;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdatePipelinePrivileges",
-      version: "2021-02-02",
-      protocol: "HTTPS",
-      pathname: `/api/v1/pipelines/${PipelineId}/privileges`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdatePipelinePrivilegesResponse>(await this.callApi(params, req, runtime), new UpdatePipelinePrivilegesResponse({}));
-  }
-
-  async updateRun(RunId: string, request: UpdateRunRequest): Promise<UpdateRunResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateRunWithOptions(RunId, request, headers, runtime);
-  }
-
-  async updateRunWithOptions(RunId: string, request: UpdateRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRunResponse> {
-    Util.validateModel(request);
-    RunId = OpenApiUtil.getEncodeParam(RunId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
@@ -3051,17 +3020,23 @@ export default class Client extends OpenApi {
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
-      action: "UpdateRun",
+      action: "UpdatePipelineRun",
       version: "2021-02-02",
       protocol: "HTTPS",
-      pathname: `/api/v1/runs/${RunId}`,
+      pathname: `/api/v1/pipelineruns/${OpenApiUtil.getEncodeParam(PipelineRunId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateRunResponse>(await this.callApi(params, req, runtime), new UpdateRunResponse({}));
+    return $tea.cast<UpdatePipelineRunResponse>(await this.callApi(params, req, runtime), new UpdatePipelineRunResponse({}));
+  }
+
+  async updatePipelineRun(PipelineRunId: string, request: UpdatePipelineRunRequest): Promise<UpdatePipelineRunResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updatePipelineRunWithOptions(PipelineRunId, request, headers, runtime);
   }
 
 }
