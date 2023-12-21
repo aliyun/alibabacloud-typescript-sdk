@@ -2339,6 +2339,7 @@ export class CreateDeliveryPlanRequest extends $tea.Model {
   endTime?: number;
   resId?: string;
   startTime?: number;
+  tenantContext?: CreateDeliveryPlanRequestTenantContext;
   userIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2346,6 +2347,7 @@ export class CreateDeliveryPlanRequest extends $tea.Model {
       endTime: 'EndTime',
       resId: 'ResId',
       startTime: 'StartTime',
+      tenantContext: 'TenantContext',
       userIdList: 'UserIdList',
     };
   }
@@ -2356,6 +2358,7 @@ export class CreateDeliveryPlanRequest extends $tea.Model {
       endTime: 'number',
       resId: 'string',
       startTime: 'number',
+      tenantContext: CreateDeliveryPlanRequestTenantContext,
       userIdList: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -2370,6 +2373,7 @@ export class CreateDeliveryPlanShrinkRequest extends $tea.Model {
   endTime?: number;
   resId?: string;
   startTime?: number;
+  tenantContextShrink?: string;
   userIdListShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2377,6 +2381,7 @@ export class CreateDeliveryPlanShrinkRequest extends $tea.Model {
       endTime: 'EndTime',
       resId: 'ResId',
       startTime: 'StartTime',
+      tenantContextShrink: 'TenantContext',
       userIdListShrink: 'UserIdList',
     };
   }
@@ -2387,6 +2392,7 @@ export class CreateDeliveryPlanShrinkRequest extends $tea.Model {
       endTime: 'number',
       resId: 'string',
       startTime: 'number',
+      tenantContextShrink: 'string',
       userIdListShrink: 'string',
     };
   }
@@ -17984,11 +17990,13 @@ export class SendBannerRequest extends $tea.Model {
   content?: { [key: string]: any };
   endTime?: number;
   startTime?: number;
+  tenantContext?: SendBannerRequestTenantContext;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
       endTime: 'EndTime',
       startTime: 'StartTime',
+      tenantContext: 'TenantContext',
     };
   }
 
@@ -17997,6 +18005,7 @@ export class SendBannerRequest extends $tea.Model {
       content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       endTime: 'number',
       startTime: 'number',
+      tenantContext: SendBannerRequestTenantContext,
     };
   }
 
@@ -18009,11 +18018,13 @@ export class SendBannerShrinkRequest extends $tea.Model {
   contentShrink?: string;
   endTime?: number;
   startTime?: number;
+  tenantContextShrink?: string;
   static names(): { [key: string]: string } {
     return {
       contentShrink: 'Content',
       endTime: 'EndTime',
       startTime: 'StartTime',
+      tenantContextShrink: 'TenantContext',
     };
   }
 
@@ -18022,6 +18033,7 @@ export class SendBannerShrinkRequest extends $tea.Model {
       contentShrink: 'string',
       endTime: 'number',
       startTime: 'number',
+      tenantContextShrink: 'string',
     };
   }
 
@@ -18134,11 +18146,13 @@ export class SendPopupRequest extends $tea.Model {
   content?: { [key: string]: any };
   endTime?: number;
   startTime?: number;
+  tenantContext?: SendPopupRequestTenantContext;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
       endTime: 'EndTime',
       startTime: 'StartTime',
+      tenantContext: 'TenantContext',
     };
   }
 
@@ -18147,6 +18161,7 @@ export class SendPopupRequest extends $tea.Model {
       content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       endTime: 'number',
       startTime: 'number',
+      tenantContext: SendPopupRequestTenantContext,
     };
   }
 
@@ -18159,11 +18174,13 @@ export class SendPopupShrinkRequest extends $tea.Model {
   contentShrink?: string;
   endTime?: number;
   startTime?: number;
+  tenantContextShrink?: string;
   static names(): { [key: string]: string } {
     return {
       contentShrink: 'Content',
       endTime: 'EndTime',
       startTime: 'StartTime',
+      tenantContextShrink: 'TenantContext',
     };
   }
 
@@ -18172,6 +18189,7 @@ export class SendPopupShrinkRequest extends $tea.Model {
       contentShrink: 'string',
       endTime: 'number',
       startTime: 'number',
+      tenantContextShrink: 'string',
     };
   }
 
@@ -18284,11 +18302,13 @@ export class SendSearchShadeRequest extends $tea.Model {
   content?: { [key: string]: any };
   endTime?: number;
   startTime?: number;
+  tenantContext?: SendSearchShadeRequestTenantContext;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
       endTime: 'EndTime',
       startTime: 'StartTime',
+      tenantContext: 'TenantContext',
     };
   }
 
@@ -18297,6 +18317,7 @@ export class SendSearchShadeRequest extends $tea.Model {
       content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       endTime: 'number',
       startTime: 'number',
+      tenantContext: SendSearchShadeRequestTenantContext,
     };
   }
 
@@ -18309,11 +18330,13 @@ export class SendSearchShadeShrinkRequest extends $tea.Model {
   contentShrink?: string;
   endTime?: number;
   startTime?: number;
+  tenantContextShrink?: string;
   static names(): { [key: string]: string } {
     return {
       contentShrink: 'Content',
       endTime: 'EndTime',
       startTime: 'StartTime',
+      tenantContextShrink: 'TenantContext',
     };
   }
 
@@ -18322,6 +18345,7 @@ export class SendSearchShadeShrinkRequest extends $tea.Model {
       contentShrink: 'string',
       endTime: 'number',
       startTime: 'number',
+      tenantContextShrink: 'string',
     };
   }
 
@@ -23169,6 +23193,25 @@ export class CreateDeliveryPlanHeadersAccountContext extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeliveryPlanRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
     };
   }
 
@@ -33291,6 +33334,25 @@ export class SendBannerHeadersAccountContext extends $tea.Model {
   }
 }
 
+export class SendBannerRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendPopupHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -33310,6 +33372,25 @@ export class SendPopupHeadersAccountContext extends $tea.Model {
   }
 }
 
+export class SendPopupRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendSearchShadeHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -33321,6 +33402,25 @@ export class SendSearchShadeHeadersAccountContext extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSearchShadeRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
     };
   }
 
@@ -35417,6 +35517,10 @@ export default class Client extends OpenApi {
       request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
     }
 
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
     if (!Util.isUnset(tmpReq.userIdList)) {
       request.userIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userIdList, "UserIdList", "json");
     }
@@ -35436,6 +35540,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
     }
 
     if (!Util.isUnset(request.userIdListShrink)) {
@@ -42503,6 +42611,10 @@ export default class Client extends OpenApi {
       request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
     }
 
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.contentShrink)) {
       body["Content"] = request.contentShrink;
@@ -42514,6 +42626,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -42563,6 +42679,10 @@ export default class Client extends OpenApi {
       request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
     }
 
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.contentShrink)) {
       body["Content"] = request.contentShrink;
@@ -42574,6 +42694,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -42623,6 +42747,10 @@ export default class Client extends OpenApi {
       request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
     }
 
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.contentShrink)) {
       body["Content"] = request.contentShrink;
@@ -42634,6 +42762,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
