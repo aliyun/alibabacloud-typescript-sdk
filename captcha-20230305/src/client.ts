@@ -181,15 +181,18 @@ export class VerifyCaptchaResponseBodyResult extends $tea.Model {
 }
 
 export class VerifyIntelligentCaptchaResponseBodyResult extends $tea.Model {
+  verifyCode?: string;
   verifyResult?: boolean;
   static names(): { [key: string]: string } {
     return {
+      verifyCode: 'VerifyCode',
       verifyResult: 'VerifyResult',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      verifyCode: 'string',
       verifyResult: 'boolean',
     };
   }
