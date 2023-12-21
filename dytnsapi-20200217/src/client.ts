@@ -8,6 +8,96 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CertNoTwoElementVerificationRequest extends $tea.Model {
+  authCode?: string;
+  certName?: string;
+  certNo?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      certName: 'CertName',
+      certNo: 'CertNo',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      certName: 'string',
+      certNo: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CertNoTwoElementVerificationResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: CertNoTwoElementVerificationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: CertNoTwoElementVerificationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CertNoTwoElementVerificationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CertNoTwoElementVerificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CertNoTwoElementVerificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CompanyFourElementsVerificationRequest extends $tea.Model {
   authCode?: string;
   epCertName?: string;
@@ -549,6 +639,99 @@ export class DescribePhoneNumberAnalysisAIResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribePhoneNumberAnalysisAIResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAnalysisTransparentRequest extends $tea.Model {
+  authCode?: string;
+  inputNumber?: string;
+  ip?: string;
+  numberType?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      inputNumber: 'InputNumber',
+      ip: 'Ip',
+      numberType: 'NumberType',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      inputNumber: 'string',
+      ip: 'string',
+      numberType: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAnalysisTransparentResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: DescribePhoneNumberAnalysisTransparentResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: DescribePhoneNumberAnalysisTransparentResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAnalysisTransparentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePhoneNumberAnalysisTransparentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePhoneNumberAnalysisTransparentResponseBody,
     };
   }
 
@@ -2516,6 +2699,25 @@ export class UAIDVerificationResponse extends $tea.Model {
   }
 }
 
+export class CertNoTwoElementVerificationResponseBodyData extends $tea.Model {
+  isConsistent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isConsistent: 'IsConsistent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isConsistent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CompanyFourElementsVerificationResponseBodyDataDetailInfo extends $tea.Model {
   enterpriseStatus?: string;
   openTime?: string;
@@ -2743,6 +2945,37 @@ export class DescribePhoneNumberAnalysisAIResponseBodyData extends $tea.Model {
     return {
       code: 'string',
       number: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAnalysisTransparentResponseBodyData extends $tea.Model {
+  deviceRisk?: string;
+  ipRisk?: string;
+  score1?: string;
+  score2?: string;
+  score3?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceRisk: 'Device_risk',
+      ipRisk: 'Ip_risk',
+      score1: 'Score1',
+      score2: 'Score2',
+      score3: 'Score3',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceRisk: 'string',
+      ipRisk: 'string',
+      score1: 'string',
+      score2: 'string',
+      score3: 'string',
     };
   }
 
@@ -3464,6 +3697,55 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async certNoTwoElementVerificationWithOptions(request: CertNoTwoElementVerificationRequest, runtime: $Util.RuntimeOptions): Promise<CertNoTwoElementVerificationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.certName)) {
+      query["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.certNo)) {
+      query["CertNo"] = request.certNo;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CertNoTwoElementVerification",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CertNoTwoElementVerificationResponse>(await this.callApi(params, req, runtime), new CertNoTwoElementVerificationResponse({}));
+  }
+
+  async certNoTwoElementVerification(request: CertNoTwoElementVerificationRequest): Promise<CertNoTwoElementVerificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.certNoTwoElementVerificationWithOptions(request, runtime);
+  }
+
   /**
     * *   Before you call this operation, make sure that you are familiar with the billing of services related to four-element verification for enterprises. For more information, see [Billing](https://help.aliyun.com/document_detail/154751.html?spm=a2c4g.154007.0.0.3edd7eb6E90YT4).
     * *   You are charged only if the value of VerifyResult is true or false and the value of ReasonCode is 0, 1, or 2.
@@ -3871,6 +4153,59 @@ export default class Client extends OpenApi {
   async describePhoneNumberAnalysisAI(request: DescribePhoneNumberAnalysisAIRequest): Promise<DescribePhoneNumberAnalysisAIResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePhoneNumberAnalysisAIWithOptions(request, runtime);
+  }
+
+  async describePhoneNumberAnalysisTransparentWithOptions(request: DescribePhoneNumberAnalysisTransparentRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhoneNumberAnalysisTransparentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.inputNumber)) {
+      query["InputNumber"] = request.inputNumber;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.numberType)) {
+      query["NumberType"] = request.numberType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePhoneNumberAnalysisTransparent",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePhoneNumberAnalysisTransparentResponse>(await this.callApi(params, req, runtime), new DescribePhoneNumberAnalysisTransparentResponse({}));
+  }
+
+  async describePhoneNumberAnalysisTransparent(request: DescribePhoneNumberAnalysisTransparentRequest): Promise<DescribePhoneNumberAnalysisTransparentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePhoneNumberAnalysisTransparentWithOptions(request, runtime);
   }
 
   /**
