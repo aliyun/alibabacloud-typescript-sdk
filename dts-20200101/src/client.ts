@@ -8465,6 +8465,129 @@ export class ModifyDtsJobDuLimitResponse extends $tea.Model {
   }
 }
 
+export class ModifyDtsJobEndpointRequest extends $tea.Model {
+  aliyunUid?: string;
+  database?: string;
+  dryRun?: boolean;
+  dtsInstanceId?: string;
+  dtsJobId?: string;
+  endpoint?: string;
+  endpointInstanceId?: string;
+  endpointInstanceType?: string;
+  endpointIp?: string;
+  endpointPort?: string;
+  password?: string;
+  regionId?: string;
+  roleName?: string;
+  shardPassword?: string;
+  shardUsername?: string;
+  synchronizationDirection?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunUid: 'AliyunUid',
+      database: 'Database',
+      dryRun: 'DryRun',
+      dtsInstanceId: 'DtsInstanceId',
+      dtsJobId: 'DtsJobId',
+      endpoint: 'Endpoint',
+      endpointInstanceId: 'EndpointInstanceId',
+      endpointInstanceType: 'EndpointInstanceType',
+      endpointIp: 'EndpointIp',
+      endpointPort: 'EndpointPort',
+      password: 'Password',
+      regionId: 'RegionId',
+      roleName: 'RoleName',
+      shardPassword: 'ShardPassword',
+      shardUsername: 'ShardUsername',
+      synchronizationDirection: 'SynchronizationDirection',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunUid: 'string',
+      database: 'string',
+      dryRun: 'boolean',
+      dtsInstanceId: 'string',
+      dtsJobId: 'string',
+      endpoint: 'string',
+      endpointInstanceId: 'string',
+      endpointInstanceType: 'string',
+      endpointIp: 'string',
+      endpointPort: 'string',
+      password: 'string',
+      regionId: 'string',
+      roleName: 'string',
+      shardPassword: 'string',
+      shardUsername: 'string',
+      synchronizationDirection: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDtsJobEndpointResponseBody extends $tea.Model {
+  errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDtsJobEndpointResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyDtsJobEndpointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDtsJobEndpointResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDtsJobNameRequest extends $tea.Model {
   dtsJobId?: string;
   dtsJobName?: string;
@@ -25458,6 +25581,99 @@ export default class Client extends OpenApi {
   async modifyDtsJobDuLimit(request: ModifyDtsJobDuLimitRequest): Promise<ModifyDtsJobDuLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDtsJobDuLimitWithOptions(request, runtime);
+  }
+
+  async modifyDtsJobEndpointWithOptions(request: ModifyDtsJobEndpointRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDtsJobEndpointResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunUid)) {
+      query["AliyunUid"] = request.aliyunUid;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.dtsInstanceId)) {
+      query["DtsInstanceId"] = request.dtsInstanceId;
+    }
+
+    if (!Util.isUnset(request.dtsJobId)) {
+      query["DtsJobId"] = request.dtsJobId;
+    }
+
+    if (!Util.isUnset(request.endpoint)) {
+      query["Endpoint"] = request.endpoint;
+    }
+
+    if (!Util.isUnset(request.endpointInstanceId)) {
+      query["EndpointInstanceId"] = request.endpointInstanceId;
+    }
+
+    if (!Util.isUnset(request.endpointInstanceType)) {
+      query["EndpointInstanceType"] = request.endpointInstanceType;
+    }
+
+    if (!Util.isUnset(request.endpointIp)) {
+      query["EndpointIp"] = request.endpointIp;
+    }
+
+    if (!Util.isUnset(request.endpointPort)) {
+      query["EndpointPort"] = request.endpointPort;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
+    if (!Util.isUnset(request.shardPassword)) {
+      query["ShardPassword"] = request.shardPassword;
+    }
+
+    if (!Util.isUnset(request.shardUsername)) {
+      query["ShardUsername"] = request.shardUsername;
+    }
+
+    if (!Util.isUnset(request.synchronizationDirection)) {
+      query["SynchronizationDirection"] = request.synchronizationDirection;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDtsJobEndpoint",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDtsJobEndpointResponse>(await this.callApi(params, req, runtime), new ModifyDtsJobEndpointResponse({}));
+  }
+
+  async modifyDtsJobEndpoint(request: ModifyDtsJobEndpointRequest): Promise<ModifyDtsJobEndpointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDtsJobEndpointWithOptions(request, runtime);
   }
 
   async modifyDtsJobNameWithOptions(request: ModifyDtsJobNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDtsJobNameResponse> {
