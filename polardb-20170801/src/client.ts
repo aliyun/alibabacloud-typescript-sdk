@@ -5966,6 +5966,87 @@ export class DescribeDBProxyPerformanceResponse extends $tea.Model {
   }
 }
 
+export class DescribeDasConfigRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDasConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  storageAutoScale?: string;
+  storageUpperBound?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      storageAutoScale: 'StorageAutoScale',
+      storageUpperBound: 'StorageUpperBound',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      storageAutoScale: 'string',
+      storageUpperBound: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDasConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDasConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDasConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDatabasesRequest extends $tea.Model {
   DBClusterId?: string;
   DBName?: string;
@@ -8496,6 +8577,7 @@ export class FailoverDBClusterRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  rollBackForDisaster?: boolean;
   targetDBNodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8505,6 +8587,7 @@ export class FailoverDBClusterRequest extends $tea.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      rollBackForDisaster: 'RollBackForDisaster',
       targetDBNodeId: 'TargetDBNodeId',
     };
   }
@@ -8517,6 +8600,7 @@ export class FailoverDBClusterRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      rollBackForDisaster: 'boolean',
       targetDBNodeId: 'string',
     };
   }
@@ -13791,6 +13875,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   sccMode?: string;
   serverWeight?: string;
   serverlessType?: string;
+  subCluster?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13811,6 +13896,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       sccMode: 'SccMode',
       serverWeight: 'ServerWeight',
       serverlessType: 'ServerlessType',
+      subCluster: 'SubCluster',
       zoneId: 'ZoneId',
     };
   }
@@ -13834,6 +13920,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       sccMode: 'string',
       serverWeight: 'string',
       serverlessType: 'string',
+      subCluster: 'string',
       zoneId: 'string',
     };
   }
@@ -14061,11 +14148,13 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointList extends
   addressItems?: DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressItems[];
   DBEndpointId?: string;
   endpointType?: string;
+  readWriteMode?: string;
   static names(): { [key: string]: string } {
     return {
       addressItems: 'AddressItems',
       DBEndpointId: 'DBEndpointId',
       endpointType: 'EndpointType',
+      readWriteMode: 'ReadWriteMode',
     };
   }
 
@@ -14074,6 +14163,7 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointList extends
       addressItems: { 'type': 'array', 'itemType': DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressItems },
       DBEndpointId: 'string',
       endpointType: 'string',
+      readWriteMode: 'string',
     };
   }
 
@@ -14121,11 +14211,13 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems e
 
 export class DescribeDBClusterMigrationResponseBodyRdsEndpointList extends $tea.Model {
   addressItems?: DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems[];
+  custinsType?: string;
   DBEndpointId?: string;
   endpointType?: string;
   static names(): { [key: string]: string } {
     return {
       addressItems: 'AddressItems',
+      custinsType: 'CustinsType',
       DBEndpointId: 'DBEndpointId',
       endpointType: 'EndpointType',
     };
@@ -14134,6 +14226,7 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointList extends $tea.
   static types(): { [key: string]: any } {
     return {
       addressItems: { 'type': 'array', 'itemType': DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems },
+      custinsType: 'string',
       DBEndpointId: 'string',
       endpointType: 'string',
     };
@@ -20467,6 +20560,51 @@ export default class Client extends OpenApi {
     return await this.describeDBProxyPerformanceWithOptions(request, runtime);
   }
 
+  async describeDasConfigWithOptions(request: DescribeDasConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDasConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDasConfig",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDasConfigResponse>(await this.callApi(params, req, runtime), new DescribeDasConfigResponse({}));
+  }
+
+  async describeDasConfig(request: DescribeDasConfigRequest): Promise<DescribeDasConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDasConfigWithOptions(request, runtime);
+  }
+
   async describeDatabasesWithOptions(request: DescribeDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatabasesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22132,6 +22270,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.rollBackForDisaster)) {
+      query["RollBackForDisaster"] = request.rollBackForDisaster;
     }
 
     if (!Util.isUnset(request.targetDBNodeId)) {
