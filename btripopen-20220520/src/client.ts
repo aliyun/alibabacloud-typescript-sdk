@@ -46148,6 +46148,7 @@ export class TrainOrderQueryV2ResponseBodyModuleChangeTicketInfoList extends $te
   outTicketStatus?: string;
   segmentIndex?: number;
   startTime?: string;
+  ticketEntrance?: string;
   ticketNo?: string;
   ticketStatus?: number;
   toCityName?: string;
@@ -46175,6 +46176,7 @@ export class TrainOrderQueryV2ResponseBodyModuleChangeTicketInfoList extends $te
       outTicketStatus: 'out_ticket_status',
       segmentIndex: 'segment_index',
       startTime: 'start_time',
+      ticketEntrance: 'ticket_entrance',
       ticketNo: 'ticket_no',
       ticketStatus: 'ticket_status',
       toCityName: 'to_city_name',
@@ -46205,6 +46207,7 @@ export class TrainOrderQueryV2ResponseBodyModuleChangeTicketInfoList extends $te
       outTicketStatus: 'string',
       segmentIndex: 'number',
       startTime: 'string',
+      ticketEntrance: 'string',
       ticketNo: 'string',
       ticketStatus: 'number',
       toCityName: 'string',
@@ -46455,6 +46458,7 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoListTrain
   segmentIndex?: number;
   serviceFee?: number;
   startTime?: string;
+  ticketEntrance?: string;
   ticketNo?: string;
   ticketPrice?: number;
   ticketStatus?: number;
@@ -46477,6 +46481,7 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoListTrain
       segmentIndex: 'segment_index',
       serviceFee: 'service_fee',
       startTime: 'start_time',
+      ticketEntrance: 'ticket_entrance',
       ticketNo: 'ticket_no',
       ticketPrice: 'ticket_price',
       ticketStatus: 'ticket_status',
@@ -46502,6 +46507,7 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoListTrain
       segmentIndex: 'number',
       serviceFee: 'number',
       startTime: 'string',
+      ticketEntrance: 'string',
       ticketNo: 'string',
       ticketPrice: 'number',
       ticketStatus: 'number',
