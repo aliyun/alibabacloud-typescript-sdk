@@ -8,6 +8,81 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DescribeFileModerationResultRequest extends $tea.Model {
+  service?: string;
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeFileModerationResultResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeFileModerationResultResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeFileModerationResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFileModerationResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageModerationResultRequest extends $tea.Model {
   reqId?: string;
   static names(): { [key: string]: string } {
@@ -200,6 +275,81 @@ export class DescribeUploadTokenResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeUploadTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FileModerationRequest extends $tea.Model {
+  service?: string;
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FileModerationResponseBody extends $tea.Model {
+  code?: number;
+  data?: FileModerationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: FileModerationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FileModerationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FileModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FileModerationResponseBody,
     };
   }
 
@@ -877,6 +1027,180 @@ export class VoiceModerationResultResponse extends $tea.Model {
   }
 }
 
+export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult extends $tea.Model {
+  confidence?: number;
+  label?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      label: 'Label',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      label: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation extends $tea.Model {
+  h?: number;
+  w?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'H',
+      w: 'W',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBodyDataPageResultImageResult extends $tea.Model {
+  description?: string;
+  labelResult?: DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult[];
+  location?: DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation;
+  service?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      labelResult: 'LabelResult',
+      location: 'Location',
+      service: 'Service',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      labelResult: { 'type': 'array', 'itemType': DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult },
+      location: DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation,
+      service: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBodyDataPageResultTextResult extends $tea.Model {
+  description?: string;
+  labels?: string;
+  riskTips?: string;
+  riskWords?: string;
+  service?: string;
+  text?: string;
+  textSegment?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      labels: 'Labels',
+      riskTips: 'RiskTips',
+      riskWords: 'RiskWords',
+      service: 'Service',
+      text: 'Text',
+      textSegment: 'TextSegment',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      labels: 'string',
+      riskTips: 'string',
+      riskWords: 'string',
+      service: 'string',
+      text: 'string',
+      textSegment: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBodyDataPageResult extends $tea.Model {
+  imageResult?: DescribeFileModerationResultResponseBodyDataPageResultImageResult[];
+  imageUrl?: string;
+  pageNum?: number;
+  textResult?: DescribeFileModerationResultResponseBodyDataPageResultTextResult[];
+  textUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageResult: 'ImageResult',
+      imageUrl: 'ImageUrl',
+      pageNum: 'PageNum',
+      textResult: 'TextResult',
+      textUrl: 'TextUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageResult: { 'type': 'array', 'itemType': DescribeFileModerationResultResponseBodyDataPageResultImageResult },
+      imageUrl: 'string',
+      pageNum: 'number',
+      textResult: { 'type': 'array', 'itemType': DescribeFileModerationResultResponseBodyDataPageResultTextResult },
+      textUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBodyData extends $tea.Model {
+  dataId?: string;
+  docType?: string;
+  pageResult?: DescribeFileModerationResultResponseBodyDataPageResult[];
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+      docType: 'DocType',
+      pageResult: 'PageResult',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+      docType: 'string',
+      pageResult: { 'type': 'array', 'itemType': DescribeFileModerationResultResponseBodyDataPageResult },
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageModerationResultResponseBodyDataResult extends $tea.Model {
   confidence?: number;
   label?: string;
@@ -1053,6 +1377,25 @@ export class DescribeUploadTokenResponseBodyData extends $tea.Model {
       ossInternalEndPoint: 'string',
       ossInternetEndPoint: 'string',
       securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FileModerationResponseBodyData extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
     };
   }
 
@@ -1503,6 +1846,39 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async describeFileModerationResultWithOptions(request: DescribeFileModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFileModerationResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.service)) {
+      body["Service"] = request.service;
+    }
+
+    if (!Util.isUnset(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFileModerationResult",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFileModerationResultResponse>(await this.callApi(params, req, runtime), new DescribeFileModerationResultResponse({}));
+  }
+
+  async describeFileModerationResult(request: DescribeFileModerationResultRequest): Promise<DescribeFileModerationResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFileModerationResultWithOptions(request, runtime);
+  }
+
   async describeImageModerationResultWithOptions(request: DescribeImageModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageModerationResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1584,6 +1960,39 @@ export default class Client extends OpenApi {
   async describeUploadToken(): Promise<DescribeUploadTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUploadTokenWithOptions(runtime);
+  }
+
+  async fileModerationWithOptions(request: FileModerationRequest, runtime: $Util.RuntimeOptions): Promise<FileModerationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.service)) {
+      body["Service"] = request.service;
+    }
+
+    if (!Util.isUnset(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "FileModeration",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FileModerationResponse>(await this.callApi(params, req, runtime), new FileModerationResponse({}));
+  }
+
+  async fileModeration(request: FileModerationRequest): Promise<FileModerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.fileModerationWithOptions(request, runtime);
   }
 
   async imageAsyncModerationWithOptions(request: ImageAsyncModerationRequest, runtime: $Util.RuntimeOptions): Promise<ImageAsyncModerationResponse> {
