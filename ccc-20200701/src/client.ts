@@ -1342,6 +1342,90 @@ export class CancelAttendedTransferResponse extends $tea.Model {
   }
 }
 
+export class ChangeVisibilityRequest extends $tea.Model {
+  instanceId?: string;
+  invisible?: boolean;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      invisible: 'Invisible',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      invisible: 'boolean',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeVisibilityResponseBody extends $tea.Model {
+  code?: string;
+  data?: ChangeVisibilityResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ChangeVisibilityResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeVisibilityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeVisibilityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeVisibilityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChangeWorkModeRequest extends $tea.Model {
   deviceId?: string;
   instanceId?: string;
@@ -16062,6 +16146,52 @@ export class CancelAttendedTransferResponseBodyData extends $tea.Model {
   }
 }
 
+export class ChangeVisibilityResponseBodyData extends $tea.Model {
+  breakCode?: string;
+  deviceId?: string;
+  extension?: string;
+  instanceId?: string;
+  jobId?: string;
+  outboundScenario?: boolean;
+  signedSkillGroupIdList?: string[];
+  userId?: string;
+  userState?: string;
+  workMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      breakCode: 'BreakCode',
+      deviceId: 'DeviceId',
+      extension: 'Extension',
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+      outboundScenario: 'OutboundScenario',
+      signedSkillGroupIdList: 'SignedSkillGroupIdList',
+      userId: 'UserId',
+      userState: 'UserState',
+      workMode: 'WorkMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakCode: 'string',
+      deviceId: 'string',
+      extension: 'string',
+      instanceId: 'string',
+      jobId: 'string',
+      outboundScenario: 'boolean',
+      signedSkillGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      userId: 'string',
+      userState: 'string',
+      workMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChangeWorkModeResponseBodyData extends $tea.Model {
   breakCode?: string;
   deviceId?: string;
@@ -30083,6 +30213,43 @@ export default class Client extends OpenApi {
     return await this.cancelAttendedTransferWithOptions(request, runtime);
   }
 
+  async changeVisibilityWithOptions(request: ChangeVisibilityRequest, runtime: $Util.RuntimeOptions): Promise<ChangeVisibilityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.invisible)) {
+      query["Invisible"] = request.invisible;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeVisibility",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeVisibilityResponse>(await this.callApi(params, req, runtime), new ChangeVisibilityResponse({}));
+  }
+
+  async changeVisibility(request: ChangeVisibilityRequest): Promise<ChangeVisibilityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeVisibilityWithOptions(request, runtime);
+  }
+
   async changeWorkModeWithOptions(request: ChangeWorkModeRequest, runtime: $Util.RuntimeOptions): Promise<ChangeWorkModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32419,6 +32586,14 @@ export default class Client extends OpenApi {
     return await this.listAgentStateLogsWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : ListAgentStates is deprecated, please use CCC::2020-07-01::ListRealtimeAgentStates instead.
+    *
+    * @param request ListAgentStatesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAgentStatesResponse
+   */
+  // Deprecated
   async listAgentStatesWithOptions(request: ListAgentStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentStatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32467,11 +32642,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAgentStatesResponse>(await this.callApi(params, req, runtime), new ListAgentStatesResponse({}));
   }
 
+  /**
+    * @deprecated : ListAgentStates is deprecated, please use CCC::2020-07-01::ListRealtimeAgentStates instead.
+    *
+    * @param request ListAgentStatesRequest
+    * @return ListAgentStatesResponse
+   */
+  // Deprecated
   async listAgentStates(request: ListAgentStatesRequest): Promise<ListAgentStatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAgentStatesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : ListAgentSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalAgentReport instead.
+    *
+    * @param request ListAgentSummaryReportsSinceMidnightRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAgentSummaryReportsSinceMidnightResponse
+   */
+  // Deprecated
   async listAgentSummaryReportsSinceMidnightWithOptions(request: ListAgentSummaryReportsSinceMidnightRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentSummaryReportsSinceMidnightResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -32492,6 +32682,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAgentSummaryReportsSinceMidnightResponse>(await this.callApi(params, req, runtime), new ListAgentSummaryReportsSinceMidnightResponse({}));
   }
 
+  /**
+    * @deprecated : ListAgentSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalAgentReport instead.
+    *
+    * @param request ListAgentSummaryReportsSinceMidnightRequest
+    * @return ListAgentSummaryReportsSinceMidnightResponse
+   */
+  // Deprecated
   async listAgentSummaryReportsSinceMidnight(request: ListAgentSummaryReportsSinceMidnightRequest): Promise<ListAgentSummaryReportsSinceMidnightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAgentSummaryReportsSinceMidnightWithOptions(request, runtime);
@@ -34283,6 +34480,14 @@ export default class Client extends OpenApi {
     return await this.listRolesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : ListSkillGroupStates is deprecated, please use CCC::2020-07-01::ListRealtimeSkillGroupStates instead.
+    *
+    * @param request ListSkillGroupStatesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSkillGroupStatesResponse
+   */
+  // Deprecated
   async listSkillGroupStatesWithOptions(request: ListSkillGroupStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillGroupStatesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -34303,11 +34508,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSkillGroupStatesResponse>(await this.callApi(params, req, runtime), new ListSkillGroupStatesResponse({}));
   }
 
+  /**
+    * @deprecated : ListSkillGroupStates is deprecated, please use CCC::2020-07-01::ListRealtimeSkillGroupStates instead.
+    *
+    * @param request ListSkillGroupStatesRequest
+    * @return ListSkillGroupStatesResponse
+   */
+  // Deprecated
   async listSkillGroupStates(request: ListSkillGroupStatesRequest): Promise<ListSkillGroupStatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSkillGroupStatesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : ListSkillGroupSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalSkillGroupReport instead.
+    *
+    * @param request ListSkillGroupSummaryReportsSinceMidnightRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSkillGroupSummaryReportsSinceMidnightResponse
+   */
+  // Deprecated
   async listSkillGroupSummaryReportsSinceMidnightWithOptions(request: ListSkillGroupSummaryReportsSinceMidnightRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillGroupSummaryReportsSinceMidnightResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -34328,6 +34548,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSkillGroupSummaryReportsSinceMidnightResponse>(await this.callApi(params, req, runtime), new ListSkillGroupSummaryReportsSinceMidnightResponse({}));
   }
 
+  /**
+    * @deprecated : ListSkillGroupSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalSkillGroupReport instead.
+    *
+    * @param request ListSkillGroupSummaryReportsSinceMidnightRequest
+    * @return ListSkillGroupSummaryReportsSinceMidnightResponse
+   */
+  // Deprecated
   async listSkillGroupSummaryReportsSinceMidnight(request: ListSkillGroupSummaryReportsSinceMidnightRequest): Promise<ListSkillGroupSummaryReportsSinceMidnightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSkillGroupSummaryReportsSinceMidnightWithOptions(request, runtime);
