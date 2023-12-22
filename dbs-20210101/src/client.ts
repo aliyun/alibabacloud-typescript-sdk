@@ -11,12 +11,14 @@ import * as $tea from '@alicloud/tea-typescript';
 export class ChangeResourceGroupRequest extends $tea.Model {
   clientToken?: string;
   newResourceGroupId?: string;
+  regionCode?: string;
   resourceId?: string;
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       newResourceGroupId: 'NewResourceGroupId',
+      regionCode: 'RegionCode',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
     };
@@ -26,6 +28,7 @@ export class ChangeResourceGroupRequest extends $tea.Model {
     return {
       clientToken: 'string',
       newResourceGroupId: 'string',
+      regionCode: 'string',
       resourceId: 'string',
       resourceType: 'string',
     };
@@ -1677,6 +1680,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.newResourceGroupId)) {
       query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.regionCode)) {
+      query["RegionCode"] = request.regionCode;
     }
 
     if (!Util.isUnset(request.resourceId)) {
