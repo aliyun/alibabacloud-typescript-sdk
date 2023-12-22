@@ -18389,6 +18389,78 @@ export class DescribeMachineCanRebootResponse extends $tea.Model {
   }
 }
 
+export class DescribeMatchedMaliciousNamesRequest extends $tea.Model {
+  lang?: string;
+  levels?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      levels: 'Levels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      levels: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMatchedMaliciousNamesResponseBody extends $tea.Model {
+  count?: number;
+  data?: DescribeMatchedMaliciousNamesResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      data: { 'type': 'array', 'itemType': DescribeMatchedMaliciousNamesResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMatchedMaliciousNamesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeMatchedMaliciousNamesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeMatchedMaliciousNamesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeModuleConfigResponseBody extends $tea.Model {
   count?: number;
   httpStatusCode?: number;
@@ -38239,6 +38311,72 @@ export class ListHoneypotProbeUuidResponse extends $tea.Model {
   }
 }
 
+export class ListImageBuildRiskItemRequest extends $tea.Model {
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImageBuildRiskItemResponseBody extends $tea.Model {
+  data?: ListImageBuildRiskItemResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListImageBuildRiskItemResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImageBuildRiskItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListImageBuildRiskItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListImageBuildRiskItemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListImageRegistryRegionResponseBody extends $tea.Model {
   regions?: ListImageRegistryRegionResponseBodyRegions[];
   requestId?: string;
@@ -53904,6 +54042,50 @@ export class CreateOpaStrategyNewRequestAlarmDetailBaseline extends $tea.Model {
   }
 }
 
+export class CreateOpaStrategyNewRequestAlarmDetailBuildRiskItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewRequestAlarmDetailBuildRisk extends $tea.Model {
+  item?: CreateOpaStrategyNewRequestAlarmDetailBuildRiskItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': CreateOpaStrategyNewRequestAlarmDetailBuildRiskItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOpaStrategyNewRequestAlarmDetailMaliciousFileItem extends $tea.Model {
   id?: string;
   name?: string;
@@ -53948,7 +54130,73 @@ export class CreateOpaStrategyNewRequestAlarmDetailMaliciousFile extends $tea.Mo
   }
 }
 
+export class CreateOpaStrategyNewRequestAlarmDetailSensitiveFileItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewRequestAlarmDetailSensitiveFile extends $tea.Model {
+  item?: CreateOpaStrategyNewRequestAlarmDetailSensitiveFileItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': CreateOpaStrategyNewRequestAlarmDetailSensitiveFileItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOpaStrategyNewRequestAlarmDetailVulItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpaStrategyNewRequestAlarmDetailVulRiskClass extends $tea.Model {
   id?: string;
   name?: string;
   static names(): { [key: string]: string } {
@@ -53972,10 +54220,12 @@ export class CreateOpaStrategyNewRequestAlarmDetailVulItem extends $tea.Model {
 
 export class CreateOpaStrategyNewRequestAlarmDetailVul extends $tea.Model {
   item?: CreateOpaStrategyNewRequestAlarmDetailVulItem[];
+  riskClass?: CreateOpaStrategyNewRequestAlarmDetailVulRiskClass[];
   riskLevel?: string[];
   static names(): { [key: string]: string } {
     return {
       item: 'Item',
+      riskClass: 'RiskClass',
       riskLevel: 'RiskLevel',
     };
   }
@@ -53983,6 +54233,7 @@ export class CreateOpaStrategyNewRequestAlarmDetailVul extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       item: { 'type': 'array', 'itemType': CreateOpaStrategyNewRequestAlarmDetailVulItem },
+      riskClass: { 'type': 'array', 'itemType': CreateOpaStrategyNewRequestAlarmDetailVulRiskClass },
       riskLevel: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -53994,12 +54245,16 @@ export class CreateOpaStrategyNewRequestAlarmDetailVul extends $tea.Model {
 
 export class CreateOpaStrategyNewRequestAlarmDetail extends $tea.Model {
   baseline?: CreateOpaStrategyNewRequestAlarmDetailBaseline;
+  buildRisk?: CreateOpaStrategyNewRequestAlarmDetailBuildRisk;
   maliciousFile?: CreateOpaStrategyNewRequestAlarmDetailMaliciousFile;
+  sensitiveFile?: CreateOpaStrategyNewRequestAlarmDetailSensitiveFile;
   vul?: CreateOpaStrategyNewRequestAlarmDetailVul;
   static names(): { [key: string]: string } {
     return {
       baseline: 'Baseline',
+      buildRisk: 'BuildRisk',
       maliciousFile: 'MaliciousFile',
+      sensitiveFile: 'SensitiveFile',
       vul: 'Vul',
     };
   }
@@ -54007,7 +54262,9 @@ export class CreateOpaStrategyNewRequestAlarmDetail extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       baseline: CreateOpaStrategyNewRequestAlarmDetailBaseline,
+      buildRisk: CreateOpaStrategyNewRequestAlarmDetailBuildRisk,
       maliciousFile: CreateOpaStrategyNewRequestAlarmDetailMaliciousFile,
+      sensitiveFile: CreateOpaStrategyNewRequestAlarmDetailSensitiveFile,
       vul: CreateOpaStrategyNewRequestAlarmDetailVul,
     };
   }
@@ -60385,6 +60642,28 @@ export class DescribeLoginSwitchConfigsResponseBodyConfigList extends $tea.Model
     return {
       item: 'string',
       status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMatchedMaliciousNamesResponseBodyData extends $tea.Model {
+  displayName?: string;
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      key: 'string',
     };
   }
 
@@ -69454,6 +69733,50 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaseline extends 
   }
 }
 
+export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRiskItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRisk extends $tea.Model {
+  item?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRiskItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRiskItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFileItem extends $tea.Model {
   id?: string;
   name?: string;
@@ -69498,7 +69821,73 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFile ext
   }
 }
 
+export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFileItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFile extends $tea.Model {
+  item?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFileItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFileItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulRiskClass extends $tea.Model {
   id?: string;
   name?: string;
   static names(): { [key: string]: string } {
@@ -69522,10 +69911,12 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulItem extends $
 
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVul extends $tea.Model {
   item?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulItem[];
+  riskClass?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulRiskClass[];
   riskLevel?: string[];
   static names(): { [key: string]: string } {
     return {
       item: 'Item',
+      riskClass: 'RiskClass',
       riskLevel: 'RiskLevel',
     };
   }
@@ -69533,6 +69924,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVul extends $tea.
   static types(): { [key: string]: any } {
     return {
       item: { 'type': 'array', 'itemType': GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulItem },
+      riskClass: { 'type': 'array', 'itemType': GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulRiskClass },
       riskLevel: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -69544,12 +69936,16 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVul extends $tea.
 
 export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetail extends $tea.Model {
   baseline?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaseline;
+  buildRisk?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRisk;
   maliciousFile?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFile;
+  sensitiveFile?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFile;
   vul?: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVul;
   static names(): { [key: string]: string } {
     return {
       baseline: 'Baseline',
+      buildRisk: 'BuildRisk',
       maliciousFile: 'MaliciousFile',
+      sensitiveFile: 'SensitiveFile',
       vul: 'Vul',
     };
   }
@@ -69557,7 +69953,9 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetail extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       baseline: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBaseline,
+      buildRisk: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRisk,
       maliciousFile: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailMaliciousFile,
+      sensitiveFile: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFile,
       vul: GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVul,
     };
   }
@@ -73577,6 +73975,28 @@ export class ListHoneypotProbeResponseBodyPageInfo extends $tea.Model {
       currentPage: 'number',
       pageSize: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImageBuildRiskItemResponseBodyData extends $tea.Model {
+  itemKey?: string;
+  itemName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      itemKey: 'ItemKey',
+      itemName: 'ItemName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemKey: 'string',
+      itemName: 'string',
     };
   }
 
@@ -77808,6 +78228,50 @@ export class UpdateOpaStrategyNewRequestAlarmDetailBaseline extends $tea.Model {
   }
 }
 
+export class UpdateOpaStrategyNewRequestAlarmDetailBuildRiskItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewRequestAlarmDetailBuildRisk extends $tea.Model {
+  item?: UpdateOpaStrategyNewRequestAlarmDetailBuildRiskItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': UpdateOpaStrategyNewRequestAlarmDetailBuildRiskItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateOpaStrategyNewRequestAlarmDetailMaliciousFileItem extends $tea.Model {
   id?: string;
   name?: string;
@@ -77852,7 +78316,73 @@ export class UpdateOpaStrategyNewRequestAlarmDetailMaliciousFile extends $tea.Mo
   }
 }
 
+export class UpdateOpaStrategyNewRequestAlarmDetailSensitiveFileItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewRequestAlarmDetailSensitiveFile extends $tea.Model {
+  item?: UpdateOpaStrategyNewRequestAlarmDetailSensitiveFileItem[];
+  riskLevel?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': UpdateOpaStrategyNewRequestAlarmDetailSensitiveFileItem },
+      riskLevel: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateOpaStrategyNewRequestAlarmDetailVulItem extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpaStrategyNewRequestAlarmDetailVulRiskClass extends $tea.Model {
   id?: string;
   name?: string;
   static names(): { [key: string]: string } {
@@ -77876,10 +78406,12 @@ export class UpdateOpaStrategyNewRequestAlarmDetailVulItem extends $tea.Model {
 
 export class UpdateOpaStrategyNewRequestAlarmDetailVul extends $tea.Model {
   item?: UpdateOpaStrategyNewRequestAlarmDetailVulItem[];
+  riskClass?: UpdateOpaStrategyNewRequestAlarmDetailVulRiskClass[];
   riskLevel?: string[];
   static names(): { [key: string]: string } {
     return {
       item: 'Item',
+      riskClass: 'RiskClass',
       riskLevel: 'RiskLevel',
     };
   }
@@ -77887,6 +78419,7 @@ export class UpdateOpaStrategyNewRequestAlarmDetailVul extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       item: { 'type': 'array', 'itemType': UpdateOpaStrategyNewRequestAlarmDetailVulItem },
+      riskClass: { 'type': 'array', 'itemType': UpdateOpaStrategyNewRequestAlarmDetailVulRiskClass },
       riskLevel: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -77898,12 +78431,16 @@ export class UpdateOpaStrategyNewRequestAlarmDetailVul extends $tea.Model {
 
 export class UpdateOpaStrategyNewRequestAlarmDetail extends $tea.Model {
   baseline?: UpdateOpaStrategyNewRequestAlarmDetailBaseline;
+  buildRisk?: UpdateOpaStrategyNewRequestAlarmDetailBuildRisk;
   maliciousFile?: UpdateOpaStrategyNewRequestAlarmDetailMaliciousFile;
+  sensitiveFile?: UpdateOpaStrategyNewRequestAlarmDetailSensitiveFile;
   vul?: UpdateOpaStrategyNewRequestAlarmDetailVul;
   static names(): { [key: string]: string } {
     return {
       baseline: 'Baseline',
+      buildRisk: 'BuildRisk',
       maliciousFile: 'MaliciousFile',
+      sensitiveFile: 'SensitiveFile',
       vul: 'Vul',
     };
   }
@@ -77911,7 +78448,9 @@ export class UpdateOpaStrategyNewRequestAlarmDetail extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       baseline: UpdateOpaStrategyNewRequestAlarmDetailBaseline,
+      buildRisk: UpdateOpaStrategyNewRequestAlarmDetailBuildRisk,
       maliciousFile: UpdateOpaStrategyNewRequestAlarmDetailMaliciousFile,
+      sensitiveFile: UpdateOpaStrategyNewRequestAlarmDetailSensitiveFile,
       vul: UpdateOpaStrategyNewRequestAlarmDetailVul,
     };
   }
@@ -87901,6 +88440,39 @@ export default class Client extends OpenApi {
   async describeMachineCanReboot(request: DescribeMachineCanRebootRequest): Promise<DescribeMachineCanRebootResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMachineCanRebootWithOptions(request, runtime);
+  }
+
+  async describeMatchedMaliciousNamesWithOptions(request: DescribeMatchedMaliciousNamesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMatchedMaliciousNamesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.levels)) {
+      query["Levels"] = request.levels;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeMatchedMaliciousNames",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMatchedMaliciousNamesResponse>(await this.callApi(params, req, runtime), new DescribeMatchedMaliciousNamesResponse({}));
+  }
+
+  async describeMatchedMaliciousNames(request: DescribeMatchedMaliciousNamesRequest): Promise<DescribeMatchedMaliciousNamesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeMatchedMaliciousNamesWithOptions(request, runtime);
   }
 
   async describeModuleConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeModuleConfigResponse> {
@@ -98182,6 +98754,35 @@ export default class Client extends OpenApi {
   async listHoneypotProbeUuid(request: ListHoneypotProbeUuidRequest): Promise<ListHoneypotProbeUuidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHoneypotProbeUuidWithOptions(request, runtime);
+  }
+
+  async listImageBuildRiskItemWithOptions(request: ListImageBuildRiskItemRequest, runtime: $Util.RuntimeOptions): Promise<ListImageBuildRiskItemResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListImageBuildRiskItem",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListImageBuildRiskItemResponse>(await this.callApi(params, req, runtime), new ListImageBuildRiskItemResponse({}));
+  }
+
+  async listImageBuildRiskItem(request: ListImageBuildRiskItemRequest): Promise<ListImageBuildRiskItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listImageBuildRiskItemWithOptions(request, runtime);
   }
 
   async listImageRegistryRegionWithOptions(runtime: $Util.RuntimeOptions): Promise<ListImageRegistryRegionResponse> {
