@@ -728,12 +728,48 @@ export class CreateTranscriptionPhrasesResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetTaskInfoResponseBodyDataResult extends $tea.Model {
+  autoChapters?: string;
+  meetingAssistance?: string;
+  pptExtraction?: string;
+  summarization?: string;
+  transcription?: string;
+  translation?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoChapters: 'AutoChapters',
+      meetingAssistance: 'MeetingAssistance',
+      pptExtraction: 'PptExtraction',
+      summarization: 'Summarization',
+      transcription: 'Transcription',
+      translation: 'Translation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoChapters: 'string',
+      meetingAssistance: 'string',
+      pptExtraction: 'string',
+      summarization: 'string',
+      transcription: 'string',
+      translation: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTaskInfoResponseBodyData extends $tea.Model {
+  result?: GetTaskInfoResponseBodyDataResult;
   taskId?: string;
   taskKey?: string;
   taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      result: 'Result',
       taskId: 'TaskId',
       taskKey: 'TaskKey',
       taskStatus: 'TaskStatus',
@@ -742,6 +778,7 @@ export class GetTaskInfoResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      result: GetTaskInfoResponseBodyDataResult,
       taskId: 'string',
       taskKey: 'string',
       taskStatus: 'string',
