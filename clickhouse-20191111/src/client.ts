@@ -3742,19 +3742,28 @@ export class DescribeSynDbsRequest extends $tea.Model {
 }
 
 export class DescribeSynDbsResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
   requestId?: string;
   synDbs?: DescribeSynDbsResponseBodySynDbs[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       synDbs: 'SynDbs',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
+      pageSize: 'number',
       requestId: 'string',
       synDbs: { 'type': 'array', 'itemType': DescribeSynDbsResponseBodySynDbs },
+      totalCount: 'number',
     };
   }
 
@@ -7402,6 +7411,13 @@ export default class Client extends OpenApi {
     return await this.checkClickhouseToRDSWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+    *
+    * @param request CheckModifyConfigNeedRestartRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CheckModifyConfigNeedRestartResponse
+   */
   async checkModifyConfigNeedRestartWithOptions(request: CheckModifyConfigNeedRestartRequest, runtime: $Util.RuntimeOptions): Promise<CheckModifyConfigNeedRestartResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7430,6 +7446,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckModifyConfigNeedRestartResponse>(await this.callApi(params, req, runtime), new CheckModifyConfigNeedRestartResponse({}));
   }
 
+  /**
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+    *
+    * @param request CheckModifyConfigNeedRestartRequest
+    * @return CheckModifyConfigNeedRestartResponse
+   */
   async checkModifyConfigNeedRestart(request: CheckModifyConfigNeedRestartRequest): Promise<CheckModifyConfigNeedRestartResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkModifyConfigNeedRestartWithOptions(request, runtime);
@@ -7988,6 +8010,13 @@ export default class Client extends OpenApi {
     return await this.createMonitorDataReportWithOptions(request, runtime);
   }
 
+  /**
+    * Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](~~276926~~).
+    *
+    * @param request CreateOSSStorageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateOSSStorageResponse
+   */
   async createOSSStorageWithOptions(request: CreateOSSStorageRequest, runtime: $Util.RuntimeOptions): Promise<CreateOSSStorageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8032,11 +8061,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOSSStorageResponse>(await this.callApi(params, req, runtime), new CreateOSSStorageResponse({}));
   }
 
+  /**
+    * Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](~~276926~~).
+    *
+    * @param request CreateOSSStorageRequest
+    * @return CreateOSSStorageResponse
+   */
   async createOSSStorage(request: CreateOSSStorageRequest): Promise<CreateOSSStorageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOSSStorageWithOptions(request, runtime);
   }
 
+  /**
+    * >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
+    *
+    * @param request CreatePortsForClickHouseRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreatePortsForClickHouseResponse
+   */
   async createPortsForClickHouseWithOptions(request: CreatePortsForClickHouseRequest, runtime: $Util.RuntimeOptions): Promise<CreatePortsForClickHouseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8085,11 +8127,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePortsForClickHouseResponse>(await this.callApi(params, req, runtime), new CreatePortsForClickHouseResponse({}));
   }
 
+  /**
+    * >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
+    *
+    * @param request CreatePortsForClickHouseRequest
+    * @return CreatePortsForClickHouseResponse
+   */
   async createPortsForClickHouse(request: CreatePortsForClickHouseRequest): Promise<CreatePortsForClickHouseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPortsForClickHouseWithOptions(request, runtime);
   }
 
+  /**
+    * >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
+    *
+    * @param request CreateRDSToClickhouseDbRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRDSToClickhouseDbResponse
+   */
   async createRDSToClickhouseDbWithOptions(request: CreateRDSToClickhouseDbRequest, runtime: $Util.RuntimeOptions): Promise<CreateRDSToClickhouseDbResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8178,11 +8233,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRDSToClickhouseDbResponse>(await this.callApi(params, req, runtime), new CreateRDSToClickhouseDbResponse({}));
   }
 
+  /**
+    * >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
+    *
+    * @param request CreateRDSToClickhouseDbRequest
+    * @return CreateRDSToClickhouseDbResponse
+   */
   async createRDSToClickhouseDb(request: CreateRDSToClickhouseDbRequest): Promise<CreateRDSToClickhouseDbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRDSToClickhouseDbWithOptions(request, runtime);
   }
 
+  /**
+    * >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,
+    *
+    * @param request CreateSQLAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSQLAccountResponse
+   */
   async createSQLAccountWithOptions(request: CreateSQLAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateSQLAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8239,6 +8307,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSQLAccountResponse>(await this.callApi(params, req, runtime), new CreateSQLAccountResponse({}));
   }
 
+  /**
+    * >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,
+    *
+    * @param request CreateSQLAccountRequest
+    * @return CreateSQLAccountResponse
+   */
   async createSQLAccount(request: CreateSQLAccountRequest): Promise<CreateSQLAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSQLAccountWithOptions(request, runtime);
@@ -8285,6 +8359,13 @@ export default class Client extends OpenApi {
     return await this.createServiceLinkedRoleWithOptions(request, runtime);
   }
 
+  /**
+    * >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
+    *
+    * @param request DeleteAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAccountResponse
+   */
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8329,11 +8410,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
   }
 
+  /**
+    * >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
+    *
+    * @param request DeleteAccountRequest
+    * @return DeleteAccountResponse
+   */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
   }
 
+  /**
+    * **
+    * **Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
+    *
+    * @param request DeleteDBClusterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDBClusterResponse
+   */
   async deleteDBClusterWithOptions(request: DeleteDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8374,6 +8469,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBClusterResponse>(await this.callApi(params, req, runtime), new DeleteDBClusterResponse({}));
   }
 
+  /**
+    * **
+    * **Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
+    *
+    * @param request DeleteDBClusterRequest
+    * @return DeleteDBClusterResponse
+   */
   async deleteDBCluster(request: DeleteDBClusterRequest): Promise<DeleteDBClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBClusterWithOptions(request, runtime);
@@ -8644,6 +8746,13 @@ export default class Client extends OpenApi {
     return await this.describeAllDataSourcesWithOptions(request, runtime);
   }
 
+  /**
+    * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+    *
+    * @param request DescribeBackupPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8684,6 +8793,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
   }
 
+  /**
+    * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+    *
+    * @param request DescribeBackupPolicyRequest
+    * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
@@ -8807,6 +8922,13 @@ export default class Client extends OpenApi {
     return await this.describeColumnsWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+    *
+    * @param request DescribeConfigHistoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeConfigHistoryResponse
+   */
   async describeConfigHistoryWithOptions(request: DescribeConfigHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigHistoryResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -8827,11 +8949,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeConfigHistoryResponse>(await this.callApi(params, req, runtime), new DescribeConfigHistoryResponse({}));
   }
 
+  /**
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+    *
+    * @param request DescribeConfigHistoryRequest
+    * @return DescribeConfigHistoryResponse
+   */
   async describeConfigHistory(request: DescribeConfigHistoryRequest): Promise<DescribeConfigHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeConfigHistoryWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+    *
+    * @param request DescribeConfigVersionDifferenceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeConfigVersionDifferenceResponse
+   */
   async describeConfigVersionDifferenceWithOptions(request: DescribeConfigVersionDifferenceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigVersionDifferenceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -8852,6 +8987,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeConfigVersionDifferenceResponse>(await this.callApi(params, req, runtime), new DescribeConfigVersionDifferenceResponse({}));
   }
 
+  /**
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+    *
+    * @param request DescribeConfigVersionDifferenceRequest
+    * @return DescribeConfigVersionDifferenceResponse
+   */
   async describeConfigVersionDifference(request: DescribeConfigVersionDifferenceRequest): Promise<DescribeConfigVersionDifferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeConfigVersionDifferenceWithOptions(request, runtime);
@@ -8996,6 +9137,13 @@ export default class Client extends OpenApi {
     return await this.describeDBClusterConfigWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+    *
+    * @param request DescribeDBClusterConfigInXMLRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterConfigInXMLResponse
+   */
   async describeDBClusterConfigInXMLWithOptions(request: DescribeDBClusterConfigInXMLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterConfigInXMLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9024,6 +9172,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterConfigInXMLResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterConfigInXMLResponse({}));
   }
 
+  /**
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+    *
+    * @param request DescribeDBClusterConfigInXMLRequest
+    * @return DescribeDBClusterConfigInXMLResponse
+   */
   async describeDBClusterConfigInXML(request: DescribeDBClusterConfigInXMLRequest): Promise<DescribeDBClusterConfigInXMLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterConfigInXMLWithOptions(request, runtime);
@@ -9074,6 +9228,14 @@ export default class Client extends OpenApi {
     return await this.describeDBClusterNetInfoItemsWithOptions(request, runtime);
   }
 
+  /**
+    * You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
+    *
+    * @param request DescribeDBClusterPerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterPerformanceResponse
+   */
   async describeDBClusterPerformanceWithOptions(request: DescribeDBClusterPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9126,6 +9288,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterPerformanceResponse({}));
   }
 
+  /**
+    * You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
+    *
+    * @param request DescribeDBClusterPerformanceRequest
+    * @return DescribeDBClusterPerformanceResponse
+   */
   async describeDBClusterPerformance(request: DescribeDBClusterPerformanceRequest): Promise<DescribeDBClusterPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterPerformanceWithOptions(request, runtime);
@@ -9685,6 +9854,13 @@ export default class Client extends OpenApi {
     return await this.describeTablesWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
+    *
+    * @param request DescribeTransferHistoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTransferHistoryResponse
+   */
   async describeTransferHistoryWithOptions(request: DescribeTransferHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTransferHistoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9725,6 +9901,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTransferHistoryResponse>(await this.callApi(params, req, runtime), new DescribeTransferHistoryResponse({}));
   }
 
+  /**
+    * >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
+    *
+    * @param request DescribeTransferHistoryRequest
+    * @return DescribeTransferHistoryResponse
+   */
   async describeTransferHistory(request: DescribeTransferHistoryRequest): Promise<DescribeTransferHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTransferHistoryWithOptions(request, runtime);
@@ -9913,6 +10095,13 @@ export default class Client extends OpenApi {
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
   }
 
+  /**
+    * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+    *
+    * @param request ModifyBackupPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9965,6 +10154,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyResponse({}));
   }
 
+  /**
+    * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+    *
+    * @param request ModifyBackupPolicyRequest
+    * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPolicyWithOptions(request, runtime);
@@ -10149,6 +10344,13 @@ export default class Client extends OpenApi {
     return await this.modifyDBClusterConfigWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+    *
+    * @param request ModifyDBClusterConfigInXMLRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBClusterConfigInXMLResponse
+   */
   async modifyDBClusterConfigInXMLWithOptions(request: ModifyDBClusterConfigInXMLRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterConfigInXMLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10185,6 +10387,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterConfigInXMLResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterConfigInXMLResponse({}));
   }
 
+  /**
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+    *
+    * @param request ModifyDBClusterConfigInXMLRequest
+    * @return ModifyDBClusterConfigInXMLResponse
+   */
   async modifyDBClusterConfigInXML(request: ModifyDBClusterConfigInXMLRequest): Promise<ModifyDBClusterConfigInXMLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterConfigInXMLWithOptions(request, runtime);
@@ -10390,6 +10598,13 @@ export default class Client extends OpenApi {
     return await this.modifyMinorVersionGreadeTypeWithOptions(request, runtime);
   }
 
+  /**
+    * >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
+    *
+    * @param request ModifyRDSToClickhouseDbRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyRDSToClickhouseDbResponse
+   */
   async modifyRDSToClickhouseDbWithOptions(request: ModifyRDSToClickhouseDbRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRDSToClickhouseDbResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10478,6 +10693,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyRDSToClickhouseDbResponse>(await this.callApi(params, req, runtime), new ModifyRDSToClickhouseDbResponse({}));
   }
 
+  /**
+    * >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
+    *
+    * @param request ModifyRDSToClickhouseDbRequest
+    * @return ModifyRDSToClickhouseDbResponse
+   */
   async modifyRDSToClickhouseDb(request: ModifyRDSToClickhouseDbRequest): Promise<ModifyRDSToClickhouseDbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRDSToClickhouseDbWithOptions(request, runtime);
@@ -10642,6 +10863,16 @@ export default class Client extends OpenApi {
     return await this.restartInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ## [](#)Prerequisites
+    * *   The IP address of the source ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the destination ApsaraDB for ClickHouse cluster.
+    * *   The IP address of the destination ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the source ApsaraDB for ClickHouse cluster.
+    * >  You can execute the `select * from system.clusters;` statement to query the IP address of an ApsaraDB for ClickHouse cluster.
+    *
+    * @param request TransferVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TransferVersionResponse
+   */
   async transferVersionWithOptions(request: TransferVersionRequest, runtime: $Util.RuntimeOptions): Promise<TransferVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10714,11 +10945,27 @@ export default class Client extends OpenApi {
     return $tea.cast<TransferVersionResponse>(await this.callApi(params, req, runtime), new TransferVersionResponse({}));
   }
 
+  /**
+    * ## [](#)Prerequisites
+    * *   The IP address of the source ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the destination ApsaraDB for ClickHouse cluster.
+    * *   The IP address of the destination ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the source ApsaraDB for ClickHouse cluster.
+    * >  You can execute the `select * from system.clusters;` statement to query the IP address of an ApsaraDB for ClickHouse cluster.
+    *
+    * @param request TransferVersionRequest
+    * @return TransferVersionResponse
+   */
   async transferVersion(request: TransferVersionRequest): Promise<TransferVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transferVersionWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
+    *
+    * @param request UpgradeMinorVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradeMinorVersionResponse
+   */
   async upgradeMinorVersionWithOptions(request: UpgradeMinorVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeMinorVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10771,6 +11018,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeMinorVersionResponse>(await this.callApi(params, req, runtime), new UpgradeMinorVersionResponse({}));
   }
 
+  /**
+    * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
+    *
+    * @param request UpgradeMinorVersionRequest
+    * @return UpgradeMinorVersionResponse
+   */
   async upgradeMinorVersion(request: UpgradeMinorVersionRequest): Promise<UpgradeMinorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeMinorVersionWithOptions(request, runtime);
