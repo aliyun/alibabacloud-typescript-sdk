@@ -1864,6 +1864,7 @@ export class DescribeContainerGroupsRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  securityGroupId?: string;
   status?: string;
   tag?: DescribeContainerGroupsRequestTag[];
   vSwitchId?: string;
@@ -1881,6 +1882,7 @@ export class DescribeContainerGroupsRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      securityGroupId: 'SecurityGroupId',
       status: 'Status',
       tag: 'Tag',
       vSwitchId: 'VSwitchId',
@@ -1901,6 +1903,7 @@ export class DescribeContainerGroupsRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      securityGroupId: 'string',
       status: 'string',
       tag: { 'type': 'array', 'itemType': DescribeContainerGroupsRequestTag },
       vSwitchId: 'string',
@@ -7371,6 +7374,7 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsVolumes extends $
 }
 
 export class DescribeContainerGroupsResponseBodyContainerGroups extends $tea.Model {
+  computeCategory?: string;
   containerGroupId?: string;
   containerGroupName?: string;
   containers?: DescribeContainerGroupsResponseBodyContainerGroupsContainers[];
@@ -7411,6 +7415,7 @@ export class DescribeContainerGroupsResponseBodyContainerGroups extends $tea.Mod
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      computeCategory: 'ComputeCategory',
       containerGroupId: 'ContainerGroupId',
       containerGroupName: 'ContainerGroupName',
       containers: 'Containers',
@@ -7454,6 +7459,7 @@ export class DescribeContainerGroupsResponseBodyContainerGroups extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      computeCategory: 'string',
       containerGroupId: 'string',
       containerGroupName: 'string',
       containers: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsContainers },
@@ -11362,6 +11368,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
     }
 
     if (!Util.isUnset(request.status)) {
