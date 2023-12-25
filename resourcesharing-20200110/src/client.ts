@@ -1587,7 +1587,39 @@ export class UpdateResourceShareResponse extends $tea.Model {
   }
 }
 
+export class AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails extends $tea.Model {
+  associateType?: string;
+  resourceId?: string;
+  resourceType?: string;
+  status?: string;
+  statusMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      associateType: 'AssociateType',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      status: 'Status',
+      statusMessage: 'StatusMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      associateType: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      status: 'string',
+      statusMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AcceptResourceShareInvitationResponseBodyResourceShareInvitation extends $tea.Model {
+  acceptInvitationFailedDetails?: AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails[];
   createTime?: string;
   receiverAccountId?: string;
   resourceShareId?: string;
@@ -1597,6 +1629,7 @@ export class AcceptResourceShareInvitationResponseBodyResourceShareInvitation ex
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      acceptInvitationFailedDetails: 'AcceptInvitationFailedDetails',
       createTime: 'CreateTime',
       receiverAccountId: 'ReceiverAccountId',
       resourceShareId: 'ResourceShareId',
@@ -1609,6 +1642,7 @@ export class AcceptResourceShareInvitationResponseBodyResourceShareInvitation ex
 
   static types(): { [key: string]: any } {
     return {
+      acceptInvitationFailedDetails: { 'type': 'array', 'itemType': AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails },
       createTime: 'string',
       receiverAccountId: 'string',
       resourceShareId: 'string',
@@ -1998,8 +2032,40 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociations 
   }
 }
 
+export class ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails extends $tea.Model {
+  associateType?: string;
+  resourceId?: string;
+  resourceType?: string;
+  status?: string;
+  statusMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      associateType: 'AssociateType',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      status: 'Status',
+      statusMessage: 'StatusMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      associateType: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      status: 'string',
+      statusMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListResourceShareInvitationsResponseBodyResourceShareInvitations extends $tea.Model {
   createTime?: string;
+  invitationFailedDetails?: ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails[];
   receiverAccountId?: string;
   resourceShareId?: string;
   resourceShareInvitationId?: string;
@@ -2009,6 +2075,7 @@ export class ListResourceShareInvitationsResponseBodyResourceShareInvitations ex
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      invitationFailedDetails: 'InvitationFailedDetails',
       receiverAccountId: 'ReceiverAccountId',
       resourceShareId: 'ResourceShareId',
       resourceShareInvitationId: 'ResourceShareInvitationId',
@@ -2021,6 +2088,7 @@ export class ListResourceShareInvitationsResponseBodyResourceShareInvitations ex
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      invitationFailedDetails: { 'type': 'array', 'itemType': ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails },
       receiverAccountId: 'string',
       resourceShareId: 'string',
       resourceShareInvitationId: 'string',
@@ -2322,8 +2390,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to associate the vSwitch `vsw-bp183p93qs667muql****` and the member `172050525300****` with the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the association, the vSwitch is shared with the member.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request AssociateResourceShareRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2367,8 +2433,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to associate the vSwitch `vsw-bp183p93qs667muql****` and the member `172050525300****` with the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the association, the vSwitch is shared with the member.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request AssociateResourceShareRequest
     * @return AssociateResourceShareResponse
@@ -2380,8 +2444,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to associate the `AliyunRSDefaultPermissionVSwitch` permission with the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request AssociateResourceSharePermissionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2421,8 +2483,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to associate the `AliyunRSDefaultPermissionVSwitch` permission with the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request AssociateResourceSharePermissionRequest
     * @return AssociateResourceSharePermissionResponse
@@ -2493,8 +2553,6 @@ export default class Client extends OpenApi {
   /**
     * Resource Sharing allows you to share your resources with one or more accounts and access the resources shared by other accounts. For more information, see [Resource Sharing overview](~~160622~~).
     * This topic provides an example on how to call the API operation to create a resource share named `test` in the `cn-hangzhou` region to share the vSwitch `vsw-bp183p93qs667muql****` with the member `172050525300****`. In this example, the management account of a resource directory is used to call this API operation.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request CreateResourceShareRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2543,8 +2601,6 @@ export default class Client extends OpenApi {
   /**
     * Resource Sharing allows you to share your resources with one or more accounts and access the resources shared by other accounts. For more information, see [Resource Sharing overview](~~160622~~).
     * This topic provides an example on how to call the API operation to create a resource share named `test` in the `cn-hangzhou` region to share the vSwitch `vsw-bp183p93qs667muql****` with the member `172050525300****`. In this example, the management account of a resource directory is used to call this API operation.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request CreateResourceShareRequest
     * @return CreateResourceShareResponse
@@ -2633,8 +2689,6 @@ export default class Client extends OpenApi {
     * *   A resource owner can call this API operation to remove shared resources or principals from a resource share.
     * *   If an Alibaba Cloud account that is not the management account or a member of a resource directory is added to a resource share as a principal, you can use the Alibaba Cloud account to call this API operation to exit the resource share. For more information, see [Exit a resource share](~~440614~~).
     * This topic provides an example on how to use the management account of a resource directory to call the API operation to remove the member `172050525300****` from the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the member is removed from the resource share, the member cannot share the resources in the resource share.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request DisassociateResourceShareRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2680,8 +2734,6 @@ export default class Client extends OpenApi {
     * *   A resource owner can call this API operation to remove shared resources or principals from a resource share.
     * *   If an Alibaba Cloud account that is not the management account or a member of a resource directory is added to a resource share as a principal, you can use the Alibaba Cloud account to call this API operation to exit the resource share. For more information, see [Exit a resource share](~~440614~~).
     * This topic provides an example on how to use the management account of a resource directory to call the API operation to remove the member `172050525300****` from the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the member is removed from the resource share, the member cannot share the resources in the resource share.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request DisassociateResourceShareRequest
     * @return DisassociateResourceShareResponse
@@ -2693,8 +2745,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request DisassociateResourceSharePermissionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2730,8 +2780,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request DisassociateResourceSharePermissionRequest
     * @return DisassociateResourceSharePermissionResponse
@@ -2778,8 +2826,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to query the information about the `AliyunRSDefaultPermissionVSwitch` permission whose version is `v1` in the `cn-hangzhou` region.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request GetPermissionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2815,8 +2861,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to query the information about the `AliyunRSDefaultPermissionVSwitch` permission whose version is `v1` in the `cn-hangzhou` region.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request GetPermissionRequest
     * @return GetPermissionResponse
@@ -2828,8 +2872,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to query the versions of the `AliyunRSDefaultPermissionVSwitch` permission in the `cn-hangzhou` region.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListPermissionVersionsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2869,8 +2911,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to query the versions of the `AliyunRSDefaultPermissionVSwitch` permission in the `cn-hangzhou` region.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListPermissionVersionsRequest
     * @return ListPermissionVersionsResponse
@@ -2882,8 +2922,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to query the information about the default permission for the `VSwitch` resource type in the `cn-hangzhou` region.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListPermissionsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2923,8 +2961,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to query the information about the default permission for the `VSwitch` resource type in the `cn-hangzhou` region.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListPermissionsRequest
     * @return ListPermissionsResponse
@@ -2938,8 +2974,6 @@ export default class Client extends OpenApi {
     * This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
     * *   The resource `vsw-bp1upw03qyz8n7us9****` of the `VSwitch` type has been associated with the resource share `rs-6GRmdD3X****`. The resource is in the `Associated` state. This indicates that the resource is being shared.
     * *   The resource `vsw-bp183p93qs667muql****` of the `VSwitch` type has been disassociated from the resource share `rs-6GRmdD3X****`. The resource is in the `Disassociated` state. This indicates that the sharing of the resource is stopped.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListResourceShareAssociationsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2997,8 +3031,6 @@ export default class Client extends OpenApi {
     * This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
     * *   The resource `vsw-bp1upw03qyz8n7us9****` of the `VSwitch` type has been associated with the resource share `rs-6GRmdD3X****`. The resource is in the `Associated` state. This indicates that the resource is being shared.
     * *   The resource `vsw-bp183p93qs667muql****` of the `VSwitch` type has been disassociated from the resource share `rs-6GRmdD3X****`. The resource is in the `Disassociated` state. This indicates that the sharing of the resource is stopped.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListResourceShareAssociationsRequest
     * @return ListResourceShareAssociationsResponse
@@ -3064,8 +3096,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to query the permissions that are associated with the resource share created by using the current Alibaba Cloud account in the `cn-hangzhou` region.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListResourceSharePermissionsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3109,8 +3139,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to query the permissions that are associated with the resource share created by using the current Alibaba Cloud account in the `cn-hangzhou` region.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListResourceSharePermissionsRequest
     * @return ListResourceSharePermissionsResponse
@@ -3124,8 +3152,6 @@ export default class Client extends OpenApi {
     * This topic provides an example on how to call the API operation to query the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows that the following resource shares are created by using the account whose ID is `151266687691****`:
     * *   `rs-hX9wC5jO****`, which is in the `Deleted` state
     * *   `rs-PqysnzIj****`, which is in the `Active` state
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListResourceSharesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3183,8 +3209,6 @@ export default class Client extends OpenApi {
     * This topic provides an example on how to call the API operation to query the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows that the following resource shares are created by using the account whose ID is `151266687691****`:
     * *   `rs-hX9wC5jO****`, which is in the `Deleted` state
     * *   `rs-PqysnzIj****`, which is in the `Active` state
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListResourceSharesRequest
     * @return ListResourceSharesResponse
@@ -3196,8 +3220,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListSharedResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3253,8 +3275,6 @@ export default class Client extends OpenApi {
 
   /**
     * This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListSharedResourcesRequest
     * @return ListSharedResourcesResponse
@@ -3268,8 +3288,6 @@ export default class Client extends OpenApi {
     * If you are a resource owner, you can query the principals with which you share your resources.
     * If you are a principal, you can query the resources that are shared with you.
     * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListSharedTargetsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3327,8 +3345,6 @@ export default class Client extends OpenApi {
     * If you are a resource owner, you can query the principals with which you share your resources.
     * If you are a principal, you can query the resources that are shared with you.
     * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
-    * ## Limits
-    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
     *
     * @param request ListSharedTargetsRequest
     * @return ListSharedTargetsResponse
