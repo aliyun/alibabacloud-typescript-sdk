@@ -1666,15 +1666,21 @@ export class DeleteClusterShrinkRequest extends $tea.Model {
 }
 
 export class DeleteClusterResponseBody extends $tea.Model {
+  clusterId?: string;
+  requestId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'cluster_id',
+      requestId: 'request_id',
       taskId: 'task_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'string',
+      requestId: 'string',
       taskId: 'string',
     };
   }
@@ -2155,6 +2161,111 @@ export class DescirbeWorkflowResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescirbeWorkflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonRequest extends $tea.Model {
+  clusterId?: string;
+  clusterSpec?: string;
+  clusterType?: string;
+  clusterVersion?: string;
+  profile?: string;
+  regionId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      clusterSpec: 'cluster_spec',
+      clusterType: 'cluster_type',
+      clusterVersion: 'cluster_version',
+      profile: 'profile',
+      regionId: 'region_id',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterSpec: 'string',
+      clusterType: 'string',
+      clusterVersion: 'string',
+      profile: 'string',
+      regionId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonResponseBody extends $tea.Model {
+  architecture?: string[];
+  category?: string;
+  configSchema?: string;
+  installByDefault?: boolean;
+  managed?: boolean;
+  name?: string;
+  newerVersions?: DescribeAddonResponseBodyNewerVersions[];
+  supportedActions?: string[];
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'architecture',
+      category: 'category',
+      configSchema: 'config_schema',
+      installByDefault: 'install_by_default',
+      managed: 'managed',
+      name: 'name',
+      newerVersions: 'newer_versions',
+      supportedActions: 'supported_actions',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: { 'type': 'array', 'itemType': 'string' },
+      category: 'string',
+      configSchema: 'string',
+      installByDefault: 'boolean',
+      managed: 'boolean',
+      name: 'string',
+      newerVersions: { 'type': 'array', 'itemType': DescribeAddonResponseBodyNewerVersions },
+      supportedActions: { 'type': 'array', 'itemType': 'string' },
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAddonResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAddonResponseBody,
     };
   }
 
@@ -5205,6 +5316,72 @@ export class ListClusterChecksResponse extends $tea.Model {
   }
 }
 
+export class ListOperationPlansRequest extends $tea.Model {
+  clusterId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOperationPlansResponseBody extends $tea.Model {
+  plans?: ListOperationPlansResponseBodyPlans[];
+  static names(): { [key: string]: string } {
+    return {
+      plans: 'plans',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      plans: { 'type': 'array', 'itemType': ListOperationPlansResponseBodyPlans },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOperationPlansResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListOperationPlansResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListOperationPlansResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequest extends $tea.Model {
   nextToken?: string;
   regionId?: string;
@@ -5575,6 +5752,7 @@ export class ModifyClusterConfigurationResponse extends $tea.Model {
 
 export class ModifyClusterNodePoolRequest extends $tea.Model {
   autoScaling?: ModifyClusterNodePoolRequestAutoScaling;
+  concurrency?: boolean;
   kubernetesConfig?: ModifyClusterNodePoolRequestKubernetesConfig;
   management?: ModifyClusterNodePoolRequestManagement;
   nodepoolInfo?: ModifyClusterNodePoolRequestNodepoolInfo;
@@ -5584,6 +5762,7 @@ export class ModifyClusterNodePoolRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoScaling: 'auto_scaling',
+      concurrency: 'concurrency',
       kubernetesConfig: 'kubernetes_config',
       management: 'management',
       nodepoolInfo: 'nodepool_info',
@@ -5596,6 +5775,7 @@ export class ModifyClusterNodePoolRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoScaling: ModifyClusterNodePoolRequestAutoScaling,
+      concurrency: 'boolean',
       kubernetesConfig: ModifyClusterNodePoolRequestKubernetesConfig,
       management: ModifyClusterNodePoolRequestManagement,
       nodepoolInfo: ModifyClusterNodePoolRequestNodepoolInfo,
@@ -6022,12 +6202,14 @@ export class RemoveClusterNodesResponse extends $tea.Model {
 }
 
 export class RemoveNodePoolNodesRequest extends $tea.Model {
+  concurrency?: boolean;
   drainNode?: boolean;
   instanceIds?: string[];
   nodes?: string[];
   releaseNode?: boolean;
   static names(): { [key: string]: string } {
     return {
+      concurrency: 'concurrency',
       drainNode: 'drain_node',
       instanceIds: 'instance_ids',
       nodes: 'nodes',
@@ -6037,6 +6219,7 @@ export class RemoveNodePoolNodesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      concurrency: 'boolean',
       drainNode: 'boolean',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       nodes: { 'type': 'array', 'itemType': 'string' },
@@ -6050,12 +6233,14 @@ export class RemoveNodePoolNodesRequest extends $tea.Model {
 }
 
 export class RemoveNodePoolNodesShrinkRequest extends $tea.Model {
+  concurrency?: boolean;
   drainNode?: boolean;
   instanceIdsShrink?: string;
   nodesShrink?: string;
   releaseNode?: boolean;
   static names(): { [key: string]: string } {
     return {
+      concurrency: 'concurrency',
       drainNode: 'drain_node',
       instanceIdsShrink: 'instance_ids',
       nodesShrink: 'nodes',
@@ -6065,6 +6250,7 @@ export class RemoveNodePoolNodesShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      concurrency: 'boolean',
       drainNode: 'boolean',
       instanceIdsShrink: 'string',
       nodesShrink: 'string',
@@ -7236,13 +7422,40 @@ export class UpdateControlPlaneLogRequest extends $tea.Model {
   }
 }
 
+export class UpdateControlPlaneLogResponseBody extends $tea.Model {
+  clusterId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      requestId: 'request_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateControlPlaneLogResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
+  body: UpdateControlPlaneLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
@@ -7250,6 +7463,7 @@ export class UpdateControlPlaneLogResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+      body: UpdateControlPlaneLogResponseBody,
     };
   }
 
@@ -8583,6 +8797,31 @@ export class CreateClusterNodePoolRequestTeeConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       teeEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonResponseBodyNewerVersions extends $tea.Model {
+  minimumClusterVersion?: string;
+  upgradable?: boolean;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      minimumClusterVersion: 'minimum_cluster_version',
+      upgradable: 'upgradable',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      minimumClusterVersion: 'string',
+      upgradable: 'boolean',
+      version: 'string',
     };
   }
 
@@ -11712,6 +11951,49 @@ export class ListClusterChecksResponseBodyChecks extends $tea.Model {
   }
 }
 
+export class ListOperationPlansResponseBodyPlans extends $tea.Model {
+  clusterId?: string;
+  created?: string;
+  endTime?: string;
+  planId?: string;
+  startTime?: string;
+  state?: string;
+  targetId?: string;
+  targetType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      created: 'created',
+      endTime: 'end_time',
+      planId: 'plan_id',
+      startTime: 'start_time',
+      state: 'state',
+      targetId: 'target_id',
+      targetType: 'target_type',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      created: 'string',
+      endTime: 'string',
+      planId: 'string',
+      startTime: 'string',
+      state: 'string',
+      targetId: 'string',
+      targetType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
   resourceId?: string;
   resourceType?: string;
@@ -13826,6 +14108,61 @@ export default class Client extends OpenApi {
     return await this.descirbeWorkflowWithOptions(workflowName, headers, runtime);
   }
 
+  async describeAddonWithOptions(addonName: string, request: DescribeAddonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeAddonResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["cluster_id"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.clusterSpec)) {
+      query["cluster_spec"] = request.clusterSpec;
+    }
+
+    if (!Util.isUnset(request.clusterType)) {
+      query["cluster_type"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.clusterVersion)) {
+      query["cluster_version"] = request.clusterVersion;
+    }
+
+    if (!Util.isUnset(request.profile)) {
+      query["profile"] = request.profile;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["region_id"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.version)) {
+      query["version"] = request.version;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAddon",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/addons/${OpenApiUtil.getEncodeParam(addonName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAddonResponse>(await this.callApi(params, req, runtime), new DescribeAddonResponse({}));
+  }
+
+  async describeAddon(addonName: string, request: DescribeAddonRequest): Promise<DescribeAddonResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeAddonWithOptions(addonName, request, headers, runtime);
+  }
+
   async describeAddonsWithOptions(request: DescribeAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeAddonsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15635,6 +15972,41 @@ export default class Client extends OpenApi {
     return await this.listClusterChecksWithOptions(clusterId, request, headers, runtime);
   }
 
+  async listOperationPlansWithOptions(request: ListOperationPlansRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListOperationPlansResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["cluster_id"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListOperationPlans",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/operation/plans`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListOperationPlansResponse>(await this.callApi(params, req, runtime), new ListOperationPlansResponse({}));
+  }
+
+  async listOperationPlans(request: ListOperationPlansRequest): Promise<ListOperationPlansResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listOperationPlansWithOptions(request, headers, runtime);
+  }
+
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListTagResourcesShrinkRequest({ });
@@ -15889,6 +16261,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.autoScaling)) {
       body["auto_scaling"] = request.autoScaling;
+    }
+
+    if (!Util.isUnset(request.concurrency)) {
+      body["concurrency"] = request.concurrency;
     }
 
     if (!Util.isUnset(request.kubernetesConfig)) {
@@ -16264,6 +16640,10 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.concurrency)) {
+      query["concurrency"] = request.concurrency;
+    }
+
     if (!Util.isUnset(request.drainNode)) {
       query["drain_node"] = request.drainNode;
     }
@@ -17136,7 +17516,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "json",
     });
     return $tea.cast<UpdateControlPlaneLogResponse>(await this.callApi(params, req, runtime), new UpdateControlPlaneLogResponse({}));
   }
