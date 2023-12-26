@@ -4938,15 +4938,18 @@ export class UpdateResourceInstanceResponse extends $tea.Model {
 }
 
 export class UpdateServiceRequest extends $tea.Model {
+  updateType?: string;
   body?: string;
   static names(): { [key: string]: string } {
     return {
+      updateType: 'UpdateType',
       body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      updateType: 'string',
       body: 'string',
     };
   }
@@ -8486,8 +8489,14 @@ export default class Client extends OpenApi {
 
   async updateServiceWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.updateType)) {
+      query["UpdateType"] = request.updateType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: request.body,
     });
     let params = new $OpenApi.Params({
