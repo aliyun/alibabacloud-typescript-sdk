@@ -66,6 +66,37 @@ export class CodeSourceItem extends $tea.Model {
   }
 }
 
+export class Collection extends $tea.Model {
+  collectionName?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  ownerId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collectionName: 'CollectionName',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      ownerId: 'OwnerId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collectionName: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      ownerId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Dataset extends $tea.Model {
   accessibility?: string;
   dataSourceType?: string;
@@ -183,6 +214,7 @@ export class Label extends $tea.Model {
 export class Model extends $tea.Model {
   accessibility?: string;
   domain?: string;
+  extraInfo?: { [key: string]: any };
   gmtCreateTime?: string;
   gmtModifiedTime?: string;
   labels?: Label[];
@@ -191,12 +223,11 @@ export class Model extends $tea.Model {
   modelDoc?: string;
   modelId?: string;
   modelName?: string;
+  modelType?: string;
   orderNumber?: number;
   origin?: string;
   ownerId?: string;
   provider?: string;
-  sourceId?: string;
-  sourceType?: string;
   task?: string;
   userId?: string;
   workspaceId?: string;
@@ -204,6 +235,7 @@ export class Model extends $tea.Model {
     return {
       accessibility: 'Accessibility',
       domain: 'Domain',
+      extraInfo: 'ExtraInfo',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       labels: 'Labels',
@@ -212,12 +244,11 @@ export class Model extends $tea.Model {
       modelDoc: 'ModelDoc',
       modelId: 'ModelId',
       modelName: 'ModelName',
+      modelType: 'ModelType',
       orderNumber: 'OrderNumber',
       origin: 'Origin',
       ownerId: 'OwnerId',
       provider: 'Provider',
-      sourceId: 'SourceId',
-      sourceType: 'SourceType',
       task: 'Task',
       userId: 'UserId',
       workspaceId: 'WorkspaceId',
@@ -228,6 +259,7 @@ export class Model extends $tea.Model {
     return {
       accessibility: 'string',
       domain: 'string',
+      extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       labels: { 'type': 'array', 'itemType': Label },
@@ -236,12 +268,11 @@ export class Model extends $tea.Model {
       modelDoc: 'string',
       modelId: 'string',
       modelName: 'string',
+      modelType: 'string',
       orderNumber: 'number',
       origin: 'string',
       ownerId: 'string',
       provider: 'string',
-      sourceId: 'string',
-      sourceType: 'string',
       task: 'string',
       userId: 'string',
       workspaceId: 'string',
@@ -255,6 +286,8 @@ export class Model extends $tea.Model {
 
 export class ModelVersion extends $tea.Model {
   approvalStatus?: string;
+  evaluationSpec?: { [key: string]: any };
+  extraInfo?: { [key: string]: any };
   formatType?: string;
   frameworkType?: string;
   gmtCreateTime?: string;
@@ -274,6 +307,8 @@ export class ModelVersion extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       approvalStatus: 'ApprovalStatus',
+      evaluationSpec: 'EvaluationSpec',
+      extraInfo: 'ExtraInfo',
       formatType: 'FormatType',
       frameworkType: 'FrameworkType',
       gmtCreateTime: 'GmtCreateTime',
@@ -296,6 +331,8 @@ export class ModelVersion extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       approvalStatus: 'string',
+      evaluationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       formatType: 'string',
       frameworkType: 'string',
       gmtCreateTime: 'string',
@@ -890,28 +927,28 @@ export class CreateMemberResponse extends $tea.Model {
 export class CreateModelRequest extends $tea.Model {
   accessibility?: string;
   domain?: string;
+  extraInfo?: { [key: string]: any };
   labels?: Label[];
   modelDescription?: string;
   modelDoc?: string;
   modelName?: string;
+  modelType?: string;
   orderNumber?: number;
   origin?: string;
-  sourceId?: string;
-  sourceType?: string;
   task?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
       domain: 'Domain',
+      extraInfo: 'ExtraInfo',
       labels: 'Labels',
       modelDescription: 'ModelDescription',
       modelDoc: 'ModelDoc',
       modelName: 'ModelName',
+      modelType: 'ModelType',
       orderNumber: 'OrderNumber',
       origin: 'Origin',
-      sourceId: 'SourceId',
-      sourceType: 'SourceType',
       task: 'Task',
       workspaceId: 'WorkspaceId',
     };
@@ -921,14 +958,14 @@ export class CreateModelRequest extends $tea.Model {
     return {
       accessibility: 'string',
       domain: 'string',
+      extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       labels: { 'type': 'array', 'itemType': Label },
       modelDescription: 'string',
       modelDoc: 'string',
       modelName: 'string',
+      modelType: 'string',
       orderNumber: 'number',
       origin: 'string',
-      sourceId: 'string',
-      sourceType: 'string',
       task: 'string',
       workspaceId: 'string',
     };
@@ -1051,6 +1088,8 @@ export class CreateModelLabelsResponse extends $tea.Model {
 
 export class CreateModelVersionRequest extends $tea.Model {
   approvalStatus?: string;
+  evaluationSpec?: { [key: string]: any };
+  extraInfo?: { [key: string]: any };
   formatType?: string;
   frameworkType?: string;
   inferenceSpec?: { [key: string]: any };
@@ -1066,6 +1105,8 @@ export class CreateModelVersionRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       approvalStatus: 'ApprovalStatus',
+      evaluationSpec: 'EvaluationSpec',
+      extraInfo: 'ExtraInfo',
       formatType: 'FormatType',
       frameworkType: 'FrameworkType',
       inferenceSpec: 'InferenceSpec',
@@ -1084,6 +1125,8 @@ export class CreateModelVersionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       approvalStatus: 'string',
+      evaluationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       formatType: 'string',
       frameworkType: 'string',
       inferenceSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -1953,15 +1996,18 @@ export class DeleteWorkspaceResourceRequest extends $tea.Model {
 
 export class DeleteWorkspaceResourceResponseBody extends $tea.Model {
   requestId?: string;
+  resourceIds?: string[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      resourceIds: 'ResourceIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -2458,6 +2504,7 @@ export class GetMemberResponse extends $tea.Model {
 export class GetModelResponseBody extends $tea.Model {
   accessibility?: string;
   domain?: string;
+  extraInfo?: { [key: string]: any };
   gmtCreateTime?: string;
   gmtModifiedTime?: string;
   labels?: Label[];
@@ -2466,6 +2513,8 @@ export class GetModelResponseBody extends $tea.Model {
   modelDoc?: string;
   modelId?: string;
   modelName?: string;
+  modelType?: string;
+  orderNumber?: number;
   origin?: string;
   ownerId?: string;
   provider?: string;
@@ -2477,6 +2526,7 @@ export class GetModelResponseBody extends $tea.Model {
     return {
       accessibility: 'Accessibility',
       domain: 'Domain',
+      extraInfo: 'ExtraInfo',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       labels: 'Labels',
@@ -2485,6 +2535,8 @@ export class GetModelResponseBody extends $tea.Model {
       modelDoc: 'ModelDoc',
       modelId: 'ModelId',
       modelName: 'ModelName',
+      modelType: 'ModelType',
+      orderNumber: 'OrderNumber',
       origin: 'Origin',
       ownerId: 'OwnerId',
       provider: 'Provider',
@@ -2499,6 +2551,7 @@ export class GetModelResponseBody extends $tea.Model {
     return {
       accessibility: 'string',
       domain: 'string',
+      extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       labels: { 'type': 'array', 'itemType': Label },
@@ -2507,6 +2560,8 @@ export class GetModelResponseBody extends $tea.Model {
       modelDoc: 'string',
       modelId: 'string',
       modelName: 'string',
+      modelType: 'string',
+      orderNumber: 'number',
       origin: 'string',
       ownerId: 'string',
       provider: 'string',
@@ -2549,12 +2604,15 @@ export class GetModelResponse extends $tea.Model {
 
 export class GetModelVersionResponseBody extends $tea.Model {
   approvalStatus?: string;
+  evaluationSpec?: { [key: string]: any };
+  extraInfo?: { [key: string]: any };
   formatType?: string;
   frameworkType?: string;
   gmtCreateTime?: string;
   gmtModifiedTime?: string;
   inferenceSpec?: { [key: string]: any };
   labels?: Label[];
+  metrics?: { [key: string]: any };
   options?: string;
   ownerId?: string;
   requestId?: string;
@@ -2568,12 +2626,15 @@ export class GetModelVersionResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       approvalStatus: 'ApprovalStatus',
+      evaluationSpec: 'EvaluationSpec',
+      extraInfo: 'ExtraInfo',
       formatType: 'FormatType',
       frameworkType: 'FrameworkType',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       inferenceSpec: 'InferenceSpec',
       labels: 'Labels',
+      metrics: 'Metrics',
       options: 'Options',
       ownerId: 'OwnerId',
       requestId: 'RequestId',
@@ -2590,12 +2651,15 @@ export class GetModelVersionResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       approvalStatus: 'string',
+      evaluationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       formatType: 'string',
       frameworkType: 'string',
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       inferenceSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       labels: { 'type': 'array', 'itemType': Label },
+      metrics: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       options: 'string',
       ownerId: 'string',
       requestId: 'string',
@@ -3434,9 +3498,11 @@ export class ListModelVersionsResponse extends $tea.Model {
 }
 
 export class ListModelsRequest extends $tea.Model {
+  collections?: string;
   domain?: string;
   label?: string;
   modelName?: string;
+  modelType?: string;
   order?: string;
   origin?: string;
   pageNumber?: number;
@@ -3444,15 +3510,15 @@ export class ListModelsRequest extends $tea.Model {
   provider?: string;
   query?: string;
   sortBy?: string;
-  souceType?: string;
-  sourceId?: string;
   task?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      collections: 'Collections',
       domain: 'Domain',
       label: 'Label',
       modelName: 'ModelName',
+      modelType: 'ModelType',
       order: 'Order',
       origin: 'Origin',
       pageNumber: 'PageNumber',
@@ -3460,8 +3526,6 @@ export class ListModelsRequest extends $tea.Model {
       provider: 'Provider',
       query: 'Query',
       sortBy: 'SortBy',
-      souceType: 'SouceType',
-      sourceId: 'SourceId',
       task: 'Task',
       workspaceId: 'WorkspaceId',
     };
@@ -3469,9 +3533,11 @@ export class ListModelsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      collections: 'string',
       domain: 'string',
       label: 'string',
       modelName: 'string',
+      modelType: 'string',
       order: 'string',
       origin: 'string',
       pageNumber: 'number',
@@ -3479,8 +3545,6 @@ export class ListModelsRequest extends $tea.Model {
       provider: 'string',
       query: 'string',
       sortBy: 'string',
-      souceType: 'string',
-      sourceId: 'string',
       task: 'string',
       workspaceId: 'string',
     };
@@ -4503,25 +4567,25 @@ export class UpdateDefaultWorkspaceResponse extends $tea.Model {
 export class UpdateModelRequest extends $tea.Model {
   accessibility?: string;
   domain?: string;
+  extraInfo?: { [key: string]: any };
   modelDescription?: string;
   modelDoc?: string;
   modelName?: string;
+  modelType?: string;
   orderNumber?: number;
   origin?: string;
-  sourceId?: string;
-  sourceType?: string;
   task?: string;
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
       domain: 'Domain',
+      extraInfo: 'ExtraInfo',
       modelDescription: 'ModelDescription',
       modelDoc: 'ModelDoc',
       modelName: 'ModelName',
+      modelType: 'ModelType',
       orderNumber: 'OrderNumber',
       origin: 'Origin',
-      sourceId: 'SourceId',
-      sourceType: 'SourceType',
       task: 'Task',
     };
   }
@@ -4530,13 +4594,13 @@ export class UpdateModelRequest extends $tea.Model {
     return {
       accessibility: 'string',
       domain: 'string',
+      extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       modelDescription: 'string',
       modelDoc: 'string',
       modelName: 'string',
+      modelType: 'string',
       orderNumber: 'number',
       origin: 'string',
-      sourceId: 'string',
-      sourceType: 'string',
       task: 'string',
     };
   }
@@ -4592,6 +4656,8 @@ export class UpdateModelResponse extends $tea.Model {
 
 export class UpdateModelVersionRequest extends $tea.Model {
   approvalStatus?: string;
+  evaluationSpec?: { [key: string]: any };
+  extraInfo?: { [key: string]: any };
   inferenceSpec?: { [key: string]: any };
   metrics?: { [key: string]: any };
   options?: string;
@@ -4602,6 +4668,8 @@ export class UpdateModelVersionRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       approvalStatus: 'ApprovalStatus',
+      evaluationSpec: 'EvaluationSpec',
+      extraInfo: 'ExtraInfo',
       inferenceSpec: 'InferenceSpec',
       metrics: 'Metrics',
       options: 'Options',
@@ -4615,6 +4683,8 @@ export class UpdateModelVersionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       approvalStatus: 'string',
+      evaluationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       inferenceSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       metrics: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       options: 'string',
@@ -4779,15 +4849,18 @@ export class UpdateWorkspaceResourceRequest extends $tea.Model {
 
 export class UpdateWorkspaceResourceResponseBody extends $tea.Model {
   requestId?: string;
+  resourceIds?: string[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      resourceIds: 'ResourceIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -6128,6 +6201,10 @@ export default class Client extends OpenApi {
       body["Domain"] = request.domain;
     }
 
+    if (!Util.isUnset(request.extraInfo)) {
+      body["ExtraInfo"] = request.extraInfo;
+    }
+
     if (!Util.isUnset(request.labels)) {
       body["Labels"] = request.labels;
     }
@@ -6144,20 +6221,16 @@ export default class Client extends OpenApi {
       body["ModelName"] = request.modelName;
     }
 
+    if (!Util.isUnset(request.modelType)) {
+      body["ModelType"] = request.modelType;
+    }
+
     if (!Util.isUnset(request.orderNumber)) {
       body["OrderNumber"] = request.orderNumber;
     }
 
     if (!Util.isUnset(request.origin)) {
       body["Origin"] = request.origin;
-    }
-
-    if (!Util.isUnset(request.sourceId)) {
-      body["SourceId"] = request.sourceId;
-    }
-
-    if (!Util.isUnset(request.sourceType)) {
-      body["SourceType"] = request.sourceType;
     }
 
     if (!Util.isUnset(request.task)) {
@@ -6228,6 +6301,14 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.approvalStatus)) {
       body["ApprovalStatus"] = request.approvalStatus;
+    }
+
+    if (!Util.isUnset(request.evaluationSpec)) {
+      body["EvaluationSpec"] = request.evaluationSpec;
+    }
+
+    if (!Util.isUnset(request.extraInfo)) {
+      body["ExtraInfo"] = request.extraInfo;
     }
 
     if (!Util.isUnset(request.formatType)) {
@@ -7385,6 +7466,10 @@ export default class Client extends OpenApi {
   async listModelsWithOptions(request: ListModelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListModelsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.collections)) {
+      query["Collections"] = request.collections;
+    }
+
     if (!Util.isUnset(request.domain)) {
       query["Domain"] = request.domain;
     }
@@ -7395,6 +7480,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.modelName)) {
       query["ModelName"] = request.modelName;
+    }
+
+    if (!Util.isUnset(request.modelType)) {
+      query["ModelType"] = request.modelType;
     }
 
     if (!Util.isUnset(request.order)) {
@@ -7423,14 +7512,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sortBy)) {
       query["SortBy"] = request.sortBy;
-    }
-
-    if (!Util.isUnset(request.souceType)) {
-      query["SouceType"] = request.souceType;
-    }
-
-    if (!Util.isUnset(request.sourceId)) {
-      query["SourceId"] = request.sourceId;
     }
 
     if (!Util.isUnset(request.task)) {
@@ -7891,7 +7972,7 @@ export default class Client extends OpenApi {
     return await this.removeImageWithOptions(ImageId, headers, runtime);
   }
 
-  async removeImageLabelsWithOptions(ImageId: string, LabelKeys: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveImageLabelsResponse> {
+  async removeImageLabelsWithOptions(ImageId: string, LabelKey: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveImageLabelsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -7899,7 +7980,7 @@ export default class Client extends OpenApi {
       action: "RemoveImageLabels",
       version: "2021-02-04",
       protocol: "HTTPS",
-      pathname: `/api/v1/images/${OpenApiUtil.getEncodeParam(ImageId)}/labels/${OpenApiUtil.getEncodeParam(LabelKeys)}`,
+      pathname: `/api/v1/images/${OpenApiUtil.getEncodeParam(ImageId)}/labels/${OpenApiUtil.getEncodeParam(LabelKey)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -7909,10 +7990,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveImageLabelsResponse>(await this.callApi(params, req, runtime), new RemoveImageLabelsResponse({}));
   }
 
-  async removeImageLabels(ImageId: string, LabelKeys: string): Promise<RemoveImageLabelsResponse> {
+  async removeImageLabels(ImageId: string, LabelKey: string): Promise<RemoveImageLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeImageLabelsWithOptions(ImageId, LabelKeys, headers, runtime);
+    return await this.removeImageLabelsWithOptions(ImageId, LabelKey, headers, runtime);
   }
 
   async removeMemberRoleWithOptions(WorkspaceId: string, MemberId: string, RoleName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveMemberRoleResponse> {
@@ -8020,6 +8101,10 @@ export default class Client extends OpenApi {
       body["Domain"] = request.domain;
     }
 
+    if (!Util.isUnset(request.extraInfo)) {
+      body["ExtraInfo"] = request.extraInfo;
+    }
+
     if (!Util.isUnset(request.modelDescription)) {
       body["ModelDescription"] = request.modelDescription;
     }
@@ -8032,20 +8117,16 @@ export default class Client extends OpenApi {
       body["ModelName"] = request.modelName;
     }
 
+    if (!Util.isUnset(request.modelType)) {
+      body["ModelType"] = request.modelType;
+    }
+
     if (!Util.isUnset(request.orderNumber)) {
       body["OrderNumber"] = request.orderNumber;
     }
 
     if (!Util.isUnset(request.origin)) {
       body["Origin"] = request.origin;
-    }
-
-    if (!Util.isUnset(request.sourceId)) {
-      body["SourceId"] = request.sourceId;
-    }
-
-    if (!Util.isUnset(request.sourceType)) {
-      body["SourceType"] = request.sourceType;
     }
 
     if (!Util.isUnset(request.task)) {
@@ -8081,6 +8162,14 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.approvalStatus)) {
       body["ApprovalStatus"] = request.approvalStatus;
+    }
+
+    if (!Util.isUnset(request.evaluationSpec)) {
+      body["EvaluationSpec"] = request.evaluationSpec;
+    }
+
+    if (!Util.isUnset(request.extraInfo)) {
+      body["ExtraInfo"] = request.extraInfo;
     }
 
     if (!Util.isUnset(request.inferenceSpec)) {
