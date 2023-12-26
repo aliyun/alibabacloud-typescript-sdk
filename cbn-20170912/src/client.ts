@@ -2083,6 +2083,7 @@ export class CreateTransitRouterPeerAttachmentRequest extends $tea.Model {
   cenBandwidthPackageId?: string;
   cenId?: string;
   clientToken?: string;
+  defaultLinkType?: string;
   dryRun?: boolean;
   ownerAccount?: string;
   ownerId?: number;
@@ -2103,6 +2104,7 @@ export class CreateTransitRouterPeerAttachmentRequest extends $tea.Model {
       cenBandwidthPackageId: 'CenBandwidthPackageId',
       cenId: 'CenId',
       clientToken: 'ClientToken',
+      defaultLinkType: 'DefaultLinkType',
       dryRun: 'DryRun',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -2126,6 +2128,7 @@ export class CreateTransitRouterPeerAttachmentRequest extends $tea.Model {
       cenBandwidthPackageId: 'string',
       cenId: 'string',
       clientToken: 'string',
+      defaultLinkType: 'string',
       dryRun: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -12903,6 +12906,7 @@ export class UpdateTransitRouterPeerAttachmentAttributeRequest extends $tea.Mode
   bandwidthType?: string;
   cenBandwidthPackageId?: string;
   clientToken?: string;
+  defaultLinkType?: string;
   dryRun?: boolean;
   ownerAccount?: string;
   ownerId?: number;
@@ -12918,6 +12922,7 @@ export class UpdateTransitRouterPeerAttachmentAttributeRequest extends $tea.Mode
       bandwidthType: 'BandwidthType',
       cenBandwidthPackageId: 'CenBandwidthPackageId',
       clientToken: 'ClientToken',
+      defaultLinkType: 'DefaultLinkType',
       dryRun: 'DryRun',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -12936,6 +12941,7 @@ export class UpdateTransitRouterPeerAttachmentAttributeRequest extends $tea.Mode
       bandwidthType: 'string',
       cenBandwidthPackageId: 'string',
       clientToken: 'string',
+      defaultLinkType: 'string',
       dryRun: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -15406,6 +15412,7 @@ export class DescribeCenRouteMapsResponseBodyRouteMaps extends $tea.Model {
 
 export class DescribeCenVbrHealthCheckResponseBodyVbrHealthChecksVbrHealthCheck extends $tea.Model {
   cenId?: string;
+  description?: string;
   healthCheckInterval?: number;
   healthCheckOnly?: boolean;
   healthCheckSourceIp?: string;
@@ -15416,6 +15423,7 @@ export class DescribeCenVbrHealthCheckResponseBodyVbrHealthChecksVbrHealthCheck 
   static names(): { [key: string]: string } {
     return {
       cenId: 'CenId',
+      description: 'Description',
       healthCheckInterval: 'HealthCheckInterval',
       healthCheckOnly: 'HealthCheckOnly',
       healthCheckSourceIp: 'HealthCheckSourceIp',
@@ -15429,6 +15437,7 @@ export class DescribeCenVbrHealthCheckResponseBodyVbrHealthChecksVbrHealthCheck 
   static types(): { [key: string]: any } {
     return {
       cenId: 'string',
+      description: 'string',
       healthCheckInterval: 'number',
       healthCheckOnly: 'boolean',
       healthCheckSourceIp: 'string',
@@ -15852,6 +15861,7 @@ export class DescribeGrantRulesToCenResponseBodyGrantRulesGrantRule extends $tea
   childInstanceOwnerId?: number;
   childInstanceRegionId?: string;
   childInstanceType?: string;
+  createTime?: number;
   orderType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15861,6 +15871,7 @@ export class DescribeGrantRulesToCenResponseBodyGrantRulesGrantRule extends $tea
       childInstanceOwnerId: 'ChildInstanceOwnerId',
       childInstanceRegionId: 'ChildInstanceRegionId',
       childInstanceType: 'ChildInstanceType',
+      createTime: 'CreateTime',
       orderType: 'OrderType',
     };
   }
@@ -15873,6 +15884,7 @@ export class DescribeGrantRulesToCenResponseBodyGrantRulesGrantRule extends $tea
       childInstanceOwnerId: 'number',
       childInstanceRegionId: 'string',
       childInstanceType: 'string',
+      createTime: 'number',
       orderType: 'string',
     };
   }
@@ -15904,11 +15916,13 @@ export class DescribeGrantRulesToCenResponseBodyGrantRules extends $tea.Model {
 export class DescribeGrantRulesToResourceResponseBodyGrantRules extends $tea.Model {
   cenId?: string;
   cenOwnerId?: number;
+  createTime?: string;
   orderType?: string;
   static names(): { [key: string]: string } {
     return {
       cenId: 'CenId',
       cenOwnerId: 'CenOwnerId',
+      createTime: 'CreateTime',
       orderType: 'OrderType',
     };
   }
@@ -15917,6 +15931,7 @@ export class DescribeGrantRulesToResourceResponseBodyGrantRules extends $tea.Mod
     return {
       cenId: 'string',
       cenOwnerId: 'number',
+      createTime: 'string',
       orderType: 'string',
     };
   }
@@ -16910,6 +16925,7 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
   cenBandwidthPackageId?: string;
   cenId?: string;
   creationTime?: string;
+  defaultLinkType?: string;
   geographicSpanId?: string;
   peerTransitRouterId?: string;
   peerTransitRouterOwnerId?: number;
@@ -16930,6 +16946,7 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
       cenBandwidthPackageId: 'CenBandwidthPackageId',
       cenId: 'CenId',
       creationTime: 'CreationTime',
+      defaultLinkType: 'DefaultLinkType',
       geographicSpanId: 'GeographicSpanId',
       peerTransitRouterId: 'PeerTransitRouterId',
       peerTransitRouterOwnerId: 'PeerTransitRouterOwnerId',
@@ -16953,6 +16970,7 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
       cenBandwidthPackageId: 'string',
       cenId: 'string',
       creationTime: 'string',
+      defaultLinkType: 'string',
       geographicSpanId: 'string',
       peerTransitRouterId: 'string',
       peerTransitRouterOwnerId: 'number',
@@ -17374,6 +17392,7 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
   autoPublishRouteEnabled?: boolean;
   cenId?: string;
   creationTime?: string;
+  orderType?: string;
   resourceType?: string;
   status?: string;
   tags?: ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachmentsTags[];
@@ -17389,6 +17408,7 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
       autoPublishRouteEnabled: 'AutoPublishRouteEnabled',
       cenId: 'CenId',
       creationTime: 'CreationTime',
+      orderType: 'OrderType',
       resourceType: 'ResourceType',
       status: 'Status',
       tags: 'Tags',
@@ -17407,6 +17427,7 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
       autoPublishRouteEnabled: 'boolean',
       cenId: 'string',
       creationTime: 'string',
+      orderType: 'string',
       resourceType: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachmentsTags },
@@ -18308,9 +18329,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you create a network instance connection on a transit router, you can configure an associated forwarding correlation to associate the network instance connection with a route table. Then, the network instance connection can forward network traffic based on the associated route table. Before you begin, we recommend that you take note of the following rules:
-    * *   Only Enterprise Edition transit routers support associated forwarding correlations. For more information about the regions and zones that support Enterprise Edition transit routers, see [Transit routers](~~181681~~).
-    * *   **AssociateTransitRouterAttachmentWithRouteTable** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouterRouteTableAssociations** operation to query the status of an associated forwarding correlation.
+    * After you create a network instance connection on a transit router, you can configure an associated forwarding correlation to associate the network instance connection with the route table of an Enterprise Edition transit router. The Enterprise Edition transit router forwards traffic for the network instance based on the routes in the route table. Before you begin, we recommend that you take note of the following rules:
+    * *   Only route tables of an Enterprise Edition transit router support associated forwarding correlations. For more information about the regions and zones that support Enterprise Edition transit routers, see [What is CEN?](~~181681~~)
+    * *   Each network instance connection can have an associated forwarding correlation with one route tables of Enterprise Edition transit router.
+    * *   **AssociateTransitRouterAttachmentWithRouteTable** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouterRouteTableAssociations** operation to query the status of an associated forwarding correlation.
     *     *   If an associated forwarding correlation is in the **Associating** state, the associated forwarding correlation is being created. You can query the associated forwarding correlation but cannot perform other operations.
     *     *   If an associated forwarding correlation is in the **Active** state, the associated forwarding correlation is created.
     *
@@ -18371,9 +18393,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you create a network instance connection on a transit router, you can configure an associated forwarding correlation to associate the network instance connection with a route table. Then, the network instance connection can forward network traffic based on the associated route table. Before you begin, we recommend that you take note of the following rules:
-    * *   Only Enterprise Edition transit routers support associated forwarding correlations. For more information about the regions and zones that support Enterprise Edition transit routers, see [Transit routers](~~181681~~).
-    * *   **AssociateTransitRouterAttachmentWithRouteTable** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouterRouteTableAssociations** operation to query the status of an associated forwarding correlation.
+    * After you create a network instance connection on a transit router, you can configure an associated forwarding correlation to associate the network instance connection with the route table of an Enterprise Edition transit router. The Enterprise Edition transit router forwards traffic for the network instance based on the routes in the route table. Before you begin, we recommend that you take note of the following rules:
+    * *   Only route tables of an Enterprise Edition transit router support associated forwarding correlations. For more information about the regions and zones that support Enterprise Edition transit routers, see [What is CEN?](~~181681~~)
+    * *   Each network instance connection can have an associated forwarding correlation with one route tables of Enterprise Edition transit router.
+    * *   **AssociateTransitRouterAttachmentWithRouteTable** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouterRouteTableAssociations** operation to query the status of an associated forwarding correlation.
     *     *   If an associated forwarding correlation is in the **Associating** state, the associated forwarding correlation is being created. You can query the associated forwarding correlation but cannot perform other operations.
     *     *   If an associated forwarding correlation is in the **Active** state, the associated forwarding correlation is created.
     *
@@ -18572,8 +18595,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The description of the CEN instance.
-    * The description must be 2 to 256 characters in length. It must start with a letter and cannot start with `http://` or `https://`.
+    * **CreateCen** is an asynchronous operation. After you send a request, the system returns the CEN instance ID but the operation is still being performed in the system background. You can call **DescribeCens** to query the status of a CEN instance.
+    * * If a CEN instance is in the **Creating** state, the CEN instance is being created. You can query the CEN instance but cannot perform other operations.
+    * * If a CEN instance is in the **Active** state, the CEN instance is created.
     *
     * @param request CreateCenRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18636,8 +18660,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The description of the CEN instance.
-    * The description must be 2 to 256 characters in length. It must start with a letter and cannot start with `http://` or `https://`.
+    * **CreateCen** is an asynchronous operation. After you send a request, the system returns the CEN instance ID but the operation is still being performed in the system background. You can call **DescribeCens** to query the status of a CEN instance.
+    * * If a CEN instance is in the **Creating** state, the CEN instance is being created. You can query the CEN instance but cannot perform other operations.
+    * * If a CEN instance is in the **Active** state, the CEN instance is created.
     *
     * @param request CreateCenRequest
     * @return CreateCenResponse
@@ -19116,8 +19141,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The IDs of the source regions from which routes are evaluated. You can enter at most 32 region IDs.
-    * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+    * Routing policies are sorted by priority. A smaller value indicates a higher priority. Each routing policy is a collection of conditional statements and execution statements. Starting from the routing policy with the highest priority, the system matches routes against the match conditions specified by routing policies. If a route meets all the match conditions of a routing policy, the system permits or denies the route based on the action specified in the routing policy. You can also modify the attributes of permitted routes. By default, the system permits routes that meet none of the match conditions. For more information, see [Routing policy overview](~~124157~~).
+    * `CreateCenRouteMap` is an asynchronous operation. After you send a request, the routing policy ID is returned but the operation is still being performed in the system background. You can call `DescribeCenRouteMaps` to query the status of a routing policy.
+    * *   If a routing policy is in the **Creating** state, the routing policy is being created. In this case, you can query the routing policy but cannot perform other operations.
+    * *   If a routing policy is in the **Active** state, the routing policy is created.
     *
     * @param request CreateCenRouteMapRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19276,8 +19303,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The IDs of the source regions from which routes are evaluated. You can enter at most 32 region IDs.
-    * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+    * Routing policies are sorted by priority. A smaller value indicates a higher priority. Each routing policy is a collection of conditional statements and execution statements. Starting from the routing policy with the highest priority, the system matches routes against the match conditions specified by routing policies. If a route meets all the match conditions of a routing policy, the system permits or denies the route based on the action specified in the routing policy. You can also modify the attributes of permitted routes. By default, the system permits routes that meet none of the match conditions. For more information, see [Routing policy overview](~~124157~~).
+    * `CreateCenRouteMap` is an asynchronous operation. After you send a request, the routing policy ID is returned but the operation is still being performed in the system background. You can call `DescribeCenRouteMaps` to query the status of a routing policy.
+    * *   If a routing policy is in the **Creating** state, the routing policy is being created. In this case, you can query the routing policy but cannot perform other operations.
+    * *   If a routing policy is in the **Active** state, the routing policy is created.
     *
     * @param request CreateCenRouteMapRequest
     * @return CreateCenRouteMapResponse
@@ -19580,7 +19609,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   You can call **CreateTransitRouter** to create an Enterprise Edition transit router. For more information about the regions that support Enterprise Edition transit routers, see [What is CEN?](~~181681~~)
+    * *   **CreateTransitRouter** is an asynchronous operation. After you send a request, the transit router ID is returned but the operation is still being performed in the system background. You can call [ListTransitRouters](~~261219~~) to query the status of an Enterprise Edition transit router.
+    *     *   If an Enterprise Edition transit router is in the **Creating** state, the Enterprise Edition transit router is being created. In this case, you can query the Enterprise Edition transit router but cannot perform other operations.
+    *     *   If an Enterprise Edition transit router is in the **Active** state, the Enterprise Edition transit router is created.
     *
     * @param tmpReq CreateTransitRouterRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19665,7 +19697,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   You can call **CreateTransitRouter** to create an Enterprise Edition transit router. For more information about the regions that support Enterprise Edition transit routers, see [What is CEN?](~~181681~~)
+    * *   **CreateTransitRouter** is an asynchronous operation. After you send a request, the transit router ID is returned but the operation is still being performed in the system background. You can call [ListTransitRouters](~~261219~~) to query the status of an Enterprise Edition transit router.
+    *     *   If an Enterprise Edition transit router is in the **Creating** state, the Enterprise Edition transit router is being created. In this case, you can query the Enterprise Edition transit router but cannot perform other operations.
+    *     *   If an Enterprise Edition transit router is in the **Active** state, the Enterprise Edition transit router is created.
     *
     * @param request CreateTransitRouterRequest
     * @return CreateTransitRouterResponse
@@ -19676,9 +19711,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The client token that is used to ensure the idempotence of the request.
-    * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
-    * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+    * You can specify a CIDR block for a transit router. The CIDR block works in a similar way as the CIDR block of the loopback interface on a router. IP addresses within the CIDR block can be assigned to IPsec-VPN connections. For more information, see [Transit router CIDR blocks](~~462635~~).
+    * The **CreateTransitRouterCidr** operation can be used to create a CIDR block only after you create a transit router.
+    * The CIDR block must meet the following requirements:
+    * *   Only Enterprise Edition transit routers support custom CIDR blocks.
+    * *   For more information, see [Limits in transit router CIDR blocks](~~462635~~).
+    * *   Each transit router supports at most five CIDR blocks. The subnet mask of a CIDR block must be 16 bits to 24 bits in length.
+    * *   The following CIDR blocks and their subnets are not supported: 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, and 169.254.0.0/16.
+    * *   The CIDR block cannot overlap with the CIDR blocks of the network instances that communicate with each other by using the CEN instance.
+    * *   On the same CEN instance, each transit router CIDR block must be unique.
+    * *   When you create the first VPN connection after you add a CIDR block for a transit router, three CIDR blocks within the CIDR block are reserved. An IP address is allocated from the remaining CIDR blocks to the IPsec-VPN connection.
+    *     You can call the [ListTransitRouterCidrAllocation](~~464173~~) operation to query reserved CIDR blocks and IP addresses allocated to network connections.
     *
     * @param request CreateTransitRouterCidrRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19753,9 +19796,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The client token that is used to ensure the idempotence of the request.
-    * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
-    * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+    * You can specify a CIDR block for a transit router. The CIDR block works in a similar way as the CIDR block of the loopback interface on a router. IP addresses within the CIDR block can be assigned to IPsec-VPN connections. For more information, see [Transit router CIDR blocks](~~462635~~).
+    * The **CreateTransitRouterCidr** operation can be used to create a CIDR block only after you create a transit router.
+    * The CIDR block must meet the following requirements:
+    * *   Only Enterprise Edition transit routers support custom CIDR blocks.
+    * *   For more information, see [Limits in transit router CIDR blocks](~~462635~~).
+    * *   Each transit router supports at most five CIDR blocks. The subnet mask of a CIDR block must be 16 bits to 24 bits in length.
+    * *   The following CIDR blocks and their subnets are not supported: 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, and 169.254.0.0/16.
+    * *   The CIDR block cannot overlap with the CIDR blocks of the network instances that communicate with each other by using the CEN instance.
+    * *   On the same CEN instance, each transit router CIDR block must be unique.
+    * *   When you create the first VPN connection after you add a CIDR block for a transit router, three CIDR blocks within the CIDR block are reserved. An IP address is allocated from the remaining CIDR blocks to the IPsec-VPN connection.
+    *     You can call the [ListTransitRouterCidrAllocation](~~464173~~) operation to query reserved CIDR blocks and IP addresses allocated to network connections.
     *
     * @param request CreateTransitRouterCidrRequest
     * @return CreateTransitRouterCidrResponse
@@ -19894,6 +19945,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.defaultLinkType)) {
+      query["DefaultLinkType"] = request.defaultLinkType;
     }
 
     if (!Util.isUnset(request.dryRun)) {
@@ -20682,19 +20737,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteCen** is an asynchronous operation. After you send a request, the **request ID** is returned but the operation is still being performed in the system background. You can call **DescribeCens** to query the status of a CEN instance.   
-    * - If a CEN instance is in the **Deleting** state, the CEN instance is being deleted. In this case, you can query the CEN instance but cannot perform other operations.
-    * - If a CEN instance cannot be found, the CEN instance is deleted.
-    * ## Prerequisites
-    * The CEN instance that you want to delete is not associated with a bandwidth plan, and the transit router associated with the CEN instance does not have a network instance connection or a custom route table. 
-    * - For more information about how to detach a network instance, see the following topics:   
-    *   - [DeleteTransitRouterVpcAttachment](~~468238~~)
-    *   - [DeleteTransitRouterVbrAttachment](~~468244~~)
-    *   - [DeleteTransitRouterVpnAttachment](~~468251~~)
-    *   - [DeleteTransitRouterPeerAttachment](~~468271~~)
-    *   >  For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](~~468685~~).
-    * - For more information about how to delete a custom route table, see [DeleteTransitRouterRouteTable](~~468285~~).
-    * - For more information about how to disassociate a bandwidth plan from a CEN instance, see [UnassociateCenBandwidthPackage](~~468506~~).
+    * **DeleteCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **DescribeCens** operation to query the status of a CEN instance.
+    * *   If a CEN instance is in the **Deleting** state, the CEN instance is being deleted. In this case, you can query the CEN instance but cannot perform other operations.
+    * *   If a CEN instance cannot be found, the CEN instance is deleted.
+    * #### Prerequisites
+    * The CEN instance that you want to delete is not associated with a bandwidth plan, and the transit router associated with the CEN instance does not have a network instance connection or a custom route table.
+    * *   For more information about how to detach a network instance, see the following topics:
+    *     *   [DeleteTransitRouterVpcAttachment](~~261220~~)
+    *     *   [DeleteTransitRouterVbrAttachment](~~261223~~)
+    *     *   [DeleteTransitRouterVpnAttachment](~~443992~~)
+    *     *   [DeleteTransitRouterPeerAttachment](~~261227~~)
+    *      >For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](~~65915~~).
+    * *   For more information about how to delete a custom route table, see [DeleteTransitRouterRouteTable](~~261235~~).
+    * *   For more information about how to disassociate a bandwidth plan from a CEN instance, see [UnassociateCenBandwidthPackage](~~65935~~).
     *
     * @param request DeleteCenRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20741,19 +20796,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteCen** is an asynchronous operation. After you send a request, the **request ID** is returned but the operation is still being performed in the system background. You can call **DescribeCens** to query the status of a CEN instance.   
-    * - If a CEN instance is in the **Deleting** state, the CEN instance is being deleted. In this case, you can query the CEN instance but cannot perform other operations.
-    * - If a CEN instance cannot be found, the CEN instance is deleted.
-    * ## Prerequisites
-    * The CEN instance that you want to delete is not associated with a bandwidth plan, and the transit router associated with the CEN instance does not have a network instance connection or a custom route table. 
-    * - For more information about how to detach a network instance, see the following topics:   
-    *   - [DeleteTransitRouterVpcAttachment](~~468238~~)
-    *   - [DeleteTransitRouterVbrAttachment](~~468244~~)
-    *   - [DeleteTransitRouterVpnAttachment](~~468251~~)
-    *   - [DeleteTransitRouterPeerAttachment](~~468271~~)
-    *   >  For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](~~468685~~).
-    * - For more information about how to delete a custom route table, see [DeleteTransitRouterRouteTable](~~468285~~).
-    * - For more information about how to disassociate a bandwidth plan from a CEN instance, see [UnassociateCenBandwidthPackage](~~468506~~).
+    * **DeleteCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **DescribeCens** operation to query the status of a CEN instance.
+    * *   If a CEN instance is in the **Deleting** state, the CEN instance is being deleted. In this case, you can query the CEN instance but cannot perform other operations.
+    * *   If a CEN instance cannot be found, the CEN instance is deleted.
+    * #### Prerequisites
+    * The CEN instance that you want to delete is not associated with a bandwidth plan, and the transit router associated with the CEN instance does not have a network instance connection or a custom route table.
+    * *   For more information about how to detach a network instance, see the following topics:
+    *     *   [DeleteTransitRouterVpcAttachment](~~261220~~)
+    *     *   [DeleteTransitRouterVbrAttachment](~~261223~~)
+    *     *   [DeleteTransitRouterVpnAttachment](~~443992~~)
+    *     *   [DeleteTransitRouterPeerAttachment](~~261227~~)
+    *      >For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](~~65915~~).
+    * *   For more information about how to delete a custom route table, see [DeleteTransitRouterRouteTable](~~261235~~).
+    * *   For more information about how to disassociate a bandwidth plan from a CEN instance, see [UnassociateCenBandwidthPackage](~~65935~~).
     *
     * @param request DeleteCenRequest
     * @return DeleteCenResponse
@@ -20979,7 +21034,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   Before you delete a QoS policy, you must delete all queues in the QoS policy except the default queue. For more information, see [DeleteCenInterRegionTrafficQosQueue](~~419062~~).
+    * *   **DeleteCenInterRegionTrafficQosPolicy** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **ListCenInterRegionTrafficQosPolicies** operation to query the status of a QoS policy.
+    *     *   If a QoS policy is in the **Deleting** state, the QoS policy is being deleted. You can query the QoS policy but cannot perform other operations.
+    *     *   If a QoS policy cannot be found, the QoS policy is deleted.
     *
     * @param request DeleteCenInterRegionTrafficQosPolicyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21034,7 +21092,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   Before you delete a QoS policy, you must delete all queues in the QoS policy except the default queue. For more information, see [DeleteCenInterRegionTrafficQosQueue](~~419062~~).
+    * *   **DeleteCenInterRegionTrafficQosPolicy** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **ListCenInterRegionTrafficQosPolicies** operation to query the status of a QoS policy.
+    *     *   If a QoS policy is in the **Deleting** state, the QoS policy is being deleted. You can query the QoS policy but cannot perform other operations.
+    *     *   If a QoS policy cannot be found, the QoS policy is deleted.
     *
     * @param request DeleteCenInterRegionTrafficQosPolicyRequest
     * @return DeleteCenInterRegionTrafficQosPolicyResponse
@@ -21045,7 +21106,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   You cannot delete the default queue.
+    * *   **DeleteCenInterRegionTrafficQosQueue** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **ListCenInterRegionTrafficQosPolicies** operation to query the status of a queue. If a queue cannot be found, the queue is deleted.
     *
     * @param request DeleteCenInterRegionTrafficQosQueueRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21100,7 +21162,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   You cannot delete the default queue.
+    * *   **DeleteCenInterRegionTrafficQosQueue** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **ListCenInterRegionTrafficQosPolicies** operation to query the status of a queue. If a queue cannot be found, the queue is deleted.
     *
     * @param request DeleteCenInterRegionTrafficQosQueueRequest
     * @return DeleteCenInterRegionTrafficQosQueueResponse
@@ -21181,7 +21244,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The response.
+    * `DeleteFlowlog` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `DescribeFlowlogs` operation to query the status of a flow log.
+    * *   If a flow log is in the **Deleting** state, the flow log is being deleted. In this case, you can query the flow log but cannot perform other operations.
+    * *   If a flow log cannot be found, the flow log is deleted.
     *
     * @param request DeleteFlowlogRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21240,7 +21305,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The response.
+    * `DeleteFlowlog` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `DescribeFlowlogs` operation to query the status of a flow log.
+    * *   If a flow log is in the **Deleting** state, the flow log is being deleted. In this case, you can query the flow log but cannot perform other operations.
+    * *   If a flow log cannot be found, the flow log is deleted.
     *
     * @param request DeleteFlowlogRequest
     * @return DeleteFlowlogResponse
@@ -21252,8 +21319,8 @@ export default class Client extends OpenApi {
 
   /**
     * **DeleteRouteServiceInCen** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **DescribeRouteServicesInCen** operation to query the status of the connection to a cloud service.
-    *     - If a cloud service is in the **Deleting** state, the configuration of the cloud service is being deleted. You can query the configuration but cannot perform other operations. 
-    *     - If no configuration of a cloud service can be found, the configuration of the cloud service is deleted.
+    * - If a cloud service is in the **Deleting** state, the configuration of the cloud service is being deleted. You can query the configuration but cannot perform other operations. 
+    * - If no configuration of a cloud service can be found, the configuration of the cloud service is deleted.
     *
     * @param request DeleteRouteServiceInCenRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21317,8 +21384,8 @@ export default class Client extends OpenApi {
 
   /**
     * **DeleteRouteServiceInCen** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **DescribeRouteServicesInCen** operation to query the status of the connection to a cloud service.
-    *     - If a cloud service is in the **Deleting** state, the configuration of the cloud service is being deleted. You can query the configuration but cannot perform other operations. 
-    *     - If no configuration of a cloud service can be found, the configuration of the cloud service is deleted.
+    * - If a cloud service is in the **Deleting** state, the configuration of the cloud service is being deleted. You can query the configuration but cannot perform other operations. 
+    * - If no configuration of a cloud service can be found, the configuration of the cloud service is deleted.
     *
     * @param request DeleteRouteServiceInCenRequest
     * @return DeleteRouteServiceInCenResponse
@@ -21458,7 +21525,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * **DeleteTransitRouter** is an asynchronous operation. After you send a request, the **request ID** is returned but the operation is still being performed in the system background. You can call **ListTransitRouters** to query the status of a transit router.
+    * *   If a transit router is in the **Deleting** state, the transit router is being deleted. In this case, you can query the transit router but cannot perform other operations.
+    * *   If a transit router cannot be found, the transit router is deleted.
+    * #### Prerequisites
+    * Before you delete a transit router, make sure that the following prerequisites are met:
+    * - No network instance connections are created on the transit router. 
+    * 	
+    *     - For more information about how to delete a virtual private cloud (VPC) connection, see [DeleteTransitRouterVpcAttachment](~~261220~~). 
+    *     - For more information about how to delete a virtual border router (VBR) connection, see [DeleteTransitRouterVbrAttachment](~~261223~~). 
+    *     - For more information about how to delete a Cloud Connect Network (CCN) connection, see [DetachCenChildInstance](~~65915~~). 
+    *     - For more information about how to delete a VPN connection, see [DeleteTransitRouterVpnAttachment](~~443992~~).
+    *     - For more information about how to delete an inter-region connection, see [DeleteTransitRouterPeerAttachment](~~261227~~). 
+    * - No custom route tables are created on the transit router. For more information about how to delete a custom route table, see [DeleteTransitRouterRouteTable](~~261235~~).
     *
     * @param request DeleteTransitRouterRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21513,7 +21592,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * **DeleteTransitRouter** is an asynchronous operation. After you send a request, the **request ID** is returned but the operation is still being performed in the system background. You can call **ListTransitRouters** to query the status of a transit router.
+    * *   If a transit router is in the **Deleting** state, the transit router is being deleted. In this case, you can query the transit router but cannot perform other operations.
+    * *   If a transit router cannot be found, the transit router is deleted.
+    * #### Prerequisites
+    * Before you delete a transit router, make sure that the following prerequisites are met:
+    * - No network instance connections are created on the transit router. 
+    * 	
+    *     - For more information about how to delete a virtual private cloud (VPC) connection, see [DeleteTransitRouterVpcAttachment](~~261220~~). 
+    *     - For more information about how to delete a virtual border router (VBR) connection, see [DeleteTransitRouterVbrAttachment](~~261223~~). 
+    *     - For more information about how to delete a Cloud Connect Network (CCN) connection, see [DetachCenChildInstance](~~65915~~). 
+    *     - For more information about how to delete a VPN connection, see [DeleteTransitRouterVpnAttachment](~~443992~~).
+    *     - For more information about how to delete an inter-region connection, see [DeleteTransitRouterPeerAttachment](~~261227~~). 
+    * - No custom route tables are created on the transit router. For more information about how to delete a custom route table, see [DeleteTransitRouterRouteTable](~~261235~~).
     *
     * @param request DeleteTransitRouterRequest
     * @return DeleteTransitRouterResponse
@@ -22331,9 +22422,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the multicast source.
-    * You can create only one multicast source in a multicast group.
-    * >  This parameter is required.
+    * `DeregisterTransitRouterMulticastGroupSources` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `ListTransitRouterMulticastGroups` operation to query the status of a multicast source.
+    * *   If a multicast source is in the **Deregistering** state, the multicast source is being deleted. You can query the multicast source but cannot perform other operations.
+    * *   If a multicast source cannot be found, the multicast source is deleted.
     *
     * @param request DeregisterTransitRouterMulticastGroupSourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22396,9 +22487,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the multicast source.
-    * You can create only one multicast source in a multicast group.
-    * >  This parameter is required.
+    * `DeregisterTransitRouterMulticastGroupSources` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `ListTransitRouterMulticastGroups` operation to query the status of a multicast source.
+    * *   If a multicast source is in the **Deregistering** state, the multicast source is being deleted. You can query the multicast source but cannot perform other operations.
+    * *   If a multicast source cannot be found, the multicast source is deleted.
     *
     * @param request DeregisterTransitRouterMulticastGroupSourcesRequest
     * @return DeregisterTransitRouterMulticastGroupSourcesResponse
@@ -24352,10 +24443,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The type of the network instance. Valid values:
-    * *   **VPC**: VPC
-    * *   **ExpressConnect**: VBR
-    * *   **VPN**: IPsec-VPN connection
+    * *   `GrantInstanceToTransitRouter` grants transit routers the permissions to connect only to virtual private clouds (VPCs), virtual border routers (VBRs), and IPsec-VPN connections that belong to another Alibaba Cloud account.
+    *     If you want to grant transit routers permissions to connect to Cloud Connect Network (CCN) instances, call the [GrantInstanceToCbn](~~126141~~) operation.
+    * *   Before you call `GrantInstanceToTransitRouter`, take note of the billing rules, permission limits, and prerequisites on permission management of transit routers. For more information, see [Acquire permissions to connect to a network instance that belongs to another account](~~181553~~).
     *
     * @param request GrantInstanceToTransitRouterRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24422,10 +24512,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The type of the network instance. Valid values:
-    * *   **VPC**: VPC
-    * *   **ExpressConnect**: VBR
-    * *   **VPN**: IPsec-VPN connection
+    * *   `GrantInstanceToTransitRouter` grants transit routers the permissions to connect only to virtual private clouds (VPCs), virtual border routers (VBRs), and IPsec-VPN connections that belong to another Alibaba Cloud account.
+    *     If you want to grant transit routers permissions to connect to Cloud Connect Network (CCN) instances, call the [GrantInstanceToCbn](~~126141~~) operation.
+    * *   Before you call `GrantInstanceToTransitRouter`, take note of the billing rules, permission limits, and prerequisites on permission management of transit routers. For more information, see [Acquire permissions to connect to a network instance that belongs to another account](~~181553~~).
     *
     * @param request GrantInstanceToTransitRouterRequest
     * @return GrantInstanceToTransitRouterResponse
@@ -26343,7 +26432,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The tag value.
+    * You can set the **RegionId** and **TransitRouterId** parameters based on your requirements.
+    * *   If you do not set **RegionId** or **TransitRouterId**, the system queries all transit routers that are connected to the specified CEN instance.
+    * *   If you set only **RegionId**, the system queries transit routers that are deployed in the specified region.
+    * *   If you set only **TransitRouterId**, the system queries the specified transit router.
+    * *   If you set both **RegionId** and **TransitRouterId**, the system queries the specified transit router in the specified region.
     *
     * @param request ListTransitRoutersRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26426,7 +26519,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The tag value.
+    * You can set the **RegionId** and **TransitRouterId** parameters based on your requirements.
+    * *   If you do not set **RegionId** or **TransitRouterId**, the system queries all transit routers that are connected to the specified CEN instance.
+    * *   If you set only **RegionId**, the system queries transit routers that are deployed in the specified region.
+    * *   If you set only **TransitRouterId**, the system queries the specified transit router.
+    * *   If you set both **RegionId** and **TransitRouterId**, the system queries the specified transit router in the specified region.
     *
     * @param request ListTransitRoutersRequest
     * @return ListTransitRoutersResponse
@@ -26437,7 +26534,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **ModifyCenAttribute**.
+    * **ModifyCenAttribute** is an asynchronous operation. After you send a request, the system returns the **request ID** but the operation is still being performed in the system background. You can call **DescribeCens** to query the status of a CEN instance.
+    * *   If a CEN instance is in the **Modifying** state, the CEN instance is being modified. You can query the CEN instance but cannot perform other operations.
+    * *   If a CEN instance is in the **Active** state, the CEN instance is modified.
     *
     * @param request ModifyCenAttributeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26496,7 +26595,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **ModifyCenAttribute**.
+    * **ModifyCenAttribute** is an asynchronous operation. After you send a request, the system returns the **request ID** but the operation is still being performed in the system background. You can call **DescribeCens** to query the status of a CEN instance.
+    * *   If a CEN instance is in the **Modifying** state, the CEN instance is being modified. You can query the CEN instance but cannot perform other operations.
+    * *   If a CEN instance is in the **Active** state, the CEN instance is modified.
     *
     * @param request ModifyCenAttributeRequest
     * @return ModifyCenAttributeResponse
@@ -26609,7 +26710,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The response.
+    * `ModifyCenRouteMap` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `DescribeCenRouteMaps` operation to query the status of a routing policy.
+    * *   **Modifying**: indicates that the system is modifying the routing policy. You can only query the routing policy, but cannot perform other operations.
+    * *   **Active**: indicates that the routing policy is modified.
     *
     * @param request ModifyCenRouteMapRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26764,7 +26867,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The response.
+    * `ModifyCenRouteMap` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `DescribeCenRouteMaps` operation to query the status of a routing policy.
+    * *   **Modifying**: indicates that the system is modifying the routing policy. You can only query the routing policy, but cannot perform other operations.
+    * *   **Active**: indicates that the routing policy is modified.
     *
     * @param request ModifyCenRouteMapRequest
     * @return ModifyCenRouteMapResponse
@@ -26774,6 +26879,15 @@ export default class Client extends OpenApi {
     return await this.modifyCenRouteMapWithOptions(request, runtime);
   }
 
+  /**
+    * `ModifyFlowLogAttribute` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `DescribeFlowlogs` operation to query the status of a flow log.
+    * *   If a flow log is in the **Modifying** state, the flow log is being modified. In this case, you can query the flow log but cannot perform other operations.
+    * *   If a flow log is in the **Active** state, the flow log is modified.
+    *
+    * @param request ModifyFlowLogAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyFlowLogAttributeResponse
+   */
   async modifyFlowLogAttributeWithOptions(request: ModifyFlowLogAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowLogAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26834,14 +26948,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyFlowLogAttributeResponse>(await this.callApi(params, req, runtime), new ModifyFlowLogAttributeResponse({}));
   }
 
+  /**
+    * `ModifyFlowLogAttribute` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `DescribeFlowlogs` operation to query the status of a flow log.
+    * *   If a flow log is in the **Modifying** state, the flow log is being modified. In this case, you can query the flow log but cannot perform other operations.
+    * *   If a flow log is in the **Active** state, the flow log is modified.
+    *
+    * @param request ModifyFlowLogAttributeRequest
+    * @return ModifyFlowLogAttributeResponse
+   */
   async modifyFlowLogAttribute(request: ModifyFlowLogAttributeRequest): Promise<ModifyFlowLogAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyFlowLogAttributeWithOptions(request, runtime);
   }
 
   /**
-    * The new description of the transit router CIDR block.
-    * The description must be 1 to 256 characters in length.
+    * *   Before you modify the CIDR block of a transit router, we recommend that you read the [limits on transit router CIDR blocks](~~462635~~).
+    * *   If IP addresses within the CIDR block have been allocated to network instances, you cannot modify the CIDR block.
+    * *   When you call **ModifyTransitRouterCidr**, if no parameter of the **PublishCidrRoute** operation is modified, ModifyTransitRouterCidr is a synchronous operation. After you call the operation, the new settings are immediately applied.
+    * *   If a parameter of the **PublishCidrRoute** operation is modified, **ModifyTransitRouterCidr** is an asynchronous operation. After you call the operation, the request ID (**RequestId**) is returned but the operation is still being performed in the system background. You can call **ListTransitRouterCidr** to query the status of the CIDR block of the transit router.
+    *     *   If the CIDR block of the transit router remains unchanged, the CIDR block is still being modified.
+    *     *   If the CIDR block of the transit router is changed to the one that you specify in the request, the CIDR block has been modified.
     *
     * @param request ModifyTransitRouterCidrRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26920,8 +27046,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The new description of the transit router CIDR block.
-    * The description must be 1 to 256 characters in length.
+    * *   Before you modify the CIDR block of a transit router, we recommend that you read the [limits on transit router CIDR blocks](~~462635~~).
+    * *   If IP addresses within the CIDR block have been allocated to network instances, you cannot modify the CIDR block.
+    * *   When you call **ModifyTransitRouterCidr**, if no parameter of the **PublishCidrRoute** operation is modified, ModifyTransitRouterCidr is a synchronous operation. After you call the operation, the new settings are immediately applied.
+    * *   If a parameter of the **PublishCidrRoute** operation is modified, **ModifyTransitRouterCidr** is an asynchronous operation. After you call the operation, the request ID (**RequestId**) is returned but the operation is still being performed in the system background. You can call **ListTransitRouterCidr** to query the status of the CIDR block of the transit router.
+    *     *   If the CIDR block of the transit router remains unchanged, the CIDR block is still being modified.
+    *     *   If the CIDR block of the transit router is changed to the one that you specify in the request, the CIDR block has been modified.
     *
     * @param request ModifyTransitRouterCidrRequest
     * @return ModifyTransitRouterCidrResponse
@@ -27354,7 +27484,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   You can specify only elastic network interfaces (ENIs) as multicast sources.
+    * *   `RegisterTransitRouterMulticastGroupSources` is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call `ListTransitRouterMulticastGroups` to query the status of a multicast source.
+    *     *   If a multicast source is in the **Registering** state, the multicast source is being created. You can query the multicast source but cannot perform other operations.
+    *     *   If a multicast source is in the **Registered** state, the multicast source is created.
+    * ### Prerequisites
+    * Before you call `RegisterTransitRouterMulticastGroupSources`, make sure that the vSwitch on which the ENI is created is associated with the multicast domain. For more information, see [AssociateTransitRouterMulticastDomain](~~429778~~).
     *
     * @param request RegisterTransitRouterMulticastGroupSourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27421,7 +27556,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   You can specify only elastic network interfaces (ENIs) as multicast sources.
+    * *   `RegisterTransitRouterMulticastGroupSources` is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call `ListTransitRouterMulticastGroups` to query the status of a multicast source.
+    *     *   If a multicast source is in the **Registering** state, the multicast source is being created. You can query the multicast source but cannot perform other operations.
+    *     *   If a multicast source is in the **Registered** state, the multicast source is created.
+    * ### Prerequisites
+    * Before you call `RegisterTransitRouterMulticastGroupSources`, make sure that the vSwitch on which the ENI is created is associated with the multicast domain. For more information, see [AssociateTransitRouterMulticastDomain](~~429778~~).
     *
     * @param request RegisterTransitRouterMulticastGroupSourcesRequest
     * @return RegisterTransitRouterMulticastGroupSourcesResponse
@@ -27432,7 +27572,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   When you call **RemoveTrafficMatchRuleFromTrafficMarkingPolicy**, take note of the following rules:
+    *     *   If you specify the ID of a traffic classification rule in the **TrafficMarkRuleIds** parameter, the specified traffic classification rule is deleted.
+    *     *   If you do not specify a traffic classification rule ID in the **TrafficMarkRuleIds** parameter, no operation is performed after you call this operation.
+    *     If you want to delete a traffic classification rule, you must specify the rule ID before you call this operation.
+    * *   **RemoveTrafficMatchRuleFromTrafficMarkingPolicy** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **ListTrafficMarkingPolicies** operation to query the status of a traffic classification rule.
+    *     *   If a traffic classification rule is in the **Deleting** state, the traffic classification rule is being deleted. In this case, you can query the traffic classification rule but cannot perform other operations.
+    *     *   If a traffic classification rule cannot be found, the traffic classification rule is deleted.
     *
     * @param request RemoveTrafficMatchRuleFromTrafficMarkingPolicyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27491,7 +27637,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   When you call **RemoveTrafficMatchRuleFromTrafficMarkingPolicy**, take note of the following rules:
+    *     *   If you specify the ID of a traffic classification rule in the **TrafficMarkRuleIds** parameter, the specified traffic classification rule is deleted.
+    *     *   If you do not specify a traffic classification rule ID in the **TrafficMarkRuleIds** parameter, no operation is performed after you call this operation.
+    *     If you want to delete a traffic classification rule, you must specify the rule ID before you call this operation.
+    * *   **RemoveTrafficMatchRuleFromTrafficMarkingPolicy** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **ListTrafficMarkingPolicies** operation to query the status of a traffic classification rule.
+    *     *   If a traffic classification rule is in the **Deleting** state, the traffic classification rule is being deleted. In this case, you can query the traffic classification rule but cannot perform other operations.
+    *     *   If a traffic classification rule cannot be found, the traffic classification rule is deleted.
     *
     * @param request RemoveTrafficMatchRuleFromTrafficMarkingPolicyRequest
     * @return RemoveTrafficMatchRuleFromTrafficMarkingPolicyResponse
@@ -27503,7 +27655,8 @@ export default class Client extends OpenApi {
 
   /**
     * @deprecated : RemoveTraficMatchRuleFromTrafficMarkingPolicy is deprecated, please use Cbn::2017-09-12::RemoveTrafficMatchRuleFromTrafficMarkingPolicy instead.
-    * The ID of the traffic marking policy.
+    * # [](#)Precautions
+    * The **RemoveTraficMatchRuleFromTrafficMarkingPolicy** operation is deprecated and will be discontinued soon. If you need to delete traffic classification rules from a traffic marking policy, call the [RemoveTrafficMatchRuleFromTrafficMarkingPolicy](~~452726~~) operation.
     *
     * @param request RemoveTraficMatchRuleFromTrafficMarkingPolicyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27564,7 +27717,8 @@ export default class Client extends OpenApi {
 
   /**
     * @deprecated : RemoveTraficMatchRuleFromTrafficMarkingPolicy is deprecated, please use Cbn::2017-09-12::RemoveTrafficMatchRuleFromTrafficMarkingPolicy instead.
-    * The ID of the traffic marking policy.
+    * # [](#)Precautions
+    * The **RemoveTraficMatchRuleFromTrafficMarkingPolicy** operation is deprecated and will be discontinued soon. If you need to delete traffic classification rules from a traffic marking policy, call the [RemoveTrafficMatchRuleFromTrafficMarkingPolicy](~~452726~~) operation.
     *
     * @param request RemoveTraficMatchRuleFromTrafficMarkingPolicyRequest
     * @return RemoveTraficMatchRuleFromTrafficMarkingPolicyResponse
@@ -27735,14 +27889,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * `RevokeInstanceFromTransitRouter` disallows transit routers only from connecting to virtual private clouds (VPCs), virtual border routers (VBRs), and IPsec-VPN connections.  
-    * If you want to disallow transit routers from connecting to Cloud Connect Network (CCN) instances, call the [RevokeInstanceFromCbn](https://www.alibabacloud.com/help/en/smart-access-gateway/latest/revokeinstancefromcbn) operation.  
-    * ## Prerequisites
-    * Before you call `RevokeInstanceFromTransitRouter`, you must detach the network instances from the transit router.  
-    * - For more information about how to detach VPCs from an Enterprise Edition transit router, see [DeleteTransitRouterVpcAttachment](https://www.alibabacloud.com/help/en/cloud-enterprise-network/latest/deletetransitroutervpcattachment).
-    * - For more information about how to detach VBRs from an Enterprise Edition transit router, see [DeleteTransitRouterVbrAttachment](https://www.alibabacloud.com/help/en/cloud-enterprise-network/latest/deletetransitroutervbrattachment).
-    * - For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](~~468685~~).
+    * `RevokeInstanceFromTransitRouter` disallows transit routers only from connecting to virtual private clouds (VPCs), virtual border routers (VBRs), and IPsec-VPN connections.
+    * If you want to disallow transit routers from connecting to Cloud Connect Network (CCN) instances, call the [RevokeInstanceFromCbn](~~126142~~) operation.
+    * ## [](#)Prerequisite
+    * Before you call `RevokeInstanceFromTransitRouter`, you must detach the network instances from the transit router.
+    * *   For more information about how to detach VPCs from an Enterprise Edition transit router, see [DeleteTransitRouterVpcAttachment](~~261220~~).
+    * *   For more information about how to detach VBRs from an Enterprise Edition transit router, see [DeleteTransitRouterVbrAttachment](~~261223~~).
+    * *   For more information about how to detach IPsec-VPN connections from an Enterprise Edition transit router, see [DeleteTransitRouterVpnAttachment](~~443992~~).
+    * *   For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](~~65915~~).
     *
     * @param request RevokeInstanceFromTransitRouterRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27805,14 +27959,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * `RevokeInstanceFromTransitRouter` disallows transit routers only from connecting to virtual private clouds (VPCs), virtual border routers (VBRs), and IPsec-VPN connections.  
-    * If you want to disallow transit routers from connecting to Cloud Connect Network (CCN) instances, call the [RevokeInstanceFromCbn](https://www.alibabacloud.com/help/en/smart-access-gateway/latest/revokeinstancefromcbn) operation.  
-    * ## Prerequisites
-    * Before you call `RevokeInstanceFromTransitRouter`, you must detach the network instances from the transit router.  
-    * - For more information about how to detach VPCs from an Enterprise Edition transit router, see [DeleteTransitRouterVpcAttachment](https://www.alibabacloud.com/help/en/cloud-enterprise-network/latest/deletetransitroutervpcattachment).
-    * - For more information about how to detach VBRs from an Enterprise Edition transit router, see [DeleteTransitRouterVbrAttachment](https://www.alibabacloud.com/help/en/cloud-enterprise-network/latest/deletetransitroutervbrattachment).
-    * - For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](~~468685~~).
+    * `RevokeInstanceFromTransitRouter` disallows transit routers only from connecting to virtual private clouds (VPCs), virtual border routers (VBRs), and IPsec-VPN connections.
+    * If you want to disallow transit routers from connecting to Cloud Connect Network (CCN) instances, call the [RevokeInstanceFromCbn](~~126142~~) operation.
+    * ## [](#)Prerequisite
+    * Before you call `RevokeInstanceFromTransitRouter`, you must detach the network instances from the transit router.
+    * *   For more information about how to detach VPCs from an Enterprise Edition transit router, see [DeleteTransitRouterVpcAttachment](~~261220~~).
+    * *   For more information about how to detach VBRs from an Enterprise Edition transit router, see [DeleteTransitRouterVbrAttachment](~~261223~~).
+    * *   For more information about how to detach IPsec-VPN connections from an Enterprise Edition transit router, see [DeleteTransitRouterVpnAttachment](~~443992~~).
+    * *   For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](~~65915~~).
     *
     * @param request RevokeInstanceFromTransitRouterRequest
     * @return RevokeInstanceFromTransitRouterResponse
@@ -27823,7 +27977,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * Alibaba Cloud DNS PrivateZone (PrivateZone) is an Alibaba Cloud private domain name resolution and management service based on Virtual Private Cloud (VPC). After you attach virtual border routers (VBRs) and Cloud Connect Network (CCN) instances to a Cloud Enterprise Network (CEN) instance, you can enable the on-premises networks connected to the VBRs and CCN instances to access PrivateZone through the CEN instance. 
+    * #### Usage notes
+    * - The on-premises networks connected to VBRs or CCN instances must be deployed in the same region as the PrivateZone service. For example, if the PrivateZone service is deployed in the China (Beijing) region, only on-premises networks connected to VBRs or CCN instances in the China (Beijing) region can access the PrivateZone service. 
+    * - **RoutePrivateZoneInCenToVpc** is an asynchronous operation. After you send a request, the **request ID** is returned but the operation is still being performed in the system background. You can call **DescribeCenPrivateZoneRoutes** to query the status of PrivateZone. 
+    *     - If PrivateZone is in the **Creating** state, access to PrivateZone is being configured. In this case, you can query PrivateZone configurations but cannot perform other operations. 
+    *     - If PrivateZone is in the **Active** state, access to PrivateZone is enabled. 
+    *     - If PrivateZone is in the **Failed** state, configurations of access to PrivateZone failed. 
+    * #### Prerequisites
+    * Before you call **RoutePrivateZoneInCenToVpc**, make sure that the following conditions are met:
+    * - PrivateZone is deployed. For more information, see [PrivateZone quick start](~~64627~~).
+    * - The following network instances are attached to the same CEN instance: the VPC that is associated with the PrivateZone service, and the VBR and CCN instance that want to access the PrivateZone service. For more information, see [AttachCenChildInstance](~~468684~~). 
+    * - If your on-premises network uses a CCN instance to connect to Alibaba Cloud and the account that owns the CCN instance is different from the account that owns the VPC or CEN instance, you must grant the CCN instance required permissions. For more information, see [Grant permissions to CCN](~~181654~~).
     *
     * @param request RoutePrivateZoneInCenToVpcRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27882,7 +28047,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * Alibaba Cloud DNS PrivateZone (PrivateZone) is an Alibaba Cloud private domain name resolution and management service based on Virtual Private Cloud (VPC). After you attach virtual border routers (VBRs) and Cloud Connect Network (CCN) instances to a Cloud Enterprise Network (CEN) instance, you can enable the on-premises networks connected to the VBRs and CCN instances to access PrivateZone through the CEN instance. 
+    * #### Usage notes
+    * - The on-premises networks connected to VBRs or CCN instances must be deployed in the same region as the PrivateZone service. For example, if the PrivateZone service is deployed in the China (Beijing) region, only on-premises networks connected to VBRs or CCN instances in the China (Beijing) region can access the PrivateZone service. 
+    * - **RoutePrivateZoneInCenToVpc** is an asynchronous operation. After you send a request, the **request ID** is returned but the operation is still being performed in the system background. You can call **DescribeCenPrivateZoneRoutes** to query the status of PrivateZone. 
+    *     - If PrivateZone is in the **Creating** state, access to PrivateZone is being configured. In this case, you can query PrivateZone configurations but cannot perform other operations. 
+    *     - If PrivateZone is in the **Active** state, access to PrivateZone is enabled. 
+    *     - If PrivateZone is in the **Failed** state, configurations of access to PrivateZone failed. 
+    * #### Prerequisites
+    * Before you call **RoutePrivateZoneInCenToVpc**, make sure that the following conditions are met:
+    * - PrivateZone is deployed. For more information, see [PrivateZone quick start](~~64627~~).
+    * - The following network instances are attached to the same CEN instance: the VPC that is associated with the PrivateZone service, and the VBR and CCN instance that want to access the PrivateZone service. For more information, see [AttachCenChildInstance](~~468684~~). 
+    * - If your on-premises network uses a CCN instance to connect to Alibaba Cloud and the account that owns the CCN instance is different from the account that owns the VPC or CEN instance, you must grant the CCN instance required permissions. For more information, see [Grant permissions to CCN](~~181654~~).
     *
     * @param request RoutePrivateZoneInCenToVpcRequest
     * @return RoutePrivateZoneInCenToVpcResponse
@@ -27950,8 +28126,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the resource.
-    * You can enter multiple resource IDs. Valid values of **N**: **1** to **20**.
+    * *   Each tag consists of a tag key and a tag value. When you add a tag, you must specify the tag key and tag value.
+    * *   If you want to add multiple tags to a Cloud Enterprise Network (CEN) instance, each tag key must be unique.
+    * *   You can add at most 20 tags to a CEN instance.
     *
     * @param request TagResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28010,8 +28187,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the resource.
-    * You can enter multiple resource IDs. Valid values of **N**: **1** to **20**.
+    * *   Each tag consists of a tag key and a tag value. When you add a tag, you must specify the tag key and tag value.
+    * *   If you want to add multiple tags to a Cloud Enterprise Network (CEN) instance, each tag key must be unique.
+    * *   You can add at most 20 tags to a CEN instance.
     *
     * @param request TagResourcesRequest
     * @return TagResourcesResponse
@@ -28557,6 +28735,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.defaultLinkType)) {
+      query["DefaultLinkType"] = request.defaultLinkType;
     }
 
     if (!Util.isUnset(request.dryRun)) {
