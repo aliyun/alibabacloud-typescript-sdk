@@ -1971,6 +1971,7 @@ export class CreateTrainingJobRequest extends $tea.Model {
   outputChannels?: CreateTrainingJobRequestOutputChannels[];
   roleArn?: string;
   scheduler?: CreateTrainingJobRequestScheduler;
+  settings?: CreateTrainingJobRequestSettings;
   trainingJobDescription?: string;
   trainingJobName?: string;
   userVpc?: CreateTrainingJobRequestUserVpc;
@@ -1989,6 +1990,7 @@ export class CreateTrainingJobRequest extends $tea.Model {
       outputChannels: 'OutputChannels',
       roleArn: 'RoleArn',
       scheduler: 'Scheduler',
+      settings: 'Settings',
       trainingJobDescription: 'TrainingJobDescription',
       trainingJobName: 'TrainingJobName',
       userVpc: 'UserVpc',
@@ -2010,6 +2012,7 @@ export class CreateTrainingJobRequest extends $tea.Model {
       outputChannels: { 'type': 'array', 'itemType': CreateTrainingJobRequestOutputChannels },
       roleArn: 'string',
       scheduler: CreateTrainingJobRequestScheduler,
+      settings: CreateTrainingJobRequestSettings,
       trainingJobDescription: 'string',
       trainingJobName: 'string',
       userVpc: CreateTrainingJobRequestUserVpc,
@@ -3043,6 +3046,7 @@ export class GetTrainingJobResponseBody extends $tea.Model {
   requestId?: string;
   roleArn?: string;
   scheduler?: GetTrainingJobResponseBodyScheduler;
+  settings?: GetTrainingJobResponseBodySettings;
   status?: string;
   statusTransitions?: GetTrainingJobResponseBodyStatusTransitions[];
   trainingJobDescription?: string;
@@ -3076,6 +3080,7 @@ export class GetTrainingJobResponseBody extends $tea.Model {
       requestId: 'RequestId',
       roleArn: 'RoleArn',
       scheduler: 'Scheduler',
+      settings: 'Settings',
       status: 'Status',
       statusTransitions: 'StatusTransitions',
       trainingJobDescription: 'TrainingJobDescription',
@@ -3112,6 +3117,7 @@ export class GetTrainingJobResponseBody extends $tea.Model {
       requestId: 'string',
       roleArn: 'string',
       scheduler: GetTrainingJobResponseBodyScheduler,
+      settings: GetTrainingJobResponseBodySettings,
       status: 'string',
       statusTransitions: { 'type': 'array', 'itemType': GetTrainingJobResponseBodyStatusTransitions },
       trainingJobDescription: 'string',
@@ -4810,6 +4816,34 @@ export class CreateTrainingJobRequestScheduler extends $tea.Model {
   }
 }
 
+export class CreateTrainingJobRequestSettings extends $tea.Model {
+  AIMasterType?: string;
+  enableErrorMonitoringInAIMaster?: boolean;
+  errorMonitoringArgs?: string;
+  priority?: number;
+  static names(): { [key: string]: string } {
+    return {
+      AIMasterType: 'AIMasterType',
+      enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
+      errorMonitoringArgs: 'ErrorMonitoringArgs',
+      priority: 'Priority',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIMasterType: 'string',
+      enableErrorMonitoringInAIMaster: 'boolean',
+      errorMonitoringArgs: 'string',
+      priority: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTrainingJobRequestUserVpc extends $tea.Model {
   defaultRoute?: string;
   extendedCIDRs?: string[];
@@ -5146,6 +5180,34 @@ export class GetTrainingJobResponseBodyScheduler extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       maxRunningTimeInSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrainingJobResponseBodySettings extends $tea.Model {
+  AIMasterType?: string;
+  enableErrorMonitoringInAIMaster?: boolean;
+  errorMonitoringArgs?: string;
+  priority?: number;
+  static names(): { [key: string]: string } {
+    return {
+      AIMasterType: 'AIMasterType',
+      enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
+      errorMonitoringArgs: 'ErrorMonitoringArgs',
+      priority: 'Priority',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIMasterType: 'string',
+      enableErrorMonitoringInAIMaster: 'boolean',
+      errorMonitoringArgs: 'string',
+      priority: 'number',
     };
   }
 
@@ -5949,6 +6011,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.scheduler)) {
       body["Scheduler"] = request.scheduler;
+    }
+
+    if (!Util.isUnset(request.settings)) {
+      body["Settings"] = request.settings;
     }
 
     if (!Util.isUnset(request.trainingJobDescription)) {
