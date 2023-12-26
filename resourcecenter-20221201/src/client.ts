@@ -8,6 +8,135 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AssociateDefaultFilterRequest extends $tea.Model {
+  filterName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterName: 'FilterName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateDefaultFilterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateDefaultFilterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AssociateDefaultFilterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssociateDefaultFilterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFilterRequest extends $tea.Model {
+  filterConfiguration?: string;
+  filterName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterConfiguration: 'FilterConfiguration',
+      filterName: 'FilterName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterConfiguration: 'string',
+      filterName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFilterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFilterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateFilterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFilterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSavedQueryRequest extends $tea.Model {
   description?: string;
   expression?: string;
@@ -72,6 +201,69 @@ export class CreateSavedQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateSavedQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFilterRequest extends $tea.Model {
+  filterName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterName: 'FilterName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFilterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFilterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteFilterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFilterResponseBody,
     };
   }
 
@@ -223,6 +415,50 @@ export class DisableResourceCenterResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DisableResourceCenterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisassociateDefaultFilterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisassociateDefaultFilterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DisassociateDefaultFilterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisassociateDefaultFilterResponseBody,
     };
   }
 
@@ -1070,6 +1306,56 @@ export class ListExampleQueriesResponse extends $tea.Model {
   }
 }
 
+export class ListFiltersResponseBody extends $tea.Model {
+  defaultFilterName?: string;
+  filters?: ListFiltersResponseBodyFilters[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultFilterName: 'DefaultFilterName',
+      filters: 'Filters',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultFilterName: 'string',
+      filters: { 'type': 'array', 'itemType': ListFiltersResponseBodyFilters },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFiltersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListFiltersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListFiltersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMultiAccountResourceGroupsRequest extends $tea.Model {
   accountId?: string;
   maxResults?: number;
@@ -1796,6 +2082,72 @@ export class SearchResourcesResponse extends $tea.Model {
   }
 }
 
+export class UpdateFilterRequest extends $tea.Model {
+  filterConfiguration?: string;
+  filterName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterConfiguration: 'FilterConfiguration',
+      filterName: 'FilterName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterConfiguration: 'string',
+      filterName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFilterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFilterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateFilterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateFilterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateSavedQueryRequest extends $tea.Model {
   description?: string;
   expression?: string;
@@ -2154,6 +2506,28 @@ export class ListExampleQueriesResponseBodyExampleQueries extends $tea.Model {
       description: 'string',
       name: 'string',
       queryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFiltersResponseBodyFilters extends $tea.Model {
+  filterConfiguration?: string;
+  filterName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterConfiguration: 'FilterConfiguration',
+      filterName: 'FilterName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterConfiguration: 'string',
+      filterName: 'string',
     };
   }
 
@@ -2620,6 +2994,68 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async associateDefaultFilterWithOptions(request: AssociateDefaultFilterRequest, runtime: $Util.RuntimeOptions): Promise<AssociateDefaultFilterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filterName)) {
+      query["FilterName"] = request.filterName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AssociateDefaultFilter",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateDefaultFilterResponse>(await this.callApi(params, req, runtime), new AssociateDefaultFilterResponse({}));
+  }
+
+  async associateDefaultFilter(request: AssociateDefaultFilterRequest): Promise<AssociateDefaultFilterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.associateDefaultFilterWithOptions(request, runtime);
+  }
+
+  async createFilterWithOptions(request: CreateFilterRequest, runtime: $Util.RuntimeOptions): Promise<CreateFilterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filterConfiguration)) {
+      query["FilterConfiguration"] = request.filterConfiguration;
+    }
+
+    if (!Util.isUnset(request.filterName)) {
+      query["FilterName"] = request.filterName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFilter",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFilterResponse>(await this.callApi(params, req, runtime), new CreateFilterResponse({}));
+  }
+
+  async createFilter(request: CreateFilterRequest): Promise<CreateFilterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFilterWithOptions(request, runtime);
+  }
+
   async createSavedQueryWithOptions(request: CreateSavedQueryRequest, runtime: $Util.RuntimeOptions): Promise<CreateSavedQueryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2655,6 +3091,35 @@ export default class Client extends OpenApi {
   async createSavedQuery(request: CreateSavedQueryRequest): Promise<CreateSavedQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSavedQueryWithOptions(request, runtime);
+  }
+
+  async deleteFilterWithOptions(request: DeleteFilterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFilterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filterName)) {
+      query["FilterName"] = request.filterName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFilter",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFilterResponse>(await this.callApi(params, req, runtime), new DeleteFilterResponse({}));
+  }
+
+  async deleteFilter(request: DeleteFilterRequest): Promise<DeleteFilterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteFilterWithOptions(request, runtime);
   }
 
   async deleteSavedQueryWithOptions(request: DeleteSavedQueryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSavedQueryResponse> {
@@ -2726,6 +3191,27 @@ export default class Client extends OpenApi {
   async disableResourceCenter(): Promise<DisableResourceCenterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableResourceCenterWithOptions(runtime);
+  }
+
+  async disassociateDefaultFilterWithOptions(runtime: $Util.RuntimeOptions): Promise<DisassociateDefaultFilterResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DisassociateDefaultFilter",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisassociateDefaultFilterResponse>(await this.callApi(params, req, runtime), new DisassociateDefaultFilterResponse({}));
+  }
+
+  async disassociateDefaultFilter(): Promise<DisassociateDefaultFilterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disassociateDefaultFilterWithOptions(runtime);
   }
 
   /**
@@ -3090,6 +3576,27 @@ export default class Client extends OpenApi {
   async listExampleQueries(request: ListExampleQueriesRequest): Promise<ListExampleQueriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExampleQueriesWithOptions(request, runtime);
+  }
+
+  async listFiltersWithOptions(runtime: $Util.RuntimeOptions): Promise<ListFiltersResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListFilters",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFiltersResponse>(await this.callApi(params, req, runtime), new ListFiltersResponse({}));
+  }
+
+  async listFilters(): Promise<ListFiltersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listFiltersWithOptions(runtime);
   }
 
   async listMultiAccountResourceGroupsWithOptions(request: ListMultiAccountResourceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListMultiAccountResourceGroupsResponse> {
@@ -3515,6 +4022,39 @@ export default class Client extends OpenApi {
   async searchResources(request: SearchResourcesRequest): Promise<SearchResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchResourcesWithOptions(request, runtime);
+  }
+
+  async updateFilterWithOptions(request: UpdateFilterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFilterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filterConfiguration)) {
+      query["FilterConfiguration"] = request.filterConfiguration;
+    }
+
+    if (!Util.isUnset(request.filterName)) {
+      query["FilterName"] = request.filterName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateFilter",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFilterResponse>(await this.callApi(params, req, runtime), new UpdateFilterResponse({}));
+  }
+
+  async updateFilter(request: UpdateFilterRequest): Promise<UpdateFilterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateFilterWithOptions(request, runtime);
   }
 
   async updateSavedQueryWithOptions(request: UpdateSavedQueryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSavedQueryResponse> {
