@@ -9454,6 +9454,87 @@ export class DescribeDcdnSMCertificateListResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnSSLCertificateListRequest extends $tea.Model {
+  domainName?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  searchKeyword?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchKeyword: 'SearchKeyword',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      searchKeyword: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSSLCertificateListResponseBody extends $tea.Model {
+  certificateListModel?: DescribeDcdnSSLCertificateListResponseBodyCertificateListModel;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificateListModel: 'CertificateListModel',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificateListModel: DescribeDcdnSSLCertificateListResponseBodyCertificateListModel,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSSLCertificateListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnSSLCertificateListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnSSLCertificateListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnSecFuncInfoRequest extends $tea.Model {
   lang?: string;
   secFuncType?: string;
@@ -14954,6 +15035,84 @@ export class RefreshDcdnObjectCachesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RefreshDcdnObjectCachesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshErObjectCachesRequest extends $tea.Model {
+  force?: boolean;
+  mergeDomainName?: string;
+  objectPath?: string;
+  objectType?: string;
+  routineId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      force: 'Force',
+      mergeDomainName: 'MergeDomainName',
+      objectPath: 'ObjectPath',
+      objectType: 'ObjectType',
+      routineId: 'RoutineId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      force: 'boolean',
+      mergeDomainName: 'string',
+      objectPath: 'string',
+      objectType: 'string',
+      routineId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshErObjectCachesResponseBody extends $tea.Model {
+  refreshTaskId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      refreshTaskId: 'RefreshTaskId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      refreshTaskId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshErObjectCachesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RefreshErObjectCachesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RefreshErObjectCachesResponseBody,
     };
   }
 
@@ -20790,6 +20949,90 @@ export class DescribeDcdnSMCertificateListResponseBodyCertificateListModel exten
     return {
       certList: { 'type': 'array', 'itemType': DescribeDcdnSMCertificateListResponseBodyCertificateListModelCertList },
       count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSSLCertificateListResponseBodyCertificateListModelCertListCert extends $tea.Model {
+  certId?: number;
+  certName?: string;
+  certRegion?: string;
+  common?: string;
+  fingerprint?: string;
+  issuer?: string;
+  lastTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certId: 'CertId',
+      certName: 'CertName',
+      certRegion: 'CertRegion',
+      common: 'Common',
+      fingerprint: 'Fingerprint',
+      issuer: 'Issuer',
+      lastTime: 'LastTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certId: 'number',
+      certName: 'string',
+      certRegion: 'string',
+      common: 'string',
+      fingerprint: 'string',
+      issuer: 'string',
+      lastTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSSLCertificateListResponseBodyCertificateListModelCertList extends $tea.Model {
+  cert?: DescribeDcdnSSLCertificateListResponseBodyCertificateListModelCertListCert[];
+  static names(): { [key: string]: string } {
+    return {
+      cert: 'Cert',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cert: { 'type': 'array', 'itemType': DescribeDcdnSSLCertificateListResponseBodyCertificateListModelCertListCert },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSSLCertificateListResponseBodyCertificateListModel extends $tea.Model {
+  certList?: DescribeDcdnSSLCertificateListResponseBodyCertificateListModelCertList;
+  count?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certList: 'CertList',
+      count: 'Count',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certList: DescribeDcdnSSLCertificateListResponseBodyCertificateListModelCertList,
+      count: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -29533,6 +29776,55 @@ export default class Client extends OpenApi {
     return await this.describeDcdnSMCertificateListWithOptions(request, runtime);
   }
 
+  async describeDcdnSSLCertificateListWithOptions(request: DescribeDcdnSSLCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSSLCertificateListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchKeyword)) {
+      query["SearchKeyword"] = request.searchKeyword;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnSSLCertificateList",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnSSLCertificateListResponse>(await this.callApi(params, req, runtime), new DescribeDcdnSSLCertificateListResponse({}));
+  }
+
+  async describeDcdnSSLCertificateList(request: DescribeDcdnSSLCertificateListRequest): Promise<DescribeDcdnSSLCertificateListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnSSLCertificateListWithOptions(request, runtime);
+  }
+
   /**
     * > You can call this operation up to 50 times per second per account.
     *
@@ -32960,6 +33252,51 @@ export default class Client extends OpenApi {
   async refreshDcdnObjectCaches(request: RefreshDcdnObjectCachesRequest): Promise<RefreshDcdnObjectCachesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshDcdnObjectCachesWithOptions(request, runtime);
+  }
+
+  async refreshErObjectCachesWithOptions(request: RefreshErObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<RefreshErObjectCachesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.mergeDomainName)) {
+      query["MergeDomainName"] = request.mergeDomainName;
+    }
+
+    if (!Util.isUnset(request.objectPath)) {
+      query["ObjectPath"] = request.objectPath;
+    }
+
+    if (!Util.isUnset(request.objectType)) {
+      query["ObjectType"] = request.objectType;
+    }
+
+    if (!Util.isUnset(request.routineId)) {
+      query["RoutineId"] = request.routineId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RefreshErObjectCaches",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RefreshErObjectCachesResponse>(await this.callApi(params, req, runtime), new RefreshErObjectCachesResponse({}));
+  }
+
+  async refreshErObjectCaches(request: RefreshErObjectCachesRequest): Promise<RefreshErObjectCachesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refreshErObjectCachesWithOptions(request, runtime);
   }
 
   /**
