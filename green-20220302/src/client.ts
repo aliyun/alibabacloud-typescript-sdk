@@ -1517,6 +1517,28 @@ export class VideoModerationResponseBodyData extends $tea.Model {
   }
 }
 
+export class VideoModerationResultResponseBodyDataAudioResultAudioSummarys extends $tea.Model {
+  label?: string;
+  labelSum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      labelSum: 'LabelSum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      labelSum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extends $tea.Model {
   endTime?: number;
   endTimestamp?: number;
@@ -1567,16 +1589,41 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
 }
 
 export class VideoModerationResultResponseBodyDataAudioResult extends $tea.Model {
+  audioSummarys?: VideoModerationResultResponseBodyDataAudioResultAudioSummarys[];
   sliceDetails?: VideoModerationResultResponseBodyDataAudioResultSliceDetails[];
   static names(): { [key: string]: string } {
     return {
+      audioSummarys: 'AudioSummarys',
       sliceDetails: 'SliceDetails',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      audioSummarys: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataAudioResultAudioSummarys },
       sliceDetails: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataAudioResultSliceDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys extends $tea.Model {
+  label?: string;
+  labelSum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      labelSum: 'LabelSum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      labelSum: 'number',
     };
   }
 
@@ -1633,11 +1680,13 @@ export class VideoModerationResultResponseBodyDataFrameResultFrames extends $tea
   offset?: number;
   results?: VideoModerationResultResponseBodyDataFrameResultFramesResults[];
   tempUrl?: string;
+  timestamp?: number;
   static names(): { [key: string]: string } {
     return {
       offset: 'Offset',
       results: 'Results',
       tempUrl: 'TempUrl',
+      timestamp: 'Timestamp',
     };
   }
 
@@ -1646,6 +1695,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFrames extends $tea
       offset: 'number',
       results: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResults },
       tempUrl: 'string',
+      timestamp: 'number',
     };
   }
 
@@ -1656,10 +1706,12 @@ export class VideoModerationResultResponseBodyDataFrameResultFrames extends $tea
 
 export class VideoModerationResultResponseBodyDataFrameResult extends $tea.Model {
   frameNum?: number;
+  frameSummarys?: VideoModerationResultResponseBodyDataFrameResultFrameSummarys[];
   frames?: VideoModerationResultResponseBodyDataFrameResultFrames[];
   static names(): { [key: string]: string } {
     return {
       frameNum: 'FrameNum',
+      frameSummarys: 'FrameSummarys',
       frames: 'Frames',
     };
   }
@@ -1667,6 +1719,7 @@ export class VideoModerationResultResponseBodyDataFrameResult extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       frameNum: 'number',
+      frameSummarys: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFrameSummarys },
       frames: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFrames },
     };
   }
