@@ -5055,6 +5055,47 @@ export class PutProjectPolicyResponse extends $tea.Model {
   }
 }
 
+export class PutProjectTransferAccelerationRequest extends $tea.Model {
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutProjectTransferAccelerationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PutWebtrackingRequest extends $tea.Model {
   logs?: { [key: string]: string }[];
   source?: string;
@@ -11210,6 +11251,40 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putProjectPolicyWithOptions(project, request, headers, runtime);
+  }
+
+  async putProjectTransferAccelerationWithOptions(project: string, request: PutProjectTransferAccelerationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutProjectTransferAccelerationResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enabled)) {
+      body["enabled"] = request.enabled;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutProjectTransferAcceleration",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/transferacceleration`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<PutProjectTransferAccelerationResponse>(await this.execute(params, req, runtime), new PutProjectTransferAccelerationResponse({}));
+  }
+
+  async putProjectTransferAcceleration(project: string, request: PutProjectTransferAccelerationRequest): Promise<PutProjectTransferAccelerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.putProjectTransferAccelerationWithOptions(project, request, headers, runtime);
   }
 
   async putWebtrackingWithOptions(project: string, logstoreName: string, request: PutWebtrackingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutWebtrackingResponse> {
