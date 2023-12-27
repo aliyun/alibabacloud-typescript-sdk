@@ -3967,6 +3967,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   blktagUsed?: number;
   category?: string;
   compressStorageMode?: string;
+  compressStorageUsed?: number;
   creationTime?: string;
   DBClusterDescription?: string;
   DBClusterId?: string;
@@ -4022,6 +4023,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       blktagUsed: 'BlktagUsed',
       category: 'Category',
       compressStorageMode: 'CompressStorageMode',
+      compressStorageUsed: 'CompressStorageUsed',
       creationTime: 'CreationTime',
       DBClusterDescription: 'DBClusterDescription',
       DBClusterId: 'DBClusterId',
@@ -4080,6 +4082,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       blktagUsed: 'number',
       category: 'string',
       compressStorageMode: 'string',
+      compressStorageUsed: 'number',
       creationTime: 'string',
       DBClusterDescription: 'string',
       DBClusterId: 'string',
@@ -5290,6 +5293,7 @@ export class DescribeDBClustersRequest extends $tea.Model {
   DBNodeIds?: string;
   DBType?: string;
   DBVersion?: string;
+  describeType?: string;
   expired?: boolean;
   ownerAccount?: string;
   ownerId?: number;
@@ -5312,6 +5316,7 @@ export class DescribeDBClustersRequest extends $tea.Model {
       DBNodeIds: 'DBNodeIds',
       DBType: 'DBType',
       DBVersion: 'DBVersion',
+      describeType: 'DescribeType',
       expired: 'Expired',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -5337,6 +5342,7 @@ export class DescribeDBClustersRequest extends $tea.Model {
       DBNodeIds: 'string',
       DBType: 'string',
       DBVersion: 'string',
+      describeType: 'string',
       expired: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -9273,6 +9279,7 @@ export class ModifyBackupPolicyResponse extends $tea.Model {
 }
 
 export class ModifyDBClusterRequest extends $tea.Model {
+  compressStorage?: string;
   DBClusterId?: string;
   dataSyncMode?: string;
   faultSimulateMode?: string;
@@ -9285,6 +9292,7 @@ export class ModifyDBClusterRequest extends $tea.Model {
   storageUpperBound?: number;
   static names(): { [key: string]: string } {
     return {
+      compressStorage: 'CompressStorage',
       DBClusterId: 'DBClusterId',
       dataSyncMode: 'DataSyncMode',
       faultSimulateMode: 'FaultSimulateMode',
@@ -9300,6 +9308,7 @@ export class ModifyDBClusterRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      compressStorage: 'string',
       DBClusterId: 'string',
       dataSyncMode: 'string',
       faultSimulateMode: 'string',
@@ -20119,6 +20128,10 @@ export default class Client extends OpenApi {
       query["DBVersion"] = request.DBVersion;
     }
 
+    if (!Util.isUnset(request.describeType)) {
+      query["DescribeType"] = request.describeType;
+    }
+
     if (!Util.isUnset(request.expired)) {
       query["Expired"] = request.expired;
     }
@@ -22770,6 +22783,10 @@ export default class Client extends OpenApi {
   async modifyDBClusterWithOptions(request: ModifyDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.compressStorage)) {
+      query["CompressStorage"] = request.compressStorage;
+    }
+
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
