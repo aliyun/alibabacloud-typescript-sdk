@@ -36,6 +36,77 @@ export class DemoCategory extends $tea.Model {
   }
 }
 
+export class ForwardInfo extends $tea.Model {
+  containerName?: string;
+  eipAllocationId?: string;
+  enable?: boolean;
+  natGatewayId?: string;
+  port?: string;
+  SSHPublicKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containerName: 'ContainerName',
+      eipAllocationId: 'EipAllocationId',
+      enable: 'Enable',
+      natGatewayId: 'NatGatewayId',
+      port: 'Port',
+      SSHPublicKey: 'SSHPublicKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerName: 'string',
+      eipAllocationId: 'string',
+      enable: 'boolean',
+      natGatewayId: 'string',
+      port: 'string',
+      SSHPublicKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ForwardInfoResponse extends $tea.Model {
+  connectInfo?: ForwardInfoResponseConnectInfo;
+  containerName?: string;
+  eipAllocationId?: string;
+  enable?: boolean;
+  natGatewayId?: string;
+  port?: string;
+  SSHPublicKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectInfo: 'ConnectInfo',
+      containerName: 'ContainerName',
+      eipAllocationId: 'EipAllocationId',
+      enable: 'Enable',
+      natGatewayId: 'NatGatewayId',
+      port: 'Port',
+      SSHPublicKey: 'SSHPublicKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectInfo: ForwardInfoResponseConnectInfo,
+      containerName: 'string',
+      eipAllocationId: 'string',
+      enable: 'boolean',
+      natGatewayId: 'string',
+      port: 'string',
+      SSHPublicKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIdleInstanceCullerRequest extends $tea.Model {
   cpuPercentThreshold?: number;
   gpuPercentThreshold?: number;
@@ -121,6 +192,7 @@ export class CreateInstanceRequest extends $tea.Model {
   accessibility?: string;
   cloudDisks?: CreateInstanceRequestCloudDisks[];
   datasets?: CreateInstanceRequestDatasets[];
+  driver?: string;
   ecsSpec?: string;
   environmentVariables?: { [key: string]: string };
   imageId?: string;
@@ -139,6 +211,7 @@ export class CreateInstanceRequest extends $tea.Model {
       accessibility: 'Accessibility',
       cloudDisks: 'CloudDisks',
       datasets: 'Datasets',
+      driver: 'Driver',
       ecsSpec: 'EcsSpec',
       environmentVariables: 'EnvironmentVariables',
       imageId: 'ImageId',
@@ -160,6 +233,7 @@ export class CreateInstanceRequest extends $tea.Model {
       accessibility: 'string',
       cloudDisks: { 'type': 'array', 'itemType': CreateInstanceRequestCloudDisks },
       datasets: { 'type': 'array', 'itemType': CreateInstanceRequestDatasets },
+      driver: 'string',
       ecsSpec: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       imageId: 'string',
@@ -322,14 +396,18 @@ export class CreateInstanceShutdownTimerResponse extends $tea.Model {
 }
 
 export class CreateInstanceSnapshotRequest extends $tea.Model {
+  excludePaths?: string[];
   imageUrl?: string;
   labels?: CreateInstanceSnapshotRequestLabels[];
+  overwrite?: boolean;
   snapshotDescription?: string;
   snapshotName?: string;
   static names(): { [key: string]: string } {
     return {
+      excludePaths: 'ExcludePaths',
       imageUrl: 'ImageUrl',
       labels: 'Labels',
+      overwrite: 'Overwrite',
       snapshotDescription: 'SnapshotDescription',
       snapshotName: 'SnapshotName',
     };
@@ -337,8 +415,10 @@ export class CreateInstanceSnapshotRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      excludePaths: { 'type': 'array', 'itemType': 'string' },
       imageUrl: 'string',
       labels: { 'type': 'array', 'itemType': CreateInstanceSnapshotRequestLabels },
+      overwrite: 'boolean',
       snapshotDescription: 'string',
       snapshotName: 'string',
     };
@@ -722,6 +802,7 @@ export class GetInstanceResponseBody extends $tea.Model {
   cloudDisks?: GetInstanceResponseBodyCloudDisks[];
   code?: string;
   datasets?: GetInstanceResponseBodyDatasets[];
+  driver?: string;
   ecsSpec?: string;
   environmentVariables?: { [key: string]: string };
   gmtCreateTime?: string;
@@ -766,6 +847,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       cloudDisks: 'CloudDisks',
       code: 'Code',
       datasets: 'Datasets',
+      driver: 'Driver',
       ecsSpec: 'EcsSpec',
       environmentVariables: 'EnvironmentVariables',
       gmtCreateTime: 'GmtCreateTime',
@@ -813,6 +895,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       cloudDisks: { 'type': 'array', 'itemType': GetInstanceResponseBodyCloudDisks },
       code: 'string',
       datasets: { 'type': 'array', 'itemType': GetInstanceResponseBodyDatasets },
+      driver: 'string',
       ecsSpec: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gmtCreateTime: 'string',
@@ -1045,12 +1128,14 @@ export class GetInstanceShutdownTimerResponse extends $tea.Model {
 
 export class GetInstanceSnapshotResponseBody extends $tea.Model {
   code?: string;
+  excludePaths?: string[];
   gmtCreateTime?: string;
   gmtModifiedTime?: string;
   httpStatusCode?: number;
   imageId?: string;
   imageUrl?: string;
   instanceId?: string;
+  labels?: GetInstanceSnapshotResponseBodyLabels[];
   message?: string;
   reasonCode?: string;
   reasonMessage?: string;
@@ -1062,12 +1147,14 @@ export class GetInstanceSnapshotResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      excludePaths: 'ExcludePaths',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       httpStatusCode: 'HttpStatusCode',
       imageId: 'ImageId',
       imageUrl: 'ImageUrl',
       instanceId: 'InstanceId',
+      labels: 'Labels',
       message: 'Message',
       reasonCode: 'ReasonCode',
       reasonMessage: 'ReasonMessage',
@@ -1082,12 +1169,14 @@ export class GetInstanceSnapshotResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      excludePaths: { 'type': 'array', 'itemType': 'string' },
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       httpStatusCode: 'number',
       imageId: 'string',
       imageUrl: 'string',
       instanceId: 'string',
+      labels: { 'type': 'array', 'itemType': GetInstanceSnapshotResponseBodyLabels },
       message: 'string',
       reasonCode: 'string',
       reasonMessage: 'string',
@@ -1968,11 +2057,14 @@ export class UpdateInstanceRequest extends $tea.Model {
   accessibility?: string;
   datasets?: UpdateInstanceRequestDatasets[];
   disassociateDatasets?: boolean;
+  disassociateDriver?: boolean;
   disassociateVpc?: boolean;
+  driver?: string;
   ecsSpec?: string;
   imageId?: string;
   imageUrl?: string;
   instanceName?: string;
+  priority?: number;
   requestedResource?: UpdateInstanceRequestRequestedResource;
   userId?: string;
   userVpc?: UpdateInstanceRequestUserVpc;
@@ -1982,11 +2074,14 @@ export class UpdateInstanceRequest extends $tea.Model {
       accessibility: 'Accessibility',
       datasets: 'Datasets',
       disassociateDatasets: 'DisassociateDatasets',
+      disassociateDriver: 'DisassociateDriver',
       disassociateVpc: 'DisassociateVpc',
+      driver: 'Driver',
       ecsSpec: 'EcsSpec',
       imageId: 'ImageId',
       imageUrl: 'ImageUrl',
       instanceName: 'InstanceName',
+      priority: 'Priority',
       requestedResource: 'RequestedResource',
       userId: 'UserId',
       userVpc: 'UserVpc',
@@ -1999,11 +2094,14 @@ export class UpdateInstanceRequest extends $tea.Model {
       accessibility: 'string',
       datasets: { 'type': 'array', 'itemType': UpdateInstanceRequestDatasets },
       disassociateDatasets: 'boolean',
+      disassociateDriver: 'boolean',
       disassociateVpc: 'boolean',
+      driver: 'string',
       ecsSpec: 'string',
       imageId: 'string',
       imageUrl: 'string',
       instanceName: 'string',
+      priority: 'number',
       requestedResource: UpdateInstanceRequestRequestedResource,
       userId: 'string',
       userVpc: UpdateInstanceRequestUserVpc,
@@ -2067,6 +2165,78 @@ export class UpdateInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ForwardInfoResponseConnectInfoInternet extends $tea.Model {
+  endpoint?: string;
+  port?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      port: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ForwardInfoResponseConnectInfoIntranet extends $tea.Model {
+  endpoint?: string;
+  port?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      port: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ForwardInfoResponseConnectInfo extends $tea.Model {
+  internet?: ForwardInfoResponseConnectInfoInternet;
+  intranet?: ForwardInfoResponseConnectInfoIntranet;
+  message?: string;
+  phase?: string;
+  static names(): { [key: string]: string } {
+    return {
+      internet: 'Internet',
+      intranet: 'Intranet',
+      message: 'Message',
+      phase: 'Phase',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internet: ForwardInfoResponseConnectInfoInternet,
+      intranet: ForwardInfoResponseConnectInfoIntranet,
+      message: 'string',
+      phase: 'string',
     };
   }
 
@@ -2181,6 +2351,7 @@ export class CreateInstanceRequestRequestedResource extends $tea.Model {
 export class CreateInstanceRequestUserVpc extends $tea.Model {
   defaultRoute?: string;
   extendedCIDRs?: string[];
+  forwardInfos?: ForwardInfo[];
   securityGroupId?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -2188,6 +2359,7 @@ export class CreateInstanceRequestUserVpc extends $tea.Model {
     return {
       defaultRoute: 'DefaultRoute',
       extendedCIDRs: 'ExtendedCIDRs',
+      forwardInfos: 'ForwardInfos',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -2198,6 +2370,7 @@ export class CreateInstanceRequestUserVpc extends $tea.Model {
     return {
       defaultRoute: 'string',
       extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
+      forwardInfos: { 'type': 'array', 'itemType': ForwardInfo },
       securityGroupId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -2485,6 +2658,7 @@ export class GetInstanceResponseBodyRequestedResource extends $tea.Model {
 export class GetInstanceResponseBodyUserVpc extends $tea.Model {
   defaultRoute?: string;
   extendedCIDRs?: string[];
+  forwardInfos?: ForwardInfoResponse[];
   securityGroupId?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -2492,6 +2666,7 @@ export class GetInstanceResponseBodyUserVpc extends $tea.Model {
     return {
       defaultRoute: 'DefaultRoute',
       extendedCIDRs: 'ExtendedCIDRs',
+      forwardInfos: 'ForwardInfos',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -2502,6 +2677,7 @@ export class GetInstanceResponseBodyUserVpc extends $tea.Model {
     return {
       defaultRoute: 'string',
       extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
+      forwardInfos: { 'type': 'array', 'itemType': ForwardInfoResponse },
       securityGroupId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -2549,6 +2725,28 @@ export class GetInstanceMetricsResponseBodyPodMetrics extends $tea.Model {
     return {
       metrics: { 'type': 'array', 'itemType': GetInstanceMetricsResponseBodyPodMetricsMetrics },
       podId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceSnapshotResponseBodyLabels extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -2734,6 +2932,7 @@ export class ListInstanceSnapshotResponseBodySnapshotsLabels extends $tea.Model 
 }
 
 export class ListInstanceSnapshotResponseBodySnapshots extends $tea.Model {
+  excludePaths?: string[];
   gmtCreateTime?: string;
   gmtModifiedTime?: string;
   imageId?: string;
@@ -2747,6 +2946,7 @@ export class ListInstanceSnapshotResponseBodySnapshots extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      excludePaths: 'ExcludePaths',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       imageId: 'ImageId',
@@ -2763,6 +2963,7 @@ export class ListInstanceSnapshotResponseBodySnapshots extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      excludePaths: { 'type': 'array', 'itemType': 'string' },
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       imageId: 'string',
@@ -3036,6 +3237,7 @@ export class ListInstancesResponseBodyInstancesRequestedResource extends $tea.Mo
 export class ListInstancesResponseBodyInstancesUserVpc extends $tea.Model {
   defaultRoute?: string;
   extendedCIDRs?: string[];
+  forwardInfos?: ForwardInfoResponse[];
   securityGroupId?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -3043,6 +3245,7 @@ export class ListInstancesResponseBodyInstancesUserVpc extends $tea.Model {
     return {
       defaultRoute: 'DefaultRoute',
       extendedCIDRs: 'ExtendedCIDRs',
+      forwardInfos: 'ForwardInfos',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -3053,6 +3256,7 @@ export class ListInstancesResponseBodyInstancesUserVpc extends $tea.Model {
     return {
       defaultRoute: 'string',
       extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
+      forwardInfos: { 'type': 'array', 'itemType': ForwardInfoResponse },
       securityGroupId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -3070,6 +3274,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
   accumulatedRunningTimeInMs?: number;
   cloudDisks?: ListInstancesResponseBodyInstancesCloudDisks[];
   datasets?: ListInstancesResponseBodyInstancesDatasets[];
+  driver?: string;
   ecsSpec?: string;
   environmentVariables?: { [key: string]: string };
   gmtCreateTime?: string;
@@ -3109,6 +3314,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       accumulatedRunningTimeInMs: 'AccumulatedRunningTimeInMs',
       cloudDisks: 'CloudDisks',
       datasets: 'Datasets',
+      driver: 'Driver',
       ecsSpec: 'EcsSpec',
       environmentVariables: 'EnvironmentVariables',
       gmtCreateTime: 'GmtCreateTime',
@@ -3151,6 +3357,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       accumulatedRunningTimeInMs: 'number',
       cloudDisks: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesCloudDisks },
       datasets: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesDatasets },
+      driver: 'string',
       ecsSpec: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gmtCreateTime: 'string',
@@ -3247,6 +3454,7 @@ export class UpdateInstanceRequestRequestedResource extends $tea.Model {
 export class UpdateInstanceRequestUserVpc extends $tea.Model {
   defaultRoute?: string;
   extendedCIDRs?: string[];
+  forwardInfos?: ForwardInfo[];
   securityGroupId?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -3254,6 +3462,7 @@ export class UpdateInstanceRequestUserVpc extends $tea.Model {
     return {
       defaultRoute: 'DefaultRoute',
       extendedCIDRs: 'ExtendedCIDRs',
+      forwardInfos: 'ForwardInfos',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -3264,6 +3473,7 @@ export class UpdateInstanceRequestUserVpc extends $tea.Model {
     return {
       defaultRoute: 'string',
       extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
+      forwardInfos: { 'type': 'array', 'itemType': ForwardInfo },
       securityGroupId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -3350,6 +3560,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.datasets)) {
       body["Datasets"] = request.datasets;
+    }
+
+    if (!Util.isUnset(request.driver)) {
+      body["Driver"] = request.driver;
     }
 
     if (!Util.isUnset(request.ecsSpec)) {
@@ -3466,12 +3680,20 @@ export default class Client extends OpenApi {
   async createInstanceSnapshotWithOptions(InstanceId: string, request: CreateInstanceSnapshotRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceSnapshotResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.excludePaths)) {
+      body["ExcludePaths"] = request.excludePaths;
+    }
+
     if (!Util.isUnset(request.imageUrl)) {
       body["ImageUrl"] = request.imageUrl;
     }
 
     if (!Util.isUnset(request.labels)) {
       body["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.overwrite)) {
+      body["Overwrite"] = request.overwrite;
     }
 
     if (!Util.isUnset(request.snapshotDescription)) {
@@ -4156,8 +4378,16 @@ export default class Client extends OpenApi {
       body["DisassociateDatasets"] = request.disassociateDatasets;
     }
 
+    if (!Util.isUnset(request.disassociateDriver)) {
+      body["DisassociateDriver"] = request.disassociateDriver;
+    }
+
     if (!Util.isUnset(request.disassociateVpc)) {
       body["DisassociateVpc"] = request.disassociateVpc;
+    }
+
+    if (!Util.isUnset(request.driver)) {
+      body["Driver"] = request.driver;
     }
 
     if (!Util.isUnset(request.ecsSpec)) {
@@ -4174,6 +4404,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      body["Priority"] = request.priority;
     }
 
     if (!Util.isUnset(request.requestedResource)) {
