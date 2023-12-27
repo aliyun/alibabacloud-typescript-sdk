@@ -71,6 +71,28 @@ export class AvailableAZ extends $tea.Model {
   }
 }
 
+export class BatchWindow extends $tea.Model {
+  countBasedWindow?: number;
+  timeBasedWindow?: number;
+  static names(): { [key: string]: string } {
+    return {
+      countBasedWindow: 'CountBasedWindow',
+      timeBasedWindow: 'TimeBasedWindow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      countBasedWindow: 'number',
+      timeBasedWindow: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CDNEventsTriggerConfig extends $tea.Model {
   eventName?: string;
   eventVersion?: string;
@@ -323,6 +345,50 @@ export class DNSOption extends $tea.Model {
   }
 }
 
+export class DeadLetterQueue extends $tea.Model {
+  arn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeliveryOption extends $tea.Model {
+  concurrency?: number;
+  eventSchema?: string;
+  mode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      concurrency: 'concurrency',
+      eventSchema: 'eventSchema',
+      mode: 'mode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      concurrency: 'number',
+      eventSchema: 'string',
+      mode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Destination extends $tea.Model {
   destination?: string;
   static names(): { [key: string]: string } {
@@ -411,13 +477,17 @@ export class ErrorInfo extends $tea.Model {
 export class EventBridgeTriggerConfig extends $tea.Model {
   asyncInvocationType?: boolean;
   eventRuleFilterPattern?: string;
+  eventSinkConfig?: EventSinkConfig;
   eventSourceConfig?: EventSourceConfig;
+  runOptions?: RunOptions;
   triggerEnable?: boolean;
   static names(): { [key: string]: string } {
     return {
       asyncInvocationType: 'asyncInvocationType',
       eventRuleFilterPattern: 'eventRuleFilterPattern',
+      eventSinkConfig: 'eventSinkConfig',
       eventSourceConfig: 'eventSourceConfig',
+      runOptions: 'runOptions',
       triggerEnable: 'triggerEnable',
     };
   }
@@ -426,8 +496,29 @@ export class EventBridgeTriggerConfig extends $tea.Model {
     return {
       asyncInvocationType: 'boolean',
       eventRuleFilterPattern: 'string',
+      eventSinkConfig: EventSinkConfig,
       eventSourceConfig: EventSourceConfig,
+      runOptions: RunOptions,
       triggerEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventSinkConfig extends $tea.Model {
+  deliveryOption?: DeliveryOption;
+  static names(): { [key: string]: string } {
+    return {
+      deliveryOption: 'deliveryOption',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deliveryOption: DeliveryOption,
     };
   }
 
@@ -459,12 +550,18 @@ export class EventSourceConfig extends $tea.Model {
 }
 
 export class EventSourceParameters extends $tea.Model {
+  sourceDTSParameters?: SourceDTSParameters;
+  sourceKafkaParameters?: SourceKafkaParameters;
   sourceMNSParameters?: SourceMNSParameters;
+  sourceMQTTParameters?: SourceMQTTParameters;
   sourceRabbitMQParameters?: SourceRabbitMQParameters;
   sourceRocketMQParameters?: SourceRocketMQParameters;
   static names(): { [key: string]: string } {
     return {
+      sourceDTSParameters: 'sourceDTSParameters',
+      sourceKafkaParameters: 'sourceKafkaParameters',
       sourceMNSParameters: 'sourceMNSParameters',
+      sourceMQTTParameters: 'sourceMQTTParameters',
       sourceRabbitMQParameters: 'sourceRabbitMQParameters',
       sourceRocketMQParameters: 'sourceRocketMQParameters',
     };
@@ -472,7 +569,10 @@ export class EventSourceParameters extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      sourceDTSParameters: SourceDTSParameters,
+      sourceKafkaParameters: SourceKafkaParameters,
       sourceMNSParameters: SourceMNSParameters,
+      sourceMQTTParameters: SourceMQTTParameters,
       sourceRabbitMQParameters: SourceRabbitMQParameters,
       sourceRocketMQParameters: SourceRocketMQParameters,
     };
@@ -1176,6 +1276,31 @@ export class Resource extends $tea.Model {
   }
 }
 
+export class RetryStrategy extends $tea.Model {
+  maximumEventAgeInSeconds?: number;
+  maximumRetryAttempts?: number;
+  pushRetryStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maximumEventAgeInSeconds: 'MaximumEventAgeInSeconds',
+      maximumRetryAttempts: 'MaximumRetryAttempts',
+      pushRetryStrategy: 'PushRetryStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maximumEventAgeInSeconds: 'number',
+      maximumRetryAttempts: 'number',
+      pushRetryStrategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RewriteConfig extends $tea.Model {
   equalRules?: RewriteConfigEqualRules[];
   regexRules?: RewriteConfigRegexRules[];
@@ -1242,6 +1367,40 @@ export class RoutePolicy extends $tea.Model {
   }
 }
 
+export class RunOptions extends $tea.Model {
+  batchWindow?: BatchWindow;
+  deadLetterQueue?: DeadLetterQueue;
+  errorsTolerance?: string;
+  maximumTasks?: number;
+  mode?: string;
+  retryStrategy?: RetryStrategy;
+  static names(): { [key: string]: string } {
+    return {
+      batchWindow: 'batchWindow',
+      deadLetterQueue: 'deadLetterQueue',
+      errorsTolerance: 'errorsTolerance',
+      maximumTasks: 'maximumTasks',
+      mode: 'mode',
+      retryStrategy: 'retryStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchWindow: BatchWindow,
+      deadLetterQueue: DeadLetterQueue,
+      errorsTolerance: 'string',
+      maximumTasks: 'number',
+      mode: 'string',
+      retryStrategy: RetryStrategy,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScheduledActions extends $tea.Model {
   endTime?: string;
   name?: string;
@@ -1292,6 +1451,89 @@ export class SourceConfig extends $tea.Model {
   }
 }
 
+export class SourceDTSParameters extends $tea.Model {
+  brokerUrl?: string;
+  initCheckPoint?: number;
+  password?: string;
+  regionId?: string;
+  sid?: string;
+  taskId?: string;
+  topic?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      brokerUrl: 'BrokerUrl',
+      initCheckPoint: 'InitCheckPoint',
+      password: 'Password',
+      regionId: 'RegionId',
+      sid: 'Sid',
+      taskId: 'TaskId',
+      topic: 'Topic',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      brokerUrl: 'string',
+      initCheckPoint: 'number',
+      password: 'string',
+      regionId: 'string',
+      sid: 'string',
+      taskId: 'string',
+      topic: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceKafkaParameters extends $tea.Model {
+  consumerGroup?: string;
+  instanceId?: string;
+  network?: string;
+  offsetReset?: string;
+  regionId?: string;
+  securityGroupId?: string;
+  topic?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerGroup: 'ConsumerGroup',
+      instanceId: 'InstanceId',
+      network: 'Network',
+      offsetReset: 'OffsetReset',
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+      topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerGroup: 'string',
+      instanceId: 'string',
+      network: 'string',
+      offsetReset: 'string',
+      regionId: 'string',
+      securityGroupId: 'string',
+      topic: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SourceMNSParameters extends $tea.Model {
   isBase64Decode?: boolean;
   queueName?: string;
@@ -1309,6 +1551,31 @@ export class SourceMNSParameters extends $tea.Model {
       isBase64Decode: 'boolean',
       queueName: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceMQTTParameters extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      topic: 'string',
     };
   }
 
@@ -1346,8 +1613,19 @@ export class SourceRabbitMQParameters extends $tea.Model {
 }
 
 export class SourceRocketMQParameters extends $tea.Model {
+  authType?: string;
+  filterSql?: string;
+  filterType?: string;
   groupID?: string;
+  instanceEndpoint?: string;
   instanceId?: string;
+  instanceNetwork?: string;
+  instancePassword?: string;
+  instanceSecurityGroupId?: string;
+  instanceType?: string;
+  instanceUsername?: string;
+  instanceVSwitchIds?: string;
+  instanceVpcId?: string;
   offset?: string;
   regionId?: string;
   tag?: string;
@@ -1355,8 +1633,19 @@ export class SourceRocketMQParameters extends $tea.Model {
   topic?: string;
   static names(): { [key: string]: string } {
     return {
+      authType: 'AuthType',
+      filterSql: 'FilterSql',
+      filterType: 'FilterType',
       groupID: 'GroupID',
+      instanceEndpoint: 'InstanceEndpoint',
       instanceId: 'InstanceId',
+      instanceNetwork: 'InstanceNetwork',
+      instancePassword: 'InstancePassword',
+      instanceSecurityGroupId: 'InstanceSecurityGroupId',
+      instanceType: 'InstanceType',
+      instanceUsername: 'InstanceUsername',
+      instanceVSwitchIds: 'InstanceVSwitchIds',
+      instanceVpcId: 'InstanceVpcId',
       offset: 'Offset',
       regionId: 'RegionId',
       tag: 'Tag',
@@ -1367,8 +1656,19 @@ export class SourceRocketMQParameters extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authType: 'string',
+      filterSql: 'string',
+      filterType: 'string',
       groupID: 'string',
+      instanceEndpoint: 'string',
       instanceId: 'string',
+      instanceNetwork: 'string',
+      instancePassword: 'string',
+      instanceSecurityGroupId: 'string',
+      instanceType: 'string',
+      instanceUsername: 'string',
+      instanceVSwitchIds: 'string',
+      instanceVpcId: 'string',
       offset: 'string',
       regionId: 'string',
       tag: 'string',
@@ -2229,6 +2529,7 @@ export class CreateFunctionResponseBody extends $tea.Model {
   instanceType?: string;
   lastModifiedTime?: string;
   layers?: string[];
+  layersArnV2?: string[];
   memorySize?: number;
   runtime?: string;
   timeout?: number;
@@ -2258,6 +2559,7 @@ export class CreateFunctionResponseBody extends $tea.Model {
       instanceType: 'instanceType',
       lastModifiedTime: 'lastModifiedTime',
       layers: 'layers',
+      layersArnV2: 'layersArnV2',
       memorySize: 'memorySize',
       runtime: 'runtime',
       timeout: 'timeout',
@@ -2290,6 +2592,7 @@ export class CreateFunctionResponseBody extends $tea.Model {
       instanceType: 'string',
       lastModifiedTime: 'string',
       layers: { 'type': 'array', 'itemType': 'string' },
+      layersArnV2: { 'type': 'array', 'itemType': 'string' },
       memorySize: 'number',
       runtime: 'string',
       timeout: 'number',
@@ -2533,6 +2836,7 @@ export class CreateServiceResponseBody extends $tea.Model {
   serviceId?: string;
   serviceName?: string;
   tracingConfig?: TracingConfig;
+  useSLRAuthentication?: boolean;
   vpcConfig?: VPCConfig;
   static names(): { [key: string]: string } {
     return {
@@ -2547,6 +2851,7 @@ export class CreateServiceResponseBody extends $tea.Model {
       serviceId: 'serviceId',
       serviceName: 'serviceName',
       tracingConfig: 'tracingConfig',
+      useSLRAuthentication: 'useSLRAuthentication',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -2564,6 +2869,7 @@ export class CreateServiceResponseBody extends $tea.Model {
       serviceId: 'string',
       serviceName: 'string',
       tracingConfig: TracingConfig,
+      useSLRAuthentication: 'boolean',
       vpcConfig: VPCConfig,
     };
   }
@@ -4491,6 +4797,7 @@ export class GetServiceResponseBody extends $tea.Model {
   serviceId?: string;
   serviceName?: string;
   tracingConfig?: TracingConfig;
+  useSLRAuthentication?: boolean;
   vpcConfig?: VPCConfig;
   static names(): { [key: string]: string } {
     return {
@@ -4505,6 +4812,7 @@ export class GetServiceResponseBody extends $tea.Model {
       serviceId: 'serviceId',
       serviceName: 'serviceName',
       tracingConfig: 'tracingConfig',
+      useSLRAuthentication: 'useSLRAuthentication',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -4522,6 +4830,7 @@ export class GetServiceResponseBody extends $tea.Model {
       serviceId: 'string',
       serviceName: 'string',
       tracingConfig: TracingConfig,
+      useSLRAuthentication: 'boolean',
       vpcConfig: VPCConfig,
     };
   }
@@ -7918,6 +8227,7 @@ export class UpdateFunctionResponseBody extends $tea.Model {
   instanceType?: string;
   lastModifiedTime?: string;
   layers?: string[];
+  layersArnV2?: string[];
   memorySize?: number;
   runtime?: string;
   timeout?: number;
@@ -7947,6 +8257,7 @@ export class UpdateFunctionResponseBody extends $tea.Model {
       instanceType: 'instanceType',
       lastModifiedTime: 'lastModifiedTime',
       layers: 'layers',
+      layersArnV2: 'layersArnV2',
       memorySize: 'memorySize',
       runtime: 'runtime',
       timeout: 'timeout',
@@ -7979,6 +8290,7 @@ export class UpdateFunctionResponseBody extends $tea.Model {
       instanceType: 'string',
       lastModifiedTime: 'string',
       layers: { 'type': 'array', 'itemType': 'string' },
+      layersArnV2: { 'type': 'array', 'itemType': 'string' },
       memorySize: 'number',
       runtime: 'string',
       timeout: 'number',
@@ -8098,6 +8410,7 @@ export class UpdateServiceResponseBody extends $tea.Model {
   serviceId?: string;
   serviceName?: string;
   tracingConfig?: TracingConfig;
+  useSLRAuthentication?: boolean;
   vpcConfig?: VPCConfig;
   static names(): { [key: string]: string } {
     return {
@@ -8112,6 +8425,7 @@ export class UpdateServiceResponseBody extends $tea.Model {
       serviceId: 'serviceId',
       serviceName: 'serviceName',
       tracingConfig: 'tracingConfig',
+      useSLRAuthentication: 'useSLRAuthentication',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -8129,6 +8443,7 @@ export class UpdateServiceResponseBody extends $tea.Model {
       serviceId: 'string',
       serviceName: 'string',
       tracingConfig: TracingConfig,
+      useSLRAuthentication: 'boolean',
       vpcConfig: VPCConfig,
     };
   }
@@ -8582,7 +8897,9 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
   cpu?: number;
   createdTime?: string;
   customContainerConfig?: CustomContainerConfig;
+  customDNS?: CustomDNS;
   customHealthCheckConfig?: CustomHealthCheckConfig;
+  customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
   diskSize?: number;
   environmentVariables?: { [key: string]: string };
@@ -8598,6 +8915,7 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
   instanceType?: string;
   lastModifiedTime?: string;
   layers?: string[];
+  layersArnV2?: string[];
   memorySize?: number;
   runtime?: string;
   timeout?: number;
@@ -8609,7 +8927,9 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
       cpu: 'cpu',
       createdTime: 'createdTime',
       customContainerConfig: 'customContainerConfig',
+      customDNS: 'customDNS',
       customHealthCheckConfig: 'customHealthCheckConfig',
+      customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
       diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
@@ -8625,6 +8945,7 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
       instanceType: 'instanceType',
       lastModifiedTime: 'lastModifiedTime',
       layers: 'layers',
+      layersArnV2: 'layersArnV2',
       memorySize: 'memorySize',
       runtime: 'runtime',
       timeout: 'timeout',
@@ -8639,7 +8960,9 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
       cpu: 'number',
       createdTime: 'string',
       customContainerConfig: CustomContainerConfig,
+      customDNS: CustomDNS,
       customHealthCheckConfig: CustomHealthCheckConfig,
+      customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
       diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -8655,6 +8978,7 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
       instanceType: 'string',
       lastModifiedTime: 'string',
       layers: { 'type': 'array', 'itemType': 'string' },
+      layersArnV2: { 'type': 'array', 'itemType': 'string' },
       memorySize: 'number',
       runtime: 'string',
       timeout: 'number',
@@ -8765,6 +9089,7 @@ export class ListServicesResponseBodyServices extends $tea.Model {
   serviceId?: string;
   serviceName?: string;
   tracingConfig?: TracingConfig;
+  useSLRAuthentication?: boolean;
   vpcConfig?: VPCConfig;
   static names(): { [key: string]: string } {
     return {
@@ -8779,6 +9104,7 @@ export class ListServicesResponseBodyServices extends $tea.Model {
       serviceId: 'serviceId',
       serviceName: 'serviceName',
       tracingConfig: 'tracingConfig',
+      useSLRAuthentication: 'useSLRAuthentication',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -8796,6 +9122,7 @@ export class ListServicesResponseBodyServices extends $tea.Model {
       serviceId: 'string',
       serviceName: 'string',
       tracingConfig: TracingConfig,
+      useSLRAuthentication: 'boolean',
       vpcConfig: VPCConfig,
     };
   }
@@ -10197,6 +10524,14 @@ export default class Client extends OpenApi {
     return await this.getFunctionWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
+  /**
+    * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If the value of StatefulAsyncInvocation is true, the asynchronous task feature is enabled. All asynchronous invocations change to asynchronous task mode.
+    *
+    * @param request GetFunctionAsyncInvokeConfigRequest
+    * @param headers GetFunctionAsyncInvokeConfigHeaders
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetFunctionAsyncInvokeConfigResponse
+   */
   async getFunctionAsyncInvokeConfigWithOptions(serviceName: string, functionName: string, request: GetFunctionAsyncInvokeConfigRequest, headers: GetFunctionAsyncInvokeConfigHeaders, runtime: $Util.RuntimeOptions): Promise<GetFunctionAsyncInvokeConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -10239,6 +10574,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFunctionAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new GetFunctionAsyncInvokeConfigResponse({}));
   }
 
+  /**
+    * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If the value of StatefulAsyncInvocation is true, the asynchronous task feature is enabled. All asynchronous invocations change to asynchronous task mode.
+    *
+    * @param request GetFunctionAsyncInvokeConfigRequest
+    * @return GetFunctionAsyncInvokeConfigResponse
+   */
   async getFunctionAsyncInvokeConfig(serviceName: string, functionName: string, request: GetFunctionAsyncInvokeConfigRequest): Promise<GetFunctionAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetFunctionAsyncInvokeConfigHeaders({ });
@@ -10648,9 +10989,9 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
-    let body : string = "";
+    let body : Buffer = null;
     if (!Util.isUnset(request.body)) {
-      body = Util.toString(request.body);
+      body = request.body;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -10699,7 +11040,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "json",
+      reqBodyType: "byte",
       bodyType: "byte",
     });
     return $tea.cast<InvokeFunctionResponse>(await this.callApi(params, req, runtime), new InvokeFunctionResponse({}));
@@ -10879,6 +11220,14 @@ export default class Client extends OpenApi {
     return await this.listEventSourcesWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
+  /**
+    * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If StatefulAsyncInvocation is set to true, the asynchronous task is enabled. All asynchronous invocations to the function corresponding to this configuration change to asynchronous task mode.
+    *
+    * @param request ListFunctionAsyncInvokeConfigsRequest
+    * @param headers ListFunctionAsyncInvokeConfigsHeaders
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListFunctionAsyncInvokeConfigsResponse
+   */
   async listFunctionAsyncInvokeConfigsWithOptions(serviceName: string, functionName: string, request: ListFunctionAsyncInvokeConfigsRequest, headers: ListFunctionAsyncInvokeConfigsHeaders, runtime: $Util.RuntimeOptions): Promise<ListFunctionAsyncInvokeConfigsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -10937,6 +11286,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFunctionAsyncInvokeConfigsResponse>(await this.callApi(params, req, runtime), new ListFunctionAsyncInvokeConfigsResponse({}));
   }
 
+  /**
+    * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If StatefulAsyncInvocation is set to true, the asynchronous task is enabled. All asynchronous invocations to the function corresponding to this configuration change to asynchronous task mode.
+    *
+    * @param request ListFunctionAsyncInvokeConfigsRequest
+    * @return ListFunctionAsyncInvokeConfigsResponse
+   */
   async listFunctionAsyncInvokeConfigs(serviceName: string, functionName: string, request: ListFunctionAsyncInvokeConfigsRequest): Promise<ListFunctionAsyncInvokeConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ListFunctionAsyncInvokeConfigsHeaders({ });
@@ -11008,8 +11363,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The maximum number of resources to return. Valid values: \\[0,1000].
-    * The number of returned resources is less than or equal to the specified number.
+    * The ListInstances operation allows you to query the available instances of a function.
+    * Available instances are instances that are processing requests or can be scheduled to process requests. Available instances queried by the ListInstances operation are the same as those that can be used when you call the InvokeFunction operation with the same values specified for the `serviceName`, `functionName`, and `qualifier` parameters.
     *
     * @param request ListInstancesRequest
     * @param headers ListInstancesHeaders
@@ -11059,8 +11414,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The maximum number of resources to return. Valid values: \\[0,1000].
-    * The number of returned resources is less than or equal to the specified number.
+    * The ListInstances operation allows you to query the available instances of a function.
+    * Available instances are instances that are processing requests or can be scheduled to process requests. Available instances queried by the ListInstances operation are the same as those that can be used when you call the InvokeFunction operation with the same values specified for the `serviceName`, `functionName`, and `qualifier` parameters.
     *
     * @param request ListInstancesRequest
     * @return ListInstancesResponse
