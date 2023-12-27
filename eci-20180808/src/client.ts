@@ -215,6 +215,7 @@ export class CreateContainerGroupRequest extends $tea.Model {
   autoCreateEip?: boolean;
   autoMatchImageCache?: boolean;
   clientToken?: string;
+  computeCategory?: string[];
   container?: CreateContainerGroupRequestContainer[];
   containerGroupName?: string;
   containerResourceView?: boolean;
@@ -286,6 +287,7 @@ export class CreateContainerGroupRequest extends $tea.Model {
       autoCreateEip: 'AutoCreateEip',
       autoMatchImageCache: 'AutoMatchImageCache',
       clientToken: 'ClientToken',
+      computeCategory: 'ComputeCategory',
       container: 'Container',
       containerGroupName: 'ContainerGroupName',
       containerResourceView: 'ContainerResourceView',
@@ -360,6 +362,7 @@ export class CreateContainerGroupRequest extends $tea.Model {
       autoCreateEip: 'boolean',
       autoMatchImageCache: 'boolean',
       clientToken: 'string',
+      computeCategory: { 'type': 'array', 'itemType': 'string' },
       container: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainer },
       containerGroupName: 'string',
       containerResourceView: 'boolean',
@@ -1656,6 +1659,7 @@ export class DescribeContainerGroupMetricResponse extends $tea.Model {
 }
 
 export class DescribeContainerGroupPriceRequest extends $tea.Model {
+  computeCategory?: string;
   cpu?: number;
   ephemeralStorage?: number;
   instanceType?: string;
@@ -1671,6 +1675,7 @@ export class DescribeContainerGroupPriceRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      computeCategory: 'ComputeCategory',
       cpu: 'Cpu',
       ephemeralStorage: 'EphemeralStorage',
       instanceType: 'InstanceType',
@@ -1689,6 +1694,7 @@ export class DescribeContainerGroupPriceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      computeCategory: 'string',
       cpu: 'number',
       ephemeralStorage: 'number',
       instanceType: 'string',
@@ -1854,6 +1860,7 @@ export class DescribeContainerGroupStatusResponse extends $tea.Model {
 }
 
 export class DescribeContainerGroupsRequest extends $tea.Model {
+  computeCategory?: string;
   containerGroupIds?: string;
   containerGroupName?: string;
   limit?: number;
@@ -1872,6 +1879,7 @@ export class DescribeContainerGroupsRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      computeCategory: 'ComputeCategory',
       containerGroupIds: 'ContainerGroupIds',
       containerGroupName: 'ContainerGroupName',
       limit: 'Limit',
@@ -1893,6 +1901,7 @@ export class DescribeContainerGroupsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      computeCategory: 'string',
       containerGroupIds: 'string',
       containerGroupName: 'string',
       limit: 'number',
@@ -9805,6 +9814,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.computeCategory)) {
+      query["ComputeCategory"] = request.computeCategory;
+    }
+
     if (!Util.isUnset(request.container)) {
       query["Container"] = request.container;
     }
@@ -11165,6 +11178,10 @@ export default class Client extends OpenApi {
   async describeContainerGroupPriceWithOptions(request: DescribeContainerGroupPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupPriceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.computeCategory)) {
+      query["ComputeCategory"] = request.computeCategory;
+    }
+
     if (!Util.isUnset(request.cpu)) {
       query["Cpu"] = request.cpu;
     }
@@ -11326,6 +11343,10 @@ export default class Client extends OpenApi {
   async describeContainerGroupsWithOptions(request: DescribeContainerGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.computeCategory)) {
+      query["ComputeCategory"] = request.computeCategory;
+    }
+
     if (!Util.isUnset(request.containerGroupIds)) {
       query["ContainerGroupIds"] = request.containerGroupIds;
     }
