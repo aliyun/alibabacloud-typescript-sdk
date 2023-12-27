@@ -778,6 +778,7 @@ export class Logstore extends $tea.Model {
   enableTracking?: boolean;
   encryptConf?: EncryptConf;
   hotTtl?: number;
+  infrequentAccessTTL?: number;
   lastModifyTime?: number;
   logstoreName?: string;
   maxSplitShard?: number;
@@ -794,6 +795,7 @@ export class Logstore extends $tea.Model {
       enableTracking: 'enable_tracking',
       encryptConf: 'encrypt_conf',
       hotTtl: 'hot_ttl',
+      infrequentAccessTTL: 'infrequentAccessTTL',
       lastModifyTime: 'lastModifyTime',
       logstoreName: 'logstoreName',
       maxSplitShard: 'maxSplitShard',
@@ -813,6 +815,7 @@ export class Logstore extends $tea.Model {
       enableTracking: 'boolean',
       encryptConf: EncryptConf,
       hotTtl: 'number',
+      infrequentAccessTTL: 'number',
       lastModifyTime: 'number',
       logstoreName: 'string',
       maxSplitShard: 'number',
@@ -1535,6 +1538,7 @@ export class CreateLogStoreRequest extends $tea.Model {
   enableTracking?: boolean;
   encryptConf?: EncryptConf;
   hotTtl?: number;
+  infrequentAccessTTL?: number;
   logstoreName?: string;
   maxSplitShard?: number;
   mode?: string;
@@ -1548,6 +1552,7 @@ export class CreateLogStoreRequest extends $tea.Model {
       enableTracking: 'enable_tracking',
       encryptConf: 'encrypt_conf',
       hotTtl: 'hot_ttl',
+      infrequentAccessTTL: 'infrequentAccessTTL',
       logstoreName: 'logstoreName',
       maxSplitShard: 'maxSplitShard',
       mode: 'mode',
@@ -1564,6 +1569,7 @@ export class CreateLogStoreRequest extends $tea.Model {
       enableTracking: 'boolean',
       encryptConf: EncryptConf,
       hotTtl: 'number',
+      infrequentAccessTTL: 'number',
       logstoreName: 'string',
       maxSplitShard: 'number',
       mode: 'string',
@@ -5666,6 +5672,7 @@ export class UpdateLogStoreRequest extends $tea.Model {
   enableTracking?: boolean;
   encryptConf?: EncryptConf;
   hotTtl?: number;
+  infrequentAccessTTL?: number;
   logstoreName?: string;
   maxSplitShard?: number;
   mode?: string;
@@ -5679,6 +5686,7 @@ export class UpdateLogStoreRequest extends $tea.Model {
       enableTracking: 'enable_tracking',
       encryptConf: 'encrypt_conf',
       hotTtl: 'hot_ttl',
+      infrequentAccessTTL: 'infrequentAccessTTL',
       logstoreName: 'logstoreName',
       maxSplitShard: 'maxSplitShard',
       mode: 'mode',
@@ -5695,6 +5703,7 @@ export class UpdateLogStoreRequest extends $tea.Model {
       enableTracking: 'boolean',
       encryptConf: EncryptConf,
       hotTtl: 'number',
+      infrequentAccessTTL: 'number',
       logstoreName: 'string',
       maxSplitShard: 'number',
       mode: 'string',
@@ -7974,6 +7983,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.hotTtl)) {
       body["hot_ttl"] = request.hotTtl;
+    }
+
+    if (!Util.isUnset(request.infrequentAccessTTL)) {
+      body["infrequentAccessTTL"] = request.infrequentAccessTTL;
     }
 
     if (!Util.isUnset(request.logstoreName)) {
@@ -11882,6 +11895,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.hotTtl)) {
       body["hot_ttl"] = request.hotTtl;
+    }
+
+    if (!Util.isUnset(request.infrequentAccessTTL)) {
+      body["infrequentAccessTTL"] = request.infrequentAccessTTL;
     }
 
     if (!Util.isUnset(request.logstoreName)) {
