@@ -6407,6 +6407,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
   instanceTotalCount?: number;
   labStatus?: number;
   ossTotalSize?: number;
+  protectionDays?: number;
   purchased?: boolean;
   releaseDays?: number;
   releaseTime?: number;
@@ -6428,6 +6429,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
       instanceTotalCount: 'InstanceTotalCount',
       labStatus: 'LabStatus',
       ossTotalSize: 'OssTotalSize',
+      protectionDays: 'ProtectionDays',
       purchased: 'Purchased',
       releaseDays: 'ReleaseDays',
       releaseTime: 'ReleaseTime',
@@ -6452,6 +6454,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
       instanceTotalCount: 'number',
       labStatus: 'number',
       ossTotalSize: 'number',
+      protectionDays: 'number',
       purchased: 'boolean',
       releaseDays: 'number',
       releaseTime: 'number',
