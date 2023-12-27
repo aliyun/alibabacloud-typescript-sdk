@@ -5516,6 +5516,7 @@ export class DescribeSecurityIpsRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  showHDMIps?: boolean;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
@@ -5523,6 +5524,7 @@ export class DescribeSecurityIpsRequest extends $tea.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      showHDMIps: 'ShowHDMIps',
     };
   }
 
@@ -5533,6 +5535,7 @@ export class DescribeSecurityIpsRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      showHDMIps: 'boolean',
     };
   }
 
@@ -13682,7 +13685,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to check whether an ApsaraDB for MongoDB instance meets the data recovery conditions.
+    * This operation is applicable to replica set instances or sharded cluster instances.
+    * >  After you confirm that the data recovery conditions are met by calling this operation, you can call the [CreateDBInstance](~~61763~~) operation to restore data to a new instance.
     *
     * @param request CheckRecoveryConditionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -13749,7 +13753,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to check whether an ApsaraDB for MongoDB instance meets the data recovery conditions.
+    * This operation is applicable to replica set instances or sharded cluster instances.
+    * >  After you confirm that the data recovery conditions are met by calling this operation, you can call the [CreateDBInstance](~~61763~~) operation to restore data to a new instance.
     *
     * @param request CheckRecoveryConditionRequest
     * @return CheckRecoveryConditionResponse
@@ -13759,6 +13764,13 @@ export default class Client extends OpenApi {
     return await this.checkRecoveryConditionWithOptions(request, runtime);
   }
 
+  /**
+    * Database accounts can be created only for shards in sharded cluster instances that use cloud disks.
+    *
+    * @param request CreateAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAccountResponse
+   */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13807,6 +13819,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
   }
 
+  /**
+    * Database accounts can be created only for shards in sharded cluster instances that use cloud disks.
+    *
+    * @param request CreateAccountRequest
+    * @return CreateAccountResponse
+   */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccountWithOptions(request, runtime);
@@ -16038,6 +16056,15 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceSSLWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+    * *   The instance is a replica set or sharded cluster instance.
+    * *   The instance uses local physical disks to store data.
+    *
+    * @param request DescribeDBInstanceSwitchLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceSwitchLogResponse
+   */
   async describeDBInstanceSwitchLogWithOptions(request: DescribeDBInstanceSwitchLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSwitchLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16082,6 +16109,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceSwitchLogResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceSwitchLogResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+    * *   The instance is a replica set or sharded cluster instance.
+    * *   The instance uses local physical disks to store data.
+    *
+    * @param request DescribeDBInstanceSwitchLogRequest
+    * @return DescribeDBInstanceSwitchLogResponse
+   */
   async describeDBInstanceSwitchLog(request: DescribeDBInstanceSwitchLogRequest): Promise<DescribeDBInstanceSwitchLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceSwitchLogWithOptions(request, runtime);
@@ -16810,6 +16845,13 @@ export default class Client extends OpenApi {
     return await this.describeKernelReleaseNotesWithOptions(request, runtime);
   }
 
+  /**
+    * Queried keys are available only for disk encryption.
+    *
+    * @param request DescribeKmsKeysRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeKmsKeysResponse
+   */
   async describeKmsKeysWithOptions(request: DescribeKmsKeysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKmsKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16846,6 +16888,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeKmsKeysResponse>(await this.callApi(params, req, runtime), new DescribeKmsKeysResponse({}));
   }
 
+  /**
+    * Queried keys are available only for disk encryption.
+    *
+    * @param request DescribeKmsKeysRequest
+    * @return DescribeKmsKeysResponse
+   */
   async describeKmsKeys(request: DescribeKmsKeysRequest): Promise<DescribeKmsKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeKmsKeysWithOptions(request, runtime);
@@ -17575,6 +17623,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.showHDMIps)) {
+      query["ShowHDMIps"] = request.showHDMIps;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -18308,7 +18360,7 @@ export default class Client extends OpenApi {
 
   /**
     * *   The instance must be in the running state when you call this operation.
-    * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+    * *   This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
     *
     * @param request ModifyAuditLogFilterRequest
@@ -18365,7 +18417,7 @@ export default class Client extends OpenApi {
 
   /**
     * *   The instance must be in the running state when you call this operation.
-    * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+    * *   This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
     *
     * @param request ModifyAuditLogFilterRequest
@@ -19412,7 +19464,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to enable or disable password-free access from the same VPC as an ApsaraDB for MongoDB instance.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   A replica set or sharded cluster instance is used.
+    * *   The database version of the instance is 4.0 (with the minor version of mongodb\\_20190408\\_3.0.11 or later) or 4.2. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to view the database engine version of the instance. If necessary, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine.
+    * *   The instance is in a VPC. If the network type is Classic Network, you can call the [ModifyDBInstanceNetworkType](~~62138~~) operation to switch the network type to VPC.
     *
     * @param request ModifyInstanceVpcAuthModeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19467,7 +19522,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to enable or disable password-free access from the same VPC as an ApsaraDB for MongoDB instance.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   A replica set or sharded cluster instance is used.
+    * *   The database version of the instance is 4.0 (with the minor version of mongodb\\_20190408\\_3.0.11 or later) or 4.2. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to view the database engine version of the instance. If necessary, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine.
+    * *   The instance is in a VPC. If the network type is Classic Network, you can call the [ModifyDBInstanceNetworkType](~~62138~~) operation to switch the network type to VPC.
     *
     * @param request ModifyInstanceVpcAuthModeRequest
     * @return ModifyInstanceVpcAuthModeResponse
@@ -19678,7 +19736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Precautions
+    * ### Precautions
     * *   The instance must be in the Running state when you call this operation.
     * *   If you call this operation to modify specific instance parameters and the modification for part of the parameters can take effect only after an instance restart, the instance is automatically restarted after this operation is called. You can call the [DescribeParameterTemplates](~~67618~~) operation to query the parameters that take effect only after the instance is restarted.
     *
@@ -19743,7 +19801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Precautions
+    * ### Precautions
     * *   The instance must be in the Running state when you call this operation.
     * *   If you call this operation to modify specific instance parameters and the modification for part of the parameters can take effect only after an instance restart, the instance is automatically restarted after this operation is called. You can call the [DescribeParameterTemplates](~~67618~~) operation to query the parameters that take effect only after the instance is restarted.
     *
@@ -19944,6 +20002,13 @@ export default class Client extends OpenApi {
     return await this.modifySecurityIpsWithOptions(request, runtime);
   }
 
+  /**
+    * The actions performed by this operation for a task vary based on the current state of the task. The supported actions for a task can be obtained from the value of the actionInfo parameter in the DescribeHistoryTasks operation.
+    *
+    * @param request ModifyTaskInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyTaskInfoResponse
+   */
   async modifyTaskInfoWithOptions(request: ModifyTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTaskInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19992,6 +20057,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTaskInfoResponse>(await this.callApi(params, req, runtime), new ModifyTaskInfoResponse({}));
   }
 
+  /**
+    * The actions performed by this operation for a task vary based on the current state of the task. The supported actions for a task can be obtained from the value of the actionInfo parameter in the DescribeHistoryTasks operation.
+    *
+    * @param request ModifyTaskInfoRequest
+    * @return ModifyTaskInfoResponse
+   */
   async modifyTaskInfo(request: ModifyTaskInfoRequest): Promise<ModifyTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTaskInfoWithOptions(request, runtime);
