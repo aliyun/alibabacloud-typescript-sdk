@@ -199,6 +199,97 @@ export class DeleteResourceResponse extends $tea.Model {
   }
 }
 
+export class GetPriceRequest extends $tea.Model {
+  regionId?: string;
+  resourceAttributes?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'regionId',
+      resourceAttributes: 'resourceAttributes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceAttributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPriceShrinkRequest extends $tea.Model {
+  regionId?: string;
+  resourceAttributesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'regionId',
+      resourceAttributesShrink: 'resourceAttributes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceAttributesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPriceResponseBody extends $tea.Model {
+  price?: GetPriceResponseBodyPrice;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      price: 'price',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      price: GetPriceResponseBodyPrice,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPriceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPriceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResourceTypeHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAcceptLanguage?: string;
@@ -813,6 +904,99 @@ export class UpdateResourceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPriceResponseBodyPriceModuleDetails extends $tea.Model {
+  costAfterDiscount?: number;
+  invoiceDiscount?: number;
+  moduleCode?: string;
+  moduleName?: string;
+  originalCost?: number;
+  priceType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      costAfterDiscount: 'costAfterDiscount',
+      invoiceDiscount: 'invoiceDiscount',
+      moduleCode: 'moduleCode',
+      moduleName: 'moduleName',
+      originalCost: 'originalCost',
+      priceType: 'priceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costAfterDiscount: 'number',
+      invoiceDiscount: 'number',
+      moduleCode: 'string',
+      moduleName: 'string',
+      originalCost: 'number',
+      priceType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPriceResponseBodyPricePromotionDetails extends $tea.Model {
+  promotionDesc?: string;
+  promotionId?: number;
+  promotionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      promotionDesc: 'promotionDesc',
+      promotionId: 'promotionId',
+      promotionName: 'promotionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      promotionDesc: 'string',
+      promotionId: 'number',
+      promotionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPriceResponseBodyPrice extends $tea.Model {
+  currency?: string;
+  discountPrice?: number;
+  moduleDetails?: GetPriceResponseBodyPriceModuleDetails[];
+  originalPrice?: number;
+  promotionDetails?: GetPriceResponseBodyPricePromotionDetails[];
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'currency',
+      discountPrice: 'discountPrice',
+      moduleDetails: 'moduleDetails',
+      originalPrice: 'originalPrice',
+      promotionDetails: 'promotionDetails',
+      tradePrice: 'tradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      discountPrice: 'number',
+      moduleDetails: { 'type': 'array', 'itemType': GetPriceResponseBodyPriceModuleDetails },
+      originalPrice: 'number',
+      promotionDetails: { 'type': 'array', 'itemType': GetPriceResponseBodyPricePromotionDetails },
+      tradePrice: 'number',
     };
   }
 
@@ -1544,6 +1728,47 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceWithOptions(requestPath, request, headers, runtime);
+  }
+
+  async getPriceWithOptions(requestPath: string, tmpReq: GetPriceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPriceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetPriceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.resourceAttributes)) {
+      request.resourceAttributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceAttributes, "resourceAttributes", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceAttributesShrink)) {
+      query["resourceAttributes"] = request.resourceAttributesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPrice",
+      version: "2022-08-30",
+      protocol: "HTTPS",
+      pathname: `${requestPath}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPriceResponse>(await this.callApi(params, req, runtime), new GetPriceResponse({}));
+  }
+
+  async getPrice(requestPath: string, request: GetPriceRequest): Promise<GetPriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPriceWithOptions(requestPath, request, headers, runtime);
   }
 
   async getResourceTypeWithOptions(requestPath: string, headers: GetResourceTypeHeaders, runtime: $Util.RuntimeOptions): Promise<GetResourceTypeResponse> {
