@@ -8,6 +8,78 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ApplyForStreamAccessTokenRequest extends $tea.Model {
+  agentKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyForStreamAccessTokenResponseBody extends $tea.Model {
+  accessToken?: string;
+  channelId?: string;
+  requestId?: string;
+  streamSecret?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      channelId: 'ChannelId',
+      requestId: 'RequestId',
+      streamSecret: 'StreamSecret',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      channelId: 'string',
+      requestId: 'string',
+      streamSecret: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyForStreamAccessTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ApplyForStreamAccessTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyForStreamAccessTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AssociateRequest extends $tea.Model {
   agentKey?: string;
   instanceId?: string;
@@ -152,11 +224,15 @@ export class BeginSessionRequest extends $tea.Model {
 }
 
 export class BeginSessionResponseBody extends $tea.Model {
+  asrMaxEndSilence?: number;
+  interruptible?: boolean;
   requestId?: string;
   silenceReplyTimeout?: number;
   welcomeMessage?: string;
   static names(): { [key: string]: string } {
     return {
+      asrMaxEndSilence: 'AsrMaxEndSilence',
+      interruptible: 'Interruptible',
       requestId: 'RequestId',
       silenceReplyTimeout: 'SilenceReplyTimeout',
       welcomeMessage: 'WelcomeMessage',
@@ -165,6 +241,8 @@ export class BeginSessionResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      asrMaxEndSilence: 'number',
+      interruptible: 'boolean',
       requestId: 'string',
       silenceReplyTimeout: 'number',
       welcomeMessage: 'string',
@@ -7862,6 +7940,35 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async applyForStreamAccessTokenWithOptions(request: ApplyForStreamAccessTokenRequest, runtime: $Util.RuntimeOptions): Promise<ApplyForStreamAccessTokenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApplyForStreamAccessToken",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyForStreamAccessTokenResponse>(await this.callApi(params, req, runtime), new ApplyForStreamAccessTokenResponse({}));
+  }
+
+  async applyForStreamAccessToken(request: ApplyForStreamAccessTokenRequest): Promise<ApplyForStreamAccessTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.applyForStreamAccessTokenWithOptions(request, runtime);
   }
 
   async associateWithOptions(tmpReq: AssociateRequest, runtime: $Util.RuntimeOptions): Promise<AssociateResponse> {
