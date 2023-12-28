@@ -23,6 +23,7 @@ export class AddRecordTemplateRequest extends $tea.Model {
   mnsQueue?: string;
   name?: string;
   ossBucket?: string;
+  ossEndpoint?: string;
   ossFilePrefix?: string;
   ownerId?: number;
   taskProfile?: string;
@@ -43,6 +44,7 @@ export class AddRecordTemplateRequest extends $tea.Model {
       mnsQueue: 'MnsQueue',
       name: 'Name',
       ossBucket: 'OssBucket',
+      ossEndpoint: 'OssEndpoint',
       ossFilePrefix: 'OssFilePrefix',
       ownerId: 'OwnerId',
       taskProfile: 'TaskProfile',
@@ -66,6 +68,7 @@ export class AddRecordTemplateRequest extends $tea.Model {
       mnsQueue: 'string',
       name: 'string',
       ossBucket: 'string',
+      ossEndpoint: 'string',
       ossFilePrefix: 'string',
       ownerId: 'number',
       taskProfile: 'string',
@@ -102,10 +105,12 @@ export class AddRecordTemplateResponseBody extends $tea.Model {
 
 export class AddRecordTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddRecordTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -113,6 +118,7 @@ export class AddRecordTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddRecordTemplateResponseBody,
     };
   }
@@ -186,10 +192,12 @@ export class CreateAutoLiveStreamRuleResponseBody extends $tea.Model {
 
 export class CreateAutoLiveStreamRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAutoLiveStreamRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -197,6 +205,7 @@ export class CreateAutoLiveStreamRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAutoLiveStreamRuleResponseBody,
     };
   }
@@ -214,6 +223,7 @@ export class CreateEventSubscribeRequest extends $tea.Model {
   events?: string[];
   needCallbackAuth?: boolean;
   ownerId?: number;
+  role?: number;
   users?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -224,6 +234,7 @@ export class CreateEventSubscribeRequest extends $tea.Model {
       events: 'Events',
       needCallbackAuth: 'NeedCallbackAuth',
       ownerId: 'OwnerId',
+      role: 'Role',
       users: 'Users',
     };
   }
@@ -237,6 +248,7 @@ export class CreateEventSubscribeRequest extends $tea.Model {
       events: { 'type': 'array', 'itemType': 'string' },
       needCallbackAuth: 'boolean',
       ownerId: 'number',
+      role: 'number',
       users: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -270,10 +282,12 @@ export class CreateEventSubscribeResponseBody extends $tea.Model {
 
 export class CreateEventSubscribeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateEventSubscribeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -281,6 +295,7 @@ export class CreateEventSubscribeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateEventSubscribeResponseBody,
     };
   }
@@ -345,10 +360,12 @@ export class CreateMPULayoutResponseBody extends $tea.Model {
 
 export class CreateMPULayoutResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateMPULayoutResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -356,6 +373,7 @@ export class CreateMPULayoutResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateMPULayoutResponseBody,
     };
   }
@@ -411,10 +429,12 @@ export class DeleteAutoLiveStreamRuleResponseBody extends $tea.Model {
 
 export class DeleteAutoLiveStreamRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAutoLiveStreamRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -422,6 +442,7 @@ export class DeleteAutoLiveStreamRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAutoLiveStreamRuleResponseBody,
     };
   }
@@ -477,10 +498,12 @@ export class DeleteChannelResponseBody extends $tea.Model {
 
 export class DeleteChannelResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteChannelResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -488,6 +511,7 @@ export class DeleteChannelResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteChannelResponseBody,
     };
   }
@@ -543,10 +567,12 @@ export class DeleteEventSubscribeResponseBody extends $tea.Model {
 
 export class DeleteEventSubscribeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteEventSubscribeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -554,6 +580,7 @@ export class DeleteEventSubscribeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteEventSubscribeResponseBody,
     };
   }
@@ -609,10 +636,12 @@ export class DeleteMPULayoutResponseBody extends $tea.Model {
 
 export class DeleteMPULayoutResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteMPULayoutResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -620,6 +649,7 @@ export class DeleteMPULayoutResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteMPULayoutResponseBody,
     };
   }
@@ -675,10 +705,12 @@ export class DeleteRecordTemplateResponseBody extends $tea.Model {
 
 export class DeleteRecordTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteRecordTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -686,6 +718,7 @@ export class DeleteRecordTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteRecordTemplateResponseBody,
     };
   }
@@ -741,10 +774,12 @@ export class DescribeAppKeyResponseBody extends $tea.Model {
 
 export class DescribeAppKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAppKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -752,6 +787,7 @@ export class DescribeAppKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAppKeyResponseBody,
     };
   }
@@ -825,10 +861,12 @@ export class DescribeAppsResponseBody extends $tea.Model {
 
 export class DescribeAppsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAppsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -836,6 +874,7 @@ export class DescribeAppsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAppsResponseBody,
     };
   }
@@ -891,10 +930,12 @@ export class DescribeAutoLiveStreamRuleResponseBody extends $tea.Model {
 
 export class DescribeAutoLiveStreamRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAutoLiveStreamRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -902,7 +943,431 @@ export class DescribeAutoLiveStreamRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAutoLiveStreamRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCallRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  extDataType?: string;
+  queryExpInfo?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      extDataType: 'ExtDataType',
+      queryExpInfo: 'QueryExpInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      extDataType: 'string',
+      queryExpInfo: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCallResponseBody extends $tea.Model {
+  callInfo?: DescribeCallResponseBodyCallInfo;
+  requestId?: string;
+  userDetailList?: DescribeCallResponseBodyUserDetailList[];
+  static names(): { [key: string]: string } {
+    return {
+      callInfo: 'CallInfo',
+      requestId: 'RequestId',
+      userDetailList: 'UserDetailList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callInfo: DescribeCallResponseBodyCallInfo,
+      requestId: 'string',
+      userDetailList: { 'type': 'array', 'itemType': DescribeCallResponseBodyUserDetailList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCallResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCallResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCallResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCallListRequest extends $tea.Model {
+  appId?: string;
+  callStatus?: string;
+  channelId?: string;
+  endTs?: number;
+  orderBy?: string;
+  pageNo?: number;
+  pageSize?: number;
+  queryMode?: string;
+  startTs?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      callStatus: 'CallStatus',
+      channelId: 'ChannelId',
+      endTs: 'EndTs',
+      orderBy: 'OrderBy',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      queryMode: 'QueryMode',
+      startTs: 'StartTs',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      callStatus: 'string',
+      channelId: 'string',
+      endTs: 'number',
+      orderBy: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      queryMode: 'string',
+      startTs: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCallListResponseBody extends $tea.Model {
+  callList?: DescribeCallListResponseBodyCallList[];
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCnt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callList: 'CallList',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCnt: 'TotalCnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callList: { 'type': 'array', 'itemType': DescribeCallListResponseBodyCallList },
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCnt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCallListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCallListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCallListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelAreaDistributionStatDataRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  parentArea?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      parentArea: 'ParentArea',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      parentArea: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelAreaDistributionStatDataResponseBody extends $tea.Model {
+  areaStatList?: DescribeChannelAreaDistributionStatDataResponseBodyAreaStatList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      areaStatList: 'AreaStatList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      areaStatList: { 'type': 'array', 'itemType': DescribeChannelAreaDistributionStatDataResponseBodyAreaStatList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelAreaDistributionStatDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeChannelAreaDistributionStatDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeChannelAreaDistributionStatDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelDistributionStatDataRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  statDim?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      statDim: 'StatDim',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      statDim: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelDistributionStatDataResponseBody extends $tea.Model {
+  requestId?: string;
+  statList?: DescribeChannelDistributionStatDataResponseBodyStatList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      statList: 'StatList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      statList: { 'type': 'array', 'itemType': DescribeChannelDistributionStatDataResponseBodyStatList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelDistributionStatDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeChannelDistributionStatDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeChannelDistributionStatDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelOverallDataRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelOverallDataResponseBody extends $tea.Model {
+  callInfo?: DescribeChannelOverallDataResponseBodyCallInfo;
+  metricDatas?: DescribeChannelOverallDataResponseBodyMetricDatas[];
+  overallData?: DescribeChannelOverallDataResponseBodyOverallData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callInfo: 'CallInfo',
+      metricDatas: 'MetricDatas',
+      overallData: 'OverallData',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callInfo: DescribeChannelOverallDataResponseBodyCallInfo,
+      metricDatas: { 'type': 'array', 'itemType': DescribeChannelOverallDataResponseBodyMetricDatas },
+      overallData: DescribeChannelOverallDataResponseBodyOverallData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelOverallDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeChannelOverallDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeChannelOverallDataResponseBody,
     };
   }
 
@@ -978,10 +1443,12 @@ export class DescribeChannelParticipantsResponseBody extends $tea.Model {
 
 export class DescribeChannelParticipantsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeChannelParticipantsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -989,7 +1456,161 @@ export class DescribeChannelParticipantsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeChannelParticipantsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelTopPubUserListRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelTopPubUserListResponseBody extends $tea.Model {
+  requestId?: string;
+  topPubUserDetailList?: DescribeChannelTopPubUserListResponseBodyTopPubUserDetailList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      topPubUserDetailList: 'TopPubUserDetailList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      topPubUserDetailList: { 'type': 'array', 'itemType': DescribeChannelTopPubUserListResponseBodyTopPubUserDetailList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelTopPubUserListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeChannelTopPubUserListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeChannelTopPubUserListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelUserMetricsRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelUserMetricsResponseBody extends $tea.Model {
+  metricDatas?: DescribeChannelUserMetricsResponseBodyMetricDatas[];
+  overallData?: DescribeChannelUserMetricsResponseBodyOverallData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metricDatas: 'MetricDatas',
+      overallData: 'OverallData',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricDatas: { 'type': 'array', 'itemType': DescribeChannelUserMetricsResponseBodyMetricDatas },
+      overallData: DescribeChannelUserMetricsResponseBodyOverallData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelUserMetricsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeChannelUserMetricsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeChannelUserMetricsResponseBody,
     };
   }
 
@@ -1071,10 +1692,12 @@ export class DescribeChannelUsersResponseBody extends $tea.Model {
 
 export class DescribeChannelUsersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeChannelUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1082,7 +1705,515 @@ export class DescribeChannelUsersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeChannelUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointEventListRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  userIdList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      userIdList: 'UserIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      userIdList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointEventListResponseBody extends $tea.Model {
+  nodes?: DescribeEndPointEventListResponseBodyNodes[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': DescribeEndPointEventListResponseBodyNodes },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointEventListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEndPointEventListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEndPointEventListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointMetricDataRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  metrics?: string;
+  pubCallIdList?: string;
+  pubUserId?: string;
+  subUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      metrics: 'Metrics',
+      pubCallIdList: 'PubCallIdList',
+      pubUserId: 'PubUserId',
+      subUserId: 'SubUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      metrics: 'string',
+      pubCallIdList: 'string',
+      pubUserId: 'string',
+      subUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointMetricDataResponseBody extends $tea.Model {
+  pubMetrics?: DescribeEndPointMetricDataResponseBodyPubMetrics[];
+  requestId?: string;
+  subMetrics?: DescribeEndPointMetricDataResponseBodySubMetrics[];
+  static names(): { [key: string]: string } {
+    return {
+      pubMetrics: 'PubMetrics',
+      requestId: 'RequestId',
+      subMetrics: 'SubMetrics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pubMetrics: { 'type': 'array', 'itemType': DescribeEndPointMetricDataResponseBodyPubMetrics },
+      requestId: 'string',
+      subMetrics: { 'type': 'array', 'itemType': DescribeEndPointMetricDataResponseBodySubMetrics },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointMetricDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEndPointMetricDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEndPointMetricDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisFactorDistributionStatRequest extends $tea.Model {
+  appId?: string;
+  endTs?: number;
+  startTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endTs: 'EndTs',
+      startTs: 'StartTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endTs: 'number',
+      startTs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisFactorDistributionStatResponseBody extends $tea.Model {
+  requestId?: string;
+  statList?: DescribeFaultDiagnosisFactorDistributionStatResponseBodyStatList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      statList: 'StatList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      statList: { 'type': 'array', 'itemType': DescribeFaultDiagnosisFactorDistributionStatResponseBodyStatList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisFactorDistributionStatResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeFaultDiagnosisFactorDistributionStatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFaultDiagnosisFactorDistributionStatResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisOverallDataRequest extends $tea.Model {
+  appId?: string;
+  endTs?: number;
+  startTs?: number;
+  statDim?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endTs: 'EndTs',
+      startTs: 'StartTs',
+      statDim: 'StatDim',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endTs: 'number',
+      startTs: 'number',
+      statDim: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisOverallDataResponseBody extends $tea.Model {
+  metricData?: DescribeFaultDiagnosisOverallDataResponseBodyMetricData;
+  overallData?: DescribeFaultDiagnosisOverallDataResponseBodyOverallData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metricData: 'MetricData',
+      overallData: 'OverallData',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricData: DescribeFaultDiagnosisOverallDataResponseBodyMetricData,
+      overallData: DescribeFaultDiagnosisOverallDataResponseBodyOverallData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisOverallDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeFaultDiagnosisOverallDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFaultDiagnosisOverallDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  createdTs?: number;
+  faultType?: string;
+  queryCallUserInfo?: boolean;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      faultType: 'FaultType',
+      queryCallUserInfo: 'QueryCallUserInfo',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      faultType: 'string',
+      queryCallUserInfo: 'boolean',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailResponseBody extends $tea.Model {
+  callInfo?: DescribeFaultDiagnosisUserDetailResponseBodyCallInfo;
+  factorList?: DescribeFaultDiagnosisUserDetailResponseBodyFactorList[];
+  faultMetricData?: DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricData;
+  networkOperators?: string[];
+  requestId?: string;
+  userDetail?: DescribeFaultDiagnosisUserDetailResponseBodyUserDetail;
+  static names(): { [key: string]: string } {
+    return {
+      callInfo: 'CallInfo',
+      factorList: 'FactorList',
+      faultMetricData: 'FaultMetricData',
+      networkOperators: 'NetworkOperators',
+      requestId: 'RequestId',
+      userDetail: 'UserDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callInfo: DescribeFaultDiagnosisUserDetailResponseBodyCallInfo,
+      factorList: { 'type': 'array', 'itemType': DescribeFaultDiagnosisUserDetailResponseBodyFactorList },
+      faultMetricData: DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricData,
+      networkOperators: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      userDetail: DescribeFaultDiagnosisUserDetailResponseBodyUserDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeFaultDiagnosisUserDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFaultDiagnosisUserDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserListRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  endTs?: number;
+  faultTypes?: string;
+  pageNo?: number;
+  pageSize?: number;
+  startTs?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      endTs: 'EndTs',
+      faultTypes: 'FaultTypes',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      startTs: 'StartTs',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      endTs: 'number',
+      faultTypes: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      startTs: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserListResponseBody extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCnt?: number;
+  userList?: DescribeFaultDiagnosisUserListResponseBodyUserList[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCnt: 'TotalCnt',
+      userList: 'UserList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCnt: 'number',
+      userList: { 'type': 'array', 'itemType': DescribeFaultDiagnosisUserListResponseBodyUserList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeFaultDiagnosisUserListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFaultDiagnosisUserListResponseBody,
     };
   }
 
@@ -1155,10 +2286,12 @@ export class DescribeMPULayoutInfoListResponseBody extends $tea.Model {
 
 export class DescribeMPULayoutInfoListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeMPULayoutInfoListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1166,7 +2299,470 @@ export class DescribeMPULayoutInfoListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeMPULayoutInfoListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePubUserListBySubUserRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  subUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      subUserId: 'SubUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      subUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePubUserListBySubUserResponseBody extends $tea.Model {
+  callStatus?: string;
+  pubUserDetailList?: DescribePubUserListBySubUserResponseBodyPubUserDetailList[];
+  requestId?: string;
+  subUserDetail?: DescribePubUserListBySubUserResponseBodySubUserDetail;
+  static names(): { [key: string]: string } {
+    return {
+      callStatus: 'CallStatus',
+      pubUserDetailList: 'PubUserDetailList',
+      requestId: 'RequestId',
+      subUserDetail: 'SubUserDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callStatus: 'string',
+      pubUserDetailList: { 'type': 'array', 'itemType': DescribePubUserListBySubUserResponseBodyPubUserDetailList },
+      requestId: 'string',
+      subUserDetail: DescribePubUserListBySubUserResponseBodySubUserDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePubUserListBySubUserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePubUserListBySubUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePubUserListBySubUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQoeMetricDataRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQoeMetricDataResponseBody extends $tea.Model {
+  audioData?: DescribeQoeMetricDataResponseBodyAudioData[];
+  requestId?: string;
+  videoData?: DescribeQoeMetricDataResponseBodyVideoData[];
+  static names(): { [key: string]: string } {
+    return {
+      audioData: 'AudioData',
+      requestId: 'RequestId',
+      videoData: 'VideoData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioData: { 'type': 'array', 'itemType': DescribeQoeMetricDataResponseBodyAudioData },
+      requestId: 'string',
+      videoData: { 'type': 'array', 'itemType': DescribeQoeMetricDataResponseBodyVideoData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQoeMetricDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeQoeMetricDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeQoeMetricDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityAreaDistributionStatDataRequest extends $tea.Model {
+  appId?: string;
+  endDate?: number;
+  parentArea?: string;
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endDate: 'EndDate',
+      parentArea: 'ParentArea',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endDate: 'number',
+      parentArea: 'string',
+      startDate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityAreaDistributionStatDataResponseBody extends $tea.Model {
+  qualityStatDataList?: DescribeQualityAreaDistributionStatDataResponseBodyQualityStatDataList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualityStatDataList: 'QualityStatDataList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualityStatDataList: { 'type': 'array', 'itemType': DescribeQualityAreaDistributionStatDataResponseBodyQualityStatDataList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityAreaDistributionStatDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeQualityAreaDistributionStatDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeQualityAreaDistributionStatDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityDistributionStatDataRequest extends $tea.Model {
+  appId?: string;
+  endDate?: number;
+  startDate?: number;
+  statDim?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      statDim: 'StatDim',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endDate: 'number',
+      startDate: 'number',
+      statDim: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityDistributionStatDataResponseBody extends $tea.Model {
+  qualityStatDataList?: DescribeQualityDistributionStatDataResponseBodyQualityStatDataList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualityStatDataList: 'QualityStatDataList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualityStatDataList: { 'type': 'array', 'itemType': DescribeQualityDistributionStatDataResponseBodyQualityStatDataList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityDistributionStatDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeQualityDistributionStatDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeQualityDistributionStatDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityOsSdkVersionDistributionStatDataRequest extends $tea.Model {
+  appId?: string;
+  endDate?: number;
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityOsSdkVersionDistributionStatDataResponseBody extends $tea.Model {
+  qualityOsSdkVersionStatDataList?: DescribeQualityOsSdkVersionDistributionStatDataResponseBodyQualityOsSdkVersionStatDataList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualityOsSdkVersionStatDataList: 'QualityOsSdkVersionStatDataList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualityOsSdkVersionStatDataList: { 'type': 'array', 'itemType': DescribeQualityOsSdkVersionDistributionStatDataResponseBodyQualityOsSdkVersionStatDataList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityOsSdkVersionDistributionStatDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeQualityOsSdkVersionDistributionStatDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeQualityOsSdkVersionDistributionStatDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityOverallDataRequest extends $tea.Model {
+  appId?: string;
+  endDate?: number;
+  startDate?: number;
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      types: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endDate: 'number',
+      startDate: 'number',
+      types: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityOverallDataResponseBody extends $tea.Model {
+  qualityOverallData?: DescribeQualityOverallDataResponseBodyQualityOverallData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualityOverallData: 'QualityOverallData',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualityOverallData: { 'type': 'array', 'itemType': DescribeQualityOverallDataResponseBodyQualityOverallData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityOverallDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeQualityOverallDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeQualityOverallDataResponseBody,
     };
   }
 
@@ -1245,10 +2841,12 @@ export class DescribeRecordFilesResponseBody extends $tea.Model {
 
 export class DescribeRecordFilesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRecordFilesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1256,6 +2854,7 @@ export class DescribeRecordFilesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRecordFilesResponseBody,
     };
   }
@@ -1326,10 +2925,12 @@ export class DescribeRecordTemplatesResponseBody extends $tea.Model {
 
 export class DescribeRecordTemplatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRecordTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1337,7 +2938,722 @@ export class DescribeRecordTemplatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRecordTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelListRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  ownerId?: number;
+  pageNo?: number;
+  pageSize?: number;
+  serviceArea?: string;
+  sortType?: string;
+  timePoint?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      ownerId: 'OwnerId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      serviceArea: 'ServiceArea',
+      sortType: 'SortType',
+      timePoint: 'TimePoint',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      ownerId: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      serviceArea: 'string',
+      sortType: 'string',
+      timePoint: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelListResponseBody extends $tea.Model {
+  channelList?: DescribeRtcChannelListResponseBodyChannelList;
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCnt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      channelList: 'ChannelList',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCnt: 'TotalCnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelList: DescribeRtcChannelListResponseBodyChannelList,
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCnt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeRtcChannelListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRtcChannelListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelMetricRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  ownerId?: number;
+  timePoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      ownerId: 'OwnerId',
+      timePoint: 'TimePoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      ownerId: 'number',
+      timePoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelMetricResponseBody extends $tea.Model {
+  channelMetricInfo?: DescribeRtcChannelMetricResponseBodyChannelMetricInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelMetricInfo: 'ChannelMetricInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelMetricInfo: DescribeRtcChannelMetricResponseBodyChannelMetricInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelMetricResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeRtcChannelMetricResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRtcChannelMetricResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcDurationDataRequest extends $tea.Model {
+  appId?: string;
+  endTime?: string;
+  interval?: string;
+  ownerId?: number;
+  serviceArea?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      ownerId: 'OwnerId',
+      serviceArea: 'ServiceArea',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endTime: 'string',
+      interval: 'string',
+      ownerId: 'number',
+      serviceArea: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcDurationDataResponseBody extends $tea.Model {
+  durationDataPerInterval?: DescribeRtcDurationDataResponseBodyDurationDataPerInterval;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationDataPerInterval: 'DurationDataPerInterval',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationDataPerInterval: DescribeRtcDurationDataResponseBodyDurationDataPerInterval,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcDurationDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeRtcDurationDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRtcDurationDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcPeakChannelCntDataRequest extends $tea.Model {
+  appId?: string;
+  endTime?: string;
+  interval?: string;
+  ownerId?: number;
+  serviceArea?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      ownerId: 'OwnerId',
+      serviceArea: 'ServiceArea',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endTime: 'string',
+      interval: 'string',
+      ownerId: 'number',
+      serviceArea: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcPeakChannelCntDataResponseBody extends $tea.Model {
+  peakChannelCntDataPerInterval?: DescribeRtcPeakChannelCntDataResponseBodyPeakChannelCntDataPerInterval;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      peakChannelCntDataPerInterval: 'PeakChannelCntDataPerInterval',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      peakChannelCntDataPerInterval: DescribeRtcPeakChannelCntDataResponseBodyPeakChannelCntDataPerInterval,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcPeakChannelCntDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeRtcPeakChannelCntDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRtcPeakChannelCntDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcUserCntDataRequest extends $tea.Model {
+  appId?: string;
+  endTime?: string;
+  interval?: string;
+  ownerId?: number;
+  serviceArea?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      ownerId: 'OwnerId',
+      serviceArea: 'ServiceArea',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endTime: 'string',
+      interval: 'string',
+      ownerId: 'number',
+      serviceArea: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcUserCntDataResponseBody extends $tea.Model {
+  requestId?: string;
+  userCntDataPerInterval?: DescribeRtcUserCntDataResponseBodyUserCntDataPerInterval;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userCntDataPerInterval: 'UserCntDataPerInterval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userCntDataPerInterval: DescribeRtcUserCntDataResponseBodyUserCntDataPerInterval,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcUserCntDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeRtcUserCntDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRtcUserCntDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageAreaDistributionStatDataRequest extends $tea.Model {
+  appId?: string;
+  endDate?: string;
+  parentArea?: string;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endDate: 'EndDate',
+      parentArea: 'ParentArea',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endDate: 'string',
+      parentArea: 'string',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageAreaDistributionStatDataResponseBody extends $tea.Model {
+  requestId?: string;
+  usageAreaStatList?: DescribeUsageAreaDistributionStatDataResponseBodyUsageAreaStatList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      usageAreaStatList: 'UsageAreaStatList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      usageAreaStatList: { 'type': 'array', 'itemType': DescribeUsageAreaDistributionStatDataResponseBodyUsageAreaStatList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageAreaDistributionStatDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeUsageAreaDistributionStatDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUsageAreaDistributionStatDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageDistributionStatDataRequest extends $tea.Model {
+  appId?: string;
+  endDate?: number;
+  startDate?: number;
+  statDim?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      statDim: 'StatDim',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endDate: 'number',
+      startDate: 'number',
+      statDim: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageDistributionStatDataResponseBody extends $tea.Model {
+  requestId?: string;
+  usageStatList?: DescribeUsageDistributionStatDataResponseBodyUsageStatList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      usageStatList: 'UsageStatList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      usageStatList: { 'type': 'array', 'itemType': DescribeUsageDistributionStatDataResponseBodyUsageStatList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageDistributionStatDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeUsageDistributionStatDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUsageDistributionStatDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageOsSdkVersionDistributionStatDataRequest extends $tea.Model {
+  appId?: string;
+  endDate?: number;
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageOsSdkVersionDistributionStatDataResponseBody extends $tea.Model {
+  requestId?: string;
+  usageOsSdkVersionStatList?: DescribeUsageOsSdkVersionDistributionStatDataResponseBodyUsageOsSdkVersionStatList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      usageOsSdkVersionStatList: 'UsageOsSdkVersionStatList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      usageOsSdkVersionStatList: { 'type': 'array', 'itemType': DescribeUsageOsSdkVersionDistributionStatDataResponseBodyUsageOsSdkVersionStatList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageOsSdkVersionDistributionStatDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeUsageOsSdkVersionDistributionStatDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUsageOsSdkVersionDistributionStatDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageOverallDataRequest extends $tea.Model {
+  appId?: string;
+  endDate?: number;
+  startDate?: number;
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      types: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endDate: 'number',
+      startDate: 'number',
+      types: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageOverallDataResponseBody extends $tea.Model {
+  requestId?: string;
+  usageOverallData?: DescribeUsageOverallDataResponseBodyUsageOverallData[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      usageOverallData: 'UsageOverallData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      usageOverallData: { 'type': 'array', 'itemType': DescribeUsageOverallDataResponseBodyUsageOverallData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageOverallDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeUsageOverallDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUsageOverallDataResponseBody,
     };
   }
 
@@ -1407,10 +3723,12 @@ export class DescribeUserInfoInChannelResponseBody extends $tea.Model {
 
 export class DescribeUserInfoInChannelResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeUserInfoInChannelResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1418,6 +3736,7 @@ export class DescribeUserInfoInChannelResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeUserInfoInChannelResponseBody,
     };
   }
@@ -1473,10 +3792,12 @@ export class DisableAutoLiveStreamRuleResponseBody extends $tea.Model {
 
 export class DisableAutoLiveStreamRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisableAutoLiveStreamRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1484,6 +3805,7 @@ export class DisableAutoLiveStreamRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisableAutoLiveStreamRuleResponseBody,
     };
   }
@@ -1539,10 +3861,12 @@ export class EnableAutoLiveStreamRuleResponseBody extends $tea.Model {
 
 export class EnableAutoLiveStreamRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EnableAutoLiveStreamRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1550,6 +3874,7 @@ export class EnableAutoLiveStreamRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EnableAutoLiveStreamRuleResponseBody,
     };
   }
@@ -1608,10 +3933,12 @@ export class GetMPUTaskStatusResponseBody extends $tea.Model {
 
 export class GetMPUTaskStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetMPUTaskStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1619,6 +3946,7 @@ export class GetMPUTaskStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetMPUTaskStatusResponseBody,
     };
   }
@@ -1674,10 +4002,12 @@ export class ModifyAppResponseBody extends $tea.Model {
 
 export class ModifyAppResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1685,6 +4015,7 @@ export class ModifyAppResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyAppResponseBody,
     };
   }
@@ -1749,10 +4080,12 @@ export class ModifyMPULayoutResponseBody extends $tea.Model {
 
 export class ModifyMPULayoutResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyMPULayoutResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1760,6 +4093,7 @@ export class ModifyMPULayoutResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyMPULayoutResponseBody,
     };
   }
@@ -1821,10 +4155,12 @@ export class RemoveTerminalsResponseBody extends $tea.Model {
 
 export class RemoveTerminalsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveTerminalsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1832,6 +4168,7 @@ export class RemoveTerminalsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveTerminalsResponseBody,
     };
   }
@@ -1968,10 +4305,12 @@ export class StartMPUTaskResponseBody extends $tea.Model {
 
 export class StartMPUTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartMPUTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1979,6 +4318,7 @@ export class StartMPUTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartMPUTaskResponseBody,
     };
   }
@@ -2085,10 +4425,12 @@ export class StartRecordTaskResponseBody extends $tea.Model {
 
 export class StartRecordTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartRecordTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2096,6 +4438,7 @@ export class StartRecordTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartRecordTaskResponseBody,
     };
   }
@@ -2151,10 +4494,12 @@ export class StopMPUTaskResponseBody extends $tea.Model {
 
 export class StopMPUTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopMPUTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2162,6 +4507,7 @@ export class StopMPUTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopMPUTaskResponseBody,
     };
   }
@@ -2217,10 +4563,12 @@ export class StopRecordTaskResponseBody extends $tea.Model {
 
 export class StopRecordTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopRecordTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2228,6 +4576,7 @@ export class StopRecordTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopRecordTaskResponseBody,
     };
   }
@@ -2301,10 +4650,12 @@ export class UpdateAutoLiveStreamRuleResponseBody extends $tea.Model {
 
 export class UpdateAutoLiveStreamRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateAutoLiveStreamRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2312,6 +4663,7 @@ export class UpdateAutoLiveStreamRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateAutoLiveStreamRuleResponseBody,
     };
   }
@@ -2421,10 +4773,12 @@ export class UpdateMPUTaskResponseBody extends $tea.Model {
 
 export class UpdateMPUTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateMPUTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2432,6 +4786,7 @@ export class UpdateMPUTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateMPUTaskResponseBody,
     };
   }
@@ -2444,13 +4799,16 @@ export class UpdateMPUTaskResponse extends $tea.Model {
 export class UpdateRecordTaskRequest extends $tea.Model {
   appId?: string;
   channelId?: string;
+  cropMode?: number;
   layoutIds?: number[];
+  mediaEncode?: number;
   ownerId?: number;
   subSpecAudioUsers?: string[];
   subSpecCameraUsers?: string[];
   subSpecShareScreenUsers?: string[];
   subSpecUsers?: string[];
   taskId?: string;
+  taskProfile?: string;
   templateId?: string;
   unsubSpecAudioUsers?: string[];
   unsubSpecCameraUsers?: string[];
@@ -2460,13 +4818,16 @@ export class UpdateRecordTaskRequest extends $tea.Model {
     return {
       appId: 'AppId',
       channelId: 'ChannelId',
+      cropMode: 'CropMode',
       layoutIds: 'LayoutIds',
+      mediaEncode: 'MediaEncode',
       ownerId: 'OwnerId',
       subSpecAudioUsers: 'SubSpecAudioUsers',
       subSpecCameraUsers: 'SubSpecCameraUsers',
       subSpecShareScreenUsers: 'SubSpecShareScreenUsers',
       subSpecUsers: 'SubSpecUsers',
       taskId: 'TaskId',
+      taskProfile: 'TaskProfile',
       templateId: 'TemplateId',
       unsubSpecAudioUsers: 'UnsubSpecAudioUsers',
       unsubSpecCameraUsers: 'UnsubSpecCameraUsers',
@@ -2479,13 +4840,16 @@ export class UpdateRecordTaskRequest extends $tea.Model {
     return {
       appId: 'string',
       channelId: 'string',
+      cropMode: 'number',
       layoutIds: { 'type': 'array', 'itemType': 'number' },
+      mediaEncode: 'number',
       ownerId: 'number',
       subSpecAudioUsers: { 'type': 'array', 'itemType': 'string' },
       subSpecCameraUsers: { 'type': 'array', 'itemType': 'string' },
       subSpecShareScreenUsers: { 'type': 'array', 'itemType': 'string' },
       subSpecUsers: { 'type': 'array', 'itemType': 'string' },
       taskId: 'string',
+      taskProfile: 'string',
       templateId: 'string',
       unsubSpecAudioUsers: { 'type': 'array', 'itemType': 'string' },
       unsubSpecCameraUsers: { 'type': 'array', 'itemType': 'string' },
@@ -2520,10 +4884,12 @@ export class UpdateRecordTaskResponseBody extends $tea.Model {
 
 export class UpdateRecordTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateRecordTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2531,6 +4897,7 @@ export class UpdateRecordTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateRecordTaskResponseBody,
     };
   }
@@ -2555,6 +4922,7 @@ export class UpdateRecordTemplateRequest extends $tea.Model {
   mnsQueue?: string;
   name?: string;
   ossBucket?: string;
+  ossEndpoint?: string;
   ossFilePrefix?: string;
   ownerId?: number;
   taskProfile?: string;
@@ -2576,6 +4944,7 @@ export class UpdateRecordTemplateRequest extends $tea.Model {
       mnsQueue: 'MnsQueue',
       name: 'Name',
       ossBucket: 'OssBucket',
+      ossEndpoint: 'OssEndpoint',
       ossFilePrefix: 'OssFilePrefix',
       ownerId: 'OwnerId',
       taskProfile: 'TaskProfile',
@@ -2600,6 +4969,7 @@ export class UpdateRecordTemplateRequest extends $tea.Model {
       mnsQueue: 'string',
       name: 'string',
       ossBucket: 'string',
+      ossEndpoint: 'string',
       ossFilePrefix: 'string',
       ownerId: 'number',
       taskProfile: 'string',
@@ -2637,10 +5007,12 @@ export class UpdateRecordTemplateResponseBody extends $tea.Model {
 
 export class UpdateRecordTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateRecordTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2648,6 +5020,7 @@ export class UpdateRecordTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateRecordTemplateResponseBody,
     };
   }
@@ -2926,6 +5299,380 @@ export class DescribeAutoLiveStreamRuleResponseBodyRules extends $tea.Model {
   }
 }
 
+export class DescribeCallResponseBodyCallInfo extends $tea.Model {
+  appId?: string;
+  callStatus?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  duration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      callStatus: 'CallStatus',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      callStatus: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      duration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCallResponseBodyUserDetailListDurMetricStatData extends $tea.Model {
+  pubAudio?: number;
+  pubVideo1080?: number;
+  pubVideo360?: number;
+  pubVideo720?: number;
+  pubVideoScreenShare?: number;
+  subAudio?: number;
+  subVideo1080?: number;
+  subVideo360?: number;
+  subVideo720?: number;
+  subVideoScreenShare?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pubAudio: 'PubAudio',
+      pubVideo1080: 'PubVideo1080',
+      pubVideo360: 'PubVideo360',
+      pubVideo720: 'PubVideo720',
+      pubVideoScreenShare: 'PubVideoScreenShare',
+      subAudio: 'SubAudio',
+      subVideo1080: 'SubVideo1080',
+      subVideo360: 'SubVideo360',
+      subVideo720: 'SubVideo720',
+      subVideoScreenShare: 'SubVideoScreenShare',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pubAudio: 'number',
+      pubVideo1080: 'number',
+      pubVideo360: 'number',
+      pubVideo720: 'number',
+      pubVideoScreenShare: 'number',
+      subAudio: 'number',
+      subVideo1080: 'number',
+      subVideo360: 'number',
+      subVideo720: 'number',
+      subVideoScreenShare: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCallResponseBodyUserDetailListOnlinePeriods extends $tea.Model {
+  joinTs?: number;
+  leaveTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      joinTs: 'JoinTs',
+      leaveTs: 'LeaveTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      joinTs: 'number',
+      leaveTs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCallResponseBodyUserDetailList extends $tea.Model {
+  callExp?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  durMetricStatData?: DescribeCallResponseBodyUserDetailListDurMetricStatData;
+  duration?: number;
+  location?: string;
+  network?: string;
+  networkList?: string[];
+  onlineDuration?: number;
+  onlinePeriods?: DescribeCallResponseBodyUserDetailListOnlinePeriods[];
+  os?: string;
+  osList?: string[];
+  roles?: string[];
+  sdkVersion?: string;
+  sdkVersionList?: string[];
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callExp: 'CallExp',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      durMetricStatData: 'DurMetricStatData',
+      duration: 'Duration',
+      location: 'Location',
+      network: 'Network',
+      networkList: 'NetworkList',
+      onlineDuration: 'OnlineDuration',
+      onlinePeriods: 'OnlinePeriods',
+      os: 'Os',
+      osList: 'OsList',
+      roles: 'Roles',
+      sdkVersion: 'SdkVersion',
+      sdkVersionList: 'SdkVersionList',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callExp: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      durMetricStatData: DescribeCallResponseBodyUserDetailListDurMetricStatData,
+      duration: 'number',
+      location: 'string',
+      network: 'string',
+      networkList: { 'type': 'array', 'itemType': 'string' },
+      onlineDuration: 'number',
+      onlinePeriods: { 'type': 'array', 'itemType': DescribeCallResponseBodyUserDetailListOnlinePeriods },
+      os: 'string',
+      osList: { 'type': 'array', 'itemType': 'string' },
+      roles: { 'type': 'array', 'itemType': 'string' },
+      sdkVersion: 'string',
+      sdkVersionList: { 'type': 'array', 'itemType': 'string' },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCallListResponseBodyCallList extends $tea.Model {
+  appId?: string;
+  badExpUserCnt?: number;
+  callStatus?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  duration?: number;
+  userCnt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      badExpUserCnt: 'BadExpUserCnt',
+      callStatus: 'CallStatus',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      duration: 'Duration',
+      userCnt: 'UserCnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      badExpUserCnt: 'number',
+      callStatus: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      duration: 'number',
+      userCnt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelAreaDistributionStatDataResponseBodyAreaStatList extends $tea.Model {
+  areaName?: string;
+  callUserCount?: number;
+  highQualityTransmissionRate?: string;
+  pubUserCount?: number;
+  subUserCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      areaName: 'AreaName',
+      callUserCount: 'CallUserCount',
+      highQualityTransmissionRate: 'HighQualityTransmissionRate',
+      pubUserCount: 'PubUserCount',
+      subUserCount: 'SubUserCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      areaName: 'string',
+      callUserCount: 'number',
+      highQualityTransmissionRate: 'string',
+      pubUserCount: 'number',
+      subUserCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelDistributionStatDataResponseBodyStatList extends $tea.Model {
+  callUserCount?: number;
+  callUserRatio?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callUserCount: 'CallUserCount',
+      callUserRatio: 'CallUserRatio',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callUserCount: 'number',
+      callUserRatio: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelOverallDataResponseBodyCallInfo extends $tea.Model {
+  appId?: string;
+  callStatus?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  duration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      callStatus: 'CallStatus',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      callStatus: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      duration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelOverallDataResponseBodyMetricDatasNodes extends $tea.Model {
+  ext?: { [key: string]: any };
+  x?: string;
+  y?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      x: 'string',
+      y: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelOverallDataResponseBodyMetricDatas extends $tea.Model {
+  nodes?: DescribeChannelOverallDataResponseBodyMetricDatasNodes[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': DescribeChannelOverallDataResponseBodyMetricDatasNodes },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelOverallDataResponseBodyOverallData extends $tea.Model {
+  connAvgTime?: number;
+  fiveSecJoinRate?: number;
+  totalAudioStuckRate?: number;
+  totalVideoStuckRate?: number;
+  totalVideoVagueRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connAvgTime: 'ConnAvgTime',
+      fiveSecJoinRate: 'FiveSecJoinRate',
+      totalAudioStuckRate: 'TotalAudioStuckRate',
+      totalVideoStuckRate: 'TotalVideoStuckRate',
+      totalVideoVagueRate: 'TotalVideoVagueRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connAvgTime: 'number',
+      fiveSecJoinRate: 'number',
+      totalAudioStuckRate: 'number',
+      totalVideoStuckRate: 'number',
+      totalVideoVagueRate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeChannelParticipantsResponseBodyUserList extends $tea.Model {
   user?: string[];
   static names(): { [key: string]: string } {
@@ -2937,6 +5684,758 @@ export class DescribeChannelParticipantsResponseBodyUserList extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       user: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelTopPubUserListResponseBodyTopPubUserDetailListOnlinePeriods extends $tea.Model {
+  joinTs?: number;
+  leaveTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      joinTs: 'JoinTs',
+      leaveTs: 'LeaveTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      joinTs: 'number',
+      leaveTs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelTopPubUserListResponseBodyTopPubUserDetailList extends $tea.Model {
+  createdTs?: number;
+  destroyedTs?: number;
+  duration?: number;
+  location?: string;
+  onlineDuration?: number;
+  onlinePeriods?: DescribeChannelTopPubUserListResponseBodyTopPubUserDetailListOnlinePeriods[];
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      duration: 'Duration',
+      location: 'Location',
+      onlineDuration: 'OnlineDuration',
+      onlinePeriods: 'OnlinePeriods',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTs: 'number',
+      destroyedTs: 'number',
+      duration: 'number',
+      location: 'string',
+      onlineDuration: 'number',
+      onlinePeriods: { 'type': 'array', 'itemType': DescribeChannelTopPubUserListResponseBodyTopPubUserDetailListOnlinePeriods },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelUserMetricsResponseBodyMetricDatasNodes extends $tea.Model {
+  ext?: { [key: string]: any };
+  x?: string;
+  y?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      x: 'string',
+      y: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelUserMetricsResponseBodyMetricDatas extends $tea.Model {
+  nodes?: DescribeChannelUserMetricsResponseBodyMetricDatasNodes[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': DescribeChannelUserMetricsResponseBodyMetricDatasNodes },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelUserMetricsResponseBodyOverallData extends $tea.Model {
+  totalBadExpNum?: number;
+  totalJoinFailNum?: number;
+  totalPubUserNum?: number;
+  totalSubUserNum?: number;
+  totalUserNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalBadExpNum: 'TotalBadExpNum',
+      totalJoinFailNum: 'TotalJoinFailNum',
+      totalPubUserNum: 'TotalPubUserNum',
+      totalSubUserNum: 'TotalSubUserNum',
+      totalUserNum: 'TotalUserNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalBadExpNum: 'number',
+      totalJoinFailNum: 'number',
+      totalPubUserNum: 'number',
+      totalSubUserNum: 'number',
+      totalUserNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointEventListResponseBodyNodesEventDataItemsEventList extends $tea.Model {
+  eventName?: string;
+  eventType?: string;
+  ts?: number;
+  tsInMs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventName: 'EventName',
+      eventType: 'EventType',
+      ts: 'Ts',
+      tsInMs: 'TsInMs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventName: 'string',
+      eventType: 'string',
+      ts: 'number',
+      tsInMs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointEventListResponseBodyNodesEventDataItems extends $tea.Model {
+  eventList?: DescribeEndPointEventListResponseBodyNodesEventDataItemsEventList[];
+  ts?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventList: 'EventList',
+      ts: 'Ts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventList: { 'type': 'array', 'itemType': DescribeEndPointEventListResponseBodyNodesEventDataItemsEventList },
+      ts: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointEventListResponseBodyNodes extends $tea.Model {
+  eventDataItems?: DescribeEndPointEventListResponseBodyNodesEventDataItems[];
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventDataItems: 'EventDataItems',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventDataItems: { 'type': 'array', 'itemType': DescribeEndPointEventListResponseBodyNodesEventDataItems },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointMetricDataResponseBodyPubMetricsNodes extends $tea.Model {
+  ext?: { [key: string]: any };
+  x?: string;
+  y?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      x: 'string',
+      y: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointMetricDataResponseBodyPubMetrics extends $tea.Model {
+  nodes?: DescribeEndPointMetricDataResponseBodyPubMetricsNodes[];
+  type?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      type: 'Type',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': DescribeEndPointMetricDataResponseBodyPubMetricsNodes },
+      type: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointMetricDataResponseBodySubMetricsNodes extends $tea.Model {
+  ext?: { [key: string]: any };
+  x?: string;
+  y?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      x: 'string',
+      y: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointMetricDataResponseBodySubMetrics extends $tea.Model {
+  nodes?: DescribeEndPointMetricDataResponseBodySubMetricsNodes[];
+  type?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      type: 'Type',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': DescribeEndPointMetricDataResponseBodySubMetricsNodes },
+      type: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisFactorDistributionStatResponseBodyStatList extends $tea.Model {
+  factorId?: string;
+  userCount?: number;
+  userRatio?: number;
+  static names(): { [key: string]: string } {
+    return {
+      factorId: 'FactorId',
+      userCount: 'UserCount',
+      userRatio: 'UserRatio',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      factorId: 'string',
+      userCount: 'number',
+      userRatio: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisOverallDataResponseBodyMetricDataNodes extends $tea.Model {
+  ext?: { [key: string]: any };
+  x?: string;
+  y?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      x: 'string',
+      y: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisOverallDataResponseBodyMetricData extends $tea.Model {
+  nodes?: DescribeFaultDiagnosisOverallDataResponseBodyMetricDataNodes[];
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': DescribeFaultDiagnosisOverallDataResponseBodyMetricDataNodes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisOverallDataResponseBodyOverallData extends $tea.Model {
+  faultUserCount?: number;
+  faultUserRatio?: number;
+  totalUserCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      faultUserCount: 'FaultUserCount',
+      faultUserRatio: 'FaultUserRatio',
+      totalUserCount: 'TotalUserCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faultUserCount: 'number',
+      faultUserRatio: 'number',
+      totalUserCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailResponseBodyCallInfo extends $tea.Model {
+  appId?: string;
+  callStatus?: string;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  duration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      callStatus: 'CallStatus',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      callStatus: 'string',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      duration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItemsEventList extends $tea.Model {
+  eventName?: string;
+  eventType?: string;
+  ts?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventName: 'EventName',
+      eventType: 'EventType',
+      ts: 'Ts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventName: 'string',
+      eventType: 'string',
+      ts: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItems extends $tea.Model {
+  eventList?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItemsEventList[];
+  ts?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventList: 'EventList',
+      ts: 'Ts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventList: { 'type': 'array', 'itemType': DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItemsEventList },
+      ts: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatas extends $tea.Model {
+  eventDataItems?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItems[];
+  role?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventDataItems: 'EventDataItems',
+      role: 'Role',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventDataItems: { 'type': 'array', 'itemType': DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItems },
+      role: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatasNodes extends $tea.Model {
+  ext?: { [key: string]: any };
+  x?: string;
+  y?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      x: 'string',
+      y: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatas extends $tea.Model {
+  nodes?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatasNodes[];
+  role?: string;
+  type?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      role: 'Role',
+      type: 'Type',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatasNodes },
+      role: 'string',
+      type: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailResponseBodyFactorList extends $tea.Model {
+  factorId?: string;
+  faultSource?: string;
+  relatedEventDatas?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatas[];
+  relatedMetricDatas?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatas[];
+  static names(): { [key: string]: string } {
+    return {
+      factorId: 'FactorId',
+      faultSource: 'FaultSource',
+      relatedEventDatas: 'RelatedEventDatas',
+      relatedMetricDatas: 'RelatedMetricDatas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      factorId: 'string',
+      faultSource: 'string',
+      relatedEventDatas: { 'type': 'array', 'itemType': DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatas },
+      relatedMetricDatas: { 'type': 'array', 'itemType': DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatas },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricDataNodes extends $tea.Model {
+  x?: string;
+  y?: string;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'string',
+      y: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricData extends $tea.Model {
+  nodes?: DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricDataNodes[];
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricDataNodes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailResponseBodyUserDetailOnlinePeriods extends $tea.Model {
+  joinTs?: number;
+  leaveTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      joinTs: 'JoinTs',
+      leaveTs: 'LeaveTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      joinTs: 'number',
+      leaveTs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserDetailResponseBodyUserDetail extends $tea.Model {
+  createdTs?: number;
+  destroyedTs?: number;
+  duration?: number;
+  location?: string;
+  network?: string;
+  onlineDuration?: number;
+  onlinePeriods?: DescribeFaultDiagnosisUserDetailResponseBodyUserDetailOnlinePeriods[];
+  os?: string;
+  sdkVersion?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      duration: 'Duration',
+      location: 'Location',
+      network: 'Network',
+      onlineDuration: 'OnlineDuration',
+      onlinePeriods: 'OnlinePeriods',
+      os: 'Os',
+      sdkVersion: 'SdkVersion',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTs: 'number',
+      destroyedTs: 'number',
+      duration: 'number',
+      location: 'string',
+      network: 'string',
+      onlineDuration: 'number',
+      onlinePeriods: { 'type': 'array', 'itemType': DescribeFaultDiagnosisUserDetailResponseBodyUserDetailOnlinePeriods },
+      os: 'string',
+      sdkVersion: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserListResponseBodyUserListFaultList extends $tea.Model {
+  faultType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      faultType: 'FaultType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faultType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaultDiagnosisUserListResponseBodyUserList extends $tea.Model {
+  channelCreatedTs?: number;
+  channelId?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  faultList?: DescribeFaultDiagnosisUserListResponseBodyUserListFaultList[];
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelCreatedTs: 'ChannelCreatedTs',
+      channelId: 'ChannelId',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      faultList: 'FaultList',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelCreatedTs: 'number',
+      channelId: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      faultList: { 'type': 'array', 'itemType': DescribeFaultDiagnosisUserListResponseBodyUserListFaultList },
+      userId: 'string',
     };
   }
 
@@ -3040,6 +6539,472 @@ export class DescribeMPULayoutInfoListResponseBodyLayouts extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       layout: { 'type': 'array', 'itemType': DescribeMPULayoutInfoListResponseBodyLayoutsLayout },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePubUserListBySubUserResponseBodyPubUserDetailListOnlinePeriods extends $tea.Model {
+  joinTs?: number;
+  leaveTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      joinTs: 'JoinTs',
+      leaveTs: 'LeaveTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      joinTs: 'number',
+      leaveTs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePubUserListBySubUserResponseBodyPubUserDetailList extends $tea.Model {
+  callIdList?: string[];
+  clientType?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  duration?: number;
+  location?: string;
+  network?: string;
+  networkList?: string[];
+  onlineDuration?: number;
+  onlinePeriods?: DescribePubUserListBySubUserResponseBodyPubUserDetailListOnlinePeriods[];
+  os?: string;
+  osList?: string[];
+  roles?: string[];
+  sdkVersion?: string;
+  sdkVersionList?: string[];
+  userId?: string;
+  userIdAlias?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callIdList: 'CallIdList',
+      clientType: 'ClientType',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      duration: 'Duration',
+      location: 'Location',
+      network: 'Network',
+      networkList: 'NetworkList',
+      onlineDuration: 'OnlineDuration',
+      onlinePeriods: 'OnlinePeriods',
+      os: 'Os',
+      osList: 'OsList',
+      roles: 'Roles',
+      sdkVersion: 'SdkVersion',
+      sdkVersionList: 'SdkVersionList',
+      userId: 'UserId',
+      userIdAlias: 'UserIdAlias',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callIdList: { 'type': 'array', 'itemType': 'string' },
+      clientType: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      duration: 'number',
+      location: 'string',
+      network: 'string',
+      networkList: { 'type': 'array', 'itemType': 'string' },
+      onlineDuration: 'number',
+      onlinePeriods: { 'type': 'array', 'itemType': DescribePubUserListBySubUserResponseBodyPubUserDetailListOnlinePeriods },
+      os: 'string',
+      osList: { 'type': 'array', 'itemType': 'string' },
+      roles: { 'type': 'array', 'itemType': 'string' },
+      sdkVersion: 'string',
+      sdkVersionList: { 'type': 'array', 'itemType': 'string' },
+      userId: 'string',
+      userIdAlias: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePubUserListBySubUserResponseBodySubUserDetailOnlinePeriods extends $tea.Model {
+  joinTs?: number;
+  leaveTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      joinTs: 'JoinTs',
+      leaveTs: 'LeaveTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      joinTs: 'number',
+      leaveTs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePubUserListBySubUserResponseBodySubUserDetail extends $tea.Model {
+  clientType?: string;
+  createdTs?: number;
+  destroyedTs?: number;
+  duration?: number;
+  location?: string;
+  network?: string;
+  networkList?: string[];
+  onlineDuration?: number;
+  onlinePeriods?: DescribePubUserListBySubUserResponseBodySubUserDetailOnlinePeriods[];
+  os?: string;
+  osList?: string[];
+  roles?: string[];
+  sdkVersion?: string;
+  sdkVersionList?: string[];
+  userId?: string;
+  userIdAlias?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientType: 'ClientType',
+      createdTs: 'CreatedTs',
+      destroyedTs: 'DestroyedTs',
+      duration: 'Duration',
+      location: 'Location',
+      network: 'Network',
+      networkList: 'NetworkList',
+      onlineDuration: 'OnlineDuration',
+      onlinePeriods: 'OnlinePeriods',
+      os: 'Os',
+      osList: 'OsList',
+      roles: 'Roles',
+      sdkVersion: 'SdkVersion',
+      sdkVersionList: 'SdkVersionList',
+      userId: 'UserId',
+      userIdAlias: 'UserIdAlias',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientType: 'string',
+      createdTs: 'number',
+      destroyedTs: 'number',
+      duration: 'number',
+      location: 'string',
+      network: 'string',
+      networkList: { 'type': 'array', 'itemType': 'string' },
+      onlineDuration: 'number',
+      onlinePeriods: { 'type': 'array', 'itemType': DescribePubUserListBySubUserResponseBodySubUserDetailOnlinePeriods },
+      os: 'string',
+      osList: { 'type': 'array', 'itemType': 'string' },
+      roles: { 'type': 'array', 'itemType': 'string' },
+      sdkVersion: 'string',
+      sdkVersionList: { 'type': 'array', 'itemType': 'string' },
+      userId: 'string',
+      userIdAlias: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQoeMetricDataResponseBodyAudioDataNodes extends $tea.Model {
+  x?: string;
+  y?: string;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'string',
+      y: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQoeMetricDataResponseBodyAudioData extends $tea.Model {
+  nodes?: DescribeQoeMetricDataResponseBodyAudioDataNodes[];
+  type?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      type: 'Type',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': DescribeQoeMetricDataResponseBodyAudioDataNodes },
+      type: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQoeMetricDataResponseBodyVideoDataNodes extends $tea.Model {
+  x?: string;
+  y?: string;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'string',
+      y: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQoeMetricDataResponseBodyVideoData extends $tea.Model {
+  nodes?: DescribeQoeMetricDataResponseBodyVideoDataNodes[];
+  type?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      type: 'Type',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': DescribeQoeMetricDataResponseBodyVideoDataNodes },
+      type: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityAreaDistributionStatDataResponseBodyQualityStatDataList extends $tea.Model {
+  audioDelay?: number;
+  audioHighQualityTransmissionRate?: string;
+  audioStuckRate?: string;
+  callDurationRatio?: string;
+  joinChannelSucFiveSecRate?: string;
+  joinChannelSucRate?: string;
+  name?: string;
+  videoDelay?: number;
+  videoFirstPicDuration?: number;
+  videoHighQualityTransmissionRate?: string;
+  videoStuckRate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioDelay: 'AudioDelay',
+      audioHighQualityTransmissionRate: 'AudioHighQualityTransmissionRate',
+      audioStuckRate: 'AudioStuckRate',
+      callDurationRatio: 'CallDurationRatio',
+      joinChannelSucFiveSecRate: 'JoinChannelSucFiveSecRate',
+      joinChannelSucRate: 'JoinChannelSucRate',
+      name: 'Name',
+      videoDelay: 'VideoDelay',
+      videoFirstPicDuration: 'VideoFirstPicDuration',
+      videoHighQualityTransmissionRate: 'VideoHighQualityTransmissionRate',
+      videoStuckRate: 'VideoStuckRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioDelay: 'number',
+      audioHighQualityTransmissionRate: 'string',
+      audioStuckRate: 'string',
+      callDurationRatio: 'string',
+      joinChannelSucFiveSecRate: 'string',
+      joinChannelSucRate: 'string',
+      name: 'string',
+      videoDelay: 'number',
+      videoFirstPicDuration: 'number',
+      videoHighQualityTransmissionRate: 'string',
+      videoStuckRate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityDistributionStatDataResponseBodyQualityStatDataList extends $tea.Model {
+  audioDelay?: number;
+  audioHighQualityTransmissionRate?: string;
+  audioStuckRate?: string;
+  callDurationRatio?: string;
+  joinChannelSucFiveSecRate?: string;
+  joinChannelSucRate?: string;
+  name?: string;
+  videoDelay?: number;
+  videoFirstPicDuration?: number;
+  videoHighQualityTransmissionRate?: string;
+  videoStuckRate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioDelay: 'AudioDelay',
+      audioHighQualityTransmissionRate: 'AudioHighQualityTransmissionRate',
+      audioStuckRate: 'AudioStuckRate',
+      callDurationRatio: 'CallDurationRatio',
+      joinChannelSucFiveSecRate: 'JoinChannelSucFiveSecRate',
+      joinChannelSucRate: 'JoinChannelSucRate',
+      name: 'Name',
+      videoDelay: 'VideoDelay',
+      videoFirstPicDuration: 'VideoFirstPicDuration',
+      videoHighQualityTransmissionRate: 'VideoHighQualityTransmissionRate',
+      videoStuckRate: 'VideoStuckRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioDelay: 'number',
+      audioHighQualityTransmissionRate: 'string',
+      audioStuckRate: 'string',
+      callDurationRatio: 'string',
+      joinChannelSucFiveSecRate: 'string',
+      joinChannelSucRate: 'string',
+      name: 'string',
+      videoDelay: 'number',
+      videoFirstPicDuration: 'number',
+      videoHighQualityTransmissionRate: 'string',
+      videoStuckRate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityOsSdkVersionDistributionStatDataResponseBodyQualityOsSdkVersionStatDataList extends $tea.Model {
+  audioDelay?: number;
+  audioHighQualityTransmissionRate?: string;
+  audioStuckRate?: string;
+  callDurationRatio?: string;
+  joinChannelSucFiveSecRate?: string;
+  joinChannelSucRate?: string;
+  name?: string;
+  os?: string;
+  videoDelay?: number;
+  videoFirstPicDuration?: number;
+  videoHighQualityTransmissionRate?: string;
+  videoStuckRate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioDelay: 'AudioDelay',
+      audioHighQualityTransmissionRate: 'AudioHighQualityTransmissionRate',
+      audioStuckRate: 'AudioStuckRate',
+      callDurationRatio: 'CallDurationRatio',
+      joinChannelSucFiveSecRate: 'JoinChannelSucFiveSecRate',
+      joinChannelSucRate: 'JoinChannelSucRate',
+      name: 'Name',
+      os: 'Os',
+      videoDelay: 'VideoDelay',
+      videoFirstPicDuration: 'VideoFirstPicDuration',
+      videoHighQualityTransmissionRate: 'VideoHighQualityTransmissionRate',
+      videoStuckRate: 'VideoStuckRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioDelay: 'number',
+      audioHighQualityTransmissionRate: 'string',
+      audioStuckRate: 'string',
+      callDurationRatio: 'string',
+      joinChannelSucFiveSecRate: 'string',
+      joinChannelSucRate: 'string',
+      name: 'string',
+      os: 'string',
+      videoDelay: 'number',
+      videoFirstPicDuration: 'number',
+      videoHighQualityTransmissionRate: 'string',
+      videoStuckRate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityOverallDataResponseBodyQualityOverallDataNodes extends $tea.Model {
+  x?: string;
+  y?: string;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'string',
+      y: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeQualityOverallDataResponseBodyQualityOverallData extends $tea.Model {
+  average?: string;
+  nodes?: DescribeQualityOverallDataResponseBodyQualityOverallDataNodes[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      average: 'Average',
+      nodes: 'Nodes',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      average: 'string',
+      nodes: { 'type': 'array', 'itemType': DescribeQualityOverallDataResponseBodyQualityOverallDataNodes },
+      type: 'string',
     };
   }
 
@@ -3261,6 +7226,493 @@ export class DescribeRecordTemplatesResponseBodyTemplates extends $tea.Model {
       taskProfile: 'string',
       templateId: 'string',
       watermarks: { 'type': 'array', 'itemType': DescribeRecordTemplatesResponseBodyTemplatesWatermarks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelListResponseBodyChannelListChannelListCallArea extends $tea.Model {
+  callArea?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      callArea: 'CallArea',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callArea: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelListResponseBodyChannelListChannelList extends $tea.Model {
+  callArea?: DescribeRtcChannelListResponseBodyChannelListChannelListCallArea;
+  channelId?: string;
+  endTime?: string;
+  startTime?: string;
+  totalUserCnt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callArea: 'CallArea',
+      channelId: 'ChannelId',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      totalUserCnt: 'TotalUserCnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callArea: DescribeRtcChannelListResponseBodyChannelListChannelListCallArea,
+      channelId: 'string',
+      endTime: 'string',
+      startTime: 'string',
+      totalUserCnt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelListResponseBodyChannelList extends $tea.Model {
+  channelList?: DescribeRtcChannelListResponseBodyChannelListChannelList[];
+  static names(): { [key: string]: string } {
+    return {
+      channelList: 'ChannelList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelList: { 'type': 'array', 'itemType': DescribeRtcChannelListResponseBodyChannelListChannelList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoChannelMetric extends $tea.Model {
+  channelId?: string;
+  endTime?: string;
+  pubUserCount?: number;
+  startTime?: string;
+  subUserCount?: number;
+  userCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      channelId: 'ChannelId',
+      endTime: 'EndTime',
+      pubUserCount: 'PubUserCount',
+      startTime: 'StartTime',
+      subUserCount: 'SubUserCount',
+      userCount: 'UserCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelId: 'string',
+      endTime: 'string',
+      pubUserCount: 'number',
+      startTime: 'string',
+      subUserCount: 'number',
+      userCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationPubDuration extends $tea.Model {
+  audio?: number;
+  content?: number;
+  video1080?: number;
+  video360?: number;
+  video720?: number;
+  static names(): { [key: string]: string } {
+    return {
+      audio: 'Audio',
+      content: 'Content',
+      video1080: 'Video1080',
+      video360: 'Video360',
+      video720: 'Video720',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audio: 'number',
+      content: 'number',
+      video1080: 'number',
+      video360: 'number',
+      video720: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationSubDuration extends $tea.Model {
+  audio?: number;
+  content?: number;
+  video1080?: number;
+  video360?: number;
+  video720?: number;
+  static names(): { [key: string]: string } {
+    return {
+      audio: 'Audio',
+      content: 'Content',
+      video1080: 'Video1080',
+      video360: 'Video360',
+      video720: 'Video720',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audio: 'number',
+      content: 'number',
+      video1080: 'number',
+      video360: 'number',
+      video720: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoDuration extends $tea.Model {
+  pubDuration?: DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationPubDuration;
+  subDuration?: DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationSubDuration;
+  static names(): { [key: string]: string } {
+    return {
+      pubDuration: 'PubDuration',
+      subDuration: 'SubDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pubDuration: DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationPubDuration,
+      subDuration: DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationSubDuration,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcChannelMetricResponseBodyChannelMetricInfo extends $tea.Model {
+  channelMetric?: DescribeRtcChannelMetricResponseBodyChannelMetricInfoChannelMetric;
+  duration?: DescribeRtcChannelMetricResponseBodyChannelMetricInfoDuration;
+  static names(): { [key: string]: string } {
+    return {
+      channelMetric: 'ChannelMetric',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelMetric: DescribeRtcChannelMetricResponseBodyChannelMetricInfoChannelMetric,
+      duration: DescribeRtcChannelMetricResponseBodyChannelMetricInfoDuration,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcDurationDataResponseBodyDurationDataPerIntervalDurationModule extends $tea.Model {
+  audioDuration?: number;
+  contentDuration?: number;
+  timeStamp?: string;
+  totalDuration?: number;
+  v1080Duration?: number;
+  v360Duration?: number;
+  v720Duration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      audioDuration: 'AudioDuration',
+      contentDuration: 'ContentDuration',
+      timeStamp: 'TimeStamp',
+      totalDuration: 'TotalDuration',
+      v1080Duration: 'V1080Duration',
+      v360Duration: 'V360Duration',
+      v720Duration: 'V720Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioDuration: 'number',
+      contentDuration: 'number',
+      timeStamp: 'string',
+      totalDuration: 'number',
+      v1080Duration: 'number',
+      v360Duration: 'number',
+      v720Duration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcDurationDataResponseBodyDurationDataPerInterval extends $tea.Model {
+  durationModule?: DescribeRtcDurationDataResponseBodyDurationDataPerIntervalDurationModule[];
+  static names(): { [key: string]: string } {
+    return {
+      durationModule: 'DurationModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationModule: { 'type': 'array', 'itemType': DescribeRtcDurationDataResponseBodyDurationDataPerIntervalDurationModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcPeakChannelCntDataResponseBodyPeakChannelCntDataPerIntervalPeakChannelCntModule extends $tea.Model {
+  activeChannelPeak?: number;
+  activeChannelPeakTime?: string;
+  timeStamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeChannelPeak: 'ActiveChannelPeak',
+      activeChannelPeakTime: 'ActiveChannelPeakTime',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeChannelPeak: 'number',
+      activeChannelPeakTime: 'string',
+      timeStamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcPeakChannelCntDataResponseBodyPeakChannelCntDataPerInterval extends $tea.Model {
+  peakChannelCntModule?: DescribeRtcPeakChannelCntDataResponseBodyPeakChannelCntDataPerIntervalPeakChannelCntModule[];
+  static names(): { [key: string]: string } {
+    return {
+      peakChannelCntModule: 'PeakChannelCntModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      peakChannelCntModule: { 'type': 'array', 'itemType': DescribeRtcPeakChannelCntDataResponseBodyPeakChannelCntDataPerIntervalPeakChannelCntModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcUserCntDataResponseBodyUserCntDataPerIntervalUserCntModule extends $tea.Model {
+  activeUserCnt?: number;
+  timeStamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeUserCnt: 'ActiveUserCnt',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeUserCnt: 'number',
+      timeStamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcUserCntDataResponseBodyUserCntDataPerInterval extends $tea.Model {
+  userCntModule?: DescribeRtcUserCntDataResponseBodyUserCntDataPerIntervalUserCntModule[];
+  static names(): { [key: string]: string } {
+    return {
+      userCntModule: 'UserCntModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userCntModule: { 'type': 'array', 'itemType': DescribeRtcUserCntDataResponseBodyUserCntDataPerIntervalUserCntModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageAreaDistributionStatDataResponseBodyUsageAreaStatList extends $tea.Model {
+  audioCallDuration?: number;
+  name?: string;
+  totalCallDuration?: number;
+  videoCallDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      audioCallDuration: 'AudioCallDuration',
+      name: 'Name',
+      totalCallDuration: 'TotalCallDuration',
+      videoCallDuration: 'VideoCallDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioCallDuration: 'number',
+      name: 'string',
+      totalCallDuration: 'number',
+      videoCallDuration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageDistributionStatDataResponseBodyUsageStatList extends $tea.Model {
+  audioCallDuration?: number;
+  callDurationRatio?: string;
+  name?: string;
+  totalCallDuration?: number;
+  videoCallDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      audioCallDuration: 'AudioCallDuration',
+      callDurationRatio: 'CallDurationRatio',
+      name: 'Name',
+      totalCallDuration: 'TotalCallDuration',
+      videoCallDuration: 'VideoCallDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioCallDuration: 'number',
+      callDurationRatio: 'string',
+      name: 'string',
+      totalCallDuration: 'number',
+      videoCallDuration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageOsSdkVersionDistributionStatDataResponseBodyUsageOsSdkVersionStatList extends $tea.Model {
+  audioCallDuration?: number;
+  callDurationRatio?: string;
+  name?: string;
+  os?: string;
+  totalCallDuration?: number;
+  videoCallDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      audioCallDuration: 'AudioCallDuration',
+      callDurationRatio: 'CallDurationRatio',
+      name: 'Name',
+      os: 'Os',
+      totalCallDuration: 'TotalCallDuration',
+      videoCallDuration: 'VideoCallDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioCallDuration: 'number',
+      callDurationRatio: 'string',
+      name: 'string',
+      os: 'string',
+      totalCallDuration: 'number',
+      videoCallDuration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageOverallDataResponseBodyUsageOverallDataNodes extends $tea.Model {
+  x?: string;
+  y?: string;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'string',
+      y: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageOverallDataResponseBodyUsageOverallData extends $tea.Model {
+  nodes?: DescribeUsageOverallDataResponseBodyUsageOverallDataNodes[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': DescribeUsageOverallDataResponseBodyUsageOverallDataNodes },
+      type: 'string',
     };
   }
 
@@ -4307,6 +8759,10 @@ export default class Client extends OpenApi {
       query["OssBucket"] = request.ossBucket;
     }
 
+    if (!Util.isUnset(request.ossEndpoint)) {
+      query["OssEndpoint"] = request.ossEndpoint;
+    }
+
     if (!Util.isUnset(request.ossFilePrefix)) {
       query["OssFilePrefix"] = request.ossFilePrefix;
     }
@@ -4431,6 +8887,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.role)) {
+      query["Role"] = request.role;
     }
 
     if (!Util.isUnset(request.users)) {
@@ -4804,6 +9264,251 @@ export default class Client extends OpenApi {
     return await this.describeAutoLiveStreamRuleWithOptions(request, runtime);
   }
 
+  async describeCallWithOptions(request: DescribeCallRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCallResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.createdTs)) {
+      query["CreatedTs"] = request.createdTs;
+    }
+
+    if (!Util.isUnset(request.destroyedTs)) {
+      query["DestroyedTs"] = request.destroyedTs;
+    }
+
+    if (!Util.isUnset(request.extDataType)) {
+      query["ExtDataType"] = request.extDataType;
+    }
+
+    if (!Util.isUnset(request.queryExpInfo)) {
+      query["QueryExpInfo"] = request.queryExpInfo;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCall",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCallResponse>(await this.callApi(params, req, runtime), new DescribeCallResponse({}));
+  }
+
+  async describeCall(request: DescribeCallRequest): Promise<DescribeCallResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCallWithOptions(request, runtime);
+  }
+
+  async describeCallListWithOptions(request: DescribeCallListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCallListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.callStatus)) {
+      query["CallStatus"] = request.callStatus;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.endTs)) {
+      query["EndTs"] = request.endTs;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryMode)) {
+      query["QueryMode"] = request.queryMode;
+    }
+
+    if (!Util.isUnset(request.startTs)) {
+      query["StartTs"] = request.startTs;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCallList",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCallListResponse>(await this.callApi(params, req, runtime), new DescribeCallListResponse({}));
+  }
+
+  async describeCallList(request: DescribeCallListRequest): Promise<DescribeCallListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCallListWithOptions(request, runtime);
+  }
+
+  async describeChannelAreaDistributionStatDataWithOptions(request: DescribeChannelAreaDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelAreaDistributionStatDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.createdTs)) {
+      query["CreatedTs"] = request.createdTs;
+    }
+
+    if (!Util.isUnset(request.destroyedTs)) {
+      query["DestroyedTs"] = request.destroyedTs;
+    }
+
+    if (!Util.isUnset(request.parentArea)) {
+      query["ParentArea"] = request.parentArea;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeChannelAreaDistributionStatData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeChannelAreaDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeChannelAreaDistributionStatDataResponse({}));
+  }
+
+  async describeChannelAreaDistributionStatData(request: DescribeChannelAreaDistributionStatDataRequest): Promise<DescribeChannelAreaDistributionStatDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeChannelAreaDistributionStatDataWithOptions(request, runtime);
+  }
+
+  async describeChannelDistributionStatDataWithOptions(request: DescribeChannelDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelDistributionStatDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.createdTs)) {
+      query["CreatedTs"] = request.createdTs;
+    }
+
+    if (!Util.isUnset(request.destroyedTs)) {
+      query["DestroyedTs"] = request.destroyedTs;
+    }
+
+    if (!Util.isUnset(request.statDim)) {
+      query["StatDim"] = request.statDim;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeChannelDistributionStatData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeChannelDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeChannelDistributionStatDataResponse({}));
+  }
+
+  async describeChannelDistributionStatData(request: DescribeChannelDistributionStatDataRequest): Promise<DescribeChannelDistributionStatDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeChannelDistributionStatDataWithOptions(request, runtime);
+  }
+
+  async describeChannelOverallDataWithOptions(request: DescribeChannelOverallDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelOverallDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.createdTs)) {
+      query["CreatedTs"] = request.createdTs;
+    }
+
+    if (!Util.isUnset(request.destroyedTs)) {
+      query["DestroyedTs"] = request.destroyedTs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeChannelOverallData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeChannelOverallDataResponse>(await this.callApi(params, req, runtime), new DescribeChannelOverallDataResponse({}));
+  }
+
+  async describeChannelOverallData(request: DescribeChannelOverallDataRequest): Promise<DescribeChannelOverallDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeChannelOverallDataWithOptions(request, runtime);
+  }
+
   async describeChannelParticipantsWithOptions(request: DescribeChannelParticipantsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelParticipantsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4853,6 +9558,88 @@ export default class Client extends OpenApi {
     return await this.describeChannelParticipantsWithOptions(request, runtime);
   }
 
+  async describeChannelTopPubUserListWithOptions(request: DescribeChannelTopPubUserListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelTopPubUserListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.createdTs)) {
+      query["CreatedTs"] = request.createdTs;
+    }
+
+    if (!Util.isUnset(request.destroyedTs)) {
+      query["DestroyedTs"] = request.destroyedTs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeChannelTopPubUserList",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeChannelTopPubUserListResponse>(await this.callApi(params, req, runtime), new DescribeChannelTopPubUserListResponse({}));
+  }
+
+  async describeChannelTopPubUserList(request: DescribeChannelTopPubUserListRequest): Promise<DescribeChannelTopPubUserListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeChannelTopPubUserListWithOptions(request, runtime);
+  }
+
+  async describeChannelUserMetricsWithOptions(request: DescribeChannelUserMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelUserMetricsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.createdTs)) {
+      query["CreatedTs"] = request.createdTs;
+    }
+
+    if (!Util.isUnset(request.destroyedTs)) {
+      query["DestroyedTs"] = request.destroyedTs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeChannelUserMetrics",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeChannelUserMetricsResponse>(await this.callApi(params, req, runtime), new DescribeChannelUserMetricsResponse({}));
+  }
+
+  async describeChannelUserMetrics(request: DescribeChannelUserMetricsRequest): Promise<DescribeChannelUserMetricsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeChannelUserMetricsWithOptions(request, runtime);
+  }
+
   async describeChannelUsersWithOptions(request: DescribeChannelUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4888,6 +9675,292 @@ export default class Client extends OpenApi {
   async describeChannelUsers(request: DescribeChannelUsersRequest): Promise<DescribeChannelUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChannelUsersWithOptions(request, runtime);
+  }
+
+  async describeEndPointEventListWithOptions(request: DescribeEndPointEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndPointEventListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.createdTs)) {
+      query["CreatedTs"] = request.createdTs;
+    }
+
+    if (!Util.isUnset(request.destroyedTs)) {
+      query["DestroyedTs"] = request.destroyedTs;
+    }
+
+    if (!Util.isUnset(request.userIdList)) {
+      query["UserIdList"] = request.userIdList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEndPointEventList",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEndPointEventListResponse>(await this.callApi(params, req, runtime), new DescribeEndPointEventListResponse({}));
+  }
+
+  async describeEndPointEventList(request: DescribeEndPointEventListRequest): Promise<DescribeEndPointEventListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEndPointEventListWithOptions(request, runtime);
+  }
+
+  async describeEndPointMetricDataWithOptions(request: DescribeEndPointMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndPointMetricDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.createdTs)) {
+      query["CreatedTs"] = request.createdTs;
+    }
+
+    if (!Util.isUnset(request.destroyedTs)) {
+      query["DestroyedTs"] = request.destroyedTs;
+    }
+
+    if (!Util.isUnset(request.metrics)) {
+      query["Metrics"] = request.metrics;
+    }
+
+    if (!Util.isUnset(request.pubCallIdList)) {
+      query["PubCallIdList"] = request.pubCallIdList;
+    }
+
+    if (!Util.isUnset(request.pubUserId)) {
+      query["PubUserId"] = request.pubUserId;
+    }
+
+    if (!Util.isUnset(request.subUserId)) {
+      query["SubUserId"] = request.subUserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEndPointMetricData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEndPointMetricDataResponse>(await this.callApi(params, req, runtime), new DescribeEndPointMetricDataResponse({}));
+  }
+
+  async describeEndPointMetricData(request: DescribeEndPointMetricDataRequest): Promise<DescribeEndPointMetricDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEndPointMetricDataWithOptions(request, runtime);
+  }
+
+  async describeFaultDiagnosisFactorDistributionStatWithOptions(request: DescribeFaultDiagnosisFactorDistributionStatRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaultDiagnosisFactorDistributionStatResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endTs)) {
+      query["EndTs"] = request.endTs;
+    }
+
+    if (!Util.isUnset(request.startTs)) {
+      query["StartTs"] = request.startTs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFaultDiagnosisFactorDistributionStat",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFaultDiagnosisFactorDistributionStatResponse>(await this.callApi(params, req, runtime), new DescribeFaultDiagnosisFactorDistributionStatResponse({}));
+  }
+
+  async describeFaultDiagnosisFactorDistributionStat(request: DescribeFaultDiagnosisFactorDistributionStatRequest): Promise<DescribeFaultDiagnosisFactorDistributionStatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFaultDiagnosisFactorDistributionStatWithOptions(request, runtime);
+  }
+
+  async describeFaultDiagnosisOverallDataWithOptions(request: DescribeFaultDiagnosisOverallDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaultDiagnosisOverallDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endTs)) {
+      query["EndTs"] = request.endTs;
+    }
+
+    if (!Util.isUnset(request.startTs)) {
+      query["StartTs"] = request.startTs;
+    }
+
+    if (!Util.isUnset(request.statDim)) {
+      query["StatDim"] = request.statDim;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFaultDiagnosisOverallData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFaultDiagnosisOverallDataResponse>(await this.callApi(params, req, runtime), new DescribeFaultDiagnosisOverallDataResponse({}));
+  }
+
+  async describeFaultDiagnosisOverallData(request: DescribeFaultDiagnosisOverallDataRequest): Promise<DescribeFaultDiagnosisOverallDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFaultDiagnosisOverallDataWithOptions(request, runtime);
+  }
+
+  async describeFaultDiagnosisUserDetailWithOptions(request: DescribeFaultDiagnosisUserDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaultDiagnosisUserDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.createdTs)) {
+      query["CreatedTs"] = request.createdTs;
+    }
+
+    if (!Util.isUnset(request.faultType)) {
+      query["FaultType"] = request.faultType;
+    }
+
+    if (!Util.isUnset(request.queryCallUserInfo)) {
+      query["QueryCallUserInfo"] = request.queryCallUserInfo;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFaultDiagnosisUserDetail",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFaultDiagnosisUserDetailResponse>(await this.callApi(params, req, runtime), new DescribeFaultDiagnosisUserDetailResponse({}));
+  }
+
+  async describeFaultDiagnosisUserDetail(request: DescribeFaultDiagnosisUserDetailRequest): Promise<DescribeFaultDiagnosisUserDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFaultDiagnosisUserDetailWithOptions(request, runtime);
+  }
+
+  async describeFaultDiagnosisUserListWithOptions(request: DescribeFaultDiagnosisUserListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaultDiagnosisUserListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.endTs)) {
+      query["EndTs"] = request.endTs;
+    }
+
+    if (!Util.isUnset(request.faultTypes)) {
+      query["FaultTypes"] = request.faultTypes;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTs)) {
+      query["StartTs"] = request.startTs;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFaultDiagnosisUserList",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFaultDiagnosisUserListResponse>(await this.callApi(params, req, runtime), new DescribeFaultDiagnosisUserListResponse({}));
+  }
+
+  async describeFaultDiagnosisUserList(request: DescribeFaultDiagnosisUserListRequest): Promise<DescribeFaultDiagnosisUserListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFaultDiagnosisUserListWithOptions(request, runtime);
   }
 
   async describeMPULayoutInfoListWithOptions(request: DescribeMPULayoutInfoListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMPULayoutInfoListResponse> {
@@ -4937,6 +10010,256 @@ export default class Client extends OpenApi {
   async describeMPULayoutInfoList(request: DescribeMPULayoutInfoListRequest): Promise<DescribeMPULayoutInfoListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMPULayoutInfoListWithOptions(request, runtime);
+  }
+
+  async describePubUserListBySubUserWithOptions(request: DescribePubUserListBySubUserRequest, runtime: $Util.RuntimeOptions): Promise<DescribePubUserListBySubUserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.createdTs)) {
+      query["CreatedTs"] = request.createdTs;
+    }
+
+    if (!Util.isUnset(request.destroyedTs)) {
+      query["DestroyedTs"] = request.destroyedTs;
+    }
+
+    if (!Util.isUnset(request.subUserId)) {
+      query["SubUserId"] = request.subUserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePubUserListBySubUser",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePubUserListBySubUserResponse>(await this.callApi(params, req, runtime), new DescribePubUserListBySubUserResponse({}));
+  }
+
+  async describePubUserListBySubUser(request: DescribePubUserListBySubUserRequest): Promise<DescribePubUserListBySubUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePubUserListBySubUserWithOptions(request, runtime);
+  }
+
+  async describeQoeMetricDataWithOptions(request: DescribeQoeMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQoeMetricDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.createdTs)) {
+      query["CreatedTs"] = request.createdTs;
+    }
+
+    if (!Util.isUnset(request.destroyedTs)) {
+      query["DestroyedTs"] = request.destroyedTs;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeQoeMetricData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeQoeMetricDataResponse>(await this.callApi(params, req, runtime), new DescribeQoeMetricDataResponse({}));
+  }
+
+  async describeQoeMetricData(request: DescribeQoeMetricDataRequest): Promise<DescribeQoeMetricDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeQoeMetricDataWithOptions(request, runtime);
+  }
+
+  async describeQualityAreaDistributionStatDataWithOptions(request: DescribeQualityAreaDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQualityAreaDistributionStatDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.parentArea)) {
+      query["ParentArea"] = request.parentArea;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeQualityAreaDistributionStatData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeQualityAreaDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeQualityAreaDistributionStatDataResponse({}));
+  }
+
+  async describeQualityAreaDistributionStatData(request: DescribeQualityAreaDistributionStatDataRequest): Promise<DescribeQualityAreaDistributionStatDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeQualityAreaDistributionStatDataWithOptions(request, runtime);
+  }
+
+  async describeQualityDistributionStatDataWithOptions(request: DescribeQualityDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQualityDistributionStatDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.statDim)) {
+      query["StatDim"] = request.statDim;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeQualityDistributionStatData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeQualityDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeQualityDistributionStatDataResponse({}));
+  }
+
+  async describeQualityDistributionStatData(request: DescribeQualityDistributionStatDataRequest): Promise<DescribeQualityDistributionStatDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeQualityDistributionStatDataWithOptions(request, runtime);
+  }
+
+  async describeQualityOsSdkVersionDistributionStatDataWithOptions(request: DescribeQualityOsSdkVersionDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQualityOsSdkVersionDistributionStatDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeQualityOsSdkVersionDistributionStatData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeQualityOsSdkVersionDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeQualityOsSdkVersionDistributionStatDataResponse({}));
+  }
+
+  async describeQualityOsSdkVersionDistributionStatData(request: DescribeQualityOsSdkVersionDistributionStatDataRequest): Promise<DescribeQualityOsSdkVersionDistributionStatDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeQualityOsSdkVersionDistributionStatDataWithOptions(request, runtime);
+  }
+
+  async describeQualityOverallDataWithOptions(request: DescribeQualityOverallDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQualityOverallDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.types)) {
+      query["Types"] = request.types;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeQualityOverallData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeQualityOverallDataResponse>(await this.callApi(params, req, runtime), new DescribeQualityOverallDataResponse({}));
+  }
+
+  async describeQualityOverallData(request: DescribeQualityOverallDataRequest): Promise<DescribeQualityOverallDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeQualityOverallDataWithOptions(request, runtime);
   }
 
   async describeRecordFilesWithOptions(request: DescribeRecordFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordFilesResponse> {
@@ -5039,6 +10362,415 @@ export default class Client extends OpenApi {
   async describeRecordTemplates(request: DescribeRecordTemplatesRequest): Promise<DescribeRecordTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRecordTemplatesWithOptions(request, runtime);
+  }
+
+  async describeRtcChannelListWithOptions(request: DescribeRtcChannelListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcChannelListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.serviceArea)) {
+      query["ServiceArea"] = request.serviceArea;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
+    if (!Util.isUnset(request.timePoint)) {
+      query["TimePoint"] = request.timePoint;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRtcChannelList",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRtcChannelListResponse>(await this.callApi(params, req, runtime), new DescribeRtcChannelListResponse({}));
+  }
+
+  async describeRtcChannelList(request: DescribeRtcChannelListRequest): Promise<DescribeRtcChannelListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRtcChannelListWithOptions(request, runtime);
+  }
+
+  async describeRtcChannelMetricWithOptions(request: DescribeRtcChannelMetricRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcChannelMetricResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.timePoint)) {
+      query["TimePoint"] = request.timePoint;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRtcChannelMetric",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRtcChannelMetricResponse>(await this.callApi(params, req, runtime), new DescribeRtcChannelMetricResponse({}));
+  }
+
+  async describeRtcChannelMetric(request: DescribeRtcChannelMetricRequest): Promise<DescribeRtcChannelMetricResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRtcChannelMetricWithOptions(request, runtime);
+  }
+
+  async describeRtcDurationDataWithOptions(request: DescribeRtcDurationDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcDurationDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.serviceArea)) {
+      query["ServiceArea"] = request.serviceArea;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRtcDurationData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRtcDurationDataResponse>(await this.callApi(params, req, runtime), new DescribeRtcDurationDataResponse({}));
+  }
+
+  async describeRtcDurationData(request: DescribeRtcDurationDataRequest): Promise<DescribeRtcDurationDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRtcDurationDataWithOptions(request, runtime);
+  }
+
+  async describeRtcPeakChannelCntDataWithOptions(request: DescribeRtcPeakChannelCntDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcPeakChannelCntDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.serviceArea)) {
+      query["ServiceArea"] = request.serviceArea;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRtcPeakChannelCntData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRtcPeakChannelCntDataResponse>(await this.callApi(params, req, runtime), new DescribeRtcPeakChannelCntDataResponse({}));
+  }
+
+  async describeRtcPeakChannelCntData(request: DescribeRtcPeakChannelCntDataRequest): Promise<DescribeRtcPeakChannelCntDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRtcPeakChannelCntDataWithOptions(request, runtime);
+  }
+
+  async describeRtcUserCntDataWithOptions(request: DescribeRtcUserCntDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcUserCntDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.serviceArea)) {
+      query["ServiceArea"] = request.serviceArea;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRtcUserCntData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRtcUserCntDataResponse>(await this.callApi(params, req, runtime), new DescribeRtcUserCntDataResponse({}));
+  }
+
+  async describeRtcUserCntData(request: DescribeRtcUserCntDataRequest): Promise<DescribeRtcUserCntDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRtcUserCntDataWithOptions(request, runtime);
+  }
+
+  async describeUsageAreaDistributionStatDataWithOptions(request: DescribeUsageAreaDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsageAreaDistributionStatDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.parentArea)) {
+      query["ParentArea"] = request.parentArea;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUsageAreaDistributionStatData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUsageAreaDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeUsageAreaDistributionStatDataResponse({}));
+  }
+
+  async describeUsageAreaDistributionStatData(request: DescribeUsageAreaDistributionStatDataRequest): Promise<DescribeUsageAreaDistributionStatDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUsageAreaDistributionStatDataWithOptions(request, runtime);
+  }
+
+  async describeUsageDistributionStatDataWithOptions(request: DescribeUsageDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsageDistributionStatDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.statDim)) {
+      query["StatDim"] = request.statDim;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUsageDistributionStatData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUsageDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeUsageDistributionStatDataResponse({}));
+  }
+
+  async describeUsageDistributionStatData(request: DescribeUsageDistributionStatDataRequest): Promise<DescribeUsageDistributionStatDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUsageDistributionStatDataWithOptions(request, runtime);
+  }
+
+  async describeUsageOsSdkVersionDistributionStatDataWithOptions(request: DescribeUsageOsSdkVersionDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsageOsSdkVersionDistributionStatDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUsageOsSdkVersionDistributionStatData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUsageOsSdkVersionDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeUsageOsSdkVersionDistributionStatDataResponse({}));
+  }
+
+  async describeUsageOsSdkVersionDistributionStatData(request: DescribeUsageOsSdkVersionDistributionStatDataRequest): Promise<DescribeUsageOsSdkVersionDistributionStatDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUsageOsSdkVersionDistributionStatDataWithOptions(request, runtime);
+  }
+
+  async describeUsageOverallDataWithOptions(request: DescribeUsageOverallDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsageOverallDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.types)) {
+      query["Types"] = request.types;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUsageOverallData",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUsageOverallDataResponse>(await this.callApi(params, req, runtime), new DescribeUsageOverallDataResponse({}));
+  }
+
+  async describeUsageOverallData(request: DescribeUsageOverallDataRequest): Promise<DescribeUsageOverallDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUsageOverallDataWithOptions(request, runtime);
   }
 
   async describeUserInfoInChannelWithOptions(request: DescribeUserInfoInChannelRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserInfoInChannelResponse> {
@@ -5441,7 +11173,7 @@ export default class Client extends OpenApi {
 
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.enhancedParam))) {
+    if (!Util.isUnset(request.enhancedParam)) {
       bodyFlat["EnhancedParam"] = request.enhancedParam;
     }
 
@@ -5832,8 +11564,16 @@ export default class Client extends OpenApi {
       query["ChannelId"] = request.channelId;
     }
 
+    if (!Util.isUnset(request.cropMode)) {
+      query["CropMode"] = request.cropMode;
+    }
+
     if (!Util.isUnset(request.layoutIds)) {
       query["LayoutIds"] = request.layoutIds;
+    }
+
+    if (!Util.isUnset(request.mediaEncode)) {
+      query["MediaEncode"] = request.mediaEncode;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -5858,6 +11598,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.taskId)) {
       query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskProfile)) {
+      query["TaskProfile"] = request.taskProfile;
     }
 
     if (!Util.isUnset(request.templateId)) {
@@ -5959,6 +11703,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ossBucket)) {
       query["OssBucket"] = request.ossBucket;
+    }
+
+    if (!Util.isUnset(request.ossEndpoint)) {
+      query["OssEndpoint"] = request.ossEndpoint;
     }
 
     if (!Util.isUnset(request.ossFilePrefix)) {
