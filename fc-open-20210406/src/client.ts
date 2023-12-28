@@ -2202,6 +2202,8 @@ export class CreateAliasResponseBody extends $tea.Model {
   createdTime?: string;
   description?: string;
   lastModifiedTime?: string;
+  resolvePolicy?: string;
+  routePolicy?: RoutePolicy;
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2210,6 +2212,8 @@ export class CreateAliasResponseBody extends $tea.Model {
       createdTime: 'createdTime',
       description: 'description',
       lastModifiedTime: 'lastModifiedTime',
+      resolvePolicy: 'resolvePolicy',
+      routePolicy: 'routePolicy',
       versionId: 'versionId',
     };
   }
@@ -2221,6 +2225,8 @@ export class CreateAliasResponseBody extends $tea.Model {
       createdTime: 'string',
       description: 'string',
       lastModifiedTime: 'string',
+      resolvePolicy: 'string',
+      routePolicy: RoutePolicy,
       versionId: 'string',
     };
   }
@@ -7903,6 +7909,8 @@ export class UpdateAliasResponseBody extends $tea.Model {
   createdTime?: string;
   description?: string;
   lastModifiedTime?: string;
+  resolvePolicy?: string;
+  routePolicy?: RoutePolicy;
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7911,6 +7919,8 @@ export class UpdateAliasResponseBody extends $tea.Model {
       createdTime: 'createdTime',
       description: 'description',
       lastModifiedTime: 'lastModifiedTime',
+      resolvePolicy: 'resolvePolicy',
+      routePolicy: 'routePolicy',
       versionId: 'versionId',
     };
   }
@@ -7922,6 +7932,8 @@ export class UpdateAliasResponseBody extends $tea.Model {
       createdTime: 'string',
       description: 'string',
       lastModifiedTime: 'string',
+      resolvePolicy: 'string',
+      routePolicy: RoutePolicy,
       versionId: 'string',
     };
   }
@@ -10989,9 +11001,9 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
-    let body : Buffer = null;
+    let body : string = "";
     if (!Util.isUnset(request.body)) {
-      body = request.body;
+      body = Util.toString(request.body);
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -11040,7 +11052,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "byte",
+      reqBodyType: "json",
       bodyType: "byte",
     });
     return $tea.cast<InvokeFunctionResponse>(await this.callApi(params, req, runtime), new InvokeFunctionResponse({}));
