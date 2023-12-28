@@ -124,6 +124,78 @@ export class ApplyLensServiceResponse extends $tea.Model {
   }
 }
 
+export class BindEnterpriseSnapshotPolicyRequest extends $tea.Model {
+  clientToken?: string;
+  diskTargets?: string[];
+  policyId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      diskTargets: 'DiskTargets',
+      policyId: 'PolicyId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      diskTargets: { 'type': 'array', 'itemType': 'string' },
+      policyId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindEnterpriseSnapshotPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BindEnterpriseSnapshotPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BindEnterpriseSnapshotPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelLensServiceResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -687,6 +759,163 @@ export class CreateDiskReplicaPairResponse extends $tea.Model {
   }
 }
 
+export class CreateEnterpriseSnapshotPolicyRequest extends $tea.Model {
+  clientToken?: string;
+  crossRegionCopyInfo?: CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo;
+  desc?: string;
+  name?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  retainRule?: CreateEnterpriseSnapshotPolicyRequestRetainRule;
+  schedule?: CreateEnterpriseSnapshotPolicyRequestSchedule;
+  specialRetainRules?: CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules;
+  state?: string;
+  storageRule?: CreateEnterpriseSnapshotPolicyRequestStorageRule;
+  tag?: CreateEnterpriseSnapshotPolicyRequestTag[];
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      crossRegionCopyInfo: 'CrossRegionCopyInfo',
+      desc: 'Desc',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      retainRule: 'RetainRule',
+      schedule: 'Schedule',
+      specialRetainRules: 'SpecialRetainRules',
+      state: 'State',
+      storageRule: 'StorageRule',
+      tag: 'Tag',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      crossRegionCopyInfo: CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo,
+      desc: 'string',
+      name: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      retainRule: CreateEnterpriseSnapshotPolicyRequestRetainRule,
+      schedule: CreateEnterpriseSnapshotPolicyRequestSchedule,
+      specialRetainRules: CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules,
+      state: 'string',
+      storageRule: CreateEnterpriseSnapshotPolicyRequestStorageRule,
+      tag: { 'type': 'array', 'itemType': CreateEnterpriseSnapshotPolicyRequestTag },
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  crossRegionCopyInfoShrink?: string;
+  desc?: string;
+  name?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  retainRuleShrink?: string;
+  scheduleShrink?: string;
+  specialRetainRulesShrink?: string;
+  state?: string;
+  storageRuleShrink?: string;
+  tag?: CreateEnterpriseSnapshotPolicyShrinkRequestTag[];
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      crossRegionCopyInfoShrink: 'CrossRegionCopyInfo',
+      desc: 'Desc',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      retainRuleShrink: 'RetainRule',
+      scheduleShrink: 'Schedule',
+      specialRetainRulesShrink: 'SpecialRetainRules',
+      state: 'State',
+      storageRuleShrink: 'StorageRule',
+      tag: 'Tag',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      crossRegionCopyInfoShrink: 'string',
+      desc: 'string',
+      name: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      retainRuleShrink: 'string',
+      scheduleShrink: 'string',
+      specialRetainRulesShrink: 'string',
+      state: 'string',
+      storageRuleShrink: 'string',
+      tag: { 'type': 'array', 'itemType': CreateEnterpriseSnapshotPolicyShrinkRequestTag },
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
+  policyId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateEnterpriseSnapshotPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEnterpriseSnapshotPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDiskReplicaGroupRequest extends $tea.Model {
   clientToken?: string;
   regionId?: string;
@@ -817,6 +1046,75 @@ export class DeleteDiskReplicaPairResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteDiskReplicaPairResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnterpriseSnapshotPolicyRequest extends $tea.Model {
+  clientToken?: string;
+  policyId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      policyId: 'PolicyId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      policyId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnterpriseSnapshotPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteEnterpriseSnapshotPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEnterpriseSnapshotPolicyResponseBody,
     };
   }
 
@@ -1560,6 +1858,108 @@ export class DescribeDiskReplicaPairsResponse extends $tea.Model {
   }
 }
 
+export class DescribeEnterpriseSnapshotPolicyRequest extends $tea.Model {
+  clientToken?: string;
+  maxResults?: number;
+  nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  policyIds?: string[];
+  regionId?: string;
+  resourceGroupId?: string;
+  tag?: DescribeEnterpriseSnapshotPolicyRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      policyIds: 'PolicyIds',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeEnterpriseSnapshotPolicyRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
+  nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  policies?: DescribeEnterpriseSnapshotPolicyResponseBodyPolicies[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      policies: 'Policies',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      policies: { 'type': 'array', 'itemType': DescribeEnterpriseSnapshotPolicyResponseBodyPolicies },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEnterpriseSnapshotPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEnterpriseSnapshotPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLensServiceStatusResponseBody extends $tea.Model {
   requestId?: string;
   status?: string;
@@ -1599,6 +1999,90 @@ export class DescribeLensServiceStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeLensServiceStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMetricDataRequest extends $tea.Model {
+  dimensions?: string;
+  endTime?: string;
+  metricName?: string;
+  period?: number;
+  regionId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dimensions: 'Dimensions',
+      endTime: 'EndTime',
+      metricName: 'MetricName',
+      period: 'Period',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimensions: 'string',
+      endTime: 'string',
+      metricName: 'string',
+      period: 'number',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMetricDataResponseBody extends $tea.Model {
+  dataList?: DescribeMetricDataResponseBodyDataList[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataList: 'DataList',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataList: { 'type': 'array', 'itemType': DescribeMetricDataResponseBodyDataList },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMetricDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeMetricDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeMetricDataResponseBody,
     };
   }
 
@@ -3223,6 +3707,78 @@ export class TagResourcesResponse extends $tea.Model {
   }
 }
 
+export class UnbindEnterpriseSnapshotPolicyRequest extends $tea.Model {
+  clientToken?: string;
+  diskTargets?: string[];
+  policyId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      diskTargets: 'DiskTargets',
+      policyId: 'PolicyId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      diskTargets: { 'type': 'array', 'itemType': 'string' },
+      policyId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindEnterpriseSnapshotPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UnbindEnterpriseSnapshotPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindEnterpriseSnapshotPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UntagResourcesRequest extends $tea.Model {
   all?: boolean;
   clientToken?: string;
@@ -3301,6 +3857,148 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class UpdateEnterpriseSnapshotPolicyRequest extends $tea.Model {
+  clientToken?: string;
+  crossRegionCopyInfo?: UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo;
+  desc?: string;
+  name?: string;
+  policyId?: string;
+  regionId?: string;
+  retainRule?: UpdateEnterpriseSnapshotPolicyRequestRetainRule;
+  schedule?: UpdateEnterpriseSnapshotPolicyRequestSchedule;
+  specialRetainRules?: UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRules;
+  state?: string;
+  storageRule?: UpdateEnterpriseSnapshotPolicyRequestStorageRule;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      crossRegionCopyInfo: 'CrossRegionCopyInfo',
+      desc: 'Desc',
+      name: 'Name',
+      policyId: 'PolicyId',
+      regionId: 'RegionId',
+      retainRule: 'RetainRule',
+      schedule: 'Schedule',
+      specialRetainRules: 'SpecialRetainRules',
+      state: 'State',
+      storageRule: 'StorageRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      crossRegionCopyInfo: UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo,
+      desc: 'string',
+      name: 'string',
+      policyId: 'string',
+      regionId: 'string',
+      retainRule: UpdateEnterpriseSnapshotPolicyRequestRetainRule,
+      schedule: UpdateEnterpriseSnapshotPolicyRequestSchedule,
+      specialRetainRules: UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRules,
+      state: 'string',
+      storageRule: UpdateEnterpriseSnapshotPolicyRequestStorageRule,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseSnapshotPolicyShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  crossRegionCopyInfoShrink?: string;
+  desc?: string;
+  name?: string;
+  policyId?: string;
+  regionId?: string;
+  retainRuleShrink?: string;
+  scheduleShrink?: string;
+  specialRetainRulesShrink?: string;
+  state?: string;
+  storageRuleShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      crossRegionCopyInfoShrink: 'CrossRegionCopyInfo',
+      desc: 'Desc',
+      name: 'Name',
+      policyId: 'PolicyId',
+      regionId: 'RegionId',
+      retainRuleShrink: 'RetainRule',
+      scheduleShrink: 'Schedule',
+      specialRetainRulesShrink: 'SpecialRetainRules',
+      state: 'State',
+      storageRuleShrink: 'StorageRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      crossRegionCopyInfoShrink: 'string',
+      desc: 'string',
+      name: 'string',
+      policyId: 'string',
+      regionId: 'string',
+      retainRuleShrink: 'string',
+      scheduleShrink: 'string',
+      specialRetainRulesShrink: 'string',
+      state: 'string',
+      storageRuleShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseSnapshotPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateEnterpriseSnapshotPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEnterpriseSnapshotPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDedicatedBlockStorageClusterRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -3346,6 +4044,204 @@ export class CreateDiskReplicaGroupRequestTag extends $tea.Model {
 }
 
 export class CreateDiskReplicaPairRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions extends $tea.Model {
+  regionId?: string;
+  retainDays?: number;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      retainDays: 'RetainDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      retainDays: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo extends $tea.Model {
+  enabled?: boolean;
+  regions?: CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      regions: 'Regions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      regions: { 'type': 'array', 'itemType': CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestRetainRule extends $tea.Model {
+  number?: number;
+  timeInterval?: number;
+  timeUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      number: 'Number',
+      timeInterval: 'TimeInterval',
+      timeUnit: 'TimeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      number: 'number',
+      timeInterval: 'number',
+      timeUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestSchedule extends $tea.Model {
+  cronExpression?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cronExpression: 'CronExpression',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cronExpression: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules extends $tea.Model {
+  specialPeriodUnit?: string;
+  timeInterval?: number;
+  timeUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      specialPeriodUnit: 'SpecialPeriodUnit',
+      timeInterval: 'TimeInterval',
+      timeUnit: 'TimeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specialPeriodUnit: 'string',
+      timeInterval: 'number',
+      timeUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules extends $tea.Model {
+  enabled?: boolean;
+  rules?: CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      rules: { 'type': 'array', 'itemType': CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestStorageRule extends $tea.Model {
+  enableImmediateAccess?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableImmediateAccess: 'EnableImmediateAccess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableImmediateAccess: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyShrinkRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -4058,6 +4954,287 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
   }
 }
 
+export class DescribeEnterpriseSnapshotPolicyRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfoRegions extends $tea.Model {
+  regionId?: string;
+  retainDays?: number;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      retainDays: 'RetainDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      retainDays: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfo extends $tea.Model {
+  enabled?: boolean;
+  regions?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfoRegions[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      regions: 'Regions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      regions: { 'type': 'array', 'itemType': DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfoRegions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesRetainRule extends $tea.Model {
+  number?: number;
+  timeInterval?: number;
+  timeUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      number: 'Number',
+      timeInterval: 'TimeInterval',
+      timeUnit: 'TimeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      number: 'number',
+      timeInterval: 'number',
+      timeUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSchedule extends $tea.Model {
+  cronExpression?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cronExpression: 'CronExpression',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cronExpression: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRulesRules extends $tea.Model {
+  specialPeriodUnit?: string;
+  timeInterval?: number;
+  timeUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      specialPeriodUnit: 'SpecialPeriodUnit',
+      timeInterval: 'TimeInterval',
+      timeUnit: 'TimeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specialPeriodUnit: 'string',
+      timeInterval: 'number',
+      timeUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRules extends $tea.Model {
+  enabled?: boolean;
+  rules?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRulesRules[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      rules: { 'type': 'array', 'itemType': DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRulesRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesStorageRule extends $tea.Model {
+  enableImmediateAccess?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableImmediateAccess: 'EnableImmediateAccess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableImmediateAccess: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $tea.Model {
+  createTime?: string;
+  crossRegionCopyInfo?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfo;
+  desc?: string;
+  managedForEcs?: boolean;
+  name?: string;
+  policyId?: string;
+  resourceGroupId?: string;
+  retainRule?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesRetainRule;
+  schedule?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSchedule;
+  specialRetainRules?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRules;
+  state?: string;
+  storageRule?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesStorageRule;
+  tags?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesTags[];
+  targetCount?: number;
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      crossRegionCopyInfo: 'CrossRegionCopyInfo',
+      desc: 'Desc',
+      managedForEcs: 'ManagedForEcs',
+      name: 'Name',
+      policyId: 'PolicyId',
+      resourceGroupId: 'ResourceGroupId',
+      retainRule: 'RetainRule',
+      schedule: 'Schedule',
+      specialRetainRules: 'SpecialRetainRules',
+      state: 'State',
+      storageRule: 'StorageRule',
+      tags: 'Tags',
+      targetCount: 'TargetCount',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      crossRegionCopyInfo: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfo,
+      desc: 'string',
+      managedForEcs: 'boolean',
+      name: 'string',
+      policyId: 'string',
+      resourceGroupId: 'string',
+      retainRule: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesRetainRule,
+      schedule: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSchedule,
+      specialRetainRules: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRules,
+      state: 'string',
+      storageRule: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesStorageRule,
+      tags: { 'type': 'array', 'itemType': DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesTags },
+      targetCount: 'number',
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMetricDataResponseBodyDataList extends $tea.Model {
+  datapoints?: any;
+  labels?: any;
+  static names(): { [key: string]: string } {
+    return {
+      datapoints: 'Datapoints',
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datapoints: 'any',
+      labels: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePairDrillsResponseBodyDrills extends $tea.Model {
   drillDiskId?: string;
   drillDiskStatus?: string;
@@ -4282,6 +5459,160 @@ export class TagResourcesRequestTag extends $tea.Model {
   }
 }
 
+export class UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions extends $tea.Model {
+  regionId?: string;
+  retainDays?: number;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      retainDays: 'RetainDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      retainDays: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo extends $tea.Model {
+  enabled?: boolean;
+  regions?: UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      regions: 'Regions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      regions: { 'type': 'array', 'itemType': UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseSnapshotPolicyRequestRetainRule extends $tea.Model {
+  number?: number;
+  timeInterval?: number;
+  timeUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      number: 'Number',
+      timeInterval: 'TimeInterval',
+      timeUnit: 'TimeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      number: 'number',
+      timeInterval: 'number',
+      timeUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseSnapshotPolicyRequestSchedule extends $tea.Model {
+  cronExpression?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cronExpression: 'CronExpression',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cronExpression: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules extends $tea.Model {
+  specialPeriodUnit?: string;
+  timeInterval?: number;
+  timeUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      specialPeriodUnit: 'SpecialPeriodUnit',
+      timeInterval: 'TimeInterval',
+      timeUnit: 'TimeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specialPeriodUnit: 'string',
+      timeInterval: 'number',
+      timeUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRules extends $tea.Model {
+  enabled?: boolean;
+  rules?: UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      rules: { 'type': 'array', 'itemType': UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseSnapshotPolicyRequestStorageRule extends $tea.Model {
+  enableImmediateAccess?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableImmediateAccess: 'EnableImmediateAccess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableImmediateAccess: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -4306,7 +5637,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The region ID of the replication pair-consistent group.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+    * *   A replication pair and a replication pair-consistent group replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). A replication pair can be added only to a replication pair-consistent group that replicates in the same direction as the replication pair.
+    * *   Before you can add a replication pair to a replication pair-consistent group, make sure that the pair and the group are in the **Created** (`created`) or **Stopped** (`stopped`) state.
+    * *   Up to 17 replication pairs can be added to a single replication pair-consistent group.
+    * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs in place of their original RPOs.
     *
     * @param request AddDiskReplicaPairRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4349,7 +5685,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The region ID of the replication pair-consistent group.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+    * *   A replication pair and a replication pair-consistent group replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). A replication pair can be added only to a replication pair-consistent group that replicates in the same direction as the replication pair.
+    * *   Before you can add a replication pair to a replication pair-consistent group, make sure that the pair and the group are in the **Created** (`created`) or **Stopped** (`stopped`) state.
+    * *   Up to 17 replication pairs can be added to a single replication pair-consistent group.
+    * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs in place of their original RPOs.
     *
     * @param request AddDiskReplicaPairRequest
     * @return AddDiskReplicaPairResponse
@@ -4392,6 +5733,47 @@ export default class Client extends OpenApi {
   async applyLensService(): Promise<ApplyLensServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyLensServiceWithOptions(runtime);
+  }
+
+  async bindEnterpriseSnapshotPolicyWithOptions(request: BindEnterpriseSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<BindEnterpriseSnapshotPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.diskTargets)) {
+      query["DiskTargets"] = request.diskTargets;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BindEnterpriseSnapshotPolicy",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new BindEnterpriseSnapshotPolicyResponse({}));
+  }
+
+  async bindEnterpriseSnapshotPolicy(request: BindEnterpriseSnapshotPolicyRequest): Promise<BindEnterpriseSnapshotPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bindEnterpriseSnapshotPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -4633,12 +6015,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The replication pair-consistent group feature allows you to batch manage multiple disks in disaster recovery scenarios. You can restore the data of all disks in the same replication pair-consistent group to the same point in time to allow for disaster recovery of one or more instances.
-    * When you create a replication pair-consistent group, take note of the following items:
-    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
-    * *   Replication pair-consistent groups support disaster recovery across zones within the same region and disaster recovery across regions.
-    * *   A replication pair and a replication pair-consistent group replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). Replication pairs can be added only to a replication pair-consistent group that replicates in the same direction as them.
-    * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs in place of their original RPOs.
+    * ## [](#)Usage notes
+    * The replication pair-consistent group feature allows you to batch manage multiple disks in disaster recovery scenarios. You can restore the data of all disks in the same replication pair-consistent group to the same point in time to allow for disaster recovery of instances.
+    * Take note of the following items:
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+    * *   Replication pair-consistent groups can be used to implement disaster recovery across zones within the same region and disaster recovery across regions.
+    * *   A replication pair and a replication pair-consistent group can replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). A replication pair can be added to only a replication pair-consistent group that replicates in the same direction as the replication pair.
+    * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs instead of their original RPOs.
     *
     * @param request CreateDiskReplicaGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4709,12 +6092,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The replication pair-consistent group feature allows you to batch manage multiple disks in disaster recovery scenarios. You can restore the data of all disks in the same replication pair-consistent group to the same point in time to allow for disaster recovery of one or more instances.
-    * When you create a replication pair-consistent group, take note of the following items:
-    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
-    * *   Replication pair-consistent groups support disaster recovery across zones within the same region and disaster recovery across regions.
-    * *   A replication pair and a replication pair-consistent group replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). Replication pairs can be added only to a replication pair-consistent group that replicates in the same direction as them.
-    * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs in place of their original RPOs.
+    * ## [](#)Usage notes
+    * The replication pair-consistent group feature allows you to batch manage multiple disks in disaster recovery scenarios. You can restore the data of all disks in the same replication pair-consistent group to the same point in time to allow for disaster recovery of instances.
+    * Take note of the following items:
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+    * *   Replication pair-consistent groups can be used to implement disaster recovery across zones within the same region and disaster recovery across regions.
+    * *   A replication pair and a replication pair-consistent group can replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). A replication pair can be added to only a replication pair-consistent group that replicates in the same direction as the replication pair.
+    * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs instead of their original RPOs.
     *
     * @param request CreateDiskReplicaGroupRequest
     * @return CreateDiskReplicaGroupResponse
@@ -4836,10 +6220,110 @@ export default class Client extends OpenApi {
     return await this.createDiskReplicaPairWithOptions(request, runtime);
   }
 
+  async createEnterpriseSnapshotPolicyWithOptions(tmpReq: CreateEnterpriseSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnterpriseSnapshotPolicyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateEnterpriseSnapshotPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.crossRegionCopyInfo)) {
+      request.crossRegionCopyInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.crossRegionCopyInfo, "CrossRegionCopyInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.retainRule)) {
+      request.retainRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.retainRule, "RetainRule", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.schedule)) {
+      request.scheduleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.schedule, "Schedule", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.specialRetainRules)) {
+      request.specialRetainRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.specialRetainRules, "SpecialRetainRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.storageRule)) {
+      request.storageRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storageRule, "StorageRule", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.crossRegionCopyInfoShrink)) {
+      query["CrossRegionCopyInfo"] = request.crossRegionCopyInfoShrink;
+    }
+
+    if (!Util.isUnset(request.desc)) {
+      query["Desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.retainRuleShrink)) {
+      query["RetainRule"] = request.retainRuleShrink;
+    }
+
+    if (!Util.isUnset(request.scheduleShrink)) {
+      query["Schedule"] = request.scheduleShrink;
+    }
+
+    if (!Util.isUnset(request.specialRetainRulesShrink)) {
+      query["SpecialRetainRules"] = request.specialRetainRulesShrink;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
+    if (!Util.isUnset(request.storageRuleShrink)) {
+      query["StorageRule"] = request.storageRuleShrink;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEnterpriseSnapshotPolicy",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new CreateEnterpriseSnapshotPolicyResponse({}));
+  }
+
+  async createEnterpriseSnapshotPolicy(request: CreateEnterpriseSnapshotPolicyRequest): Promise<CreateEnterpriseSnapshotPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createEnterpriseSnapshotPolicyWithOptions(request, runtime);
+  }
+
   /**
-    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
-    * *   Before you can delete a replication pair-consistent group, make sure that no replication pairs are present in the group.
-    * *   The replication pair-consistent group that you want to delete must be in the **Created** (`created`), **Creation Failed** (`create_failed`), **Stopped** (`stopped`), **Failover Failed** (`failovered`), **Deleting** (`deleting`), **Deletion Failed** (`delete_failed`), or **Invalid** (`invalid`) state.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+    * *   Before you can delete a replication pair-consistent group, make sure that no replication pairs exist in the group.
+    * *   The replication pair-consistent group that you want to delete must be in the **Created** (`created`), **Creation Failed** (`create_failed`), **Stopped** (`stopped`), **Failovered** (`failovered`), **Deleting** (`deleting`), **Deletion Failed** (`delete_failed`), or **Invalid** (`invalid`) state.
     *
     * @param request DeleteDiskReplicaGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4878,9 +6362,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
-    * *   Before you can delete a replication pair-consistent group, make sure that no replication pairs are present in the group.
-    * *   The replication pair-consistent group that you want to delete must be in the **Created** (`created`), **Creation Failed** (`create_failed`), **Stopped** (`stopped`), **Failover Failed** (`failovered`), **Deleting** (`deleting`), **Deletion Failed** (`delete_failed`), or **Invalid** (`invalid`) state.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+    * *   Before you can delete a replication pair-consistent group, make sure that no replication pairs exist in the group.
+    * *   The replication pair-consistent group that you want to delete must be in the **Created** (`created`), **Creation Failed** (`create_failed`), **Stopped** (`stopped`), **Failovered** (`failovered`), **Deleting** (`deleting`), **Deletion Failed** (`delete_failed`), or **Invalid** (`invalid`) state.
     *
     * @param request DeleteDiskReplicaGroupRequest
     * @return DeleteDiskReplicaGroupResponse
@@ -4891,8 +6376,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
-    * *   Only replication pairs that are in the **Stopped** (`stopped`), **Invalid** (`invalid`), or **Failed Over** (`failovered`) state can be deleted. This operation deletes only replication pairs. The primary and secondary disks in the deleted replication pairs are retained.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   Only replication pairs that are in the **Stopped** (`stopped`), **Invalid** (`invalid`), or **Failovered** (`failovered`) state can be deleted. This operation deletes only replication pairs. The primary and secondary disks in the deleted replication pairs are retained.
     * *   To delete a replication pair, you must call this operation in the region where the primary disk is located. After the replication pair is deleted, the functionality limits are lifted from the primary and secondary disks. For example, you can attach the secondary disk, resize the disk, or read data from or write data to the disk.
     *
     * @param request DeleteDiskReplicaPairRequest
@@ -4932,8 +6418,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
-    * *   Only replication pairs that are in the **Stopped** (`stopped`), **Invalid** (`invalid`), or **Failed Over** (`failovered`) state can be deleted. This operation deletes only replication pairs. The primary and secondary disks in the deleted replication pairs are retained.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   Only replication pairs that are in the **Stopped** (`stopped`), **Invalid** (`invalid`), or **Failovered** (`failovered`) state can be deleted. This operation deletes only replication pairs. The primary and secondary disks in the deleted replication pairs are retained.
     * *   To delete a replication pair, you must call this operation in the region where the primary disk is located. After the replication pair is deleted, the functionality limits are lifted from the primary and secondary disks. For example, you can attach the secondary disk, resize the disk, or read data from or write data to the disk.
     *
     * @param request DeleteDiskReplicaPairRequest
@@ -4942,6 +6429,43 @@ export default class Client extends OpenApi {
   async deleteDiskReplicaPair(request: DeleteDiskReplicaPairRequest): Promise<DeleteDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDiskReplicaPairWithOptions(request, runtime);
+  }
+
+  async deleteEnterpriseSnapshotPolicyWithOptions(request: DeleteEnterpriseSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnterpriseSnapshotPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEnterpriseSnapshotPolicy",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new DeleteEnterpriseSnapshotPolicyResponse({}));
+  }
+
+  async deleteEnterpriseSnapshotPolicy(request: DeleteEnterpriseSnapshotPolicyRequest): Promise<DeleteEnterpriseSnapshotPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEnterpriseSnapshotPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -5009,9 +6533,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Dedicated Block Storage Cluster is supported in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
-    * *   You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-    * *   We recommend that you use the NextToken and MaxResults parameters to perform a paged query. During a paged query, when you call the DescribeDedicatedBlockStorageClusters operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDedicatedBlockStorageClusters operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+    * ## [](#)Usage notes
+    * >  The Dedicated Block Storage Cluster feature is available only in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
+    * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions.
+    * *   We recommend that you use NextToken and MaxResults to perform paged queries. We recommend that you use MaxResults to specify the maximum number of entries to return in each request. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeDedicatedBlockStorageClusters operation to retrieve a new page of results, set NextToken to the NextToken value that is returned in the previous call and specify MaxResults to limit the number of entries returned.
     *
     * @param request DescribeDedicatedBlockStorageClustersRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5088,9 +6613,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Dedicated Block Storage Cluster is supported in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
-    * *   You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-    * *   We recommend that you use the NextToken and MaxResults parameters to perform a paged query. During a paged query, when you call the DescribeDedicatedBlockStorageClusters operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDedicatedBlockStorageClusters operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+    * ## [](#)Usage notes
+    * >  The Dedicated Block Storage Cluster feature is available only in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
+    * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions.
+    * *   We recommend that you use NextToken and MaxResults to perform paged queries. We recommend that you use MaxResults to specify the maximum number of entries to return in each request. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeDedicatedBlockStorageClusters operation to retrieve a new page of results, set NextToken to the NextToken value that is returned in the previous call and specify MaxResults to limit the number of entries returned.
     *
     * @param request DescribeDedicatedBlockStorageClustersRequest
     * @return DescribeDedicatedBlockStorageClustersResponse
@@ -5418,8 +6944,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
-    * *   When you call this operation for a specific region, if the primary disk (source disk) or secondary disk (destination disk) of a replication pair resides within the region, the information of the replication pair is displayed in the response.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   When you call this operation for a specific region, if the primary disk (source disk) or secondary disk (destination disk) of a replication pair resides in the region, information about the replication pair is displayed in the response.
     * *   If you want to perform a paged query, configure the `NextToken` and `MaxResults` parameters. During a paged query, when you call the DescribeDiskReplicaPairs operation to retrieve the first page of results, set `MaxResults` to limit the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaPairs operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
     *
     * @param request DescribeDiskReplicaPairsRequest
@@ -5487,8 +7014,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
-    * *   When you call this operation for a specific region, if the primary disk (source disk) or secondary disk (destination disk) of a replication pair resides within the region, the information of the replication pair is displayed in the response.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   When you call this operation for a specific region, if the primary disk (source disk) or secondary disk (destination disk) of a replication pair resides in the region, information about the replication pair is displayed in the response.
     * *   If you want to perform a paged query, configure the `NextToken` and `MaxResults` parameters. During a paged query, when you call the DescribeDiskReplicaPairs operation to retrieve the first page of results, set `MaxResults` to limit the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaPairs operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
     *
     * @param request DescribeDiskReplicaPairsRequest
@@ -5497,6 +7025,67 @@ export default class Client extends OpenApi {
   async describeDiskReplicaPairs(request: DescribeDiskReplicaPairsRequest): Promise<DescribeDiskReplicaPairsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiskReplicaPairsWithOptions(request, runtime);
+  }
+
+  async describeEnterpriseSnapshotPolicyWithOptions(request: DescribeEnterpriseSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnterpriseSnapshotPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.policyIds)) {
+      query["PolicyIds"] = request.policyIds;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEnterpriseSnapshotPolicy",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new DescribeEnterpriseSnapshotPolicyResponse({}));
+  }
+
+  async describeEnterpriseSnapshotPolicy(request: DescribeEnterpriseSnapshotPolicyRequest): Promise<DescribeEnterpriseSnapshotPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEnterpriseSnapshotPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -5532,6 +7121,55 @@ export default class Client extends OpenApi {
   async describeLensServiceStatus(): Promise<DescribeLensServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLensServiceStatusWithOptions(runtime);
+  }
+
+  async describeMetricDataWithOptions(request: DescribeMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMetricDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dimensions)) {
+      query["Dimensions"] = request.dimensions;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.metricName)) {
+      query["MetricName"] = request.metricName;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeMetricData",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMetricDataResponse>(await this.callApi(params, req, runtime), new DescribeMetricDataResponse({}));
+  }
+
+  async describeMetricData(request: DescribeMetricDataRequest): Promise<DescribeMetricDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeMetricDataWithOptions(request, runtime);
   }
 
   async describePairDrillsWithOptions(request: DescribePairDrillsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePairDrillsResponse> {
@@ -5678,7 +7316,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **FailoverDiskReplicaGroup**.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+    * *   The replication pair-consistent group must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), **Stopped** (`stopped`), **In Failover** (`failovering`), **Failover Failed** (`failover_failed`), or **Failovered** (`failovered`) state.
+    * *   After a failover is performed, the replication pair-consistent group enters the **Failovered** (`failovered`) state.
+    * *   Before you perform a failover, make sure that the first full data synchronization is completed between the primary site and secondary site.
     *
     * @param request FailoverDiskReplicaGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5717,7 +7359,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **FailoverDiskReplicaGroup**.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+    * *   The replication pair-consistent group must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), **Stopped** (`stopped`), **In Failover** (`failovering`), **Failover Failed** (`failover_failed`), or **Failovered** (`failovered`) state.
+    * *   After a failover is performed, the replication pair-consistent group enters the **Failovered** (`failovered`) state.
+    * *   Before you perform a failover, make sure that the first full data synchronization is completed between the primary site and secondary site.
     *
     * @param request FailoverDiskReplicaGroupRequest
     * @return FailoverDiskReplicaGroupResponse
@@ -5728,7 +7374,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   The replication pair for which you want to enable failover cannot be in the **Invalid** (`invalid`) or **Deleted** (`deleted`) state.
+    * *   After a failover is performed, the replication pair enters the **Failovered** (`failovered`) state.
     *
     * @param request FailoverDiskReplicaPairRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5767,7 +7416,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   The replication pair for which you want to enable failover cannot be in the **Invalid** (`invalid`) or **Deleted** (`deleted`) state.
+    * *   After a failover is performed, the replication pair enters the **Failovered** (`failovered`) state.
     *
     * @param request FailoverDiskReplicaPairRequest
     * @return FailoverDiskReplicaPairResponse
@@ -5904,7 +7556,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
     * *   The replication pair-consistent group must be in the **Created** (`created`) or **Stopped** (`stopped`) state.
     *
     * @param request ModifyDiskReplicaGroupRequest
@@ -5960,7 +7613,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
     * *   The replication pair-consistent group must be in the **Created** (`created`) or **Stopped** (`stopped`) state.
     *
     * @param request ModifyDiskReplicaGroupRequest
@@ -5972,7 +7626,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the replication pair.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   Only replication pairs that are in the **Created** (`created`) or **Stopped** (`stopped`) state can have their names or descriptions modified.
     *
     * @param request ModifyDiskReplicaPairRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -6027,7 +7683,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the replication pair.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   Only replication pairs that are in the **Created** (`created`) or **Stopped** (`stopped`) state can have their names or descriptions modified.
     *
     * @param request ModifyDiskReplicaPairRequest
     * @return ModifyDiskReplicaPairResponse
@@ -6038,7 +7696,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
     * *   The replication pair-consistent group from which you want to remove a replication pair must be in the **Created** (`created`), **Stopped** (`stopped`), or **Invalid** (`invalid`) state.
     *
     * @param request RemoveDiskReplicaPairRequest
@@ -6082,7 +7741,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
     * *   The replication pair-consistent group from which you want to remove a replication pair must be in the **Created** (`created`), **Stopped** (`stopped`), or **Invalid** (`invalid`) state.
     *
     * @param request RemoveDiskReplicaPairRequest
@@ -6094,7 +7754,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **ReprotectDiskReplicaGroup**.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+    * *   The replication pair-consistent group for which you want to enable reverse replication must be in the **Failovered** (`failovered`) state. You can call the `FailoverDiskReplicaPair` operation to enable failover.
+    * *   Before a reverse replication is performed, the primary disks must be detached from its associated Elastic Compute Service (ECS) instance and must be in the Unattached state. You can call the [DetachDisk](~~25516~~) operation to detach the disks.
+    * *   After you enable reverse replication, you must call the `StartDiskReplicaPair` operation again to enable the async replication feature before data can be replicated from the original secondary disks to the original primary disks.
+    * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
     *
     * @param request ReprotectDiskReplicaGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -6137,7 +7802,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **ReprotectDiskReplicaGroup**.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+    * *   The replication pair-consistent group for which you want to enable reverse replication must be in the **Failovered** (`failovered`) state. You can call the `FailoverDiskReplicaPair` operation to enable failover.
+    * *   Before a reverse replication is performed, the primary disks must be detached from its associated Elastic Compute Service (ECS) instance and must be in the Unattached state. You can call the [DetachDisk](~~25516~~) operation to detach the disks.
+    * *   After you enable reverse replication, you must call the `StartDiskReplicaPair` operation again to enable the async replication feature before data can be replicated from the original secondary disks to the original primary disks.
+    * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
     *
     * @param request ReprotectDiskReplicaGroupRequest
     * @return ReprotectDiskReplicaGroupResponse
@@ -6148,7 +7818,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   The replication pair for which you want to enable reverse replication must be in the **Failovered** (`failovered`) state. You can call the [FailoverDiskReplicaPair](~~354358~~) operation to enable failover.
+    * *   The primary disk must be detached from its associated Elastic Compute Service (ECS) instance and is in the Unattached state. You can call the [DetachDisk](~~25516~~) operation to detach the disk.
+    * *   After you enable reverse replication, you must call the [StartDiskReplicaPair](~~354205~~) operation again to activate the replication pair before data can be replicated from the original secondary disk to the original primary disk.
+    * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
     *
     * @param request ReprotectDiskReplicaPairRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -6191,7 +7866,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   The replication pair for which you want to enable reverse replication must be in the **Failovered** (`failovered`) state. You can call the [FailoverDiskReplicaPair](~~354358~~) operation to enable failover.
+    * *   The primary disk must be detached from its associated Elastic Compute Service (ECS) instance and is in the Unattached state. You can call the [DetachDisk](~~25516~~) operation to detach the disk.
+    * *   After you enable reverse replication, you must call the [StartDiskReplicaPair](~~354205~~) operation again to activate the replication pair before data can be replicated from the original secondary disk to the original primary disk.
+    * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
     *
     * @param request ReprotectDiskReplicaPairRequest
     * @return ReprotectDiskReplicaPairResponse
@@ -6258,7 +7938,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **StartDiskReplicaGroup**.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+    * *   If you set the `OneShot` to `false`, the replication pair-consistent group must be in the **Created** (`created` ), **Synchronizing** (`syncing` ), **Normal** (`normal` ), or **Stopped** (`stopped`) state.
+    * *   If you set `OneShot` to `true`, the replication pair-consistent group must be in the **Created** (`created` ), **One-time Syncing** (`manual_syncing` ), or **Stopped** (`stopped`) state. The time interval between two consecutive one-time synchronizations must be longer than one half of the recovery point objective (RPO).
+    * *   After a replication pair-consistent group is activated, the group enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first async replication to replicate all data from the primary disks to secondary disks.
     *
     * @param request StartDiskReplicaGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -6301,7 +7985,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **StartDiskReplicaGroup**.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+    * *   If you set the `OneShot` to `false`, the replication pair-consistent group must be in the **Created** (`created` ), **Synchronizing** (`syncing` ), **Normal** (`normal` ), or **Stopped** (`stopped`) state.
+    * *   If you set `OneShot` to `true`, the replication pair-consistent group must be in the **Created** (`created` ), **One-time Syncing** (`manual_syncing` ), or **Stopped** (`stopped`) state. The time interval between two consecutive one-time synchronizations must be longer than one half of the recovery point objective (RPO).
+    * *   After a replication pair-consistent group is activated, the group enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first async replication to replicate all data from the primary disks to secondary disks.
     *
     * @param request StartDiskReplicaGroupRequest
     * @return StartDiskReplicaGroupResponse
@@ -6312,7 +8000,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   Only replication pairs that are in the **Created** (`created`) or **Stopped** (`stopped`) state can be activated.
+    * *   After a replication pair is activated, it enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first asynchronous replication to replicate all data from the primary disk to the secondary disk.
     *
     * @param request StartDiskReplicaPairRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -6355,7 +8046,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   Only replication pairs that are in the **Created** (`created`) or **Stopped** (`stopped`) state can be activated.
+    * *   After a replication pair is activated, it enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first asynchronous replication to replicate all data from the primary disk to the secondary disk.
     *
     * @param request StartDiskReplicaPairRequest
     * @return StartDiskReplicaPairResponse
@@ -6365,6 +8059,13 @@ export default class Client extends OpenApi {
     return await this.startDiskReplicaPairWithOptions(request, runtime);
   }
 
+  /**
+    * After the disaster recovery drill is complete on the secondary disk, a pay-as-you-go drill disk that has the same capacity and category as the secondary disk is created in the zone where the secondary disk resides. The drill disk contains last-recovery-point data that can be used to test the completeness and correctness of applications.
+    *
+    * @param request StartPairDrillRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartPairDrillResponse
+   */
   async startPairDrillWithOptions(request: StartPairDrillRequest, runtime: $Util.RuntimeOptions): Promise<StartPairDrillResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6397,11 +8098,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartPairDrillResponse>(await this.callApi(params, req, runtime), new StartPairDrillResponse({}));
   }
 
+  /**
+    * After the disaster recovery drill is complete on the secondary disk, a pay-as-you-go drill disk that has the same capacity and category as the secondary disk is created in the zone where the secondary disk resides. The drill disk contains last-recovery-point data that can be used to test the completeness and correctness of applications.
+    *
+    * @param request StartPairDrillRequest
+    * @return StartPairDrillResponse
+   */
   async startPairDrill(request: StartPairDrillRequest): Promise<StartPairDrillResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startPairDrillWithOptions(request, runtime);
   }
 
+  /**
+    * After the disaster recovery drill is complete on secondary disks, a pay-as-you-go drill disk is created in the zone where the secondary disk of each replication pair resides. The latest-recovery-point data is restored to the drill disks to test the completeness and correctness of applications.
+    *
+    * @param request StartReplicaGroupDrillRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartReplicaGroupDrillResponse
+   */
   async startReplicaGroupDrillWithOptions(request: StartReplicaGroupDrillRequest, runtime: $Util.RuntimeOptions): Promise<StartReplicaGroupDrillResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6434,6 +8148,12 @@ export default class Client extends OpenApi {
     return $tea.cast<StartReplicaGroupDrillResponse>(await this.callApi(params, req, runtime), new StartReplicaGroupDrillResponse({}));
   }
 
+  /**
+    * After the disaster recovery drill is complete on secondary disks, a pay-as-you-go drill disk is created in the zone where the secondary disk of each replication pair resides. The latest-recovery-point data is restored to the drill disks to test the completeness and correctness of applications.
+    *
+    * @param request StartReplicaGroupDrillRequest
+    * @return StartReplicaGroupDrillResponse
+   */
   async startReplicaGroupDrill(request: StartReplicaGroupDrillRequest): Promise<StartReplicaGroupDrillResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startReplicaGroupDrillWithOptions(request, runtime);
@@ -6494,7 +8214,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
     * *   The replication pair-consistent group that you want to stop must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), or **Stopped** (`stopped`) state.
     * *   When a replication pair-consistent group is stopped, it enters the **Stopped** (`stopped`) state. If a replication pair-consistent group cannot be stopped, the state of the group remains unchanged or changes to **Stop Failed** (`stop_failed`). In this case, try again later.
     *
@@ -6535,7 +8256,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
     * *   The replication pair-consistent group that you want to stop must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), or **Stopped** (`stopped`) state.
     * *   When a replication pair-consistent group is stopped, it enters the **Stopped** (`stopped`) state. If a replication pair-consistent group cannot be stopped, the state of the group remains unchanged or changes to **Stop Failed** (`stop_failed`). In this case, try again later.
     *
@@ -6548,8 +8270,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
-    * *   Only replication pairs that are in the **Initial Syncing** (`initial_syncing`), **Syncing** (`syncing`), **One-time Syncing** (`manual_syncing`), or **Normal** (`normal`) state can be stopped. When a replication pair is stopped, it enters the Stopped (`stopped`) state. The secondary disk rolls back to the point in time when the last asynchronous replication was complete and drops all the data that is being replicated from the primary disk.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   Only replication pairs that are in the **Initial Syncing** (`initial_syncing`), **Syncing** (`syncing`), **One-time Syncing** (`manual_syncing`), or **Normal** (`normal`) state can be stopped. When a replication pair is stopped, it enters the Stopped (`stopped`) state. The secondary disk rolls back to the point in time when the last async replication was complete and drops all the data that is being replicated from the primary disk.
     *
     * @param request StopDiskReplicaPairRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -6588,8 +8311,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
-    * *   Only replication pairs that are in the **Initial Syncing** (`initial_syncing`), **Syncing** (`syncing`), **One-time Syncing** (`manual_syncing`), or **Normal** (`normal`) state can be stopped. When a replication pair is stopped, it enters the Stopped (`stopped`) state. The secondary disk rolls back to the point in time when the last asynchronous replication was complete and drops all the data that is being replicated from the primary disk.
+    * ## [](#)Usage notes
+    * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+    * *   Only replication pairs that are in the **Initial Syncing** (`initial_syncing`), **Syncing** (`syncing`), **One-time Syncing** (`manual_syncing`), or **Normal** (`normal`) state can be stopped. When a replication pair is stopped, it enters the Stopped (`stopped`) state. The secondary disk rolls back to the point in time when the last async replication was complete and drops all the data that is being replicated from the primary disk.
     *
     * @param request StopDiskReplicaPairRequest
     * @return StopDiskReplicaPairResponse
@@ -6657,6 +8381,47 @@ export default class Client extends OpenApi {
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  async unbindEnterpriseSnapshotPolicyWithOptions(request: UnbindEnterpriseSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UnbindEnterpriseSnapshotPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.diskTargets)) {
+      query["DiskTargets"] = request.diskTargets;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnbindEnterpriseSnapshotPolicy",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new UnbindEnterpriseSnapshotPolicyResponse({}));
+  }
+
+  async unbindEnterpriseSnapshotPolicy(request: UnbindEnterpriseSnapshotPolicyRequest): Promise<UnbindEnterpriseSnapshotPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unbindEnterpriseSnapshotPolicyWithOptions(request, runtime);
+  }
+
   /**
     * *   You can remove up to 20 tags at a time.
     * *   After a tag is removed from an EBS resource, the tag is automatically deleted if the tag is not added to any instance.
@@ -6719,6 +8484,97 @@ export default class Client extends OpenApi {
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  async updateEnterpriseSnapshotPolicyWithOptions(tmpReq: UpdateEnterpriseSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnterpriseSnapshotPolicyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateEnterpriseSnapshotPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.crossRegionCopyInfo)) {
+      request.crossRegionCopyInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.crossRegionCopyInfo, "CrossRegionCopyInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.retainRule)) {
+      request.retainRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.retainRule, "RetainRule", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.schedule)) {
+      request.scheduleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.schedule, "Schedule", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.specialRetainRules)) {
+      request.specialRetainRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.specialRetainRules, "SpecialRetainRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.storageRule)) {
+      request.storageRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storageRule, "StorageRule", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.crossRegionCopyInfoShrink)) {
+      query["CrossRegionCopyInfo"] = request.crossRegionCopyInfoShrink;
+    }
+
+    if (!Util.isUnset(request.desc)) {
+      query["Desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.retainRuleShrink)) {
+      query["RetainRule"] = request.retainRuleShrink;
+    }
+
+    if (!Util.isUnset(request.scheduleShrink)) {
+      query["Schedule"] = request.scheduleShrink;
+    }
+
+    if (!Util.isUnset(request.specialRetainRulesShrink)) {
+      query["SpecialRetainRules"] = request.specialRetainRulesShrink;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
+    if (!Util.isUnset(request.storageRuleShrink)) {
+      query["StorageRule"] = request.storageRuleShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEnterpriseSnapshotPolicy",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new UpdateEnterpriseSnapshotPolicyResponse({}));
+  }
+
+  async updateEnterpriseSnapshotPolicy(request: UpdateEnterpriseSnapshotPolicyRequest): Promise<UpdateEnterpriseSnapshotPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateEnterpriseSnapshotPolicyWithOptions(request, runtime);
   }
 
 }
