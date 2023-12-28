@@ -615,13 +615,36 @@ export class GetPackageResponse extends $tea.Model {
   }
 }
 
+export class GetProjectRequest extends $tea.Model {
+  verbose?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      verbose: 'verbose',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      verbose: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetProjectResponseBody extends $tea.Model {
   data?: GetProjectResponseBodyData;
+  errorCode?: string;
+  errorMsg?: string;
   httpCode?: number;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
       httpCode: 'httpCode',
       requestId: 'requestId',
     };
@@ -630,6 +653,8 @@ export class GetProjectResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: GetProjectResponseBodyData,
+      errorCode: 'string',
+      errorMsg: 'string',
       httpCode: 'number',
       requestId: 'string',
     };
@@ -1429,6 +1454,93 @@ export class ListFunctionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListFunctionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobInfosRequest extends $tea.Model {
+  ascOrder?: boolean;
+  body?: string;
+  orderColumn?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  region?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ascOrder: 'ascOrder',
+      body: 'body',
+      orderColumn: 'orderColumn',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      region: 'region',
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ascOrder: 'boolean',
+      body: 'string',
+      orderColumn: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      region: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobInfosResponseBody extends $tea.Model {
+  data?: ListJobInfosResponseBodyData;
+  httpCode?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListJobInfosResponseBodyData,
+      httpCode: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobInfosResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListJobInfosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListJobInfosResponseBody,
     };
   }
 
@@ -2752,10 +2864,12 @@ export class GetProjectResponseBodyDataPropertiesStorageTierInfoStorageTierSize 
 
 export class GetProjectResponseBodyDataPropertiesStorageTierInfo extends $tea.Model {
   projectBackupSize?: number;
+  projectTotalSize?: number;
   storageTierSize?: GetProjectResponseBodyDataPropertiesStorageTierInfoStorageTierSize;
   static names(): { [key: string]: string } {
     return {
       projectBackupSize: 'projectBackupSize',
+      projectTotalSize: 'projectTotalSize',
       storageTierSize: 'storageTierSize',
     };
   }
@@ -2763,6 +2877,7 @@ export class GetProjectResponseBodyDataPropertiesStorageTierInfo extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       projectBackupSize: 'number',
+      projectTotalSize: 'number',
       storageTierSize: GetProjectResponseBodyDataPropertiesStorageTierInfoStorageTierSize,
     };
   }
@@ -2796,6 +2911,7 @@ export class GetProjectResponseBodyDataPropertiesTableLifecycle extends $tea.Mod
 
 export class GetProjectResponseBodyDataProperties extends $tea.Model {
   allowFullScan?: boolean;
+  elderTunnelQuota?: string;
   enableDecimal2?: boolean;
   enableTunnelQuotaRoute?: boolean;
   encryption?: GetProjectResponseBodyDataPropertiesEncryption;
@@ -2809,6 +2925,7 @@ export class GetProjectResponseBodyDataProperties extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       allowFullScan: 'allowFullScan',
+      elderTunnelQuota: 'elderTunnelQuota',
       enableDecimal2: 'enableDecimal2',
       enableTunnelQuotaRoute: 'enableTunnelQuotaRoute',
       encryption: 'encryption',
@@ -2825,6 +2942,7 @@ export class GetProjectResponseBodyDataProperties extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       allowFullScan: 'boolean',
+      elderTunnelQuota: 'string',
       enableDecimal2: 'boolean',
       enableTunnelQuotaRoute: 'boolean',
       encryption: GetProjectResponseBodyDataPropertiesEncryption,
@@ -2937,6 +3055,7 @@ export class GetProjectResponseBodyData extends $tea.Model {
   securityProperties?: GetProjectResponseBodyDataSecurityProperties;
   status?: string;
   superAdmins?: string[];
+  threeTierModel?: boolean;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2952,6 +3071,7 @@ export class GetProjectResponseBodyData extends $tea.Model {
       securityProperties: 'securityProperties',
       status: 'status',
       superAdmins: 'superAdmins',
+      threeTierModel: 'threeTierModel',
       type: 'type',
     };
   }
@@ -2970,6 +3090,7 @@ export class GetProjectResponseBodyData extends $tea.Model {
       securityProperties: GetProjectResponseBodyDataSecurityProperties,
       status: 'string',
       superAdmins: { 'type': 'array', 'itemType': 'string' },
+      threeTierModel: 'boolean',
       type: 'string',
     };
   }
@@ -4198,6 +4319,131 @@ export class ListFunctionsResponseBodyData extends $tea.Model {
       functions: { 'type': 'array', 'itemType': ListFunctionsResponseBodyDataFunctions },
       marker: 'string',
       maxItem: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobInfosResponseBodyDataJobInfoList extends $tea.Model {
+  cluster?: string;
+  cuSnapshot?: number;
+  cuUsage?: number;
+  endAtTime?: number;
+  extNodeId?: string;
+  extNodeOnDuty?: string;
+  extPlantFrom?: string;
+  instanceId?: string;
+  jobOwner?: string;
+  jobType?: string;
+  memorySnapshot?: number;
+  memoryUsage?: number;
+  priority?: number;
+  project?: string;
+  quotaNickname?: string;
+  quotaType?: string;
+  region?: string;
+  runningAtTime?: number;
+  runningTime?: number;
+  signature?: string;
+  status?: string;
+  statusSnapshot?: string;
+  submittedAtTime?: number;
+  tags?: string;
+  tenantId?: string;
+  totalTime?: number;
+  waitingTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cluster: 'cluster',
+      cuSnapshot: 'cuSnapshot',
+      cuUsage: 'cuUsage',
+      endAtTime: 'endAtTime',
+      extNodeId: 'extNodeId',
+      extNodeOnDuty: 'extNodeOnDuty',
+      extPlantFrom: 'extPlantFrom',
+      instanceId: 'instanceId',
+      jobOwner: 'jobOwner',
+      jobType: 'jobType',
+      memorySnapshot: 'memorySnapshot',
+      memoryUsage: 'memoryUsage',
+      priority: 'priority',
+      project: 'project',
+      quotaNickname: 'quotaNickname',
+      quotaType: 'quotaType',
+      region: 'region',
+      runningAtTime: 'runningAtTime',
+      runningTime: 'runningTime',
+      signature: 'signature',
+      status: 'status',
+      statusSnapshot: 'statusSnapshot',
+      submittedAtTime: 'submittedAtTime',
+      tags: 'tags',
+      tenantId: 'tenantId',
+      totalTime: 'totalTime',
+      waitingTime: 'waitingTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cluster: 'string',
+      cuSnapshot: 'number',
+      cuUsage: 'number',
+      endAtTime: 'number',
+      extNodeId: 'string',
+      extNodeOnDuty: 'string',
+      extPlantFrom: 'string',
+      instanceId: 'string',
+      jobOwner: 'string',
+      jobType: 'string',
+      memorySnapshot: 'number',
+      memoryUsage: 'number',
+      priority: 'number',
+      project: 'string',
+      quotaNickname: 'string',
+      quotaType: 'string',
+      region: 'string',
+      runningAtTime: 'number',
+      runningTime: 'number',
+      signature: 'string',
+      status: 'string',
+      statusSnapshot: 'string',
+      submittedAtTime: 'number',
+      tags: 'string',
+      tenantId: 'string',
+      totalTime: 'number',
+      waitingTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobInfosResponseBodyData extends $tea.Model {
+  jobInfoList?: ListJobInfosResponseBodyDataJobInfoList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobInfoList: 'jobInfoList',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobInfoList: { 'type': 'array', 'itemType': ListJobInfosResponseBodyDataJobInfoList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -6551,9 +6797,16 @@ export default class Client extends OpenApi {
     return await this.getPackageWithOptions(projectName, packageName, request, headers, runtime);
   }
 
-  async getProjectWithOptions(projectName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
+  async getProjectWithOptions(projectName: string, request: GetProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.verbose)) {
+      query["verbose"] = request.verbose;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetProject",
@@ -6569,10 +6822,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectResponse>(await this.callApi(params, req, runtime), new GetProjectResponse({}));
   }
 
-  async getProject(projectName: string): Promise<GetProjectResponse> {
+  async getProject(projectName: string, request: GetProjectRequest): Promise<GetProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getProjectWithOptions(projectName, headers, runtime);
+    return await this.getProjectWithOptions(projectName, request, headers, runtime);
   }
 
   async getQuotaWithOptions(nickname: string, request: GetQuotaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetQuotaResponse> {
@@ -6937,6 +7190,58 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFunctionsWithOptions(projectName, request, headers, runtime);
+  }
+
+  async listJobInfosWithOptions(request: ListJobInfosRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobInfosResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ascOrder)) {
+      query["ascOrder"] = request.ascOrder;
+    }
+
+    if (!Util.isUnset(request.orderColumn)) {
+      query["orderColumn"] = request.orderColumn;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListJobInfos",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListJobInfosResponse>(await this.callApi(params, req, runtime), new ListJobInfosResponse({}));
+  }
+
+  async listJobInfos(request: ListJobInfosRequest): Promise<ListJobInfosResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listJobInfosWithOptions(request, headers, runtime);
   }
 
   async listPackagesWithOptions(projectName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPackagesResponse> {
