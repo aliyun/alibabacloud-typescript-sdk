@@ -191,6 +191,8 @@ export class CreateInstanceRequest extends $tea.Model {
   obVersion?: string;
   period?: number;
   periodUnit?: string;
+  primaryInstance?: string;
+  primaryRegion?: string;
   replicaMode?: string;
   resourceGroupId?: string;
   series?: string;
@@ -209,6 +211,8 @@ export class CreateInstanceRequest extends $tea.Model {
       obVersion: 'ObVersion',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      primaryInstance: 'PrimaryInstance',
+      primaryRegion: 'PrimaryRegion',
       replicaMode: 'ReplicaMode',
       resourceGroupId: 'ResourceGroupId',
       series: 'Series',
@@ -230,6 +234,8 @@ export class CreateInstanceRequest extends $tea.Model {
       obVersion: 'string',
       period: 'number',
       periodUnit: 'string',
+      primaryInstance: 'string',
+      primaryRegion: 'string',
       replicaMode: 'string',
       resourceGroupId: 'string',
       series: 'string',
@@ -1488,7 +1494,7 @@ export class CreateTenantUserRequest extends $tea.Model {
 
 export class CreateTenantUserResponseBody extends $tea.Model {
   requestId?: string;
-  tenantUser?: CreateTenantUserResponseBodyTenantUser[];
+  tenantUser?: CreateTenantUserResponseBodyTenantUser;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -1499,7 +1505,7 @@ export class CreateTenantUserResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      tenantUser: { 'type': 'array', 'itemType': CreateTenantUserResponseBodyTenantUser },
+      tenantUser: CreateTenantUserResponseBodyTenantUser,
     };
   }
 
@@ -3350,6 +3356,7 @@ export class DescribeMetricsDataRequest extends $tea.Model {
   labels?: string;
   limit?: string;
   metrics?: string;
+  replicaType?: string;
   sortMetricKey?: string;
   sortOrder?: string;
   startTime?: string;
@@ -3361,6 +3368,7 @@ export class DescribeMetricsDataRequest extends $tea.Model {
       labels: 'Labels',
       limit: 'Limit',
       metrics: 'Metrics',
+      replicaType: 'ReplicaType',
       sortMetricKey: 'SortMetricKey',
       sortOrder: 'SortOrder',
       startTime: 'StartTime',
@@ -3375,6 +3383,7 @@ export class DescribeMetricsDataRequest extends $tea.Model {
       labels: 'string',
       limit: 'string',
       metrics: 'string',
+      replicaType: 'string',
       sortMetricKey: 'string',
       sortOrder: 'string',
       startTime: 'string',
@@ -7927,12 +7936,14 @@ export class ModifyInstanceNodeNumResponse extends $tea.Model {
 
 export class ModifyInstanceSpecRequest extends $tea.Model {
   diskSize?: number;
+  diskType?: string;
   dryRun?: boolean;
   instanceClass?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       diskSize: 'DiskSize',
+      diskType: 'DiskType',
       dryRun: 'DryRun',
       instanceClass: 'InstanceClass',
       instanceId: 'InstanceId',
@@ -7942,6 +7953,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       diskSize: 'number',
+      diskType: 'string',
       dryRun: 'boolean',
       instanceClass: 'string',
       instanceId: 'string',
@@ -8070,11 +8082,13 @@ export class ModifyInstanceTagsResponse extends $tea.Model {
 }
 
 export class ModifyInstanceTemporaryCapacityRequest extends $tea.Model {
+  acceptLanguage?: string;
   diskSize?: string;
   instanceId?: string;
   spec?: string;
   static names(): { [key: string]: string } {
     return {
+      acceptLanguage: 'AcceptLanguage',
       diskSize: 'DiskSize',
       instanceId: 'InstanceId',
       spec: 'Spec',
@@ -8083,6 +8097,7 @@ export class ModifyInstanceTemporaryCapacityRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acceptLanguage: 'string',
       diskSize: 'string',
       instanceId: 'string',
       spec: 'string',
@@ -8364,16 +8379,20 @@ export class ModifyTenantPrimaryZoneRequest extends $tea.Model {
   instanceId?: string;
   masterIntranetAddressZone?: string;
   primaryZone?: string;
+  tenantEndpointDirectId?: string;
   tenantEndpointId?: string;
   tenantId?: string;
+  userDirectVSwitchId?: string;
   userVSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       masterIntranetAddressZone: 'MasterIntranetAddressZone',
       primaryZone: 'PrimaryZone',
+      tenantEndpointDirectId: 'TenantEndpointDirectId',
       tenantEndpointId: 'TenantEndpointId',
       tenantId: 'TenantId',
+      userDirectVSwitchId: 'UserDirectVSwitchId',
       userVSwitchId: 'UserVSwitchId',
     };
   }
@@ -8383,8 +8402,10 @@ export class ModifyTenantPrimaryZoneRequest extends $tea.Model {
       instanceId: 'string',
       masterIntranetAddressZone: 'string',
       primaryZone: 'string',
+      tenantEndpointDirectId: 'string',
       tenantEndpointId: 'string',
       tenantId: 'string',
+      userDirectVSwitchId: 'string',
       userVSwitchId: 'string',
     };
   }
@@ -12227,6 +12248,7 @@ export class DescribeAvailableSpecResponseBodyDataAvailableSpecificationsLogDisk
 
 export class DescribeAvailableSpecResponseBodyDataAvailableSpecifications extends $tea.Model {
   diskSizeRange?: DescribeAvailableSpecResponseBodyDataAvailableSpecificationsDiskSizeRange;
+  diskTypes?: string[];
   instanceClass?: string;
   logDiskSizeRange?: DescribeAvailableSpecResponseBodyDataAvailableSpecificationsLogDiskSizeRange;
   nodeNum?: number[];
@@ -12234,6 +12256,7 @@ export class DescribeAvailableSpecResponseBodyDataAvailableSpecifications extend
   static names(): { [key: string]: string } {
     return {
       diskSizeRange: 'DiskSizeRange',
+      diskTypes: 'DiskTypes',
       instanceClass: 'InstanceClass',
       logDiskSizeRange: 'LogDiskSizeRange',
       nodeNum: 'NodeNum',
@@ -12244,6 +12267,7 @@ export class DescribeAvailableSpecResponseBodyDataAvailableSpecifications extend
   static types(): { [key: string]: any } {
     return {
       diskSizeRange: DescribeAvailableSpecResponseBodyDataAvailableSpecificationsDiskSizeRange,
+      diskTypes: { 'type': 'array', 'itemType': 'string' },
       instanceClass: 'string',
       logDiskSizeRange: DescribeAvailableSpecResponseBodyDataAvailableSpecificationsLogDiskSizeRange,
       nodeNum: { 'type': 'array', 'itemType': 'number' },
@@ -12576,6 +12600,192 @@ export class DescribeInstanceResponseBodyInstanceDataDiskAutoScaleConfig extends
   }
 }
 
+export class DescribeInstanceResponseBodyInstanceReadOnlyResourceCapacityUnit extends $tea.Model {
+  maxCapacityUnit?: number;
+  minCapacityUnit?: number;
+  usedCapacityUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxCapacityUnit: 'MaxCapacityUnit',
+      minCapacityUnit: 'MinCapacityUnit',
+      usedCapacityUnit: 'UsedCapacityUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxCapacityUnit: 'number',
+      minCapacityUnit: 'number',
+      usedCapacityUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyInstanceReadOnlyResourceCpu extends $tea.Model {
+  originalTotalCpu?: number;
+  totalCpu?: number;
+  unitCpu?: number;
+  usedCpu?: number;
+  static names(): { [key: string]: string } {
+    return {
+      originalTotalCpu: 'OriginalTotalCpu',
+      totalCpu: 'TotalCpu',
+      unitCpu: 'UnitCpu',
+      usedCpu: 'UsedCpu',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originalTotalCpu: 'number',
+      totalCpu: 'number',
+      unitCpu: 'number',
+      usedCpu: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyInstanceReadOnlyResourceDiskSize extends $tea.Model {
+  dataUsedSize?: number;
+  maxDiskSize?: number;
+  maxDiskUsedObServer?: string[];
+  maxDiskUsedPercent?: number;
+  originalTotalDiskSize?: number;
+  totalDiskSize?: number;
+  unitDiskSize?: number;
+  usedDiskSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataUsedSize: 'DataUsedSize',
+      maxDiskSize: 'MaxDiskSize',
+      maxDiskUsedObServer: 'MaxDiskUsedObServer',
+      maxDiskUsedPercent: 'MaxDiskUsedPercent',
+      originalTotalDiskSize: 'OriginalTotalDiskSize',
+      totalDiskSize: 'TotalDiskSize',
+      unitDiskSize: 'UnitDiskSize',
+      usedDiskSize: 'UsedDiskSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataUsedSize: 'number',
+      maxDiskSize: 'number',
+      maxDiskUsedObServer: { 'type': 'array', 'itemType': 'string' },
+      maxDiskUsedPercent: 'number',
+      originalTotalDiskSize: 'number',
+      totalDiskSize: 'number',
+      unitDiskSize: 'number',
+      usedDiskSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyInstanceReadOnlyResourceLogDiskSize extends $tea.Model {
+  logAssignedSize?: string;
+  maxLogAssignedObServer?: string[];
+  maxLogAssignedPercent?: string;
+  totalDiskSize?: number;
+  unitDiskSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      logAssignedSize: 'LogAssignedSize',
+      maxLogAssignedObServer: 'MaxLogAssignedObServer',
+      maxLogAssignedPercent: 'MaxLogAssignedPercent',
+      totalDiskSize: 'TotalDiskSize',
+      unitDiskSize: 'UnitDiskSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logAssignedSize: 'string',
+      maxLogAssignedObServer: { 'type': 'array', 'itemType': 'string' },
+      maxLogAssignedPercent: 'string',
+      totalDiskSize: 'number',
+      unitDiskSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyInstanceReadOnlyResourceMemory extends $tea.Model {
+  originalTotalMemory?: number;
+  totalMemory?: number;
+  unitMemory?: number;
+  usedMemory?: number;
+  static names(): { [key: string]: string } {
+    return {
+      originalTotalMemory: 'OriginalTotalMemory',
+      totalMemory: 'TotalMemory',
+      unitMemory: 'UnitMemory',
+      usedMemory: 'UsedMemory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originalTotalMemory: 'number',
+      totalMemory: 'number',
+      unitMemory: 'number',
+      usedMemory: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyInstanceReadOnlyResource extends $tea.Model {
+  capacityUnit?: DescribeInstanceResponseBodyInstanceReadOnlyResourceCapacityUnit;
+  cpu?: DescribeInstanceResponseBodyInstanceReadOnlyResourceCpu;
+  diskSize?: DescribeInstanceResponseBodyInstanceReadOnlyResourceDiskSize;
+  logDiskSize?: DescribeInstanceResponseBodyInstanceReadOnlyResourceLogDiskSize;
+  memory?: DescribeInstanceResponseBodyInstanceReadOnlyResourceMemory;
+  unitCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      capacityUnit: 'CapacityUnit',
+      cpu: 'Cpu',
+      diskSize: 'DiskSize',
+      logDiskSize: 'LogDiskSize',
+      memory: 'Memory',
+      unitCount: 'UnitCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacityUnit: DescribeInstanceResponseBodyInstanceReadOnlyResourceCapacityUnit,
+      cpu: DescribeInstanceResponseBodyInstanceReadOnlyResourceCpu,
+      diskSize: DescribeInstanceResponseBodyInstanceReadOnlyResourceDiskSize,
+      logDiskSize: DescribeInstanceResponseBodyInstanceReadOnlyResourceLogDiskSize,
+      memory: DescribeInstanceResponseBodyInstanceReadOnlyResourceMemory,
+      unitCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceResponseBodyInstanceResourceCapacityUnit extends $tea.Model {
   maxCapacityUnit?: number;
   minCapacityUnit?: number;
@@ -12673,6 +12883,7 @@ export class DescribeInstanceResponseBodyInstanceResourceLogDiskSize extends $te
   logAssignedSize?: string;
   maxLogAssignedObServer?: string[];
   maxLogAssignedPercent?: string;
+  originalTotalDiskSize?: number;
   totalDiskSize?: number;
   unitDiskSize?: number;
   static names(): { [key: string]: string } {
@@ -12680,6 +12891,7 @@ export class DescribeInstanceResponseBodyInstanceResourceLogDiskSize extends $te
       logAssignedSize: 'LogAssignedSize',
       maxLogAssignedObServer: 'MaxLogAssignedObServer',
       maxLogAssignedPercent: 'MaxLogAssignedPercent',
+      originalTotalDiskSize: 'OriginalTotalDiskSize',
       totalDiskSize: 'TotalDiskSize',
       unitDiskSize: 'UnitDiskSize',
     };
@@ -12690,6 +12902,7 @@ export class DescribeInstanceResponseBodyInstanceResourceLogDiskSize extends $te
       logAssignedSize: 'string',
       maxLogAssignedObServer: { 'type': 'array', 'itemType': 'string' },
       maxLogAssignedPercent: 'string',
+      originalTotalDiskSize: 'number',
       totalDiskSize: 'number',
       unitDiskSize: 'number',
     };
@@ -12814,6 +13027,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
   payType?: string;
   proxyClusterId?: string;
   proxyServiceStatus?: string;
+  readOnlyResource?: DescribeInstanceResponseBodyInstanceReadOnlyResource;
   replicaMode?: string;
   resource?: DescribeInstanceResponseBodyInstanceResource;
   series?: string;
@@ -12852,6 +13066,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
       payType: 'PayType',
       proxyClusterId: 'ProxyClusterId',
       proxyServiceStatus: 'ProxyServiceStatus',
+      readOnlyResource: 'ReadOnlyResource',
       replicaMode: 'ReplicaMode',
       resource: 'Resource',
       series: 'Series',
@@ -12893,6 +13108,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
       payType: 'string',
       proxyClusterId: 'string',
       proxyServiceStatus: 'string',
+      readOnlyResource: DescribeInstanceResponseBodyInstanceReadOnlyResource,
       replicaMode: 'string',
       resource: DescribeInstanceResponseBodyInstanceResource,
       series: 'string',
@@ -13062,6 +13278,7 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZo
   enableMigrateUnit?: boolean;
   manualMigrate?: boolean;
   nodeId?: string;
+  replicaType?: string;
   unitCpu?: number;
   unitDataSize?: number;
   unitId?: string;
@@ -13073,6 +13290,7 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZo
       enableMigrateUnit: 'EnableMigrateUnit',
       manualMigrate: 'ManualMigrate',
       nodeId: 'NodeId',
+      replicaType: 'ReplicaType',
       unitCpu: 'UnitCpu',
       unitDataSize: 'UnitDataSize',
       unitId: 'UnitId',
@@ -13087,6 +13305,7 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZo
       enableMigrateUnit: 'boolean',
       manualMigrate: 'boolean',
       nodeId: 'string',
+      replicaType: 'string',
       unitCpu: 'number',
       unitDataSize: 'number',
       unitId: 'string',
@@ -13266,25 +13485,34 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeR
 }
 
 export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodes extends $tea.Model {
+  fullCopyId?: number;
   nodeCopyId?: number;
   nodeId?: string;
   nodeResource?: DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource[];
   nodeStatus?: string;
+  readOnlyCopyId?: number;
+  replicaType?: string;
   static names(): { [key: string]: string } {
     return {
+      fullCopyId: 'FullCopyId',
       nodeCopyId: 'NodeCopyId',
       nodeId: 'NodeId',
       nodeResource: 'NodeResource',
       nodeStatus: 'NodeStatus',
+      readOnlyCopyId: 'ReadOnlyCopyId',
+      replicaType: 'ReplicaType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      fullCopyId: 'number',
       nodeCopyId: 'number',
       nodeId: 'string',
       nodeResource: { 'type': 'array', 'itemType': DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource },
       nodeStatus: 'string',
+      readOnlyCopyId: 'number',
+      replicaType: 'string',
     };
   }
 
@@ -19537,8 +19765,159 @@ export class DescribeSlowSQLListResponseBodySlowSQLList extends $tea.Model {
   }
 }
 
+export class DescribeTenantResponseBodyTenantReadOnlyResourceCapacityUnit extends $tea.Model {
+  maxCapacityUnit?: number;
+  minCapacityUnit?: number;
+  usedCapacit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxCapacityUnit: 'MaxCapacityUnit',
+      minCapacityUnit: 'MinCapacityUnit',
+      usedCapacit: 'UsedCapacit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxCapacityUnit: 'number',
+      minCapacityUnit: 'number',
+      usedCapacit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTenantResponseBodyTenantReadOnlyResourceCpu extends $tea.Model {
+  totalCpu?: number;
+  unitCpu?: number;
+  usedCpu?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalCpu: 'TotalCpu',
+      unitCpu: 'UnitCpu',
+      usedCpu: 'UsedCpu',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCpu: 'number',
+      unitCpu: 'number',
+      usedCpu: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTenantResponseBodyTenantReadOnlyResourceDiskSize extends $tea.Model {
+  usedDiskSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      usedDiskSize: 'UsedDiskSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      usedDiskSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTenantResponseBodyTenantReadOnlyResourceLogDiskSize extends $tea.Model {
+  totalLogDisk?: number;
+  unitLogDisk?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalLogDisk: 'TotalLogDisk',
+      unitLogDisk: 'UnitLogDisk',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalLogDisk: 'number',
+      unitLogDisk: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTenantResponseBodyTenantReadOnlyResourceMemory extends $tea.Model {
+  totalMemory?: number;
+  unitMemory?: number;
+  usedMemory?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalMemory: 'TotalMemory',
+      unitMemory: 'UnitMemory',
+      usedMemory: 'UsedMemory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalMemory: 'number',
+      unitMemory: 'number',
+      usedMemory: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTenantResponseBodyTenantReadOnlyResource extends $tea.Model {
+  capacityUnit?: DescribeTenantResponseBodyTenantReadOnlyResourceCapacityUnit;
+  cpu?: DescribeTenantResponseBodyTenantReadOnlyResourceCpu;
+  diskSize?: DescribeTenantResponseBodyTenantReadOnlyResourceDiskSize;
+  logDiskSize?: DescribeTenantResponseBodyTenantReadOnlyResourceLogDiskSize;
+  memory?: DescribeTenantResponseBodyTenantReadOnlyResourceMemory;
+  unitNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      capacityUnit: 'CapacityUnit',
+      cpu: 'Cpu',
+      diskSize: 'DiskSize',
+      logDiskSize: 'LogDiskSize',
+      memory: 'Memory',
+      unitNum: 'UnitNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacityUnit: DescribeTenantResponseBodyTenantReadOnlyResourceCapacityUnit,
+      cpu: DescribeTenantResponseBodyTenantReadOnlyResourceCpu,
+      diskSize: DescribeTenantResponseBodyTenantReadOnlyResourceDiskSize,
+      logDiskSize: DescribeTenantResponseBodyTenantReadOnlyResourceLogDiskSize,
+      memory: DescribeTenantResponseBodyTenantReadOnlyResourceMemory,
+      unitNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTenantResponseBodyTenantTenantConnections extends $tea.Model {
   addressType?: string;
+  connectionReplicaType?: string;
   connectionZones?: string[];
   enableTransactionSplit?: boolean;
   internetAddress?: string;
@@ -19558,6 +19937,7 @@ export class DescribeTenantResponseBodyTenantTenantConnections extends $tea.Mode
   static names(): { [key: string]: string } {
     return {
       addressType: 'AddressType',
+      connectionReplicaType: 'ConnectionReplicaType',
       connectionZones: 'ConnectionZones',
       enableTransactionSplit: 'EnableTransactionSplit',
       internetAddress: 'InternetAddress',
@@ -19580,6 +19960,7 @@ export class DescribeTenantResponseBodyTenantTenantConnections extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       addressType: 'string',
+      connectionReplicaType: 'string',
       connectionZones: { 'type': 'array', 'itemType': 'string' },
       enableTransactionSplit: 'boolean',
       internetAddress: 'string',
@@ -19754,14 +20135,50 @@ export class DescribeTenantResponseBodyTenantTenantResource extends $tea.Model {
   }
 }
 
+export class DescribeTenantResponseBodyTenantTenantZonesTenantZoneReplicas extends $tea.Model {
+  fullCopyId?: number;
+  logicZoneName?: string;
+  readOnlyCopyId?: string;
+  zoneCopyId?: number;
+  zoneNodes?: string;
+  zoneReplicaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fullCopyId: 'FullCopyId',
+      logicZoneName: 'LogicZoneName',
+      readOnlyCopyId: 'ReadOnlyCopyId',
+      zoneCopyId: 'ZoneCopyId',
+      zoneNodes: 'ZoneNodes',
+      zoneReplicaType: 'ZoneReplicaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fullCopyId: 'number',
+      logicZoneName: 'string',
+      readOnlyCopyId: 'string',
+      zoneCopyId: 'number',
+      zoneNodes: 'string',
+      zoneReplicaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTenantResponseBodyTenantTenantZones extends $tea.Model {
   region?: string;
   tenantZoneId?: string;
+  tenantZoneReplicas?: DescribeTenantResponseBodyTenantTenantZonesTenantZoneReplicas[];
   tenantZoneRole?: string;
   static names(): { [key: string]: string } {
     return {
       region: 'Region',
       tenantZoneId: 'TenantZoneId',
+      tenantZoneReplicas: 'TenantZoneReplicas',
       tenantZoneRole: 'TenantZoneRole',
     };
   }
@@ -19770,6 +20187,7 @@ export class DescribeTenantResponseBodyTenantTenantZones extends $tea.Model {
     return {
       region: 'string',
       tenantZoneId: 'string',
+      tenantZoneReplicas: { 'type': 'array', 'itemType': DescribeTenantResponseBodyTenantTenantZonesTenantZoneReplicas },
       tenantZoneRole: 'string',
     };
   }
@@ -19785,6 +20203,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
   clogServiceStatus?: string;
   collation?: string;
   createTime?: string;
+  dataMergeTime?: string;
   deployMode?: string;
   deployType?: string;
   description?: string;
@@ -19800,6 +20219,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
   payType?: string;
   primaryZone?: string;
   primaryZoneDeployType?: string;
+  readOnlyResource?: DescribeTenantResponseBodyTenantReadOnlyResource;
   series?: string;
   status?: string;
   tenantConnections?: DescribeTenantResponseBodyTenantTenantConnections[];
@@ -19817,6 +20237,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       clogServiceStatus: 'ClogServiceStatus',
       collation: 'Collation',
       createTime: 'CreateTime',
+      dataMergeTime: 'DataMergeTime',
       deployMode: 'DeployMode',
       deployType: 'DeployType',
       description: 'Description',
@@ -19832,6 +20253,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       payType: 'PayType',
       primaryZone: 'PrimaryZone',
       primaryZoneDeployType: 'PrimaryZoneDeployType',
+      readOnlyResource: 'ReadOnlyResource',
       series: 'Series',
       status: 'Status',
       tenantConnections: 'TenantConnections',
@@ -19852,6 +20274,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       clogServiceStatus: 'string',
       collation: 'string',
       createTime: 'string',
+      dataMergeTime: 'string',
       deployMode: 'string',
       deployType: 'string',
       description: 'string',
@@ -19867,6 +20290,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       payType: 'string',
       primaryZone: 'string',
       primaryZoneDeployType: 'string',
+      readOnlyResource: DescribeTenantResponseBodyTenantReadOnlyResource,
       series: 'string',
       status: 'string',
       tenantConnections: { 'type': 'array', 'itemType': DescribeTenantResponseBodyTenantTenantConnections },
@@ -23434,6 +23858,14 @@ export default class Client extends OpenApi {
       body["PeriodUnit"] = request.periodUnit;
     }
 
+    if (!Util.isUnset(request.primaryInstance)) {
+      body["PrimaryInstance"] = request.primaryInstance;
+    }
+
+    if (!Util.isUnset(request.primaryRegion)) {
+      body["PrimaryRegion"] = request.primaryRegion;
+    }
+
     if (!Util.isUnset(request.replicaMode)) {
       body["ReplicaMode"] = request.replicaMode;
     }
@@ -25161,8 +25593,14 @@ export default class Client extends OpenApi {
       query["StartTime"] = request.startTime;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.replicaType)) {
+      body["ReplicaType"] = request.replicaType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DescribeMetricsData",
@@ -27507,6 +27945,10 @@ export default class Client extends OpenApi {
       body["DiskSize"] = request.diskSize;
     }
 
+    if (!Util.isUnset(request.diskType)) {
+      body["DiskType"] = request.diskType;
+    }
+
     if (!Util.isUnset(request.dryRun)) {
       body["DryRun"] = request.dryRun;
     }
@@ -27577,6 +28019,10 @@ export default class Client extends OpenApi {
   async modifyInstanceTemporaryCapacityWithOptions(request: ModifyInstanceTemporaryCapacityRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceTemporaryCapacityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      body["AcceptLanguage"] = request.acceptLanguage;
+    }
+
     if (!Util.isUnset(request.diskSize)) {
       body["DiskSize"] = request.diskSize;
     }
@@ -27745,12 +28191,20 @@ export default class Client extends OpenApi {
       body["PrimaryZone"] = request.primaryZone;
     }
 
+    if (!Util.isUnset(request.tenantEndpointDirectId)) {
+      body["TenantEndpointDirectId"] = request.tenantEndpointDirectId;
+    }
+
     if (!Util.isUnset(request.tenantEndpointId)) {
       body["TenantEndpointId"] = request.tenantEndpointId;
     }
 
     if (!Util.isUnset(request.tenantId)) {
       body["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.userDirectVSwitchId)) {
+      body["UserDirectVSwitchId"] = request.userDirectVSwitchId;
     }
 
     if (!Util.isUnset(request.userVSwitchId)) {
