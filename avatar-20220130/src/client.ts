@@ -357,6 +357,84 @@ export class CloseTimedResetOperateResponse extends $tea.Model {
   }
 }
 
+export class ConfirmAvatar2dTrainRequest extends $tea.Model {
+  code?: string;
+  confirm?: string;
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      confirm: 'Confirm',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      confirm: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmAvatar2dTrainResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmAvatar2dTrainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ConfirmAvatar2dTrainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConfirmAvatar2dTrainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Create2dAvatarRequest extends $tea.Model {
   callback?: boolean;
   description?: string;
@@ -4886,6 +4964,43 @@ export default class Client extends OpenApi {
   async closeTimedResetOperate(request: CloseTimedResetOperateRequest): Promise<CloseTimedResetOperateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.closeTimedResetOperateWithOptions(request, runtime);
+  }
+
+  async confirmAvatar2dTrainWithOptions(request: ConfirmAvatar2dTrainRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmAvatar2dTrainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.confirm)) {
+      query["Confirm"] = request.confirm;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ConfirmAvatar2dTrain",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfirmAvatar2dTrainResponse>(await this.callApi(params, req, runtime), new ConfirmAvatar2dTrainResponse({}));
+  }
+
+  async confirmAvatar2dTrain(request: ConfirmAvatar2dTrainRequest): Promise<ConfirmAvatar2dTrainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.confirmAvatar2dTrainWithOptions(request, runtime);
   }
 
   async create2dAvatarWithOptions(request: Create2dAvatarRequest, runtime: $Util.RuntimeOptions): Promise<Create2dAvatarResponse> {
