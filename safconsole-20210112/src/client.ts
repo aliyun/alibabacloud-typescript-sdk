@@ -184,16 +184,25 @@ export class UploadSampleApiRequest extends $tea.Model {
 }
 
 export class UploadSampleApiResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
   requestId?: string;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      message: 'string',
       requestId: 'string',
+      success: 'string',
     };
   }
 
