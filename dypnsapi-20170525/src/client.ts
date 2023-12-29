@@ -517,6 +517,7 @@ export class GetAuthTokenRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  sceneCode?: string;
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -524,6 +525,7 @@ export class GetAuthTokenRequest extends $tea.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      sceneCode: 'SceneCode',
       url: 'Url',
     };
   }
@@ -534,6 +536,7 @@ export class GetAuthTokenRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      sceneCode: 'string',
       url: 'string',
     };
   }
@@ -1041,6 +1044,192 @@ export class GetSmsAuthTokensResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetSmsAuthTokensResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyCreateVerifySchemeRequest extends $tea.Model {
+  appName?: string;
+  bundleId?: string;
+  cmApiCode?: number;
+  ctApiCode?: number;
+  cuApiCode?: number;
+  osType?: string;
+  ownerId?: number;
+  packName?: string;
+  packSign?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  schemeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      bundleId: 'BundleId',
+      cmApiCode: 'CmApiCode',
+      ctApiCode: 'CtApiCode',
+      cuApiCode: 'CuApiCode',
+      osType: 'OsType',
+      ownerId: 'OwnerId',
+      packName: 'PackName',
+      packSign: 'PackSign',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      schemeName: 'SchemeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      bundleId: 'string',
+      cmApiCode: 'number',
+      ctApiCode: 'number',
+      cuApiCode: 'number',
+      osType: 'string',
+      ownerId: 'number',
+      packName: 'string',
+      packSign: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      schemeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyCreateVerifySchemeResponseBody extends $tea.Model {
+  code?: string;
+  gateVerifySchemeData?: JyCreateVerifySchemeResponseBodyGateVerifySchemeData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      gateVerifySchemeData: 'GateVerifySchemeData',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      gateVerifySchemeData: JyCreateVerifySchemeResponseBodyGateVerifySchemeData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyCreateVerifySchemeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: JyCreateVerifySchemeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: JyCreateVerifySchemeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyQueryAppInfoBySceneCodeRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  sceneCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sceneCode: 'SceneCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      sceneCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyQueryAppInfoBySceneCodeResponseBody extends $tea.Model {
+  code?: string;
+  data?: JyQueryAppInfoBySceneCodeResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: JyQueryAppInfoBySceneCodeResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyQueryAppInfoBySceneCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: JyQueryAppInfoBySceneCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: JyQueryAppInfoBySceneCodeResponseBody,
     };
   }
 
@@ -1964,6 +2153,53 @@ export class GetSmsAuthTokensResponseBodyData extends $tea.Model {
   }
 }
 
+export class JyCreateVerifySchemeResponseBodyGateVerifySchemeData extends $tea.Model {
+  schemeCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      schemeCode: 'SchemeCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      schemeCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyQueryAppInfoBySceneCodeResponseBodyData extends $tea.Model {
+  cmAppId?: string;
+  cmAppKey?: string;
+  ctAppId?: string;
+  ctAppKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cmAppId: 'CmAppId',
+      cmAppKey: 'CmAppKey',
+      ctAppId: 'CtAppId',
+      ctAppKey: 'CtAppKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cmAppId: 'string',
+      cmAppKey: 'string',
+      ctAppId: 'string',
+      ctAppKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryGateVerifyBillingPublicResponseBodyDataSceneBillingList extends $tea.Model {
   add?: string;
   amount?: string;
@@ -2373,6 +2609,14 @@ export default class Client extends OpenApi {
     return await this.createSchemeConfigWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateVerifySchemeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVerifySchemeResponse
+   */
   async createVerifySchemeWithOptions(request: CreateVerifySchemeRequest, runtime: $Util.RuntimeOptions): Promise<CreateVerifySchemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2469,11 +2713,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVerifySchemeResponse>(await this.callApi(params, req, runtime), new CreateVerifySchemeResponse({}));
   }
 
+  /**
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateVerifySchemeRequest
+    * @return CreateVerifySchemeResponse
+   */
   async createVerifyScheme(request: CreateVerifySchemeRequest): Promise<CreateVerifySchemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVerifySchemeWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteVerifySchemeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVerifySchemeResponse
+   */
   async deleteVerifySchemeWithOptions(request: DeleteVerifySchemeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVerifySchemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2514,11 +2773,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVerifySchemeResponse>(await this.callApi(params, req, runtime), new DeleteVerifySchemeResponse({}));
   }
 
+  /**
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteVerifySchemeRequest
+    * @return DeleteVerifySchemeResponse
+   */
   async deleteVerifyScheme(request: DeleteVerifySchemeRequest): Promise<DeleteVerifySchemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVerifySchemeWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVerifySchemeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVerifySchemeResponse
+   */
   async describeVerifySchemeWithOptions(request: DescribeVerifySchemeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifySchemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2559,11 +2833,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVerifySchemeResponse>(await this.callApi(params, req, runtime), new DescribeVerifySchemeResponse({}));
   }
 
+  /**
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVerifySchemeRequest
+    * @return DescribeVerifySchemeResponse
+   */
   async describeVerifyScheme(request: DescribeVerifySchemeRequest): Promise<DescribeVerifySchemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVerifySchemeWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](~~169786~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetAuthTokenRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAuthTokenResponse
+   */
   async getAuthTokenWithOptions(request: GetAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2581,6 +2872,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sceneCode)) {
+      query["SceneCode"] = request.sceneCode;
     }
 
     if (!Util.isUnset(request.url)) {
@@ -2604,11 +2899,30 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAuthTokenResponse>(await this.callApi(params, req, runtime), new GetAuthTokenResponse({}));
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](~~169786~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetAuthTokenRequest
+    * @return GetAuthTokenResponse
+   */
   async getAuthToken(request: GetAuthTokenRequest): Promise<GetAuthTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAuthTokenWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account and obtain an Alibaba Cloud AccessKey pair. For more information, see [Process of communication authorization](~~196922~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetAuthorizationUrlRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAuthorizationUrlResponse
+   */
   async getAuthorizationUrlWithOptions(request: GetAuthorizationUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthorizationUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2653,6 +2967,15 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAuthorizationUrlResponse>(await this.callApi(params, req, runtime), new GetAuthorizationUrlResponse({}));
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account and obtain an Alibaba Cloud AccessKey pair. For more information, see [Process of communication authorization](~~196922~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetAuthorizationUrlRequest
+    * @return GetAuthorizationUrlResponse
+   */
   async getAuthorizationUrl(request: GetAuthorizationUrlRequest): Promise<GetAuthorizationUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAuthorizationUrlWithOptions(request, runtime);
@@ -2719,6 +3042,17 @@ export default class Client extends OpenApi {
     return await this.getFusionAuthTokenWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](~~84541~~).
+    * >  This operation is applicable only to one-click logon or registration. You can call this operation only after you confirm the authorization on the authorization page provided by the SDK for one-click logon. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetMobileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMobileResponse
+   */
   async getMobileWithOptions(request: GetMobileRequest, runtime: $Util.RuntimeOptions): Promise<GetMobileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2759,11 +3093,32 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMobileResponse>(await this.callApi(params, req, runtime), new GetMobileResponse({}));
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](~~84541~~).
+    * >  This operation is applicable only to one-click logon or registration. You can call this operation only after you confirm the authorization on the authorization page provided by the SDK for one-click logon. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetMobileRequest
+    * @return GetMobileResponse
+   */
   async getMobile(request: GetMobileRequest): Promise<GetMobileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMobileWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](~~84541~~).
+    * >  This operation is applicable only to one-click logon or registration in HTML5 pages. You can call this operation only after you confirm the authorization on the authorization page provided by the JavaScript SDK. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetPhoneWithTokenRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetPhoneWithTokenResponse
+   */
   async getPhoneWithTokenWithOptions(request: GetPhoneWithTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetPhoneWithTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2800,11 +3155,31 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPhoneWithTokenResponse>(await this.callApi(params, req, runtime), new GetPhoneWithTokenResponse({}));
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](~~84541~~).
+    * >  This operation is applicable only to one-click logon or registration in HTML5 pages. You can call this operation only after you confirm the authorization on the authorization page provided by the JavaScript SDK. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetPhoneWithTokenRequest
+    * @return GetPhoneWithTokenResponse
+   */
   async getPhoneWithToken(request: GetPhoneWithTokenRequest): Promise<GetPhoneWithTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPhoneWithTokenWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](~~313209~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetSmsAuthTokensRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSmsAuthTokensResponse
+   */
   async getSmsAuthTokensWithOptions(request: GetSmsAuthTokensRequest, runtime: $Util.RuntimeOptions): Promise<GetSmsAuthTokensResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2869,11 +3244,172 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSmsAuthTokensResponse>(await this.callApi(params, req, runtime), new GetSmsAuthTokensResponse({}));
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](~~313209~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetSmsAuthTokensRequest
+    * @return GetSmsAuthTokensResponse
+   */
   async getSmsAuthTokens(request: GetSmsAuthTokensRequest): Promise<GetSmsAuthTokensResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSmsAuthTokensWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : JyCreateVerifyScheme is deprecated, please use Dypnsapi::2017-05-25::CreateVerifyScheme instead.
+    *
+    * @param request JyCreateVerifySchemeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return JyCreateVerifySchemeResponse
+   */
+  // Deprecated
+  async jyCreateVerifySchemeWithOptions(request: JyCreateVerifySchemeRequest, runtime: $Util.RuntimeOptions): Promise<JyCreateVerifySchemeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.bundleId)) {
+      query["BundleId"] = request.bundleId;
+    }
+
+    if (!Util.isUnset(request.cmApiCode)) {
+      query["CmApiCode"] = request.cmApiCode;
+    }
+
+    if (!Util.isUnset(request.ctApiCode)) {
+      query["CtApiCode"] = request.ctApiCode;
+    }
+
+    if (!Util.isUnset(request.cuApiCode)) {
+      query["CuApiCode"] = request.cuApiCode;
+    }
+
+    if (!Util.isUnset(request.osType)) {
+      query["OsType"] = request.osType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.packName)) {
+      query["PackName"] = request.packName;
+    }
+
+    if (!Util.isUnset(request.packSign)) {
+      query["PackSign"] = request.packSign;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.schemeName)) {
+      query["SchemeName"] = request.schemeName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "JyCreateVerifyScheme",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<JyCreateVerifySchemeResponse>(await this.callApi(params, req, runtime), new JyCreateVerifySchemeResponse({}));
+  }
+
+  /**
+    * @deprecated : JyCreateVerifyScheme is deprecated, please use Dypnsapi::2017-05-25::CreateVerifyScheme instead.
+    *
+    * @param request JyCreateVerifySchemeRequest
+    * @return JyCreateVerifySchemeResponse
+   */
+  // Deprecated
+  async jyCreateVerifyScheme(request: JyCreateVerifySchemeRequest): Promise<JyCreateVerifySchemeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.jyCreateVerifySchemeWithOptions(request, runtime);
+  }
+
+  /**
+    * @deprecated : JyQueryAppInfoBySceneCode is deprecated, please use Dypnsapi::2017-05-25::QueryAppInfoBySceneCode instead.
+    *
+    * @param request JyQueryAppInfoBySceneCodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return JyQueryAppInfoBySceneCodeResponse
+   */
+  // Deprecated
+  async jyQueryAppInfoBySceneCodeWithOptions(request: JyQueryAppInfoBySceneCodeRequest, runtime: $Util.RuntimeOptions): Promise<JyQueryAppInfoBySceneCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sceneCode)) {
+      query["SceneCode"] = request.sceneCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "JyQueryAppInfoBySceneCode",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<JyQueryAppInfoBySceneCodeResponse>(await this.callApi(params, req, runtime), new JyQueryAppInfoBySceneCodeResponse({}));
+  }
+
+  /**
+    * @deprecated : JyQueryAppInfoBySceneCode is deprecated, please use Dypnsapi::2017-05-25::QueryAppInfoBySceneCode instead.
+    *
+    * @param request JyQueryAppInfoBySceneCodeRequest
+    * @return JyQueryAppInfoBySceneCodeResponse
+   */
+  // Deprecated
+  async jyQueryAppInfoBySceneCode(request: JyQueryAppInfoBySceneCodeRequest): Promise<JyQueryAppInfoBySceneCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.jyQueryAppInfoBySceneCodeWithOptions(request, runtime);
+  }
+
+  /**
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request QueryGateVerifyBillingPublicRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryGateVerifyBillingPublicResponse
+   */
   async queryGateVerifyBillingPublicWithOptions(request: QueryGateVerifyBillingPublicRequest, runtime: $Util.RuntimeOptions): Promise<QueryGateVerifyBillingPublicResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2910,11 +3446,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryGateVerifyBillingPublicResponse>(await this.callApi(params, req, runtime), new QueryGateVerifyBillingPublicResponse({}));
   }
 
+  /**
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request QueryGateVerifyBillingPublicRequest
+    * @return QueryGateVerifyBillingPublicResponse
+   */
   async queryGateVerifyBillingPublic(request: QueryGateVerifyBillingPublicRequest): Promise<QueryGateVerifyBillingPublicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryGateVerifyBillingPublicWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request QueryGateVerifyStatisticPublicRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryGateVerifyStatisticPublicResponse
+   */
   async queryGateVerifyStatisticPublicWithOptions(request: QueryGateVerifyStatisticPublicRequest, runtime: $Util.RuntimeOptions): Promise<QueryGateVerifyStatisticPublicResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2963,11 +3514,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryGateVerifyStatisticPublicResponse>(await this.callApi(params, req, runtime), new QueryGateVerifyStatisticPublicResponse({}));
   }
 
+  /**
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request QueryGateVerifyStatisticPublicRequest
+    * @return QueryGateVerifyStatisticPublicResponse
+   */
   async queryGateVerifyStatisticPublic(request: QueryGateVerifyStatisticPublicRequest): Promise<QueryGateVerifyStatisticPublicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryGateVerifyStatisticPublicWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request QuerySendDetailsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QuerySendDetailsResponse
+   */
+  // Deprecated
   async querySendDetailsWithOptions(request: QuerySendDetailsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySendDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3020,6 +3586,13 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySendDetailsResponse>(await this.callApi(params, req, runtime), new QuerySendDetailsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request QuerySendDetailsRequest
+    * @return QuerySendDetailsResponse
+   */
+  // Deprecated
   async querySendDetails(request: QuerySendDetailsRequest): Promise<QuerySendDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySendDetailsWithOptions(request, runtime);
@@ -3118,6 +3691,17 @@ export default class Client extends OpenApi {
     return await this.sendSmsVerifyCodeWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](~~84541~~).
+    * >  This operation is applicable to only the verification of thephone number that you use. To obtain a phone number for one-click logon, call [GetMobile](~~189865~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request VerifyMobileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return VerifyMobileResponse
+   */
   async verifyMobileWithOptions(request: VerifyMobileRequest, runtime: $Util.RuntimeOptions): Promise<VerifyMobileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3162,11 +3746,31 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyMobileResponse>(await this.callApi(params, req, runtime), new VerifyMobileResponse({}));
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](~~84541~~).
+    * >  This operation is applicable to only the verification of thephone number that you use. To obtain a phone number for one-click logon, call [GetMobile](~~189865~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request VerifyMobileRequest
+    * @return VerifyMobileResponse
+   */
   async verifyMobile(request: VerifyMobileRequest): Promise<VerifyMobileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyMobileWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](~~169786~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request VerifyPhoneWithTokenRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return VerifyPhoneWithTokenResponse
+   */
   async verifyPhoneWithTokenWithOptions(request: VerifyPhoneWithTokenRequest, runtime: $Util.RuntimeOptions): Promise<VerifyPhoneWithTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3207,11 +3811,30 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyPhoneWithTokenResponse>(await this.callApi(params, req, runtime), new VerifyPhoneWithTokenResponse({}));
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](~~169786~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request VerifyPhoneWithTokenRequest
+    * @return VerifyPhoneWithTokenResponse
+   */
   async verifyPhoneWithToken(request: VerifyPhoneWithTokenRequest): Promise<VerifyPhoneWithTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyPhoneWithTokenWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](~~313209~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request VerifySmsCodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return VerifySmsCodeResponse
+   */
   async verifySmsCodeWithOptions(request: VerifySmsCodeRequest, runtime: $Util.RuntimeOptions): Promise<VerifySmsCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3244,6 +3867,15 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifySmsCodeResponse>(await this.callApi(params, req, runtime), new VerifySmsCodeResponse({}));
   }
 
+  /**
+    * ### [](#)Preparations
+    * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](~~313209~~).
+    * ### [](#qps)QPS limits
+    * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request VerifySmsCodeRequest
+    * @return VerifySmsCodeResponse
+   */
   async verifySmsCode(request: VerifySmsCodeRequest): Promise<VerifySmsCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifySmsCodeWithOptions(request, runtime);
