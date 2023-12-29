@@ -23924,6 +23924,7 @@ export class ListDhcpOptionsSetsResponse extends $tea.Model {
 
 export class ListEnhanhcedNatGatewayAvailableZonesRequest extends $tea.Model {
   acceptLanguage?: string;
+  filter?: ListEnhanhcedNatGatewayAvailableZonesRequestFilter[];
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -23932,6 +23933,7 @@ export class ListEnhanhcedNatGatewayAvailableZonesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      filter: 'Filter',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -23943,6 +23945,7 @@ export class ListEnhanhcedNatGatewayAvailableZonesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      filter: { 'type': 'array', 'itemType': ListEnhanhcedNatGatewayAvailableZonesRequestFilter },
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -29883,6 +29886,7 @@ export class ModifyVirtualBorderRouterAttributeRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  sitelinkEnable?: boolean;
   vbrId?: string;
   vlanId?: number;
   static names(): { [key: string]: string } {
@@ -29908,6 +29912,7 @@ export class ModifyVirtualBorderRouterAttributeRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      sitelinkEnable: 'SitelinkEnable',
       vbrId: 'VbrId',
       vlanId: 'VlanId',
     };
@@ -29936,6 +29941,7 @@ export class ModifyVirtualBorderRouterAttributeRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      sitelinkEnable: 'boolean',
       vbrId: 'string',
       vlanId: 'number',
     };
@@ -42800,6 +42806,8 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
   description?: string;
   detectMultiplier?: number;
   eccId?: string;
+  ecrAttatchStatus?: string;
+  ecrId?: string;
   enableIpv6?: boolean;
   localGatewayIp?: string;
   localIpv6GatewayIp?: string;
@@ -42819,6 +42827,7 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
   recoveryTime?: string;
   resourceGroupId?: string;
   routeTableId?: string;
+  sitelinkEnable?: boolean;
   status?: string;
   tags?: DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtualBorderRouterTypeTags;
   terminationTime?: string;
@@ -42839,6 +42848,8 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
       description: 'Description',
       detectMultiplier: 'DetectMultiplier',
       eccId: 'EccId',
+      ecrAttatchStatus: 'EcrAttatchStatus',
+      ecrId: 'EcrId',
       enableIpv6: 'EnableIpv6',
       localGatewayIp: 'LocalGatewayIp',
       localIpv6GatewayIp: 'LocalIpv6GatewayIp',
@@ -42858,6 +42869,7 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
       recoveryTime: 'RecoveryTime',
       resourceGroupId: 'ResourceGroupId',
       routeTableId: 'RouteTableId',
+      sitelinkEnable: 'SitelinkEnable',
       status: 'Status',
       tags: 'Tags',
       terminationTime: 'TerminationTime',
@@ -42881,6 +42893,8 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
       description: 'string',
       detectMultiplier: 'number',
       eccId: 'string',
+      ecrAttatchStatus: 'string',
+      ecrId: 'string',
       enableIpv6: 'boolean',
       localGatewayIp: 'string',
       localIpv6GatewayIp: 'string',
@@ -42900,6 +42914,7 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
       recoveryTime: 'string',
       resourceGroupId: 'string',
       routeTableId: 'string',
+      sitelinkEnable: 'boolean',
       status: 'string',
       tags: DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtualBorderRouterTypeTags,
       terminationTime: 'string',
@@ -45929,6 +45944,28 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets extends $tea.Model {
       resourceGroupId: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnhanhcedNatGatewayAvailableZonesRequestFilter extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -51390,10 +51427,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **CopyNetworkAclEntries** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of a network ACL:
+    * ## [](#)Description
+    * *   **CopyNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
     *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being copied.
     *     *   If the network ACL is in the **Available** state, the rules of the network ACL are copied.
-    * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation to copy the rules of a network ACL within the specified period of time.
+    * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation within the specified period of time.
     *
     * @param request CopyNetworkAclEntriesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -51460,10 +51498,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **CopyNetworkAclEntries** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of a network ACL:
+    * ## [](#)Description
+    * *   **CopyNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
     *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being copied.
     *     *   If the network ACL is in the **Available** state, the rules of the network ACL are copied.
-    * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation to copy the rules of a network ACL within the specified period of time.
+    * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation within the specified period of time.
     *
     * @param request CopyNetworkAclEntriesRequest
     * @return CopyNetworkAclEntriesResponse
@@ -51817,13 +51856,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * When you call this operation, take note of the following items:
-    * *   The first IP address and last three IP addresses of a default vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
+    * When you call this operation, take note of the following limits:
+    * *   The first IP address and last three IP addresses of a vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
     * *   The number of instances in the default vSwitch cannot exceed the remaining number of instances supported by the VPC (15,000 minus the number of existing instances).
     * *   Default vSwitches do not support multicasting or broadcasting.
     * *   After you create a default vSwitch, you cannot modify its CIDR block.
-    * *   **CreateDefaultVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a default vSwitch:
+    * *   **CreateDefaultVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a default vSwitch:
     *     *   If a default vSwitch is in the **Pending** state, it is being configured.
     *     *   If a default vSwitch is in the **Available** state, it is available.
     * *   If a default vSwitch already exists in a region, you cannot call this operation to create a default vSwitch in this region.
@@ -51886,13 +51924,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * When you call this operation, take note of the following items:
-    * *   The first IP address and last three IP addresses of a default vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
+    * When you call this operation, take note of the following limits:
+    * *   The first IP address and last three IP addresses of a vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
     * *   The number of instances in the default vSwitch cannot exceed the remaining number of instances supported by the VPC (15,000 minus the number of existing instances).
     * *   Default vSwitches do not support multicasting or broadcasting.
     * *   After you create a default vSwitch, you cannot modify its CIDR block.
-    * *   **CreateDefaultVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a default vSwitch:
+    * *   **CreateDefaultVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a default vSwitch:
     *     *   If a default vSwitch is in the **Pending** state, it is being configured.
     *     *   If a default vSwitch is in the **Available** state, it is available.
     * *   If a default vSwitch already exists in a region, you cannot call this operation to create a default vSwitch in this region.
@@ -52595,6 +52632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated
     * ## Usage notes
     * You can call this operation to create only pay-as-you-go GA instances.
     *
@@ -52602,6 +52640,7 @@ export default class Client extends OpenApi {
     * @param runtime runtime options for this request RuntimeOptions
     * @return CreateGlobalAccelerationInstanceResponse
    */
+  // Deprecated
   async createGlobalAccelerationInstanceWithOptions(request: CreateGlobalAccelerationInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalAccelerationInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52667,12 +52706,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated
     * ## Usage notes
     * You can call this operation to create only pay-as-you-go GA instances.
     *
     * @param request CreateGlobalAccelerationInstanceRequest
     * @return CreateGlobalAccelerationInstanceResponse
    */
+  // Deprecated
   async createGlobalAccelerationInstance(request: CreateGlobalAccelerationInstanceRequest): Promise<CreateGlobalAccelerationInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGlobalAccelerationInstanceWithOptions(request, runtime);
@@ -55330,7 +55371,7 @@ export default class Client extends OpenApi {
     * *   Each instance can belong to only one vSwitch.
     * *   vSwitches do not support multicast or broadcast.
     * *   After you create a vSwitch, you cannot modify its CIDR block.
-    * *   The **CreateVSwitch** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+    * *   **CreateVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVSwitchAttributes](~~94567~~) to query the status of the task.
     *     *   If the vSwitch is in the **Pending** state, the vSwitch is being configured.
     *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
     * *   You cannot repeatedly call the **CreateVSwitch** operation to create a vSwitch in a VPC within the specified period of time.
@@ -55423,7 +55464,7 @@ export default class Client extends OpenApi {
     * *   Each instance can belong to only one vSwitch.
     * *   vSwitches do not support multicast or broadcast.
     * *   After you create a vSwitch, you cannot modify its CIDR block.
-    * *   The **CreateVSwitch** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+    * *   **CreateVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVSwitchAttributes](~~94567~~) to query the status of the task.
     *     *   If the vSwitch is in the **Pending** state, the vSwitch is being configured.
     *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
     * *   You cannot repeatedly call the **CreateVSwitch** operation to create a vSwitch in a VPC within the specified period of time.
@@ -58603,7 +58644,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **DeleteNetworkAcl** operation to delete a network ACL within the specified period of time.
+    * ## [](#)Description
+    * You cannot repeatedly call the **DeleteNetworkAcl** operation within the specified period of time.
     *
     * @param request DeleteNetworkAclRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -58666,7 +58708,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **DeleteNetworkAcl** operation to delete a network ACL within the specified period of time.
+    * ## [](#)Description
+    * You cannot repeatedly call the **DeleteNetworkAcl** operation within the specified period of time.
     *
     * @param request DeleteNetworkAclRequest
     * @return DeleteNetworkAclResponse
@@ -67312,6 +67355,10 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -71060,7 +71107,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)References
     * You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
     *
     * @param request ModifyRouteTableAttributesRequest
@@ -71120,7 +71166,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)References
     * You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
     *
     * @param request ModifyRouteTableAttributesRequest
@@ -71685,9 +71730,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **ModifyVSwitchAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
-    *     *   If the vSwitch is in the **Pending** state, the vSwitch is being modified.
-    *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
+    * *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
+    *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
+    *     *   If the vSwitch is in the **Available** state, the name and description of the vSwitch are modified.
     * *   You cannot repeatedly call the **ModifyVSwitchAttribute** operation to modify the name and description of a vSwitch within the specified period of time.
     *
     * @param request ModifyVSwitchAttributeRequest
@@ -71759,9 +71804,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **ModifyVSwitchAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
-    *     *   If the vSwitch is in the **Pending** state, the vSwitch is being modified.
-    *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
+    * *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
+    *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
+    *     *   If the vSwitch is in the **Available** state, the name and description of the vSwitch are modified.
     * *   You cannot repeatedly call the **ModifyVSwitchAttribute** operation to modify the name and description of a vSwitch within the specified period of time.
     *
     * @param request ModifyVSwitchAttributeRequest
@@ -72030,6 +72075,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sitelinkEnable)) {
+      query["SitelinkEnable"] = request.sitelinkEnable;
     }
 
     if (!Util.isUnset(request.vbrId)) {
