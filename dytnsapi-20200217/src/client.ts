@@ -2696,6 +2696,7 @@ export class UAIDVerificationRequest extends $tea.Model {
   ip?: string;
   outId?: string;
   ownerId?: number;
+  province?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   token?: string;
@@ -2707,6 +2708,7 @@ export class UAIDVerificationRequest extends $tea.Model {
       ip: 'Ip',
       outId: 'OutId',
       ownerId: 'OwnerId',
+      province: 'Province',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       token: 'Token',
@@ -2721,6 +2723,7 @@ export class UAIDVerificationRequest extends $tea.Model {
       ip: 'string',
       outId: 'string',
       ownerId: 'number',
+      province: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       token: 'string',
@@ -5726,6 +5729,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.province)) {
+      query["Province"] = request.province;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
