@@ -1685,6 +1685,7 @@ export class SourceRocketMQParameters extends $tea.Model {
 export class StatefulAsyncInvocation extends $tea.Model {
   alreadyRetriedTimes?: number;
   destinationStatus?: string;
+  durationMs?: number;
   endTime?: number;
   events?: StatefulAsyncInvocationEvent[];
   functionName?: string;
@@ -1694,6 +1695,7 @@ export class StatefulAsyncInvocation extends $tea.Model {
   invocationPayload?: string;
   qualifier?: string;
   requestId?: string;
+  returnPayload?: string;
   serviceName?: string;
   startedTime?: number;
   status?: string;
@@ -1701,6 +1703,7 @@ export class StatefulAsyncInvocation extends $tea.Model {
     return {
       alreadyRetriedTimes: 'alreadyRetriedTimes',
       destinationStatus: 'destinationStatus',
+      durationMs: 'durationMs',
       endTime: 'endTime',
       events: 'events',
       functionName: 'functionName',
@@ -1710,6 +1713,7 @@ export class StatefulAsyncInvocation extends $tea.Model {
       invocationPayload: 'invocationPayload',
       qualifier: 'qualifier',
       requestId: 'requestId',
+      returnPayload: 'returnPayload',
       serviceName: 'serviceName',
       startedTime: 'startedTime',
       status: 'status',
@@ -1720,6 +1724,7 @@ export class StatefulAsyncInvocation extends $tea.Model {
     return {
       alreadyRetriedTimes: 'number',
       destinationStatus: 'string',
+      durationMs: 'number',
       endTime: 'number',
       events: { 'type': 'array', 'itemType': StatefulAsyncInvocationEvent },
       functionName: 'string',
@@ -1729,6 +1734,7 @@ export class StatefulAsyncInvocation extends $tea.Model {
       invocationPayload: 'string',
       qualifier: 'string',
       requestId: 'string',
+      returnPayload: 'string',
       serviceName: 'string',
       startedTime: 'number',
       status: 'string',
@@ -8557,6 +8563,8 @@ export class UpdateTriggerResponseBody extends $tea.Model {
   lastModifiedTime?: string;
   qualifier?: string;
   sourceArn?: string;
+  status?: string;
+  targetArn?: string;
   triggerConfig?: string;
   triggerId?: string;
   triggerName?: string;
@@ -8572,6 +8580,8 @@ export class UpdateTriggerResponseBody extends $tea.Model {
       lastModifiedTime: 'lastModifiedTime',
       qualifier: 'qualifier',
       sourceArn: 'sourceArn',
+      status: 'status',
+      targetArn: 'targetArn',
       triggerConfig: 'triggerConfig',
       triggerId: 'triggerId',
       triggerName: 'triggerName',
@@ -8590,6 +8600,8 @@ export class UpdateTriggerResponseBody extends $tea.Model {
       lastModifiedTime: 'string',
       qualifier: 'string',
       sourceArn: 'string',
+      status: 'string',
+      targetArn: 'string',
       triggerConfig: 'string',
       triggerId: 'string',
       triggerName: 'string',
@@ -11001,9 +11013,9 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
-    let body : string = "";
+    let body : Buffer = null;
     if (!Util.isUnset(request.body)) {
-      body = Util.toString(request.body);
+      body = request.body;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -11052,7 +11064,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "json",
+      reqBodyType: "byte",
       bodyType: "byte",
     });
     return $tea.cast<InvokeFunctionResponse>(await this.callApi(params, req, runtime), new InvokeFunctionResponse({}));
