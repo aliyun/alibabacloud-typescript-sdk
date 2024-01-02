@@ -11789,6 +11789,7 @@ export class ModifyMaskingRulesRequest extends $tea.Model {
   ruleConfig?: string;
   ruleName?: string;
   ruleNameList?: string;
+  ruleVersion?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
@@ -11796,6 +11797,7 @@ export class ModifyMaskingRulesRequest extends $tea.Model {
       ruleConfig: 'RuleConfig',
       ruleName: 'RuleName',
       ruleNameList: 'RuleNameList',
+      ruleVersion: 'RuleVersion',
     };
   }
 
@@ -11806,6 +11808,7 @@ export class ModifyMaskingRulesRequest extends $tea.Model {
       ruleConfig: 'string',
       ruleName: 'string',
       ruleNameList: 'string',
+      ruleVersion: 'string',
     };
   }
 
@@ -15610,15 +15613,18 @@ export class DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGr
 
 export class DescribeMaskingRulesResponseBodyData extends $tea.Model {
   ruleList?: string[];
+  ruleVersion?: string;
   static names(): { [key: string]: string } {
     return {
       ruleList: 'RuleList',
+      ruleVersion: 'RuleVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ruleList: { 'type': 'array', 'itemType': 'string' },
+      ruleVersion: 'string',
     };
   }
 
@@ -24636,6 +24642,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ruleNameList)) {
       query["RuleNameList"] = request.ruleNameList;
+    }
+
+    if (!Util.isUnset(request.ruleVersion)) {
+      query["RuleVersion"] = request.ruleVersion;
     }
 
     let req = new $OpenApi.OpenApiRequest({
