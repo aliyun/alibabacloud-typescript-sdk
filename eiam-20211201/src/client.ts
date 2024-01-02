@@ -9162,6 +9162,7 @@ export class ListApplicationsResponseBodyApplications extends $tea.Model {
   applicationId?: string;
   applicationName?: string;
   applicationSourceType?: string;
+  applicationTemplateId?: string;
   clientId?: string;
   createTime?: number;
   description?: string;
@@ -9178,6 +9179,7 @@ export class ListApplicationsResponseBodyApplications extends $tea.Model {
       applicationId: 'ApplicationId',
       applicationName: 'ApplicationName',
       applicationSourceType: 'ApplicationSourceType',
+      applicationTemplateId: 'ApplicationTemplateId',
       clientId: 'ClientId',
       createTime: 'CreateTime',
       description: 'Description',
@@ -9197,6 +9199,7 @@ export class ListApplicationsResponseBodyApplications extends $tea.Model {
       applicationId: 'string',
       applicationName: 'string',
       applicationSourceType: 'string',
+      applicationTemplateId: 'string',
       clientId: 'string',
       createTime: 'number',
       description: 'string',
