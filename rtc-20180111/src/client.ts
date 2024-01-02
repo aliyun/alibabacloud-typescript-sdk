@@ -128,6 +128,97 @@ export class AddRecordTemplateResponse extends $tea.Model {
   }
 }
 
+export class CreateAppStreamingOutTemplateRequest extends $tea.Model {
+  appId?: string;
+  streamingOutTemplate?: CreateAppStreamingOutTemplateRequestStreamingOutTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      streamingOutTemplate: 'StreamingOutTemplate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      streamingOutTemplate: CreateAppStreamingOutTemplateRequestStreamingOutTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppStreamingOutTemplateShrinkRequest extends $tea.Model {
+  appId?: string;
+  streamingOutTemplateShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      streamingOutTemplateShrink: 'StreamingOutTemplate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      streamingOutTemplateShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppStreamingOutTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppStreamingOutTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateAppStreamingOutTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAppStreamingOutTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAutoLiveStreamRuleRequest extends $tea.Model {
   appId?: string;
   callBack?: string;
@@ -375,6 +466,94 @@ export class CreateMPULayoutResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateMPULayoutResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppStreamingOutTemplateRequest extends $tea.Model {
+  appId?: string;
+  streamingOutTemplate?: DeleteAppStreamingOutTemplateRequestStreamingOutTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      streamingOutTemplate: 'StreamingOutTemplate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      streamingOutTemplate: DeleteAppStreamingOutTemplateRequestStreamingOutTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppStreamingOutTemplateShrinkRequest extends $tea.Model {
+  appId?: string;
+  streamingOutTemplateShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      streamingOutTemplateShrink: 'StreamingOutTemplate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      streamingOutTemplateShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppStreamingOutTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppStreamingOutTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteAppStreamingOutTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAppStreamingOutTemplateResponseBody,
     };
   }
 
@@ -789,6 +968,115 @@ export class DescribeAppKeyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAppKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppStreamingOutTemplatesRequest extends $tea.Model {
+  appId?: string;
+  condition?: DescribeAppStreamingOutTemplatesRequestCondition;
+  pageNum?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      condition: 'Condition',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      condition: DescribeAppStreamingOutTemplatesRequestCondition,
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppStreamingOutTemplatesShrinkRequest extends $tea.Model {
+  appId?: string;
+  conditionShrink?: string;
+  pageNum?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      conditionShrink: 'Condition',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      conditionShrink: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppStreamingOutTemplatesResponseBody extends $tea.Model {
+  requestId?: string;
+  templates?: DescribeAppStreamingOutTemplatesResponseBodyTemplates[];
+  totalNum?: number;
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      templates: 'Templates',
+      totalNum: 'TotalNum',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      templates: { 'type': 'array', 'itemType': DescribeAppStreamingOutTemplatesResponseBodyTemplates },
+      totalNum: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppStreamingOutTemplatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAppStreamingOutTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAppStreamingOutTemplatesResponseBody,
     };
   }
 
@@ -4025,6 +4313,97 @@ export class ModifyAppResponse extends $tea.Model {
   }
 }
 
+export class ModifyAppStreamingOutTemplateRequest extends $tea.Model {
+  appId?: string;
+  streamingOutTemplate?: ModifyAppStreamingOutTemplateRequestStreamingOutTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      streamingOutTemplate: 'StreamingOutTemplate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      streamingOutTemplate: ModifyAppStreamingOutTemplateRequestStreamingOutTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppStreamingOutTemplateShrinkRequest extends $tea.Model {
+  appId?: string;
+  streamingOutTemplateShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      streamingOutTemplateShrink: 'StreamingOutTemplate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      streamingOutTemplateShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppStreamingOutTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppStreamingOutTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyAppStreamingOutTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAppStreamingOutTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyMPULayoutRequest extends $tea.Model {
   appId?: string;
   audioMixCount?: number;
@@ -5141,6 +5520,34 @@ export class AddRecordTemplateRequestWatermarks extends $tea.Model {
   }
 }
 
+export class CreateAppStreamingOutTemplateRequestStreamingOutTemplate extends $tea.Model {
+  enableVad?: boolean;
+  layoutIds?: string[];
+  mediaEncode?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableVad: 'EnableVad',
+      layoutIds: 'LayoutIds',
+      mediaEncode: 'MediaEncode',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableVad: 'boolean',
+      layoutIds: { 'type': 'array', 'itemType': 'string' },
+      mediaEncode: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMPULayoutRequestPanes extends $tea.Model {
   height?: number;
   majorPane?: number;
@@ -5170,6 +5577,81 @@ export class CreateMPULayoutRequestPanes extends $tea.Model {
       x: 'number',
       y: 'number',
       ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppStreamingOutTemplateRequestStreamingOutTemplate extends $tea.Model {
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppStreamingOutTemplatesRequestCondition extends $tea.Model {
+  name?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppStreamingOutTemplatesResponseBodyTemplates extends $tea.Model {
+  createTime?: string;
+  enableVad?: boolean;
+  layoutIds?: string[];
+  mediaEncode?: number;
+  name?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      enableVad: 'EnableVad',
+      layoutIds: 'LayoutIds',
+      mediaEncode: 'MediaEncode',
+      name: 'Name',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      enableVad: 'boolean',
+      layoutIds: { 'type': 'array', 'itemType': 'string' },
+      mediaEncode: 'number',
+      name: 'string',
+      templateId: 'string',
     };
   }
 
@@ -7746,6 +8228,37 @@ export class DescribeUserInfoInChannelResponseBodyProperty extends $tea.Model {
   }
 }
 
+export class ModifyAppStreamingOutTemplateRequestStreamingOutTemplate extends $tea.Model {
+  enableVad?: boolean;
+  layoutIds?: string[];
+  mediaEncode?: number;
+  name?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableVad: 'EnableVad',
+      layoutIds: 'LayoutIds',
+      mediaEncode: 'MediaEncode',
+      name: 'Name',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableVad: 'boolean',
+      layoutIds: { 'type': 'array', 'itemType': 'string' },
+      mediaEncode: 'number',
+      name: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyMPULayoutRequestPanes extends $tea.Model {
   height?: number;
   majorPane?: number;
@@ -8801,6 +9314,45 @@ export default class Client extends OpenApi {
     return await this.addRecordTemplateWithOptions(request, runtime);
   }
 
+  async createAppStreamingOutTemplateWithOptions(tmpReq: CreateAppStreamingOutTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppStreamingOutTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateAppStreamingOutTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.streamingOutTemplate)) {
+      request.streamingOutTemplateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.streamingOutTemplate, "StreamingOutTemplate", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.streamingOutTemplateShrink)) {
+      query["StreamingOutTemplate"] = request.streamingOutTemplateShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAppStreamingOutTemplate",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAppStreamingOutTemplateResponse>(await this.callApi(params, req, runtime), new CreateAppStreamingOutTemplateResponse({}));
+  }
+
+  async createAppStreamingOutTemplate(request: CreateAppStreamingOutTemplateRequest): Promise<CreateAppStreamingOutTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAppStreamingOutTemplateWithOptions(request, runtime);
+  }
+
   async createAutoLiveStreamRuleWithOptions(request: CreateAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8962,6 +9514,45 @@ export default class Client extends OpenApi {
   async createMPULayout(request: CreateMPULayoutRequest): Promise<CreateMPULayoutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMPULayoutWithOptions(request, runtime);
+  }
+
+  async deleteAppStreamingOutTemplateWithOptions(tmpReq: DeleteAppStreamingOutTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppStreamingOutTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteAppStreamingOutTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.streamingOutTemplate)) {
+      request.streamingOutTemplateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.streamingOutTemplate, "StreamingOutTemplate", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.streamingOutTemplateShrink)) {
+      query["StreamingOutTemplate"] = request.streamingOutTemplateShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAppStreamingOutTemplate",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAppStreamingOutTemplateResponse>(await this.callApi(params, req, runtime), new DeleteAppStreamingOutTemplateResponse({}));
+  }
+
+  async deleteAppStreamingOutTemplate(request: DeleteAppStreamingOutTemplateRequest): Promise<DeleteAppStreamingOutTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAppStreamingOutTemplateWithOptions(request, runtime);
   }
 
   async deleteAutoLiveStreamRuleWithOptions(request: DeleteAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAutoLiveStreamRuleResponse> {
@@ -9180,6 +9771,53 @@ export default class Client extends OpenApi {
   async describeAppKey(request: DescribeAppKeyRequest): Promise<DescribeAppKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAppKeyWithOptions(request, runtime);
+  }
+
+  async describeAppStreamingOutTemplatesWithOptions(tmpReq: DescribeAppStreamingOutTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppStreamingOutTemplatesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeAppStreamingOutTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.condition)) {
+      request.conditionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.condition, "Condition", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.conditionShrink)) {
+      query["Condition"] = request.conditionShrink;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAppStreamingOutTemplates",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppStreamingOutTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeAppStreamingOutTemplatesResponse({}));
+  }
+
+  async describeAppStreamingOutTemplates(request: DescribeAppStreamingOutTemplatesRequest): Promise<DescribeAppStreamingOutTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppStreamingOutTemplatesWithOptions(request, runtime);
   }
 
   async describeAppsWithOptions(request: DescribeAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppsResponse> {
@@ -10960,6 +11598,45 @@ export default class Client extends OpenApi {
   async modifyApp(request: ModifyAppRequest): Promise<ModifyAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAppWithOptions(request, runtime);
+  }
+
+  async modifyAppStreamingOutTemplateWithOptions(tmpReq: ModifyAppStreamingOutTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppStreamingOutTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyAppStreamingOutTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.streamingOutTemplate)) {
+      request.streamingOutTemplateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.streamingOutTemplate, "StreamingOutTemplate", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.streamingOutTemplateShrink)) {
+      query["StreamingOutTemplate"] = request.streamingOutTemplateShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAppStreamingOutTemplate",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAppStreamingOutTemplateResponse>(await this.callApi(params, req, runtime), new ModifyAppStreamingOutTemplateResponse({}));
+  }
+
+  async modifyAppStreamingOutTemplate(request: ModifyAppStreamingOutTemplateRequest): Promise<ModifyAppStreamingOutTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAppStreamingOutTemplateWithOptions(request, runtime);
   }
 
   async modifyMPULayoutWithOptions(request: ModifyMPULayoutRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMPULayoutResponse> {
