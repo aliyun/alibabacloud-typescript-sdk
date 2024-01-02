@@ -11013,9 +11013,9 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
-    let body : Buffer = null;
+    let body : string = "";
     if (!Util.isUnset(request.body)) {
-      body = request.body;
+      body = Util.toString(request.body);
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -11064,7 +11064,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "byte",
+      reqBodyType: "json",
       bodyType: "byte",
     });
     return $tea.cast<InvokeFunctionResponse>(await this.callApi(params, req, runtime), new InvokeFunctionResponse({}));
