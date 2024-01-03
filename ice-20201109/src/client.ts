@@ -18643,6 +18643,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Mode
   status?: string;
   templateId?: string;
   timeline?: string;
+  userData?: string;
   vodMediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18660,6 +18661,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Mode
       status: 'Status',
       templateId: 'TemplateId',
       timeline: 'Timeline',
+      userData: 'UserData',
       vodMediaId: 'VodMediaId',
     };
   }
@@ -18680,6 +18682,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Mode
       status: 'string',
       templateId: 'string',
       timeline: 'string',
+      userData: 'string',
       vodMediaId: 'string',
     };
   }
