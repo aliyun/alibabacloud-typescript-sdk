@@ -4718,6 +4718,81 @@ export class DeleteScenarioResponse extends $tea.Model {
   }
 }
 
+export class DeleteStandardGroupRequest extends $tea.Model {
+  groupId?: number;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStandardGroupResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStandardGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteStandardGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteStandardGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteTaskRequest extends $tea.Model {
   nodeId?: string;
   tid?: number;
@@ -9347,6 +9422,84 @@ export class GetSQLReviewOptimizeDetailResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetSQLReviewOptimizeDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStandardGroupRequest extends $tea.Model {
+  groupId?: number;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStandardGroupResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  standardGroup?: GetStandardGroupResponseBodyStandardGroup;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      standardGroup: 'StandardGroup',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      standardGroup: GetStandardGroupResponseBodyStandardGroup,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStandardGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetStandardGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetStandardGroupResponseBody,
     };
   }
 
@@ -18107,6 +18260,90 @@ export class UpdateScenarioResponse extends $tea.Model {
   }
 }
 
+export class UpdateStandardGroupRequest extends $tea.Model {
+  description?: string;
+  groupId?: number;
+  groupName?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      groupId: 'number',
+      groupName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStandardGroupResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  standardGroup?: UpdateStandardGroupResponseBodyStandardGroup;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      standardGroup: 'StandardGroup',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      standardGroup: UpdateStandardGroupResponseBodyStandardGroup,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStandardGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateStandardGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateStandardGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTaskConfigRequest extends $tea.Model {
   nodeConfig?: string;
   nodeId?: string;
@@ -20286,6 +20523,7 @@ export class CreateProcCorrectOrderRequestParamDbItemList extends $tea.Model {
 export class CreateProcCorrectOrderRequestParam extends $tea.Model {
   classify?: string;
   dbItemList?: CreateProcCorrectOrderRequestParamDbItemList[];
+  execMode?: string;
   execSQL?: string;
   rollbackAttachmentName?: string;
   rollbackSQL?: string;
@@ -20294,6 +20532,7 @@ export class CreateProcCorrectOrderRequestParam extends $tea.Model {
     return {
       classify: 'Classify',
       dbItemList: 'DbItemList',
+      execMode: 'ExecMode',
       execSQL: 'ExecSQL',
       rollbackAttachmentName: 'RollbackAttachmentName',
       rollbackSQL: 'RollbackSQL',
@@ -20305,6 +20544,7 @@ export class CreateProcCorrectOrderRequestParam extends $tea.Model {
     return {
       classify: 'string',
       dbItemList: { 'type': 'array', 'itemType': CreateProcCorrectOrderRequestParamDbItemList },
+      execMode: 'string',
       execSQL: 'string',
       rollbackAttachmentName: 'string',
       rollbackSQL: 'string',
@@ -20345,6 +20585,7 @@ export class CreateSQLReviewOrderRequestParam extends $tea.Model {
 export class CreateStandardGroupResponseBodyStandardGroup extends $tea.Model {
   dbType?: string;
   description?: string;
+  groupId?: number;
   groupMode?: string;
   groupName?: string;
   lastMenderId?: number;
@@ -20352,6 +20593,7 @@ export class CreateStandardGroupResponseBodyStandardGroup extends $tea.Model {
     return {
       dbType: 'DbType',
       description: 'Description',
+      groupId: 'GroupId',
       groupMode: 'GroupMode',
       groupName: 'GroupName',
       lastMenderId: 'LastMenderId',
@@ -20362,6 +20604,7 @@ export class CreateStandardGroupResponseBodyStandardGroup extends $tea.Model {
     return {
       dbType: 'string',
       description: 'string',
+      groupId: 'number',
       groupMode: 'string',
       groupName: 'string',
       lastMenderId: 'number',
@@ -23782,6 +24025,40 @@ export class GetSQLReviewOptimizeDetailResponseBodyOptimizeDetail extends $tea.M
       qualityResult: GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResult,
       queryKey: 'string',
       sqlType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStandardGroupResponseBodyStandardGroup extends $tea.Model {
+  dbType?: string;
+  description?: string;
+  groupId?: number;
+  groupMode?: string;
+  groupName?: string;
+  lastMenderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbType: 'DbType',
+      description: 'Description',
+      groupId: 'GroupId',
+      groupMode: 'GroupMode',
+      groupName: 'GroupName',
+      lastMenderId: 'LastMenderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbType: 'string',
+      description: 'string',
+      groupId: 'number',
+      groupMode: 'string',
+      groupName: 'string',
+      lastMenderId: 'number',
     };
   }
 
@@ -28959,6 +29236,40 @@ export class UpdateSLARulesRequestSlaRuleList extends $tea.Model {
   }
 }
 
+export class UpdateStandardGroupResponseBodyStandardGroup extends $tea.Model {
+  dbType?: string;
+  description?: string;
+  groupId?: number;
+  groupMode?: string;
+  groupName?: string;
+  lastMenderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbType: 'DbType',
+      description: 'Description',
+      groupId: 'GroupId',
+      groupMode: 'GroupMode',
+      groupName: 'GroupName',
+      lastMenderId: 'LastMenderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbType: 'string',
+      description: 'string',
+      groupId: 'number',
+      groupMode: 'string',
+      groupName: 'string',
+      lastMenderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTaskFlowConstantsRequestDagConstants extends $tea.Model {
   key?: string;
   value?: string;
@@ -31462,6 +31773,39 @@ export default class Client extends OpenApi {
     return await this.deleteScenarioWithOptions(request, runtime);
   }
 
+  async deleteStandardGroupWithOptions(request: DeleteStandardGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStandardGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteStandardGroup",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteStandardGroupResponse>(await this.callApi(params, req, runtime), new DeleteStandardGroupResponse({}));
+  }
+
+  async deleteStandardGroup(request: DeleteStandardGroupRequest): Promise<DeleteStandardGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteStandardGroupWithOptions(request, runtime);
+  }
+
   async deleteTaskWithOptions(request: DeleteTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33720,6 +34064,39 @@ export default class Client extends OpenApi {
   async getSQLReviewOptimizeDetail(request: GetSQLReviewOptimizeDetailRequest): Promise<GetSQLReviewOptimizeDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSQLReviewOptimizeDetailWithOptions(request, runtime);
+  }
+
+  async getStandardGroupWithOptions(request: GetStandardGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetStandardGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetStandardGroup",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStandardGroupResponse>(await this.callApi(params, req, runtime), new GetStandardGroupResponse({}));
+  }
+
+  async getStandardGroup(request: GetStandardGroupRequest): Promise<GetStandardGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getStandardGroupWithOptions(request, runtime);
   }
 
   async getStructSyncExecSqlDetailWithOptions(request: GetStructSyncExecSqlDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetStructSyncExecSqlDetailResponse> {
@@ -38306,6 +38683,47 @@ export default class Client extends OpenApi {
   async updateScenario(request: UpdateScenarioRequest): Promise<UpdateScenarioResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateScenarioWithOptions(request, runtime);
+  }
+
+  async updateStandardGroupWithOptions(request: UpdateStandardGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStandardGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateStandardGroup",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateStandardGroupResponse>(await this.callApi(params, req, runtime), new UpdateStandardGroupResponse({}));
+  }
+
+  async updateStandardGroup(request: UpdateStandardGroupRequest): Promise<UpdateStandardGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateStandardGroupWithOptions(request, runtime);
   }
 
   /**
