@@ -2416,6 +2416,7 @@ export class DescribeBackupTasksResponse extends $tea.Model {
 
 export class DescribeBackupsRequest extends $tea.Model {
   backupId?: number;
+  backupJobId?: number;
   endTime?: string;
   instanceId?: string;
   needAof?: string;
@@ -2430,6 +2431,7 @@ export class DescribeBackupsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       backupId: 'BackupId',
+      backupJobId: 'BackupJobId',
       endTime: 'EndTime',
       instanceId: 'InstanceId',
       needAof: 'NeedAof',
@@ -2447,6 +2449,7 @@ export class DescribeBackupsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backupId: 'number',
+      backupJobId: 'number',
       endTime: 'string',
       instanceId: 'string',
       needAof: 'string',
@@ -2895,6 +2898,87 @@ export class DescribeDBInstanceNetInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDBInstanceNetInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBNodeDirectVipInfoRequest extends $tea.Model {
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBNodeDirectVipInfoResponseBody extends $tea.Model {
+  directVipInfo?: DescribeDBNodeDirectVipInfoResponseBodyDirectVipInfo;
+  instanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directVipInfo: 'DirectVipInfo',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directVipInfo: DescribeDBNodeDirectVipInfoResponseBodyDirectVipInfo,
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBNodeDirectVipInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDBNodeDirectVipInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBNodeDirectVipInfoResponseBody,
     };
   }
 
@@ -11548,6 +11632,7 @@ export class DescribeDBInstanceNetInfoResponseBodyNetInfoItemsInstanceNetInfo ex
   expiredTime?: string;
   IPAddress?: string;
   IPType?: string;
+  isSlaveProxy?: number;
   port?: string;
   upgradeable?: string;
   VPCId?: string;
@@ -11561,6 +11646,7 @@ export class DescribeDBInstanceNetInfoResponseBodyNetInfoItemsInstanceNetInfo ex
       expiredTime: 'ExpiredTime',
       IPAddress: 'IPAddress',
       IPType: 'IPType',
+      isSlaveProxy: 'IsSlaveProxy',
       port: 'Port',
       upgradeable: 'Upgradeable',
       VPCId: 'VPCId',
@@ -11577,6 +11663,7 @@ export class DescribeDBInstanceNetInfoResponseBodyNetInfoItemsInstanceNetInfo ex
       expiredTime: 'string',
       IPAddress: 'string',
       IPType: 'string',
+      isSlaveProxy: 'number',
       port: 'string',
       upgradeable: 'string',
       VPCId: 'string',
@@ -11601,6 +11688,53 @@ export class DescribeDBInstanceNetInfoResponseBodyNetInfoItems extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       instanceNetInfo: { 'type': 'array', 'itemType': DescribeDBInstanceNetInfoResponseBodyNetInfoItemsInstanceNetInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBNodeDirectVipInfoResponseBodyDirectVipInfoVipInfo extends $tea.Model {
+  netType?: string;
+  nodeId?: string;
+  port?: string;
+  vip?: string;
+  static names(): { [key: string]: string } {
+    return {
+      netType: 'NetType',
+      nodeId: 'NodeId',
+      port: 'Port',
+      vip: 'Vip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      netType: 'string',
+      nodeId: 'string',
+      port: 'string',
+      vip: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBNodeDirectVipInfoResponseBodyDirectVipInfo extends $tea.Model {
+  vipInfo?: DescribeDBNodeDirectVipInfoResponseBodyDirectVipInfoVipInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      vipInfo: 'VipInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vipInfo: { 'type': 'array', 'itemType': DescribeDBNodeDirectVipInfoResponseBodyDirectVipInfoVipInfo },
     };
   }
 
@@ -12226,6 +12360,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
   secondaryZoneId?: string;
   securityIPList?: string;
   shardCount?: number;
+  slaveReadOnlyCount?: number;
   storage?: string;
   storageType?: string;
   tags?: DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttributeTags;
@@ -12280,6 +12415,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       secondaryZoneId: 'SecondaryZoneId',
       securityIPList: 'SecurityIPList',
       shardCount: 'ShardCount',
+      slaveReadOnlyCount: 'SlaveReadOnlyCount',
       storage: 'Storage',
       storageType: 'StorageType',
       tags: 'Tags',
@@ -12337,6 +12473,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       secondaryZoneId: 'string',
       securityIPList: 'string',
       shardCount: 'number',
+      slaveReadOnlyCount: 'number',
       storage: 'string',
       storageType: 'string',
       tags: DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttributeTags,
@@ -14103,7 +14240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * r-bp1zxszhcgatnx****
+    * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](~~43850~~).
     *
     * @param request AllocateInstancePublicConnectionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14162,7 +14299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * r-bp1zxszhcgatnx****
+    * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](~~43850~~).
     *
     * @param request AllocateInstancePublicConnectionRequest
     * @return AllocateInstancePublicConnectionResponse
@@ -15181,6 +15318,13 @@ export default class Client extends OpenApi {
     return await this.deleteAccountWithOptions(request, runtime);
   }
 
+  /**
+    * Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
+    *
+    * @param request DeleteGlobalSecurityIPGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteGlobalSecurityIPGroupResponse
+   */
   async deleteGlobalSecurityIPGroupWithOptions(request: DeleteGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGlobalSecurityIPGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15237,6 +15381,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new DeleteGlobalSecurityIPGroupResponse({}));
   }
 
+  /**
+    * Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
+    *
+    * @param request DeleteGlobalSecurityIPGroupRequest
+    * @return DeleteGlobalSecurityIPGroupResponse
+   */
   async deleteGlobalSecurityIPGroup(request: DeleteGlobalSecurityIPGroupRequest): Promise<DeleteGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGlobalSecurityIPGroupWithOptions(request, runtime);
@@ -15397,7 +15547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Details about returned accounts of the instance.
+    * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
     *
     * @param request DescribeAccountsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15452,7 +15602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Details about returned accounts of the instance.
+    * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
     *
     * @param request DescribeAccountsRequest
     * @return DescribeAccountsResponse
@@ -15934,6 +16084,10 @@ export default class Client extends OpenApi {
       query["BackupId"] = request.backupId;
     }
 
+    if (!Util.isUnset(request.backupJobId)) {
+      query["BackupJobId"] = request.backupJobId;
+    }
+
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
@@ -16298,6 +16452,51 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceNetInfoWithOptions(request, runtime);
   }
 
+  async describeDBNodeDirectVipInfoWithOptions(request: DescribeDBNodeDirectVipInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBNodeDirectVipInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBNodeDirectVipInfo",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBNodeDirectVipInfoResponse>(await this.callApi(params, req, runtime), new DescribeDBNodeDirectVipInfoResponse({}));
+  }
+
+  async describeDBNodeDirectVipInfo(request: DescribeDBNodeDirectVipInfoRequest): Promise<DescribeDBNodeDirectVipInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBNodeDirectVipInfoWithOptions(request, runtime);
+  }
+
   /**
     * > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](~~60996~~) operation.
     *
@@ -16532,6 +16731,14 @@ export default class Client extends OpenApi {
     return await this.describeEncryptionKeyListWithOptions(request, runtime);
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01)
+    *
+    * @param request DescribeEngineVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeEngineVersionResponse
+   */
   async describeEngineVersionWithOptions(request: DescribeEngineVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEngineVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16576,11 +16783,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEngineVersionResponse>(await this.callApi(params, req, runtime), new DescribeEngineVersionResponse({}));
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01)
+    *
+    * @param request DescribeEngineVersionRequest
+    * @return DescribeEngineVersionResponse
+   */
   async describeEngineVersion(request: DescribeEngineVersionRequest): Promise<DescribeEngineVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEngineVersionWithOptions(request, runtime);
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01)
+    *
+    * @param request DescribeGlobalDistributeCacheRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeGlobalDistributeCacheResponse
+   */
   async describeGlobalDistributeCacheWithOptions(request: DescribeGlobalDistributeCacheRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalDistributeCacheResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16637,6 +16859,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGlobalDistributeCacheResponse>(await this.callApi(params, req, runtime), new DescribeGlobalDistributeCacheResponse({}));
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01)
+    *
+    * @param request DescribeGlobalDistributeCacheRequest
+    * @return DescribeGlobalDistributeCacheResponse
+   */
   async describeGlobalDistributeCache(request: DescribeGlobalDistributeCacheRequest): Promise<DescribeGlobalDistributeCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGlobalDistributeCacheWithOptions(request, runtime);
@@ -17550,7 +17779,7 @@ export default class Client extends OpenApi {
 
   /**
     * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](~~189893~~).
-    * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~61107~~) operation to query monitoring history of the instance.
+    * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
     *
     * @param request DescribeMonitorItemsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17598,7 +17827,7 @@ export default class Client extends OpenApi {
 
   /**
     * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](~~189893~~).
-    * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~61107~~) operation to query monitoring history of the instance.
+    * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
     *
     * @param request DescribeMonitorItemsRequest
     * @return DescribeMonitorItemsResponse
@@ -18347,7 +18576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The progress of the task. Unit: %.
+    * You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
     *
     * @param request DescribeTasksRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18418,7 +18647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The progress of the task. Unit: %.
+    * You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
     *
     * @param request DescribeTasksRequest
     * @return DescribeTasksResponse
@@ -18582,10 +18811,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The time when the minor version is upgraded. Valid values:
-    * *   **Immediately**: immediately deletes expired keys.
-    * *   **MaintainTime:**deletes expired key in the maintenance window.
-    * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+    * For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](~~43881~~).
+    * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
     *
     * @param request FlushExpireKeysRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18640,10 +18867,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The time when the minor version is upgraded. Valid values:
-    * *   **Immediately**: immediately deletes expired keys.
-    * *   **MaintainTime:**deletes expired key in the maintenance window.
-    * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+    * For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](~~43881~~).
+    * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
     *
     * @param request FlushExpireKeysRequest
     * @return FlushExpireKeysResponse
@@ -18653,13 +18878,6 @@ export default class Client extends OpenApi {
     return await this.flushExpireKeysWithOptions(request, runtime);
   }
 
-  /**
-    * The ID of the instance.
-    *
-    * @param request FlushInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return FlushInstanceResponse
-   */
   async flushInstanceWithOptions(request: FlushInstanceRequest, runtime: $Util.RuntimeOptions): Promise<FlushInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18704,12 +18922,6 @@ export default class Client extends OpenApi {
     return $tea.cast<FlushInstanceResponse>(await this.callApi(params, req, runtime), new FlushInstanceResponse({}));
   }
 
-  /**
-    * The ID of the instance.
-    *
-    * @param request FlushInstanceRequest
-    * @return FlushInstanceResponse
-   */
   async flushInstance(request: FlushInstanceRequest): Promise<FlushInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.flushInstanceWithOptions(request, runtime);
@@ -18780,7 +18992,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the account. You can call the [DescribeAccounts](~~95802~~) operation to obtain the name of the account.
+    * > 
+    * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+    * *   The ApsaraDB for Redis instance must be in the running state.
     *
     * @param request GrantAccountPrivilegeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18839,7 +19053,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the account. You can call the [DescribeAccounts](~~95802~~) operation to obtain the name of the account.
+    * > 
+    * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+    * *   The ApsaraDB for Redis instance must be in the running state.
     *
     * @param request GrantAccountPrivilegeRequest
     * @return GrantAccountPrivilegeResponse
@@ -18850,7 +19066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](~~184337~~).
     *
     * @param request InitializeKvstorePermissionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18901,7 +19117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](~~184337~~).
     *
     * @param request InitializeKvstorePermissionRequest
     * @return InitializeKvstorePermissionResponse
@@ -20262,10 +20478,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Modifies SSL encryption configurations. Valid values:
-    * *   **Disable**: The SSL encryption is disabled.
-    * *   **Enable**: The SSL encryption is enabled.
-    * *   **Update**: The SSL certificate is updated.
+    * You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
+    * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
     *
     * @param request ModifyInstanceSSLRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20320,10 +20534,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Modifies SSL encryption configurations. Valid values:
-    * *   **Disable**: The SSL encryption is disabled.
-    * *   **Enable**: The SSL encryption is enabled.
-    * *   **Update**: The SSL certificate is updated.
+    * You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
+    * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
     *
     * @param request ModifyInstanceSSLRequest
     * @return ModifyInstanceSSLResponse
@@ -20948,7 +21160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](~~125424~~).
     *
     * @param request ReleaseInstancePublicConnectionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21003,7 +21215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](~~125424~~).
     *
     * @param request ReleaseInstancePublicConnectionRequest
     * @return ReleaseInstancePublicConnectionResponse
@@ -21252,7 +21464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * r-bp1zxszhcgatnx****
+    * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
     *
     * @param request ResetAccountPasswordRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21311,7 +21523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * r-bp1zxszhcgatnx****
+    * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
     *
     * @param request ResetAccountPasswordRequest
     * @return ResetAccountPasswordResponse
@@ -21825,7 +22037,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 1
+    * Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
+    * *   [Change the billing method to subscription](~~54542~~).
+    * *   [Change the billing method to pay-as-you-go](~~211549~~).
     *
     * @param request TransformInstanceChargeTypeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21896,7 +22110,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 1
+    * Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
+    * *   [Change the billing method to subscription](~~54542~~).
+    * *   [Change the billing method to pay-as-you-go](~~211549~~).
     *
     * @param request TransformInstanceChargeTypeRequest
     * @return TransformInstanceChargeTypeResponse
@@ -21907,7 +22123,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+    * For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](~~54542~~).
+    * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
     *
     * @param request TransformToPrePaidRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21966,7 +22183,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+    * For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](~~54542~~).
+    * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
     *
     * @param request TransformToPrePaidRequest
     * @return TransformToPrePaidResponse
