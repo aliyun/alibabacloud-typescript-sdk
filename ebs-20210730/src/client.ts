@@ -3999,6 +3999,81 @@ export class UpdateEnterpriseSnapshotPolicyResponse extends $tea.Model {
   }
 }
 
+export class UpdateSolutionInstanceAttributeRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  name?: string;
+  regionId?: string;
+  solutionInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      name: 'Name',
+      regionId: 'RegionId',
+      solutionInstanceId: 'SolutionInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      name: 'string',
+      regionId: 'string',
+      solutionInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSolutionInstanceAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSolutionInstanceAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSolutionInstanceAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSolutionInstanceAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDedicatedBlockStorageClusterRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -8575,6 +8650,51 @@ export default class Client extends OpenApi {
   async updateEnterpriseSnapshotPolicy(request: UpdateEnterpriseSnapshotPolicyRequest): Promise<UpdateEnterpriseSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEnterpriseSnapshotPolicyWithOptions(request, runtime);
+  }
+
+  async updateSolutionInstanceAttributeWithOptions(request: UpdateSolutionInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSolutionInstanceAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.solutionInstanceId)) {
+      query["SolutionInstanceId"] = request.solutionInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSolutionInstanceAttribute",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSolutionInstanceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateSolutionInstanceAttributeResponse({}));
+  }
+
+  async updateSolutionInstanceAttribute(request: UpdateSolutionInstanceAttributeRequest): Promise<UpdateSolutionInstanceAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSolutionInstanceAttributeWithOptions(request, runtime);
   }
 
 }
