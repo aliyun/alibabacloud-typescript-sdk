@@ -431,6 +431,56 @@ export class CloseMergeRequestResponse extends $tea.Model {
   }
 }
 
+export class CreateAppMembersRequest extends $tea.Model {
+  playerList?: CreateAppMembersRequestPlayerList[];
+  roleNames?: string[];
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      playerList: 'playerList',
+      roleNames: 'roleNames',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      playerList: { 'type': 'array', 'itemType': CreateAppMembersRequestPlayerList },
+      roleNames: { 'type': 'array', 'itemType': 'string' },
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppMembersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: string;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateBranchRequest extends $tea.Model {
   accessToken?: string;
   branchName?: string;
@@ -3304,6 +3354,56 @@ export class CreateWorkspaceResponse extends $tea.Model {
   }
 }
 
+export class DeleteAppMemberRequest extends $tea.Model {
+  organizationId?: string;
+  subjectId?: string;
+  subjectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      organizationId: 'organizationId',
+      subjectId: 'subjectId',
+      subjectType: 'subjectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationId: 'string',
+      subjectId: 'string',
+      subjectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppMemberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: string;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteBranchRequest extends $tea.Model {
   accessToken?: string;
   branchName?: string;
@@ -5064,6 +5164,81 @@ export class FrozenWorkspaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FrozenWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationRequest extends $tea.Model {
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBody extends $tea.Model {
+  creatorAccountId?: string;
+  description?: string;
+  gmtCreate?: string;
+  name?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creatorAccountId: 'creatorAccountId',
+      description: 'description',
+      gmtCreate: 'gmtCreate',
+      name: 'name',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creatorAccountId: 'string',
+      description: 'string',
+      gmtCreate: 'string',
+      name: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetApplicationResponseBody,
     };
   }
 
@@ -7995,6 +8170,168 @@ export class JoinPipelineGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: JoinPipelineGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationMembersRequest extends $tea.Model {
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationMembersResponseBody extends $tea.Model {
+  current?: number;
+  pageSize?: number;
+  pages?: number;
+  records?: ListApplicationMembersResponseBodyRecords[];
+  requestId?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'current',
+      pageSize: 'pageSize',
+      pages: 'pages',
+      records: 'records',
+      requestId: 'requestId',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      pageSize: 'number',
+      pages: 'number',
+      records: { 'type': 'array', 'itemType': ListApplicationMembersResponseBodyRecords },
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationMembersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListApplicationMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApplicationMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsRequest extends $tea.Model {
+  nextToken?: string;
+  orderBy?: string;
+  organizationId?: string;
+  pagination?: string;
+  perPage?: number;
+  sort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'nextToken',
+      orderBy: 'orderBy',
+      organizationId: 'organizationId',
+      pagination: 'pagination',
+      perPage: 'perPage',
+      sort: 'sort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      orderBy: 'string',
+      organizationId: 'string',
+      pagination: 'string',
+      perPage: 'number',
+      sort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsResponseBody extends $tea.Model {
+  data?: ListApplicationsResponseBodyData[];
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListApplicationsResponseBodyData },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListApplicationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApplicationsResponseBody,
     };
   }
 
@@ -13790,6 +14127,134 @@ export class TriggerRepositoryMirrorSyncResponse extends $tea.Model {
   }
 }
 
+export class UpdateAppMemberRequest extends $tea.Model {
+  player?: UpdateAppMemberRequestPlayer;
+  roleNames?: string[];
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      player: 'player',
+      roleNames: 'roleNames',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      player: UpdateAppMemberRequestPlayer,
+      roleNames: { 'type': 'array', 'itemType': 'string' },
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppMemberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: string;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationRequest extends $tea.Model {
+  ownerAccountId?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccountId: 'ownerAccountId',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccountId: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationResponseBody extends $tea.Model {
+  creatorAccountId?: string;
+  description?: string;
+  gmtCreate?: string;
+  name?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creatorAccountId: 'creatorAccountId',
+      description: 'description',
+      gmtCreate: 'gmtCreate',
+      name: 'name',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creatorAccountId: 'string',
+      description: 'string',
+      gmtCreate: 'string',
+      name: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateApplicationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateFileRequest extends $tea.Model {
   accessToken?: string;
   branchName?: string;
@@ -16117,6 +16582,28 @@ export class CloseMergeRequestResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppMembersRequestPlayerList extends $tea.Model {
+  id?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      type: 'string',
     };
   }
 
@@ -22143,6 +22630,90 @@ export class GetWorkspaceResponseBodyWorkspace extends $tea.Model {
   }
 }
 
+export class ListApplicationMembersResponseBodyRecordsRoleList extends $tea.Model {
+  displayName?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'displayName',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationMembersResponseBodyRecords extends $tea.Model {
+  avatar?: string;
+  description?: string;
+  displayName?: string;
+  id?: string;
+  roleList?: ListApplicationMembersResponseBodyRecordsRoleList[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'avatar',
+      description: 'description',
+      displayName: 'displayName',
+      id: 'id',
+      roleList: 'roleList',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: 'string',
+      description: 'string',
+      displayName: 'string',
+      id: 'string',
+      roleList: { 'type': 'array', 'itemType': ListApplicationMembersResponseBodyRecordsRoleList },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsResponseBodyData extends $tea.Model {
+  creatorAccountId?: string;
+  description?: string;
+  gmtCreate?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creatorAccountId: 'creatorAccountId',
+      description: 'description',
+      gmtCreate: 'gmtCreate',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creatorAccountId: 'string',
+      description: 'string',
+      gmtCreate: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCommitStatusesResponseBodyResultCreator extends $tea.Model {
   aliyunPk?: string;
   avatarUrl?: string;
@@ -26547,6 +27118,28 @@ export class TriggerRepositoryMirrorSyncResponseBodyResult extends $tea.Model {
   }
 }
 
+export class UpdateAppMemberRequestPlayer extends $tea.Model {
+  id?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateFileResponseBodyResult extends $tea.Model {
   branchName?: string;
   filePath?: string;
@@ -28457,6 +29050,47 @@ export default class Client extends OpenApi {
     return await this.closeMergeRequestWithOptions(repositoryId, localId, request, headers, runtime);
   }
 
+  async createAppMembersWithOptions(appName: string, request: CreateAppMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAppMembersResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.playerList)) {
+      body["playerList"] = request.playerList;
+    }
+
+    if (!Util.isUnset(request.roleNames)) {
+      body["roleNames"] = request.roleNames;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAppMembers",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}/members`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "string",
+    });
+    return $tea.cast<CreateAppMembersResponse>(await this.callApi(params, req, runtime), new CreateAppMembersResponse({}));
+  }
+
+  async createAppMembers(appName: string, request: CreateAppMembersRequest): Promise<CreateAppMembersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAppMembersWithOptions(appName, request, headers, runtime);
+  }
+
   async createBranchWithOptions(repositoryId: string, request: CreateBranchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateBranchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -30124,6 +30758,45 @@ export default class Client extends OpenApi {
     return await this.createWorkspaceWithOptions(request, headers, runtime);
   }
 
+  async deleteAppMemberWithOptions(appName: string, request: DeleteAppMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAppMemberResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.subjectId)) {
+      query["subjectId"] = request.subjectId;
+    }
+
+    if (!Util.isUnset(request.subjectType)) {
+      query["subjectType"] = request.subjectType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAppMember",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}/members`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "string",
+    });
+    return $tea.cast<DeleteAppMemberResponse>(await this.callApi(params, req, runtime), new DeleteAppMemberResponse({}));
+  }
+
+  async deleteAppMember(appName: string, request: DeleteAppMemberRequest): Promise<DeleteAppMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAppMemberWithOptions(appName, request, headers, runtime);
+  }
+
   async deleteBranchWithOptions(repositoryId: string, request: DeleteBranchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBranchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -30945,6 +31618,37 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.frozenWorkspaceWithOptions(workspaceId, headers, runtime);
+  }
+
+  async getApplicationWithOptions(appName: string, request: GetApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetApplication",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
+  }
+
+  async getApplication(appName: string, request: GetApplicationRequest): Promise<GetApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getApplicationWithOptions(appName, request, headers, runtime);
   }
 
   async getBranchInfoWithOptions(repositoryId: string, request: GetBranchInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBranchInfoResponse> {
@@ -32291,6 +32995,88 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.joinPipelineGroupWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listApplicationMembersWithOptions(appName: string, request: ListApplicationMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListApplicationMembersResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListApplicationMembers",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}/members`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApplicationMembersResponse>(await this.callApi(params, req, runtime), new ListApplicationMembersResponse({}));
+  }
+
+  async listApplicationMembers(appName: string, request: ListApplicationMembersRequest): Promise<ListApplicationMembersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listApplicationMembersWithOptions(appName, request, headers, runtime);
+  }
+
+  async listApplicationsWithOptions(request: ListApplicationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.pagination)) {
+      query["pagination"] = request.pagination;
+    }
+
+    if (!Util.isUnset(request.perPage)) {
+      query["perPage"] = request.perPage;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["sort"] = request.sort;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListApplications",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps%3Asearch`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
+  }
+
+  async listApplications(request: ListApplicationsRequest): Promise<ListApplicationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listApplicationsWithOptions(request, headers, runtime);
   }
 
   async listCommitStatusesWithOptions(request: ListCommitStatusesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCommitStatusesResponse> {
@@ -35236,6 +36022,84 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.triggerRepositoryMirrorSyncWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async updateAppMemberWithOptions(appName: string, request: UpdateAppMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAppMemberResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.player)) {
+      body["player"] = request.player;
+    }
+
+    if (!Util.isUnset(request.roleNames)) {
+      body["roleNames"] = request.roleNames;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAppMember",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}/members`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "string",
+    });
+    return $tea.cast<UpdateAppMemberResponse>(await this.callApi(params, req, runtime), new UpdateAppMemberResponse({}));
+  }
+
+  async updateAppMember(appName: string, request: UpdateAppMemberRequest): Promise<UpdateAppMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAppMemberWithOptions(appName, request, headers, runtime);
+  }
+
+  async updateApplicationWithOptions(appName: string, request: UpdateApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ownerAccountId)) {
+      body["ownerAccountId"] = request.ownerAccountId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateApplication",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateApplicationResponse>(await this.callApi(params, req, runtime), new UpdateApplicationResponse({}));
+  }
+
+  async updateApplication(appName: string, request: UpdateApplicationRequest): Promise<UpdateApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateApplicationWithOptions(appName, request, headers, runtime);
   }
 
   async updateFileWithOptions(repositoryId: string, request: UpdateFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFileResponse> {
