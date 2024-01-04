@@ -645,12 +645,14 @@ export class CreateTagRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tagDescription?: string;
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tagDescription: 'TagDescription',
       tagName: 'TagName',
     };
   }
@@ -660,6 +662,7 @@ export class CreateTagRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tagDescription: 'string',
       tagName: 'string',
     };
   }
@@ -1346,12 +1349,14 @@ export class DescAccountSummaryResponse extends $tea.Model {
 export class DescDomainRequest extends $tea.Model {
   domainId?: number;
   ownerId?: number;
+  requireRealTimeDnsRecords?: boolean;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       domainId: 'DomainId',
       ownerId: 'OwnerId',
+      requireRealTimeDnsRecords: 'RequireRealTimeDnsRecords',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -1361,6 +1366,7 @@ export class DescDomainRequest extends $tea.Model {
     return {
       domainId: 'number',
       ownerId: 'number',
+      requireRealTimeDnsRecords: 'boolean',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -2034,6 +2040,7 @@ export class ModifyTagRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tagDescription?: string;
   tagId?: number;
   tagName?: string;
   static names(): { [key: string]: string } {
@@ -2041,6 +2048,7 @@ export class ModifyTagRequest extends $tea.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tagDescription: 'TagDescription',
       tagId: 'TagId',
       tagName: 'TagName',
     };
@@ -2051,6 +2059,7 @@ export class ModifyTagRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tagDescription: 'string',
       tagId: 'number',
       tagName: 'string',
     };
@@ -3760,10 +3769,12 @@ export class QueryReceiverDetailResponseBodyData extends $tea.Model {
 }
 
 export class QueryTagByParamResponseBodyDataTag extends $tea.Model {
+  tagDescription?: string;
   tagId?: string;
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
+      tagDescription: 'TagDescription',
       tagId: 'TagId',
       tagName: 'TagName',
     };
@@ -3771,6 +3782,7 @@ export class QueryTagByParamResponseBodyDataTag extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      tagDescription: 'string',
       tagId: 'string',
       tagName: 'string',
     };
@@ -4427,6 +4439,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tagDescription)) {
+      query["TagDescription"] = request.tagDescription;
+    }
+
     if (!Util.isUnset(request.tagName)) {
       query["TagName"] = request.tagName;
     }
@@ -4796,6 +4812,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.requireRealTimeDnsRecords)) {
+      query["RequireRealTimeDnsRecords"] = request.requireRealTimeDnsRecords;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -5153,6 +5173,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tagDescription)) {
+      query["TagDescription"] = request.tagDescription;
     }
 
     if (!Util.isUnset(request.tagId)) {
