@@ -6738,6 +6738,152 @@ export class ListUserMessageResponse extends $tea.Model {
   }
 }
 
+export class MobileRecommendHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileRecommendRequest extends $tea.Model {
+  botId?: string;
+  count?: string;
+  deviceInfo?: MobileRecommendRequestDeviceInfo;
+  style?: string;
+  type?: string;
+  userInfo?: MobileRecommendRequestUserInfo;
+  static names(): { [key: string]: string } {
+    return {
+      botId: 'BotId',
+      count: 'Count',
+      deviceInfo: 'DeviceInfo',
+      style: 'Style',
+      type: 'Type',
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      botId: 'string',
+      count: 'string',
+      deviceInfo: MobileRecommendRequestDeviceInfo,
+      style: 'string',
+      type: 'string',
+      userInfo: MobileRecommendRequestUserInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileRecommendShrinkRequest extends $tea.Model {
+  botId?: string;
+  count?: string;
+  deviceInfoShrink?: string;
+  style?: string;
+  type?: string;
+  userInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      botId: 'BotId',
+      count: 'Count',
+      deviceInfoShrink: 'DeviceInfo',
+      style: 'Style',
+      type: 'Type',
+      userInfoShrink: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      botId: 'string',
+      count: 'string',
+      deviceInfoShrink: 'string',
+      style: 'string',
+      type: 'string',
+      userInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileRecommendResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  result?: MobileRecommendResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': MobileRecommendResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileRecommendResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: MobileRecommendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MobileRecommendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PlayAndPauseControlHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -14647,6 +14793,99 @@ export class ListUserMessageResponseBodyResult extends $tea.Model {
   }
 }
 
+export class MobileRecommendRequestDeviceInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileRecommendRequestUserInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileRecommendResponseBodyResult extends $tea.Model {
+  authors?: string[];
+  cover?: string;
+  rawId?: string;
+  source?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authors: 'Authors',
+      cover: 'Cover',
+      rawId: 'RawId',
+      source: 'Source',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authors: { 'type': 'array', 'itemType': 'string' },
+      cover: 'string',
+      rawId: 'string',
+      source: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PlayAndPauseControlRequestDeviceInfo extends $tea.Model {
   encodeKey?: string;
   encodeType?: string;
@@ -15207,11 +15446,15 @@ export class QueryUserDeviceListByTmeUserIdResponseBodyResultAligenieUserInfoLis
   deviceName?: string;
   online?: boolean;
   openDeviceId?: string;
+  tmeDeviceId?: string;
+  tmeProductId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceName: 'DeviceName',
       online: 'Online',
       openDeviceId: 'OpenDeviceId',
+      tmeDeviceId: 'TmeDeviceId',
+      tmeProductId: 'TmeProductId',
     };
   }
 
@@ -15220,6 +15463,8 @@ export class QueryUserDeviceListByTmeUserIdResponseBodyResultAligenieUserInfoLis
       deviceName: 'string',
       online: 'boolean',
       openDeviceId: 'string',
+      tmeDeviceId: 'string',
+      tmeProductId: 'string',
     };
   }
 
@@ -19496,6 +19741,80 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ListUserMessageHeaders({ });
     return await this.listUserMessageWithOptions(request, headers, runtime);
+  }
+
+  async mobileRecommendWithOptions(tmpReq: MobileRecommendRequest, headers: MobileRecommendHeaders, runtime: $Util.RuntimeOptions): Promise<MobileRecommendResponse> {
+    Util.validateModel(tmpReq);
+    let request = new MobileRecommendShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.botId)) {
+      query["BotId"] = request.botId;
+    }
+
+    if (!Util.isUnset(request.count)) {
+      query["Count"] = request.count;
+    }
+
+    if (!Util.isUnset(request.deviceInfoShrink)) {
+      query["DeviceInfo"] = request.deviceInfoShrink;
+    }
+
+    if (!Util.isUnset(request.style)) {
+      query["Style"] = request.style;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.userInfoShrink)) {
+      query["UserInfo"] = request.userInfoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "MobileRecommend",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/mobile/recommend/music`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<MobileRecommendResponse>(await this.callApi(params, req, runtime), new MobileRecommendResponse({}));
+  }
+
+  async mobileRecommend(request: MobileRecommendRequest): Promise<MobileRecommendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new MobileRecommendHeaders({ });
+    return await this.mobileRecommendWithOptions(request, headers, runtime);
   }
 
   async playAndPauseControlWithOptions(tmpReq: PlayAndPauseControlRequest, headers: PlayAndPauseControlHeaders, runtime: $Util.RuntimeOptions): Promise<PlayAndPauseControlResponse> {
