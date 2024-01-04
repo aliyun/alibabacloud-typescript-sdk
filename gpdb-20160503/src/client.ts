@@ -370,6 +370,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   payType?: string;
   period?: string;
   privateIpAddress?: string;
+  prodType?: string;
   regionId?: string;
   resourceGroupId?: string;
   securityIPList?: string;
@@ -411,6 +412,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       payType: 'PayType',
       period: 'Period',
       privateIpAddress: 'PrivateIpAddress',
+      prodType: 'ProdType',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       securityIPList: 'SecurityIPList',
@@ -455,6 +457,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       payType: 'string',
       period: 'string',
       privateIpAddress: 'string',
+      prodType: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       securityIPList: 'string',
@@ -10153,6 +10156,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   minorVersion?: string;
   payType?: string;
   port?: string;
+  prodType?: string;
   readDelayTime?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -10217,6 +10221,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       minorVersion: 'MinorVersion',
       payType: 'PayType',
       port: 'Port',
+      prodType: 'ProdType',
       readDelayTime: 'ReadDelayTime',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -10284,6 +10289,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       minorVersion: 'string',
       payType: 'string',
       port: 'string',
+      prodType: 'string',
       readDelayTime: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -10942,6 +10948,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
   lockReason?: string;
   masterNodeNum?: number;
   payType?: string;
+  prodType?: string;
   regionId?: string;
   resourceGroupId?: string;
   segNodeNum?: string;
@@ -10971,6 +10978,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
       lockReason: 'LockReason',
       masterNodeNum: 'MasterNodeNum',
       payType: 'PayType',
+      prodType: 'ProdType',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       segNodeNum: 'SegNodeNum',
@@ -11003,6 +11011,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
       lockReason: 'string',
       masterNodeNum: 'number',
       payType: 'string',
+      prodType: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       segNodeNum: 'string',
@@ -13307,6 +13316,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.privateIpAddress)) {
       query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    if (!Util.isUnset(request.prodType)) {
+      query["ProdType"] = request.prodType;
     }
 
     if (!Util.isUnset(request.regionId)) {
