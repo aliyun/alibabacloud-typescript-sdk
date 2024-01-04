@@ -1885,6 +1885,7 @@ export class CreateResourceGroupRequest extends $tea.Model {
   description?: string;
   name?: string;
   resourceType?: string;
+  tag?: CreateResourceGroupRequestTag[];
   userVpc?: UserVpc;
   static names(): { [key: string]: string } {
     return {
@@ -1892,6 +1893,7 @@ export class CreateResourceGroupRequest extends $tea.Model {
       description: 'Description',
       name: 'Name',
       resourceType: 'ResourceType',
+      tag: 'Tag',
       userVpc: 'UserVpc',
     };
   }
@@ -1902,6 +1904,7 @@ export class CreateResourceGroupRequest extends $tea.Model {
       description: 'string',
       name: 'string',
       resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': CreateResourceGroupRequestTag },
       userVpc: UserVpc,
     };
   }
@@ -2684,15 +2687,40 @@ export class GetQuotaResponse extends $tea.Model {
 
 export class GetResourceGroupRequest extends $tea.Model {
   isAIWorkspaceDataEnabled?: boolean;
+  tag?: GetResourceGroupRequestTag[];
   static names(): { [key: string]: string } {
     return {
       isAIWorkspaceDataEnabled: 'IsAIWorkspaceDataEnabled',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       isAIWorkspaceDataEnabled: 'boolean',
+      tag: { 'type': 'array', 'itemType': GetResourceGroupRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceGroupShrinkRequest extends $tea.Model {
+  isAIWorkspaceDataEnabled?: boolean;
+  tagShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isAIWorkspaceDataEnabled: 'IsAIWorkspaceDataEnabled',
+      tagShrink: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isAIWorkspaceDataEnabled: 'boolean',
+      tagShrink: 'string',
     };
   }
 
@@ -2705,6 +2733,7 @@ export class GetResourceGroupResponseBody extends $tea.Model {
   clusterID?: string;
   computingResourceProvider?: string;
   creatorID?: string;
+  description?: string;
   gmtCreatedTime?: string;
   gmtModifiedTime?: string;
   name?: string;
@@ -2712,6 +2741,7 @@ export class GetResourceGroupResponseBody extends $tea.Model {
   resourceType?: string;
   status?: string;
   supportRDMA?: boolean;
+  tags?: GetResourceGroupResponseBodyTags[];
   userVpc?: UserVpc;
   workspaceID?: string;
   static names(): { [key: string]: string } {
@@ -2719,6 +2749,7 @@ export class GetResourceGroupResponseBody extends $tea.Model {
       clusterID: 'ClusterID',
       computingResourceProvider: 'ComputingResourceProvider',
       creatorID: 'CreatorID',
+      description: 'Description',
       gmtCreatedTime: 'GmtCreatedTime',
       gmtModifiedTime: 'GmtModifiedTime',
       name: 'Name',
@@ -2726,6 +2757,7 @@ export class GetResourceGroupResponseBody extends $tea.Model {
       resourceType: 'ResourceType',
       status: 'Status',
       supportRDMA: 'SupportRDMA',
+      tags: 'Tags',
       userVpc: 'UserVpc',
       workspaceID: 'WorkspaceID',
     };
@@ -2736,6 +2768,7 @@ export class GetResourceGroupResponseBody extends $tea.Model {
       clusterID: 'string',
       computingResourceProvider: 'string',
       creatorID: 'string',
+      description: 'string',
       gmtCreatedTime: 'string',
       gmtModifiedTime: 'string',
       name: 'string',
@@ -2743,6 +2776,7 @@ export class GetResourceGroupResponseBody extends $tea.Model {
       resourceType: 'string',
       status: 'string',
       supportRDMA: 'boolean',
+      tags: { 'type': 'array', 'itemType': GetResourceGroupResponseBodyTags },
       userVpc: UserVpc,
       workspaceID: 'string',
     };
@@ -2778,6 +2812,44 @@ export class GetResourceGroupResponse extends $tea.Model {
   }
 }
 
+export class GetResourceGroupMachineGroupRequest extends $tea.Model {
+  tag?: GetResourceGroupMachineGroupRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': GetResourceGroupMachineGroupRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceGroupMachineGroupShrinkRequest extends $tea.Model {
+  tagShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagShrink: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResourceGroupMachineGroupResponseBody extends $tea.Model {
   cpu?: string;
   defaultDriver?: string;
@@ -2791,6 +2863,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $tea.Model {
   gpuType?: string;
   machineGroupID?: string;
   memory?: string;
+  name?: string;
   paymentDuration?: string;
   paymentDurationUnit?: string;
   paymentType?: string;
@@ -2798,6 +2871,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $tea.Model {
   resourceGroupID?: string;
   status?: string;
   supportedDrivers?: string[];
+  tags?: GetResourceGroupMachineGroupResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
       cpu: 'Cpu',
@@ -2812,6 +2886,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $tea.Model {
       gpuType: 'GpuType',
       machineGroupID: 'MachineGroupID',
       memory: 'Memory',
+      name: 'Name',
       paymentDuration: 'PaymentDuration',
       paymentDurationUnit: 'PaymentDurationUnit',
       paymentType: 'PaymentType',
@@ -2819,6 +2894,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $tea.Model {
       resourceGroupID: 'ResourceGroupID',
       status: 'Status',
       supportedDrivers: 'SupportedDrivers',
+      tags: 'Tags',
     };
   }
 
@@ -2836,6 +2912,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $tea.Model {
       gpuType: 'string',
       machineGroupID: 'string',
       memory: 'string',
+      name: 'string',
       paymentDuration: 'string',
       paymentDurationUnit: 'string',
       paymentType: 'string',
@@ -2843,6 +2920,7 @@ export class GetResourceGroupMachineGroupResponseBody extends $tea.Model {
       resourceGroupID: 'string',
       status: 'string',
       supportedDrivers: { 'type': 'array', 'itemType': 'string' },
+      tags: { 'type': 'array', 'itemType': GetResourceGroupMachineGroupResponseBodyTags },
     };
   }
 
@@ -4365,10 +4443,14 @@ export class UpdateQuotaResponse extends $tea.Model {
 }
 
 export class UpdateResourceGroupRequest extends $tea.Model {
+  description?: string;
+  name?: string;
   unbind?: boolean;
   userVpc?: UserVpc;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
+      name: 'Name',
       unbind: 'Unbind',
       userVpc: 'UserVpc',
     };
@@ -4376,6 +4458,8 @@ export class UpdateResourceGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
+      name: 'string',
       unbind: 'boolean',
       userVpc: UserVpc,
     };
@@ -4641,6 +4725,28 @@ export class FeaturesQuota extends $tea.Model {
   }
 }
 
+export class CreateResourceGroupRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTrainingJobRequestComputeResourceInstanceSpec extends $tea.Model {
   CPU?: string;
   GPU?: string;
@@ -4867,6 +4973,94 @@ export class CreateTrainingJobRequestUserVpc extends $tea.Model {
       securityGroupId: 'string',
       switchId: 'string',
       vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceGroupRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceGroupResponseBodyTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceGroupMachineGroupRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceGroupMachineGroupResponseBodyTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -5934,6 +6128,10 @@ export default class Client extends OpenApi {
       body["ResourceType"] = request.resourceType;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.userVpc)) {
       body["UserVpc"] = request.userVpc;
     }
@@ -6296,11 +6494,21 @@ export default class Client extends OpenApi {
     return await this.getQuotaWithOptions(QuotaId, headers, runtime);
   }
 
-  async getResourceGroupWithOptions(ResourceGroupID: string, request: GetResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceGroupResponse> {
-    Util.validateModel(request);
+  async getResourceGroupWithOptions(ResourceGroupID: string, tmpReq: GetResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceGroupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetResourceGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.isAIWorkspaceDataEnabled)) {
       query["IsAIWorkspaceDataEnabled"] = request.isAIWorkspaceDataEnabled;
+    }
+
+    if (!Util.isUnset(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6327,9 +6535,22 @@ export default class Client extends OpenApi {
     return await this.getResourceGroupWithOptions(ResourceGroupID, request, headers, runtime);
   }
 
-  async getResourceGroupMachineGroupWithOptions(MachineGroupID: string, ResourceGroupID: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceGroupMachineGroupResponse> {
+  async getResourceGroupMachineGroupWithOptions(MachineGroupID: string, ResourceGroupID: string, tmpReq: GetResourceGroupMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceGroupMachineGroupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetResourceGroupMachineGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetResourceGroupMachineGroup",
@@ -6345,10 +6566,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResourceGroupMachineGroupResponse>(await this.callApi(params, req, runtime), new GetResourceGroupMachineGroupResponse({}));
   }
 
-  async getResourceGroupMachineGroup(MachineGroupID: string, ResourceGroupID: string): Promise<GetResourceGroupMachineGroupResponse> {
+  async getResourceGroupMachineGroup(MachineGroupID: string, ResourceGroupID: string, request: GetResourceGroupMachineGroupRequest): Promise<GetResourceGroupMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getResourceGroupMachineGroupWithOptions(MachineGroupID, ResourceGroupID, headers, runtime);
+    return await this.getResourceGroupMachineGroupWithOptions(MachineGroupID, ResourceGroupID, request, headers, runtime);
   }
 
   async getResourceGroupRequestWithOptions(request: GetResourceGroupRequestRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceGroupRequestResponse> {
@@ -7151,6 +7372,14 @@ export default class Client extends OpenApi {
   async updateResourceGroupWithOptions(ResourceGroupID: string, request: UpdateResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
     if (!Util.isUnset(request.unbind)) {
       body["Unbind"] = request.unbind;
     }
