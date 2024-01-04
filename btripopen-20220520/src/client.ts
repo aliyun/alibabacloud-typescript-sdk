@@ -20466,15 +20466,18 @@ export class ApplyAddRequestCarRule extends $tea.Model {
 
 export class ApplyAddRequestExternalTravelerList extends $tea.Model {
   userName?: string;
+  userNameEn?: string;
   static names(): { [key: string]: string } {
     return {
       userName: 'user_name',
+      userNameEn: 'user_name_en',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       userName: 'string',
+      userNameEn: 'string',
     };
   }
 
@@ -21308,15 +21311,18 @@ export class ApplyModifyRequestCarRule extends $tea.Model {
 
 export class ApplyModifyRequestExternalTravelerList extends $tea.Model {
   userName?: string;
+  userNameEn?: string;
   static names(): { [key: string]: string } {
     return {
       userName: 'user_name',
+      userNameEn: 'user_name_en',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       userName: 'string',
+      userNameEn: 'string',
     };
   }
 
@@ -24984,6 +24990,7 @@ export class FlightItineraryScanQueryResponseBodyModuleItemsFlights extends $tea
 
 export class FlightItineraryScanQueryResponseBodyModuleItems extends $tea.Model {
   agentCode?: string;
+  applyId?: string;
   billDate?: string;
   build?: string;
   costCenter?: string;
@@ -25010,6 +25017,7 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $tea.Model 
   static names(): { [key: string]: string } {
     return {
       agentCode: 'agent_code',
+      applyId: 'apply_id',
       billDate: 'bill_date',
       build: 'build',
       costCenter: 'cost_center',
@@ -25039,6 +25047,7 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       agentCode: 'string',
+      applyId: 'string',
       billDate: 'string',
       build: 'string',
       costCenter: 'string',
@@ -46736,6 +46745,7 @@ export class TrainStationSearchResponseBodyModule extends $tea.Model {
 }
 
 export class TrainTicketScanQueryResponseBodyModuleItems extends $tea.Model {
+  applyId?: string;
   arrStation?: string;
   billDate?: string;
   coachName?: string;
@@ -46759,6 +46769,7 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $tea.Model {
   trainNo?: string;
   static names(): { [key: string]: string } {
     return {
+      applyId: 'apply_id',
       arrStation: 'arr_station',
       billDate: 'bill_date',
       coachName: 'coach_name',
@@ -46785,6 +46796,7 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applyId: 'string',
       arrStation: 'string',
       billDate: 'string',
       coachName: 'string',
