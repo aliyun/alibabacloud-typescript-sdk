@@ -103,7 +103,7 @@ export class DescribeImageModerationResultRequest extends $tea.Model {
 }
 
 export class DescribeImageModerationResultResponseBody extends $tea.Model {
-  code?: string;
+  code?: number;
   data?: DescribeImageModerationResultResponseBodyData;
   msg?: string;
   requestId?: string;
@@ -118,7 +118,7 @@ export class DescribeImageModerationResultResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
+      code: 'number',
       data: DescribeImageModerationResultResponseBodyData,
       msg: 'string',
       requestId: 'string',
