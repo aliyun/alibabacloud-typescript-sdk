@@ -89,6 +89,84 @@ export class AuthUserResponse extends $tea.Model {
   }
 }
 
+export class BatchQueryMotionShopTaskStatusRequest extends $tea.Model {
+  jwtToken?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jwtToken: 'JwtToken',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jwtToken: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchQueryMotionShopTaskStatusResponseBody extends $tea.Model {
+  code?: string;
+  data?: BatchQueryMotionShopTaskStatusResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: BatchQueryMotionShopTaskStatusResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchQueryMotionShopTaskStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchQueryMotionShopTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchQueryMotionShopTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDigitalHumanProjectRequest extends $tea.Model {
   audioId?: string;
   audioUrl?: string;
@@ -318,6 +396,81 @@ export class CreateLivePortraitProjectResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateLivePortraitProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateMotionShopVideoUploadUrlRequest extends $tea.Model {
+  jwtToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jwtToken: 'JwtToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jwtToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateMotionShopVideoUploadUrlResponseBody extends $tea.Model {
+  code?: string;
+  data?: GenerateMotionShopVideoUploadUrlResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GenerateMotionShopVideoUploadUrlResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateMotionShopVideoUploadUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateMotionShopVideoUploadUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateMotionShopVideoUploadUrlResponseBody,
     };
   }
 
@@ -578,6 +731,84 @@ export class InitLocateResponse extends $tea.Model {
   }
 }
 
+export class ListCommonMaterialsRequest extends $tea.Model {
+  jwtToken?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jwtToken: 'JwtToken',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jwtToken: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommonMaterialsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListCommonMaterialsResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListCommonMaterialsResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommonMaterialsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCommonMaterialsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCommonMaterialsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDigitalHumanMaterialsRequest extends $tea.Model {
   current?: number;
   jwtToken?: string;
@@ -774,6 +1005,99 @@ export class ListLocationServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListLocationServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMotionShopTasksRequest extends $tea.Model {
+  current?: number;
+  jwtToken?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'Current',
+      jwtToken: 'JwtToken',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      jwtToken: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMotionShopTasksResponseBody extends $tea.Model {
+  code?: string;
+  current?: number;
+  data?: ListMotionShopTasksResponseBodyData[];
+  message?: string;
+  pages?: number;
+  requestId?: string;
+  size?: number;
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      current: 'Current',
+      data: 'Data',
+      message: 'Message',
+      pages: 'Pages',
+      requestId: 'RequestId',
+      size: 'Size',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      current: 'number',
+      data: { 'type': 'array', 'itemType': ListMotionShopTasksResponseBodyData },
+      message: 'string',
+      pages: 'number',
+      requestId: 'string',
+      size: 'number',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMotionShopTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMotionShopTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMotionShopTasksResponseBody,
     };
   }
 
@@ -1029,6 +1353,84 @@ export class LoginModelScopeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: LoginModelScopeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MotionShopVideoDetectRequest extends $tea.Model {
+  jwtToken?: string;
+  ossKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jwtToken: 'JwtToken',
+      ossKey: 'OssKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jwtToken: 'string',
+      ossKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MotionShopVideoDetectResponseBody extends $tea.Model {
+  code?: string;
+  data?: MotionShopVideoDetectResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: MotionShopVideoDetectResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MotionShopVideoDetectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: MotionShopVideoDetectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MotionShopVideoDetectResponseBody,
     };
   }
 
@@ -4430,6 +4832,84 @@ export class QueryLongTtsResultResponse extends $tea.Model {
   }
 }
 
+export class QueryMotionShopVideoDetectResultRequest extends $tea.Model {
+  jobId?: string;
+  jwtToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      jwtToken: 'JwtToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      jwtToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMotionShopVideoDetectResultResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryMotionShopVideoDetectResultResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryMotionShopVideoDetectResultResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMotionShopVideoDetectResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryMotionShopVideoDetectResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryMotionShopVideoDetectResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitLongTtsTaskRequest extends $tea.Model {
   content?: string;
   jwtToken?: string;
@@ -4503,6 +4983,90 @@ export class SubmitLongTtsTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitLongTtsTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMotionShopTaskRequest extends $tea.Model {
+  avatarId?: string;
+  jwtToken?: string;
+  title?: string;
+  videoId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarId: 'AvatarId',
+      jwtToken: 'JwtToken',
+      title: 'Title',
+      videoId: 'VideoId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarId: 'string',
+      jwtToken: 'string',
+      title: 'string',
+      videoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMotionShopTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: SubmitMotionShopTaskResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitMotionShopTaskResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMotionShopTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitMotionShopTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitMotionShopTaskResponseBody,
     };
   }
 
@@ -4614,6 +5178,75 @@ export class AuthUserResponseBodyData extends $tea.Model {
   }
 }
 
+export class BatchQueryMotionShopTaskStatusResponseBodyDataTasksResult extends $tea.Model {
+  coverUrl?: string;
+  shareUrl?: string;
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coverUrl: 'CoverUrl',
+      shareUrl: 'ShareUrl',
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverUrl: 'string',
+      shareUrl: 'string',
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchQueryMotionShopTaskStatusResponseBodyDataTasks extends $tea.Model {
+  result?: BatchQueryMotionShopTaskStatusResponseBodyDataTasksResult;
+  status?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+      status: 'Status',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: BatchQueryMotionShopTaskStatusResponseBodyDataTasksResult,
+      status: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchQueryMotionShopTaskStatusResponseBodyData extends $tea.Model {
+  tasks?: BatchQueryMotionShopTaskStatusResponseBodyDataTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tasks: { 'type': 'array', 'itemType': BatchQueryMotionShopTaskStatusResponseBodyDataTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDigitalHumanProjectResponseBodyData extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -4644,6 +5277,65 @@ export class CreateLivePortraitProjectResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateMotionShopVideoUploadUrlResponseBodyData extends $tea.Model {
+  ossKey?: string;
+  uploadUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossKey: 'OssKey',
+      uploadUrl: 'UploadUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossKey: 'string',
+      uploadUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommonMaterialsResponseBodyData extends $tea.Model {
+  coverUrl?: string;
+  ext?: string;
+  fileUrl?: string;
+  id?: string;
+  name?: string;
+  ossKey?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coverUrl: 'CoverUrl',
+      ext: 'Ext',
+      fileUrl: 'FileUrl',
+      id: 'Id',
+      name: 'Name',
+      ossKey: 'OssKey',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverUrl: 'string',
+      ext: 'string',
+      fileUrl: 'string',
+      id: 'string',
+      name: 'string',
+      ossKey: 'string',
+      type: 'string',
     };
   }
 
@@ -4772,6 +5464,56 @@ export class ListLocationServiceResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListMotionShopTasksResponseBodyDataResult extends $tea.Model {
+  coverUrl?: string;
+  shareUrl?: string;
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coverUrl: 'CoverUrl',
+      shareUrl: 'ShareUrl',
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverUrl: 'string',
+      shareUrl: 'string',
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMotionShopTasksResponseBodyData extends $tea.Model {
+  result?: ListMotionShopTasksResponseBodyDataResult;
+  status?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+      status: 'Status',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: ListMotionShopTasksResponseBodyDataResult,
+      status: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LivePortraitFaceDetectResponseBodyData extends $tea.Model {
   code?: number;
   message?: string;
@@ -4814,6 +5556,25 @@ export class LoginModelScopeResponseBodyData extends $tea.Model {
       jwtToken: 'string',
       nickname: 'string',
       uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MotionShopVideoDetectResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
     };
   }
 
@@ -10718,6 +11479,81 @@ export class QueryLongTtsResultResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryMotionShopVideoDetectResultResponseBodyDataDetectResult extends $tea.Model {
+  box?: number[];
+  code?: number;
+  coverUrl?: string;
+  message?: string;
+  selectedFrameIndex?: number;
+  static names(): { [key: string]: string } {
+    return {
+      box: 'Box',
+      code: 'Code',
+      coverUrl: 'CoverUrl',
+      message: 'Message',
+      selectedFrameIndex: 'SelectedFrameIndex',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      box: { 'type': 'array', 'itemType': 'number' },
+      code: 'number',
+      coverUrl: 'string',
+      message: 'string',
+      selectedFrameIndex: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMotionShopVideoDetectResultResponseBodyData extends $tea.Model {
+  detectResult?: QueryMotionShopVideoDetectResultResponseBodyDataDetectResult;
+  status?: string;
+  videoId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detectResult: 'DetectResult',
+      status: 'Status',
+      videoId: 'VideoId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detectResult: QueryMotionShopVideoDetectResultResponseBodyDataDetectResult,
+      status: 'string',
+      videoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMotionShopTaskResponseBodyData extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -10826,6 +11662,39 @@ export default class Client extends OpenApi {
   async authUser(request: AuthUserRequest): Promise<AuthUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.authUserWithOptions(request, runtime);
+  }
+
+  async batchQueryMotionShopTaskStatusWithOptions(request: BatchQueryMotionShopTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<BatchQueryMotionShopTaskStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      body["JwtToken"] = request.jwtToken;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchQueryMotionShopTaskStatus",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchQueryMotionShopTaskStatusResponse>(await this.callApi(params, req, runtime), new BatchQueryMotionShopTaskStatusResponse({}));
+  }
+
+  async batchQueryMotionShopTaskStatus(request: BatchQueryMotionShopTaskStatusRequest): Promise<BatchQueryMotionShopTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchQueryMotionShopTaskStatusWithOptions(request, runtime);
   }
 
   async createDigitalHumanProjectWithOptions(request: CreateDigitalHumanProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateDigitalHumanProjectResponse> {
@@ -11006,6 +11875,35 @@ export default class Client extends OpenApi {
     return await this.createLivePortraitProjectWithOptions(request, runtime);
   }
 
+  async generateMotionShopVideoUploadUrlWithOptions(request: GenerateMotionShopVideoUploadUrlRequest, runtime: $Util.RuntimeOptions): Promise<GenerateMotionShopVideoUploadUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateMotionShopVideoUploadUrl",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateMotionShopVideoUploadUrlResponse>(await this.callApi(params, req, runtime), new GenerateMotionShopVideoUploadUrlResponse({}));
+  }
+
+  async generateMotionShopVideoUploadUrl(request: GenerateMotionShopVideoUploadUrlRequest): Promise<GenerateMotionShopVideoUploadUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateMotionShopVideoUploadUrlWithOptions(request, runtime);
+  }
+
   async getMapDataWithOptions(request: GetMapDataRequest, runtime: $Util.RuntimeOptions): Promise<GetMapDataResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -11105,6 +12003,39 @@ export default class Client extends OpenApi {
     return await this.initLocateWithOptions(request, runtime);
   }
 
+  async listCommonMaterialsWithOptions(request: ListCommonMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<ListCommonMaterialsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCommonMaterials",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCommonMaterialsResponse>(await this.callApi(params, req, runtime), new ListCommonMaterialsResponse({}));
+  }
+
+  async listCommonMaterials(request: ListCommonMaterialsRequest): Promise<ListCommonMaterialsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCommonMaterialsWithOptions(request, runtime);
+  }
+
   async listDigitalHumanMaterialsWithOptions(request: ListDigitalHumanMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<ListDigitalHumanMaterialsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11195,6 +12126,43 @@ export default class Client extends OpenApi {
   async listLocationService(request: ListLocationServiceRequest): Promise<ListLocationServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLocationServiceWithOptions(request, runtime);
+  }
+
+  async listMotionShopTasksWithOptions(request: ListMotionShopTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListMotionShopTasksResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.current)) {
+      body["Current"] = request.current;
+    }
+
+    if (!Util.isUnset(request.jwtToken)) {
+      body["JwtToken"] = request.jwtToken;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      body["Size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMotionShopTasks",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMotionShopTasksResponse>(await this.callApi(params, req, runtime), new ListMotionShopTasksResponse({}));
+  }
+
+  async listMotionShopTasks(request: ListMotionShopTasksRequest): Promise<ListMotionShopTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMotionShopTasksWithOptions(request, runtime);
   }
 
   async livePortraitFaceDetectWithOptions(request: LivePortraitFaceDetectRequest, runtime: $Util.RuntimeOptions): Promise<LivePortraitFaceDetectResponse> {
@@ -11308,6 +12276,41 @@ export default class Client extends OpenApi {
   async loginModelScope(request: LoginModelScopeRequest): Promise<LoginModelScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.loginModelScopeWithOptions(request, runtime);
+  }
+
+  async motionShopVideoDetectWithOptions(request: MotionShopVideoDetectRequest, runtime: $Util.RuntimeOptions): Promise<MotionShopVideoDetectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ossKey)) {
+      body["OssKey"] = request.ossKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "MotionShopVideoDetect",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MotionShopVideoDetectResponse>(await this.callApi(params, req, runtime), new MotionShopVideoDetectResponse({}));
+  }
+
+  async motionShopVideoDetect(request: MotionShopVideoDetectRequest): Promise<MotionShopVideoDetectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.motionShopVideoDetectWithOptions(request, runtime);
   }
 
   async popBatchQueryObjectGenerationProjectStatusWithOptions(request: PopBatchQueryObjectGenerationProjectStatusRequest, runtime: $Util.RuntimeOptions): Promise<PopBatchQueryObjectGenerationProjectStatusResponse> {
@@ -12866,6 +13869,41 @@ export default class Client extends OpenApi {
     return await this.queryLongTtsResultWithOptions(request, runtime);
   }
 
+  async queryMotionShopVideoDetectResultWithOptions(request: QueryMotionShopVideoDetectResultRequest, runtime: $Util.RuntimeOptions): Promise<QueryMotionShopVideoDetectResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryMotionShopVideoDetectResult",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMotionShopVideoDetectResultResponse>(await this.callApi(params, req, runtime), new QueryMotionShopVideoDetectResultResponse({}));
+  }
+
+  async queryMotionShopVideoDetectResult(request: QueryMotionShopVideoDetectResultRequest): Promise<QueryMotionShopVideoDetectResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMotionShopVideoDetectResultWithOptions(request, runtime);
+  }
+
   async submitLongTtsTaskWithOptions(request: SubmitLongTtsTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitLongTtsTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12903,6 +13941,47 @@ export default class Client extends OpenApi {
   async submitLongTtsTask(request: SubmitLongTtsTaskRequest): Promise<SubmitLongTtsTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitLongTtsTaskWithOptions(request, runtime);
+  }
+
+  async submitMotionShopTaskWithOptions(request: SubmitMotionShopTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMotionShopTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.avatarId)) {
+      body["AvatarId"] = request.avatarId;
+    }
+
+    if (!Util.isUnset(request.jwtToken)) {
+      body["JwtToken"] = request.jwtToken;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.videoId)) {
+      body["VideoId"] = request.videoId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitMotionShopTask",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitMotionShopTaskResponse>(await this.callApi(params, req, runtime), new SubmitMotionShopTaskResponse({}));
+  }
+
+  async submitMotionShopTask(request: SubmitMotionShopTaskRequest): Promise<SubmitMotionShopTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitMotionShopTaskWithOptions(request, runtime);
   }
 
   async updateUserEmailWithOptions(request: UpdateUserEmailRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserEmailResponse> {
