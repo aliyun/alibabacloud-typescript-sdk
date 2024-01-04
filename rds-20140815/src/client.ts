@@ -1145,6 +1145,7 @@ export class CloneDBInstanceRequest extends $tea.Model {
   dedicatedHostGroupId?: string;
   deletionProtection?: boolean;
   instanceNetworkType?: string;
+  ioAccelerationEnabled?: string;
   payType?: string;
   period?: string;
   privateIpAddress?: string;
@@ -1176,6 +1177,7 @@ export class CloneDBInstanceRequest extends $tea.Model {
       dedicatedHostGroupId: 'DedicatedHostGroupId',
       deletionProtection: 'DeletionProtection',
       instanceNetworkType: 'InstanceNetworkType',
+      ioAccelerationEnabled: 'IoAccelerationEnabled',
       payType: 'PayType',
       period: 'Period',
       privateIpAddress: 'PrivateIpAddress',
@@ -1210,6 +1212,7 @@ export class CloneDBInstanceRequest extends $tea.Model {
       dedicatedHostGroupId: 'string',
       deletionProtection: 'boolean',
       instanceNetworkType: 'string',
+      ioAccelerationEnabled: 'string',
       payType: 'string',
       period: 'string',
       privateIpAddress: 'string',
@@ -1248,6 +1251,7 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
   dedicatedHostGroupId?: string;
   deletionProtection?: boolean;
   instanceNetworkType?: string;
+  ioAccelerationEnabled?: string;
   payType?: string;
   period?: string;
   privateIpAddress?: string;
@@ -1279,6 +1283,7 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
       dedicatedHostGroupId: 'DedicatedHostGroupId',
       deletionProtection: 'DeletionProtection',
       instanceNetworkType: 'InstanceNetworkType',
+      ioAccelerationEnabled: 'IoAccelerationEnabled',
       payType: 'PayType',
       period: 'Period',
       privateIpAddress: 'PrivateIpAddress',
@@ -1313,6 +1318,7 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
       dedicatedHostGroupId: 'string',
       deletionProtection: 'boolean',
       instanceNetworkType: 'string',
+      ioAccelerationEnabled: 'string',
       payType: 'string',
       period: 'string',
       privateIpAddress: 'string',
@@ -2090,6 +2096,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   businessInfo?: string;
   category?: string;
   clientToken?: string;
+  coldDataEnabled?: boolean;
   connectionMode?: string;
   connectionString?: string;
   createStrategy?: string;
@@ -2108,6 +2115,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   engine?: string;
   engineVersion?: string;
   instanceNetworkType?: string;
+  ioAccelerationEnabled?: string;
   payType?: string;
   period?: string;
   port?: string;
@@ -2145,6 +2153,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       businessInfo: 'BusinessInfo',
       category: 'Category',
       clientToken: 'ClientToken',
+      coldDataEnabled: 'ColdDataEnabled',
       connectionMode: 'ConnectionMode',
       connectionString: 'ConnectionString',
       createStrategy: 'CreateStrategy',
@@ -2163,6 +2172,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       instanceNetworkType: 'InstanceNetworkType',
+      ioAccelerationEnabled: 'IoAccelerationEnabled',
       payType: 'PayType',
       period: 'Period',
       port: 'Port',
@@ -2203,6 +2213,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       businessInfo: 'string',
       category: 'string',
       clientToken: 'string',
+      coldDataEnabled: 'boolean',
       connectionMode: 'string',
       connectionString: 'string',
       createStrategy: 'string',
@@ -2221,6 +2232,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       engine: 'string',
       engineVersion: 'string',
       instanceNetworkType: 'string',
+      ioAccelerationEnabled: 'string',
       payType: 'string',
       period: 'string',
       port: 'string',
@@ -2265,6 +2277,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   businessInfo?: string;
   category?: string;
   clientToken?: string;
+  coldDataEnabled?: boolean;
   connectionMode?: string;
   connectionString?: string;
   createStrategy?: string;
@@ -2283,6 +2296,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   engine?: string;
   engineVersion?: string;
   instanceNetworkType?: string;
+  ioAccelerationEnabled?: string;
   payType?: string;
   period?: string;
   port?: string;
@@ -2320,6 +2334,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       businessInfo: 'BusinessInfo',
       category: 'Category',
       clientToken: 'ClientToken',
+      coldDataEnabled: 'ColdDataEnabled',
       connectionMode: 'ConnectionMode',
       connectionString: 'ConnectionString',
       createStrategy: 'CreateStrategy',
@@ -2338,6 +2353,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       instanceNetworkType: 'InstanceNetworkType',
+      ioAccelerationEnabled: 'IoAccelerationEnabled',
       payType: 'PayType',
       period: 'Period',
       port: 'Port',
@@ -2378,6 +2394,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       businessInfo: 'string',
       category: 'string',
       clientToken: 'string',
+      coldDataEnabled: 'boolean',
       connectionMode: 'string',
       connectionString: 'string',
       createStrategy: 'string',
@@ -2396,6 +2413,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       engine: 'string',
       engineVersion: 'string',
       instanceNetworkType: 'string',
+      ioAccelerationEnabled: 'string',
       payType: 'string',
       period: 'string',
       port: 'string',
@@ -4350,6 +4368,7 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
   gdnInstanceName?: string;
   instanceNetworkType?: string;
   instructionSetArch?: string;
+  ioAccelerationEnabled?: string;
   ownerAccount?: string;
   ownerId?: number;
   payType?: string;
@@ -4386,6 +4405,7 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
       gdnInstanceName: 'GdnInstanceName',
       instanceNetworkType: 'InstanceNetworkType',
       instructionSetArch: 'InstructionSetArch',
+      ioAccelerationEnabled: 'IoAccelerationEnabled',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       payType: 'PayType',
@@ -4425,6 +4445,7 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
       gdnInstanceName: 'string',
       instanceNetworkType: 'string',
       instructionSetArch: 'string',
+      ioAccelerationEnabled: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       payType: 'string',
@@ -19187,6 +19208,7 @@ export class MigrateToOtherZoneRequest extends $tea.Model {
   DBInstanceId?: string;
   DBInstanceStorage?: number;
   effectiveTime?: string;
+  ioAccelerationEnabled?: string;
   isModifySpec?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -19205,6 +19227,7 @@ export class MigrateToOtherZoneRequest extends $tea.Model {
       DBInstanceId: 'DBInstanceId',
       DBInstanceStorage: 'DBInstanceStorage',
       effectiveTime: 'EffectiveTime',
+      ioAccelerationEnabled: 'IoAccelerationEnabled',
       isModifySpec: 'IsModifySpec',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -19226,6 +19249,7 @@ export class MigrateToOtherZoneRequest extends $tea.Model {
       DBInstanceId: 'string',
       DBInstanceStorage: 'number',
       effectiveTime: 'string',
+      ioAccelerationEnabled: 'string',
       isModifySpec: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -21616,6 +21640,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
   autoUseCoupon?: boolean;
   burstingEnabled?: boolean;
   category?: string;
+  coldDataEnabled?: boolean;
   DBInstanceClass?: string;
   DBInstanceId?: string;
   DBInstanceStorage?: number;
@@ -21624,6 +21649,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
   direction?: string;
   effectiveTime?: string;
   engineVersion?: string;
+  ioAccelerationEnabled?: string;
   ownerAccount?: string;
   ownerId?: number;
   payType?: string;
@@ -21641,6 +21667,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       autoUseCoupon: 'AutoUseCoupon',
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
+      coldDataEnabled: 'ColdDataEnabled',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceId: 'DBInstanceId',
       DBInstanceStorage: 'DBInstanceStorage',
@@ -21649,6 +21676,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       direction: 'Direction',
       effectiveTime: 'EffectiveTime',
       engineVersion: 'EngineVersion',
+      ioAccelerationEnabled: 'IoAccelerationEnabled',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       payType: 'PayType',
@@ -21669,6 +21697,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       autoUseCoupon: 'boolean',
       burstingEnabled: 'boolean',
       category: 'string',
+      coldDataEnabled: 'boolean',
       DBInstanceClass: 'string',
       DBInstanceId: 'string',
       DBInstanceStorage: 'number',
@@ -21677,6 +21706,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       direction: 'string',
       effectiveTime: 'string',
       engineVersion: 'string',
+      ioAccelerationEnabled: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       payType: 'string',
@@ -21701,6 +21731,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
   autoUseCoupon?: boolean;
   burstingEnabled?: boolean;
   category?: string;
+  coldDataEnabled?: boolean;
   DBInstanceClass?: string;
   DBInstanceId?: string;
   DBInstanceStorage?: number;
@@ -21709,6 +21740,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
   direction?: string;
   effectiveTime?: string;
   engineVersion?: string;
+  ioAccelerationEnabled?: string;
   ownerAccount?: string;
   ownerId?: number;
   payType?: string;
@@ -21726,6 +21758,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       autoUseCoupon: 'AutoUseCoupon',
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
+      coldDataEnabled: 'ColdDataEnabled',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceId: 'DBInstanceId',
       DBInstanceStorage: 'DBInstanceStorage',
@@ -21734,6 +21767,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       direction: 'Direction',
       effectiveTime: 'EffectiveTime',
       engineVersion: 'EngineVersion',
+      ioAccelerationEnabled: 'IoAccelerationEnabled',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       payType: 'PayType',
@@ -21754,6 +21788,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       autoUseCoupon: 'boolean',
       burstingEnabled: 'boolean',
       category: 'string',
+      coldDataEnabled: 'boolean',
       DBInstanceClass: 'string',
       DBInstanceId: 'string',
       DBInstanceStorage: 'number',
@@ -21762,6 +21797,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       direction: 'string',
       effectiveTime: 'string',
       engineVersion: 'string',
+      ioAccelerationEnabled: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       payType: 'string',
@@ -30011,6 +30047,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   bpeEnabled?: string;
   burstingEnabled?: boolean;
   category?: string;
+  coldDataEnabled?: boolean;
   collation?: string;
   connectionMode?: string;
   connectionString?: string;
@@ -30043,6 +30080,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   incrementSourceDBInstanceId?: string;
   instanceNetworkType?: string;
   instructionSetArch?: string;
+  ioAccelerationEnabled?: string;
   latestKernelVersion?: string;
   lockMode?: string;
   lockReason?: string;
@@ -30084,6 +30122,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       bpeEnabled: 'BpeEnabled',
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
+      coldDataEnabled: 'ColdDataEnabled',
       collation: 'Collation',
       connectionMode: 'ConnectionMode',
       connectionString: 'ConnectionString',
@@ -30116,6 +30155,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       incrementSourceDBInstanceId: 'IncrementSourceDBInstanceId',
       instanceNetworkType: 'InstanceNetworkType',
       instructionSetArch: 'InstructionSetArch',
+      ioAccelerationEnabled: 'IoAccelerationEnabled',
       latestKernelVersion: 'LatestKernelVersion',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
@@ -30160,6 +30200,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       bpeEnabled: 'string',
       burstingEnabled: 'boolean',
       category: 'string',
+      coldDataEnabled: 'boolean',
       collation: 'string',
       connectionMode: 'string',
       connectionString: 'string',
@@ -30192,6 +30233,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       incrementSourceDBInstanceId: 'string',
       instanceNetworkType: 'string',
       instructionSetArch: 'string',
+      ioAccelerationEnabled: 'string',
       latestKernelVersion: 'string',
       lockMode: 'string',
       lockReason: 'string',
@@ -31206,6 +31248,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
   bpeEnabled?: string;
   burstingEnabled?: boolean;
   category?: string;
+  coldDataEnabled?: boolean;
   connectionMode?: string;
   connectionString?: string;
   createTime?: string;
@@ -31235,6 +31278,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
   generalGroupName?: string;
   guardDBInstanceId?: string;
   instanceNetworkType?: string;
+  ioAccelerationEnabled?: string;
   lockMode?: string;
   lockReason?: string;
   masterInstanceId?: string;
@@ -31257,6 +31301,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
       bpeEnabled: 'BpeEnabled',
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
+      coldDataEnabled: 'ColdDataEnabled',
       connectionMode: 'ConnectionMode',
       connectionString: 'ConnectionString',
       createTime: 'CreateTime',
@@ -31286,6 +31331,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
       generalGroupName: 'GeneralGroupName',
       guardDBInstanceId: 'GuardDBInstanceId',
       instanceNetworkType: 'InstanceNetworkType',
+      ioAccelerationEnabled: 'IoAccelerationEnabled',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
       masterInstanceId: 'MasterInstanceId',
@@ -31311,6 +31357,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
       bpeEnabled: 'string',
       burstingEnabled: 'boolean',
       category: 'string',
+      coldDataEnabled: 'boolean',
       connectionMode: 'string',
       connectionString: 'string',
       createTime: 'string',
@@ -31340,6 +31387,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
       generalGroupName: 'string',
       guardDBInstanceId: 'string',
       instanceNetworkType: 'string',
+      ioAccelerationEnabled: 'string',
       lockMode: 'string',
       lockReason: 'string',
       masterInstanceId: 'string',
@@ -38100,6 +38148,10 @@ export default class Client extends OpenApi {
       query["InstanceNetworkType"] = request.instanceNetworkType;
     }
 
+    if (!Util.isUnset(request.ioAccelerationEnabled)) {
+      query["IoAccelerationEnabled"] = request.ioAccelerationEnabled;
+    }
+
     if (!Util.isUnset(request.payType)) {
       query["PayType"] = request.payType;
     }
@@ -38890,6 +38942,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.coldDataEnabled)) {
+      query["ColdDataEnabled"] = request.coldDataEnabled;
+    }
+
     if (!Util.isUnset(request.connectionMode)) {
       query["ConnectionMode"] = request.connectionMode;
     }
@@ -38960,6 +39016,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceNetworkType)) {
       query["InstanceNetworkType"] = request.instanceNetworkType;
+    }
+
+    if (!Util.isUnset(request.ioAccelerationEnabled)) {
+      query["IoAccelerationEnabled"] = request.ioAccelerationEnabled;
     }
 
     if (!Util.isUnset(request.payType)) {
@@ -40770,6 +40830,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instructionSetArch)) {
       query["InstructionSetArch"] = request.instructionSetArch;
+    }
+
+    if (!Util.isUnset(request.ioAccelerationEnabled)) {
+      query["IoAccelerationEnabled"] = request.ioAccelerationEnabled;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -44089,10 +44153,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that the instance runs one of the following database engines:
-    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
-    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
-    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * ### [](#)References
+    * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
+    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
+    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
     *
     * @param request DescribeCrossRegionBackupDBInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -44147,10 +44216,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that the instance runs one of the following database engines:
-    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
-    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
-    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * ### [](#)References
+    * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+    * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
+    * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
+    * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
     *
     * @param request DescribeCrossRegionBackupDBInstanceRequest
     * @return DescribeCrossRegionBackupDBInstanceResponse
@@ -44166,6 +44240,7 @@ export default class Client extends OpenApi {
     * *   PostgreSQL
     * *   SQL Server
     * ### [](#)References
+    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
@@ -44253,6 +44328,7 @@ export default class Client extends OpenApi {
     * *   PostgreSQL
     * *   SQL Server
     * ### [](#)References
+    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
@@ -51830,15 +51906,14 @@ export default class Client extends OpenApi {
     * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
     * ### [](#)Precautions
     * *   During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
-    * *   Before you call this operation, make sure that the following requirements are met:
+    * *   Before you call this operation, **make sure that the following conditions are met**:
     *     *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
-    *     *   The source and destination instances must be created by using the same user credentials.
+    *     *   The source and destination instances must be created by using the same user.
     *     *   The instance is in the Running state.
     *     *   The source and destination databases must be in the Running state.
     *     *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
-    * > 
-    * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-    * *   You can migrate the data of multiple databases at a time.
+    * > *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+    * > *   You can migrate the data of multiple databases at a time.
     *
     * @param request ImportDatabaseBetweenInstancesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -51899,15 +51974,14 @@ export default class Client extends OpenApi {
     * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
     * ### [](#)Precautions
     * *   During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
-    * *   Before you call this operation, make sure that the following requirements are met:
+    * *   Before you call this operation, **make sure that the following conditions are met**:
     *     *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
-    *     *   The source and destination instances must be created by using the same user credentials.
+    *     *   The source and destination instances must be created by using the same user.
     *     *   The instance is in the Running state.
     *     *   The source and destination databases must be in the Running state.
     *     *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
-    * > 
-    * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-    * *   You can migrate the data of multiple databases at a time.
+    * > *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+    * > *   You can migrate the data of multiple databases at a time.
     *
     * @param request ImportDatabaseBetweenInstancesRequest
     * @return ImportDatabaseBetweenInstancesResponse
@@ -52591,6 +52665,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.effectiveTime)) {
       query["EffectiveTime"] = request.effectiveTime;
+    }
+
+    if (!Util.isUnset(request.ioAccelerationEnabled)) {
+      query["IoAccelerationEnabled"] = request.ioAccelerationEnabled;
     }
 
     if (!Util.isUnset(request.isModifySpec)) {
@@ -54798,6 +54876,10 @@ export default class Client extends OpenApi {
       query["Category"] = request.category;
     }
 
+    if (!Util.isUnset(request.coldDataEnabled)) {
+      query["ColdDataEnabled"] = request.coldDataEnabled;
+    }
+
     if (!Util.isUnset(request.DBInstanceClass)) {
       query["DBInstanceClass"] = request.DBInstanceClass;
     }
@@ -54828,6 +54910,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.engineVersion)) {
       query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!Util.isUnset(request.ioAccelerationEnabled)) {
+      query["IoAccelerationEnabled"] = request.ioAccelerationEnabled;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
