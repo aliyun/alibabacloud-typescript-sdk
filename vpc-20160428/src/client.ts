@@ -1142,6 +1142,114 @@ export class AllocateEipSegmentAddressResponse extends $tea.Model {
   }
 }
 
+export class AllocateIpv6AddressRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  ipv6Address?: string;
+  ipv6AddressDescription?: string;
+  ipv6AddressName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tag?: AllocateIpv6AddressRequestTag[];
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ipv6Address: 'Ipv6Address',
+      ipv6AddressDescription: 'Ipv6AddressDescription',
+      ipv6AddressName: 'Ipv6AddressName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ipv6Address: 'string',
+      ipv6AddressDescription: 'string',
+      ipv6AddressName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': AllocateIpv6AddressRequestTag },
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllocateIpv6AddressResponseBody extends $tea.Model {
+  ipv6Address?: string;
+  ipv6AddressId?: string;
+  requestId?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Address: 'Ipv6Address',
+      ipv6AddressId: 'Ipv6AddressId',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Address: 'string',
+      ipv6AddressId: 'string',
+      requestId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllocateIpv6AddressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AllocateIpv6AddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AllocateIpv6AddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AllocateIpv6InternetBandwidthRequest extends $tea.Model {
   bandwidth?: number;
   clientToken?: string;
@@ -19736,6 +19844,7 @@ export class DescribeVpcAttributeRequest extends $tea.Model {
 
 export class DescribeVpcAttributeResponseBody extends $tea.Model {
   associatedCens?: DescribeVpcAttributeResponseBodyAssociatedCens;
+  associatedPropagationSources?: DescribeVpcAttributeResponseBodyAssociatedPropagationSources;
   cidrBlock?: string;
   classicLinkEnabled?: boolean;
   cloudResources?: DescribeVpcAttributeResponseBodyCloudResources;
@@ -19763,6 +19872,7 @@ export class DescribeVpcAttributeResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       associatedCens: 'AssociatedCens',
+      associatedPropagationSources: 'AssociatedPropagationSources',
       cidrBlock: 'CidrBlock',
       classicLinkEnabled: 'ClassicLinkEnabled',
       cloudResources: 'CloudResources',
@@ -19793,6 +19903,7 @@ export class DescribeVpcAttributeResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       associatedCens: DescribeVpcAttributeResponseBodyAssociatedCens,
+      associatedPropagationSources: DescribeVpcAttributeResponseBodyAssociatedPropagationSources,
       cidrBlock: 'string',
       classicLinkEnabled: 'boolean',
       cloudResources: DescribeVpcAttributeResponseBodyCloudResources,
@@ -31913,6 +32024,90 @@ export class ReleaseEipSegmentAddressResponse extends $tea.Model {
   }
 }
 
+export class ReleaseIpv6AddressRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  ipv6AddressId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ipv6AddressId: 'Ipv6AddressId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ipv6AddressId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseIpv6AddressResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseIpv6AddressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReleaseIpv6AddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseIpv6AddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveCommonBandwidthPackageIpRequest extends $tea.Model {
   bandwidthPackageId?: string;
   clientToken?: string;
@@ -35497,6 +35692,28 @@ export class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse extends $tea.
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllocateIpv6AddressRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -41071,6 +41288,7 @@ export class DescribeRouteEntryListResponseBodyRouteEntrysRouteEntry extends $te
   gmtModified?: string;
   ipVersion?: string;
   nextHops?: DescribeRouteEntryListResponseBodyRouteEntrysRouteEntryNextHops;
+  origin?: string;
   routeEntryId?: string;
   routeEntryName?: string;
   routeTableId?: string;
@@ -41084,6 +41302,7 @@ export class DescribeRouteEntryListResponseBodyRouteEntrysRouteEntry extends $te
       gmtModified: 'GmtModified',
       ipVersion: 'IpVersion',
       nextHops: 'NextHops',
+      origin: 'Origin',
       routeEntryId: 'RouteEntryId',
       routeEntryName: 'RouteEntryName',
       routeTableId: 'RouteTableId',
@@ -41100,6 +41319,7 @@ export class DescribeRouteEntryListResponseBodyRouteEntrysRouteEntry extends $te
       gmtModified: 'string',
       ipVersion: 'string',
       nextHops: DescribeRouteEntryListResponseBodyRouteEntrysRouteEntryNextHops,
+      origin: 'string',
       routeEntryId: 'string',
       routeEntryName: 'string',
       routeTableId: 'string',
@@ -41241,6 +41461,7 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
   gatewayIds?: DescribeRouteTableListResponseBodyRouterTableListRouterTableListTypeGatewayIds;
   ownerId?: number;
   resourceGroupId?: string;
+  routePropagationEnable?: boolean;
   routeTableId?: string;
   routeTableName?: string;
   routeTableType?: string;
@@ -41258,6 +41479,7 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
       gatewayIds: 'GatewayIds',
       ownerId: 'OwnerId',
       resourceGroupId: 'ResourceGroupId',
+      routePropagationEnable: 'RoutePropagationEnable',
       routeTableId: 'RouteTableId',
       routeTableName: 'RouteTableName',
       routeTableType: 'RouteTableType',
@@ -41278,6 +41500,7 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
       gatewayIds: DescribeRouteTableListResponseBodyRouterTableListRouterTableListTypeGatewayIds,
       ownerId: 'number',
       resourceGroupId: 'string',
+      routePropagationEnable: 'boolean',
       routeTableId: 'string',
       routeTableName: 'string',
       routeTableType: 'string',
@@ -43111,6 +43334,56 @@ export class DescribeVpcAttributeResponseBodyAssociatedCens extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       associatedCen: { 'type': 'array', 'itemType': DescribeVpcAttributeResponseBodyAssociatedCensAssociatedCen },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcAttributeResponseBodyAssociatedPropagationSourcesAssociatedPropagationSources extends $tea.Model {
+  routePropagated?: boolean;
+  sourceInstanceId?: string;
+  sourceOwnerId?: number;
+  sourceType?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      routePropagated: 'RoutePropagated',
+      sourceInstanceId: 'SourceInstanceId',
+      sourceOwnerId: 'SourceOwnerId',
+      sourceType: 'SourceType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routePropagated: 'boolean',
+      sourceInstanceId: 'string',
+      sourceOwnerId: 'number',
+      sourceType: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcAttributeResponseBodyAssociatedPropagationSources extends $tea.Model {
+  associatedPropagationSources?: DescribeVpcAttributeResponseBodyAssociatedPropagationSourcesAssociatedPropagationSources[];
+  static names(): { [key: string]: string } {
+    return {
+      associatedPropagationSources: 'AssociatedPropagationSources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      associatedPropagationSources: { 'type': 'array', 'itemType': DescribeVpcAttributeResponseBodyAssociatedPropagationSourcesAssociatedPropagationSources },
     };
   }
 
@@ -49616,6 +49889,87 @@ export default class Client extends OpenApi {
   async allocateEipSegmentAddress(request: AllocateEipSegmentAddressRequest): Promise<AllocateEipSegmentAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateEipSegmentAddressWithOptions(request, runtime);
+  }
+
+  async allocateIpv6AddressWithOptions(request: AllocateIpv6AddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocateIpv6AddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ipv6Address)) {
+      query["Ipv6Address"] = request.ipv6Address;
+    }
+
+    if (!Util.isUnset(request.ipv6AddressDescription)) {
+      query["Ipv6AddressDescription"] = request.ipv6AddressDescription;
+    }
+
+    if (!Util.isUnset(request.ipv6AddressName)) {
+      query["Ipv6AddressName"] = request.ipv6AddressName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AllocateIpv6Address",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AllocateIpv6AddressResponse>(await this.callApi(params, req, runtime), new AllocateIpv6AddressResponse({}));
+  }
+
+  async allocateIpv6Address(request: AllocateIpv6AddressRequest): Promise<AllocateIpv6AddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.allocateIpv6AddressWithOptions(request, runtime);
   }
 
   /**
@@ -73702,6 +74056,67 @@ export default class Client extends OpenApi {
   async releaseEipSegmentAddress(request: ReleaseEipSegmentAddressRequest): Promise<ReleaseEipSegmentAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseEipSegmentAddressWithOptions(request, runtime);
+  }
+
+  async releaseIpv6AddressWithOptions(request: ReleaseIpv6AddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseIpv6AddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ipv6AddressId)) {
+      query["Ipv6AddressId"] = request.ipv6AddressId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseIpv6Address",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseIpv6AddressResponse>(await this.callApi(params, req, runtime), new ReleaseIpv6AddressResponse({}));
+  }
+
+  async releaseIpv6Address(request: ReleaseIpv6AddressRequest): Promise<ReleaseIpv6AddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseIpv6AddressWithOptions(request, runtime);
   }
 
   async removeCommonBandwidthPackageIpWithOptions(request: RemoveCommonBandwidthPackageIpRequest, runtime: $Util.RuntimeOptions): Promise<RemoveCommonBandwidthPackageIpResponse> {
