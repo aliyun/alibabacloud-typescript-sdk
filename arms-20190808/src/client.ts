@@ -1815,6 +1815,93 @@ export class AddRecordingRuleResponse extends $tea.Model {
   }
 }
 
+export class AddTagToFlinkClusterRequest extends $tea.Model {
+  clusterId?: string;
+  flinkWorkSpaceId?: string;
+  flinkWorkSpaceName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  targetUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      flinkWorkSpaceId: 'FlinkWorkSpaceId',
+      flinkWorkSpaceName: 'FlinkWorkSpaceName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      targetUserId: 'TargetUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      flinkWorkSpaceId: 'string',
+      flinkWorkSpaceName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      targetUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTagToFlinkClusterResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTagToFlinkClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddTagToFlinkClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddTagToFlinkClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AppendInstancesToPrometheusGlobalViewRequest extends $tea.Model {
   clusters?: string;
   globalViewClusterId?: string;
@@ -31942,6 +32029,55 @@ export default class Client extends OpenApi {
   async addRecordingRule(request: AddRecordingRuleRequest): Promise<AddRecordingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addRecordingRuleWithOptions(request, runtime);
+  }
+
+  async addTagToFlinkClusterWithOptions(request: AddTagToFlinkClusterRequest, runtime: $Util.RuntimeOptions): Promise<AddTagToFlinkClusterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.flinkWorkSpaceId)) {
+      query["FlinkWorkSpaceId"] = request.flinkWorkSpaceId;
+    }
+
+    if (!Util.isUnset(request.flinkWorkSpaceName)) {
+      query["FlinkWorkSpaceName"] = request.flinkWorkSpaceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.targetUserId)) {
+      query["TargetUserId"] = request.targetUserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddTagToFlinkCluster",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddTagToFlinkClusterResponse>(await this.callApi(params, req, runtime), new AddTagToFlinkClusterResponse({}));
+  }
+
+  async addTagToFlinkCluster(request: AddTagToFlinkClusterRequest): Promise<AddTagToFlinkClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addTagToFlinkClusterWithOptions(request, runtime);
   }
 
   async appendInstancesToPrometheusGlobalViewWithOptions(request: AppendInstancesToPrometheusGlobalViewRequest, runtime: $Util.RuntimeOptions): Promise<AppendInstancesToPrometheusGlobalViewResponse> {
