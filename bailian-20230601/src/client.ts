@@ -1561,6 +1561,87 @@ export class GetPromptResponse extends $tea.Model {
   }
 }
 
+export class GetText2ImageJobRequest extends $tea.Model {
+  agentKey?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetText2ImageJobResponseBody extends $tea.Model {
+  images?: GetText2ImageJobResponseBodyImages[];
+  requestId?: string;
+  taskId?: string;
+  taskMetrics?: GetText2ImageJobResponseBodyTaskMetrics;
+  taskStatus?: string;
+  usage?: GetText2ImageJobResponseBodyUsage[];
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+      taskMetrics: 'TaskMetrics',
+      taskStatus: 'TaskStatus',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': GetText2ImageJobResponseBodyImages },
+      requestId: 'string',
+      taskId: 'string',
+      taskMetrics: GetText2ImageJobResponseBodyTaskMetrics,
+      taskStatus: 'string',
+      usage: { 'type': 'array', 'itemType': GetText2ImageJobResponseBodyUsage },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetText2ImageJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetText2ImageJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetText2ImageJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportEnterpriseDocumentRequest extends $tea.Model {
   agentKey?: string;
   dataType?: number;
@@ -2431,6 +2512,96 @@ export class SearchEnterpriseDataResponse extends $tea.Model {
   }
 }
 
+export class SubmitText2ImageJobRequest extends $tea.Model {
+  agentKey?: string;
+  appId?: string;
+  n?: number;
+  negativePrompt?: string;
+  prompt?: string;
+  seed?: number;
+  size?: string;
+  style?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      appId: 'AppId',
+      n: 'N',
+      negativePrompt: 'NegativePrompt',
+      prompt: 'Prompt',
+      seed: 'Seed',
+      size: 'Size',
+      style: 'Style',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      appId: 'string',
+      n: 'number',
+      negativePrompt: 'string',
+      prompt: 'string',
+      seed: 'number',
+      size: 'string',
+      style: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitText2ImageJobResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  taskStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+      taskStatus: 'TaskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+      taskStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitText2ImageJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitText2ImageJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitText2ImageJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEnterpriseDataInfoRequest extends $tea.Model {
   agentKey?: string;
   bizId?: string;
@@ -3058,6 +3229,75 @@ export class GetPromptResponseBodyData extends $tea.Model {
     return {
       promptContent: 'string',
       promptId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetText2ImageJobResponseBodyImages extends $tea.Model {
+  code?: string;
+  message?: string;
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetText2ImageJobResponseBodyTaskMetrics extends $tea.Model {
+  failed?: number;
+  succeeded?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failed: 'Failed',
+      succeeded: 'Succeeded',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failed: 'number',
+      succeeded: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetText2ImageJobResponseBodyUsage extends $tea.Model {
+  imageCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageCount: 'ImageCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageCount: 'number',
     };
   }
 
@@ -4171,6 +4411,31 @@ export default class Client extends OpenApi {
     return await this.getPromptWithOptions(request, runtime);
   }
 
+  async getText2ImageJobWithOptions(request: GetText2ImageJobRequest, runtime: $Util.RuntimeOptions): Promise<GetText2ImageJobResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetText2ImageJob",
+      version: "2023-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetText2ImageJobResponse>(await this.callApi(params, req, runtime), new GetText2ImageJobResponse({}));
+  }
+
+  async getText2ImageJob(request: GetText2ImageJobRequest): Promise<GetText2ImageJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getText2ImageJobWithOptions(request, runtime);
+  }
+
   async importEnterpriseDocumentWithOptions(tmpReq: ImportEnterpriseDocumentRequest, runtime: $Util.RuntimeOptions): Promise<ImportEnterpriseDocumentResponse> {
     Util.validateModel(tmpReq);
     let request = new ImportEnterpriseDocumentShrinkRequest({ });
@@ -4578,6 +4843,63 @@ export default class Client extends OpenApi {
   async searchEnterpriseData(request: SearchEnterpriseDataRequest): Promise<SearchEnterpriseDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchEnterpriseDataWithOptions(request, runtime);
+  }
+
+  async submitText2ImageJobWithOptions(request: SubmitText2ImageJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitText2ImageJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.n)) {
+      query["N"] = request.n;
+    }
+
+    if (!Util.isUnset(request.negativePrompt)) {
+      query["NegativePrompt"] = request.negativePrompt;
+    }
+
+    if (!Util.isUnset(request.prompt)) {
+      query["Prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.seed)) {
+      query["Seed"] = request.seed;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.style)) {
+      query["Style"] = request.style;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitText2ImageJob",
+      version: "2023-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitText2ImageJobResponse>(await this.callApi(params, req, runtime), new SubmitText2ImageJobResponse({}));
+  }
+
+  async submitText2ImageJob(request: SubmitText2ImageJobRequest): Promise<SubmitText2ImageJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitText2ImageJobWithOptions(request, runtime);
   }
 
   async updateEnterpriseDataInfoWithOptions(request: UpdateEnterpriseDataInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnterpriseDataInfoResponse> {
