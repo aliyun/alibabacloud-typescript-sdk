@@ -3455,6 +3455,7 @@ export class UpdatePublicPatchBaselineResponse extends $tea.Model {
 }
 
 export class UpdatePublicTemplateRequest extends $tea.Model {
+  category?: string;
   content?: string;
   popularity?: number;
   publisher?: string;
@@ -3462,6 +3463,7 @@ export class UpdatePublicTemplateRequest extends $tea.Model {
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
       content: 'Content',
       popularity: 'Popularity',
       publisher: 'Publisher',
@@ -3472,6 +3474,7 @@ export class UpdatePublicTemplateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
       content: 'string',
       popularity: 'number',
       publisher: 'string',
@@ -4804,6 +4807,7 @@ export class UpdatePublicPatchBaselineResponseBodyPatchBaseline extends $tea.Mod
 }
 
 export class UpdatePublicTemplateResponseBodyTemplate extends $tea.Model {
+  category?: string;
   createdBy?: string;
   createdDate?: string;
   description?: string;
@@ -4818,6 +4822,7 @@ export class UpdatePublicTemplateResponseBodyTemplate extends $tea.Model {
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
       description: 'Description',
@@ -4835,6 +4840,7 @@ export class UpdatePublicTemplateResponseBodyTemplate extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
       createdBy: 'string',
       createdDate: 'string',
       description: 'string',
@@ -6841,6 +6847,10 @@ export default class Client extends OpenApi {
   async updatePublicTemplateWithOptions(request: UpdatePublicTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePublicTemplateResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
     if (!Util.isUnset(request.content)) {
       query["Content"] = request.content;
     }
