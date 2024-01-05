@@ -112,7 +112,6 @@ export class CheckCreateDBInstanceRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerId?: number;
   securityIPList?: string;
-  storageSize?: string;
   usedTime?: number;
   vSwitchId?: string;
   vpcId?: string;
@@ -132,7 +131,6 @@ export class CheckCreateDBInstanceRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerId: 'ResourceOwnerId',
       securityIPList: 'SecurityIPList',
-      storageSize: 'StorageSize',
       usedTime: 'UsedTime',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -155,7 +153,6 @@ export class CheckCreateDBInstanceRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerId: 'number',
       securityIPList: 'string',
-      storageSize: 'string',
       usedTime: 'number',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -302,7 +299,6 @@ export class CreateDBClusterRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   resourceOwnerId?: number;
-  storageSize?: string;
   usedTime?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -320,7 +316,6 @@ export class CreateDBClusterRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerId: 'ResourceOwnerId',
-      storageSize: 'StorageSize',
       usedTime: 'UsedTime',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -341,7 +336,6 @@ export class CreateDBClusterRequest extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerId: 'number',
-      storageSize: 'string',
       usedTime: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -415,7 +409,6 @@ export class CreateDBInstanceRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerId?: number;
   securityIPList?: string;
-  storageSize?: string;
   usedTime?: number;
   vSwitchId?: string;
   vpcId?: string;
@@ -435,7 +428,6 @@ export class CreateDBInstanceRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerId: 'ResourceOwnerId',
       securityIPList: 'SecurityIPList',
-      storageSize: 'StorageSize',
       usedTime: 'UsedTime',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -458,7 +450,6 @@ export class CreateDBInstanceRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerId: 'number',
       securityIPList: 'string',
-      storageSize: 'string',
       usedTime: 'number',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -886,10 +877,12 @@ export class DescribeDBInstanceNetInfoRequest extends $tea.Model {
 }
 
 export class DescribeDBInstanceNetInfoResponseBody extends $tea.Model {
+  DBClustersNetInfos?: DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfos[];
   DBInstanceNetInfos?: DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      DBClustersNetInfos: 'DBClustersNetInfos',
       DBInstanceNetInfos: 'DBInstanceNetInfos',
       requestId: 'RequestId',
     };
@@ -897,6 +890,7 @@ export class DescribeDBInstanceNetInfoResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      DBClustersNetInfos: { 'type': 'array', 'itemType': DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfos },
       DBInstanceNetInfos: { 'type': 'array', 'itemType': DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos },
       requestId: 'string',
     };
@@ -2008,7 +2002,6 @@ export class DeleteDBClusterResponseBodyData extends $tea.Model {
 
 export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $tea.Model {
   cacheStorageSizeGB?: string;
-  cacheStorageSizeGiB?: number;
   cacheStorageType?: string;
   chargeType?: string;
   cpuCores?: number;
@@ -2018,14 +2011,12 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $tea.M
   dbClusterName?: string;
   dbInstanceName?: string;
   memory?: number;
-  objectStoreSizeGiB?: number;
   performanceLevel?: string;
   startTime?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       cacheStorageSizeGB: 'CacheStorageSizeGB',
-      cacheStorageSizeGiB: 'CacheStorageSizeGiB',
       cacheStorageType: 'CacheStorageType',
       chargeType: 'ChargeType',
       cpuCores: 'CpuCores',
@@ -2035,7 +2026,6 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $tea.M
       dbClusterName: 'DbClusterName',
       dbInstanceName: 'DbInstanceName',
       memory: 'Memory',
-      objectStoreSizeGiB: 'ObjectStoreSizeGiB',
       performanceLevel: 'PerformanceLevel',
       startTime: 'StartTime',
       status: 'Status',
@@ -2045,7 +2035,6 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $tea.M
   static types(): { [key: string]: any } {
     return {
       cacheStorageSizeGB: 'string',
-      cacheStorageSizeGiB: 'number',
       cacheStorageType: 'string',
       chargeType: 'string',
       cpuCores: 'number',
@@ -2055,10 +2044,74 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $tea.M
       dbClusterName: 'string',
       dbInstanceName: 'string',
       memory: 'number',
-      objectStoreSizeGiB: 'number',
       performanceLevel: 'string',
       startTime: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfosPortList extends $tea.Model {
+  port?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfos extends $tea.Model {
+  clusterId?: string;
+  connectionString?: string;
+  ip?: string;
+  netType?: string;
+  portList?: DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfosPortList[];
+  userVisible?: boolean;
+  vpcId?: string;
+  vpcInstanceId?: string;
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      connectionString: 'ConnectionString',
+      ip: 'Ip',
+      netType: 'NetType',
+      portList: 'PortList',
+      userVisible: 'UserVisible',
+      vpcId: 'VpcId',
+      vpcInstanceId: 'VpcInstanceId',
+      vswitchId: 'VswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      connectionString: 'string',
+      ip: 'string',
+      netType: 'string',
+      portList: { 'type': 'array', 'itemType': DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfosPortList },
+      userVisible: 'boolean',
+      vpcId: 'string',
+      vpcInstanceId: 'string',
+      vswitchId: 'string',
     };
   }
 
@@ -2090,6 +2143,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfosPortList ext
 }
 
 export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos extends $tea.Model {
+  clusterId?: string;
   connectionString?: string;
   ip?: string;
   netType?: string;
@@ -2100,6 +2154,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos extends $te
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'ClusterId',
       connectionString: 'ConnectionString',
       ip: 'Ip',
       netType: 'NetType',
@@ -2113,6 +2168,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos extends $te
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'string',
       connectionString: 'string',
       ip: 'string',
       netType: 'string',
@@ -2121,58 +2177,6 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos extends $te
       vpcId: 'string',
       vpcInstanceId: 'string',
       vswitchId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstancesResponseBodyItemsDBClusterList extends $tea.Model {
-  cacheStorageSizeGiB?: number;
-  cacheStorageType?: string;
-  cpuCores?: number;
-  createdTime?: string;
-  DBInstanceId?: string;
-  dbClusterClass?: string;
-  dbClusterId?: string;
-  dbClusterName?: string;
-  memory?: number;
-  performanceLevel?: string;
-  status?: string;
-  objectStoreSizeGiB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cacheStorageSizeGiB: 'CacheStorageSizeGiB',
-      cacheStorageType: 'CacheStorageType',
-      cpuCores: 'CpuCores',
-      createdTime: 'CreatedTime',
-      DBInstanceId: 'DBInstanceId',
-      dbClusterClass: 'DbClusterClass',
-      dbClusterId: 'DbClusterId',
-      dbClusterName: 'DbClusterName',
-      memory: 'Memory',
-      performanceLevel: 'PerformanceLevel',
-      status: 'Status',
-      objectStoreSizeGiB: 'objectStoreSizeGiB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheStorageSizeGiB: 'number',
-      cacheStorageType: 'string',
-      cpuCores: 'number',
-      createdTime: 'string',
-      DBInstanceId: 'string',
-      dbClusterClass: 'string',
-      dbClusterId: 'string',
-      dbClusterName: 'string',
-      memory: 'number',
-      performanceLevel: 'string',
-      status: 'string',
-      objectStoreSizeGiB: 'number',
     };
   }
 
@@ -2207,8 +2211,6 @@ export class DescribeDBInstancesResponseBodyItems extends $tea.Model {
   category?: string;
   chargeType?: string;
   clusterCount?: number;
-  createTime?: string;
-  DBClusterList?: DescribeDBInstancesResponseBodyItemsDBClusterList[];
   DBInstanceId?: string;
   description?: string;
   engine?: string;
@@ -2216,7 +2218,6 @@ export class DescribeDBInstancesResponseBodyItems extends $tea.Model {
   expireTime?: string;
   gmtCreated?: string;
   gmtModified?: string;
-  instanceClass?: string;
   instanceUsedType?: string;
   isDeleted?: boolean;
   lockMode?: number;
@@ -2250,8 +2251,6 @@ export class DescribeDBInstancesResponseBodyItems extends $tea.Model {
       category: 'Category',
       chargeType: 'ChargeType',
       clusterCount: 'ClusterCount',
-      createTime: 'CreateTime',
-      DBClusterList: 'DBClusterList',
       DBInstanceId: 'DBInstanceId',
       description: 'Description',
       engine: 'Engine',
@@ -2259,7 +2258,6 @@ export class DescribeDBInstancesResponseBodyItems extends $tea.Model {
       expireTime: 'ExpireTime',
       gmtCreated: 'GmtCreated',
       gmtModified: 'GmtModified',
-      instanceClass: 'InstanceClass',
       instanceUsedType: 'InstanceUsedType',
       isDeleted: 'IsDeleted',
       lockMode: 'LockMode',
@@ -2296,8 +2294,6 @@ export class DescribeDBInstancesResponseBodyItems extends $tea.Model {
       category: 'string',
       chargeType: 'string',
       clusterCount: 'number',
-      createTime: 'string',
-      DBClusterList: { 'type': 'array', 'itemType': DescribeDBInstancesResponseBodyItemsDBClusterList },
       DBInstanceId: 'string',
       description: 'string',
       engine: 'string',
@@ -2305,7 +2301,6 @@ export class DescribeDBInstancesResponseBodyItems extends $tea.Model {
       expireTime: 'string',
       gmtCreated: 'string',
       gmtModified: 'string',
-      instanceClass: 'string',
       instanceUsedType: 'string',
       isDeleted: 'boolean',
       lockMode: 'number',
@@ -2543,10 +2538,6 @@ export default class Client extends OpenApi {
       query["SecurityIPList"] = request.securityIPList;
     }
 
-    if (!Util.isUnset(request.storageSize)) {
-      query["StorageSize"] = request.storageSize;
-    }
-
     if (!Util.isUnset(request.usedTime)) {
       query["UsedTime"] = request.usedTime;
     }
@@ -2657,10 +2648,6 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.storageSize)) {
-      query["StorageSize"] = request.storageSize;
-    }
-
     if (!Util.isUnset(request.usedTime)) {
       query["UsedTime"] = request.usedTime;
     }
@@ -2758,10 +2745,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityIPList)) {
       query["SecurityIPList"] = request.securityIPList;
-    }
-
-    if (!Util.isUnset(request.storageSize)) {
-      query["StorageSize"] = request.storageSize;
     }
 
     if (!Util.isUnset(request.usedTime)) {
