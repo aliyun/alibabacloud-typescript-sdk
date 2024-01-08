@@ -3045,12 +3045,14 @@ export class GetProjectResponseBodyDataSecurityProperties extends $tea.Model {
 export class GetProjectResponseBodyData extends $tea.Model {
   comment?: string;
   costStorage?: string;
+  createdTime?: number;
   defaultQuota?: string;
   ipWhiteList?: GetProjectResponseBodyDataIpWhiteList;
   name?: string;
   owner?: string;
   productType?: string;
   properties?: GetProjectResponseBodyDataProperties;
+  regionId?: string;
   saleTag?: GetProjectResponseBodyDataSaleTag;
   securityProperties?: GetProjectResponseBodyDataSecurityProperties;
   status?: string;
@@ -3061,12 +3063,14 @@ export class GetProjectResponseBodyData extends $tea.Model {
     return {
       comment: 'comment',
       costStorage: 'costStorage',
+      createdTime: 'createdTime',
       defaultQuota: 'defaultQuota',
       ipWhiteList: 'ipWhiteList',
       name: 'name',
       owner: 'owner',
       productType: 'productType',
       properties: 'properties',
+      regionId: 'regionId',
       saleTag: 'saleTag',
       securityProperties: 'securityProperties',
       status: 'status',
@@ -3080,12 +3084,14 @@ export class GetProjectResponseBodyData extends $tea.Model {
     return {
       comment: 'string',
       costStorage: 'string',
+      createdTime: 'number',
       defaultQuota: 'string',
       ipWhiteList: GetProjectResponseBodyDataIpWhiteList,
       name: 'string',
       owner: 'string',
       productType: 'string',
       properties: GetProjectResponseBodyDataProperties,
+      regionId: 'string',
       saleTag: GetProjectResponseBodyDataSaleTag,
       securityProperties: GetProjectResponseBodyDataSecurityProperties,
       status: 'string',
@@ -4784,11 +4790,13 @@ export class ListProjectsResponseBodyDataProjects extends $tea.Model {
   tags?: ListProjectsResponseBodyDataProjectsTags[];
   comment?: string;
   costStorage?: string;
+  createdTime?: number;
   defaultQuota?: string;
   ipWhiteList?: ListProjectsResponseBodyDataProjectsIpWhiteList;
   name?: string;
   owner?: string;
   properties?: ListProjectsResponseBodyDataProjectsProperties;
+  regionId?: string;
   saleTag?: ListProjectsResponseBodyDataProjectsSaleTag;
   securityProperties?: ListProjectsResponseBodyDataProjectsSecurityProperties;
   status?: string;
@@ -4799,11 +4807,13 @@ export class ListProjectsResponseBodyDataProjects extends $tea.Model {
       tags: 'Tags',
       comment: 'comment',
       costStorage: 'costStorage',
+      createdTime: 'createdTime',
       defaultQuota: 'defaultQuota',
       ipWhiteList: 'ipWhiteList',
       name: 'name',
       owner: 'owner',
       properties: 'properties',
+      regionId: 'regionId',
       saleTag: 'saleTag',
       securityProperties: 'securityProperties',
       status: 'status',
@@ -4817,11 +4827,13 @@ export class ListProjectsResponseBodyDataProjects extends $tea.Model {
       tags: { 'type': 'array', 'itemType': ListProjectsResponseBodyDataProjectsTags },
       comment: 'string',
       costStorage: 'string',
+      createdTime: 'number',
       defaultQuota: 'string',
       ipWhiteList: ListProjectsResponseBodyDataProjectsIpWhiteList,
       name: 'string',
       owner: 'string',
       properties: ListProjectsResponseBodyDataProjectsProperties,
+      regionId: 'string',
       saleTag: ListProjectsResponseBodyDataProjectsSaleTag,
       securityProperties: ListProjectsResponseBodyDataProjectsSecurityProperties,
       status: 'string',
