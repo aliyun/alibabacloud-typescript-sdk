@@ -1689,6 +1689,7 @@ export class AssociateResourceShareResponseBodyResourceShareAssociations extends
   entityType?: string;
   resourceShareId?: string;
   resourceShareName?: string;
+  targetProperty?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1700,6 +1701,7 @@ export class AssociateResourceShareResponseBodyResourceShareAssociations extends
       entityType: 'EntityType',
       resourceShareId: 'ResourceShareId',
       resourceShareName: 'ResourceShareName',
+      targetProperty: 'TargetProperty',
       updateTime: 'UpdateTime',
     };
   }
@@ -1714,6 +1716,7 @@ export class AssociateResourceShareResponseBodyResourceShareAssociations extends
       entityType: 'string',
       resourceShareId: 'string',
       resourceShareName: 'string',
+      targetProperty: 'string',
       updateTime: 'string',
     };
   }
@@ -1838,6 +1841,7 @@ export class DisassociateResourceShareResponseBodyResourceShareAssociations exte
   entityType?: string;
   resourceShareId?: string;
   resourceShareName?: string;
+  targetProperty?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1849,6 +1853,7 @@ export class DisassociateResourceShareResponseBodyResourceShareAssociations exte
       entityType: 'EntityType',
       resourceShareId: 'ResourceShareId',
       resourceShareName: 'ResourceShareName',
+      targetProperty: 'TargetProperty',
       updateTime: 'UpdateTime',
     };
   }
@@ -1863,6 +1868,7 @@ export class DisassociateResourceShareResponseBodyResourceShareAssociations exte
       entityType: 'string',
       resourceShareId: 'string',
       resourceShareName: 'string',
+      targetProperty: 'string',
       updateTime: 'string',
     };
   }
@@ -1986,7 +1992,39 @@ export class ListPermissionsResponseBodyPermissions extends $tea.Model {
   }
 }
 
+export class ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails extends $tea.Model {
+  associateType?: string;
+  entityId?: string;
+  entityType?: string;
+  status?: string;
+  statusMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      associateType: 'AssociateType',
+      entityId: 'EntityId',
+      entityType: 'EntityType',
+      status: 'Status',
+      statusMessage: 'StatusMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      associateType: 'string',
+      entityId: 'string',
+      entityType: 'string',
+      status: 'string',
+      statusMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListResourceShareAssociationsResponseBodyResourceShareAssociations extends $tea.Model {
+  associationFailedDetails?: ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails[];
   associationStatus?: string;
   associationStatusMessage?: string;
   associationType?: string;
@@ -1996,9 +2034,11 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociations 
   external?: boolean;
   resourceShareId?: string;
   resourceShareName?: string;
+  targetProperty?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      associationFailedDetails: 'AssociationFailedDetails',
       associationStatus: 'AssociationStatus',
       associationStatusMessage: 'AssociationStatusMessage',
       associationType: 'AssociationType',
@@ -2008,12 +2048,14 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociations 
       external: 'External',
       resourceShareId: 'ResourceShareId',
       resourceShareName: 'ResourceShareName',
+      targetProperty: 'TargetProperty',
       updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      associationFailedDetails: { 'type': 'array', 'itemType': ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails },
       associationStatus: 'string',
       associationStatusMessage: 'string',
       associationType: 'string',
@@ -2023,6 +2065,7 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociations 
       external: 'boolean',
       resourceShareId: 'string',
       resourceShareName: 'string',
+      targetProperty: 'string',
       updateTime: 'string',
     };
   }
@@ -2219,6 +2262,7 @@ export class ListSharedTargetsResponseBodySharedTargets extends $tea.Model {
   external?: boolean;
   resourceShareId?: string;
   targetId?: string;
+  targetProperty?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2226,6 +2270,7 @@ export class ListSharedTargetsResponseBodySharedTargets extends $tea.Model {
       external: 'External',
       resourceShareId: 'ResourceShareId',
       targetId: 'TargetId',
+      targetProperty: 'TargetProperty',
       updateTime: 'UpdateTime',
     };
   }
@@ -2236,6 +2281,7 @@ export class ListSharedTargetsResponseBodySharedTargets extends $tea.Model {
       external: 'boolean',
       resourceShareId: 'string',
       targetId: 'string',
+      targetProperty: 'string',
       updateTime: 'string',
     };
   }
@@ -2343,9 +2389,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### [](#)
     * *   A principal needs to accept or reject a resource sharing invitation only if the principal is not the management account or a member of a resource directory. If you share resources with an object in a resource directory, the system automatically accepts the resource sharing invitation for the object.
     * *   A resource sharing invitation is valid for seven days. A principal must accept or reject the invitation within the validity period.
-    * This topic provides an example on how to call the API operation to accept the resource sharing invitation `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
+    * This topic provides an example on how to call the API operation to accept the resource sharing invitation whose ID is `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
     *
     * @param request AcceptResourceShareInvitationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2376,9 +2423,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### [](#)
     * *   A principal needs to accept or reject a resource sharing invitation only if the principal is not the management account or a member of a resource directory. If you share resources with an object in a resource directory, the system automatically accepts the resource sharing invitation for the object.
     * *   A resource sharing invitation is valid for seven days. A principal must accept or reject the invitation within the validity period.
-    * This topic provides an example on how to call the API operation to accept the resource sharing invitation `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
+    * This topic provides an example on how to call the API operation to accept the resource sharing invitation whose ID is `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
     *
     * @param request AcceptResourceShareInvitationRequest
     * @return AcceptResourceShareInvitationResponse
@@ -3041,6 +3089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### [](#)
     * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
     *
     * @param request ListResourceShareInvitationsRequest
@@ -3084,6 +3133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### [](#)
     * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
     *
     * @param request ListResourceShareInvitationsRequest

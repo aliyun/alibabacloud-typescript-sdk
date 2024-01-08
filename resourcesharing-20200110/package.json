@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/resourcesharing20200110",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
