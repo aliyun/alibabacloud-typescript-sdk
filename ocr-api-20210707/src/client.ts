@@ -245,6 +245,7 @@ export class RecognizeAirItineraryResponse extends $tea.Model {
 export class RecognizeAllTextRequest extends $tea.Model {
   advancedConfig?: RecognizeAllTextRequestAdvancedConfig;
   idCardConfig?: RecognizeAllTextRequestIdCardConfig;
+  internationalBusinessLicenseConfig?: RecognizeAllTextRequestInternationalBusinessLicenseConfig;
   internationalIdCardConfig?: RecognizeAllTextRequestInternationalIdCardConfig;
   multiLanConfig?: RecognizeAllTextRequestMultiLanConfig;
   outputBarCode?: boolean;
@@ -255,6 +256,7 @@ export class RecognizeAllTextRequest extends $tea.Model {
   outputQrcode?: boolean;
   outputStamp?: boolean;
   pageNo?: number;
+  tableConfig?: RecognizeAllTextRequestTableConfig;
   type?: string;
   url?: string;
   body?: Readable;
@@ -262,6 +264,7 @@ export class RecognizeAllTextRequest extends $tea.Model {
     return {
       advancedConfig: 'AdvancedConfig',
       idCardConfig: 'IdCardConfig',
+      internationalBusinessLicenseConfig: 'InternationalBusinessLicenseConfig',
       internationalIdCardConfig: 'InternationalIdCardConfig',
       multiLanConfig: 'MultiLanConfig',
       outputBarCode: 'OutputBarCode',
@@ -272,6 +275,7 @@ export class RecognizeAllTextRequest extends $tea.Model {
       outputQrcode: 'OutputQrcode',
       outputStamp: 'OutputStamp',
       pageNo: 'PageNo',
+      tableConfig: 'TableConfig',
       type: 'Type',
       url: 'Url',
       body: 'body',
@@ -282,6 +286,7 @@ export class RecognizeAllTextRequest extends $tea.Model {
     return {
       advancedConfig: RecognizeAllTextRequestAdvancedConfig,
       idCardConfig: RecognizeAllTextRequestIdCardConfig,
+      internationalBusinessLicenseConfig: RecognizeAllTextRequestInternationalBusinessLicenseConfig,
       internationalIdCardConfig: RecognizeAllTextRequestInternationalIdCardConfig,
       multiLanConfig: RecognizeAllTextRequestMultiLanConfig,
       outputBarCode: 'boolean',
@@ -292,6 +297,7 @@ export class RecognizeAllTextRequest extends $tea.Model {
       outputQrcode: 'boolean',
       outputStamp: 'boolean',
       pageNo: 'number',
+      tableConfig: RecognizeAllTextRequestTableConfig,
       type: 'string',
       url: 'string',
       body: 'Readable',
@@ -306,6 +312,7 @@ export class RecognizeAllTextRequest extends $tea.Model {
 export class RecognizeAllTextShrinkRequest extends $tea.Model {
   advancedConfigShrink?: string;
   idCardConfigShrink?: string;
+  internationalBusinessLicenseConfigShrink?: string;
   internationalIdCardConfigShrink?: string;
   multiLanConfigShrink?: string;
   outputBarCode?: boolean;
@@ -316,6 +323,7 @@ export class RecognizeAllTextShrinkRequest extends $tea.Model {
   outputQrcode?: boolean;
   outputStamp?: boolean;
   pageNo?: number;
+  tableConfigShrink?: string;
   type?: string;
   url?: string;
   body?: Readable;
@@ -323,6 +331,7 @@ export class RecognizeAllTextShrinkRequest extends $tea.Model {
     return {
       advancedConfigShrink: 'AdvancedConfig',
       idCardConfigShrink: 'IdCardConfig',
+      internationalBusinessLicenseConfigShrink: 'InternationalBusinessLicenseConfig',
       internationalIdCardConfigShrink: 'InternationalIdCardConfig',
       multiLanConfigShrink: 'MultiLanConfig',
       outputBarCode: 'OutputBarCode',
@@ -333,6 +342,7 @@ export class RecognizeAllTextShrinkRequest extends $tea.Model {
       outputQrcode: 'OutputQrcode',
       outputStamp: 'OutputStamp',
       pageNo: 'PageNo',
+      tableConfigShrink: 'TableConfig',
       type: 'Type',
       url: 'Url',
       body: 'body',
@@ -343,6 +353,7 @@ export class RecognizeAllTextShrinkRequest extends $tea.Model {
     return {
       advancedConfigShrink: 'string',
       idCardConfigShrink: 'string',
+      internationalBusinessLicenseConfigShrink: 'string',
       internationalIdCardConfigShrink: 'string',
       multiLanConfigShrink: 'string',
       outputBarCode: 'boolean',
@@ -353,6 +364,7 @@ export class RecognizeAllTextShrinkRequest extends $tea.Model {
       outputQrcode: 'boolean',
       outputStamp: 'boolean',
       pageNo: 'number',
+      tableConfigShrink: 'string',
       type: 'string',
       url: 'string',
       body: 'Readable',
@@ -6149,6 +6161,25 @@ export class RecognizeAllTextRequestIdCardConfig extends $tea.Model {
   }
 }
 
+export class RecognizeAllTextRequestInternationalBusinessLicenseConfig extends $tea.Model {
+  country?: string;
+  static names(): { [key: string]: string } {
+    return {
+      country: 'Country',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      country: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeAllTextRequestInternationalIdCardConfig extends $tea.Model {
   country?: string;
   static names(): { [key: string]: string } {
@@ -6179,6 +6210,34 @@ export class RecognizeAllTextRequestMultiLanConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       languages: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextRequestTableConfig extends $tea.Model {
+  isHandWritingTable?: boolean;
+  isLineLessTable?: boolean;
+  outputTableExcel?: boolean;
+  outputTableHtml?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      isHandWritingTable: 'IsHandWritingTable',
+      isLineLessTable: 'IsLineLessTable',
+      outputTableExcel: 'OutputTableExcel',
+      outputTableHtml: 'OutputTableHtml',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isHandWritingTable: 'boolean',
+      isLineLessTable: 'boolean',
+      outputTableExcel: 'boolean',
+      outputTableHtml: 'boolean',
     };
   }
 
@@ -7420,12 +7479,20 @@ export default class Client extends OpenApi {
       request.idCardConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.idCardConfig, "IdCardConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.internationalBusinessLicenseConfig)) {
+      request.internationalBusinessLicenseConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.internationalBusinessLicenseConfig, "InternationalBusinessLicenseConfig", "json");
+    }
+
     if (!Util.isUnset(tmpReq.internationalIdCardConfig)) {
       request.internationalIdCardConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.internationalIdCardConfig, "InternationalIdCardConfig", "json");
     }
 
     if (!Util.isUnset(tmpReq.multiLanConfig)) {
       request.multiLanConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.multiLanConfig, "MultiLanConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tableConfig)) {
+      request.tableConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tableConfig, "TableConfig", "json");
     }
 
     let query = { };
@@ -7435,6 +7502,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.idCardConfigShrink)) {
       query["IdCardConfig"] = request.idCardConfigShrink;
+    }
+
+    if (!Util.isUnset(request.internationalBusinessLicenseConfigShrink)) {
+      query["InternationalBusinessLicenseConfig"] = request.internationalBusinessLicenseConfigShrink;
     }
 
     if (!Util.isUnset(request.internationalIdCardConfigShrink)) {
@@ -7475,6 +7546,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageNo)) {
       query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.tableConfigShrink)) {
+      query["TableConfig"] = request.tableConfigShrink;
     }
 
     if (!Util.isUnset(request.type)) {
