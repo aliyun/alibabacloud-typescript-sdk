@@ -2245,6 +2245,7 @@ export class StopInstanceResponse extends $tea.Model {
 
 export class SubmitAudioTo2DAvatarVideoTaskRequest extends $tea.Model {
   app?: SubmitAudioTo2DAvatarVideoTaskRequestApp;
+  audioInfo?: SubmitAudioTo2DAvatarVideoTaskRequestAudioInfo;
   avatarInfo?: SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo;
   callback?: boolean;
   callbackParams?: string;
@@ -2256,6 +2257,7 @@ export class SubmitAudioTo2DAvatarVideoTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       app: 'App',
+      audioInfo: 'AudioInfo',
       avatarInfo: 'AvatarInfo',
       callback: 'Callback',
       callbackParams: 'CallbackParams',
@@ -2270,6 +2272,7 @@ export class SubmitAudioTo2DAvatarVideoTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       app: SubmitAudioTo2DAvatarVideoTaskRequestApp,
+      audioInfo: SubmitAudioTo2DAvatarVideoTaskRequestAudioInfo,
       avatarInfo: SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo,
       callback: 'boolean',
       callbackParams: 'string',
@@ -2288,6 +2291,7 @@ export class SubmitAudioTo2DAvatarVideoTaskRequest extends $tea.Model {
 
 export class SubmitAudioTo2DAvatarVideoTaskShrinkRequest extends $tea.Model {
   appShrink?: string;
+  audioInfoShrink?: string;
   avatarInfoShrink?: string;
   callback?: boolean;
   callbackParams?: string;
@@ -2299,6 +2303,7 @@ export class SubmitAudioTo2DAvatarVideoTaskShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appShrink: 'App',
+      audioInfoShrink: 'AudioInfo',
       avatarInfoShrink: 'AvatarInfo',
       callback: 'Callback',
       callbackParams: 'CallbackParams',
@@ -2313,6 +2318,7 @@ export class SubmitAudioTo2DAvatarVideoTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appShrink: 'string',
+      audioInfoShrink: 'string',
       avatarInfoShrink: 'string',
       callback: 'boolean',
       callbackParams: 'string',
@@ -2387,6 +2393,7 @@ export class SubmitAudioTo2DAvatarVideoTaskResponse extends $tea.Model {
 
 export class SubmitAudioTo3DAvatarVideoTaskRequest extends $tea.Model {
   app?: SubmitAudioTo3DAvatarVideoTaskRequestApp;
+  audioInfo?: SubmitAudioTo3DAvatarVideoTaskRequestAudioInfo;
   avatarInfo?: SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo;
   callback?: boolean;
   callbackParams?: string;
@@ -2398,6 +2405,7 @@ export class SubmitAudioTo3DAvatarVideoTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       app: 'App',
+      audioInfo: 'AudioInfo',
       avatarInfo: 'AvatarInfo',
       callback: 'Callback',
       callbackParams: 'CallbackParams',
@@ -2412,6 +2420,7 @@ export class SubmitAudioTo3DAvatarVideoTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       app: SubmitAudioTo3DAvatarVideoTaskRequestApp,
+      audioInfo: SubmitAudioTo3DAvatarVideoTaskRequestAudioInfo,
       avatarInfo: SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo,
       callback: 'boolean',
       callbackParams: 'string',
@@ -2430,6 +2439,7 @@ export class SubmitAudioTo3DAvatarVideoTaskRequest extends $tea.Model {
 
 export class SubmitAudioTo3DAvatarVideoTaskShrinkRequest extends $tea.Model {
   appShrink?: string;
+  audioInfoShrink?: string;
   avatarInfoShrink?: string;
   callback?: boolean;
   callbackParams?: string;
@@ -2441,6 +2451,7 @@ export class SubmitAudioTo3DAvatarVideoTaskShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appShrink: 'App',
+      audioInfoShrink: 'AudioInfo',
       avatarInfoShrink: 'AvatarInfo',
       callback: 'Callback',
       callbackParams: 'CallbackParams',
@@ -2455,6 +2466,7 @@ export class SubmitAudioTo3DAvatarVideoTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appShrink: 'string',
+      audioInfoShrink: 'string',
       avatarInfoShrink: 'string',
       callback: 'boolean',
       callbackParams: 'string',
@@ -4297,6 +4309,25 @@ export class SubmitAudioTo2DAvatarVideoTaskRequestApp extends $tea.Model {
   }
 }
 
+export class SubmitAudioTo2DAvatarVideoTaskRequestAudioInfo extends $tea.Model {
+  sampleRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      sampleRate: 'SampleRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sampleRate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo extends $tea.Model {
   code?: string;
   height?: number;
@@ -4386,6 +4417,25 @@ export class SubmitAudioTo3DAvatarVideoTaskRequestApp extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAudioTo3DAvatarVideoTaskRequestAudioInfo extends $tea.Model {
+  sampleRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      sampleRate: 'SampleRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sampleRate: 'number',
     };
   }
 
@@ -4528,12 +4578,14 @@ export class SubmitTextTo2DAvatarVideoTaskRequestApp extends $tea.Model {
 
 export class SubmitTextTo2DAvatarVideoTaskRequestAudioInfo extends $tea.Model {
   pitchRate?: number;
+  sampleRate?: number;
   speechRate?: number;
   voice?: string;
   volume?: number;
   static names(): { [key: string]: string } {
     return {
       pitchRate: 'PitchRate',
+      sampleRate: 'SampleRate',
       speechRate: 'SpeechRate',
       voice: 'Voice',
       volume: 'Volume',
@@ -4543,6 +4595,7 @@ export class SubmitTextTo2DAvatarVideoTaskRequestAudioInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       pitchRate: 'number',
+      sampleRate: 'number',
       speechRate: 'number',
       voice: 'string',
       volume: 'number',
@@ -4585,6 +4638,37 @@ export class SubmitTextTo2DAvatarVideoTaskRequestAvatarInfo extends $tea.Model {
   }
 }
 
+export class SubmitTextTo2DAvatarVideoTaskRequestVideoInfoSubtitleStyle extends $tea.Model {
+  color?: string;
+  name?: string;
+  outlineColor?: string;
+  size?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      color: 'Color',
+      name: 'Name',
+      outlineColor: 'OutlineColor',
+      size: 'Size',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      color: 'string',
+      name: 'string',
+      outlineColor: 'string',
+      size: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTextTo2DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
   alphaFormat?: number;
   backgroundImageUrl?: string;
@@ -4592,6 +4676,7 @@ export class SubmitTextTo2DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
   isSubtitles?: boolean;
   resolution?: number;
   subtitleEmbedded?: boolean;
+  subtitleStyle?: SubmitTextTo2DAvatarVideoTaskRequestVideoInfoSubtitleStyle;
   static names(): { [key: string]: string } {
     return {
       alphaFormat: 'AlphaFormat',
@@ -4600,6 +4685,7 @@ export class SubmitTextTo2DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
       isSubtitles: 'IsSubtitles',
       resolution: 'Resolution',
       subtitleEmbedded: 'SubtitleEmbedded',
+      subtitleStyle: 'SubtitleStyle',
     };
   }
 
@@ -4611,6 +4697,7 @@ export class SubmitTextTo2DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
       isSubtitles: 'boolean',
       resolution: 'number',
       subtitleEmbedded: 'boolean',
+      subtitleStyle: SubmitTextTo2DAvatarVideoTaskRequestVideoInfoSubtitleStyle,
     };
   }
 
@@ -4659,12 +4746,14 @@ export class SubmitTextTo3DAvatarVideoTaskRequestApp extends $tea.Model {
 
 export class SubmitTextTo3DAvatarVideoTaskRequestAudioInfo extends $tea.Model {
   pitchRate?: number;
+  sampleRate?: number;
   speechRate?: number;
   voice?: string;
   volume?: number;
   static names(): { [key: string]: string } {
     return {
       pitchRate: 'PitchRate',
+      sampleRate: 'SampleRate',
       speechRate: 'SpeechRate',
       voice: 'Voice',
       volume: 'Volume',
@@ -4674,6 +4763,7 @@ export class SubmitTextTo3DAvatarVideoTaskRequestAudioInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       pitchRate: 'number',
+      sampleRate: 'number',
       speechRate: 'number',
       voice: 'string',
       volume: 'number',
@@ -4713,6 +4803,37 @@ export class SubmitTextTo3DAvatarVideoTaskRequestAvatarInfo extends $tea.Model {
   }
 }
 
+export class SubmitTextTo3DAvatarVideoTaskRequestVideoInfoSubtitleStyle extends $tea.Model {
+  color?: string;
+  name?: string;
+  outlineColor?: string;
+  size?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      color: 'Color',
+      name: 'Name',
+      outlineColor: 'OutlineColor',
+      size: 'Size',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      color: 'string',
+      name: 'string',
+      outlineColor: 'string',
+      size: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTextTo3DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
   alphaFormat?: number;
   backgroundImageUrl?: string;
@@ -4720,6 +4841,7 @@ export class SubmitTextTo3DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
   isSubtitles?: boolean;
   resolution?: number;
   subtitleEmbedded?: boolean;
+  subtitleStyle?: SubmitTextTo3DAvatarVideoTaskRequestVideoInfoSubtitleStyle;
   static names(): { [key: string]: string } {
     return {
       alphaFormat: 'AlphaFormat',
@@ -4728,6 +4850,7 @@ export class SubmitTextTo3DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
       isSubtitles: 'IsSubtitles',
       resolution: 'Resolution',
       subtitleEmbedded: 'SubtitleEmbedded',
+      subtitleStyle: 'SubtitleStyle',
     };
   }
 
@@ -4739,6 +4862,7 @@ export class SubmitTextTo3DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
       isSubtitles: 'boolean',
       resolution: 'number',
       subtitleEmbedded: 'boolean',
+      subtitleStyle: SubmitTextTo3DAvatarVideoTaskRequestVideoInfoSubtitleStyle,
     };
   }
 
@@ -5849,6 +5973,10 @@ export default class Client extends OpenApi {
       request.appShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.app, "App", "json");
     }
 
+    if (!Util.isUnset(tmpReq.audioInfo)) {
+      request.audioInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.audioInfo, "AudioInfo", "json");
+    }
+
     if (!Util.isUnset(tmpReq.avatarInfo)) {
       request.avatarInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.avatarInfo, "AvatarInfo", "json");
     }
@@ -5860,6 +5988,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.appShrink)) {
       query["App"] = request.appShrink;
+    }
+
+    if (!Util.isUnset(request.audioInfoShrink)) {
+      query["AudioInfo"] = request.audioInfoShrink;
     }
 
     if (!Util.isUnset(request.avatarInfoShrink)) {
@@ -5924,6 +6056,10 @@ export default class Client extends OpenApi {
       request.appShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.app, "App", "json");
     }
 
+    if (!Util.isUnset(tmpReq.audioInfo)) {
+      request.audioInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.audioInfo, "AudioInfo", "json");
+    }
+
     if (!Util.isUnset(tmpReq.avatarInfo)) {
       request.avatarInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.avatarInfo, "AvatarInfo", "json");
     }
@@ -5935,6 +6071,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.appShrink)) {
       query["App"] = request.appShrink;
+    }
+
+    if (!Util.isUnset(request.audioInfoShrink)) {
+      query["AudioInfo"] = request.audioInfoShrink;
     }
 
     if (!Util.isUnset(request.avatarInfoShrink)) {
