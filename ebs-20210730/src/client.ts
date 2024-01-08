@@ -1860,6 +1860,7 @@ export class DescribeDiskReplicaPairsResponse extends $tea.Model {
 
 export class DescribeEnterpriseSnapshotPolicyRequest extends $tea.Model {
   clientToken?: string;
+  diskIds?: string[];
   maxResults?: number;
   nextToken?: string;
   pageNumber?: number;
@@ -1871,6 +1872,7 @@ export class DescribeEnterpriseSnapshotPolicyRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      diskIds: 'DiskIds',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       pageNumber: 'PageNumber',
@@ -1885,6 +1887,7 @@ export class DescribeEnterpriseSnapshotPolicyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      diskIds: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
       nextToken: 'string',
       pageNumber: 'number',
@@ -5231,6 +5234,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $tea.M
   createTime?: string;
   crossRegionCopyInfo?: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfo;
   desc?: string;
+  diskIds?: string[];
   managedForEcs?: boolean;
   name?: string;
   policyId?: string;
@@ -5248,6 +5252,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $tea.M
       createTime: 'CreateTime',
       crossRegionCopyInfo: 'CrossRegionCopyInfo',
       desc: 'Desc',
+      diskIds: 'DiskIds',
       managedForEcs: 'ManagedForEcs',
       name: 'Name',
       policyId: 'PolicyId',
@@ -5268,6 +5273,7 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $tea.M
       createTime: 'string',
       crossRegionCopyInfo: DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfo,
       desc: 'string',
+      diskIds: { 'type': 'array', 'itemType': 'string' },
       managedForEcs: 'boolean',
       name: 'string',
       policyId: 'string',
@@ -7107,6 +7113,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.diskIds)) {
+      query["DiskIds"] = request.diskIds;
     }
 
     if (!Util.isUnset(request.maxResults)) {
