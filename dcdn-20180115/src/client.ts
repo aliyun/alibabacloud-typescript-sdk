@@ -1280,6 +1280,99 @@ export class CommitStagingRoutineCodeResponse extends $tea.Model {
   }
 }
 
+export class CreateDcdnCertificateSigningRequestRequest extends $tea.Model {
+  city?: string;
+  commonName?: string;
+  country?: string;
+  email?: string;
+  organization?: string;
+  organizationUnit?: string;
+  SANs?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      city: 'City',
+      commonName: 'CommonName',
+      country: 'Country',
+      email: 'Email',
+      organization: 'Organization',
+      organizationUnit: 'OrganizationUnit',
+      SANs: 'SANs',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      city: 'string',
+      commonName: 'string',
+      country: 'string',
+      email: 'string',
+      organization: 'string',
+      organizationUnit: 'string',
+      SANs: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnCertificateSigningRequestResponseBody extends $tea.Model {
+  commonName?: string;
+  csr?: string;
+  pubMd5?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      csr: 'Csr',
+      pubMd5: 'PubMd5',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      csr: 'string',
+      pubMd5: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnCertificateSigningRequestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDcdnCertificateSigningRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDcdnCertificateSigningRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDcdnDeliverTaskRequest extends $tea.Model {
   deliver?: string;
   domainName?: string;
@@ -15184,6 +15277,72 @@ export class RollbackDcdnStagingConfigResponse extends $tea.Model {
   }
 }
 
+export class SetDcdnDomainCSRCertificateRequest extends $tea.Model {
+  domainName?: string;
+  serverCertificate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      serverCertificate: 'ServerCertificate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      serverCertificate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDcdnDomainCSRCertificateResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDcdnDomainCSRCertificateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetDcdnDomainCSRCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetDcdnDomainCSRCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetDcdnDomainCertificateRequest extends $tea.Model {
   certName?: string;
   certType?: string;
@@ -24262,6 +24421,63 @@ export default class Client extends OpenApi {
     return await this.commitStagingRoutineCodeWithOptions(request, runtime);
   }
 
+  async createDcdnCertificateSigningRequestWithOptions(request: CreateDcdnCertificateSigningRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnCertificateSigningRequestResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.commonName)) {
+      query["CommonName"] = request.commonName;
+    }
+
+    if (!Util.isUnset(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.organization)) {
+      query["Organization"] = request.organization;
+    }
+
+    if (!Util.isUnset(request.organizationUnit)) {
+      query["OrganizationUnit"] = request.organizationUnit;
+    }
+
+    if (!Util.isUnset(request.SANs)) {
+      query["SANs"] = request.SANs;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDcdnCertificateSigningRequest",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDcdnCertificateSigningRequestResponse>(await this.callApi(params, req, runtime), new CreateDcdnCertificateSigningRequestResponse({}));
+  }
+
+  async createDcdnCertificateSigningRequest(request: CreateDcdnCertificateSigningRequestRequest): Promise<CreateDcdnCertificateSigningRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDcdnCertificateSigningRequestWithOptions(request, runtime);
+  }
+
   /**
     * > You can call this operation up to three times per second per account.
     *
@@ -28176,7 +28392,7 @@ export default class Client extends OpenApi {
   /**
     * * You can call this operation up to 10 times per second per account.
     * * Usage data includes traffic (measured in bytes), bandwidth values (measured in bit/s), and the number of requests.
-    * **Time granularity**:
+    * **Time granularity**
     * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
     * |Time granularity|Maximum time range per query|Historical data available|Data delay|
     * |---|---|---|---|
@@ -28243,7 +28459,7 @@ export default class Client extends OpenApi {
   /**
     * * You can call this operation up to 10 times per second per account.
     * * Usage data includes traffic (measured in bytes), bandwidth values (measured in bit/s), and the number of requests.
-    * **Time granularity**:
+    * **Time granularity**
     * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
     * |Time granularity|Maximum time range per query|Historical data available|Data delay|
     * |---|---|---|---|
@@ -30727,6 +30943,13 @@ export default class Client extends OpenApi {
     return await this.describeDcdnUserTagsWithOptions(runtime);
   }
 
+  /**
+    * You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnUserVipsByDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnUserVipsByDomainResponse
+   */
   async describeDcdnUserVipsByDomainWithOptions(request: DescribeDcdnUserVipsByDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserVipsByDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30755,6 +30978,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnUserVipsByDomainResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserVipsByDomainResponse({}));
   }
 
+  /**
+    * You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnUserVipsByDomainRequest
+    * @return DescribeDcdnUserVipsByDomainResponse
+   */
   async describeDcdnUserVipsByDomain(request: DescribeDcdnUserVipsByDomainRequest): Promise<DescribeDcdnUserVipsByDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserVipsByDomainWithOptions(request, runtime);
@@ -33339,6 +33568,39 @@ export default class Client extends OpenApi {
   async rollbackDcdnStagingConfig(request: RollbackDcdnStagingConfigRequest): Promise<RollbackDcdnStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rollbackDcdnStagingConfigWithOptions(request, runtime);
+  }
+
+  async setDcdnDomainCSRCertificateWithOptions(request: SetDcdnDomainCSRCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnDomainCSRCertificateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.serverCertificate)) {
+      query["ServerCertificate"] = request.serverCertificate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetDcdnDomainCSRCertificate",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDcdnDomainCSRCertificateResponse>(await this.callApi(params, req, runtime), new SetDcdnDomainCSRCertificateResponse({}));
+  }
+
+  async setDcdnDomainCSRCertificate(request: SetDcdnDomainCSRCertificateRequest): Promise<SetDcdnDomainCSRCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setDcdnDomainCSRCertificateWithOptions(request, runtime);
   }
 
   /**
