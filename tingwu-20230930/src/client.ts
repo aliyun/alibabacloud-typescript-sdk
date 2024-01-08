@@ -639,6 +639,7 @@ export class CreateTaskRequestParameters extends $tea.Model {
   pptExtractionEnabled?: boolean;
   summarization?: CreateTaskRequestParametersSummarization;
   summarizationEnabled?: boolean;
+  textPolishEnabled?: boolean;
   transcoding?: CreateTaskRequestParametersTranscoding;
   transcription?: CreateTaskRequestParametersTranscription;
   translation?: CreateTaskRequestParametersTranslation;
@@ -651,6 +652,7 @@ export class CreateTaskRequestParameters extends $tea.Model {
       pptExtractionEnabled: 'PptExtractionEnabled',
       summarization: 'Summarization',
       summarizationEnabled: 'SummarizationEnabled',
+      textPolishEnabled: 'TextPolishEnabled',
       transcoding: 'Transcoding',
       transcription: 'Transcription',
       translation: 'Translation',
@@ -666,6 +668,7 @@ export class CreateTaskRequestParameters extends $tea.Model {
       pptExtractionEnabled: 'boolean',
       summarization: CreateTaskRequestParametersSummarization,
       summarizationEnabled: 'boolean',
+      textPolishEnabled: 'boolean',
       transcoding: CreateTaskRequestParametersTranscoding,
       transcription: CreateTaskRequestParametersTranscription,
       translation: CreateTaskRequestParametersTranslation,
