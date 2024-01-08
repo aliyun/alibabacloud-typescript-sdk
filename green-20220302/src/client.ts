@@ -583,6 +583,81 @@ export class TextModerationResponse extends $tea.Model {
   }
 }
 
+export class TextModerationPlusRequest extends $tea.Model {
+  service?: string;
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationPlusResponseBody extends $tea.Model {
+  code?: number;
+  data?: TextModerationPlusResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: TextModerationPlusResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationPlusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TextModerationPlusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TextModerationPlusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoModerationRequest extends $tea.Model {
   service?: string;
   serviceParameters?: string;
@@ -1498,6 +1573,100 @@ export class TextModerationResponseBodyData extends $tea.Model {
   }
 }
 
+export class TextModerationPlusResponseBodyDataAdvice extends $tea.Model {
+  answer?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answer: 'Answer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answer: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationPlusResponseBodyDataResultCustomizedHit extends $tea.Model {
+  keyWords?: string;
+  libName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyWords: 'KeyWords',
+      libName: 'LibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyWords: 'string',
+      libName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationPlusResponseBodyDataResult extends $tea.Model {
+  confidence?: number;
+  customizedHit?: TextModerationPlusResponseBodyDataResultCustomizedHit[];
+  label?: string;
+  riskWords?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      customizedHit: 'CustomizedHit',
+      label: 'Label',
+      riskWords: 'RiskWords',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      customizedHit: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataResultCustomizedHit },
+      label: 'string',
+      riskWords: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationPlusResponseBodyData extends $tea.Model {
+  advice?: TextModerationPlusResponseBodyDataAdvice[];
+  result?: TextModerationPlusResponseBodyDataResult[];
+  score?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advice: 'Advice',
+      result: 'Result',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advice: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataAdvice },
+      result: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataResult },
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoModerationResponseBodyData extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -2145,6 +2314,39 @@ export default class Client extends OpenApi {
   async textModeration(request: TextModerationRequest): Promise<TextModerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.textModerationWithOptions(request, runtime);
+  }
+
+  async textModerationPlusWithOptions(request: TextModerationPlusRequest, runtime: $Util.RuntimeOptions): Promise<TextModerationPlusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.service)) {
+      body["Service"] = request.service;
+    }
+
+    if (!Util.isUnset(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TextModerationPlus",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TextModerationPlusResponse>(await this.callApi(params, req, runtime), new TextModerationPlusResponse({}));
+  }
+
+  async textModerationPlus(request: TextModerationPlusRequest): Promise<TextModerationPlusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.textModerationPlusWithOptions(request, runtime);
   }
 
   async videoModerationWithOptions(request: VideoModerationRequest, runtime: $Util.RuntimeOptions): Promise<VideoModerationResponse> {
