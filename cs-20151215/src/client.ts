@@ -41,6 +41,8 @@ export class DataDisk extends $tea.Model {
   autoSnapshotPolicyId?: string;
   burstingEnabled?: boolean;
   category?: string;
+  device?: string;
+  diskName?: string;
   encrypted?: string;
   fileSystem?: string;
   kmsKeyId?: string;
@@ -48,12 +50,15 @@ export class DataDisk extends $tea.Model {
   performanceLevel?: string;
   provisionedIops?: number;
   size?: number;
+  snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
       autoFormat: 'auto_format',
       autoSnapshotPolicyId: 'auto_snapshot_policy_id',
       burstingEnabled: 'bursting_enabled',
       category: 'category',
+      device: 'device',
+      diskName: 'disk_name',
       encrypted: 'encrypted',
       fileSystem: 'file_system',
       kmsKeyId: 'kms_key_id',
@@ -61,6 +66,7 @@ export class DataDisk extends $tea.Model {
       performanceLevel: 'performance_level',
       provisionedIops: 'provisioned_iops',
       size: 'size',
+      snapshotId: 'snapshot_id',
     };
   }
 
@@ -70,6 +76,8 @@ export class DataDisk extends $tea.Model {
       autoSnapshotPolicyId: 'string',
       burstingEnabled: 'boolean',
       category: 'string',
+      device: 'string',
+      diskName: 'string',
       encrypted: 'string',
       fileSystem: 'string',
       kmsKeyId: 'string',
@@ -77,6 +85,7 @@ export class DataDisk extends $tea.Model {
       performanceLevel: 'string',
       provisionedIops: 'number',
       size: 'number',
+      snapshotId: 'string',
     };
   }
 
@@ -13102,6 +13111,20 @@ export default class Client extends OpenApi {
     return await this.createAutoscalingConfigWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+    * This topic describes all parameters for creating an ACK cluster. You can create the following types of ACK clusters.
+    * *   [Create an ACK managed cluster](~~90776~~)
+    * *   [Create an ACK dedicated cluster](~~197620~~)
+    * *   [Create an ACK Serverless cluster](~~144246~~)
+    * *   [Create an ACK Edge cluster](128204)
+    * *   [Create an ACK Basic cluster that supports sandboxed containers](~~196321~~)
+    * *   [Create an ACK Pro cluster that supports sandboxed containers](140623)
+    *
+    * @param request CreateClusterRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateClusterResponse
+   */
   async createClusterWithOptions(request: CreateClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13483,6 +13506,18 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
   }
 
+  /**
+    * This topic describes all parameters for creating an ACK cluster. You can create the following types of ACK clusters.
+    * *   [Create an ACK managed cluster](~~90776~~)
+    * *   [Create an ACK dedicated cluster](~~197620~~)
+    * *   [Create an ACK Serverless cluster](~~144246~~)
+    * *   [Create an ACK Edge cluster](128204)
+    * *   [Create an ACK Basic cluster that supports sandboxed containers](~~196321~~)
+    * *   [Create an ACK Pro cluster that supports sandboxed containers](140623)
+    *
+    * @param request CreateClusterRequest
+    * @return CreateClusterResponse
+   */
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -14649,6 +14684,15 @@ export default class Client extends OpenApi {
     return await this.describeClusterTasksWithOptions(clusterId, request, headers, runtime);
   }
 
+  /**
+    * **
+    * ****The default validity period of a kubeconfig file is 3 years. Two months before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the secret is valid for 3 years. The previous kubeconfig secret remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
+    *
+    * @param request DescribeClusterUserKubeconfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeClusterUserKubeconfigResponse
+   */
   async describeClusterUserKubeconfigWithOptions(ClusterId: string, request: DescribeClusterUserKubeconfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterUserKubeconfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -14678,6 +14722,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterUserKubeconfigResponse>(await this.callApi(params, req, runtime), new DescribeClusterUserKubeconfigResponse({}));
   }
 
+  /**
+    * **
+    * ****The default validity period of a kubeconfig file is 3 years. Two months before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the secret is valid for 3 years. The previous kubeconfig secret remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
+    *
+    * @param request DescribeClusterUserKubeconfigRequest
+    * @return DescribeClusterUserKubeconfigResponse
+   */
   async describeClusterUserKubeconfig(ClusterId: string, request: DescribeClusterUserKubeconfigRequest): Promise<DescribeClusterUserKubeconfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -16342,7 +16393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation progressively modifies the kubelet configuration of the nodes in a node pool and restarts the kubelet process, which may affect your businesses.
+    * >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
     *
     * @param request ModifyNodePoolNodeConfigRequest
     * @param headers map
@@ -16379,7 +16430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation progressively modifies the kubelet configuration of the nodes in a node pool and restarts the kubelet process, which may affect your businesses.
+    * >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
     *
     * @param request ModifyNodePoolNodeConfigRequest
     * @return ModifyNodePoolNodeConfigResponse
