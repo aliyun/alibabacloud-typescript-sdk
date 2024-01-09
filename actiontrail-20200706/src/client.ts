@@ -80,6 +80,8 @@ export class CreateDeliveryHistoryJobResponse extends $tea.Model {
 export class CreateTrailRequest extends $tea.Model {
   eventRW?: string;
   isOrganizationTrail?: boolean;
+  maxComputeProjectArn?: string;
+  maxComputeWriteRoleArn?: string;
   name?: string;
   ossBucketName?: string;
   ossKeyPrefix?: string;
@@ -91,6 +93,8 @@ export class CreateTrailRequest extends $tea.Model {
     return {
       eventRW: 'EventRW',
       isOrganizationTrail: 'IsOrganizationTrail',
+      maxComputeProjectArn: 'MaxComputeProjectArn',
+      maxComputeWriteRoleArn: 'MaxComputeWriteRoleArn',
       name: 'Name',
       ossBucketName: 'OssBucketName',
       ossKeyPrefix: 'OssKeyPrefix',
@@ -105,6 +109,8 @@ export class CreateTrailRequest extends $tea.Model {
     return {
       eventRW: 'string',
       isOrganizationTrail: 'boolean',
+      maxComputeProjectArn: 'string',
+      maxComputeWriteRoleArn: 'string',
       name: 'string',
       ossBucketName: 'string',
       ossKeyPrefix: 'string',
@@ -123,6 +129,8 @@ export class CreateTrailRequest extends $tea.Model {
 export class CreateTrailResponseBody extends $tea.Model {
   eventRW?: string;
   homeRegion?: string;
+  maxComputeProjectArn?: string;
+  maxComputeWriteRoleArn?: string;
   name?: string;
   ossBucketName?: string;
   ossKeyPrefix?: string;
@@ -135,6 +143,8 @@ export class CreateTrailResponseBody extends $tea.Model {
     return {
       eventRW: 'EventRW',
       homeRegion: 'HomeRegion',
+      maxComputeProjectArn: 'MaxComputeProjectArn',
+      maxComputeWriteRoleArn: 'MaxComputeWriteRoleArn',
       name: 'Name',
       ossBucketName: 'OssBucketName',
       ossKeyPrefix: 'OssKeyPrefix',
@@ -150,6 +160,8 @@ export class CreateTrailResponseBody extends $tea.Model {
     return {
       eventRW: 'string',
       homeRegion: 'string',
+      maxComputeProjectArn: 'string',
+      maxComputeWriteRoleArn: 'string',
       name: 'string',
       ossBucketName: 'string',
       ossKeyPrefix: 'string',
@@ -1440,6 +1452,8 @@ export class UpdateGlobalEventsStorageRegionResponse extends $tea.Model {
 
 export class UpdateTrailRequest extends $tea.Model {
   eventRW?: string;
+  maxComputeProjectArn?: string;
+  maxComputeWriteRoleArn?: string;
   name?: string;
   ossBucketName?: string;
   ossKeyPrefix?: string;
@@ -1450,6 +1464,8 @@ export class UpdateTrailRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       eventRW: 'EventRW',
+      maxComputeProjectArn: 'MaxComputeProjectArn',
+      maxComputeWriteRoleArn: 'MaxComputeWriteRoleArn',
       name: 'Name',
       ossBucketName: 'OssBucketName',
       ossKeyPrefix: 'OssKeyPrefix',
@@ -1463,6 +1479,8 @@ export class UpdateTrailRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       eventRW: 'string',
+      maxComputeProjectArn: 'string',
+      maxComputeWriteRoleArn: 'string',
       name: 'string',
       ossBucketName: 'string',
       ossKeyPrefix: 'string',
@@ -1481,6 +1499,8 @@ export class UpdateTrailRequest extends $tea.Model {
 export class UpdateTrailResponseBody extends $tea.Model {
   eventRW?: string;
   homeRegion?: string;
+  maxComputeProjectArn?: string;
+  maxComputeWriteRoleArn?: string;
   name?: string;
   ossBucketName?: string;
   ossKeyPrefix?: string;
@@ -1493,6 +1513,8 @@ export class UpdateTrailResponseBody extends $tea.Model {
     return {
       eventRW: 'EventRW',
       homeRegion: 'HomeRegion',
+      maxComputeProjectArn: 'MaxComputeProjectArn',
+      maxComputeWriteRoleArn: 'MaxComputeWriteRoleArn',
       name: 'Name',
       ossBucketName: 'OssBucketName',
       ossKeyPrefix: 'OssKeyPrefix',
@@ -1508,6 +1530,8 @@ export class UpdateTrailResponseBody extends $tea.Model {
     return {
       eventRW: 'string',
       homeRegion: 'string',
+      maxComputeProjectArn: 'string',
+      maxComputeWriteRoleArn: 'string',
       name: 'string',
       ossBucketName: 'string',
       ossKeyPrefix: 'string',
@@ -1598,6 +1622,8 @@ export class DescribeTrailsResponseBodyTrailList extends $tea.Model {
   eventRW?: string;
   homeRegion?: string;
   isOrganizationTrail?: boolean;
+  maxComputeProjectArn?: string;
+  maxComputeWriteRoleArn?: string;
   name?: string;
   organizationId?: string;
   ossBucketLocation?: string;
@@ -1619,6 +1645,8 @@ export class DescribeTrailsResponseBodyTrailList extends $tea.Model {
       eventRW: 'EventRW',
       homeRegion: 'HomeRegion',
       isOrganizationTrail: 'IsOrganizationTrail',
+      maxComputeProjectArn: 'MaxComputeProjectArn',
+      maxComputeWriteRoleArn: 'MaxComputeWriteRoleArn',
       name: 'Name',
       organizationId: 'OrganizationId',
       ossBucketLocation: 'OssBucketLocation',
@@ -1643,6 +1671,8 @@ export class DescribeTrailsResponseBodyTrailList extends $tea.Model {
       eventRW: 'string',
       homeRegion: 'string',
       isOrganizationTrail: 'boolean',
+      maxComputeProjectArn: 'string',
+      maxComputeWriteRoleArn: 'string',
       name: 'string',
       organizationId: 'string',
       ossBucketLocation: 'string',
@@ -2000,6 +2030,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.isOrganizationTrail)) {
       query["IsOrganizationTrail"] = request.isOrganizationTrail;
+    }
+
+    if (!Util.isUnset(request.maxComputeProjectArn)) {
+      query["MaxComputeProjectArn"] = request.maxComputeProjectArn;
+    }
+
+    if (!Util.isUnset(request.maxComputeWriteRoleArn)) {
+      query["MaxComputeWriteRoleArn"] = request.maxComputeWriteRoleArn;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -2855,6 +2893,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.eventRW)) {
       query["EventRW"] = request.eventRW;
+    }
+
+    if (!Util.isUnset(request.maxComputeProjectArn)) {
+      query["MaxComputeProjectArn"] = request.maxComputeProjectArn;
+    }
+
+    if (!Util.isUnset(request.maxComputeWriteRoleArn)) {
+      query["MaxComputeWriteRoleArn"] = request.maxComputeWriteRoleArn;
     }
 
     if (!Util.isUnset(request.name)) {
