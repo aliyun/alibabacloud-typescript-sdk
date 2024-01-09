@@ -136,15 +136,21 @@ export class AyncTradeDocumentPackageExtractSmartAppResponse extends $tea.Model 
 
 export class GetDocStructureResultRequest extends $tea.Model {
   id?: string;
+  imageStrategy?: string;
+  revealMarkdown?: boolean;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
+      imageStrategy: 'ImageStrategy',
+      revealMarkdown: 'RevealMarkdown',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       id: 'string',
+      imageStrategy: 'string',
+      revealMarkdown: 'boolean',
     };
   }
 
@@ -1230,11 +1236,15 @@ export class SubmitDigitalDocStructureJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  imageStrategy?: string;
+  revealMarkdown?: boolean;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      imageStrategy: 'ImageStrategy',
+      revealMarkdown: 'RevealMarkdown',
     };
   }
 
@@ -1243,6 +1253,8 @@ export class SubmitDigitalDocStructureJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      imageStrategy: 'string',
+      revealMarkdown: 'boolean',
     };
   }
 
@@ -1255,11 +1267,15 @@ export class SubmitDigitalDocStructureJobAdvanceRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  imageStrategy?: string;
+  revealMarkdown?: boolean;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      imageStrategy: 'ImageStrategy',
+      revealMarkdown: 'RevealMarkdown',
     };
   }
 
@@ -1268,6 +1284,8 @@ export class SubmitDigitalDocStructureJobAdvanceRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      imageStrategy: 'string',
+      revealMarkdown: 'boolean',
     };
   }
 
@@ -2107,6 +2125,14 @@ export default class Client extends OpenApi {
       query["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.imageStrategy)) {
+      query["ImageStrategy"] = request.imageStrategy;
+    }
+
+    if (!Util.isUnset(request.revealMarkdown)) {
+      query["RevealMarkdown"] = request.revealMarkdown;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2765,6 +2791,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileUrl)) {
       query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.imageStrategy)) {
+      query["ImageStrategy"] = request.imageStrategy;
+    }
+
+    if (!Util.isUnset(request.revealMarkdown)) {
+      query["RevealMarkdown"] = request.revealMarkdown;
     }
 
     let req = new $OpenApi.OpenApiRequest({
