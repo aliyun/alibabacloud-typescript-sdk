@@ -37,14 +37,14 @@ export class ActualDeductResourceCmd extends $tea.Model {
 }
 
 export class ActualDeductResourceResult extends $tea.Model {
+  errorCode?: string;
   errorMessage?: string;
-  errorcode?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      errorCode: 'errorCode',
       errorMessage: 'errorMessage',
-      errorcode: 'errorcode',
       requestId: 'requestId',
       success: 'success',
     };
@@ -52,8 +52,8 @@ export class ActualDeductResourceResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      errorCode: 'string',
       errorMessage: 'string',
-      errorcode: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -102,14 +102,14 @@ export class DirectDeductResourceCmd extends $tea.Model {
 }
 
 export class DirectDeductResourceResult extends $tea.Model {
+  errorCode?: string;
   errorMessage?: string;
-  errorcode?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      errorCode: 'errorCode',
       errorMessage: 'errorMessage',
-      errorcode: 'errorcode',
       requestId: 'requestId',
       success: 'success',
     };
@@ -117,8 +117,8 @@ export class DirectDeductResourceResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      errorCode: 'string',
       errorMessage: 'string',
-      errorcode: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -167,15 +167,15 @@ export class ExpectDeductResourceCmd extends $tea.Model {
 }
 
 export class ExpectDeductResourceResult extends $tea.Model {
+  errorCode?: string;
   errorMessage?: string;
-  errorcode?: string;
   requestId?: string;
   success?: boolean;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      errorCode: 'errorCode',
       errorMessage: 'errorMessage',
-      errorcode: 'errorcode',
       requestId: 'requestId',
       success: 'success',
       taskId: 'taskId',
@@ -184,8 +184,8 @@ export class ExpectDeductResourceResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      errorCode: 'string',
       errorMessage: 'string',
-      errorcode: 'string',
       requestId: 'string',
       success: 'boolean',
       taskId: 'string',
