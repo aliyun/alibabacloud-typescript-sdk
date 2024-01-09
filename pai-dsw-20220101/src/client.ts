@@ -2055,9 +2055,11 @@ export class StopInstanceResponse extends $tea.Model {
 
 export class UpdateInstanceRequest extends $tea.Model {
   accessibility?: string;
+  cloudDisks?: UpdateInstanceRequestCloudDisks[];
   datasets?: UpdateInstanceRequestDatasets[];
   disassociateDatasets?: boolean;
   disassociateDriver?: boolean;
+  disassociateForwardInfos?: boolean;
   disassociateVpc?: boolean;
   driver?: string;
   ecsSpec?: string;
@@ -2072,9 +2074,11 @@ export class UpdateInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      cloudDisks: 'CloudDisks',
       datasets: 'Datasets',
       disassociateDatasets: 'DisassociateDatasets',
       disassociateDriver: 'DisassociateDriver',
+      disassociateForwardInfos: 'DisassociateForwardInfos',
       disassociateVpc: 'DisassociateVpc',
       driver: 'Driver',
       ecsSpec: 'EcsSpec',
@@ -2092,9 +2096,11 @@ export class UpdateInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      cloudDisks: { 'type': 'array', 'itemType': UpdateInstanceRequestCloudDisks },
       datasets: { 'type': 'array', 'itemType': UpdateInstanceRequestDatasets },
       disassociateDatasets: 'boolean',
       disassociateDriver: 'boolean',
+      disassociateForwardInfos: 'boolean',
       disassociateVpc: 'boolean',
       driver: 'string',
       ecsSpec: 'string',
@@ -2245,16 +2251,43 @@ export class ForwardInfoResponseConnectInfo extends $tea.Model {
   }
 }
 
+export class CreateInstanceRequestCloudDisksStatus extends $tea.Model {
+  available?: number;
+  capacity?: number;
+  usage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      available: 'Available',
+      capacity: 'Capacity',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      available: 'number',
+      capacity: 'number',
+      usage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequestCloudDisks extends $tea.Model {
   capacity?: string;
   mountPath?: string;
   path?: string;
+  status?: CreateInstanceRequestCloudDisksStatus;
   subType?: string;
   static names(): { [key: string]: string } {
     return {
       capacity: 'Capacity',
       mountPath: 'MountPath',
       path: 'Path',
+      status: 'Status',
       subType: 'SubType',
     };
   }
@@ -2264,6 +2297,7 @@ export class CreateInstanceRequestCloudDisks extends $tea.Model {
       capacity: 'string',
       mountPath: 'string',
       path: 'string',
+      status: CreateInstanceRequestCloudDisksStatus,
       subType: 'string',
     };
   }
@@ -3398,6 +3432,28 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
   }
 }
 
+export class UpdateInstanceRequestCloudDisks extends $tea.Model {
+  capacity?: string;
+  subType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      subType: 'SubType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'string',
+      subType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateInstanceRequestDatasets extends $tea.Model {
   datasetId?: string;
   mountPath?: string;
@@ -4370,6 +4426,10 @@ export default class Client extends OpenApi {
       body["Accessibility"] = request.accessibility;
     }
 
+    if (!Util.isUnset(request.cloudDisks)) {
+      body["CloudDisks"] = request.cloudDisks;
+    }
+
     if (!Util.isUnset(request.datasets)) {
       body["Datasets"] = request.datasets;
     }
@@ -4380,6 +4440,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.disassociateDriver)) {
       body["DisassociateDriver"] = request.disassociateDriver;
+    }
+
+    if (!Util.isUnset(request.disassociateForwardInfos)) {
+      body["DisassociateForwardInfos"] = request.disassociateForwardInfos;
     }
 
     if (!Util.isUnset(request.disassociateVpc)) {
