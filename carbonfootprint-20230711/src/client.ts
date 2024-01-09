@@ -199,6 +199,75 @@ export class QueryCarbonTrackResponse extends $tea.Model {
   }
 }
 
+export class QueryMultiAccountCarbonTrackRequest extends $tea.Model {
+  endTime?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMultiAccountCarbonTrackResponseBody extends $tea.Model {
+  data?: QueryMultiAccountCarbonTrackResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryMultiAccountCarbonTrackResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMultiAccountCarbonTrackResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryMultiAccountCarbonTrackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryMultiAccountCarbonTrackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VerifyResponseBody extends $tea.Model {
   data?: VerifyResponseBodyData;
   requestId?: string;
@@ -308,6 +377,37 @@ export class QueryCarbonTrackResponseBodyData extends $tea.Model {
       region: 'string',
       statisticsDate: 'number',
       subUid: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMultiAccountCarbonTrackResponseBodyData extends $tea.Model {
+  carbonActualEmission?: string;
+  month?: string;
+  productCode?: string;
+  region?: string;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      carbonActualEmission: 'CarbonActualEmission',
+      month: 'Month',
+      productCode: 'ProductCode',
+      region: 'Region',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      carbonActualEmission: 'string',
+      month: 'string',
+      productCode: 'string',
+      region: 'string',
       uid: 'string',
     };
   }
@@ -452,6 +552,31 @@ export default class Client extends OpenApi {
   async queryCarbonTrack(request: QueryCarbonTrackRequest): Promise<QueryCarbonTrackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCarbonTrackWithOptions(request, runtime);
+  }
+
+  async queryMultiAccountCarbonTrackWithOptions(request: QueryMultiAccountCarbonTrackRequest, runtime: $Util.RuntimeOptions): Promise<QueryMultiAccountCarbonTrackResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryMultiAccountCarbonTrack",
+      version: "2023-07-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMultiAccountCarbonTrackResponse>(await this.callApi(params, req, runtime), new QueryMultiAccountCarbonTrackResponse({}));
+  }
+
+  async queryMultiAccountCarbonTrack(request: QueryMultiAccountCarbonTrackRequest): Promise<QueryMultiAccountCarbonTrackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMultiAccountCarbonTrackWithOptions(request, runtime);
   }
 
   async verifyWithOptions(runtime: $Util.RuntimeOptions): Promise<VerifyResponse> {
