@@ -1294,11 +1294,13 @@ export class DeleteApplicationRequest extends $tea.Model {
   force?: boolean;
   name?: string;
   regionId?: string;
+  retainResource?: boolean;
   static names(): { [key: string]: string } {
     return {
       force: 'Force',
       name: 'Name',
       regionId: 'RegionId',
+      retainResource: 'RetainResource',
     };
   }
 
@@ -1307,6 +1309,7 @@ export class DeleteApplicationRequest extends $tea.Model {
       force: 'boolean',
       name: 'string',
       regionId: 'string',
+      retainResource: 'boolean',
     };
   }
 
@@ -1363,11 +1366,13 @@ export class DeleteApplicationGroupRequest extends $tea.Model {
   applicationName?: string;
   name?: string;
   regionId?: string;
+  retainResource?: boolean;
   static names(): { [key: string]: string } {
     return {
       applicationName: 'ApplicationName',
       name: 'Name',
       regionId: 'RegionId',
+      retainResource: 'RetainResource',
     };
   }
 
@@ -1376,6 +1381,7 @@ export class DeleteApplicationGroupRequest extends $tea.Model {
       applicationName: 'string',
       name: 'string',
       regionId: 'string',
+      retainResource: 'boolean',
     };
   }
 
@@ -1971,6 +1977,96 @@ export class DeployApplicationGroupResponse extends $tea.Model {
   }
 }
 
+export class DescribeApplicationGroupBillRequest extends $tea.Model {
+  applicationName?: string;
+  billingCycle?: string;
+  maxResults?: number;
+  name?: string;
+  nextToken?: string;
+  regionId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationName: 'ApplicationName',
+      billingCycle: 'BillingCycle',
+      maxResults: 'MaxResults',
+      name: 'Name',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationName: 'string',
+      billingCycle: 'string',
+      maxResults: 'number',
+      name: 'string',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationGroupBillResponseBody extends $tea.Model {
+  applicationGroupConsume?: DescribeApplicationGroupBillResponseBodyApplicationGroupConsume[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationGroupConsume: 'ApplicationGroupConsume',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationGroupConsume: { 'type': 'array', 'itemType': DescribeApplicationGroupBillResponseBodyApplicationGroupConsume },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationGroupBillResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeApplicationGroupBillResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApplicationGroupBillResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsRequest extends $tea.Model {
   acceptLanguage?: string;
   regionId?: string;
@@ -2043,12 +2139,14 @@ export class DescribeRegionsResponse extends $tea.Model {
 export class GenerateExecutionPolicyRequest extends $tea.Model {
   ramRole?: string;
   regionId?: string;
+  templateContent?: string;
   templateName?: string;
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
       ramRole: 'RamRole',
       regionId: 'RegionId',
+      templateContent: 'TemplateContent',
       templateName: 'TemplateName',
       templateVersion: 'TemplateVersion',
     };
@@ -2058,6 +2156,7 @@ export class GenerateExecutionPolicyRequest extends $tea.Model {
     return {
       ramRole: 'string',
       regionId: 'string',
+      templateContent: 'string',
       templateName: 'string',
       templateVersion: 'string',
     };
@@ -5615,6 +5714,7 @@ export class ListTemplatesRequest extends $tea.Model {
   createdDateAfter?: string;
   createdDateBefore?: string;
   hasTrigger?: boolean;
+  isFavorite?: boolean;
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
@@ -5633,6 +5733,7 @@ export class ListTemplatesRequest extends $tea.Model {
       createdDateAfter: 'CreatedDateAfter',
       createdDateBefore: 'CreatedDateBefore',
       hasTrigger: 'HasTrigger',
+      isFavorite: 'IsFavorite',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
@@ -5654,6 +5755,7 @@ export class ListTemplatesRequest extends $tea.Model {
       createdDateAfter: 'string',
       createdDateBefore: 'string',
       hasTrigger: 'boolean',
+      isFavorite: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
@@ -5679,6 +5781,7 @@ export class ListTemplatesShrinkRequest extends $tea.Model {
   createdDateAfter?: string;
   createdDateBefore?: string;
   hasTrigger?: boolean;
+  isFavorite?: boolean;
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
@@ -5697,6 +5800,7 @@ export class ListTemplatesShrinkRequest extends $tea.Model {
       createdDateAfter: 'CreatedDateAfter',
       createdDateBefore: 'CreatedDateBefore',
       hasTrigger: 'HasTrigger',
+      isFavorite: 'IsFavorite',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
@@ -5718,6 +5822,7 @@ export class ListTemplatesShrinkRequest extends $tea.Model {
       createdDateAfter: 'string',
       createdDateBefore: 'string',
       hasTrigger: 'boolean',
+      isFavorite: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
@@ -8192,6 +8297,52 @@ export class CreateTemplateResponseBodyTemplate extends $tea.Model {
   }
 }
 
+export class DescribeApplicationGroupBillResponseBodyApplicationGroupConsume extends $tea.Model {
+  amount?: number;
+  creationTime?: string;
+  currency?: string;
+  instanceId?: string;
+  instanceName?: string;
+  instanceType?: string;
+  optimization?: string;
+  peakType?: string;
+  performance?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      creationTime: 'CreationTime',
+      currency: 'Currency',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      optimization: 'Optimization',
+      peakType: 'PeakType',
+      performance: 'Performance',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      creationTime: 'string',
+      currency: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      optimization: 'string',
+      peakType: 'string',
+      performance: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   localName?: string;
   regionEndpoint?: string;
@@ -8447,7 +8598,6 @@ export class GetOpsItemResponseBodyOpsItem extends $tea.Model {
   category?: string;
   createBy?: string;
   createDate?: string;
-  dedupString?: string;
   description?: string;
   lastModifiedBy?: string;
   opsItemId?: string;
@@ -8467,7 +8617,6 @@ export class GetOpsItemResponseBodyOpsItem extends $tea.Model {
       category: 'Category',
       createBy: 'CreateBy',
       createDate: 'CreateDate',
-      dedupString: 'DedupString',
       description: 'Description',
       lastModifiedBy: 'LastModifiedBy',
       opsItemId: 'OpsItemId',
@@ -8490,7 +8639,6 @@ export class GetOpsItemResponseBodyOpsItem extends $tea.Model {
       category: 'string',
       createBy: 'string',
       createDate: 'string',
-      dedupString: 'string',
       description: 'string',
       lastModifiedBy: 'string',
       opsItemId: 'string',
@@ -10098,12 +10246,15 @@ export class ListTemplateVersionsResponseBodyTemplateVersions extends $tea.Model
 
 export class ListTemplatesResponseBodyTemplates extends $tea.Model {
   category?: string;
+  constraints?: string;
   createdBy?: string;
   createdDate?: string;
   description?: string;
   hasTrigger?: boolean;
   hash?: string;
+  isFavorite?: boolean;
   popularity?: number;
+  publisher?: string;
   resourceGroupId?: string;
   shareType?: string;
   tags?: { [key: string]: any };
@@ -10118,12 +10269,15 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
+      constraints: 'Constraints',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
       description: 'Description',
       hasTrigger: 'HasTrigger',
       hash: 'Hash',
+      isFavorite: 'IsFavorite',
       popularity: 'Popularity',
+      publisher: 'Publisher',
       resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
       tags: 'Tags',
@@ -10141,12 +10295,15 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      constraints: 'string',
       createdBy: 'string',
       createdDate: 'string',
       description: 'string',
       hasTrigger: 'boolean',
       hash: 'string',
+      isFavorite: 'boolean',
       popularity: 'number',
+      publisher: 'string',
       resourceGroupId: 'string',
       shareType: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -11655,6 +11812,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.retainResource)) {
+      query["RetainResource"] = request.retainResource;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11690,6 +11851,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.retainResource)) {
+      query["RetainResource"] = request.retainResource;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -11998,6 +12163,59 @@ export default class Client extends OpenApi {
     return await this.deployApplicationGroupWithOptions(request, runtime);
   }
 
+  async describeApplicationGroupBillWithOptions(request: DescribeApplicationGroupBillRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationGroupBillResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!Util.isUnset(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApplicationGroupBill",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApplicationGroupBillResponse>(await this.callApi(params, req, runtime), new DescribeApplicationGroupBillResponse({}));
+  }
+
+  async describeApplicationGroupBill(request: DescribeApplicationGroupBillRequest): Promise<DescribeApplicationGroupBillResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApplicationGroupBillWithOptions(request, runtime);
+  }
+
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12040,6 +12258,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateContent)) {
+      query["TemplateContent"] = request.templateContent;
     }
 
     if (!Util.isUnset(request.templateName)) {
@@ -13921,6 +14143,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.hasTrigger)) {
       query["HasTrigger"] = request.hasTrigger;
+    }
+
+    if (!Util.isUnset(request.isFavorite)) {
+      query["IsFavorite"] = request.isFavorite;
     }
 
     if (!Util.isUnset(request.maxResults)) {
