@@ -1959,6 +1959,50 @@ export class CreateSavedSearchResponse extends $tea.Model {
   }
 }
 
+export class CreateTicketResponseBody extends $tea.Model {
+  ticket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ticket: 'ticket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ticket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAnnotationDataResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -8440,6 +8484,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createSavedSearchWithOptions(project, request, headers, runtime);
+  }
+
+  async createTicketWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTicketResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTicket",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/tickets`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTicketResponse>(await this.execute(params, req, runtime), new CreateTicketResponse({}));
+  }
+
+  async createTicket(): Promise<CreateTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTicketWithOptions(headers, runtime);
   }
 
   async deleteAnnotationDataWithOptions(datasetId: string, annotationdataId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAnnotationDataResponse> {
