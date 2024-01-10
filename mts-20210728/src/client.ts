@@ -404,12 +404,14 @@ export class QueryTraceMuResponse extends $tea.Model {
 export class SubmitCopyrightExtractRequest extends $tea.Model {
   callBack?: string;
   input?: string;
+  params?: string;
   url?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
       callBack: 'CallBack',
       input: 'Input',
+      params: 'Params',
       url: 'Url',
       userData: 'UserData',
     };
@@ -419,6 +421,7 @@ export class SubmitCopyrightExtractRequest extends $tea.Model {
     return {
       callBack: 'string',
       input: 'string',
+      params: 'string',
       url: 'string',
       userData: 'string',
     };
@@ -767,12 +770,14 @@ export class SubmitTraceAbResponse extends $tea.Model {
 export class SubmitTraceExtractRequest extends $tea.Model {
   callBack?: string;
   input?: string;
+  params?: string;
   url?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
       callBack: 'CallBack',
       input: 'Input',
+      params: 'Params',
       url: 'Url',
       userData: 'UserData',
     };
@@ -782,6 +787,7 @@ export class SubmitTraceExtractRequest extends $tea.Model {
     return {
       callBack: 'string',
       input: 'string',
+      params: 'string',
       url: 'string',
       userData: 'string',
     };
@@ -849,12 +855,14 @@ export class SubmitTracemuRequest extends $tea.Model {
   keyUri?: string;
   mediaId?: string;
   output?: string;
+  params?: string;
   trace?: string;
   static names(): { [key: string]: string } {
     return {
       keyUri: 'KeyUri',
       mediaId: 'MediaId',
       output: 'Output',
+      params: 'Params',
       trace: 'Trace',
     };
   }
@@ -864,6 +872,7 @@ export class SubmitTracemuRequest extends $tea.Model {
       keyUri: 'string',
       mediaId: 'string',
       output: 'string',
+      params: 'string',
       trace: 'string',
     };
   }
@@ -1304,12 +1313,6 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async queryCopyright(request: QueryCopyrightRequest): Promise<QueryCopyrightResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.queryCopyrightWithOptions(request, headers, runtime);
-  }
-
   async queryCopyrightWithOptions(request: QueryCopyrightRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryCopyrightResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -1355,10 +1358,10 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCopyrightResponse>(await this.callApi(params, req, runtime), new QueryCopyrightResponse({}));
   }
 
-  async queryCopyrightExtract(request: QueryCopyrightExtractRequest): Promise<QueryCopyrightExtractResponse> {
+  async queryCopyright(request: QueryCopyrightRequest): Promise<QueryCopyrightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.queryCopyrightExtractWithOptions(request, headers, runtime);
+    return await this.queryCopyrightWithOptions(request, headers, runtime);
   }
 
   async queryCopyrightExtractWithOptions(request: QueryCopyrightExtractRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryCopyrightExtractResponse> {
@@ -1386,10 +1389,10 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCopyrightExtractResponse>(await this.callApi(params, req, runtime), new QueryCopyrightExtractResponse({}));
   }
 
-  async queryTraceAb(request: QueryTraceAbRequest): Promise<QueryTraceAbResponse> {
+  async queryCopyrightExtract(request: QueryCopyrightExtractRequest): Promise<QueryCopyrightExtractResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.queryTraceAbWithOptions(request, headers, runtime);
+    return await this.queryCopyrightExtractWithOptions(request, headers, runtime);
   }
 
   async queryTraceAbWithOptions(request: QueryTraceAbRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryTraceAbResponse> {
@@ -1421,10 +1424,10 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTraceAbResponse>(await this.callApi(params, req, runtime), new QueryTraceAbResponse({}));
   }
 
-  async queryTraceExtract(request: QueryTraceExtractRequest): Promise<QueryTraceExtractResponse> {
+  async queryTraceAb(request: QueryTraceAbRequest): Promise<QueryTraceAbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.queryTraceExtractWithOptions(request, headers, runtime);
+    return await this.queryTraceAbWithOptions(request, headers, runtime);
   }
 
   async queryTraceExtractWithOptions(request: QueryTraceExtractRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryTraceExtractResponse> {
@@ -1452,10 +1455,10 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTraceExtractResponse>(await this.callApi(params, req, runtime), new QueryTraceExtractResponse({}));
   }
 
-  async queryTraceMu(request: QueryTraceMuRequest): Promise<QueryTraceMuResponse> {
+  async queryTraceExtract(request: QueryTraceExtractRequest): Promise<QueryTraceExtractResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.queryTraceMuWithOptions(request, headers, runtime);
+    return await this.queryTraceExtractWithOptions(request, headers, runtime);
   }
 
   async queryTraceMuWithOptions(request: QueryTraceMuRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryTraceMuResponse> {
@@ -1507,10 +1510,10 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTraceMuResponse>(await this.callApi(params, req, runtime), new QueryTraceMuResponse({}));
   }
 
-  async submitCopyrightExtract(request: SubmitCopyrightExtractRequest): Promise<SubmitCopyrightExtractResponse> {
+  async queryTraceMu(request: QueryTraceMuRequest): Promise<QueryTraceMuResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.submitCopyrightExtractWithOptions(request, headers, runtime);
+    return await this.queryTraceMuWithOptions(request, headers, runtime);
   }
 
   async submitCopyrightExtractWithOptions(request: SubmitCopyrightExtractRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitCopyrightExtractResponse> {
@@ -1522,6 +1525,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.input)) {
       body["Input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      body["Params"] = request.params;
     }
 
     if (!Util.isUnset(request.url)) {
@@ -1550,10 +1557,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitCopyrightExtractResponse>(await this.callApi(params, req, runtime), new SubmitCopyrightExtractResponse({}));
   }
 
-  async submitCopyrightJob(request: SubmitCopyrightJobRequest): Promise<SubmitCopyrightJobResponse> {
+  async submitCopyrightExtract(request: SubmitCopyrightExtractRequest): Promise<SubmitCopyrightExtractResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.submitCopyrightJobWithOptions(request, headers, runtime);
+    return await this.submitCopyrightExtractWithOptions(request, headers, runtime);
   }
 
   async submitCopyrightJobWithOptions(request: SubmitCopyrightJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitCopyrightJobResponse> {
@@ -1625,10 +1632,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitCopyrightJobResponse>(await this.callApi(params, req, runtime), new SubmitCopyrightJobResponse({}));
   }
 
-  async submitImageCopyright(request: SubmitImageCopyrightRequest): Promise<SubmitImageCopyrightResponse> {
+  async submitCopyrightJob(request: SubmitCopyrightJobRequest): Promise<SubmitCopyrightJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.submitImageCopyrightWithOptions(request, headers, runtime);
+    return await this.submitCopyrightJobWithOptions(request, headers, runtime);
   }
 
   async submitImageCopyrightWithOptions(request: SubmitImageCopyrightRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitImageCopyrightResponse> {
@@ -1668,10 +1675,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitImageCopyrightResponse>(await this.callApi(params, req, runtime), new SubmitImageCopyrightResponse({}));
   }
 
-  async submitTraceAb(request: SubmitTraceAbRequest): Promise<SubmitTraceAbResponse> {
+  async submitImageCopyright(request: SubmitImageCopyrightRequest): Promise<SubmitImageCopyrightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.submitTraceAbWithOptions(request, headers, runtime);
+    return await this.submitImageCopyrightWithOptions(request, headers, runtime);
   }
 
   async submitTraceAbWithOptions(request: SubmitTraceAbRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitTraceAbResponse> {
@@ -1731,10 +1738,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitTraceAbResponse>(await this.callApi(params, req, runtime), new SubmitTraceAbResponse({}));
   }
 
-  async submitTraceExtract(request: SubmitTraceExtractRequest): Promise<SubmitTraceExtractResponse> {
+  async submitTraceAb(request: SubmitTraceAbRequest): Promise<SubmitTraceAbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.submitTraceExtractWithOptions(request, headers, runtime);
+    return await this.submitTraceAbWithOptions(request, headers, runtime);
   }
 
   async submitTraceExtractWithOptions(request: SubmitTraceExtractRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitTraceExtractResponse> {
@@ -1746,6 +1753,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.input)) {
       body["Input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      body["Params"] = request.params;
     }
 
     if (!Util.isUnset(request.url)) {
@@ -1774,10 +1785,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitTraceExtractResponse>(await this.callApi(params, req, runtime), new SubmitTraceExtractResponse({}));
   }
 
-  async submitTracemu(request: SubmitTracemuRequest): Promise<SubmitTracemuResponse> {
+  async submitTraceExtract(request: SubmitTraceExtractRequest): Promise<SubmitTraceExtractResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.submitTracemuWithOptions(request, headers, runtime);
+    return await this.submitTraceExtractWithOptions(request, headers, runtime);
   }
 
   async submitTracemuWithOptions(request: SubmitTracemuRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitTracemuResponse> {
@@ -1793,6 +1804,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.output)) {
       body["Output"] = request.output;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      body["Params"] = request.params;
     }
 
     if (!Util.isUnset(request.trace)) {
@@ -1815,6 +1830,12 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<SubmitTracemuResponse>(await this.callApi(params, req, runtime), new SubmitTracemuResponse({}));
+  }
+
+  async submitTracemu(request: SubmitTracemuRequest): Promise<SubmitTracemuResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitTracemuWithOptions(request, headers, runtime);
   }
 
 }
