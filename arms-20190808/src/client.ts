@@ -19211,7 +19211,6 @@ export class UpdateTimingSyntheticTaskRequest extends $tea.Model {
   commonSetting?: UpdateTimingSyntheticTaskRequestCommonSetting;
   customPeriod?: UpdateTimingSyntheticTaskRequestCustomPeriod;
   frequency?: string;
-  monitorCategory?: number;
   monitorConf?: UpdateTimingSyntheticTaskRequestMonitorConf;
   monitors?: UpdateTimingSyntheticTaskRequestMonitors[];
   name?: string;
@@ -19219,14 +19218,12 @@ export class UpdateTimingSyntheticTaskRequest extends $tea.Model {
   resourceGroupId?: string;
   tags?: UpdateTimingSyntheticTaskRequestTags[];
   taskId?: string;
-  taskType?: number;
   static names(): { [key: string]: string } {
     return {
       availableAssertions: 'AvailableAssertions',
       commonSetting: 'CommonSetting',
       customPeriod: 'CustomPeriod',
       frequency: 'Frequency',
-      monitorCategory: 'MonitorCategory',
       monitorConf: 'MonitorConf',
       monitors: 'Monitors',
       name: 'Name',
@@ -19234,7 +19231,6 @@ export class UpdateTimingSyntheticTaskRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
       taskId: 'TaskId',
-      taskType: 'TaskType',
     };
   }
 
@@ -19244,7 +19240,6 @@ export class UpdateTimingSyntheticTaskRequest extends $tea.Model {
       commonSetting: UpdateTimingSyntheticTaskRequestCommonSetting,
       customPeriod: UpdateTimingSyntheticTaskRequestCustomPeriod,
       frequency: 'string',
-      monitorCategory: 'number',
       monitorConf: UpdateTimingSyntheticTaskRequestMonitorConf,
       monitors: { 'type': 'array', 'itemType': UpdateTimingSyntheticTaskRequestMonitors },
       name: 'string',
@@ -19252,7 +19247,6 @@ export class UpdateTimingSyntheticTaskRequest extends $tea.Model {
       resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': UpdateTimingSyntheticTaskRequestTags },
       taskId: 'string',
-      taskType: 'number',
     };
   }
 
@@ -19266,7 +19260,6 @@ export class UpdateTimingSyntheticTaskShrinkRequest extends $tea.Model {
   commonSettingShrink?: string;
   customPeriodShrink?: string;
   frequency?: string;
-  monitorCategory?: number;
   monitorConfShrink?: string;
   monitorsShrink?: string;
   name?: string;
@@ -19274,14 +19267,12 @@ export class UpdateTimingSyntheticTaskShrinkRequest extends $tea.Model {
   resourceGroupId?: string;
   tagsShrink?: string;
   taskId?: string;
-  taskType?: number;
   static names(): { [key: string]: string } {
     return {
       availableAssertionsShrink: 'AvailableAssertions',
       commonSettingShrink: 'CommonSetting',
       customPeriodShrink: 'CustomPeriod',
       frequency: 'Frequency',
-      monitorCategory: 'MonitorCategory',
       monitorConfShrink: 'MonitorConf',
       monitorsShrink: 'Monitors',
       name: 'Name',
@@ -19289,7 +19280,6 @@ export class UpdateTimingSyntheticTaskShrinkRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       tagsShrink: 'Tags',
       taskId: 'TaskId',
-      taskType: 'TaskType',
     };
   }
 
@@ -19299,7 +19289,6 @@ export class UpdateTimingSyntheticTaskShrinkRequest extends $tea.Model {
       commonSettingShrink: 'string',
       customPeriodShrink: 'string',
       frequency: 'string',
-      monitorCategory: 'number',
       monitorConfShrink: 'string',
       monitorsShrink: 'string',
       name: 'string',
@@ -19307,7 +19296,6 @@ export class UpdateTimingSyntheticTaskShrinkRequest extends $tea.Model {
       resourceGroupId: 'string',
       tagsShrink: 'string',
       taskId: 'string',
-      taskType: 'number',
     };
   }
 
@@ -32360,6 +32348,13 @@ export default class Client extends OpenApi {
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to check whether ARMS is available for commercial use in a region.
+    *
+    * @param request CheckCommercialStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CheckCommercialStatusResponse
+   */
   async checkCommercialStatusWithOptions(request: CheckCommercialStatusRequest, runtime: $Util.RuntimeOptions): Promise<CheckCommercialStatusResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -32380,6 +32375,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckCommercialStatusResponse>(await this.callApi(params, req, runtime), new CheckCommercialStatusResponse({}));
   }
 
+  /**
+    * You can call this operation to check whether ARMS is available for commercial use in a region.
+    *
+    * @param request CheckCommercialStatusRequest
+    * @return CheckCommercialStatusResponse
+   */
   async checkCommercialStatus(request: CheckCommercialStatusRequest): Promise<CheckCommercialStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkCommercialStatusWithOptions(request, runtime);
@@ -41408,10 +41409,6 @@ export default class Client extends OpenApi {
       query["Frequency"] = request.frequency;
     }
 
-    if (!Util.isUnset(request.monitorCategory)) {
-      query["MonitorCategory"] = request.monitorCategory;
-    }
-
     if (!Util.isUnset(request.monitorConfShrink)) {
       query["MonitorConf"] = request.monitorConfShrink;
     }
@@ -41438,10 +41435,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.taskId)) {
       query["TaskId"] = request.taskId;
-    }
-
-    if (!Util.isUnset(request.taskType)) {
-      query["TaskType"] = request.taskType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
