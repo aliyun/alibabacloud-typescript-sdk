@@ -94,6 +94,168 @@ export class DataExtraInfoSubDbsValue extends $tea.Model {
   }
 }
 
+export class CancelProjectModifyRecordRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelProjectModifyRecordResponseBody extends $tea.Model {
+  advice?: string;
+  code?: string;
+  cost?: string;
+  data?: any;
+  errorDetail?: CancelProjectModifyRecordResponseBodyErrorDetail;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advice: 'Advice',
+      code: 'Code',
+      cost: 'Cost',
+      data: 'Data',
+      errorDetail: 'ErrorDetail',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advice: 'string',
+      code: 'string',
+      cost: 'string',
+      data: 'any',
+      errorDetail: CancelProjectModifyRecordResponseBodyErrorDetail,
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelProjectModifyRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CancelProjectModifyRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelProjectModifyRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackupSetDownloadLinkRequest extends $tea.Model {
+  backupSetId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupSetId: 'BackupSetId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupSetId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackupSetDownloadLinkResponseBody extends $tea.Model {
+  downloadTaskId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadTaskId: 'DownloadTaskId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadTaskId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackupSetDownloadLinkResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateBackupSetDownloadLinkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBackupSetDownloadLinkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDatabaseRequest extends $tea.Model {
   clientToken?: string;
   collation?: string;
@@ -1125,6 +1287,232 @@ export class CreateProjectResponse extends $tea.Model {
   }
 }
 
+export class CreateProjectModifyRecordsRequest extends $tea.Model {
+  databases?: CreateProjectModifyRecordsRequestDatabases[];
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databases: 'Databases',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databases: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestDatabases },
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsShrinkRequest extends $tea.Model {
+  databasesShrink?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databasesShrink: 'Databases',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databasesShrink: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsResponseBody extends $tea.Model {
+  advice?: string;
+  code?: string;
+  cost?: string;
+  data?: number;
+  errorDetail?: CreateProjectModifyRecordsResponseBodyErrorDetail;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advice: 'Advice',
+      code: 'Code',
+      cost: 'Cost',
+      data: 'Data',
+      errorDetail: 'ErrorDetail',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advice: 'string',
+      code: 'string',
+      cost: 'string',
+      data: 'number',
+      errorDetail: CreateProjectModifyRecordsResponseBodyErrorDetail,
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateProjectModifyRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateProjectModifyRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRdsPostgreSQLDataSourceRequest extends $tea.Model {
+  databaseName?: string;
+  description?: string;
+  instanceId?: string;
+  name?: string;
+  password?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseName: 'DatabaseName',
+      description: 'Description',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      password: 'Password',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseName: 'string',
+      description: 'string',
+      instanceId: 'string',
+      name: 'string',
+      password: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRdsPostgreSQLDataSourceResponseBody extends $tea.Model {
+  advice?: string;
+  code?: string;
+  cost?: string;
+  data?: string;
+  errorDetail?: CreateRdsPostgreSQLDataSourceResponseBodyErrorDetail;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advice: 'Advice',
+      code: 'Code',
+      cost: 'Cost',
+      data: 'Data',
+      errorDetail: 'ErrorDetail',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advice: 'string',
+      code: 'string',
+      cost: 'string',
+      data: 'string',
+      errorDetail: CreateRdsPostgreSQLDataSourceResponseBodyErrorDetail,
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRdsPostgreSQLDataSourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateRdsPostgreSQLDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRdsPostgreSQLDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSecurityIpGroupRequest extends $tea.Model {
   instanceId?: string;
   securityIpGroupName?: string;
@@ -1531,6 +1919,99 @@ export class CreateTenantUserResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateTenantUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceResponseBody extends $tea.Model {
+  advice?: string;
+  code?: string;
+  cost?: string;
+  data?: any;
+  errorDetail?: DeleteDataSourceResponseBodyErrorDetail;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advice: 'Advice',
+      code: 'Code',
+      cost: 'Cost',
+      data: 'Data',
+      errorDetail: 'ErrorDetail',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advice: 'string',
+      code: 'string',
+      cost: 'string',
+      data: 'any',
+      errorDetail: DeleteDataSourceResponseBodyErrorDetail,
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataSourceResponseBody,
     };
   }
 
@@ -2699,6 +3180,93 @@ export class DescribeCharsetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCharsetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataBackupSetRequest extends $tea.Model {
+  backupObjectType?: string;
+  endTime?: string;
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupObjectType: 'BackupObjectType',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupObjectType: 'string',
+      endTime: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataBackupSetResponseBody extends $tea.Model {
+  data?: DescribeDataBackupSetResponseBodyData[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeDataBackupSetResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataBackupSetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDataBackupSetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataBackupSetResponseBody,
     };
   }
 
@@ -7329,6 +7897,99 @@ export class ListProjectFullVerifyResultResponse extends $tea.Model {
   }
 }
 
+export class ListProjectModifyRecordsRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBody extends $tea.Model {
+  advice?: string;
+  code?: string;
+  cost?: string;
+  data?: ListProjectModifyRecordsResponseBodyData[];
+  errorDetail?: ListProjectModifyRecordsResponseBodyErrorDetail;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advice: 'Advice',
+      code: 'Code',
+      cost: 'Cost',
+      data: 'Data',
+      errorDetail: 'ErrorDetail',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advice: 'string',
+      code: 'string',
+      cost: 'string',
+      data: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyData },
+      errorDetail: ListProjectModifyRecordsResponseBodyErrorDetail,
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListProjectModifyRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListProjectModifyRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListProjectsRequest extends $tea.Model {
   labelIds?: string[];
   order?: string;
@@ -9182,6 +9843,99 @@ export class ReleaseProjectResponse extends $tea.Model {
   }
 }
 
+export class ReleaseWorkerInstanceRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseWorkerInstanceResponseBody extends $tea.Model {
+  advice?: string;
+  code?: string;
+  cost?: string;
+  data?: string;
+  errorDetail?: ReleaseWorkerInstanceResponseBodyErrorDetail;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advice: 'Advice',
+      code: 'Code',
+      cost: 'Cost',
+      data: 'Data',
+      errorDetail: 'ErrorDetail',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advice: 'string',
+      code: 'string',
+      cost: 'string',
+      data: 'string',
+      errorDetail: ReleaseWorkerInstanceResponseBodyErrorDetail,
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseWorkerInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReleaseWorkerInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseWorkerInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResetOmsOpenAPIProjectRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
@@ -9471,6 +10225,99 @@ export class ResumeProjectResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ResumeProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryProjectModifyRecordsRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryProjectModifyRecordsResponseBody extends $tea.Model {
+  advice?: string;
+  code?: string;
+  cost?: string;
+  data?: any;
+  errorDetail?: RetryProjectModifyRecordsResponseBodyErrorDetail;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advice: 'Advice',
+      code: 'Code',
+      cost: 'Cost',
+      data: 'Data',
+      errorDetail: 'ErrorDetail',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advice: 'string',
+      code: 'string',
+      cost: 'string',
+      data: 'any',
+      errorDetail: RetryProjectModifyRecordsResponseBodyErrorDetail,
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryProjectModifyRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RetryProjectModifyRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RetryProjectModifyRecordsResponseBody,
     };
   }
 
@@ -10230,6 +11077,99 @@ export class StopProjectResponse extends $tea.Model {
   }
 }
 
+export class StopProjectModifyRecordsRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopProjectModifyRecordsResponseBody extends $tea.Model {
+  advice?: string;
+  code?: string;
+  cost?: string;
+  data?: any;
+  errorDetail?: StopProjectModifyRecordsResponseBodyErrorDetail;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advice: 'Advice',
+      code: 'Code',
+      cost: 'Cost',
+      data: 'Data',
+      errorDetail: 'ErrorDetail',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advice: 'string',
+      code: 'string',
+      cost: 'string',
+      data: 'any',
+      errorDetail: StopProjectModifyRecordsResponseBodyErrorDetail,
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopProjectModifyRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StopProjectModifyRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopProjectModifyRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopProjectsByLabelRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -10479,6 +11419,61 @@ export class DataExtraInfoSubDbsValueTables extends $tea.Model {
       mappingTableName: 'string',
       instance: 'string',
       columns: { 'type': 'array', 'itemType': DataExtraInfoSubDbsValueTablesColumns },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelProjectModifyRecordResponseBodyErrorDetail extends $tea.Model {
+  code?: string;
+  extraContext?: { [key: string]: any };
+  level?: string;
+  message?: string;
+  messageMcmsContext?: { [key: string]: string };
+  messageMcmsKey?: string;
+  proposal?: string;
+  proposalMcmsContext?: { [key: string]: string };
+  proposalMcmsKey?: string;
+  reason?: string;
+  reasonMcmsContext?: { [key: string]: string };
+  reasonMcmsKey?: string;
+  upstreamErrorDetail?: any;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      extraContext: 'ExtraContext',
+      level: 'Level',
+      message: 'Message',
+      messageMcmsContext: 'MessageMcmsContext',
+      messageMcmsKey: 'MessageMcmsKey',
+      proposal: 'Proposal',
+      proposalMcmsContext: 'ProposalMcmsContext',
+      proposalMcmsKey: 'ProposalMcmsKey',
+      reason: 'Reason',
+      reasonMcmsContext: 'ReasonMcmsContext',
+      reasonMcmsKey: 'ReasonMcmsKey',
+      upstreamErrorDetail: 'UpstreamErrorDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      extraContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      level: 'string',
+      message: 'string',
+      messageMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      messageMcmsKey: 'string',
+      proposal: 'string',
+      proposalMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      proposalMcmsKey: 'string',
+      reason: 'string',
+      reasonMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      reasonMcmsKey: 'string',
+      upstreamErrorDetail: 'any',
     };
   }
 
@@ -11014,8 +12009,31 @@ export class CreateOmsOpenAPIProjectResponseBodyErrorDetail extends $tea.Model {
   }
 }
 
+export class CreateProjectRequestCommonTransferConfigCustomColumns extends $tea.Model {
+  columnName?: string;
+  expression?: string;
+  static names(): { [key: string]: string } {
+    return {
+      columnName: 'ColumnName',
+      expression: 'Expression',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnName: 'string',
+      expression: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProjectRequestCommonTransferConfig extends $tea.Model {
   activeActive?: boolean;
+  customColumns?: CreateProjectRequestCommonTransferConfigCustomColumns[];
   dataWorksBusinessName?: string;
   datahubTopicType?: string;
   mqPartition?: number;
@@ -11025,10 +12043,13 @@ export class CreateProjectRequestCommonTransferConfig extends $tea.Model {
   rocketMqMsgTags?: string;
   rocketMqProducerGroup?: string;
   rocketMqSendMsgTimeout?: number;
+  syncSchema?: boolean;
+  syncSchemaColumnName?: string;
   tableCategory?: string;
   static names(): { [key: string]: string } {
     return {
       activeActive: 'ActiveActive',
+      customColumns: 'CustomColumns',
       dataWorksBusinessName: 'DataWorksBusinessName',
       datahubTopicType: 'DatahubTopicType',
       mqPartition: 'MqPartition',
@@ -11038,6 +12059,8 @@ export class CreateProjectRequestCommonTransferConfig extends $tea.Model {
       rocketMqMsgTags: 'RocketMqMsgTags',
       rocketMqProducerGroup: 'RocketMqProducerGroup',
       rocketMqSendMsgTimeout: 'RocketMqSendMsgTimeout',
+      syncSchema: 'SyncSchema',
+      syncSchemaColumnName: 'SyncSchemaColumnName',
       tableCategory: 'TableCategory',
     };
   }
@@ -11045,6 +12068,7 @@ export class CreateProjectRequestCommonTransferConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       activeActive: 'boolean',
+      customColumns: { 'type': 'array', 'itemType': CreateProjectRequestCommonTransferConfigCustomColumns },
       dataWorksBusinessName: 'string',
       datahubTopicType: 'string',
       mqPartition: 'number',
@@ -11054,6 +12078,8 @@ export class CreateProjectRequestCommonTransferConfig extends $tea.Model {
       rocketMqMsgTags: 'string',
       rocketMqProducerGroup: 'string',
       rocketMqSendMsgTimeout: 'number',
+      syncSchema: 'boolean',
+      syncSchemaColumnName: 'string',
       tableCategory: 'string',
     };
   }
@@ -11839,6 +12865,413 @@ export class CreateProjectResponseBodyErrorDetail extends $tea.Model {
   }
 }
 
+export class CreateProjectModifyRecordsRequestDatabasesSpecificTablesAdbTableSchema extends $tea.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestDatabasesSpecificTables extends $tea.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestDatabasesSpecificTablesAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestDatabasesSpecificTablesAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestDatabasesSpecificViewsAdbTableSchema extends $tea.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestDatabasesSpecificViews extends $tea.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestDatabasesSpecificViewsAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestDatabasesSpecificViewsAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestDatabasesTablesAdbTableSchema extends $tea.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestDatabasesTables extends $tea.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestDatabasesTablesAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestDatabasesTablesAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestDatabasesViewsAdbTableSchema extends $tea.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestDatabasesViews extends $tea.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestDatabasesViewsAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestDatabasesViewsAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestDatabases extends $tea.Model {
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  specificTables?: CreateProjectModifyRecordsRequestDatabasesSpecificTables[];
+  specificViews?: CreateProjectModifyRecordsRequestDatabasesSpecificViews[];
+  tables?: CreateProjectModifyRecordsRequestDatabasesTables[];
+  views?: CreateProjectModifyRecordsRequestDatabasesViews[];
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      specificTables: 'SpecificTables',
+      specificViews: 'SpecificViews',
+      tables: 'Tables',
+      views: 'Views',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      specificTables: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestDatabasesSpecificTables },
+      specificViews: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestDatabasesSpecificViews },
+      tables: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestDatabasesTables },
+      views: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestDatabasesViews },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsResponseBodyErrorDetail extends $tea.Model {
+  code?: string;
+  extraContext?: { [key: string]: any };
+  level?: string;
+  message?: string;
+  messageMcmsContext?: { [key: string]: string };
+  messageMcmsKey?: string;
+  proposal?: string;
+  proposalMcmsContext?: { [key: string]: string };
+  proposalMcmsKey?: string;
+  reason?: string;
+  reasonMcmsContext?: { [key: string]: string };
+  reasonMcmsKey?: string;
+  upstreamErrorDetail?: any;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      extraContext: 'ExtraContext',
+      level: 'Level',
+      message: 'Message',
+      messageMcmsContext: 'MessageMcmsContext',
+      messageMcmsKey: 'MessageMcmsKey',
+      proposal: 'Proposal',
+      proposalMcmsContext: 'ProposalMcmsContext',
+      proposalMcmsKey: 'ProposalMcmsKey',
+      reason: 'Reason',
+      reasonMcmsContext: 'ReasonMcmsContext',
+      reasonMcmsKey: 'ReasonMcmsKey',
+      upstreamErrorDetail: 'UpstreamErrorDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      extraContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      level: 'string',
+      message: 'string',
+      messageMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      messageMcmsKey: 'string',
+      proposal: 'string',
+      proposalMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      proposalMcmsKey: 'string',
+      reason: 'string',
+      reasonMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      reasonMcmsKey: 'string',
+      upstreamErrorDetail: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRdsPostgreSQLDataSourceResponseBodyErrorDetail extends $tea.Model {
+  code?: string;
+  extraContext?: { [key: string]: any };
+  level?: string;
+  message?: string;
+  messageMcmsContext?: { [key: string]: string };
+  messageMcmsKey?: string;
+  proposal?: string;
+  proposalMcmsContext?: { [key: string]: string };
+  proposalMcmsKey?: string;
+  reason?: string;
+  reasonMcmsContext?: { [key: string]: string };
+  reasonMcmsKey?: string;
+  upstreamErrorDetail?: any;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      extraContext: 'ExtraContext',
+      level: 'Level',
+      message: 'Message',
+      messageMcmsContext: 'MessageMcmsContext',
+      messageMcmsKey: 'MessageMcmsKey',
+      proposal: 'Proposal',
+      proposalMcmsContext: 'ProposalMcmsContext',
+      proposalMcmsKey: 'ProposalMcmsKey',
+      reason: 'Reason',
+      reasonMcmsContext: 'ReasonMcmsContext',
+      reasonMcmsKey: 'ReasonMcmsKey',
+      upstreamErrorDetail: 'UpstreamErrorDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      extraContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      level: 'string',
+      message: 'string',
+      messageMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      messageMcmsKey: 'string',
+      proposal: 'string',
+      proposalMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      proposalMcmsKey: 'string',
+      reason: 'string',
+      reasonMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      reasonMcmsKey: 'string',
+      upstreamErrorDetail: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSecurityIpGroupResponseBodySecurityIpGroup extends $tea.Model {
   instanceId?: string;
   securityIpGroupName?: string;
@@ -11934,6 +13367,61 @@ export class CreateTenantUserResponseBodyTenantUser extends $tea.Model {
       userName: 'string',
       userStatus: 'string',
       userType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceResponseBodyErrorDetail extends $tea.Model {
+  code?: string;
+  extraContext?: { [key: string]: any };
+  level?: string;
+  message?: string;
+  messageMcmsContext?: { [key: string]: string };
+  messageMcmsKey?: string;
+  proposal?: string;
+  proposalMcmsContext?: { [key: string]: string };
+  proposalMcmsKey?: string;
+  reason?: string;
+  reasonMcmsContext?: { [key: string]: string };
+  reasonMcmsKey?: string;
+  upstreamErrorDetail?: any;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      extraContext: 'ExtraContext',
+      level: 'Level',
+      message: 'Message',
+      messageMcmsContext: 'MessageMcmsContext',
+      messageMcmsKey: 'MessageMcmsKey',
+      proposal: 'Proposal',
+      proposalMcmsContext: 'ProposalMcmsContext',
+      proposalMcmsKey: 'ProposalMcmsKey',
+      reason: 'Reason',
+      reasonMcmsContext: 'ReasonMcmsContext',
+      reasonMcmsKey: 'ReasonMcmsKey',
+      upstreamErrorDetail: 'UpstreamErrorDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      extraContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      level: 'string',
+      message: 'string',
+      messageMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      messageMcmsKey: 'string',
+      proposal: 'string',
+      proposalMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      proposalMcmsKey: 'string',
+      reason: 'string',
+      reasonMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      reasonMcmsKey: 'string',
+      upstreamErrorDetail: 'any',
     };
   }
 
@@ -12450,6 +13938,176 @@ export class DescribeCharsetResponseBodyCharset extends $tea.Model {
     return {
       charset: 'string',
       collations: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataBackupSetResponseBodyDataBackupObjectsDatabaseTablesList extends $tea.Model {
+  database?: string;
+  tables?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      tables: 'Tables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      tables: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataBackupSetResponseBodyDataBackupObjects extends $tea.Model {
+  clusterName?: string;
+  databaseTablesList?: DescribeDataBackupSetResponseBodyDataBackupObjectsDatabaseTablesList[];
+  tenantName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterName: 'ClusterName',
+      databaseTablesList: 'DatabaseTablesList',
+      tenantName: 'TenantName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterName: 'string',
+      databaseTablesList: { 'type': 'array', 'itemType': DescribeDataBackupSetResponseBodyDataBackupObjectsDatabaseTablesList },
+      tenantName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataBackupSetResponseBodyDataBackupResultsTableBackupResults extends $tea.Model {
+  database?: string;
+  message?: string;
+  status?: string;
+  table?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      message: 'Message',
+      status: 'Status',
+      table: 'Table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      message: 'string',
+      status: 'string',
+      table: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataBackupSetResponseBodyDataBackupResults extends $tea.Model {
+  clusterName?: string;
+  tableBackupResults?: DescribeDataBackupSetResponseBodyDataBackupResultsTableBackupResults[];
+  tenantName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterName: 'ClusterName',
+      tableBackupResults: 'TableBackupResults',
+      tenantName: 'TenantName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterName: 'string',
+      tableBackupResults: { 'type': 'array', 'itemType': DescribeDataBackupSetResponseBodyDataBackupResultsTableBackupResults },
+      tenantName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataBackupSetResponseBodyData extends $tea.Model {
+  backupObjectType?: string;
+  backupObjects?: DescribeDataBackupSetResponseBodyDataBackupObjects[];
+  backupResults?: DescribeDataBackupSetResponseBodyDataBackupResults[];
+  checkpoint?: string;
+  dataSize?: number;
+  dataVersion?: number;
+  downloadTaskId?: number;
+  downloadTaskStatus?: string;
+  endTime?: string;
+  method?: string;
+  policy?: string;
+  progress?: string;
+  setId?: number;
+  startTime?: string;
+  status?: string;
+  storageClass?: string;
+  type?: string;
+  validity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupObjectType: 'BackupObjectType',
+      backupObjects: 'BackupObjects',
+      backupResults: 'BackupResults',
+      checkpoint: 'Checkpoint',
+      dataSize: 'DataSize',
+      dataVersion: 'DataVersion',
+      downloadTaskId: 'DownloadTaskId',
+      downloadTaskStatus: 'DownloadTaskStatus',
+      endTime: 'EndTime',
+      method: 'Method',
+      policy: 'Policy',
+      progress: 'Progress',
+      setId: 'SetId',
+      startTime: 'StartTime',
+      status: 'Status',
+      storageClass: 'StorageClass',
+      type: 'Type',
+      validity: 'Validity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupObjectType: 'string',
+      backupObjects: { 'type': 'array', 'itemType': DescribeDataBackupSetResponseBodyDataBackupObjects },
+      backupResults: { 'type': 'array', 'itemType': DescribeDataBackupSetResponseBodyDataBackupResults },
+      checkpoint: 'string',
+      dataSize: 'number',
+      dataVersion: 'number',
+      downloadTaskId: 'number',
+      downloadTaskStatus: 'string',
+      endTime: 'string',
+      method: 'string',
+      policy: 'string',
+      progress: 'string',
+      setId: 'number',
+      startTime: 'string',
+      status: 'string',
+      storageClass: 'string',
+      type: 'string',
+      validity: 'string',
     };
   }
 
@@ -21405,6 +23063,1026 @@ export class ListProjectFullVerifyResultResponseBodyErrorDetail extends $tea.Mod
   }
 }
 
+export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTablesAdbTableSchema extends $tea.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: number;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'number',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTablesColumns extends $tea.Model {
+  columnComment?: string;
+  columnKey?: string;
+  columnName?: string;
+  columnType?: string;
+  dataLength?: number;
+  dataPrecision?: number;
+  dataScale?: number;
+  defaultValue?: string;
+  encoding?: string;
+  isGenerateField?: boolean;
+  mappedName?: string;
+  nullable?: boolean;
+  position?: number;
+  rawColumnType?: string;
+  recordFieldType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      columnComment: 'ColumnComment',
+      columnKey: 'ColumnKey',
+      columnName: 'ColumnName',
+      columnType: 'ColumnType',
+      dataLength: 'DataLength',
+      dataPrecision: 'DataPrecision',
+      dataScale: 'DataScale',
+      defaultValue: 'DefaultValue',
+      encoding: 'Encoding',
+      isGenerateField: 'IsGenerateField',
+      mappedName: 'MappedName',
+      nullable: 'Nullable',
+      position: 'Position',
+      rawColumnType: 'RawColumnType',
+      recordFieldType: 'RecordFieldType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnComment: 'string',
+      columnKey: 'string',
+      columnName: 'string',
+      columnType: 'string',
+      dataLength: 'number',
+      dataPrecision: 'number',
+      dataScale: 'number',
+      defaultValue: 'string',
+      encoding: 'string',
+      isGenerateField: 'boolean',
+      mappedName: 'string',
+      nullable: 'boolean',
+      position: 'number',
+      rawColumnType: 'string',
+      recordFieldType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTables extends $tea.Model {
+  adbTableSchema?: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTablesAdbTableSchema;
+  columns?: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTablesColumns[];
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      columns: 'Columns',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTablesAdbTableSchema,
+      columns: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTablesColumns },
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViewsAdbTableSchema extends $tea.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: number;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'number',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViewsColumns extends $tea.Model {
+  columnComment?: string;
+  columnKey?: string;
+  columnName?: string;
+  columnType?: string;
+  dataLength?: number;
+  dataPrecision?: number;
+  dataScale?: number;
+  defaultValue?: string;
+  encoding?: string;
+  isGenerateField?: boolean;
+  mappedName?: string;
+  nullable?: boolean;
+  position?: number;
+  rawColumnType?: string;
+  recordFieldType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      columnComment: 'ColumnComment',
+      columnKey: 'ColumnKey',
+      columnName: 'ColumnName',
+      columnType: 'ColumnType',
+      dataLength: 'DataLength',
+      dataPrecision: 'DataPrecision',
+      dataScale: 'DataScale',
+      defaultValue: 'DefaultValue',
+      encoding: 'Encoding',
+      isGenerateField: 'IsGenerateField',
+      mappedName: 'MappedName',
+      nullable: 'Nullable',
+      position: 'Position',
+      rawColumnType: 'RawColumnType',
+      recordFieldType: 'RecordFieldType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnComment: 'string',
+      columnKey: 'string',
+      columnName: 'string',
+      columnType: 'string',
+      dataLength: 'number',
+      dataPrecision: 'number',
+      dataScale: 'number',
+      defaultValue: 'string',
+      encoding: 'string',
+      isGenerateField: 'boolean',
+      mappedName: 'string',
+      nullable: 'boolean',
+      position: 'number',
+      rawColumnType: 'string',
+      recordFieldType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViews extends $tea.Model {
+  adbTableSchema?: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViewsAdbTableSchema;
+  columns?: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViewsColumns[];
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      columns: 'Columns',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViewsAdbTableSchema,
+      columns: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViewsColumns },
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataDatabasesTablesAdbTableSchema extends $tea.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: number;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'number',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataDatabasesTablesColumns extends $tea.Model {
+  columnComment?: string;
+  columnKey?: string;
+  columnName?: string;
+  columnType?: string;
+  dataLength?: number;
+  dataPrecision?: number;
+  dataScale?: number;
+  defaultValue?: string;
+  encoding?: string;
+  isGenerateField?: boolean;
+  mappedName?: string;
+  nullable?: boolean;
+  position?: number;
+  rawColumnType?: string;
+  recordFieldType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      columnComment: 'ColumnComment',
+      columnKey: 'ColumnKey',
+      columnName: 'ColumnName',
+      columnType: 'ColumnType',
+      dataLength: 'DataLength',
+      dataPrecision: 'DataPrecision',
+      dataScale: 'DataScale',
+      defaultValue: 'DefaultValue',
+      encoding: 'Encoding',
+      isGenerateField: 'IsGenerateField',
+      mappedName: 'MappedName',
+      nullable: 'Nullable',
+      position: 'Position',
+      rawColumnType: 'RawColumnType',
+      recordFieldType: 'RecordFieldType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnComment: 'string',
+      columnKey: 'string',
+      columnName: 'string',
+      columnType: 'string',
+      dataLength: 'number',
+      dataPrecision: 'number',
+      dataScale: 'number',
+      defaultValue: 'string',
+      encoding: 'string',
+      isGenerateField: 'boolean',
+      mappedName: 'string',
+      nullable: 'boolean',
+      position: 'number',
+      rawColumnType: 'string',
+      recordFieldType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataDatabasesTables extends $tea.Model {
+  adbTableSchema?: ListProjectModifyRecordsResponseBodyDataDatabasesTablesAdbTableSchema;
+  columns?: ListProjectModifyRecordsResponseBodyDataDatabasesTablesColumns[];
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      columns: 'Columns',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: ListProjectModifyRecordsResponseBodyDataDatabasesTablesAdbTableSchema,
+      columns: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataDatabasesTablesColumns },
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataDatabasesViewsAdbTableSchema extends $tea.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: number;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'number',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataDatabasesViewsColumns extends $tea.Model {
+  columnComment?: string;
+  columnKey?: string;
+  columnName?: string;
+  columnType?: string;
+  dataLength?: number;
+  dataPrecision?: number;
+  dataScale?: number;
+  defaultValue?: string;
+  encoding?: string;
+  isGenerateField?: boolean;
+  mappedName?: string;
+  nullable?: boolean;
+  position?: number;
+  rawColumnType?: string;
+  recordFieldType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      columnComment: 'ColumnComment',
+      columnKey: 'ColumnKey',
+      columnName: 'ColumnName',
+      columnType: 'ColumnType',
+      dataLength: 'DataLength',
+      dataPrecision: 'DataPrecision',
+      dataScale: 'DataScale',
+      defaultValue: 'DefaultValue',
+      encoding: 'Encoding',
+      isGenerateField: 'IsGenerateField',
+      mappedName: 'MappedName',
+      nullable: 'Nullable',
+      position: 'Position',
+      rawColumnType: 'RawColumnType',
+      recordFieldType: 'RecordFieldType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnComment: 'string',
+      columnKey: 'string',
+      columnName: 'string',
+      columnType: 'string',
+      dataLength: 'number',
+      dataPrecision: 'number',
+      dataScale: 'number',
+      defaultValue: 'string',
+      encoding: 'string',
+      isGenerateField: 'boolean',
+      mappedName: 'string',
+      nullable: 'boolean',
+      position: 'number',
+      rawColumnType: 'string',
+      recordFieldType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataDatabasesViews extends $tea.Model {
+  adbTableSchema?: ListProjectModifyRecordsResponseBodyDataDatabasesViewsAdbTableSchema;
+  columns?: ListProjectModifyRecordsResponseBodyDataDatabasesViewsColumns[];
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      columns: 'Columns',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: ListProjectModifyRecordsResponseBodyDataDatabasesViewsAdbTableSchema,
+      columns: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataDatabasesViewsColumns },
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataDatabases extends $tea.Model {
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  specificTables?: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTables[];
+  specificViews?: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViews[];
+  tables?: ListProjectModifyRecordsResponseBodyDataDatabasesTables[];
+  views?: ListProjectModifyRecordsResponseBodyDataDatabasesViews[];
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      specificTables: 'SpecificTables',
+      specificViews: 'SpecificViews',
+      tables: 'Tables',
+      views: 'Views',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      specificTables: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTables },
+      specificViews: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViews },
+      tables: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataDatabasesTables },
+      views: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataDatabasesViews },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataErrorDetail extends $tea.Model {
+  code?: string;
+  extraContext?: { [key: string]: any };
+  level?: string;
+  message?: string;
+  messageMcmsContext?: { [key: string]: string };
+  messageMcmsKey?: string;
+  proposal?: string;
+  proposalMcmsContext?: { [key: string]: string };
+  proposalMcmsKey?: string;
+  reason?: string;
+  reasonMcmsContext?: { [key: string]: string };
+  reasonMcmsKey?: string;
+  upstreamErrorDetail?: any;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      extraContext: 'ExtraContext',
+      level: 'Level',
+      message: 'Message',
+      messageMcmsContext: 'MessageMcmsContext',
+      messageMcmsKey: 'MessageMcmsKey',
+      proposal: 'Proposal',
+      proposalMcmsContext: 'ProposalMcmsContext',
+      proposalMcmsKey: 'ProposalMcmsKey',
+      reason: 'Reason',
+      reasonMcmsContext: 'ReasonMcmsContext',
+      reasonMcmsKey: 'ReasonMcmsKey',
+      upstreamErrorDetail: 'UpstreamErrorDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      extraContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      level: 'string',
+      message: 'string',
+      messageMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      messageMcmsKey: 'string',
+      proposal: 'string',
+      proposalMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      proposalMcmsKey: 'string',
+      reason: 'string',
+      reasonMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      reasonMcmsKey: 'string',
+      upstreamErrorDetail: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoTables extends $tea.Model {
+  name?: string;
+  schema?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      schema: 'Schema',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      schema: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoTablesBlack extends $tea.Model {
+  name?: string;
+  schema?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      schema: 'Schema',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      schema: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoViews extends $tea.Model {
+  name?: string;
+  schema?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      schema: 'Schema',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      schema: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoViewsBlack extends $tea.Model {
+  name?: string;
+  schema?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      schema: 'Schema',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      schema: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfo extends $tea.Model {
+  tables?: ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoTables[];
+  tablesBlack?: ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoTablesBlack[];
+  views?: ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoViews[];
+  viewsBlack?: ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoViewsBlack[];
+  wildcardMode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      tables: 'Tables',
+      tablesBlack: 'TablesBlack',
+      views: 'Views',
+      viewsBlack: 'ViewsBlack',
+      wildcardMode: 'WildcardMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tables: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoTables },
+      tablesBlack: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoTablesBlack },
+      views: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoViews },
+      viewsBlack: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoViewsBlack },
+      wildcardMode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoColumnMappings extends $tea.Model {
+  destName?: string;
+  sourceName?: string;
+  sourceSchema?: string;
+  sourceTable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destName: 'DestName',
+      sourceName: 'SourceName',
+      sourceSchema: 'SourceSchema',
+      sourceTable: 'SourceTable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destName: 'string',
+      sourceName: 'string',
+      sourceSchema: 'string',
+      sourceTable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoSchemaMappings extends $tea.Model {
+  destName?: string;
+  sourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destName: 'DestName',
+      sourceName: 'SourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destName: 'string',
+      sourceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoTableMappings extends $tea.Model {
+  destName?: string;
+  sourceName?: string;
+  sourceSchema?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destName: 'DestName',
+      sourceName: 'SourceName',
+      sourceSchema: 'SourceSchema',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destName: 'string',
+      sourceName: 'string',
+      sourceSchema: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoViewMappings extends $tea.Model {
+  destName?: string;
+  sourceName?: string;
+  sourceSchema?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destName: 'DestName',
+      sourceName: 'SourceName',
+      sourceSchema: 'SourceSchema',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destName: 'string',
+      sourceName: 'string',
+      sourceSchema: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfo extends $tea.Model {
+  columnMappings?: ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoColumnMappings[];
+  schemaMappings?: ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoSchemaMappings[];
+  tableMappings?: ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoTableMappings[];
+  viewMappings?: ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoViewMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      columnMappings: 'ColumnMappings',
+      schemaMappings: 'SchemaMappings',
+      tableMappings: 'TableMappings',
+      viewMappings: 'ViewMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnMappings: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoColumnMappings },
+      schemaMappings: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoSchemaMappings },
+      tableMappings: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoTableMappings },
+      viewMappings: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoViewMappings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyDataTableEtlList extends $tea.Model {
+  database?: string;
+  destDatabase?: string;
+  destName?: string;
+  filterColumns?: string[];
+  logicTableId?: string;
+  shardColumns?: string[];
+  sourceEndpointId?: string;
+  tableName?: string;
+  tenantName?: string;
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      destDatabase: 'DestDatabase',
+      destName: 'DestName',
+      filterColumns: 'FilterColumns',
+      logicTableId: 'LogicTableId',
+      shardColumns: 'ShardColumns',
+      sourceEndpointId: 'SourceEndpointId',
+      tableName: 'TableName',
+      tenantName: 'TenantName',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      destDatabase: 'string',
+      destName: 'string',
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      logicTableId: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      sourceEndpointId: 'string',
+      tableName: 'string',
+      tenantName: 'string',
+      whereClause: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyData extends $tea.Model {
+  databases?: ListProjectModifyRecordsResponseBodyDataDatabases[];
+  errorDetail?: ListProjectModifyRecordsResponseBodyDataErrorDetail;
+  gmtModified?: string;
+  id?: number;
+  mergeRequestId?: number;
+  migrationObjectsInfo?: ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfo;
+  omsProjectMappingInfo?: ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfo;
+  status?: string;
+  subProjectId?: string;
+  tableEtlList?: ListProjectModifyRecordsResponseBodyDataTableEtlList[];
+  type?: string;
+  updateRequestId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      databases: 'Databases',
+      errorDetail: 'ErrorDetail',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      mergeRequestId: 'MergeRequestId',
+      migrationObjectsInfo: 'MigrationObjectsInfo',
+      omsProjectMappingInfo: 'OmsProjectMappingInfo',
+      status: 'Status',
+      subProjectId: 'SubProjectId',
+      tableEtlList: 'TableEtlList',
+      type: 'Type',
+      updateRequestId: 'UpdateRequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databases: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataDatabases },
+      errorDetail: ListProjectModifyRecordsResponseBodyDataErrorDetail,
+      gmtModified: 'string',
+      id: 'number',
+      mergeRequestId: 'number',
+      migrationObjectsInfo: ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfo,
+      omsProjectMappingInfo: ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfo,
+      status: 'string',
+      subProjectId: 'string',
+      tableEtlList: { 'type': 'array', 'itemType': ListProjectModifyRecordsResponseBodyDataTableEtlList },
+      type: 'string',
+      updateRequestId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectModifyRecordsResponseBodyErrorDetail extends $tea.Model {
+  code?: string;
+  extraContext?: { [key: string]: any };
+  level?: string;
+  message?: string;
+  messageMcmsContext?: { [key: string]: string };
+  messageMcmsKey?: string;
+  proposal?: string;
+  proposalMcmsContext?: { [key: string]: string };
+  proposalMcmsKey?: string;
+  reason?: string;
+  reasonMcmsContext?: { [key: string]: string };
+  reasonMcmsKey?: string;
+  upstreamErrorDetail?: any;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      extraContext: 'ExtraContext',
+      level: 'Level',
+      message: 'Message',
+      messageMcmsContext: 'MessageMcmsContext',
+      messageMcmsKey: 'MessageMcmsKey',
+      proposal: 'Proposal',
+      proposalMcmsContext: 'ProposalMcmsContext',
+      proposalMcmsKey: 'ProposalMcmsKey',
+      reason: 'Reason',
+      reasonMcmsContext: 'ReasonMcmsContext',
+      reasonMcmsKey: 'ReasonMcmsKey',
+      upstreamErrorDetail: 'UpstreamErrorDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      extraContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      level: 'string',
+      message: 'string',
+      messageMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      messageMcmsKey: 'string',
+      proposal: 'string',
+      proposalMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      proposalMcmsKey: 'string',
+      reason: 'string',
+      reasonMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      reasonMcmsKey: 'string',
+      upstreamErrorDetail: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListProjectsResponseBodyDataAlarmStats extends $tea.Model {
   alarmContent?: string;
   alarming?: boolean;
@@ -22590,6 +25268,61 @@ export class ReleaseProjectResponseBodyErrorDetail extends $tea.Model {
   }
 }
 
+export class ReleaseWorkerInstanceResponseBodyErrorDetail extends $tea.Model {
+  code?: string;
+  extraContext?: { [key: string]: any };
+  level?: string;
+  message?: string;
+  messageMcmsContext?: { [key: string]: string };
+  messageMcmsKey?: string;
+  proposal?: string;
+  proposalMcmsContext?: { [key: string]: string };
+  proposalMcmsKey?: string;
+  reason?: string;
+  reasonMcmsContext?: { [key: string]: string };
+  reasonMcmsKey?: string;
+  upstreamErrorDetail?: any;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      extraContext: 'ExtraContext',
+      level: 'Level',
+      message: 'Message',
+      messageMcmsContext: 'MessageMcmsContext',
+      messageMcmsKey: 'MessageMcmsKey',
+      proposal: 'Proposal',
+      proposalMcmsContext: 'ProposalMcmsContext',
+      proposalMcmsKey: 'ProposalMcmsKey',
+      reason: 'Reason',
+      reasonMcmsContext: 'ReasonMcmsContext',
+      reasonMcmsKey: 'ReasonMcmsKey',
+      upstreamErrorDetail: 'UpstreamErrorDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      extraContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      level: 'string',
+      message: 'string',
+      messageMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      messageMcmsKey: 'string',
+      proposal: 'string',
+      proposalMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      proposalMcmsKey: 'string',
+      reason: 'string',
+      reasonMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      reasonMcmsKey: 'string',
+      upstreamErrorDetail: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResetOmsOpenAPIProjectResponseBodyErrorDetail extends $tea.Model {
   code?: string;
   level?: string;
@@ -22647,6 +25380,61 @@ export class ResumeOmsOpenAPIProjectResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class ResumeProjectResponseBodyErrorDetail extends $tea.Model {
+  code?: string;
+  extraContext?: { [key: string]: any };
+  level?: string;
+  message?: string;
+  messageMcmsContext?: { [key: string]: string };
+  messageMcmsKey?: string;
+  proposal?: string;
+  proposalMcmsContext?: { [key: string]: string };
+  proposalMcmsKey?: string;
+  reason?: string;
+  reasonMcmsContext?: { [key: string]: string };
+  reasonMcmsKey?: string;
+  upstreamErrorDetail?: any;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      extraContext: 'ExtraContext',
+      level: 'Level',
+      message: 'Message',
+      messageMcmsContext: 'MessageMcmsContext',
+      messageMcmsKey: 'MessageMcmsKey',
+      proposal: 'Proposal',
+      proposalMcmsContext: 'ProposalMcmsContext',
+      proposalMcmsKey: 'ProposalMcmsKey',
+      reason: 'Reason',
+      reasonMcmsContext: 'ReasonMcmsContext',
+      reasonMcmsKey: 'ReasonMcmsKey',
+      upstreamErrorDetail: 'UpstreamErrorDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      extraContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      level: 'string',
+      message: 'string',
+      messageMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      messageMcmsKey: 'string',
+      proposal: 'string',
+      proposalMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      proposalMcmsKey: 'string',
+      reason: 'string',
+      reasonMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      reasonMcmsKey: 'string',
+      upstreamErrorDetail: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryProjectModifyRecordsResponseBodyErrorDetail extends $tea.Model {
   code?: string;
   extraContext?: { [key: string]: any };
   level?: string;
@@ -23629,6 +26417,61 @@ export class StopProjectResponseBodyErrorDetail extends $tea.Model {
   }
 }
 
+export class StopProjectModifyRecordsResponseBodyErrorDetail extends $tea.Model {
+  code?: string;
+  extraContext?: { [key: string]: any };
+  level?: string;
+  message?: string;
+  messageMcmsContext?: { [key: string]: string };
+  messageMcmsKey?: string;
+  proposal?: string;
+  proposalMcmsContext?: { [key: string]: string };
+  proposalMcmsKey?: string;
+  reason?: string;
+  reasonMcmsContext?: { [key: string]: string };
+  reasonMcmsKey?: string;
+  upstreamErrorDetail?: any;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      extraContext: 'ExtraContext',
+      level: 'Level',
+      message: 'Message',
+      messageMcmsContext: 'MessageMcmsContext',
+      messageMcmsKey: 'MessageMcmsKey',
+      proposal: 'Proposal',
+      proposalMcmsContext: 'ProposalMcmsContext',
+      proposalMcmsKey: 'ProposalMcmsKey',
+      reason: 'Reason',
+      reasonMcmsContext: 'ReasonMcmsContext',
+      reasonMcmsKey: 'ReasonMcmsKey',
+      upstreamErrorDetail: 'UpstreamErrorDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      extraContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      level: 'string',
+      message: 'string',
+      messageMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      messageMcmsKey: 'string',
+      proposal: 'string',
+      proposalMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      proposalMcmsKey: 'string',
+      reason: 'string',
+      reasonMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      reasonMcmsKey: 'string',
+      upstreamErrorDetail: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopProjectsByLabelResponseBodyData extends $tea.Model {
   failedProjectIds?: string[];
   succeedProjectIds?: string[];
@@ -23752,6 +26595,68 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async cancelProjectModifyRecordWithOptions(request: CancelProjectModifyRecordRequest, runtime: $Util.RuntimeOptions): Promise<CancelProjectModifyRecordResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelProjectModifyRecord",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelProjectModifyRecordResponse>(await this.callApi(params, req, runtime), new CancelProjectModifyRecordResponse({}));
+  }
+
+  async cancelProjectModifyRecord(request: CancelProjectModifyRecordRequest): Promise<CancelProjectModifyRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelProjectModifyRecordWithOptions(request, runtime);
+  }
+
+  async createBackupSetDownloadLinkWithOptions(request: CreateBackupSetDownloadLinkRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupSetDownloadLinkResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.backupSetId)) {
+      body["BackupSetId"] = request.backupSetId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBackupSetDownloadLink",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBackupSetDownloadLinkResponse>(await this.callApi(params, req, runtime), new CreateBackupSetDownloadLinkResponse({}));
+  }
+
+  async createBackupSetDownloadLink(request: CreateBackupSetDownloadLinkRequest): Promise<CreateBackupSetDownloadLinkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBackupSetDownloadLinkWithOptions(request, runtime);
   }
 
   async createDatabaseWithOptions(request: CreateDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatabaseResponse> {
@@ -24383,6 +27288,94 @@ export default class Client extends OpenApi {
     return await this.createProjectWithOptions(request, runtime);
   }
 
+  async createProjectModifyRecordsWithOptions(tmpReq: CreateProjectModifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectModifyRecordsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateProjectModifyRecordsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.databases)) {
+      request.databasesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.databases, "Databases", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.databasesShrink)) {
+      body["Databases"] = request.databasesShrink;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateProjectModifyRecords",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateProjectModifyRecordsResponse>(await this.callApi(params, req, runtime), new CreateProjectModifyRecordsResponse({}));
+  }
+
+  async createProjectModifyRecords(request: CreateProjectModifyRecordsRequest): Promise<CreateProjectModifyRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createProjectModifyRecordsWithOptions(request, runtime);
+  }
+
+  async createRdsPostgreSQLDataSourceWithOptions(request: CreateRdsPostgreSQLDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateRdsPostgreSQLDataSourceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.databaseName)) {
+      body["DatabaseName"] = request.databaseName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      body["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      body["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRdsPostgreSQLDataSource",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRdsPostgreSQLDataSourceResponse>(await this.callApi(params, req, runtime), new CreateRdsPostgreSQLDataSourceResponse({}));
+  }
+
+  async createRdsPostgreSQLDataSource(request: CreateRdsPostgreSQLDataSourceRequest): Promise<CreateRdsPostgreSQLDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRdsPostgreSQLDataSourceWithOptions(request, runtime);
+  }
+
   async createSecurityIpGroupWithOptions(request: CreateSecurityIpGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecurityIpGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24642,6 +27635,35 @@ export default class Client extends OpenApi {
   async createTenantUser(request: CreateTenantUserRequest): Promise<CreateTenantUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTenantUserWithOptions(request, runtime);
+  }
+
+  async deleteDataSourceWithOptions(request: DeleteDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataSourceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataSource",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataSourceResponse>(await this.callApi(params, req, runtime), new DeleteDataSourceResponse({}));
+  }
+
+  async deleteDataSource(request: DeleteDataSourceRequest): Promise<DeleteDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataSourceWithOptions(request, runtime);
   }
 
   async deleteDatabasesWithOptions(request: DeleteDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatabasesResponse> {
@@ -25235,6 +28257,59 @@ export default class Client extends OpenApi {
   async describeCharset(request: DescribeCharsetRequest): Promise<DescribeCharsetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCharsetWithOptions(request, runtime);
+  }
+
+  async describeDataBackupSetWithOptions(request: DescribeDataBackupSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataBackupSetResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.backupObjectType)) {
+      body["BackupObjectType"] = request.backupObjectType;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDataBackupSet",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataBackupSetResponse>(await this.callApi(params, req, runtime), new DescribeDataBackupSetResponse({}));
+  }
+
+  async describeDataBackupSet(request: DescribeDataBackupSetRequest): Promise<DescribeDataBackupSetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDataBackupSetWithOptions(request, runtime);
   }
 
   async describeDatabasesWithOptions(request: DescribeDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatabasesResponse> {
@@ -27640,6 +30715,35 @@ export default class Client extends OpenApi {
     return await this.listProjectFullVerifyResultWithOptions(request, runtime);
   }
 
+  async listProjectModifyRecordsWithOptions(request: ListProjectModifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectModifyRecordsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProjectModifyRecords",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProjectModifyRecordsResponse>(await this.callApi(params, req, runtime), new ListProjectModifyRecordsResponse({}));
+  }
+
+  async listProjectModifyRecords(request: ListProjectModifyRecordsRequest): Promise<ListProjectModifyRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listProjectModifyRecordsWithOptions(request, runtime);
+  }
+
   async listProjectsWithOptions(tmpReq: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListProjectsShrinkRequest({ });
@@ -28602,6 +31706,35 @@ export default class Client extends OpenApi {
     return await this.releaseProjectWithOptions(request, runtime);
   }
 
+  async releaseWorkerInstanceWithOptions(request: ReleaseWorkerInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseWorkerInstanceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseWorkerInstance",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseWorkerInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseWorkerInstanceResponse({}));
+  }
+
+  async releaseWorkerInstance(request: ReleaseWorkerInstanceRequest): Promise<ReleaseWorkerInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseWorkerInstanceWithOptions(request, runtime);
+  }
+
   async resetOmsOpenAPIProjectWithOptions(request: ResetOmsOpenAPIProjectRequest, runtime: $Util.RuntimeOptions): Promise<ResetOmsOpenAPIProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28711,6 +31844,35 @@ export default class Client extends OpenApi {
   async resumeProject(request: ResumeProjectRequest): Promise<ResumeProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resumeProjectWithOptions(request, runtime);
+  }
+
+  async retryProjectModifyRecordsWithOptions(request: RetryProjectModifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<RetryProjectModifyRecordsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RetryProjectModifyRecords",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RetryProjectModifyRecordsResponse>(await this.callApi(params, req, runtime), new RetryProjectModifyRecordsResponse({}));
+  }
+
+  async retryProjectModifyRecords(request: RetryProjectModifyRecordsRequest): Promise<RetryProjectModifyRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.retryProjectModifyRecordsWithOptions(request, runtime);
   }
 
   async searchOmsOpenAPIMonitorMetricWithOptions(request: SearchOmsOpenAPIMonitorMetricRequest, runtime: $Util.RuntimeOptions): Promise<SearchOmsOpenAPIMonitorMetricResponse> {
@@ -29012,6 +32174,35 @@ export default class Client extends OpenApi {
   async stopProject(request: StopProjectRequest): Promise<StopProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopProjectWithOptions(request, runtime);
+  }
+
+  async stopProjectModifyRecordsWithOptions(request: StopProjectModifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<StopProjectModifyRecordsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopProjectModifyRecords",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopProjectModifyRecordsResponse>(await this.callApi(params, req, runtime), new StopProjectModifyRecordsResponse({}));
+  }
+
+  async stopProjectModifyRecords(request: StopProjectModifyRecordsRequest): Promise<StopProjectModifyRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopProjectModifyRecordsWithOptions(request, runtime);
   }
 
   async stopProjectsByLabelWithOptions(request: StopProjectsByLabelRequest, runtime: $Util.RuntimeOptions): Promise<StopProjectsByLabelResponse> {
