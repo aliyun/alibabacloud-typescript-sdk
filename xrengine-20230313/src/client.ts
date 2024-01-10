@@ -5464,6 +5464,31 @@ export class ListLocationServiceResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListMotionShopTasksResponseBodyDataMaterial extends $tea.Model {
+  avatarId?: string;
+  box?: number[];
+  coverUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarId: 'AvatarId',
+      box: 'Box',
+      coverUrl: 'CoverUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarId: 'string',
+      box: { 'type': 'array', 'itemType': 'number' },
+      coverUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMotionShopTasksResponseBodyDataResult extends $tea.Model {
   coverUrl?: string;
   shareUrl?: string;
@@ -5490,11 +5515,13 @@ export class ListMotionShopTasksResponseBodyDataResult extends $tea.Model {
 }
 
 export class ListMotionShopTasksResponseBodyData extends $tea.Model {
+  material?: ListMotionShopTasksResponseBodyDataMaterial;
   result?: ListMotionShopTasksResponseBodyDataResult;
   status?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      material: 'Material',
       result: 'Result',
       status: 'Status',
       taskId: 'TaskId',
@@ -5503,6 +5530,7 @@ export class ListMotionShopTasksResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      material: ListMotionShopTasksResponseBodyDataMaterial,
       result: ListMotionShopTasksResponseBodyDataResult,
       status: 'string',
       taskId: 'string',
