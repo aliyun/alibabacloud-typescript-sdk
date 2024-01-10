@@ -874,6 +874,59 @@ export class ListApplicationResponse extends $tea.Model {
   }
 }
 
+export class ListFoCreatedAppsResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListFoCreatedAppsResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListFoCreatedAppsResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFoCreatedAppsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListFoCreatedAppsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListFoCreatedAppsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequest extends $tea.Model {
   clientToken?: string;
   nextToken?: string;
@@ -1779,6 +1832,34 @@ export class ListApplicationResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListFoCreatedAppsResponseBodyData extends $tea.Model {
+  appId?: string;
+  reportUrl?: string;
+  status?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      reportUrl: 'ReportUrl',
+      status: 'Status',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      reportUrl: 'string',
+      status: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -2452,6 +2533,27 @@ export default class Client extends OpenApi {
   async listApplication(request: ListApplicationRequest): Promise<ListApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationWithOptions(request, runtime);
+  }
+
+  async listFoCreatedAppsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListFoCreatedAppsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListFoCreatedApps",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFoCreatedAppsResponse>(await this.callApi(params, req, runtime), new ListFoCreatedAppsResponse({}));
+  }
+
+  async listFoCreatedApps(): Promise<ListFoCreatedAppsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listFoCreatedAppsWithOptions(runtime);
   }
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
