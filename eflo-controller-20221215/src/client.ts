@@ -1964,14 +1964,18 @@ export class CreateClusterRequestNetworks extends $tea.Model {
   ipAllocationPolicy?: CreateClusterRequestNetworksIpAllocationPolicy[];
   newVpdInfo?: CreateClusterRequestNetworksNewVpdInfo;
   securityGroupId?: string;
+  vSwitchId?: string;
   vSwitchZoneId?: string;
+  vpcId?: string;
   vpdInfo?: CreateClusterRequestNetworksVpdInfo;
   static names(): { [key: string]: string } {
     return {
       ipAllocationPolicy: 'IpAllocationPolicy',
       newVpdInfo: 'NewVpdInfo',
       securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
       vSwitchZoneId: 'VSwitchZoneId',
+      vpcId: 'VpcId',
       vpdInfo: 'VpdInfo',
     };
   }
@@ -1981,7 +1985,9 @@ export class CreateClusterRequestNetworks extends $tea.Model {
       ipAllocationPolicy: { 'type': 'array', 'itemType': CreateClusterRequestNetworksIpAllocationPolicy },
       newVpdInfo: CreateClusterRequestNetworksNewVpdInfo,
       securityGroupId: 'string',
+      vSwitchId: 'string',
       vSwitchZoneId: 'string',
+      vpcId: 'string',
       vpdInfo: CreateClusterRequestNetworksVpdInfo,
     };
   }
