@@ -8130,15 +8130,18 @@ export class CreateTemplateScratchShrinkRequestTags extends $tea.Model {
 }
 
 export class DeleteStackInstancesRequestDeploymentTargets extends $tea.Model {
+  accountIds?: string[];
   rdFolderIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      accountIds: 'AccountIds',
       rdFolderIds: 'RdFolderIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
       rdFolderIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
