@@ -4693,6 +4693,7 @@ export class DescribeParameterTemplatesRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  role?: string;
   static names(): { [key: string]: string } {
     return {
       engine: 'Engine',
@@ -4702,6 +4703,7 @@ export class DescribeParameterTemplatesRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      role: 'Role',
     };
   }
 
@@ -4714,6 +4716,7 @@ export class DescribeParameterTemplatesRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      role: 'string',
     };
   }
 
@@ -17086,6 +17089,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.role)) {
+      query["Role"] = request.role;
     }
 
     let req = new $OpenApi.OpenApiRequest({
