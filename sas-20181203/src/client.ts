@@ -40768,12 +40768,14 @@ export class ListVirusScanMachineResponse extends $tea.Model {
 
 export class ListVirusScanMachineEventRequest extends $tea.Model {
   currentPage?: number;
+  lang?: string;
   operateTaskId?: string;
   pageSize?: number;
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      lang: 'Lang',
       operateTaskId: 'OperateTaskId',
       pageSize: 'PageSize',
       uuid: 'Uuid',
@@ -40783,6 +40785,7 @@ export class ListVirusScanMachineEventRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      lang: 'string',
       operateTaskId: 'string',
       pageSize: 'number',
       uuid: 'string',
@@ -56262,6 +56265,7 @@ export class DescribeCheckWarningsResponseBodyCheckWarnings extends $tea.Model {
   execErrorMessage?: string;
   fixStatus?: number;
   item?: string;
+  lastHandleTime?: number;
   level?: string;
   reason?: string;
   status?: number;
@@ -56276,6 +56280,7 @@ export class DescribeCheckWarningsResponseBodyCheckWarnings extends $tea.Model {
       execErrorMessage: 'ExecErrorMessage',
       fixStatus: 'FixStatus',
       item: 'Item',
+      lastHandleTime: 'LastHandleTime',
       level: 'Level',
       reason: 'Reason',
       status: 'Status',
@@ -56293,6 +56298,7 @@ export class DescribeCheckWarningsResponseBodyCheckWarnings extends $tea.Model {
       execErrorMessage: 'string',
       fixStatus: 'number',
       item: 'string',
+      lastHandleTime: 'number',
       level: 'string',
       reason: 'string',
       status: 'number',
@@ -58163,6 +58169,8 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   riskInstanceCount?: number;
   riskLevel?: string;
   riskStatus?: string;
+  syncOpen?: number;
+  syncStatus?: number;
   vulCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -58190,6 +58198,8 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
       riskInstanceCount: 'RiskInstanceCount',
       riskLevel: 'RiskLevel',
       riskStatus: 'RiskStatus',
+      syncOpen: 'SyncOpen',
+      syncStatus: 'SyncStatus',
       vulCount: 'VulCount',
     };
   }
@@ -58220,6 +58230,8 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
       riskInstanceCount: 'number',
       riskLevel: 'string',
       riskStatus: 'string',
+      syncOpen: 'number',
+      syncStatus: 'number',
       vulCount: 'number',
     };
   }
@@ -100016,6 +100028,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
     }
 
     if (!Util.isUnset(request.operateTaskId)) {
