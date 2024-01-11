@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/devops20210625",
-  "version": "4.6.3",
+  "version": "4.6.4",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

@@ -19966,6 +19966,7 @@ export class GetMergeRequestResponseBodyResultReviewers extends $tea.Model {
   id?: number;
   name?: string;
   reviewOpinionStatus?: string;
+  reviewTime?: string;
   state?: string;
   username?: string;
   static names(): { [key: string]: string } {
@@ -19976,6 +19977,7 @@ export class GetMergeRequestResponseBodyResultReviewers extends $tea.Model {
       id: 'id',
       name: 'name',
       reviewOpinionStatus: 'reviewOpinionStatus',
+      reviewTime: 'reviewTime',
       state: 'state',
       username: 'username',
     };
@@ -19989,6 +19991,7 @@ export class GetMergeRequestResponseBodyResultReviewers extends $tea.Model {
       id: 'number',
       name: 'string',
       reviewOpinionStatus: 'string',
+      reviewTime: 'string',
       state: 'string',
       username: 'string',
     };
@@ -20828,12 +20831,14 @@ export class GetProjectInfoResponseBodyProject extends $tea.Model {
 export class GetProjectMemberResponseBodyResult extends $tea.Model {
   accessLevel?: number;
   avatarUrl?: string;
+  email?: string;
   id?: number;
   name?: string;
   static names(): { [key: string]: string } {
     return {
       accessLevel: 'accessLevel',
       avatarUrl: 'avatarUrl',
+      email: 'email',
       id: 'id',
       name: 'name',
     };
@@ -20843,6 +20848,7 @@ export class GetProjectMemberResponseBodyResult extends $tea.Model {
     return {
       accessLevel: 'number',
       avatarUrl: 'string',
+      email: 'string',
       id: 'number',
       name: 'string',
     };
@@ -23536,6 +23542,7 @@ export class ListMergeRequestsResponseBodyResultReviewers extends $tea.Model {
   email?: string;
   id?: number;
   name?: string;
+  reviewTime?: string;
   state?: string;
   status?: string;
   username?: string;
@@ -23545,6 +23552,7 @@ export class ListMergeRequestsResponseBodyResultReviewers extends $tea.Model {
       email: 'email',
       id: 'id',
       name: 'name',
+      reviewTime: 'reviewTime',
       state: 'state',
       status: 'status',
       username: 'username',
@@ -23557,6 +23565,7 @@ export class ListMergeRequestsResponseBodyResultReviewers extends $tea.Model {
       email: 'string',
       id: 'number',
       name: 'string',
+      reviewTime: 'string',
       state: 'string',
       status: 'string',
       username: 'string',
