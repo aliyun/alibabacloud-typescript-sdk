@@ -5586,6 +5586,7 @@ export class ModifyClusterRequest extends $tea.Model {
   ingressLoadbalancerId?: string;
   instanceDeletionProtection?: boolean;
   maintenanceWindow?: MaintenanceWindow;
+  operationPolicy?: ModifyClusterRequestOperationPolicy;
   resourceGroupId?: string;
   systemEventsLogging?: ModifyClusterRequestSystemEventsLogging;
   static names(): { [key: string]: string } {
@@ -5600,6 +5601,7 @@ export class ModifyClusterRequest extends $tea.Model {
       ingressLoadbalancerId: 'ingress_loadbalancer_id',
       instanceDeletionProtection: 'instance_deletion_protection',
       maintenanceWindow: 'maintenance_window',
+      operationPolicy: 'operation_policy',
       resourceGroupId: 'resource_group_id',
       systemEventsLogging: 'system_events_logging',
     };
@@ -5617,6 +5619,7 @@ export class ModifyClusterRequest extends $tea.Model {
       ingressLoadbalancerId: 'string',
       instanceDeletionProtection: 'boolean',
       maintenanceWindow: MaintenanceWindow,
+      operationPolicy: ModifyClusterRequestOperationPolicy,
       resourceGroupId: 'string',
       systemEventsLogging: ModifyClusterRequestSystemEventsLogging,
     };
@@ -12050,6 +12053,47 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
+export class ModifyClusterRequestOperationPolicyClusterAutoUpgrade extends $tea.Model {
+  channel?: string;
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'channel',
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: 'string',
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClusterRequestOperationPolicy extends $tea.Model {
+  clusterAutoUpgrade?: ModifyClusterRequestOperationPolicyClusterAutoUpgrade;
+  static names(): { [key: string]: string } {
+    return {
+      clusterAutoUpgrade: 'cluster_auto_upgrade',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterAutoUpgrade: ModifyClusterRequestOperationPolicyClusterAutoUpgrade,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyClusterRequestSystemEventsLogging extends $tea.Model {
   enabled?: boolean;
   loggingProject?: string;
@@ -16191,6 +16235,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.maintenanceWindow)) {
       body["maintenance_window"] = request.maintenanceWindow;
+    }
+
+    if (!Util.isUnset(request.operationPolicy)) {
+      body["operation_policy"] = request.operationPolicy;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
