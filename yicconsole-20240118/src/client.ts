@@ -520,14 +520,9 @@ export default class Client extends OpenApi {
 
   async billingProcessMessageWithOptions(request: BillingProcessMessageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BillingProcessMessageResponse> {
     Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.body)) {
-      query["body"] = request.body;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "BillingProcessMessage",
