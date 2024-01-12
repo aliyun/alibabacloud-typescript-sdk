@@ -1590,6 +1590,7 @@ export class ListQuotaApplicationTemplatesResponse extends $tea.Model {
 }
 
 export class ListQuotaApplicationsRequest extends $tea.Model {
+  acceptLanguage?: string;
   dimensions?: ListQuotaApplicationsRequestDimensions[];
   keyWord?: string;
   maxResults?: number;
@@ -1600,6 +1601,7 @@ export class ListQuotaApplicationsRequest extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      acceptLanguage: 'AcceptLanguage',
       dimensions: 'Dimensions',
       keyWord: 'KeyWord',
       maxResults: 'MaxResults',
@@ -1613,6 +1615,7 @@ export class ListQuotaApplicationsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acceptLanguage: 'string',
       dimensions: { 'type': 'array', 'itemType': ListQuotaApplicationsRequestDimensions },
       keyWord: 'string',
       maxResults: 'number',
@@ -4536,6 +4539,10 @@ export default class Client extends OpenApi {
   async listQuotaApplicationsWithOptions(request: ListQuotaApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListQuotaApplicationsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      body["AcceptLanguage"] = request.acceptLanguage;
+    }
+
     if (!Util.isUnset(request.dimensions)) {
       body["Dimensions"] = request.dimensions;
     }
