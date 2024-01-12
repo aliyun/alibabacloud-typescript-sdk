@@ -167,6 +167,93 @@ export class BatchQueryMotionShopTaskStatusResponse extends $tea.Model {
   }
 }
 
+export class CreateAvatarTalkProjectRequest extends $tea.Model {
+  avatarProjectId?: string;
+  jwtToken?: string;
+  title?: string;
+  ttsVoice?: string;
+  txtContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarProjectId: 'AvatarProjectId',
+      jwtToken: 'JwtToken',
+      title: 'Title',
+      ttsVoice: 'TtsVoice',
+      txtContent: 'TxtContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarProjectId: 'string',
+      jwtToken: 'string',
+      title: 'string',
+      ttsVoice: 'string',
+      txtContent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAvatarTalkProjectResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateAvatarTalkProjectResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateAvatarTalkProjectResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAvatarTalkProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateAvatarTalkProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAvatarTalkProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDigitalHumanProjectRequest extends $tea.Model {
   audioId?: string;
   audioUrl?: string;
@@ -5239,6 +5326,25 @@ export class BatchQueryMotionShopTaskStatusResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tasks: { 'type': 'array', 'itemType': BatchQueryMotionShopTaskStatusResponseBodyDataTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAvatarTalkProjectResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
     };
   }
 
@@ -11723,6 +11829,53 @@ export default class Client extends OpenApi {
   async batchQueryMotionShopTaskStatus(request: BatchQueryMotionShopTaskStatusRequest): Promise<BatchQueryMotionShopTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchQueryMotionShopTaskStatusWithOptions(request, runtime);
+  }
+
+  async createAvatarTalkProjectWithOptions(request: CreateAvatarTalkProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateAvatarTalkProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.avatarProjectId)) {
+      body["AvatarProjectId"] = request.avatarProjectId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.ttsVoice)) {
+      body["TtsVoice"] = request.ttsVoice;
+    }
+
+    if (!Util.isUnset(request.txtContent)) {
+      body["TxtContent"] = request.txtContent;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAvatarTalkProject",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAvatarTalkProjectResponse>(await this.callApi(params, req, runtime), new CreateAvatarTalkProjectResponse({}));
+  }
+
+  async createAvatarTalkProject(request: CreateAvatarTalkProjectRequest): Promise<CreateAvatarTalkProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAvatarTalkProjectWithOptions(request, runtime);
   }
 
   async createDigitalHumanProjectWithOptions(request: CreateDigitalHumanProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateDigitalHumanProjectResponse> {
