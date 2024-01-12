@@ -238,6 +238,7 @@ export class CreateAppRequest extends $tea.Model {
   languageVersion?: string;
   path?: string;
   revisionComment?: string;
+  revisionTag?: string;
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -254,6 +255,7 @@ export class CreateAppRequest extends $tea.Model {
       languageVersion: 'LanguageVersion',
       path: 'Path',
       revisionComment: 'RevisionComment',
+      revisionTag: 'RevisionTag',
       workspace: 'Workspace',
     };
   }
@@ -273,6 +275,7 @@ export class CreateAppRequest extends $tea.Model {
       languageVersion: 'string',
       path: 'string',
       revisionComment: 'string',
+      revisionTag: 'string',
       workspace: 'string',
     };
   }
@@ -296,6 +299,7 @@ export class CreateAppShrinkRequest extends $tea.Model {
   languageVersion?: string;
   path?: string;
   revisionComment?: string;
+  revisionTag?: string;
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -312,6 +316,7 @@ export class CreateAppShrinkRequest extends $tea.Model {
       languageVersion: 'LanguageVersion',
       path: 'Path',
       revisionComment: 'RevisionComment',
+      revisionTag: 'RevisionTag',
       workspace: 'Workspace',
     };
   }
@@ -331,6 +336,7 @@ export class CreateAppShrinkRequest extends $tea.Model {
       languageVersion: 'string',
       path: 'string',
       revisionComment: 'string',
+      revisionTag: 'string',
       workspace: 'string',
     };
   }
@@ -345,6 +351,7 @@ export class CreateAppResponseBody extends $tea.Model {
   hostId?: string;
   requestId?: string;
   revision?: string;
+  revisionTag?: string;
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -352,6 +359,7 @@ export class CreateAppResponseBody extends $tea.Model {
       hostId: 'HostId',
       requestId: 'RequestId',
       revision: 'Revision',
+      revisionTag: 'RevisionTag',
       workspace: 'Workspace',
     };
   }
@@ -362,6 +370,7 @@ export class CreateAppResponseBody extends $tea.Model {
       hostId: 'string',
       requestId: 'string',
       revision: 'string',
+      revisionTag: 'string',
       workspace: 'string',
     };
   }
@@ -516,6 +525,7 @@ export class CreateRunRequest extends $tea.Model {
   inputs?: string;
   labels?: string;
   outputFolder?: string;
+  revisionTag?: string;
   role?: string;
   runName?: string;
   workspace?: string;
@@ -531,6 +541,7 @@ export class CreateRunRequest extends $tea.Model {
       inputs: 'Inputs',
       labels: 'Labels',
       outputFolder: 'OutputFolder',
+      revisionTag: 'RevisionTag',
       role: 'Role',
       runName: 'RunName',
       workspace: 'Workspace',
@@ -549,6 +560,7 @@ export class CreateRunRequest extends $tea.Model {
       inputs: 'string',
       labels: 'string',
       outputFolder: 'string',
+      revisionTag: 'string',
       role: 'string',
       runName: 'string',
       workspace: 'string',
@@ -571,6 +583,7 @@ export class CreateRunShrinkRequest extends $tea.Model {
   inputs?: string;
   labels?: string;
   outputFolder?: string;
+  revisionTag?: string;
   role?: string;
   runName?: string;
   workspace?: string;
@@ -586,6 +599,7 @@ export class CreateRunShrinkRequest extends $tea.Model {
       inputs: 'Inputs',
       labels: 'Labels',
       outputFolder: 'OutputFolder',
+      revisionTag: 'RevisionTag',
       role: 'Role',
       runName: 'RunName',
       workspace: 'Workspace',
@@ -604,6 +618,7 @@ export class CreateRunShrinkRequest extends $tea.Model {
       inputs: 'string',
       labels: 'string',
       outputFolder: 'string',
+      revisionTag: 'string',
       role: 'string',
       runName: 'string',
       workspace: 'string',
@@ -680,6 +695,7 @@ export class CreateSubmissionRequest extends $tea.Model {
   outputFolder?: string;
   outputs?: string;
   revision?: string;
+  revisionTag?: string;
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -694,6 +710,7 @@ export class CreateSubmissionRequest extends $tea.Model {
       outputFolder: 'OutputFolder',
       outputs: 'Outputs',
       revision: 'Revision',
+      revisionTag: 'RevisionTag',
       workspace: 'Workspace',
     };
   }
@@ -711,6 +728,7 @@ export class CreateSubmissionRequest extends $tea.Model {
       outputFolder: 'string',
       outputs: 'string',
       revision: 'string',
+      revisionTag: 'string',
       workspace: 'string',
     };
   }
@@ -732,6 +750,7 @@ export class CreateSubmissionShrinkRequest extends $tea.Model {
   outputFolder?: string;
   outputs?: string;
   revision?: string;
+  revisionTag?: string;
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -746,6 +765,7 @@ export class CreateSubmissionShrinkRequest extends $tea.Model {
       outputFolder: 'OutputFolder',
       outputs: 'Outputs',
       revision: 'Revision',
+      revisionTag: 'RevisionTag',
       workspace: 'Workspace',
     };
   }
@@ -763,6 +783,7 @@ export class CreateSubmissionShrinkRequest extends $tea.Model {
       outputFolder: 'string',
       outputs: 'string',
       revision: 'string',
+      revisionTag: 'string',
       workspace: 'string',
     };
   }
@@ -833,6 +854,7 @@ export class CreateTemplateRequest extends $tea.Model {
   inputsExpression?: CreateTemplateRequestInputsExpression[];
   labels?: string;
   outputsExpression?: CreateTemplateRequestOutputsExpression[];
+  revisionTag?: string;
   rootEntity?: string;
   templateName?: string;
   workspace?: string;
@@ -845,6 +867,7 @@ export class CreateTemplateRequest extends $tea.Model {
       inputsExpression: 'InputsExpression',
       labels: 'Labels',
       outputsExpression: 'OutputsExpression',
+      revisionTag: 'RevisionTag',
       rootEntity: 'RootEntity',
       templateName: 'TemplateName',
       workspace: 'Workspace',
@@ -860,6 +883,7 @@ export class CreateTemplateRequest extends $tea.Model {
       inputsExpression: { 'type': 'array', 'itemType': CreateTemplateRequestInputsExpression },
       labels: 'string',
       outputsExpression: { 'type': 'array', 'itemType': CreateTemplateRequestOutputsExpression },
+      revisionTag: 'string',
       rootEntity: 'string',
       templateName: 'string',
       workspace: 'string',
@@ -879,6 +903,7 @@ export class CreateTemplateShrinkRequest extends $tea.Model {
   inputsExpressionShrink?: string;
   labels?: string;
   outputsExpressionShrink?: string;
+  revisionTag?: string;
   rootEntity?: string;
   templateName?: string;
   workspace?: string;
@@ -891,6 +916,7 @@ export class CreateTemplateShrinkRequest extends $tea.Model {
       inputsExpressionShrink: 'InputsExpression',
       labels: 'Labels',
       outputsExpressionShrink: 'OutputsExpression',
+      revisionTag: 'RevisionTag',
       rootEntity: 'RootEntity',
       templateName: 'TemplateName',
       workspace: 'Workspace',
@@ -906,6 +932,7 @@ export class CreateTemplateShrinkRequest extends $tea.Model {
       inputsExpressionShrink: 'string',
       labels: 'string',
       outputsExpressionShrink: 'string',
+      revisionTag: 'string',
       rootEntity: 'string',
       templateName: 'string',
       workspace: 'string',
@@ -1602,11 +1629,13 @@ export class DownloadEntityResponse extends $tea.Model {
 export class GetAppRequest extends $tea.Model {
   appName?: string;
   revision?: string;
+  revisionTag?: string;
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       revision: 'Revision',
+      revisionTag: 'RevisionTag',
       workspace: 'Workspace',
     };
   }
@@ -1615,6 +1644,7 @@ export class GetAppRequest extends $tea.Model {
     return {
       appName: 'string',
       revision: 'string',
+      revisionTag: 'string',
       workspace: 'string',
     };
   }
@@ -1644,6 +1674,7 @@ export class GetAppResponseBody extends $tea.Model {
   requestId?: string;
   revision?: string;
   revisionComment?: string;
+  revisionTag?: string;
   revisions?: GetAppResponseBodyRevisions[];
   scope?: string;
   source?: string;
@@ -1671,6 +1702,7 @@ export class GetAppResponseBody extends $tea.Model {
       requestId: 'RequestId',
       revision: 'Revision',
       revisionComment: 'RevisionComment',
+      revisionTag: 'RevisionTag',
       revisions: 'Revisions',
       scope: 'Scope',
       source: 'Source',
@@ -1701,6 +1733,7 @@ export class GetAppResponseBody extends $tea.Model {
       requestId: 'string',
       revision: 'string',
       revisionComment: 'string',
+      revisionTag: 'string',
       revisions: { 'type': 'array', 'itemType': GetAppResponseBodyRevisions },
       scope: 'string',
       source: 'string',
@@ -2444,6 +2477,7 @@ export class GetTemplateResponseBody extends $tea.Model {
   lastModifiedTime?: string;
   outputsExpression?: GetTemplateResponseBodyOutputsExpression[];
   requestId?: string;
+  revisionTag?: string;
   rootEntity?: string;
   source?: string;
   templateName?: string;
@@ -2460,6 +2494,7 @@ export class GetTemplateResponseBody extends $tea.Model {
       lastModifiedTime: 'LastModifiedTime',
       outputsExpression: 'OutputsExpression',
       requestId: 'RequestId',
+      revisionTag: 'RevisionTag',
       rootEntity: 'RootEntity',
       source: 'Source',
       templateName: 'TemplateName',
@@ -2479,6 +2514,7 @@ export class GetTemplateResponseBody extends $tea.Model {
       lastModifiedTime: 'string',
       outputsExpression: { 'type': 'array', 'itemType': GetTemplateResponseBodyOutputsExpression },
       requestId: 'string',
+      revisionTag: 'string',
       rootEntity: 'string',
       source: 'string',
       templateName: 'string',
@@ -5103,11 +5139,13 @@ export class GetAppResponseBodyRevisions extends $tea.Model {
   createTime?: string;
   revision?: string;
   revisionComment?: string;
+  revisionTag?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
       revision: 'Revision',
       revisionComment: 'RevisionComment',
+      revisionTag: 'RevisionTag',
     };
   }
 
@@ -5116,6 +5154,7 @@ export class GetAppResponseBodyRevisions extends $tea.Model {
       createTime: 'string',
       revision: 'string',
       revisionComment: 'string',
+      revisionTag: 'string',
     };
   }
 
@@ -6437,6 +6476,10 @@ export default class Client extends OpenApi {
       query["RevisionComment"] = request.revisionComment;
     }
 
+    if (!Util.isUnset(request.revisionTag)) {
+      query["RevisionTag"] = request.revisionTag;
+    }
+
     if (!Util.isUnset(request.workspace)) {
       query["Workspace"] = request.workspace;
     }
@@ -6534,8 +6577,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateRunShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.executeOptions))) {
-      request.executeOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.executeOptions), "ExecuteOptions", "json");
+    if (!Util.isUnset(tmpReq.executeOptions)) {
+      request.executeOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.executeOptions, "ExecuteOptions", "json");
     }
 
     let query = { };
@@ -6577,6 +6620,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.outputFolder)) {
       query["OutputFolder"] = request.outputFolder;
+    }
+
+    if (!Util.isUnset(request.revisionTag)) {
+      query["RevisionTag"] = request.revisionTag;
     }
 
     if (!Util.isUnset(request.role)) {
@@ -6666,6 +6713,10 @@ export default class Client extends OpenApi {
       query["Revision"] = request.revision;
     }
 
+    if (!Util.isUnset(request.revisionTag)) {
+      query["RevisionTag"] = request.revisionTag;
+    }
+
     if (!Util.isUnset(request.workspace)) {
       query["Workspace"] = request.workspace;
     }
@@ -6723,6 +6774,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.labels)) {
       query["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.revisionTag)) {
+      query["RevisionTag"] = request.revisionTag;
     }
 
     if (!Util.isUnset(request.rootEntity)) {
@@ -7082,6 +7137,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.revision)) {
       query["Revision"] = request.revision;
+    }
+
+    if (!Util.isUnset(request.revisionTag)) {
+      query["RevisionTag"] = request.revisionTag;
     }
 
     if (!Util.isUnset(request.workspace)) {
@@ -7949,6 +8008,14 @@ export default class Client extends OpenApi {
     return await this.resumeSubmissionWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param tmpReq UpdateEntityRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateEntityResponse
+   */
+  // Deprecated
   async updateEntityWithOptions(tmpReq: UpdateEntityRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEntityResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateEntityShrinkRequest({ });
@@ -7989,6 +8056,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEntityResponse>(await this.callApi(params, req, runtime), new UpdateEntityResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request UpdateEntityRequest
+    * @return UpdateEntityResponse
+   */
+  // Deprecated
   async updateEntity(request: UpdateEntityRequest): Promise<UpdateEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEntityWithOptions(request, runtime);
