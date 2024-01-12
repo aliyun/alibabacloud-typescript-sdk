@@ -804,8 +804,10 @@ export class JobItem extends $tea.Model {
   subStatus?: string;
   thirdpartyLibDir?: string;
   thirdpartyLibs?: string[];
+  useOversoldResource?: boolean;
   userCommand?: string;
   userId?: string;
+  username?: string;
   workspaceId?: string;
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -837,8 +839,10 @@ export class JobItem extends $tea.Model {
       subStatus: 'SubStatus',
       thirdpartyLibDir: 'ThirdpartyLibDir',
       thirdpartyLibs: 'ThirdpartyLibs',
+      useOversoldResource: 'UseOversoldResource',
       userCommand: 'UserCommand',
       userId: 'UserId',
+      username: 'Username',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
     };
@@ -873,8 +877,10 @@ export class JobItem extends $tea.Model {
       subStatus: 'string',
       thirdpartyLibDir: 'string',
       thirdpartyLibs: { 'type': 'array', 'itemType': 'string' },
+      useOversoldResource: 'boolean',
       userCommand: 'string',
       userId: 'string',
+      username: 'string',
       workspaceId: 'string',
       workspaceName: 'string',
     };
@@ -1335,6 +1341,40 @@ export class Resources extends $tea.Model {
       CPU: 'string',
       GPU: 'string',
       memory: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SanityCheckResultItem extends $tea.Model {
+  checkNumber?: number;
+  finishedAt?: string;
+  message?: string;
+  phase?: string;
+  startedAt?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkNumber: 'CheckNumber',
+      finishedAt: 'FinishedAt',
+      message: 'Message',
+      phase: 'Phase',
+      startedAt: 'StartedAt',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkNumber: 'number',
+      finishedAt: 'string',
+      message: 'string',
+      phase: 'string',
+      startedAt: 'string',
+      status: 'string',
     };
   }
 
@@ -1934,7 +1974,9 @@ export class GetJobResponseBody extends $tea.Model {
   restartTimes?: string;
   settings?: JobSettings;
   status?: string;
+  statusHistory?: StatusTransitionItem[];
   subStatus?: string;
+  tenantId?: string;
   thirdpartyLibDir?: string;
   thirdpartyLibs?: string[];
   userCommand?: string;
@@ -1971,7 +2013,9 @@ export class GetJobResponseBody extends $tea.Model {
       restartTimes: 'RestartTimes',
       settings: 'Settings',
       status: 'Status',
+      statusHistory: 'StatusHistory',
       subStatus: 'SubStatus',
+      tenantId: 'TenantId',
       thirdpartyLibDir: 'ThirdpartyLibDir',
       thirdpartyLibs: 'ThirdpartyLibs',
       userCommand: 'UserCommand',
@@ -2011,7 +2055,9 @@ export class GetJobResponseBody extends $tea.Model {
       restartTimes: 'string',
       settings: JobSettings,
       status: 'string',
+      statusHistory: { 'type': 'array', 'itemType': StatusTransitionItem },
       subStatus: 'string',
+      tenantId: 'string',
       thirdpartyLibDir: 'string',
       thirdpartyLibs: { 'type': 'array', 'itemType': 'string' },
       userCommand: 'string',
@@ -2199,6 +2245,81 @@ export class GetJobMetricsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetJobMetricsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobSanityCheckResultRequest extends $tea.Model {
+  sanityCheckNumber?: number;
+  sanityCheckPhase?: string;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sanityCheckNumber: 'SanityCheckNumber',
+      sanityCheckPhase: 'SanityCheckPhase',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sanityCheckNumber: 'number',
+      sanityCheckPhase: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobSanityCheckResultResponseBody extends $tea.Model {
+  jobId?: string;
+  requestID?: string;
+  sanityCheckResult?: SanityCheckResultItem[];
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestID: 'RequestID',
+      sanityCheckResult: 'SanityCheckResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestID: 'string',
+      sanityCheckResult: { 'type': 'array', 'itemType': SanityCheckResultItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobSanityCheckResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetJobSanityCheckResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetJobSanityCheckResultResponseBody,
     };
   }
 
@@ -2716,6 +2837,75 @@ export class ListEcsSpecsResponse extends $tea.Model {
   }
 }
 
+export class ListJobSanityCheckResultsRequest extends $tea.Model {
+  order?: string;
+  static names(): { [key: string]: string } {
+    return {
+      order: 'Order',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      order: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobSanityCheckResultsResponseBody extends $tea.Model {
+  requestID?: string;
+  sanityCheckResults?: SanityCheckResultItem[][];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestID: 'RequestID',
+      sanityCheckResults: 'SanityCheckResults',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestID: 'string',
+      sanityCheckResults: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': SanityCheckResultItem } },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobSanityCheckResultsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListJobSanityCheckResultsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListJobSanityCheckResultsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListJobsRequest extends $tea.Model {
   businessUserId?: string;
   caller?: string;
@@ -2735,6 +2925,7 @@ export class ListJobsRequest extends $tea.Model {
   status?: string;
   tags?: { [key: string]: string };
   userIdForFilter?: string;
+  username?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2756,6 +2947,7 @@ export class ListJobsRequest extends $tea.Model {
       status: 'Status',
       tags: 'Tags',
       userIdForFilter: 'UserIdForFilter',
+      username: 'Username',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -2780,6 +2972,7 @@ export class ListJobsRequest extends $tea.Model {
       status: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       userIdForFilter: 'string',
+      username: 'string',
       workspaceId: 'string',
     };
   }
@@ -2808,6 +3001,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
   status?: string;
   tagsShrink?: string;
   userIdForFilter?: string;
+  username?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2829,6 +3023,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       status: 'Status',
       tagsShrink: 'Tags',
       userIdForFilter: 'UserIdForFilter',
+      username: 'Username',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -2853,6 +3048,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       status: 'string',
       tagsShrink: 'string',
       userIdForFilter: 'string',
+      username: 'string',
       workspaceId: 'string',
     };
   }
@@ -4056,6 +4252,45 @@ export default class Client extends OpenApi {
     return await this.getJobMetricsWithOptions(JobId, request, headers, runtime);
   }
 
+  async getJobSanityCheckResultWithOptions(JobId: string, request: GetJobSanityCheckResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobSanityCheckResultResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sanityCheckNumber)) {
+      query["SanityCheckNumber"] = request.sanityCheckNumber;
+    }
+
+    if (!Util.isUnset(request.sanityCheckPhase)) {
+      query["SanityCheckPhase"] = request.sanityCheckPhase;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetJobSanityCheckResult",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/sanitycheckresult`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetJobSanityCheckResultResponse>(await this.callApi(params, req, runtime), new GetJobSanityCheckResultResponse({}));
+  }
+
+  async getJobSanityCheckResult(JobId: string, request: GetJobSanityCheckResultRequest): Promise<GetJobSanityCheckResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getJobSanityCheckResultWithOptions(JobId, request, headers, runtime);
+  }
+
   async getPodEventsWithOptions(JobId: string, PodId: string, request: GetPodEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPodEventsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4337,6 +4572,37 @@ export default class Client extends OpenApi {
     return await this.listEcsSpecsWithOptions(request, headers, runtime);
   }
 
+  async listJobSanityCheckResultsWithOptions(JobId: string, request: ListJobSanityCheckResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobSanityCheckResultsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListJobSanityCheckResults",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/sanitycheckresults`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListJobSanityCheckResultsResponse>(await this.callApi(params, req, runtime), new ListJobSanityCheckResultsResponse({}));
+  }
+
+  async listJobSanityCheckResults(JobId: string, request: ListJobSanityCheckResultsRequest): Promise<ListJobSanityCheckResultsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listJobSanityCheckResultsWithOptions(JobId, request, headers, runtime);
+  }
+
   async listJobsWithOptions(tmpReq: ListJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListJobsShrinkRequest({ });
@@ -4416,6 +4682,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.userIdForFilter)) {
       query["UserIdForFilter"] = request.userIdForFilter;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      query["Username"] = request.username;
     }
 
     if (!Util.isUnset(request.workspaceId)) {
