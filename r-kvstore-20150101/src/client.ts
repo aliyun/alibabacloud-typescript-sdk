@@ -803,6 +803,7 @@ export class CreateInstanceRequest extends $tea.Model {
   businessInfo?: string;
   capacity?: number;
   chargeType?: string;
+  clusterBackupId?: string;
   connectionStringPrefix?: string;
   couponNo?: string;
   dedicatedHostGroupId?: string;
@@ -848,6 +849,7 @@ export class CreateInstanceRequest extends $tea.Model {
       businessInfo: 'BusinessInfo',
       capacity: 'Capacity',
       chargeType: 'ChargeType',
+      clusterBackupId: 'ClusterBackupId',
       connectionStringPrefix: 'ConnectionStringPrefix',
       couponNo: 'CouponNo',
       dedicatedHostGroupId: 'DedicatedHostGroupId',
@@ -896,6 +898,7 @@ export class CreateInstanceRequest extends $tea.Model {
       businessInfo: 'string',
       capacity: 'number',
       chargeType: 'string',
+      clusterBackupId: 'string',
       connectionStringPrefix: 'string',
       couponNo: 'string',
       dedicatedHostGroupId: 'string',
@@ -1163,6 +1166,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
   businessInfo?: string;
   chargeType?: string;
   clientToken?: string;
+  clusterBackupId?: string;
   couponNo?: string;
   dryRun?: boolean;
   engineVersion?: string;
@@ -1204,6 +1208,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       businessInfo: 'BusinessInfo',
       chargeType: 'ChargeType',
       clientToken: 'ClientToken',
+      clusterBackupId: 'ClusterBackupId',
       couponNo: 'CouponNo',
       dryRun: 'DryRun',
       engineVersion: 'EngineVersion',
@@ -1248,6 +1253,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       businessInfo: 'string',
       chargeType: 'string',
       clientToken: 'string',
+      clusterBackupId: 'string',
       couponNo: 'string',
       dryRun: 'boolean',
       engineVersion: 'string',
@@ -2727,6 +2733,114 @@ export class DescribeCacheAnalysisReportListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCacheAnalysisReportListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterBackupListRequest extends $tea.Model {
+  clusterBackupId?: string;
+  endTime?: string;
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterBackupId: 'ClusterBackupId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterBackupId: 'string',
+      endTime: 'string',
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterBackupListResponseBody extends $tea.Model {
+  clusterBackups?: DescribeClusterBackupListResponseBodyClusterBackups[];
+  maxResults?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterBackups: 'ClusterBackups',
+      maxResults: 'MaxResults',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterBackups: { 'type': 'array', 'itemType': DescribeClusterBackupListResponseBodyClusterBackups },
+      maxResults: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterBackupListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeClusterBackupListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeClusterBackupListResponseBody,
     };
   }
 
@@ -11564,6 +11678,123 @@ export class DescribeCacheAnalysisReportListResponseBodyDailyTasks extends $tea.
   }
 }
 
+export class DescribeClusterBackupListResponseBodyClusterBackupsBackupsExtraInfo extends $tea.Model {
+  custinsDbVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custinsDbVersion: 'CustinsDbVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custinsDbVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends $tea.Model {
+  backupDownloadURL?: string;
+  backupEndTime?: string;
+  backupId?: string;
+  backupIntranetDownloadURL?: string;
+  backupName?: string;
+  backupSize?: string;
+  backupStartTime?: string;
+  backupStatus?: string;
+  engine?: string;
+  extraInfo?: DescribeClusterBackupListResponseBodyClusterBackupsBackupsExtraInfo;
+  instanceName?: string;
+  isAvail?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupDownloadURL: 'BackupDownloadURL',
+      backupEndTime: 'BackupEndTime',
+      backupId: 'BackupId',
+      backupIntranetDownloadURL: 'BackupIntranetDownloadURL',
+      backupName: 'BackupName',
+      backupSize: 'BackupSize',
+      backupStartTime: 'BackupStartTime',
+      backupStatus: 'BackupStatus',
+      engine: 'Engine',
+      extraInfo: 'ExtraInfo',
+      instanceName: 'InstanceName',
+      isAvail: 'IsAvail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupDownloadURL: 'string',
+      backupEndTime: 'string',
+      backupId: 'string',
+      backupIntranetDownloadURL: 'string',
+      backupName: 'string',
+      backupSize: 'string',
+      backupStartTime: 'string',
+      backupStatus: 'string',
+      engine: 'string',
+      extraInfo: DescribeClusterBackupListResponseBodyClusterBackupsBackupsExtraInfo,
+      instanceName: 'string',
+      isAvail: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterBackupListResponseBodyClusterBackups extends $tea.Model {
+  backups?: DescribeClusterBackupListResponseBodyClusterBackupsBackups[];
+  clusterBackupEndTime?: string;
+  clusterBackupId?: string;
+  clusterBackupMode?: string;
+  clusterBackupSize?: string;
+  clusterBackupStartTime?: string;
+  clusterBackupStatus?: string;
+  isAvail?: number;
+  progress?: string;
+  shardClassMemory?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backups: 'Backups',
+      clusterBackupEndTime: 'ClusterBackupEndTime',
+      clusterBackupId: 'ClusterBackupId',
+      clusterBackupMode: 'ClusterBackupMode',
+      clusterBackupSize: 'ClusterBackupSize',
+      clusterBackupStartTime: 'ClusterBackupStartTime',
+      clusterBackupStatus: 'ClusterBackupStatus',
+      isAvail: 'IsAvail',
+      progress: 'Progress',
+      shardClassMemory: 'ShardClassMemory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backups: { 'type': 'array', 'itemType': DescribeClusterBackupListResponseBodyClusterBackupsBackups },
+      clusterBackupEndTime: 'string',
+      clusterBackupId: 'string',
+      clusterBackupMode: 'string',
+      clusterBackupSize: 'string',
+      clusterBackupStartTime: 'string',
+      clusterBackupStatus: 'string',
+      isAvail: 'number',
+      progress: 'string',
+      shardClassMemory: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $tea.Model {
   bandWidth?: number;
   binlogRetentionDays?: number;
@@ -14781,6 +15012,10 @@ export default class Client extends OpenApi {
       query["ChargeType"] = request.chargeType;
     }
 
+    if (!Util.isUnset(request.clusterBackupId)) {
+      query["ClusterBackupId"] = request.clusterBackupId;
+    }
+
     if (!Util.isUnset(request.connectionStringPrefix)) {
       query["ConnectionStringPrefix"] = request.connectionStringPrefix;
     }
@@ -15093,6 +15328,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clusterBackupId)) {
+      query["ClusterBackupId"] = request.clusterBackupId;
     }
 
     if (!Util.isUnset(request.couponNo)) {
@@ -16331,6 +16570,31 @@ export default class Client extends OpenApi {
   async describeCacheAnalysisReportList(request: DescribeCacheAnalysisReportListRequest): Promise<DescribeCacheAnalysisReportListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCacheAnalysisReportListWithOptions(request, runtime);
+  }
+
+  async describeClusterBackupListWithOptions(request: DescribeClusterBackupListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterBackupListResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterBackupList",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterBackupListResponse>(await this.callApi(params, req, runtime), new DescribeClusterBackupListResponse({}));
+  }
+
+  async describeClusterBackupList(request: DescribeClusterBackupListRequest): Promise<DescribeClusterBackupListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeClusterBackupListWithOptions(request, runtime);
   }
 
   /**
@@ -20954,7 +21218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter are added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
+    * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
     *
     * @param request ModifySecurityGroupConfigurationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21009,7 +21273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter are added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
+    * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
     *
     * @param request ModifySecurityGroupConfigurationRequest
     * @return ModifySecurityGroupConfigurationResponse
