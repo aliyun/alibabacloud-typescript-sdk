@@ -14173,6 +14173,59 @@ export class DescribeFieldStatisticsResponse extends $tea.Model {
   }
 }
 
+export class DescribeFixUsedCountResponseBody extends $tea.Model {
+  requestId?: string;
+  usedCount?: number;
+  usedCountCn?: number;
+  usedCountSg?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      usedCount: 'UsedCount',
+      usedCountCn: 'UsedCountCn',
+      usedCountSg: 'UsedCountSg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      usedCount: 'number',
+      usedCountCn: 'number',
+      usedCountSg: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFixUsedCountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeFixUsedCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFixUsedCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFrontVulPatchListRequest extends $tea.Model {
   info?: string;
   lang?: string;
@@ -44838,12 +44891,14 @@ export class ModifyTagWithUuidRequest extends $tea.Model {
   machineTypes?: string;
   tagId?: string;
   tagList?: string;
+  target?: string;
   uuidList?: string;
   static names(): { [key: string]: string } {
     return {
       machineTypes: 'MachineTypes',
       tagId: 'TagId',
       tagList: 'TagList',
+      target: 'Target',
       uuidList: 'UuidList',
     };
   }
@@ -44853,6 +44908,7 @@ export class ModifyTagWithUuidRequest extends $tea.Model {
       machineTypes: 'string',
       tagId: 'string',
       tagList: 'string',
+      target: 'string',
       uuidList: 'string',
     };
   }
@@ -86134,6 +86190,27 @@ export default class Client extends OpenApi {
     return await this.describeFieldStatisticsWithOptions(request, runtime);
   }
 
+  async describeFixUsedCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeFixUsedCountResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeFixUsedCount",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFixUsedCountResponse>(await this.callApi(params, req, runtime), new DescribeFixUsedCountResponse({}));
+  }
+
+  async describeFixUsedCount(): Promise<DescribeFixUsedCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFixUsedCountWithOptions(runtime);
+  }
+
   async describeFrontVulPatchListWithOptions(request: DescribeFrontVulPatchListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFrontVulPatchListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102357,6 +102434,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tagList)) {
       query["TagList"] = request.tagList;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
     }
 
     if (!Util.isUnset(request.uuidList)) {
