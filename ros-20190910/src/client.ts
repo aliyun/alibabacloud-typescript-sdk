@@ -12629,10 +12629,6 @@ export default class Client extends OpenApi {
       query["Tags"] = request.tags;
     }
 
-    if (!Util.isUnset(request.templateBody)) {
-      query["TemplateBody"] = request.templateBody;
-    }
-
     if (!Util.isUnset(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
@@ -12641,8 +12637,14 @@ export default class Client extends OpenApi {
       query["TemplateURL"] = request.templateURL;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.templateBody)) {
+      body["TemplateBody"] = request.templateBody;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateTemplate",
@@ -13749,10 +13751,6 @@ export default class Client extends OpenApi {
       query["Services"] = request.services;
     }
 
-    if (!Util.isUnset(request.templateBody)) {
-      query["TemplateBody"] = request.templateBody;
-    }
-
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
@@ -13765,8 +13763,14 @@ export default class Client extends OpenApi {
       query["TemplateVersion"] = request.templateVersion;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.templateBody)) {
+      body["TemplateBody"] = request.templateBody;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetServiceProvisions",
@@ -15221,10 +15225,6 @@ export default class Client extends OpenApi {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.templateBody)) {
-      query["TemplateBody"] = request.templateBody;
-    }
-
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
@@ -15237,8 +15237,14 @@ export default class Client extends OpenApi {
       query["TemplateVersion"] = request.templateVersion;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.templateBody)) {
+      body["TemplateBody"] = request.templateBody;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListStackOperationRisks",
@@ -16856,10 +16862,6 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.templateBody)) {
-      query["TemplateBody"] = request.templateBody;
-    }
-
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
@@ -16872,8 +16874,14 @@ export default class Client extends OpenApi {
       query["TemplateURL"] = request.templateURL;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.templateBody)) {
+      body["TemplateBody"] = request.templateBody;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTemplate",
