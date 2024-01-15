@@ -9,6 +9,227 @@ import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AlertConfiguration extends $tea.Model {
+  annotations?: AlertTag[];
+  autoAnnotation?: boolean;
+  conditionConfiguration?: ConditionConfiguration;
+  dashboard?: string;
+  groupConfiguration?: GroupConfiguration;
+  joinConfigurations?: JoinConfiguration[];
+  labels?: AlertTag[];
+  muteUntil?: number;
+  noDataFire?: boolean;
+  noDataSeverity?: number;
+  policyConfiguration?: PolicyConfiguration;
+  queryList?: AlertQuery[];
+  sendResolved?: boolean;
+  severityConfigurations?: SeverityConfiguration[];
+  sinkAlerthub?: SinkAlerthubConfiguration;
+  sinkCms?: SinkCmsConfiguration;
+  sinkEventStore?: SinkEventStoreConfiguration;
+  tags?: string[];
+  templateConfiguration?: TemplateConfiguration;
+  threshold?: number;
+  type?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      annotations: 'annotations',
+      autoAnnotation: 'autoAnnotation',
+      conditionConfiguration: 'conditionConfiguration',
+      dashboard: 'dashboard',
+      groupConfiguration: 'groupConfiguration',
+      joinConfigurations: 'joinConfigurations',
+      labels: 'labels',
+      muteUntil: 'muteUntil',
+      noDataFire: 'noDataFire',
+      noDataSeverity: 'noDataSeverity',
+      policyConfiguration: 'policyConfiguration',
+      queryList: 'queryList',
+      sendResolved: 'sendResolved',
+      severityConfigurations: 'severityConfigurations',
+      sinkAlerthub: 'sinkAlerthub',
+      sinkCms: 'sinkCms',
+      sinkEventStore: 'sinkEventStore',
+      tags: 'tags',
+      templateConfiguration: 'templateConfiguration',
+      threshold: 'threshold',
+      type: 'type',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotations: { 'type': 'array', 'itemType': AlertTag },
+      autoAnnotation: 'boolean',
+      conditionConfiguration: ConditionConfiguration,
+      dashboard: 'string',
+      groupConfiguration: GroupConfiguration,
+      joinConfigurations: { 'type': 'array', 'itemType': JoinConfiguration },
+      labels: { 'type': 'array', 'itemType': AlertTag },
+      muteUntil: 'number',
+      noDataFire: 'boolean',
+      noDataSeverity: 'number',
+      policyConfiguration: PolicyConfiguration,
+      queryList: { 'type': 'array', 'itemType': AlertQuery },
+      sendResolved: 'boolean',
+      severityConfigurations: { 'type': 'array', 'itemType': SeverityConfiguration },
+      sinkAlerthub: SinkAlerthubConfiguration,
+      sinkCms: SinkCmsConfiguration,
+      sinkEventStore: SinkEventStoreConfiguration,
+      tags: { 'type': 'array', 'itemType': 'string' },
+      templateConfiguration: TemplateConfiguration,
+      threshold: 'number',
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlertQuery extends $tea.Model {
+  chartTitle?: string;
+  dashboardId?: string;
+  end?: string;
+  powerSqlMode?: string;
+  project?: string;
+  query?: string;
+  region?: string;
+  roleArn?: string;
+  start?: string;
+  store?: string;
+  storeType?: string;
+  timeSpanType?: string;
+  ui?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chartTitle: 'chartTitle',
+      dashboardId: 'dashboardId',
+      end: 'end',
+      powerSqlMode: 'powerSqlMode',
+      project: 'project',
+      query: 'query',
+      region: 'region',
+      roleArn: 'roleArn',
+      start: 'start',
+      store: 'store',
+      storeType: 'storeType',
+      timeSpanType: 'timeSpanType',
+      ui: 'ui',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chartTitle: 'string',
+      dashboardId: 'string',
+      end: 'string',
+      powerSqlMode: 'string',
+      project: 'string',
+      query: 'string',
+      region: 'string',
+      roleArn: 'string',
+      start: 'string',
+      store: 'string',
+      storeType: 'string',
+      timeSpanType: 'string',
+      ui: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlertResp extends $tea.Model {
+  configuration?: AlertConfiguration;
+  createTime?: number;
+  description?: string;
+  displayName?: string;
+  lastModifiedTime?: number;
+  name?: string;
+  schedule?: Schedule;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'configuration',
+      createTime: 'createTime',
+      description: 'description',
+      displayName: 'displayName',
+      lastModifiedTime: 'lastModifiedTime',
+      name: 'name',
+      schedule: 'schedule',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: AlertConfiguration,
+      createTime: 'number',
+      description: 'string',
+      displayName: 'string',
+      lastModifiedTime: 'number',
+      name: 'string',
+      schedule: Schedule,
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlertTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConditionConfiguration extends $tea.Model {
+  condition?: string;
+  countCondition?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      countCondition: 'countCondition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      countCondition: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConsumerGroup extends $tea.Model {
   name?: string;
   order?: boolean;
@@ -26,6 +247,37 @@ export class ConsumerGroup extends $tea.Model {
       name: 'string',
       order: 'boolean',
       timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertReq extends $tea.Model {
+  configuration?: AlertConfiguration;
+  description?: string;
+  displayName?: string;
+  name?: string;
+  schedule?: Schedule;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'configuration',
+      description: 'description',
+      displayName: 'displayName',
+      name: 'name',
+      schedule: 'schedule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: AlertConfiguration,
+      description: 'string',
+      displayName: 'string',
+      name: 'string',
+      schedule: Schedule,
     };
   }
 
@@ -84,6 +336,28 @@ export class EncryptUserCmkConf extends $tea.Model {
   }
 }
 
+export class GroupConfiguration extends $tea.Model {
+  fileds?: string[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileds: 'fileds',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileds: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Histogram extends $tea.Model {
   count?: number;
   from?: number;
@@ -104,6 +378,28 @@ export class Histogram extends $tea.Model {
       from: 'number',
       progress: 'string',
       to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JoinConfiguration extends $tea.Model {
+  condition?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      type: 'string',
     };
   }
 
@@ -474,6 +770,31 @@ export class MLServiceParam extends $tea.Model {
   }
 }
 
+export class PolicyConfiguration extends $tea.Model {
+  actionPolicyId?: string;
+  alertPolicyId?: string;
+  repeatInterval?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionPolicyId: 'actionPolicyId',
+      alertPolicyId: 'alertPolicyId',
+      repeatInterval: 'repeatInterval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionPolicyId: 'string',
+      alertPolicyId: 'string',
+      repeatInterval: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SavedSearch extends $tea.Model {
   displayName?: string;
   logstore?: string;
@@ -497,6 +818,165 @@ export class SavedSearch extends $tea.Model {
       savedsearchName: 'string',
       searchQuery: 'string',
       topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Schedule extends $tea.Model {
+  cronExpression?: string;
+  delay?: number;
+  interval?: string;
+  runImmediately?: boolean;
+  timeZone?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cronExpression: 'cronExpression',
+      delay: 'delay',
+      interval: 'interval',
+      runImmediately: 'runImmediately',
+      timeZone: 'timeZone',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cronExpression: 'string',
+      delay: 'number',
+      interval: 'string',
+      runImmediately: 'boolean',
+      timeZone: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SeverityConfiguration extends $tea.Model {
+  evalCondition?: ConditionConfiguration;
+  severity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      evalCondition: 'evalCondition',
+      severity: 'severity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      evalCondition: ConditionConfiguration,
+      severity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SinkAlerthubConfiguration extends $tea.Model {
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SinkCmsConfiguration extends $tea.Model {
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SinkEventStoreConfiguration extends $tea.Model {
+  enabled?: boolean;
+  endpoint?: string;
+  eventStore?: string;
+  project?: string;
+  roleArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      endpoint: 'endpoint',
+      eventStore: 'eventStore',
+      project: 'project',
+      roleArn: 'roleArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      endpoint: 'string',
+      eventStore: 'string',
+      project: 'string',
+      roleArn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TemplateConfiguration extends $tea.Model {
+  aonotations?: { [key: string]: any };
+  id?: string;
+  lang?: string;
+  tokens?: { [key: string]: any };
+  type?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aonotations: 'aonotations',
+      id: 'id',
+      lang: 'lang',
+      tokens: 'tokens',
+      type: 'type',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aonotations: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      id: 'string',
+      lang: 'string',
+      tokens: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+      version: 'string',
     };
   }
 
@@ -546,6 +1026,34 @@ export class Ticket extends $tea.Model {
       ticketId: 'string',
       usedNumber: 'number',
       valid: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertReq extends $tea.Model {
+  configuration?: AlertConfiguration;
+  description?: string;
+  displayName?: string;
+  schedule?: Schedule;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'configuration',
+      description: 'description',
+      displayName: 'displayName',
+      schedule: 'schedule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: AlertConfiguration,
+      description: 'string',
+      displayName: 'string',
+      schedule: Schedule,
     };
   }
 
@@ -1210,6 +1718,50 @@ export class ConsumerGroupHeartBeatResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRequest extends $tea.Model {
+  body?: CreateAlertReq;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: CreateAlertReq,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: any;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: 'any',
     };
   }
 
@@ -2003,6 +2555,31 @@ export class CreateTicketResponse extends $tea.Model {
   }
 }
 
+export class DeleteAlertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: any;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAnnotationDataResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -2435,6 +3012,81 @@ export class DeleteShipperResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableAlertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: any;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAlertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: any;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AlertResp;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AlertResp,
     };
   }
 
@@ -3728,6 +4380,81 @@ export class GetShipperStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetShipperStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertsRequest extends $tea.Model {
+  logstore?: string;
+  offset?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      logstore: 'logstore',
+      offset: 'offset',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstore: 'string',
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertsResponseBody extends $tea.Model {
+  count?: number;
+  results?: AlertResp[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      results: 'results',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      results: { 'type': 'array', 'itemType': AlertResp },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAlertsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAlertsResponseBody,
     };
   }
 
@@ -5423,6 +6150,50 @@ export class UntagResourcesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRequest extends $tea.Model {
+  body?: UpdateAlertReq;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: UpdateAlertReq,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: any;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: 'any',
     };
   }
 
@@ -7662,6 +8433,16 @@ export default class Client extends OpenApi {
     return await this.changeResourceGroupWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * *   Connections between consumers and servers are established by sending heartbeats at regular intervals. If a server does not receive heartbeats from a consumer on schedule, the server deletes the consumer.
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ConsumerGroupHeartBeatRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ConsumerGroupHeartBeatResponse
+   */
   async consumerGroupHeartBeatWithOptions(project: string, logstore: string, consumerGroup: string, request: ConsumerGroupHeartBeatRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ConsumerGroupHeartBeatResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -7691,10 +8472,47 @@ export default class Client extends OpenApi {
     return $tea.cast<ConsumerGroupHeartBeatResponse>(await this.execute(params, req, runtime), new ConsumerGroupHeartBeatResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * *   Connections between consumers and servers are established by sending heartbeats at regular intervals. If a server does not receive heartbeats from a consumer on schedule, the server deletes the consumer.
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request ConsumerGroupHeartBeatRequest
+    * @return ConsumerGroupHeartBeatResponse
+   */
   async consumerGroupHeartBeat(project: string, logstore: string, consumerGroup: string, request: ConsumerGroupHeartBeatRequest): Promise<ConsumerGroupHeartBeatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.consumerGroupHeartBeatWithOptions(project, logstore, consumerGroup, request, headers, runtime);
+  }
+
+  async createAlertWithOptions(project: string, request: CreateAlertRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAlertResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAlert",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/alerts`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "any",
+    });
+    return $tea.cast<CreateAlertResponse>(await this.execute(params, req, runtime), new CreateAlertResponse({}));
+  }
+
+  async createAlert(project: string, request: CreateAlertRequest): Promise<CreateAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAlertWithOptions(project, request, headers, runtime);
   }
 
   async createAnnotationDataSetWithOptions(request: CreateAnnotationDataSetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAnnotationDataSetResponse> {
@@ -7755,6 +8573,20 @@ export default class Client extends OpenApi {
     return await this.createAnnotationLabelWithOptions(request, headers, runtime);
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](~~48984~~).
+    * *   You can create up to 100 Logtail configurations in a project.
+    * *   The Logtail configuration is planned out. For more information, see [Logtail configurations](~~29058~~).
+    *
+    * @param request CreateConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateConfigResponse
+   */
   async createConfigWithOptions(project: string, request: CreateConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConfigResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -7778,6 +8610,18 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateConfigResponse>(await this.execute(params, req, runtime), new CreateConfigResponse({}));
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](~~48984~~).
+    * *   You can create up to 100 Logtail configurations in a project.
+    * *   The Logtail configuration is planned out. For more information, see [Logtail configurations](~~29058~~).
+    *
+    * @param request CreateConfigRequest
+    * @return CreateConfigResponse
+   */
   async createConfig(project: string, request: CreateConfigRequest): Promise<CreateConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7846,6 +8690,18 @@ export default class Client extends OpenApi {
     return await this.createConsumerGroupWithOptions(project, logstore, request, headers, runtime);
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    *
+    * @param request CreateDashboardRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDashboardResponse
+   */
   async createDashboardWithOptions(project: string, request: CreateDashboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDashboardResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -7869,6 +8725,16 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDashboardResponse>(await this.execute(params, req, runtime), new CreateDashboardResponse({}));
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    *
+    * @param request CreateDashboardRequest
+    * @return CreateDashboardResponse
+   */
   async createDashboard(project: string, request: CreateDashboardRequest): Promise<CreateDashboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8141,6 +9007,14 @@ export default class Client extends OpenApi {
     return await this.createLoggingWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * The UK (London) region is supported. Supported regions are constantly updated.
+    *
+    * @param request CreateLogtailPipelineConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLogtailPipelineConfigResponse
+   */
   async createLogtailPipelineConfigWithOptions(project: string, request: CreateLogtailPipelineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLogtailPipelineConfigResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -8193,6 +9067,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLogtailPipelineConfigResponse>(await this.execute(params, req, runtime), new CreateLogtailPipelineConfigResponse({}));
   }
 
+  /**
+    * The UK (London) region is supported. Supported regions are constantly updated.
+    *
+    * @param request CreateLogtailPipelineConfigRequest
+    * @return CreateLogtailPipelineConfigResponse
+   */
   async createLogtailPipelineConfig(project: string, request: CreateLogtailPipelineConfigRequest): Promise<CreateLogtailPipelineConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8266,6 +9146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### [](#)Usage notes
     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
     *
     * @param request CreateOssExternalStoreRequest
@@ -8310,6 +9191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### [](#)Usage notes
     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
     *
     * @param request CreateOssExternalStoreRequest
@@ -8510,6 +9392,33 @@ export default class Client extends OpenApi {
     return await this.createTicketWithOptions(headers, runtime);
   }
 
+  async deleteAlertWithOptions(project: string, alertName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAlert",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/alerts/${alertName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "any",
+    });
+    return $tea.cast<DeleteAlertResponse>(await this.execute(params, req, runtime), new DeleteAlertResponse({}));
+  }
+
+  async deleteAlert(project: string, alertName: string): Promise<DeleteAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAlertWithOptions(project, alertName, headers, runtime);
+  }
+
   async deleteAnnotationDataWithOptions(datasetId: string, annotationdataId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAnnotationDataResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8534,6 +9443,13 @@ export default class Client extends OpenApi {
     return await this.deleteAnnotationDataWithOptions(datasetId, annotationdataId, headers, runtime);
   }
 
+  /**
+    * You can delete a dataset only if no data exists in the dataset.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAnnotationDataSetResponse
+   */
   async deleteAnnotationDataSetWithOptions(datasetId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAnnotationDataSetResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8552,12 +9468,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAnnotationDataSetResponse>(await this.execute(params, req, runtime), new DeleteAnnotationDataSetResponse({}));
   }
 
+  /**
+    * You can delete a dataset only if no data exists in the dataset.
+    *
+    * @return DeleteAnnotationDataSetResponse
+   */
   async deleteAnnotationDataSet(datasetId: string): Promise<DeleteAnnotationDataSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAnnotationDataSetWithOptions(datasetId, headers, runtime);
   }
 
+  /**
+    * Only non-built-in tags can be deleted.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAnnotationLabelResponse
+   */
   async deleteAnnotationLabelWithOptions(labelId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAnnotationLabelResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8576,6 +9504,11 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAnnotationLabelResponse>(await this.execute(params, req, runtime), new DeleteAnnotationLabelResponse({}));
   }
 
+  /**
+    * Only non-built-in tags can be deleted.
+    *
+    * @return DeleteAnnotationLabelResponse
+   */
   async deleteAnnotationLabel(labelId: string): Promise<DeleteAnnotationLabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8617,6 +9550,19 @@ export default class Client extends OpenApi {
     return await this.deleteCollectionPolicyWithOptions(policyName, request, headers, runtime);
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   If a Logtail configuration is applied to a machine group, you cannot collect data from the machine group after you delete the Logtail configuration.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    * *   The name of the required Logtail configuration is obtained. For more information, see [ListConfig](~~29043~~).
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteConfigResponse
+   */
   async deleteConfigWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConfigResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8638,6 +9584,17 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConfigResponse>(await this.execute(params, req, runtime), new DeleteConfigResponse({}));
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   If a Logtail configuration is applied to a machine group, you cannot collect data from the machine group after you delete the Logtail configuration.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    * *   The name of the required Logtail configuration is obtained. For more information, see [ListConfig](~~29043~~).
+    *
+    * @return DeleteConfigResponse
+   */
   async deleteConfig(project: string, configName: string): Promise<DeleteConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8683,6 +9640,17 @@ export default class Client extends OpenApi {
     return await this.deleteConsumerGroupWithOptions(project, logstore, consumerGroup, headers, runtime);
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDashboardResponse
+   */
   async deleteDashboardWithOptions(project: string, dashboardName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDashboardResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8704,6 +9672,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDashboardResponse>(await this.execute(params, req, runtime), new DeleteDashboardResponse({}));
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    *
+    * @return DeleteDashboardResponse
+   */
   async deleteDashboard(project: string, dashboardName: string): Promise<DeleteDashboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8897,6 +9874,13 @@ export default class Client extends OpenApi {
     return await this.deleteLoggingWithOptions(project, headers, runtime);
   }
 
+  /**
+    * The UK (London) region is supported. Supported regions are constantly updated.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteLogtailPipelineConfigResponse
+   */
   async deleteLogtailPipelineConfigWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLogtailPipelineConfigResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8918,6 +9902,11 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLogtailPipelineConfigResponse>(await this.execute(params, req, runtime), new DeleteLogtailPipelineConfigResponse({}));
   }
 
+  /**
+    * The UK (London) region is supported. Supported regions are constantly updated.
+    *
+    * @return DeleteLogtailPipelineConfigResponse
+   */
   async deleteLogtailPipelineConfig(project: string, configName: string): Promise<DeleteLogtailPipelineConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -9111,6 +10100,87 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteShipperWithOptions(project, logstore, shipperName, headers, runtime);
+  }
+
+  async disableAlertWithOptions(project: string, alertName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableAlertResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableAlert",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/alerts/${alertName}?action=disable`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "any",
+    });
+    return $tea.cast<DisableAlertResponse>(await this.execute(params, req, runtime), new DisableAlertResponse({}));
+  }
+
+  async disableAlert(project: string, alertName: string): Promise<DisableAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableAlertWithOptions(project, alertName, headers, runtime);
+  }
+
+  async enableAlertWithOptions(project: string, alertName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableAlertResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableAlert",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/alerts/${alertName}?action=enable`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "any",
+    });
+    return $tea.cast<EnableAlertResponse>(await this.execute(params, req, runtime), new EnableAlertResponse({}));
+  }
+
+  async enableAlert(project: string, alertName: string): Promise<EnableAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableAlertWithOptions(project, alertName, headers, runtime);
+  }
+
+  async getAlertWithOptions(project: string, alertName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAlertResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAlert",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/alerts/${alertName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAlertResponse>(await this.execute(params, req, runtime), new GetAlertResponse({}));
+  }
+
+  async getAlert(project: string, alertName: string): Promise<GetAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAlertWithOptions(project, alertName, headers, runtime);
   }
 
   async getAnnotationDataWithOptions(datasetId: string, annotationdataId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAnnotationDataResponse> {
@@ -9346,6 +10416,18 @@ export default class Client extends OpenApi {
     return await this.getCollectionPolicyWithOptions(policyName, request, headers, runtime);
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    * *   The name of the required Logtail configuration is obtained. For more information, see [ListConfig](~~29043~~).
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetConfigResponse
+   */
   async getConfigWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConfigResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -9367,6 +10449,16 @@ export default class Client extends OpenApi {
     return $tea.cast<GetConfigResponse>(await this.execute(params, req, runtime), new GetConfigResponse({}));
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    * *   The name of the required Logtail configuration is obtained. For more information, see [ListConfig](~~29043~~).
+    *
+    * @return GetConfigResponse
+   */
   async getConfig(project: string, configName: string): Promise<GetConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -9531,6 +10623,17 @@ export default class Client extends OpenApi {
     return await this.getCursorTimeWithOptions(project, logstore, shardId, request, headers, runtime);
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetDashboardResponse
+   */
   async getDashboardWithOptions(project: string, dashboardName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDashboardResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -9552,6 +10655,15 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDashboardResponse>(await this.execute(params, req, runtime), new GetDashboardResponse({}));
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    *
+    * @return GetDashboardResponse
+   */
   async getDashboard(project: string, dashboardName: string): Promise<GetDashboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10024,6 +11136,13 @@ export default class Client extends OpenApi {
     return await this.getLogsV2WithOptions(project, logstore, request, headers, runtime);
   }
 
+  /**
+    * The UK (London) region is supported. Supported regions are constantly updated.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetLogtailPipelineConfigResponse
+   */
   async getLogtailPipelineConfigWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLogtailPipelineConfigResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -10045,6 +11164,11 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLogtailPipelineConfigResponse>(await this.execute(params, req, runtime), new GetLogtailPipelineConfigResponse({}));
   }
 
+  /**
+    * The UK (London) region is supported. Supported regions are constantly updated.
+    *
+    * @return GetLogtailPipelineConfigResponse
+   */
   async getLogtailPipelineConfig(project: string, configName: string): Promise<GetLogtailPipelineConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10371,6 +11495,48 @@ export default class Client extends OpenApi {
     return await this.getShipperStatusWithOptions(project, logstore, shipperName, request, headers, runtime);
   }
 
+  async listAlertsWithOptions(project: string, request: ListAlertsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAlertsResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.logstore)) {
+      query["logstore"] = request.logstore;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAlerts",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/alerts`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAlertsResponse>(await this.execute(params, req, runtime), new ListAlertsResponse({}));
+  }
+
+  async listAlerts(project: string, request: ListAlertsRequest): Promise<ListAlertsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAlertsWithOptions(project, request, headers, runtime);
+  }
+
   async listAnnotationDataWithOptions(datasetId: string, request: ListAnnotationDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAnnotationDataResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -10537,6 +11703,18 @@ export default class Client extends OpenApi {
     return await this.listCollectionPoliciesWithOptions(request, headers, runtime);
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    *
+    * @param request ListConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListConfigResponse
+   */
   async listConfigWithOptions(project: string, request: ListConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConfigResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -10577,6 +11755,16 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConfigResponse>(await this.execute(params, req, runtime), new ListConfigResponse({}));
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    *
+    * @param request ListConfigRequest
+    * @return ListConfigResponse
+   */
   async listConfig(project: string, request: ListConfigRequest): Promise<ListConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10624,6 +11812,18 @@ export default class Client extends OpenApi {
     return await this.listConsumerGroupWithOptions(project, logstore, headers, runtime);
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    *
+    * @param request ListDashboardRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDashboardResponse
+   */
   async listDashboardWithOptions(project: string, request: ListDashboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDashboardResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -10656,6 +11856,16 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDashboardResponse>(await this.execute(params, req, runtime), new ListDashboardResponse({}));
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    *
+    * @param request ListDashboardRequest
+    * @return ListDashboardResponse
+   */
   async listDashboard(project: string, request: ListDashboardRequest): Promise<ListDashboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10778,7 +11988,15 @@ export default class Client extends OpenApi {
 
   /**
     * ### Usage notes
-    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    * ### Authentication resources
+    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+    * |Action|Resource|
+    * |:---|:---|
+    * |`log:ListLogStores`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/*`|
     *
     * @param request ListLogStoresRequest
     * @param headers map
@@ -10831,7 +12049,15 @@ export default class Client extends OpenApi {
 
   /**
     * ### Usage notes
-    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    * ### Authentication resources
+    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+    * |Action|Resource|
+    * |:---|:---|
+    * |`log:ListLogStores`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/*`|
     *
     * @param request ListLogStoresRequest
     * @return ListLogStoresResponse
@@ -10842,6 +12068,14 @@ export default class Client extends OpenApi {
     return await this.listLogStoresWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * The UK (London) region is supported. Supported regions are constantly updated.
+    *
+    * @param request ListLogtailPipelineConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListLogtailPipelineConfigResponse
+   */
   async listLogtailPipelineConfigWithOptions(project: string, request: ListLogtailPipelineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogtailPipelineConfigResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -10882,6 +12116,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLogtailPipelineConfigResponse>(await this.execute(params, req, runtime), new ListLogtailPipelineConfigResponse({}));
   }
 
+  /**
+    * The UK (London) region is supported. Supported regions are constantly updated.
+    *
+    * @param request ListLogtailPipelineConfigRequest
+    * @return ListLogtailPipelineConfigResponse
+   */
   async listLogtailPipelineConfig(project: string, request: ListLogtailPipelineConfigRequest): Promise<ListLogtailPipelineConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10997,7 +12237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Usage notes
+    * ### [](#)Usage notes
     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
     *
     * @param request ListProjectRequest
@@ -11043,7 +12283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Usage notes
+    * ### [](#)Usage notes
     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
     *
     * @param request ListProjectRequest
@@ -11368,6 +12608,21 @@ export default class Client extends OpenApi {
     return await this.putProjectTransferAccelerationWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](~~48984~~) and [Manage a Logstore](~~48990~~).
+    * *   You can call this operation to collect logs from web pages or clients.
+    * *   If you use web tracking to collect logs and you do not call this operation, you can send only one log to Simple Log Service in a request. For more information, see [Use web tracking to collect logs](~~31752~~).
+    * *   If you want to collect a large amount of log data, you can call this operation to send multiple logs to Simple Log Service in one request.
+    * *   Before you can call this operation to send logs to a Logstore, you must enable web tracking for the Logstore. For more information, see [Use web tracking to collect logs](~~31752~~).
+    * *   You cannot call this operation to send the logs of multiple topics to Simple Log Service at a time.
+    * *   If you call this operation, anonymous users from the Internet are granted the write permissions on the Logstore. This may generate dirty data because AccessKey pair-based authentication is not performed.
+    *
+    * @param request PutWebtrackingRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PutWebtrackingResponse
+   */
   async putWebtrackingWithOptions(project: string, logstoreName: string, request: PutWebtrackingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutWebtrackingResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -11408,6 +12663,19 @@ export default class Client extends OpenApi {
     return $tea.cast<PutWebtrackingResponse>(await this.execute(params, req, runtime), new PutWebtrackingResponse({}));
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](~~48984~~) and [Manage a Logstore](~~48990~~).
+    * *   You can call this operation to collect logs from web pages or clients.
+    * *   If you use web tracking to collect logs and you do not call this operation, you can send only one log to Simple Log Service in a request. For more information, see [Use web tracking to collect logs](~~31752~~).
+    * *   If you want to collect a large amount of log data, you can call this operation to send multiple logs to Simple Log Service in one request.
+    * *   Before you can call this operation to send logs to a Logstore, you must enable web tracking for the Logstore. For more information, see [Use web tracking to collect logs](~~31752~~).
+    * *   You cannot call this operation to send the logs of multiple topics to Simple Log Service at a time.
+    * *   If you call this operation, anonymous users from the Internet are granted the write permissions on the Logstore. This may generate dirty data because AccessKey pair-based authentication is not performed.
+    *
+    * @param request PutWebtrackingRequest
+    * @return PutWebtrackingResponse
+   */
   async putWebtracking(project: string, logstoreName: string, request: PutWebtrackingRequest): Promise<PutWebtrackingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11671,6 +12939,35 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, headers, runtime);
   }
 
+  async updateAlertWithOptions(project: string, alertName: string, request: UpdateAlertRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAlertResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAlert",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/alerts/${alertName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "any",
+    });
+    return $tea.cast<UpdateAlertResponse>(await this.execute(params, req, runtime), new UpdateAlertResponse({}));
+  }
+
+  async updateAlert(project: string, alertName: string, request: UpdateAlertRequest): Promise<UpdateAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAlertWithOptions(project, alertName, request, headers, runtime);
+  }
+
   async updateAnnotationDataSetWithOptions(datasetId: string, request: UpdateAnnotationDataSetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAnnotationDataSetResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -11697,6 +12994,14 @@ export default class Client extends OpenApi {
     return await this.updateAnnotationDataSetWithOptions(datasetId, request, headers, runtime);
   }
 
+  /**
+    * You can update only the names of the tags in a tag set.
+    *
+    * @param request UpdateAnnotationLabelRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateAnnotationLabelResponse
+   */
   async updateAnnotationLabelWithOptions(request: UpdateAnnotationLabelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAnnotationLabelResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -11717,12 +13022,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAnnotationLabelResponse>(await this.execute(params, req, runtime), new UpdateAnnotationLabelResponse({}));
   }
 
+  /**
+    * You can update only the names of the tags in a tag set.
+    *
+    * @param request UpdateAnnotationLabelRequest
+    * @return UpdateAnnotationLabelResponse
+   */
   async updateAnnotationLabel(request: UpdateAnnotationLabelRequest): Promise<UpdateAnnotationLabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAnnotationLabelWithOptions(request, headers, runtime);
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   After you update a Logtail configuration that is applied to a machine group, the new configuration immediately takes effect.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    * *   The Logtail configuration is planned out. For more information, see [Logtail configurations](~~29058~~).
+    *
+    * @param request UpdateConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateConfigResponse
+   */
   async updateConfigWithOptions(project: string, configName: string, request: UpdateConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateConfigResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -11746,6 +13071,18 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateConfigResponse>(await this.execute(params, req, runtime), new UpdateConfigResponse({}));
   }
 
+  /**
+    * ### [](#)Usage notes
+    * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    * *   After you update a Logtail configuration that is applied to a machine group, the new configuration immediately takes effect.
+    * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](~~29009~~).
+    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](~~47664~~).
+    * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](~~48984~~).
+    * *   The Logtail configuration is planned out. For more information, see [Logtail configurations](~~29058~~).
+    *
+    * @param request UpdateConfigRequest
+    * @return UpdateConfigResponse
+   */
   async updateConfig(project: string, configName: string, request: UpdateConfigRequest): Promise<UpdateConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11806,6 +13143,15 @@ export default class Client extends OpenApi {
     return await this.updateConsumerGroupWithOptions(project, logstore, consumerGroup, request, headers, runtime);
   }
 
+  /**
+    * ### [](#)Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateDashboardRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDashboardResponse
+   */
   async updateDashboardWithOptions(project: string, dashboardName: string, request: UpdateDashboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDashboardResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -11850,6 +13196,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDashboardResponse>(await this.execute(params, req, runtime), new UpdateDashboardResponse({}));
   }
 
+  /**
+    * ### [](#)Usage notes
+    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+    *
+    * @param request UpdateDashboardRequest
+    * @return UpdateDashboardResponse
+   */
   async updateDashboard(project: string, dashboardName: string, request: UpdateDashboardRequest): Promise<UpdateDashboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -12112,6 +13465,14 @@ export default class Client extends OpenApi {
     return await this.updateLoggingWithOptions(project, request, headers, runtime);
   }
 
+  /**
+    * The UK (London) region is supported. Supported regions are constantly updated.
+    *
+    * @param request UpdateLogtailPipelineConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateLogtailPipelineConfigResponse
+   */
   async updateLogtailPipelineConfigWithOptions(project: string, configName: string, request: UpdateLogtailPipelineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogtailPipelineConfigResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -12164,6 +13525,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLogtailPipelineConfigResponse>(await this.execute(params, req, runtime), new UpdateLogtailPipelineConfigResponse({}));
   }
 
+  /**
+    * The UK (London) region is supported. Supported regions are constantly updated.
+    *
+    * @param request UpdateLogtailPipelineConfigRequest
+    * @return UpdateLogtailPipelineConfigResponse
+   */
   async updateLogtailPipelineConfig(project: string, configName: string, request: UpdateLogtailPipelineConfigRequest): Promise<UpdateLogtailPipelineConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -12284,6 +13651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### [](#)Usage notes
     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
     *
     * @param request UpdateOssExternalStoreRequest
@@ -12328,6 +13696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### [](#)Usage notes
     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
     *
     * @param request UpdateOssExternalStoreRequest
