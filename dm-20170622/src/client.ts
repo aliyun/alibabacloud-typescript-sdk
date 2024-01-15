@@ -254,6 +254,84 @@ export class CheckDomainResponse extends $tea.Model {
   }
 }
 
+export class CheckDomainDnsRequest extends $tea.Model {
+  domainId?: number;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'DomainId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'number',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckDomainDnsResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckDomainDnsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckDomainDnsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckDomainDnsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDomainRequest extends $tea.Model {
   domainName?: string;
   ownerId?: number;
@@ -495,12 +573,14 @@ export class CreateTagRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tagDescription?: string;
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tagDescription: 'TagDescription',
       tagName: 'TagName',
     };
   }
@@ -510,6 +590,7 @@ export class CreateTagRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tagDescription: 'string',
       tagName: 'string',
     };
   }
@@ -1223,12 +1304,14 @@ export class DescAccountSummaryResponse extends $tea.Model {
 export class DescDomainRequest extends $tea.Model {
   domainId?: number;
   ownerId?: number;
+  requireRealTimeDnsRecords?: boolean;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       domainId: 'DomainId',
       ownerId: 'OwnerId',
+      requireRealTimeDnsRecords: 'RequireRealTimeDnsRecords',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -1238,6 +1321,7 @@ export class DescDomainRequest extends $tea.Model {
     return {
       domainId: 'number',
       ownerId: 'number',
+      requireRealTimeDnsRecords: 'boolean',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -1257,6 +1341,10 @@ export class DescDomainResponseBody extends $tea.Model {
   dkimAuthStatus?: string;
   dkimPublicKey?: string;
   dkimRR?: string;
+  dmarcAuthStatus?: number;
+  dmarcHostRecord?: string;
+  dmarcRecord?: string;
+  dnsDmarc?: string;
   dnsMx?: string;
   dnsSpf?: string;
   dnsTxt?: string;
@@ -1284,6 +1372,10 @@ export class DescDomainResponseBody extends $tea.Model {
       dkimAuthStatus: 'DkimAuthStatus',
       dkimPublicKey: 'DkimPublicKey',
       dkimRR: 'DkimRR',
+      dmarcAuthStatus: 'DmarcAuthStatus',
+      dmarcHostRecord: 'DmarcHostRecord',
+      dmarcRecord: 'DmarcRecord',
+      dnsDmarc: 'DnsDmarc',
       dnsMx: 'DnsMx',
       dnsSpf: 'DnsSpf',
       dnsTxt: 'DnsTxt',
@@ -1314,6 +1406,10 @@ export class DescDomainResponseBody extends $tea.Model {
       dkimAuthStatus: 'string',
       dkimPublicKey: 'string',
       dkimRR: 'string',
+      dmarcAuthStatus: 'number',
+      dmarcHostRecord: 'string',
+      dmarcRecord: 'string',
+      dnsDmarc: 'string',
       dnsMx: 'string',
       dnsSpf: 'string',
       dnsTxt: 'string',
@@ -1917,6 +2013,7 @@ export class ModifyTagRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tagDescription?: string;
   tagId?: number;
   tagName?: string;
   static names(): { [key: string]: string } {
@@ -1924,6 +2021,7 @@ export class ModifyTagRequest extends $tea.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tagDescription: 'TagDescription',
       tagId: 'TagId',
       tagName: 'TagName',
     };
@@ -1934,6 +2032,7 @@ export class ModifyTagRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tagDescription: 'string',
       tagId: 'number',
       tagName: 'string',
     };
@@ -3780,10 +3879,12 @@ export class QueryReceiverDetailResponseBodyData extends $tea.Model {
 }
 
 export class QueryTagByParamResponseBodyDataTag extends $tea.Model {
+  tagDescription?: string;
   tagId?: string;
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
+      tagDescription: 'TagDescription',
       tagId: 'TagId',
       tagName: 'TagName',
     };
@@ -3791,6 +3892,7 @@ export class QueryTagByParamResponseBodyDataTag extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      tagDescription: 'string',
       tagId: 'string',
       tagName: 'string',
     };
@@ -4290,6 +4392,51 @@ export default class Client extends OpenApi {
     return await this.checkDomainWithOptions(request, runtime);
   }
 
+  async checkDomainDnsWithOptions(request: CheckDomainDnsRequest, runtime: $Util.RuntimeOptions): Promise<CheckDomainDnsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckDomainDns",
+      version: "2017-06-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckDomainDnsResponse>(await this.callApi(params, req, runtime), new CheckDomainDnsResponse({}));
+  }
+
+  async checkDomainDns(request: CheckDomainDnsRequest): Promise<CheckDomainDnsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkDomainDnsWithOptions(request, runtime);
+  }
+
   async createDomainWithOptions(request: CreateDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4442,6 +4589,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tagDescription)) {
+      query["TagDescription"] = request.tagDescription;
     }
 
     if (!Util.isUnset(request.tagName)) {
@@ -4845,6 +4996,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.requireRealTimeDnsRecords)) {
+      query["RequireRealTimeDnsRecords"] = request.requireRealTimeDnsRecords;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -5205,6 +5360,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tagDescription)) {
+      query["TagDescription"] = request.tagDescription;
     }
 
     if (!Util.isUnset(request.tagId)) {
