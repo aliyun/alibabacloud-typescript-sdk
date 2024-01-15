@@ -40,30 +40,21 @@ export class AllocateInstancePublicConnectionRequest extends $tea.Model {
 }
 
 export class AllocateInstancePublicConnectionResponseBody extends $tea.Model {
-  code?: string;
   instanceName?: string;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       instanceName: 'InstanceName',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
       taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       instanceName: 'string',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
       taskId: 'number',
     };
   }
@@ -166,25 +157,16 @@ export class CheckCreateDBInstanceRequest extends $tea.Model {
 }
 
 export class CheckCreateDBInstanceResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
   requestId?: string;
-  success?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       requestId: 'string',
-      success: 'string',
     };
   }
 
@@ -1048,31 +1030,22 @@ export class DescribeSecurityIPListRequest extends $tea.Model {
 }
 
 export class DescribeSecurityIPListResponseBody extends $tea.Model {
-  code?: string;
   DBInstanceName?: string;
   groupItems?: DescribeSecurityIPListResponseBodyGroupItems[];
-  message?: string;
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       DBInstanceName: 'DBInstanceName',
       groupItems: 'GroupItems',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       DBInstanceName: 'string',
       groupItems: { 'type': 'array', 'itemType': DescribeSecurityIPListResponseBodyGroupItems },
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -1141,25 +1114,16 @@ export class ModifyBEClusterAttributeRequest extends $tea.Model {
 }
 
 export class ModifyBEClusterAttributeResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
   requestId?: string;
-  success?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       requestId: 'string',
-      success: 'string',
     };
   }
 
@@ -1309,25 +1273,16 @@ export class ModifyDBInstanceAttributeRequest extends $tea.Model {
 }
 
 export class ModifyDBInstanceAttributeResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -1396,28 +1351,22 @@ export class ModifySecurityIPListRequest extends $tea.Model {
 }
 
 export class ModifySecurityIPListResponseBody extends $tea.Model {
-  code?: string;
   DBInstanceName?: string;
   groupName?: string;
   groupTag?: string;
-  message?: string;
   requestId?: string;
   securityIPList?: string;
   securityIPType?: string;
-  success?: boolean;
   taskId?: number;
   whitelistNetType?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       DBInstanceName: 'DBInstanceName',
       groupName: 'GroupName',
       groupTag: 'GroupTag',
-      message: 'Message',
       requestId: 'RequestId',
       securityIPList: 'SecurityIPList',
       securityIPType: 'SecurityIPType',
-      success: 'Success',
       taskId: 'TaskId',
       whitelistNetType: 'WhitelistNetType',
     };
@@ -1425,15 +1374,12 @@ export class ModifySecurityIPListResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       DBInstanceName: 'string',
       groupName: 'string',
       groupTag: 'string',
-      message: 'string',
       requestId: 'string',
       securityIPList: 'string',
       securityIPType: 'string',
-      success: 'boolean',
       taskId: 'number',
       whitelistNetType: 'string',
     };
@@ -1498,25 +1444,16 @@ export class ReleaseInstancePublicConnectionRequest extends $tea.Model {
 }
 
 export class ReleaseInstancePublicConnectionResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -1804,21 +1741,15 @@ export class StopBEClusterRequest extends $tea.Model {
 }
 
 export class StopBEClusterResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       requestId: 'string',
     };
   }
@@ -1885,21 +1816,15 @@ export class UpgradeDBInstanceEngineVersionRequest extends $tea.Model {
 }
 
 export class UpgradeDBInstanceEngineVersionResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       requestId: 'string',
     };
   }
