@@ -8,6 +8,165 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AccessPageGetAclRequest extends $tea.Model {
+  accessPageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPageId: 'AccessPageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccessPageGetAclResponseBody extends $tea.Model {
+  code?: string;
+  data?: AccessPageGetAclResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': AccessPageGetAclResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccessPageGetAclResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AccessPageGetAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AccessPageGetAclResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccessPageSetAclRequest extends $tea.Model {
+  accessMode?: string;
+  accessPageId?: string;
+  accessPageName?: string;
+  effectTime?: number;
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessMode: 'AccessMode',
+      accessPageId: 'AccessPageId',
+      accessPageName: 'AccessPageName',
+      effectTime: 'EffectTime',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessMode: 'string',
+      accessPageId: 'string',
+      accessPageName: 'string',
+      effectTime: 'number',
+      unit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccessPageSetAclResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccessPageSetAclResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AccessPageSetAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AccessPageSetAclResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApproveOtaTaskRequest extends $tea.Model {
   appInstanceGroupId?: string;
   bizRegionId?: string;
@@ -89,6 +248,165 @@ export class ApproveOtaTaskResponse extends $tea.Model {
   }
 }
 
+export class AskSessionPackagePriceRequest extends $tea.Model {
+  chargeType?: string;
+  maxSessions?: number;
+  period?: number;
+  periodUnit?: string;
+  region?: string;
+  sessionPackageType?: string;
+  sessionSpec?: string;
+  sessionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      maxSessions: 'MaxSessions',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      region: 'Region',
+      sessionPackageType: 'SessionPackageType',
+      sessionSpec: 'SessionSpec',
+      sessionType: 'SessionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      maxSessions: 'number',
+      period: 'number',
+      periodUnit: 'string',
+      region: 'string',
+      sessionPackageType: 'string',
+      sessionSpec: 'string',
+      sessionType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AskSessionPackagePriceResponseBody extends $tea.Model {
+  data?: AskSessionPackagePriceResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': AskSessionPackagePriceResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AskSessionPackagePriceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AskSessionPackagePriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AskSessionPackagePriceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AskSessionPackageRenewPriceRequest extends $tea.Model {
+  period?: number;
+  periodUnit?: string;
+  sessionPackageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      sessionPackageId: 'SessionPackageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      period: 'number',
+      periodUnit: 'string',
+      sessionPackageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AskSessionPackageRenewPriceResponseBody extends $tea.Model {
+  data?: AskSessionPackageRenewPriceResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': AskSessionPackageRenewPriceResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AskSessionPackageRenewPriceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AskSessionPackageRenewPriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AskSessionPackageRenewPriceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AuthorizeInstanceGroupRequest extends $tea.Model {
   appInstanceGroupId?: string;
   authorizeUserIds?: string[];
@@ -161,6 +479,108 @@ export class AuthorizeInstanceGroupResponse extends $tea.Model {
   }
 }
 
+export class BuySessionPackageRequest extends $tea.Model {
+  chargeType?: string;
+  maxSessions?: number;
+  period?: number;
+  periodUnit?: string;
+  projectId?: string;
+  region?: string;
+  sessionPackageName?: string;
+  sessionPackageType?: string;
+  sessionSpec?: string;
+  sessionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      maxSessions: 'MaxSessions',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      projectId: 'ProjectId',
+      region: 'Region',
+      sessionPackageName: 'SessionPackageName',
+      sessionPackageType: 'SessionPackageType',
+      sessionSpec: 'SessionSpec',
+      sessionType: 'SessionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      maxSessions: 'number',
+      period: 'number',
+      periodUnit: 'string',
+      projectId: 'string',
+      region: 'string',
+      sessionPackageName: 'string',
+      sessionPackageType: 'string',
+      sessionSpec: 'string',
+      sessionType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BuySessionPackageResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  sessionPackageId?: number;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      sessionPackageId: 'SessionPackageId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      sessionPackageId: 'number',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BuySessionPackageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BuySessionPackageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BuySessionPackageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelOtaTaskRequest extends $tea.Model {
   appInstanceGroupId?: string;
   taskId?: string;
@@ -225,6 +645,96 @@ export class CancelOtaTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CancelOtaTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessPageRequest extends $tea.Model {
+  accessPageName?: string;
+  cloudEnvId?: string;
+  effectTime?: number;
+  projectId?: string;
+  projectName?: string;
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPageName: 'AccessPageName',
+      cloudEnvId: 'CloudEnvId',
+      effectTime: 'EffectTime',
+      projectId: 'ProjectId',
+      projectName: 'ProjectName',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPageName: 'string',
+      cloudEnvId: 'string',
+      effectTime: 'number',
+      projectId: 'string',
+      projectName: 'string',
+      unit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessPageResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessPageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateAccessPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAccessPageResponseBody,
     };
   }
 
@@ -504,6 +1014,195 @@ export class CreateImageFromAppInstanceGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateProjectRequest extends $tea.Model {
+  clipboard?: number;
+  cloudEnvId?: string;
+  contentId?: string;
+  description?: string;
+  fileTransfer?: number;
+  frameRate?: number;
+  keepAliveDuration?: number;
+  projectName?: string;
+  sessionResolutionHeight?: number;
+  sessionResolutionWidth?: number;
+  sessionSpec?: string;
+  streamingMode?: string;
+  terminalResolutionAdaptation?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clipboard: 'Clipboard',
+      cloudEnvId: 'CloudEnvId',
+      contentId: 'ContentId',
+      description: 'Description',
+      fileTransfer: 'FileTransfer',
+      frameRate: 'FrameRate',
+      keepAliveDuration: 'KeepAliveDuration',
+      projectName: 'ProjectName',
+      sessionResolutionHeight: 'SessionResolutionHeight',
+      sessionResolutionWidth: 'SessionResolutionWidth',
+      sessionSpec: 'SessionSpec',
+      streamingMode: 'StreamingMode',
+      terminalResolutionAdaptation: 'TerminalResolutionAdaptation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipboard: 'number',
+      cloudEnvId: 'string',
+      contentId: 'string',
+      description: 'string',
+      fileTransfer: 'number',
+      frameRate: 'number',
+      keepAliveDuration: 'number',
+      projectName: 'string',
+      sessionResolutionHeight: 'number',
+      sessionResolutionWidth: 'number',
+      sessionSpec: 'string',
+      streamingMode: 'string',
+      terminalResolutionAdaptation: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessPageRequest extends $tea.Model {
+  accessPageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPageId: 'AccessPageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessPageResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessPageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteAccessPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAccessPageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAppInstanceGroupRequest extends $tea.Model {
   appInstanceGroupId?: string;
   productType?: string;
@@ -642,6 +1341,162 @@ export class DeleteAppInstancesResponse extends $tea.Model {
   }
 }
 
+export class DeleteProjectRequest extends $tea.Model {
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessPageSessionRequest extends $tea.Model {
+  accessPageId?: string;
+  accessPageToken?: string;
+  externalUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPageId: 'AccessPageId',
+      accessPageToken: 'AccessPageToken',
+      externalUserId: 'ExternalUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPageId: 'string',
+      accessPageToken: 'string',
+      externalUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessPageSessionResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetAccessPageSessionResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetAccessPageSessionResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessPageSessionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAccessPageSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccessPageSessionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppInstanceGroupRequest extends $tea.Model {
   appInstanceGroupId?: string;
   productType?: string;
@@ -715,6 +1570,7 @@ export class GetConnectionTicketRequest extends $tea.Model {
   appId?: string;
   appInstanceGroupIdList?: string[];
   appInstanceId?: string;
+  appInstancePersistentId?: string;
   appStartParam?: string;
   appVersion?: string;
   bizRegionId?: string;
@@ -726,6 +1582,7 @@ export class GetConnectionTicketRequest extends $tea.Model {
       appId: 'AppId',
       appInstanceGroupIdList: 'AppInstanceGroupIdList',
       appInstanceId: 'AppInstanceId',
+      appInstancePersistentId: 'AppInstancePersistentId',
       appStartParam: 'AppStartParam',
       appVersion: 'AppVersion',
       bizRegionId: 'BizRegionId',
@@ -740,6 +1597,7 @@ export class GetConnectionTicketRequest extends $tea.Model {
       appId: 'string',
       appInstanceGroupIdList: { 'type': 'array', 'itemType': 'string' },
       appInstanceId: 'string',
+      appInstancePersistentId: 'string',
       appStartParam: 'string',
       appVersion: 'string',
       bizRegionId: 'string',
@@ -757,6 +1615,7 @@ export class GetConnectionTicketRequest extends $tea.Model {
 export class GetConnectionTicketResponseBody extends $tea.Model {
   appInstanceGroupId?: string;
   appInstanceId?: string;
+  appInstancePersistentId?: string;
   bizRegionId?: string;
   osType?: string;
   requestId?: string;
@@ -768,6 +1627,7 @@ export class GetConnectionTicketResponseBody extends $tea.Model {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceId: 'AppInstanceId',
+      appInstancePersistentId: 'AppInstancePersistentId',
       bizRegionId: 'BizRegionId',
       osType: 'OsType',
       requestId: 'RequestId',
@@ -782,6 +1642,7 @@ export class GetConnectionTicketResponseBody extends $tea.Model {
     return {
       appInstanceGroupId: 'string',
       appInstanceId: 'string',
+      appInstancePersistentId: 'string',
       bizRegionId: 'string',
       osType: 'string',
       requestId: 'string',
@@ -984,6 +1845,81 @@ export class GetOtaTaskByTaskIdResponse extends $tea.Model {
   }
 }
 
+export class GetProjectPoliciesRequest extends $tea.Model {
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectPoliciesResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetProjectPoliciesResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetProjectPoliciesResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectPoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetProjectPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetProjectPoliciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResourcePriceRequest extends $tea.Model {
   amount?: number;
   appInstanceType?: string;
@@ -1155,26 +2091,125 @@ export class GetResourceRenewPriceResponse extends $tea.Model {
   }
 }
 
+export class ListAccessPagesRequest extends $tea.Model {
+  accessPageId?: string;
+  accessPageName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  projectId?: string;
+  sortType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPageId: 'AccessPageId',
+      accessPageName: 'AccessPageName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      sortType: 'SortType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPageId: 'string',
+      accessPageName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'string',
+      sortType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessPagesResponseBody extends $tea.Model {
+  code?: string;
+  count?: string;
+  data?: ListAccessPagesResponseBodyData[];
+  message?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      count: 'Count',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      count: 'string',
+      data: { 'type': 'array', 'itemType': ListAccessPagesResponseBodyData },
+      message: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessPagesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAccessPagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAccessPagesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAppInstanceGroupRequest extends $tea.Model {
   appCenterImageId?: string;
   appInstanceGroupId?: string;
   appInstanceGroupName?: string;
+  bizRegionId?: string;
   nodeInstanceType?: string;
   pageNumber?: number;
   pageSize?: number;
   productType?: string;
-  regionId?: string;
   status?: string[];
   static names(): { [key: string]: string } {
     return {
       appCenterImageId: 'AppCenterImageId',
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceGroupName: 'AppInstanceGroupName',
+      bizRegionId: 'BizRegionId',
       nodeInstanceType: 'NodeInstanceType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       productType: 'ProductType',
-      regionId: 'RegionId',
       status: 'Status',
     };
   }
@@ -1184,11 +2219,11 @@ export class ListAppInstanceGroupRequest extends $tea.Model {
       appCenterImageId: 'string',
       appInstanceGroupId: 'string',
       appInstanceGroupName: 'string',
+      bizRegionId: 'string',
       nodeInstanceType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       productType: 'string',
-      regionId: 'string',
       status: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -1524,6 +2559,105 @@ export class ListOtaTaskResponse extends $tea.Model {
   }
 }
 
+export class ListProjectsRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  projectId?: string;
+  projectName?: string;
+  sortType?: string;
+  stateList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      projectName: 'ProjectName',
+      sortType: 'SortType',
+      stateList: 'StateList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'string',
+      projectName: 'string',
+      sortType: 'string',
+      stateList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListProjectsResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListProjectsResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListProjectsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListProjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRegionsResponseBody extends $tea.Model {
   regionModels?: ListRegionsResponseBodyRegionModels[];
   requestId?: string;
@@ -1563,6 +2697,99 @@ export class ListRegionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionPackagesRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  projectId?: string;
+  sessionPackageId?: string;
+  sessionPackageName?: string;
+  sortType?: string;
+  stateList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      sessionPackageId: 'SessionPackageId',
+      sessionPackageName: 'SessionPackageName',
+      sortType: 'SortType',
+      stateList: 'StateList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'string',
+      sessionPackageId: 'string',
+      sessionPackageName: 'string',
+      sortType: 'string',
+      stateList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionPackagesResponseBody extends $tea.Model {
+  data?: ListSessionPackagesResponseBodyData[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListSessionPackagesResponseBodyData },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionPackagesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSessionPackagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSessionPackagesResponseBody,
     };
   }
 
@@ -1682,6 +2909,84 @@ export class LogOffAllSessionsInAppInstanceGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: LogOffAllSessionsInAppInstanceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrateSessionPackageRequest extends $tea.Model {
+  destProjectId?: string;
+  sessionPackageId?: string;
+  sourceProjectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destProjectId: 'DestProjectId',
+      sessionPackageId: 'SessionPackageId',
+      sourceProjectId: 'SourceProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destProjectId: 'string',
+      sessionPackageId: 'string',
+      sourceProjectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrateSessionPackageResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrateSessionPackageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: MigrateSessionPackageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MigrateSessionPackageResponseBody,
     };
   }
 
@@ -1944,6 +3249,105 @@ export class ModifyNodePoolAttributeResponse extends $tea.Model {
   }
 }
 
+export class ModifyProjectPolicyRequest extends $tea.Model {
+  clipboard?: number;
+  fileTransfer?: number;
+  frameRate?: number;
+  keepAliveDuration?: number;
+  projectId?: string;
+  sessionResolutionHeight?: number;
+  sessionResolutionWidth?: number;
+  streamingMode?: string;
+  terminalResolutionAdaptation?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clipboard: 'Clipboard',
+      fileTransfer: 'FileTransfer',
+      frameRate: 'FrameRate',
+      keepAliveDuration: 'KeepAliveDuration',
+      projectId: 'ProjectId',
+      sessionResolutionHeight: 'SessionResolutionHeight',
+      sessionResolutionWidth: 'SessionResolutionWidth',
+      streamingMode: 'StreamingMode',
+      terminalResolutionAdaptation: 'TerminalResolutionAdaptation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipboard: 'number',
+      fileTransfer: 'number',
+      frameRate: 'number',
+      keepAliveDuration: 'number',
+      projectId: 'string',
+      sessionResolutionHeight: 'number',
+      sessionResolutionWidth: 'number',
+      streamingMode: 'string',
+      terminalResolutionAdaptation: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyProjectPolicyResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyProjectPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyProjectPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyProjectPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyTenantConfigRequest extends $tea.Model {
   appInstanceGroupExpireRemind?: boolean;
   static names(): { [key: string]: string } {
@@ -2082,6 +3486,81 @@ export class PageListAppInstanceGroupUserResponse extends $tea.Model {
   }
 }
 
+export class RefreshAccessUrlRequest extends $tea.Model {
+  accessPageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPageId: 'AccessPageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshAccessUrlResponseBody extends $tea.Model {
+  accessUrl?: string;
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessUrl: 'AccessUrl',
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessUrl: 'string',
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshAccessUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RefreshAccessUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RefreshAccessUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RenewAppInstanceGroupRequest extends $tea.Model {
   appInstanceGroupId?: string;
   autoPay?: boolean;
@@ -2169,15 +3648,98 @@ export class RenewAppInstanceGroupResponse extends $tea.Model {
   }
 }
 
+export class RenewSessionPackageRequest extends $tea.Model {
+  period?: number;
+  periodUnit?: string;
+  sessionPackageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      sessionPackageId: 'SessionPackageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      period: 'number',
+      periodUnit: 'string',
+      sessionPackageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewSessionPackageResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  sessionPackageId?: number;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      sessionPackageId: 'SessionPackageId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      sessionPackageId: 'number',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewSessionPackageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RenewSessionPackageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RenewSessionPackageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnbindRequest extends $tea.Model {
   appInstanceGroupId?: string;
   appInstanceId?: string;
+  appInstancePersistentId?: string;
   endUserId?: string;
   productType?: string;
   static names(): { [key: string]: string } {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceId: 'AppInstanceId',
+      appInstancePersistentId: 'AppInstancePersistentId',
       endUserId: 'EndUserId',
       productType: 'ProductType',
     };
@@ -2187,6 +3749,7 @@ export class UnbindRequest extends $tea.Model {
     return {
       appInstanceGroupId: 'string',
       appInstanceId: 'string',
+      appInstancePersistentId: 'string',
       endUserId: 'string',
       productType: 'string',
     };
@@ -2233,6 +3796,81 @@ export class UnbindResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UnbindResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccessPageStateRequest extends $tea.Model {
+  accessPageId?: string;
+  accessPageState?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessPageId: 'AccessPageId',
+      accessPageState: 'AccessPageState',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPageId: 'string',
+      accessPageState: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccessPageStateResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccessPageStateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateAccessPageStateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAccessPageStateResponseBody,
     };
   }
 
@@ -2311,6 +3949,131 @@ export class UpdateAppInstanceGroupImageResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateAppInstanceGroupImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccessPageGetAclResponseBodyData extends $tea.Model {
+  accessMode?: string;
+  accessUrl?: string;
+  effectTime?: number;
+  unit?: string;
+  urlExpireTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessMode: 'AccessMode',
+      accessUrl: 'AccessUrl',
+      effectTime: 'EffectTime',
+      unit: 'Unit',
+      urlExpireTime: 'UrlExpireTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessMode: 'string',
+      accessUrl: 'string',
+      effectTime: 'number',
+      unit: 'string',
+      urlExpireTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AskSessionPackagePriceResponseBodyDataPrice extends $tea.Model {
+  currency?: string;
+  discountPrice?: number;
+  originalPrice?: number;
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      discountPrice: 'DiscountPrice',
+      originalPrice: 'OriginalPrice',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      discountPrice: 'number',
+      originalPrice: 'number',
+      tradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AskSessionPackagePriceResponseBodyData extends $tea.Model {
+  price?: AskSessionPackagePriceResponseBodyDataPrice;
+  static names(): { [key: string]: string } {
+    return {
+      price: 'Price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      price: AskSessionPackagePriceResponseBodyDataPrice,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AskSessionPackageRenewPriceResponseBodyDataPrice extends $tea.Model {
+  currency?: string;
+  discountPrice?: number;
+  originalPrice?: number;
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      discountPrice: 'DiscountPrice',
+      originalPrice: 'OriginalPrice',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      discountPrice: 'number',
+      originalPrice: 'number',
+      tradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AskSessionPackageRenewPriceResponseBodyData extends $tea.Model {
+  price?: AskSessionPackageRenewPriceResponseBodyDataPrice;
+  static names(): { [key: string]: string } {
+    return {
+      price: 'Price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      price: AskSessionPackageRenewPriceResponseBodyDataPrice,
     };
   }
 
@@ -2628,20 +4391,51 @@ export class DeleteAppInstancesResponseBodyDeleteAppInstanceModels extends $tea.
   }
 }
 
-export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $tea.Model {
-  appId?: string;
-  appName?: string;
+export class GetAccessPageSessionResponseBodyData extends $tea.Model {
+  connectTicket?: string;
+  flowId?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
-      appName: 'AppName',
+      connectTicket: 'ConnectTicket',
+      flowId: 'FlowId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      connectTicket: 'string',
+      flowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $tea.Model {
+  appIcon?: string;
+  appId?: string;
+  appName?: string;
+  appVersion?: string;
+  appVersionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appIcon: 'AppIcon',
+      appId: 'AppId',
+      appName: 'AppName',
+      appVersion: 'AppVersion',
+      appVersionName: 'AppVersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appIcon: 'string',
       appId: 'string',
       appName: 'string',
+      appVersion: 'string',
+      appVersionName: 'string',
     };
   }
 
@@ -2896,6 +4690,58 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
       skipUserAuthCheck: 'boolean',
       specId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectPoliciesResponseBodyData extends $tea.Model {
+  clipboard?: number;
+  fileTransfer?: number;
+  frameRate?: string;
+  keepAliveDuration?: number;
+  maxHours?: number;
+  maxSessions?: number;
+  projectId?: string;
+  sessionResolutionHeight?: number;
+  sessionResolutionWidth?: number;
+  sessionSpec?: string;
+  streamingMode?: string;
+  terminalResolutionAdaptation?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clipboard: 'Clipboard',
+      fileTransfer: 'FileTransfer',
+      frameRate: 'FrameRate',
+      keepAliveDuration: 'KeepAliveDuration',
+      maxHours: 'MaxHours',
+      maxSessions: 'MaxSessions',
+      projectId: 'ProjectId',
+      sessionResolutionHeight: 'SessionResolutionHeight',
+      sessionResolutionWidth: 'SessionResolutionWidth',
+      sessionSpec: 'SessionSpec',
+      streamingMode: 'StreamingMode',
+      terminalResolutionAdaptation: 'TerminalResolutionAdaptation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipboard: 'number',
+      fileTransfer: 'number',
+      frameRate: 'string',
+      keepAliveDuration: 'number',
+      maxHours: 'number',
+      maxSessions: 'number',
+      projectId: 'string',
+      sessionResolutionHeight: 'number',
+      sessionResolutionWidth: 'number',
+      sessionSpec: 'string',
+      streamingMode: 'string',
+      terminalResolutionAdaptation: 'boolean',
     };
   }
 
@@ -3217,6 +5063,61 @@ export class GetResourceRenewPriceResponseBodyData extends $tea.Model {
     return {
       price: GetResourceRenewPriceResponseBodyDataPrice,
       rules: { 'type': 'array', 'itemType': GetResourceRenewPriceResponseBodyDataRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessPagesResponseBodyData extends $tea.Model {
+  accessMode?: string;
+  accessPageId?: string;
+  accessPageName?: string;
+  accessPageState?: string;
+  accessUrl?: string;
+  contentId?: string;
+  contentName?: string;
+  effectTime?: number;
+  gmtCreate?: string;
+  projectId?: string;
+  projectName?: string;
+  unit?: string;
+  urlExpireTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessMode: 'AccessMode',
+      accessPageId: 'AccessPageId',
+      accessPageName: 'AccessPageName',
+      accessPageState: 'AccessPageState',
+      accessUrl: 'AccessUrl',
+      contentId: 'ContentId',
+      contentName: 'ContentName',
+      effectTime: 'EffectTime',
+      gmtCreate: 'GmtCreate',
+      projectId: 'ProjectId',
+      projectName: 'ProjectName',
+      unit: 'Unit',
+      urlExpireTime: 'UrlExpireTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessMode: 'string',
+      accessPageId: 'string',
+      accessPageName: 'string',
+      accessPageState: 'string',
+      accessUrl: 'string',
+      contentId: 'string',
+      contentName: 'string',
+      effectTime: 'number',
+      gmtCreate: 'string',
+      projectId: 'string',
+      projectName: 'string',
+      unit: 'string',
+      urlExpireTime: 'string',
     };
   }
 
@@ -3634,6 +5535,61 @@ export class ListOtaTaskResponseBodyTaskList extends $tea.Model {
   }
 }
 
+export class ListProjectsResponseBodyData extends $tea.Model {
+  accessPageId?: number[];
+  availableHours?: number;
+  contentId?: string;
+  contentName?: string;
+  createTime?: string;
+  description?: string;
+  inUseSessions?: number;
+  maxHours?: number;
+  maxSessions?: number;
+  projectId?: string;
+  projectName?: string;
+  projectState?: string;
+  sessionSpec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPageId: 'AccessPageId',
+      availableHours: 'AvailableHours',
+      contentId: 'ContentId',
+      contentName: 'ContentName',
+      createTime: 'CreateTime',
+      description: 'Description',
+      inUseSessions: 'InUseSessions',
+      maxHours: 'MaxHours',
+      maxSessions: 'MaxSessions',
+      projectId: 'ProjectId',
+      projectName: 'ProjectName',
+      projectState: 'ProjectState',
+      sessionSpec: 'SessionSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPageId: { 'type': 'array', 'itemType': 'number' },
+      availableHours: 'number',
+      contentId: 'string',
+      contentName: 'string',
+      createTime: 'string',
+      description: 'string',
+      inUseSessions: 'number',
+      maxHours: 'number',
+      maxSessions: 'number',
+      projectId: 'string',
+      projectName: 'string',
+      projectState: 'string',
+      sessionSpec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRegionsResponseBodyRegionModels extends $tea.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -3645,6 +5601,116 @@ export class ListRegionsResponseBodyRegionModels extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionPackagesResponseBodyDataInstanceObject extends $tea.Model {
+  expiredTime?: string;
+  instanceId?: string;
+  instanceType?: string;
+  resourceId?: string;
+  resourceType?: string;
+  startTime?: string;
+  totalTime?: number;
+  usedTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      expiredTime: 'ExpiredTime',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      startTime: 'StartTime',
+      totalTime: 'TotalTime',
+      usedTime: 'UsedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expiredTime: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      startTime: 'string',
+      totalTime: 'number',
+      usedTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionPackagesResponseBodyData extends $tea.Model {
+  availableHours?: number;
+  chargeType?: string;
+  deleteStatus?: number;
+  gmtCreate?: string;
+  gmtModifiedTime?: string;
+  instanceObject?: ListSessionPackagesResponseBodyDataInstanceObject;
+  maxHours?: number;
+  maxSessions?: number;
+  projectId?: string;
+  projectName?: string;
+  region?: string;
+  sessionPackageId?: string;
+  sessionPackageName?: string;
+  sessionPackageTypeId?: string;
+  sessionSpec?: string;
+  sessionUsageRate?: number;
+  state?: number;
+  userIdentification?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableHours: 'AvailableHours',
+      chargeType: 'ChargeType',
+      deleteStatus: 'DeleteStatus',
+      gmtCreate: 'GmtCreate',
+      gmtModifiedTime: 'GmtModifiedTime',
+      instanceObject: 'InstanceObject',
+      maxHours: 'MaxHours',
+      maxSessions: 'MaxSessions',
+      projectId: 'ProjectId',
+      projectName: 'ProjectName',
+      region: 'Region',
+      sessionPackageId: 'SessionPackageId',
+      sessionPackageName: 'SessionPackageName',
+      sessionPackageTypeId: 'SessionPackageTypeId',
+      sessionSpec: 'SessionSpec',
+      sessionUsageRate: 'SessionUsageRate',
+      state: 'State',
+      userIdentification: 'UserIdentification',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableHours: 'number',
+      chargeType: 'string',
+      deleteStatus: 'number',
+      gmtCreate: 'string',
+      gmtModifiedTime: 'string',
+      instanceObject: ListSessionPackagesResponseBodyDataInstanceObject,
+      maxHours: 'number',
+      maxSessions: 'number',
+      projectId: 'string',
+      projectName: 'string',
+      region: 'string',
+      sessionPackageId: 'string',
+      sessionPackageName: 'string',
+      sessionPackageTypeId: 'string',
+      sessionSpec: 'string',
+      sessionUsageRate: 'number',
+      state: 'number',
+      userIdentification: 'number',
     };
   }
 
@@ -3877,6 +5943,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("appstream-center", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -3893,6 +5960,80 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async accessPageGetAclWithOptions(request: AccessPageGetAclRequest, runtime: $Util.RuntimeOptions): Promise<AccessPageGetAclResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessPageId)) {
+      query["AccessPageId"] = request.accessPageId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AccessPageGetAcl",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AccessPageGetAclResponse>(await this.callApi(params, req, runtime), new AccessPageGetAclResponse({}));
+  }
+
+  async accessPageGetAcl(request: AccessPageGetAclRequest): Promise<AccessPageGetAclResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.accessPageGetAclWithOptions(request, runtime);
+  }
+
+  async accessPageSetAclWithOptions(request: AccessPageSetAclRequest, runtime: $Util.RuntimeOptions): Promise<AccessPageSetAclResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessMode)) {
+      query["AccessMode"] = request.accessMode;
+    }
+
+    if (!Util.isUnset(request.accessPageId)) {
+      query["AccessPageId"] = request.accessPageId;
+    }
+
+    if (!Util.isUnset(request.accessPageName)) {
+      query["AccessPageName"] = request.accessPageName;
+    }
+
+    if (!Util.isUnset(request.effectTime)) {
+      query["EffectTime"] = request.effectTime;
+    }
+
+    if (!Util.isUnset(request.unit)) {
+      query["Unit"] = request.unit;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AccessPageSetAcl",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AccessPageSetAclResponse>(await this.callApi(params, req, runtime), new AccessPageSetAclResponse({}));
+  }
+
+  async accessPageSetAcl(request: AccessPageSetAclRequest): Promise<AccessPageSetAclResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.accessPageSetAclWithOptions(request, runtime);
   }
 
   async approveOtaTaskWithOptions(request: ApproveOtaTaskRequest, runtime: $Util.RuntimeOptions): Promise<ApproveOtaTaskResponse> {
@@ -3940,6 +6081,100 @@ export default class Client extends OpenApi {
     return await this.approveOtaTaskWithOptions(request, runtime);
   }
 
+  async askSessionPackagePriceWithOptions(request: AskSessionPackagePriceRequest, runtime: $Util.RuntimeOptions): Promise<AskSessionPackagePriceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.maxSessions)) {
+      query["MaxSessions"] = request.maxSessions;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.sessionPackageType)) {
+      query["SessionPackageType"] = request.sessionPackageType;
+    }
+
+    if (!Util.isUnset(request.sessionSpec)) {
+      query["SessionSpec"] = request.sessionSpec;
+    }
+
+    if (!Util.isUnset(request.sessionType)) {
+      query["SessionType"] = request.sessionType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AskSessionPackagePrice",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AskSessionPackagePriceResponse>(await this.callApi(params, req, runtime), new AskSessionPackagePriceResponse({}));
+  }
+
+  async askSessionPackagePrice(request: AskSessionPackagePriceRequest): Promise<AskSessionPackagePriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.askSessionPackagePriceWithOptions(request, runtime);
+  }
+
+  async askSessionPackageRenewPriceWithOptions(request: AskSessionPackageRenewPriceRequest, runtime: $Util.RuntimeOptions): Promise<AskSessionPackageRenewPriceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.sessionPackageId)) {
+      query["SessionPackageId"] = request.sessionPackageId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AskSessionPackageRenewPrice",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AskSessionPackageRenewPriceResponse>(await this.callApi(params, req, runtime), new AskSessionPackageRenewPriceResponse({}));
+  }
+
+  async askSessionPackageRenewPrice(request: AskSessionPackageRenewPriceRequest): Promise<AskSessionPackageRenewPriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.askSessionPackageRenewPriceWithOptions(request, runtime);
+  }
+
   async authorizeInstanceGroupWithOptions(request: AuthorizeInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeInstanceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3981,6 +6216,71 @@ export default class Client extends OpenApi {
     return await this.authorizeInstanceGroupWithOptions(request, runtime);
   }
 
+  async buySessionPackageWithOptions(request: BuySessionPackageRequest, runtime: $Util.RuntimeOptions): Promise<BuySessionPackageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.maxSessions)) {
+      query["MaxSessions"] = request.maxSessions;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.sessionPackageName)) {
+      query["SessionPackageName"] = request.sessionPackageName;
+    }
+
+    if (!Util.isUnset(request.sessionPackageType)) {
+      query["SessionPackageType"] = request.sessionPackageType;
+    }
+
+    if (!Util.isUnset(request.sessionSpec)) {
+      query["SessionSpec"] = request.sessionSpec;
+    }
+
+    if (!Util.isUnset(request.sessionType)) {
+      query["SessionType"] = request.sessionType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BuySessionPackage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BuySessionPackageResponse>(await this.callApi(params, req, runtime), new BuySessionPackageResponse({}));
+  }
+
+  async buySessionPackage(request: BuySessionPackageRequest): Promise<BuySessionPackageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.buySessionPackageWithOptions(request, runtime);
+  }
+
   async cancelOtaTaskWithOptions(request: CancelOtaTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelOtaTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4012,6 +6312,55 @@ export default class Client extends OpenApi {
   async cancelOtaTask(request: CancelOtaTaskRequest): Promise<CancelOtaTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelOtaTaskWithOptions(request, runtime);
+  }
+
+  async createAccessPageWithOptions(request: CreateAccessPageRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessPageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessPageName)) {
+      query["AccessPageName"] = request.accessPageName;
+    }
+
+    if (!Util.isUnset(request.cloudEnvId)) {
+      query["CloudEnvId"] = request.cloudEnvId;
+    }
+
+    if (!Util.isUnset(request.effectTime)) {
+      query["EffectTime"] = request.effectTime;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.unit)) {
+      query["Unit"] = request.unit;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAccessPage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAccessPageResponse>(await this.callApi(params, req, runtime), new CreateAccessPageResponse({}));
+  }
+
+  async createAccessPage(request: CreateAccessPageRequest): Promise<CreateAccessPageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAccessPageWithOptions(request, runtime);
   }
 
   async createAppInstanceGroupWithOptions(tmpReq: CreateAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppInstanceGroupResponse> {
@@ -4182,6 +6531,112 @@ export default class Client extends OpenApi {
     return await this.createImageFromAppInstanceGroupWithOptions(request, runtime);
   }
 
+  async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clipboard)) {
+      query["Clipboard"] = request.clipboard;
+    }
+
+    if (!Util.isUnset(request.cloudEnvId)) {
+      query["CloudEnvId"] = request.cloudEnvId;
+    }
+
+    if (!Util.isUnset(request.contentId)) {
+      query["ContentId"] = request.contentId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fileTransfer)) {
+      query["FileTransfer"] = request.fileTransfer;
+    }
+
+    if (!Util.isUnset(request.frameRate)) {
+      query["FrameRate"] = request.frameRate;
+    }
+
+    if (!Util.isUnset(request.keepAliveDuration)) {
+      query["KeepAliveDuration"] = request.keepAliveDuration;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sessionResolutionHeight)) {
+      query["SessionResolutionHeight"] = request.sessionResolutionHeight;
+    }
+
+    if (!Util.isUnset(request.sessionResolutionWidth)) {
+      query["SessionResolutionWidth"] = request.sessionResolutionWidth;
+    }
+
+    if (!Util.isUnset(request.sessionSpec)) {
+      query["SessionSpec"] = request.sessionSpec;
+    }
+
+    if (!Util.isUnset(request.streamingMode)) {
+      query["StreamingMode"] = request.streamingMode;
+    }
+
+    if (!Util.isUnset(request.terminalResolutionAdaptation)) {
+      query["TerminalResolutionAdaptation"] = request.terminalResolutionAdaptation;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateProject",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
+  }
+
+  async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createProjectWithOptions(request, runtime);
+  }
+
+  async deleteAccessPageWithOptions(request: DeleteAccessPageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessPageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessPageId)) {
+      query["AccessPageId"] = request.accessPageId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAccessPage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAccessPageResponse>(await this.callApi(params, req, runtime), new DeleteAccessPageResponse({}));
+  }
+
+  async deleteAccessPage(request: DeleteAccessPageRequest): Promise<DeleteAccessPageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAccessPageWithOptions(request, runtime);
+  }
+
   async deleteAppInstanceGroupWithOptions(request: DeleteAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppInstanceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4252,6 +6707,72 @@ export default class Client extends OpenApi {
     return await this.deleteAppInstancesWithOptions(request, runtime);
   }
 
+  async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteProject",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
+  }
+
+  async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteProjectWithOptions(request, runtime);
+  }
+
+  async getAccessPageSessionWithOptions(request: GetAccessPageSessionRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessPageSessionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessPageId)) {
+      query["AccessPageId"] = request.accessPageId;
+    }
+
+    if (!Util.isUnset(request.accessPageToken)) {
+      query["AccessPageToken"] = request.accessPageToken;
+    }
+
+    if (!Util.isUnset(request.externalUserId)) {
+      query["ExternalUserId"] = request.externalUserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAccessPageSession",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccessPageSessionResponse>(await this.callApi(params, req, runtime), new GetAccessPageSessionResponse({}));
+  }
+
+  async getAccessPageSession(request: GetAccessPageSessionRequest): Promise<GetAccessPageSessionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAccessPageSessionWithOptions(request, runtime);
+  }
+
   async getAppInstanceGroupWithOptions(request: GetAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetAppInstanceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4298,6 +6819,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.appInstanceId)) {
       body["AppInstanceId"] = request.appInstanceId;
+    }
+
+    if (!Util.isUnset(request.appInstancePersistentId)) {
+      body["AppInstancePersistentId"] = request.appInstancePersistentId;
     }
 
     if (!Util.isUnset(request.appStartParam)) {
@@ -4408,6 +6933,35 @@ export default class Client extends OpenApi {
     return await this.getOtaTaskByTaskIdWithOptions(request, runtime);
   }
 
+  async getProjectPoliciesWithOptions(request: GetProjectPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectPoliciesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetProjectPolicies",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetProjectPoliciesResponse>(await this.callApi(params, req, runtime), new GetProjectPoliciesResponse({}));
+  }
+
+  async getProjectPolicies(request: GetProjectPoliciesRequest): Promise<GetProjectPoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getProjectPoliciesWithOptions(request, runtime);
+  }
+
   async getResourcePriceWithOptions(request: GetResourcePriceRequest, runtime: $Util.RuntimeOptions): Promise<GetResourcePriceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4506,6 +7060,55 @@ export default class Client extends OpenApi {
     return await this.getResourceRenewPriceWithOptions(request, runtime);
   }
 
+  async listAccessPagesWithOptions(request: ListAccessPagesRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessPagesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessPageId)) {
+      query["AccessPageId"] = request.accessPageId;
+    }
+
+    if (!Util.isUnset(request.accessPageName)) {
+      query["AccessPageName"] = request.accessPageName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAccessPages",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAccessPagesResponse>(await this.callApi(params, req, runtime), new ListAccessPagesResponse({}));
+  }
+
+  async listAccessPages(request: ListAccessPagesRequest): Promise<ListAccessPagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAccessPagesWithOptions(request, runtime);
+  }
+
   async listAppInstanceGroupWithOptions(request: ListAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListAppInstanceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4519,6 +7122,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.appInstanceGroupName)) {
       query["AppInstanceGroupName"] = request.appInstanceGroupName;
+    }
+
+    if (!Util.isUnset(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
     }
 
     if (!Util.isUnset(request.nodeInstanceType)) {
@@ -4535,10 +7142,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.productType)) {
       query["ProductType"] = request.productType;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -4718,6 +7321,55 @@ export default class Client extends OpenApi {
     return await this.listOtaTaskWithOptions(request, runtime);
   }
 
+  async listProjectsWithOptions(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
+    if (!Util.isUnset(request.stateList)) {
+      query["StateList"] = request.stateList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProjects",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
+  }
+
+  async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listProjectsWithOptions(request, runtime);
+  }
+
   async listRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -4737,6 +7389,59 @@ export default class Client extends OpenApi {
   async listRegions(): Promise<ListRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRegionsWithOptions(runtime);
+  }
+
+  async listSessionPackagesWithOptions(request: ListSessionPackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListSessionPackagesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.sessionPackageId)) {
+      query["SessionPackageId"] = request.sessionPackageId;
+    }
+
+    if (!Util.isUnset(request.sessionPackageName)) {
+      query["SessionPackageName"] = request.sessionPackageName;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
+    if (!Util.isUnset(request.stateList)) {
+      query["StateList"] = request.stateList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSessionPackages",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSessionPackagesResponse>(await this.callApi(params, req, runtime), new ListSessionPackagesResponse({}));
+  }
+
+  async listSessionPackages(request: ListSessionPackagesRequest): Promise<ListSessionPackagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSessionPackagesWithOptions(request, runtime);
   }
 
   async listTenantConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<ListTenantConfigResponse> {
@@ -4791,6 +7496,43 @@ export default class Client extends OpenApi {
   async logOffAllSessionsInAppInstanceGroup(request: LogOffAllSessionsInAppInstanceGroupRequest): Promise<LogOffAllSessionsInAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.logOffAllSessionsInAppInstanceGroupWithOptions(request, runtime);
+  }
+
+  async migrateSessionPackageWithOptions(request: MigrateSessionPackageRequest, runtime: $Util.RuntimeOptions): Promise<MigrateSessionPackageResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destProjectId)) {
+      body["DestProjectId"] = request.destProjectId;
+    }
+
+    if (!Util.isUnset(request.sessionPackageId)) {
+      body["SessionPackageId"] = request.sessionPackageId;
+    }
+
+    if (!Util.isUnset(request.sourceProjectId)) {
+      body["SourceProjectId"] = request.sourceProjectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "MigrateSessionPackage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MigrateSessionPackageResponse>(await this.callApi(params, req, runtime), new MigrateSessionPackageResponse({}));
+  }
+
+  async migrateSessionPackage(request: MigrateSessionPackageRequest): Promise<MigrateSessionPackageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.migrateSessionPackageWithOptions(request, runtime);
   }
 
   async modifyAppInstanceGroupAttributeWithOptions(tmpReq: ModifyAppInstanceGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppInstanceGroupAttributeResponse> {
@@ -4929,6 +7671,67 @@ export default class Client extends OpenApi {
     return await this.modifyNodePoolAttributeWithOptions(request, runtime);
   }
 
+  async modifyProjectPolicyWithOptions(request: ModifyProjectPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProjectPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clipboard)) {
+      query["Clipboard"] = request.clipboard;
+    }
+
+    if (!Util.isUnset(request.fileTransfer)) {
+      query["FileTransfer"] = request.fileTransfer;
+    }
+
+    if (!Util.isUnset(request.frameRate)) {
+      query["FrameRate"] = request.frameRate;
+    }
+
+    if (!Util.isUnset(request.keepAliveDuration)) {
+      query["KeepAliveDuration"] = request.keepAliveDuration;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.sessionResolutionHeight)) {
+      query["SessionResolutionHeight"] = request.sessionResolutionHeight;
+    }
+
+    if (!Util.isUnset(request.sessionResolutionWidth)) {
+      query["SessionResolutionWidth"] = request.sessionResolutionWidth;
+    }
+
+    if (!Util.isUnset(request.streamingMode)) {
+      query["StreamingMode"] = request.streamingMode;
+    }
+
+    if (!Util.isUnset(request.terminalResolutionAdaptation)) {
+      query["TerminalResolutionAdaptation"] = request.terminalResolutionAdaptation;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyProjectPolicy",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyProjectPolicyResponse>(await this.callApi(params, req, runtime), new ModifyProjectPolicyResponse({}));
+  }
+
+  async modifyProjectPolicy(request: ModifyProjectPolicyRequest): Promise<ModifyProjectPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyProjectPolicyWithOptions(request, runtime);
+  }
+
   async modifyTenantConfigWithOptions(request: ModifyTenantConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4999,6 +7802,35 @@ export default class Client extends OpenApi {
     return await this.pageListAppInstanceGroupUserWithOptions(request, runtime);
   }
 
+  async refreshAccessUrlWithOptions(request: RefreshAccessUrlRequest, runtime: $Util.RuntimeOptions): Promise<RefreshAccessUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessPageId)) {
+      query["AccessPageId"] = request.accessPageId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RefreshAccessUrl",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RefreshAccessUrlResponse>(await this.callApi(params, req, runtime), new RefreshAccessUrlResponse({}));
+  }
+
+  async refreshAccessUrl(request: RefreshAccessUrlRequest): Promise<RefreshAccessUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refreshAccessUrlWithOptions(request, runtime);
+  }
+
   async renewAppInstanceGroupWithOptions(request: RenewAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<RenewAppInstanceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5048,6 +7880,43 @@ export default class Client extends OpenApi {
     return await this.renewAppInstanceGroupWithOptions(request, runtime);
   }
 
+  async renewSessionPackageWithOptions(request: RenewSessionPackageRequest, runtime: $Util.RuntimeOptions): Promise<RenewSessionPackageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.sessionPackageId)) {
+      query["SessionPackageId"] = request.sessionPackageId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RenewSessionPackage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RenewSessionPackageResponse>(await this.callApi(params, req, runtime), new RenewSessionPackageResponse({}));
+  }
+
+  async renewSessionPackage(request: RenewSessionPackageRequest): Promise<RenewSessionPackageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.renewSessionPackageWithOptions(request, runtime);
+  }
+
   async unbindWithOptions(request: UnbindRequest, runtime: $Util.RuntimeOptions): Promise<UnbindResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5057,6 +7926,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.appInstanceId)) {
       body["AppInstanceId"] = request.appInstanceId;
+    }
+
+    if (!Util.isUnset(request.appInstancePersistentId)) {
+      body["AppInstancePersistentId"] = request.appInstancePersistentId;
     }
 
     if (!Util.isUnset(request.endUserId)) {
@@ -5087,6 +7960,39 @@ export default class Client extends OpenApi {
   async unbind(request: UnbindRequest): Promise<UnbindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindWithOptions(request, runtime);
+  }
+
+  async updateAccessPageStateWithOptions(request: UpdateAccessPageStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccessPageStateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessPageId)) {
+      query["AccessPageId"] = request.accessPageId;
+    }
+
+    if (!Util.isUnset(request.accessPageState)) {
+      query["AccessPageState"] = request.accessPageState;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAccessPageState",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAccessPageStateResponse>(await this.callApi(params, req, runtime), new UpdateAccessPageStateResponse({}));
+  }
+
+  async updateAccessPageState(request: UpdateAccessPageStateRequest): Promise<UpdateAccessPageStateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAccessPageStateWithOptions(request, runtime);
   }
 
   async updateAppInstanceGroupImageWithOptions(request: UpdateAppInstanceGroupImageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppInstanceGroupImageResponse> {
