@@ -4244,33 +4244,42 @@ export class ListPublicPatchBaselinesResponseBodyPatchBaselines extends $tea.Mod
 
 export class ListPublicTemplateRegistrationsResponseBodyRegistrations extends $tea.Model {
   comment?: string;
+  createdDate?: string;
   detail?: string;
   registrationId?: string;
+  showPages?: string;
   status?: string;
   templateId?: string;
   templateName?: string;
   templateVersion?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
       comment: 'Comment',
+      createdDate: 'CreatedDate',
       detail: 'Detail',
       registrationId: 'RegistrationId',
+      showPages: 'ShowPages',
       status: 'Status',
       templateId: 'TemplateId',
       templateName: 'TemplateName',
       templateVersion: 'TemplateVersion',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       comment: 'string',
+      createdDate: 'string',
       detail: 'string',
       registrationId: 'string',
+      showPages: 'string',
       status: 'string',
       templateId: 'string',
       templateName: 'string',
       templateVersion: 'string',
+      updatedDate: 'string',
     };
   }
 
