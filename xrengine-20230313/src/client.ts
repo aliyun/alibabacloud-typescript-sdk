@@ -4514,6 +4514,7 @@ export class PopRetryAITryOnTaskResponse extends $tea.Model {
 export class PopSubmitAITryOnJobRequest extends $tea.Model {
   bottomsId?: string;
   clothingType?: string;
+  generatePictureNum?: number;
   jwtToken?: string;
   modelId?: string;
   shoeType?: string;
@@ -4523,6 +4524,7 @@ export class PopSubmitAITryOnJobRequest extends $tea.Model {
     return {
       bottomsId: 'BottomsId',
       clothingType: 'ClothingType',
+      generatePictureNum: 'GeneratePictureNum',
       jwtToken: 'JwtToken',
       modelId: 'ModelId',
       shoeType: 'ShoeType',
@@ -4535,6 +4537,7 @@ export class PopSubmitAITryOnJobRequest extends $tea.Model {
     return {
       bottomsId: 'string',
       clothingType: 'string',
+      generatePictureNum: 'number',
       jwtToken: 'string',
       modelId: 'string',
       shoeType: 'string',
@@ -13868,6 +13871,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clothingType)) {
       query["ClothingType"] = request.clothingType;
+    }
+
+    if (!Util.isUnset(request.generatePictureNum)) {
+      query["GeneratePictureNum"] = request.generatePictureNum;
     }
 
     if (!Util.isUnset(request.jwtToken)) {
