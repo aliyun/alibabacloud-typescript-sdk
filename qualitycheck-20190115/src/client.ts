@@ -696,15 +696,18 @@ export class TaskGraphFlow extends $tea.Model {
 }
 
 export class AddBusinessCategoryRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -771,15 +774,18 @@ export class AddBusinessCategoryResponse extends $tea.Model {
 }
 
 export class AddRuleCategoryRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -846,10 +852,12 @@ export class AddRuleCategoryResponse extends $tea.Model {
 }
 
 export class AddRuleV4Request extends $tea.Model {
+  baseMeAgentId?: number;
   isCopy?: boolean;
   jsonStrForRule?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       isCopy: 'IsCopy',
       jsonStrForRule: 'JsonStrForRule',
     };
@@ -857,6 +865,7 @@ export class AddRuleV4Request extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       isCopy: 'boolean',
       jsonStrForRule: 'string',
     };
@@ -930,15 +939,18 @@ export class AddRuleV4Response extends $tea.Model {
 }
 
 export class AddThesaurusForApiRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1005,15 +1017,18 @@ export class AddThesaurusForApiResponse extends $tea.Model {
 }
 
 export class AssignReviewerRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1077,15 +1092,18 @@ export class AssignReviewerResponse extends $tea.Model {
 }
 
 export class AssignReviewerBySessionGroupRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1155,15 +1173,18 @@ export class AssignReviewerBySessionGroupResponse extends $tea.Model {
 }
 
 export class BatchSubmitReviewInfoRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1233,15 +1254,18 @@ export class BatchSubmitReviewInfoResponse extends $tea.Model {
 }
 
 export class CreateAsrVocabRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1308,15 +1332,18 @@ export class CreateAsrVocabResponse extends $tea.Model {
 }
 
 export class CreateCheckTypeToSchemeRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1389,15 +1416,18 @@ export class CreateCheckTypeToSchemeResponse extends $tea.Model {
 }
 
 export class CreateQualityCheckSchemeRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1470,15 +1500,18 @@ export class CreateQualityCheckSchemeResponse extends $tea.Model {
 }
 
 export class CreateSchemeTaskConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1551,15 +1584,18 @@ export class CreateSchemeTaskConfigResponse extends $tea.Model {
 }
 
 export class CreateSkillGroupConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1626,15 +1662,18 @@ export class CreateSkillGroupConfigResponse extends $tea.Model {
 }
 
 export class CreateTaskAssignRuleRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1701,15 +1740,18 @@ export class CreateTaskAssignRuleResponse extends $tea.Model {
 }
 
 export class CreateUserRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1773,15 +1815,18 @@ export class CreateUserResponse extends $tea.Model {
 }
 
 export class CreateWarningConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1848,15 +1893,18 @@ export class CreateWarningConfigResponse extends $tea.Model {
 }
 
 export class CreateWarningStrategyConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1923,15 +1971,18 @@ export class CreateWarningStrategyConfigResponse extends $tea.Model {
 }
 
 export class DelRuleCategoryRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -1998,15 +2049,18 @@ export class DelRuleCategoryResponse extends $tea.Model {
 }
 
 export class DelThesaurusForApiRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -2070,15 +2124,18 @@ export class DelThesaurusForApiResponse extends $tea.Model {
 }
 
 export class DeleteAsrVocabRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -2145,15 +2202,18 @@ export class DeleteAsrVocabResponse extends $tea.Model {
 }
 
 export class DeleteBusinessCategoryRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -2220,15 +2280,18 @@ export class DeleteBusinessCategoryResponse extends $tea.Model {
 }
 
 export class DeleteCustomizationConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -2295,15 +2358,18 @@ export class DeleteCustomizationConfigResponse extends $tea.Model {
 }
 
 export class DeleteDataSetRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -2367,15 +2433,18 @@ export class DeleteDataSetResponse extends $tea.Model {
 }
 
 export class DeletePrecisionTaskRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -2439,15 +2508,18 @@ export class DeletePrecisionTaskResponse extends $tea.Model {
 }
 
 export class DeleteQualityCheckSchemeRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -2517,11 +2589,13 @@ export class DeleteQualityCheckSchemeResponse extends $tea.Model {
 }
 
 export class DeleteRuleRequest extends $tea.Model {
+  baseMeAgentId?: number;
   forceDelete?: boolean;
   isSchemeData?: number;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       forceDelete: 'ForceDelete',
       isSchemeData: 'IsSchemeData',
       ruleId: 'RuleId',
@@ -2530,6 +2604,7 @@ export class DeleteRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       forceDelete: 'boolean',
       isSchemeData: 'number',
       ruleId: 'number',
@@ -2601,10 +2676,12 @@ export class DeleteRuleResponse extends $tea.Model {
 }
 
 export class DeleteRuleV4Request extends $tea.Model {
+  baseMeAgentId?: number;
   forceDelete?: boolean;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       forceDelete: 'ForceDelete',
       ruleId: 'RuleId',
     };
@@ -2612,6 +2689,7 @@ export class DeleteRuleV4Request extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       forceDelete: 'boolean',
       ruleId: 'number',
     };
@@ -2682,15 +2760,18 @@ export class DeleteRuleV4Response extends $tea.Model {
 }
 
 export class DeleteSchemeTaskConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -2760,15 +2841,18 @@ export class DeleteSchemeTaskConfigResponse extends $tea.Model {
 }
 
 export class DeleteScoreForApiRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -2832,15 +2916,18 @@ export class DeleteScoreForApiResponse extends $tea.Model {
 }
 
 export class DeleteSkillGroupConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -2904,15 +2991,18 @@ export class DeleteSkillGroupConfigResponse extends $tea.Model {
 }
 
 export class DeleteSubScoreForApiRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -2976,15 +3066,18 @@ export class DeleteSubScoreForApiResponse extends $tea.Model {
 }
 
 export class DeleteTaskAssignRuleRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -3048,15 +3141,18 @@ export class DeleteTaskAssignRuleResponse extends $tea.Model {
 }
 
 export class DeleteUserRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -3120,15 +3216,18 @@ export class DeleteUserResponse extends $tea.Model {
 }
 
 export class DeleteWarningConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -3192,15 +3291,18 @@ export class DeleteWarningConfigResponse extends $tea.Model {
 }
 
 export class DeleteWarningStrategyConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -3267,15 +3369,18 @@ export class DeleteWarningStrategyConfigResponse extends $tea.Model {
 }
 
 export class EditThesaurusForApiRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -3342,15 +3447,18 @@ export class EditThesaurusForApiResponse extends $tea.Model {
 }
 
 export class GetAsrVocabRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -3417,15 +3525,18 @@ export class GetAsrVocabResponse extends $tea.Model {
 }
 
 export class GetBusinessCategoryListRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -3492,15 +3603,18 @@ export class GetBusinessCategoryListResponse extends $tea.Model {
 }
 
 export class GetCustomizationConfigListRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -3567,15 +3681,18 @@ export class GetCustomizationConfigListResponse extends $tea.Model {
 }
 
 export class GetHitResultRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -3651,15 +3768,18 @@ export class GetHitResultResponse extends $tea.Model {
 }
 
 export class GetNextResultToVerifyRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -3726,15 +3846,18 @@ export class GetNextResultToVerifyResponse extends $tea.Model {
 }
 
 export class GetPrecisionTaskRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -3801,15 +3924,18 @@ export class GetPrecisionTaskResponse extends $tea.Model {
 }
 
 export class GetQualityCheckSchemeRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -3882,15 +4008,18 @@ export class GetQualityCheckSchemeResponse extends $tea.Model {
 }
 
 export class GetResultRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -3969,15 +4098,18 @@ export class GetResultResponse extends $tea.Model {
 }
 
 export class GetResultCallbackRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -4041,15 +4173,18 @@ export class GetResultCallbackResponse extends $tea.Model {
 }
 
 export class GetResultToReviewRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -4116,15 +4251,18 @@ export class GetResultToReviewResponse extends $tea.Model {
 }
 
 export class GetRuleRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -4191,15 +4329,18 @@ export class GetRuleResponse extends $tea.Model {
 }
 
 export class GetRuleByIdRequest extends $tea.Model {
+  baseMeAgentId?: number;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       ruleId: 'RuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       ruleId: 'number',
     };
   }
@@ -4272,15 +4413,18 @@ export class GetRuleByIdResponse extends $tea.Model {
 }
 
 export class GetRuleCategoryRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -4347,15 +4491,18 @@ export class GetRuleCategoryResponse extends $tea.Model {
 }
 
 export class GetRuleDetailRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -4502,7 +4649,89 @@ export class GetRuleV4Response extends $tea.Model {
   }
 }
 
+export class GetRuleV4StrRequest extends $tea.Model {
+  isSchemeData?: number;
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      isSchemeData: 'IsSchemeData',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isSchemeData: 'number',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRuleV4StrResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRuleV4StrResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetRuleV4StrResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRuleV4StrResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRulesCountListRequest extends $tea.Model {
+  baseMeAgentId?: number;
   businessName?: string;
   businessRange?: number;
   categoryName?: string;
@@ -4530,6 +4759,7 @@ export class GetRulesCountListRequest extends $tea.Model {
   updateUserId?: number;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       businessName: 'BusinessName',
       businessRange: 'BusinessRange',
       categoryName: 'CategoryName',
@@ -4560,6 +4790,7 @@ export class GetRulesCountListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       businessName: 'string',
       businessRange: 'number',
       categoryName: 'string',
@@ -4674,15 +4905,18 @@ export class GetRulesCountListResponse extends $tea.Model {
 }
 
 export class GetScoreInfoRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -4749,15 +4983,18 @@ export class GetScoreInfoResponse extends $tea.Model {
 }
 
 export class GetSkillGroupConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -4824,15 +5061,18 @@ export class GetSkillGroupConfigResponse extends $tea.Model {
 }
 
 export class GetSyncResultRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -4911,15 +5151,18 @@ export class GetSyncResultResponse extends $tea.Model {
 }
 
 export class GetThesaurusBySynonymForApiRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -4986,15 +5229,18 @@ export class GetThesaurusBySynonymForApiResponse extends $tea.Model {
 }
 
 export class GetWarningStrategyConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -5061,15 +5307,18 @@ export class GetWarningStrategyConfigResponse extends $tea.Model {
 }
 
 export class HandleComplaintRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -5136,15 +5385,18 @@ export class HandleComplaintResponse extends $tea.Model {
 }
 
 export class InsertScoreForApiRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -5211,15 +5463,18 @@ export class InsertScoreForApiResponse extends $tea.Model {
 }
 
 export class InsertSubScoreForApiRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -5286,15 +5541,18 @@ export class InsertSubScoreForApiResponse extends $tea.Model {
 }
 
 export class InvalidRuleRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -5361,15 +5619,18 @@ export class InvalidRuleResponse extends $tea.Model {
 }
 
 export class ListAsrVocabRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -5520,15 +5781,18 @@ export class ListBusinessSpacesResponse extends $tea.Model {
 }
 
 export class ListDataSetRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -5613,15 +5877,18 @@ export class ListDataSetResponse extends $tea.Model {
 }
 
 export class ListHotWordsTasksRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -5697,15 +5964,18 @@ export class ListHotWordsTasksResponse extends $tea.Model {
 }
 
 export class ListPrecisionTaskRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -5781,15 +6051,18 @@ export class ListPrecisionTaskResponse extends $tea.Model {
 }
 
 export class ListQualityCheckSchemeRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -5868,15 +6141,18 @@ export class ListQualityCheckSchemeResponse extends $tea.Model {
 }
 
 export class ListRolesRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -5943,15 +6219,18 @@ export class ListRolesResponse extends $tea.Model {
 }
 
 export class ListRulesRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -6027,6 +6306,7 @@ export class ListRulesResponse extends $tea.Model {
 }
 
 export class ListRulesV4Request extends $tea.Model {
+  baseMeAgentId?: number;
   businessName?: string;
   businessRange?: number;
   categoryName?: string;
@@ -6054,6 +6334,7 @@ export class ListRulesV4Request extends $tea.Model {
   updateUserId?: number;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       businessName: 'BusinessName',
       businessRange: 'BusinessRange',
       categoryName: 'CategoryName',
@@ -6084,6 +6365,7 @@ export class ListRulesV4Request extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       businessName: 'string',
       businessRange: 'number',
       categoryName: 'string',
@@ -6198,15 +6480,18 @@ export class ListRulesV4Response extends $tea.Model {
 }
 
 export class ListSchemeTaskConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -6297,15 +6582,18 @@ export class ListSchemeTaskConfigResponse extends $tea.Model {
 }
 
 export class ListSessionGroupRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -6396,15 +6684,18 @@ export class ListSessionGroupResponse extends $tea.Model {
 }
 
 export class ListSkillGroupConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -6471,15 +6762,18 @@ export class ListSkillGroupConfigResponse extends $tea.Model {
 }
 
 export class ListTaskAssignRulesRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -6555,15 +6849,18 @@ export class ListTaskAssignRulesResponse extends $tea.Model {
 }
 
 export class ListUsersRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -6639,15 +6936,18 @@ export class ListUsersResponse extends $tea.Model {
 }
 
 export class ListWarningConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -6714,15 +7014,18 @@ export class ListWarningConfigResponse extends $tea.Model {
 }
 
 export class ListWarningStrategyConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -6792,15 +7095,18 @@ export class ListWarningStrategyConfigResponse extends $tea.Model {
 }
 
 export class RestartAsrTaskRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -6867,15 +7173,18 @@ export class RestartAsrTaskResponse extends $tea.Model {
 }
 
 export class RevertAssignedSessionRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -6945,15 +7254,18 @@ export class RevertAssignedSessionResponse extends $tea.Model {
 }
 
 export class RevertAssignedSessionGroupRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -7023,15 +7335,18 @@ export class RevertAssignedSessionGroupResponse extends $tea.Model {
 }
 
 export class SaveConfigDataSetRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -7095,15 +7410,18 @@ export class SaveConfigDataSetResponse extends $tea.Model {
 }
 
 export class SubmitComplaintRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -7170,15 +7488,18 @@ export class SubmitComplaintResponse extends $tea.Model {
 }
 
 export class SubmitPrecisionTaskRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -7245,15 +7566,18 @@ export class SubmitPrecisionTaskResponse extends $tea.Model {
 }
 
 export class SubmitQualityCheckTaskRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -7320,15 +7644,18 @@ export class SubmitQualityCheckTaskResponse extends $tea.Model {
 }
 
 export class SubmitReviewInfoRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -7395,15 +7722,18 @@ export class SubmitReviewInfoResponse extends $tea.Model {
 }
 
 export class SyncQualityCheckRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -7469,16 +7799,100 @@ export class SyncQualityCheckResponse extends $tea.Model {
   }
 }
 
+export class TestRuleV4Request extends $tea.Model {
+  isSchemeData?: number;
+  testJson?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isSchemeData: 'IsSchemeData',
+      testJson: 'TestJson',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isSchemeData: 'number',
+      testJson: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestRuleV4ResponseBody extends $tea.Model {
+  code?: string;
+  data?: TestRuleV4ResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: TestRuleV4ResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestRuleV4Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TestRuleV4ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TestRuleV4ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAsrVocabRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -7545,15 +7959,18 @@ export class UpdateAsrVocabResponse extends $tea.Model {
 }
 
 export class UpdateCheckTypeToSchemeRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -7626,15 +8043,18 @@ export class UpdateCheckTypeToSchemeResponse extends $tea.Model {
 }
 
 export class UpdateQualityCheckDataRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -7698,15 +8118,18 @@ export class UpdateQualityCheckDataResponse extends $tea.Model {
 }
 
 export class UpdateQualityCheckSchemeRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -7776,15 +8199,18 @@ export class UpdateQualityCheckSchemeResponse extends $tea.Model {
 }
 
 export class UpdateRuleRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -7851,12 +8277,14 @@ export class UpdateRuleResponse extends $tea.Model {
 }
 
 export class UpdateRuleByIdRequest extends $tea.Model {
+  baseMeAgentId?: number;
   isCopy?: boolean;
   jsonStrForRule?: string;
   returnRelatedSchemes?: boolean;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       isCopy: 'IsCopy',
       jsonStrForRule: 'JsonStrForRule',
       returnRelatedSchemes: 'ReturnRelatedSchemes',
@@ -7866,6 +8294,7 @@ export class UpdateRuleByIdRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       isCopy: 'boolean',
       jsonStrForRule: 'string',
       returnRelatedSchemes: 'boolean',
@@ -7938,15 +8367,18 @@ export class UpdateRuleByIdResponse extends $tea.Model {
 }
 
 export class UpdateRuleToSchemeRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -8019,10 +8451,12 @@ export class UpdateRuleToSchemeResponse extends $tea.Model {
 }
 
 export class UpdateRuleV4Request extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStrForRule?: string;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStrForRule: 'JsonStrForRule',
       ruleId: 'RuleId',
     };
@@ -8030,6 +8464,7 @@ export class UpdateRuleV4Request extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStrForRule: 'string',
       ruleId: 'number',
     };
@@ -8103,15 +8538,18 @@ export class UpdateRuleV4Response extends $tea.Model {
 }
 
 export class UpdateSchemeTaskConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'jsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -8181,15 +8619,18 @@ export class UpdateSchemeTaskConfigResponse extends $tea.Model {
 }
 
 export class UpdateScoreForApiRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -8253,15 +8694,18 @@ export class UpdateScoreForApiResponse extends $tea.Model {
 }
 
 export class UpdateSkillGroupConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -8325,15 +8769,18 @@ export class UpdateSkillGroupConfigResponse extends $tea.Model {
 }
 
 export class UpdateSubScoreForApiRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -8397,15 +8844,18 @@ export class UpdateSubScoreForApiResponse extends $tea.Model {
 }
 
 export class UpdateSyncQualityCheckDataRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -8472,15 +8922,18 @@ export class UpdateSyncQualityCheckDataResponse extends $tea.Model {
 }
 
 export class UpdateTaskAssignRuleRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -8544,15 +8997,18 @@ export class UpdateTaskAssignRuleResponse extends $tea.Model {
 }
 
 export class UpdateUserRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -8616,15 +9072,18 @@ export class UpdateUserResponse extends $tea.Model {
 }
 
 export class UpdateUserConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -8688,15 +9147,18 @@ export class UpdateUserConfigResponse extends $tea.Model {
 }
 
 export class UpdateWarningConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -8760,15 +9222,18 @@ export class UpdateWarningConfigResponse extends $tea.Model {
 }
 
 export class UpdateWarningStrategyConfigRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -8835,15 +9300,18 @@ export class UpdateWarningStrategyConfigResponse extends $tea.Model {
 }
 
 export class UploadAudioDataRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -8910,15 +9378,18 @@ export class UploadAudioDataResponse extends $tea.Model {
 }
 
 export class UploadDataRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -8985,15 +9456,18 @@ export class UploadDataResponse extends $tea.Model {
 }
 
 export class UploadDataSyncRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -9059,16 +9533,97 @@ export class UploadDataSyncResponse extends $tea.Model {
   }
 }
 
-export class UploadRuleRequest extends $tea.Model {
+export class UploadDataV4Request extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
+      jsonStr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadDataV4ResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadDataV4Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UploadDataV4ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UploadDataV4ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadRuleRequest extends $tea.Model {
+  baseMeAgentId?: number;
+  jsonStr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseMeAgentId: 'BaseMeAgentId',
+      jsonStr: 'JsonStr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -9135,15 +9690,18 @@ export class UploadRuleResponse extends $tea.Model {
 }
 
 export class VerifyFileRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -9210,15 +9768,18 @@ export class VerifyFileResponse extends $tea.Model {
 }
 
 export class VerifySentenceRequest extends $tea.Model {
+  baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {
+      baseMeAgentId: 'BaseMeAgentId',
       jsonStr: 'JsonStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      baseMeAgentId: 'number',
       jsonStr: 'string',
     };
   }
@@ -9527,6 +10088,7 @@ export class OperatorBasicInfoParam extends $tea.Model {
   phrase?: string;
   pkey?: string;
   poutputType?: number;
+  pvalues?: string[];
   questionThreshold?: string;
   references?: string[];
   regex?: string;
@@ -9581,6 +10143,7 @@ export class OperatorBasicInfoParam extends $tea.Model {
       phrase: 'Phrase',
       pkey: 'Pkey',
       poutputType: 'Poutput_type',
+      pvalues: 'Pvalues',
       questionThreshold: 'QuestionThreshold',
       references: 'References',
       regex: 'Regex',
@@ -9638,6 +10201,7 @@ export class OperatorBasicInfoParam extends $tea.Model {
       phrase: 'string',
       pkey: 'string',
       poutputType: 'number',
+      pvalues: { 'type': 'array', 'itemType': 'string' },
       questionThreshold: 'string',
       references: { 'type': 'array', 'itemType': 'string' },
       regex: 'string',
@@ -10782,6 +11346,447 @@ export class GetResultResponseBodyDataResultInfoAsrResult extends $tea.Model {
   }
 }
 
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeAnchor extends $tea.Model {
+  cid?: string;
+  hitTime?: number;
+  location?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cid: 'Cid',
+      hitTime: 'Hit_time',
+      location: 'Location',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cid: 'string',
+      hitTime: 'number',
+      location: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeRange extends $tea.Model {
+  from?: number;
+  to?: number;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeTimeRange extends $tea.Model {
+  from?: number;
+  to?: number;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRange extends $tea.Model {
+  absolute?: boolean;
+  allSentencesSatisfy?: boolean;
+  anchor?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeAnchor;
+  range?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeRange;
+  role?: string;
+  roleId?: number;
+  timeRange?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeTimeRange;
+  static names(): { [key: string]: string } {
+    return {
+      absolute: 'Absolute',
+      allSentencesSatisfy: 'AllSentencesSatisfy',
+      anchor: 'Anchor',
+      range: 'Range',
+      role: 'Role',
+      roleId: 'RoleId',
+      timeRange: 'TimeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      absolute: 'boolean',
+      allSentencesSatisfy: 'boolean',
+      anchor: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeAnchor,
+      range: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeRange,
+      role: 'string',
+      roleId: 'number',
+      timeRange: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeTimeRange,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamExcludes extends $tea.Model {
+  exclude?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      exclude: 'Exclude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exclude: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamFlowNodePrerequisiteParam extends $tea.Model {
+  nodeId?: number;
+  nodeMatchStatus?: number;
+  nodeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      nodeMatchStatus: 'NodeMatchStatus',
+      nodeName: 'NodeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'number',
+      nodeMatchStatus: 'number',
+      nodeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamIntentModelCheckParmIntentsIntent extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamIntentModelCheckParmIntents extends $tea.Model {
+  intent?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamIntentModelCheckParmIntentsIntent[];
+  static names(): { [key: string]: string } {
+    return {
+      intent: 'Intent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intent: { 'type': 'array', 'itemType': GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamIntentModelCheckParmIntentsIntent },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamIntentModelCheckParm extends $tea.Model {
+  intents?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamIntentModelCheckParmIntents;
+  modelScene?: string;
+  static names(): { [key: string]: string } {
+    return {
+      intents: 'Intents',
+      modelScene: 'ModelScene',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intents: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamIntentModelCheckParmIntents,
+      modelScene: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamKeywords extends $tea.Model {
+  keyword?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParam extends $tea.Model {
+  average?: boolean;
+  beginType?: string;
+  caseSensitive?: boolean;
+  checkFirstSentence?: boolean;
+  checkType?: number;
+  compareOperator?: string;
+  contextChatMatch?: boolean;
+  delayTime?: number;
+  endType?: string;
+  excludes?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamExcludes;
+  flowNodePrerequisiteParam?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamFlowNodePrerequisiteParam;
+  from?: number;
+  fromEnd?: boolean;
+  hitTime?: number;
+  inSentence?: boolean;
+  intentModelCheckParm?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamIntentModelCheckParm;
+  interval?: number;
+  intervalEnd?: number;
+  keywordExtension?: number;
+  keywordMatchSize?: number;
+  keywords?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamKeywords;
+  maxEmotionChangeValue?: number;
+  minWordSize?: number;
+  nearDialogue?: boolean;
+  notRegex?: string;
+  phrase?: string;
+  regex?: string;
+  target?: number;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      average: 'Average',
+      beginType: 'BeginType',
+      caseSensitive: 'Case_sensitive',
+      checkFirstSentence: 'CheckFirstSentence',
+      checkType: 'CheckType',
+      compareOperator: 'CompareOperator',
+      contextChatMatch: 'ContextChatMatch',
+      delayTime: 'DelayTime',
+      endType: 'EndType',
+      excludes: 'Excludes',
+      flowNodePrerequisiteParam: 'FlowNodePrerequisiteParam',
+      from: 'From',
+      fromEnd: 'From_end',
+      hitTime: 'Hit_time',
+      inSentence: 'In_sentence',
+      intentModelCheckParm: 'IntentModelCheckParm',
+      interval: 'Interval',
+      intervalEnd: 'IntervalEnd',
+      keywordExtension: 'KeywordExtension',
+      keywordMatchSize: 'KeywordMatchSize',
+      keywords: 'Keywords',
+      maxEmotionChangeValue: 'MaxEmotionChangeValue',
+      minWordSize: 'MinWordSize',
+      nearDialogue: 'Near_dialogue',
+      notRegex: 'NotRegex',
+      phrase: 'Phrase',
+      regex: 'Regex',
+      target: 'Target',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      average: 'boolean',
+      beginType: 'string',
+      caseSensitive: 'boolean',
+      checkFirstSentence: 'boolean',
+      checkType: 'number',
+      compareOperator: 'string',
+      contextChatMatch: 'boolean',
+      delayTime: 'number',
+      endType: 'string',
+      excludes: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamExcludes,
+      flowNodePrerequisiteParam: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamFlowNodePrerequisiteParam,
+      from: 'number',
+      fromEnd: 'boolean',
+      hitTime: 'number',
+      inSentence: 'boolean',
+      intentModelCheckParm: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamIntentModelCheckParm,
+      interval: 'number',
+      intervalEnd: 'number',
+      keywordExtension: 'number',
+      keywordMatchSize: 'number',
+      keywords: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamKeywords,
+      maxEmotionChangeValue: 'number',
+      minWordSize: 'number',
+      nearDialogue: 'boolean',
+      notRegex: 'string',
+      phrase: 'string',
+      regex: 'string',
+      target: 'number',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperator extends $tea.Model {
+  id?: number;
+  name?: string;
+  oid?: string;
+  param?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParam;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      oid: 'Oid',
+      param: 'Param',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+      oid: 'string',
+      param: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParam,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperators extends $tea.Model {
+  operator?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperator[];
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: { 'type': 'array', 'itemType': GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperator },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditions extends $tea.Model {
+  checkRange?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRange;
+  cid?: string;
+  exclusion?: number;
+  id?: number;
+  lambda?: string;
+  operators?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperators;
+  rid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkRange: 'Check_range',
+      cid: 'Cid',
+      exclusion: 'Exclusion',
+      id: 'Id',
+      lambda: 'Lambda',
+      operators: 'Operators',
+      rid: 'Rid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkRange: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRange,
+      cid: 'string',
+      exclusion: 'number',
+      id: 'number',
+      lambda: 'string',
+      operators: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperators,
+      rid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoHitResultHitResultConditions extends $tea.Model {
+  conditions?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditions[];
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResultResponseBodyDataResultInfoHitResultHitResultHitsHitCid extends $tea.Model {
   cid?: string[];
   static names(): { [key: string]: string } {
@@ -10924,6 +11929,7 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResultHits extends $
 }
 
 export class GetResultResponseBodyDataResultInfoHitResultHitResult extends $tea.Model {
+  conditions?: GetResultResponseBodyDataResultInfoHitResultHitResultConditions;
   hits?: GetResultResponseBodyDataResultInfoHitResultHitResultHits;
   name?: string;
   reviewResult?: number;
@@ -10933,6 +11939,7 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResult extends $tea.
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      conditions: 'Conditions',
       hits: 'Hits',
       name: 'Name',
       reviewResult: 'ReviewResult',
@@ -10945,6 +11952,7 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResult extends $tea.
 
   static types(): { [key: string]: any } {
     return {
+      conditions: GetResultResponseBodyDataResultInfoHitResultHitResultConditions,
       hits: GetResultResponseBodyDataResultInfoHitResultHitResultHits,
       name: 'string',
       reviewResult: 'number',
@@ -11052,6 +12060,8 @@ export class GetResultResponseBodyDataResultInfoRecording extends $tea.Model {
   remark7?: string;
   remark8?: string;
   remark9?: string;
+  taskConfigId?: number;
+  taskConfigName?: string;
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11080,6 +12090,8 @@ export class GetResultResponseBodyDataResultInfoRecording extends $tea.Model {
       remark7: 'Remark7',
       remark8: 'Remark8',
       remark9: 'Remark9',
+      taskConfigId: 'TaskConfigId',
+      taskConfigName: 'TaskConfigName',
       url: 'Url',
     };
   }
@@ -11111,6 +12123,8 @@ export class GetResultResponseBodyDataResultInfoRecording extends $tea.Model {
       remark7: 'string',
       remark8: 'string',
       remark9: 'string',
+      taskConfigId: 'number',
+      taskConfigName: 'string',
       url: 'string',
     };
   }
@@ -15770,6 +16784,317 @@ export class SyncQualityCheckResponseBodyData extends $tea.Model {
   }
 }
 
+export class TestRuleV4ResponseBodyDataHitRuleReviewInfoListBranchInfoList extends $tea.Model {
+  checkType?: number;
+  index?: number;
+  lambda?: string;
+  name?: string;
+  nextNodeId?: number;
+  situation?: NextNodeSituations;
+  triggers?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      checkType: 'CheckType',
+      index: 'Index',
+      lambda: 'Lambda',
+      name: 'Name',
+      nextNodeId: 'NextNodeId',
+      situation: 'Situation',
+      triggers: 'Triggers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkType: 'number',
+      index: 'number',
+      lambda: 'string',
+      name: 'string',
+      nextNodeId: 'number',
+      situation: NextNodeSituations,
+      triggers: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestRuleV4ResponseBodyDataHitRuleReviewInfoListConditionHitInfoListKeyWords extends $tea.Model {
+  cid?: string;
+  customizeCode?: string;
+  from?: number;
+  oid?: string;
+  operatorKey?: string;
+  pid?: number;
+  similarPhrase?: string;
+  tid?: string;
+  to?: number;
+  uuid?: string;
+  val?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cid: 'Cid',
+      customizeCode: 'CustomizeCode',
+      from: 'From',
+      oid: 'Oid',
+      operatorKey: 'OperatorKey',
+      pid: 'Pid',
+      similarPhrase: 'SimilarPhrase',
+      tid: 'Tid',
+      to: 'To',
+      uuid: 'Uuid',
+      val: 'Val',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cid: 'string',
+      customizeCode: 'string',
+      from: 'number',
+      oid: 'string',
+      operatorKey: 'string',
+      pid: 'number',
+      similarPhrase: 'string',
+      tid: 'string',
+      to: 'number',
+      uuid: 'string',
+      val: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestRuleV4ResponseBodyDataHitRuleReviewInfoListConditionHitInfoListPhrase extends $tea.Model {
+  begin?: number;
+  beginTime?: string;
+  channelId?: number;
+  emotionFineGrainedValue?: number;
+  emotionValue?: number;
+  end?: number;
+  hitStatus?: number;
+  hourMinSec?: string;
+  identity?: string;
+  pid?: number;
+  renterId?: number;
+  role?: string;
+  sid?: number;
+  silenceDuration?: number;
+  speechRate?: number;
+  uuid?: string;
+  words?: string;
+  static names(): { [key: string]: string } {
+    return {
+      begin: 'Begin',
+      beginTime: 'BeginTime',
+      channelId: 'ChannelId',
+      emotionFineGrainedValue: 'EmotionFineGrainedValue',
+      emotionValue: 'EmotionValue',
+      end: 'End',
+      hitStatus: 'HitStatus',
+      hourMinSec: 'HourMinSec',
+      identity: 'Identity',
+      pid: 'Pid',
+      renterId: 'RenterId',
+      role: 'Role',
+      sid: 'Sid',
+      silenceDuration: 'SilenceDuration',
+      speechRate: 'SpeechRate',
+      uuid: 'Uuid',
+      words: 'Words',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      begin: 'number',
+      beginTime: 'string',
+      channelId: 'number',
+      emotionFineGrainedValue: 'number',
+      emotionValue: 'number',
+      end: 'number',
+      hitStatus: 'number',
+      hourMinSec: 'string',
+      identity: 'string',
+      pid: 'number',
+      renterId: 'number',
+      role: 'string',
+      sid: 'number',
+      silenceDuration: 'number',
+      speechRate: 'number',
+      uuid: 'string',
+      words: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestRuleV4ResponseBodyDataHitRuleReviewInfoListConditionHitInfoList extends $tea.Model {
+  cid?: string[];
+  keyWords?: TestRuleV4ResponseBodyDataHitRuleReviewInfoListConditionHitInfoListKeyWords[];
+  phrase?: TestRuleV4ResponseBodyDataHitRuleReviewInfoListConditionHitInfoListPhrase;
+  static names(): { [key: string]: string } {
+    return {
+      cid: 'Cid',
+      keyWords: 'KeyWords',
+      phrase: 'Phrase',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cid: { 'type': 'array', 'itemType': 'string' },
+      keyWords: { 'type': 'array', 'itemType': TestRuleV4ResponseBodyDataHitRuleReviewInfoListConditionHitInfoListKeyWords },
+      phrase: TestRuleV4ResponseBodyDataHitRuleReviewInfoListConditionHitInfoListPhrase,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestRuleV4ResponseBodyDataHitRuleReviewInfoList extends $tea.Model {
+  branchHitId?: number;
+  branchInfoList?: TestRuleV4ResponseBodyDataHitRuleReviewInfoListBranchInfoList[];
+  conditionHitInfoList?: TestRuleV4ResponseBodyDataHitRuleReviewInfoListConditionHitInfoList[];
+  conditionInfoList?: ConditionBasicInfo[];
+  judgeNodeName?: string;
+  lambda?: string;
+  matched?: boolean;
+  nodeType?: string;
+  rid?: number;
+  ruleName?: string;
+  ruleScoreType?: number;
+  scoreNumType?: number;
+  taskFlowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      branchHitId: 'BranchHitId',
+      branchInfoList: 'BranchInfoList',
+      conditionHitInfoList: 'ConditionHitInfoList',
+      conditionInfoList: 'ConditionInfoList',
+      judgeNodeName: 'JudgeNodeName',
+      lambda: 'Lambda',
+      matched: 'Matched',
+      nodeType: 'NodeType',
+      rid: 'Rid',
+      ruleName: 'RuleName',
+      ruleScoreType: 'RuleScoreType',
+      scoreNumType: 'ScoreNumType',
+      taskFlowId: 'TaskFlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branchHitId: 'number',
+      branchInfoList: { 'type': 'array', 'itemType': TestRuleV4ResponseBodyDataHitRuleReviewInfoListBranchInfoList },
+      conditionHitInfoList: { 'type': 'array', 'itemType': TestRuleV4ResponseBodyDataHitRuleReviewInfoListConditionHitInfoList },
+      conditionInfoList: { 'type': 'array', 'itemType': ConditionBasicInfo },
+      judgeNodeName: 'string',
+      lambda: 'string',
+      matched: 'boolean',
+      nodeType: 'string',
+      rid: 'number',
+      ruleName: 'string',
+      ruleScoreType: 'number',
+      scoreNumType: 'number',
+      taskFlowId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestRuleV4ResponseBodyDataHitTaskFlowList extends $tea.Model {
+  graphFlow?: TaskGraphFlow;
+  rid?: number;
+  taskFlowType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      graphFlow: 'GraphFlow',
+      rid: 'Rid',
+      taskFlowType: 'TaskFlowType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      graphFlow: TaskGraphFlow,
+      rid: 'number',
+      taskFlowType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestRuleV4ResponseBodyDataUnhitRuleReviewInfoList extends $tea.Model {
+  conditionInfoList?: ConditionBasicInfo[];
+  matched?: boolean;
+  rid?: number;
+  taskFlowType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conditionInfoList: 'ConditionInfoList',
+      matched: 'Matched',
+      rid: 'Rid',
+      taskFlowType: 'TaskFlowType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionInfoList: { 'type': 'array', 'itemType': ConditionBasicInfo },
+      matched: 'boolean',
+      rid: 'number',
+      taskFlowType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestRuleV4ResponseBodyData extends $tea.Model {
+  hitRuleReviewInfoList?: TestRuleV4ResponseBodyDataHitRuleReviewInfoList[];
+  hitTaskFlowList?: TestRuleV4ResponseBodyDataHitTaskFlowList[];
+  unhitRuleReviewInfoList?: TestRuleV4ResponseBodyDataUnhitRuleReviewInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      hitRuleReviewInfoList: 'HitRuleReviewInfoList',
+      hitTaskFlowList: 'HitTaskFlowList',
+      unhitRuleReviewInfoList: 'UnhitRuleReviewInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hitRuleReviewInfoList: { 'type': 'array', 'itemType': TestRuleV4ResponseBodyDataHitRuleReviewInfoList },
+      hitTaskFlowList: { 'type': 'array', 'itemType': TestRuleV4ResponseBodyDataHitTaskFlowList },
+      unhitRuleReviewInfoList: { 'type': 'array', 'itemType': TestRuleV4ResponseBodyDataUnhitRuleReviewInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateCheckTypeToSchemeResponseBodyMessages extends $tea.Model {
   message?: string[];
   static names(): { [key: string]: string } {
@@ -16372,6 +17697,10 @@ export default class Client extends OpenApi {
   async addBusinessCategoryWithOptions(request: AddBusinessCategoryRequest, runtime: $Util.RuntimeOptions): Promise<AddBusinessCategoryResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16401,6 +17730,10 @@ export default class Client extends OpenApi {
   async addRuleCategoryWithOptions(request: AddRuleCategoryRequest, runtime: $Util.RuntimeOptions): Promise<AddRuleCategoryResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16429,6 +17762,11 @@ export default class Client extends OpenApi {
 
   async addRuleV4WithOptions(request: AddRuleV4Request, runtime: $Util.RuntimeOptions): Promise<AddRuleV4Response> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.isCopy)) {
       body["IsCopy"] = request.isCopy;
@@ -16439,6 +17777,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -16463,6 +17802,10 @@ export default class Client extends OpenApi {
   async addThesaurusForApiWithOptions(request: AddThesaurusForApiRequest, runtime: $Util.RuntimeOptions): Promise<AddThesaurusForApiResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16492,6 +17835,10 @@ export default class Client extends OpenApi {
   async assignReviewerWithOptions(request: AssignReviewerRequest, runtime: $Util.RuntimeOptions): Promise<AssignReviewerResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16521,6 +17868,10 @@ export default class Client extends OpenApi {
   async assignReviewerBySessionGroupWithOptions(request: AssignReviewerBySessionGroupRequest, runtime: $Util.RuntimeOptions): Promise<AssignReviewerBySessionGroupResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -16550,6 +17901,10 @@ export default class Client extends OpenApi {
   async batchSubmitReviewInfoWithOptions(request: BatchSubmitReviewInfoRequest, runtime: $Util.RuntimeOptions): Promise<BatchSubmitReviewInfoResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -16579,6 +17934,10 @@ export default class Client extends OpenApi {
   async createAsrVocabWithOptions(request: CreateAsrVocabRequest, runtime: $Util.RuntimeOptions): Promise<CreateAsrVocabResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16608,6 +17967,10 @@ export default class Client extends OpenApi {
   async createCheckTypeToSchemeWithOptions(request: CreateCheckTypeToSchemeRequest, runtime: $Util.RuntimeOptions): Promise<CreateCheckTypeToSchemeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -16637,6 +18000,10 @@ export default class Client extends OpenApi {
   async createQualityCheckSchemeWithOptions(request: CreateQualityCheckSchemeRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityCheckSchemeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -16666,6 +18033,10 @@ export default class Client extends OpenApi {
   async createSchemeTaskConfigWithOptions(request: CreateSchemeTaskConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateSchemeTaskConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -16695,6 +18066,10 @@ export default class Client extends OpenApi {
   async createSkillGroupConfigWithOptions(request: CreateSkillGroupConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateSkillGroupConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16724,6 +18099,10 @@ export default class Client extends OpenApi {
   async createTaskAssignRuleWithOptions(request: CreateTaskAssignRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateTaskAssignRuleResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16750,9 +18129,21 @@ export default class Client extends OpenApi {
     return await this.createTaskAssignRuleWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateUserRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateUserResponse
+   */
+  // Deprecated
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16774,6 +18165,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateUserRequest
+    * @return CreateUserResponse
+   */
+  // Deprecated
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUserWithOptions(request, runtime);
@@ -16782,6 +18180,10 @@ export default class Client extends OpenApi {
   async createWarningConfigWithOptions(request: CreateWarningConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateWarningConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16811,6 +18213,10 @@ export default class Client extends OpenApi {
   async createWarningStrategyConfigWithOptions(request: CreateWarningStrategyConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateWarningStrategyConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16840,6 +18246,10 @@ export default class Client extends OpenApi {
   async delRuleCategoryWithOptions(request: DelRuleCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DelRuleCategoryResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16869,6 +18279,10 @@ export default class Client extends OpenApi {
   async delThesaurusForApiWithOptions(request: DelThesaurusForApiRequest, runtime: $Util.RuntimeOptions): Promise<DelThesaurusForApiResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16898,6 +18312,10 @@ export default class Client extends OpenApi {
   async deleteAsrVocabWithOptions(request: DeleteAsrVocabRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAsrVocabResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16927,6 +18345,10 @@ export default class Client extends OpenApi {
   async deleteBusinessCategoryWithOptions(request: DeleteBusinessCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBusinessCategoryResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16956,6 +18378,10 @@ export default class Client extends OpenApi {
   async deleteCustomizationConfigWithOptions(request: DeleteCustomizationConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomizationConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -16985,6 +18411,10 @@ export default class Client extends OpenApi {
   async deleteDataSetWithOptions(request: DeleteDataSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataSetResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17014,6 +18444,10 @@ export default class Client extends OpenApi {
   async deletePrecisionTaskWithOptions(request: DeletePrecisionTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrecisionTaskResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17043,6 +18477,10 @@ export default class Client extends OpenApi {
   async deleteQualityCheckSchemeWithOptions(request: DeleteQualityCheckSchemeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityCheckSchemeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -17071,6 +18509,11 @@ export default class Client extends OpenApi {
 
   async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.forceDelete)) {
       body["ForceDelete"] = request.forceDelete;
@@ -17085,6 +18528,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -17108,6 +18552,11 @@ export default class Client extends OpenApi {
 
   async deleteRuleV4WithOptions(request: DeleteRuleV4Request, runtime: $Util.RuntimeOptions): Promise<DeleteRuleV4Response> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.forceDelete)) {
       body["ForceDelete"] = request.forceDelete;
@@ -17118,6 +18567,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -17142,6 +18592,10 @@ export default class Client extends OpenApi {
   async deleteSchemeTaskConfigWithOptions(request: DeleteSchemeTaskConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSchemeTaskConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -17171,6 +18625,10 @@ export default class Client extends OpenApi {
   async deleteScoreForApiWithOptions(request: DeleteScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteScoreForApiResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17200,6 +18658,10 @@ export default class Client extends OpenApi {
   async deleteSkillGroupConfigWithOptions(request: DeleteSkillGroupConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSkillGroupConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17229,6 +18691,10 @@ export default class Client extends OpenApi {
   async deleteSubScoreForApiWithOptions(request: DeleteSubScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSubScoreForApiResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17258,6 +18724,10 @@ export default class Client extends OpenApi {
   async deleteTaskAssignRuleWithOptions(request: DeleteTaskAssignRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTaskAssignRuleResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17284,9 +18754,21 @@ export default class Client extends OpenApi {
     return await this.deleteTaskAssignRuleWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteUserRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteUserResponse
+   */
+  // Deprecated
   async deleteUserWithOptions(request: DeleteUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17308,6 +18790,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteUserRequest
+    * @return DeleteUserResponse
+   */
+  // Deprecated
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserWithOptions(request, runtime);
@@ -17316,6 +18805,10 @@ export default class Client extends OpenApi {
   async deleteWarningConfigWithOptions(request: DeleteWarningConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWarningConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17345,6 +18838,10 @@ export default class Client extends OpenApi {
   async deleteWarningStrategyConfigWithOptions(request: DeleteWarningStrategyConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWarningStrategyConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17374,6 +18871,10 @@ export default class Client extends OpenApi {
   async editThesaurusForApiWithOptions(request: EditThesaurusForApiRequest, runtime: $Util.RuntimeOptions): Promise<EditThesaurusForApiResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17403,6 +18904,10 @@ export default class Client extends OpenApi {
   async getAsrVocabWithOptions(request: GetAsrVocabRequest, runtime: $Util.RuntimeOptions): Promise<GetAsrVocabResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17432,6 +18937,10 @@ export default class Client extends OpenApi {
   async getBusinessCategoryListWithOptions(request: GetBusinessCategoryListRequest, runtime: $Util.RuntimeOptions): Promise<GetBusinessCategoryListResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17461,6 +18970,10 @@ export default class Client extends OpenApi {
   async getCustomizationConfigListWithOptions(request: GetCustomizationConfigListRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomizationConfigListResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17490,6 +19003,10 @@ export default class Client extends OpenApi {
   async getHitResultWithOptions(request: GetHitResultRequest, runtime: $Util.RuntimeOptions): Promise<GetHitResultResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17519,6 +19036,10 @@ export default class Client extends OpenApi {
   async getNextResultToVerifyWithOptions(request: GetNextResultToVerifyRequest, runtime: $Util.RuntimeOptions): Promise<GetNextResultToVerifyResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17548,6 +19069,10 @@ export default class Client extends OpenApi {
   async getPrecisionTaskWithOptions(request: GetPrecisionTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetPrecisionTaskResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17577,6 +19102,10 @@ export default class Client extends OpenApi {
   async getQualityCheckSchemeWithOptions(request: GetQualityCheckSchemeRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityCheckSchemeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -17606,6 +19135,10 @@ export default class Client extends OpenApi {
   async getResultWithOptions(request: GetResultRequest, runtime: $Util.RuntimeOptions): Promise<GetResultResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17632,9 +19165,21 @@ export default class Client extends OpenApi {
     return await this.getResultWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetResultCallbackRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetResultCallbackResponse
+   */
+  // Deprecated
   async getResultCallbackWithOptions(request: GetResultCallbackRequest, runtime: $Util.RuntimeOptions): Promise<GetResultCallbackResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17656,6 +19201,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResultCallbackResponse>(await this.callApi(params, req, runtime), new GetResultCallbackResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetResultCallbackRequest
+    * @return GetResultCallbackResponse
+   */
+  // Deprecated
   async getResultCallback(request: GetResultCallbackRequest): Promise<GetResultCallbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResultCallbackWithOptions(request, runtime);
@@ -17664,6 +19216,10 @@ export default class Client extends OpenApi {
   async getResultToReviewWithOptions(request: GetResultToReviewRequest, runtime: $Util.RuntimeOptions): Promise<GetResultToReviewResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17693,6 +19249,10 @@ export default class Client extends OpenApi {
   async getRuleWithOptions(request: GetRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17721,12 +19281,18 @@ export default class Client extends OpenApi {
 
   async getRuleByIdWithOptions(request: GetRuleByIdRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleByIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.ruleId)) {
       body["RuleId"] = request.ruleId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -17751,6 +19317,10 @@ export default class Client extends OpenApi {
   async getRuleCategoryWithOptions(request: GetRuleCategoryRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleCategoryResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17780,6 +19350,10 @@ export default class Client extends OpenApi {
   async getRuleDetailWithOptions(request: GetRuleDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleDetailResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17835,8 +19409,61 @@ export default class Client extends OpenApi {
     return await this.getRuleV4WithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : GetRuleV4Str is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+    *
+    * @param request GetRuleV4StrRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetRuleV4StrResponse
+   */
+  // Deprecated
+  async getRuleV4StrWithOptions(request: GetRuleV4StrRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleV4StrResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.isSchemeData)) {
+      body["IsSchemeData"] = request.isSchemeData;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      body["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRuleV4Str",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRuleV4StrResponse>(await this.callApi(params, req, runtime), new GetRuleV4StrResponse({}));
+  }
+
+  /**
+    * @deprecated : GetRuleV4Str is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+    *
+    * @param request GetRuleV4StrRequest
+    * @return GetRuleV4StrResponse
+   */
+  // Deprecated
+  async getRuleV4Str(request: GetRuleV4StrRequest): Promise<GetRuleV4StrResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRuleV4StrWithOptions(request, runtime);
+  }
+
   async getRulesCountListWithOptions(request: GetRulesCountListRequest, runtime: $Util.RuntimeOptions): Promise<GetRulesCountListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.businessName)) {
       body["BusinessName"] = request.businessName;
@@ -17939,6 +19566,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -17963,6 +19591,10 @@ export default class Client extends OpenApi {
   async getScoreInfoWithOptions(request: GetScoreInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetScoreInfoResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -17992,6 +19624,10 @@ export default class Client extends OpenApi {
   async getSkillGroupConfigWithOptions(request: GetSkillGroupConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18021,6 +19657,10 @@ export default class Client extends OpenApi {
   async getSyncResultWithOptions(request: GetSyncResultRequest, runtime: $Util.RuntimeOptions): Promise<GetSyncResultResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18050,6 +19690,10 @@ export default class Client extends OpenApi {
   async getThesaurusBySynonymForApiWithOptions(request: GetThesaurusBySynonymForApiRequest, runtime: $Util.RuntimeOptions): Promise<GetThesaurusBySynonymForApiResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18079,6 +19723,10 @@ export default class Client extends OpenApi {
   async getWarningStrategyConfigWithOptions(request: GetWarningStrategyConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetWarningStrategyConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18108,6 +19756,10 @@ export default class Client extends OpenApi {
   async handleComplaintWithOptions(request: HandleComplaintRequest, runtime: $Util.RuntimeOptions): Promise<HandleComplaintResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18137,6 +19789,10 @@ export default class Client extends OpenApi {
   async insertScoreForApiWithOptions(request: InsertScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<InsertScoreForApiResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18166,6 +19822,10 @@ export default class Client extends OpenApi {
   async insertSubScoreForApiWithOptions(request: InsertSubScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<InsertSubScoreForApiResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18195,6 +19855,10 @@ export default class Client extends OpenApi {
   async invalidRuleWithOptions(request: InvalidRuleRequest, runtime: $Util.RuntimeOptions): Promise<InvalidRuleResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18224,6 +19888,10 @@ export default class Client extends OpenApi {
   async listAsrVocabWithOptions(request: ListAsrVocabRequest, runtime: $Util.RuntimeOptions): Promise<ListAsrVocabResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18250,6 +19918,14 @@ export default class Client extends OpenApi {
     return await this.listAsrVocabWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ListBusinessSpacesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListBusinessSpacesResponse
+   */
+  // Deprecated
   async listBusinessSpacesWithOptions(request: ListBusinessSpacesRequest, runtime: $Util.RuntimeOptions): Promise<ListBusinessSpacesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18274,6 +19950,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBusinessSpacesResponse>(await this.callApi(params, req, runtime), new ListBusinessSpacesResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ListBusinessSpacesRequest
+    * @return ListBusinessSpacesResponse
+   */
+  // Deprecated
   async listBusinessSpaces(request: ListBusinessSpacesRequest): Promise<ListBusinessSpacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBusinessSpacesWithOptions(request, runtime);
@@ -18282,6 +19965,10 @@ export default class Client extends OpenApi {
   async listDataSetWithOptions(request: ListDataSetRequest, runtime: $Util.RuntimeOptions): Promise<ListDataSetResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18311,6 +19998,10 @@ export default class Client extends OpenApi {
   async listHotWordsTasksWithOptions(request: ListHotWordsTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListHotWordsTasksResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18340,6 +20031,10 @@ export default class Client extends OpenApi {
   async listPrecisionTaskWithOptions(request: ListPrecisionTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListPrecisionTaskResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18369,6 +20064,10 @@ export default class Client extends OpenApi {
   async listQualityCheckSchemeWithOptions(request: ListQualityCheckSchemeRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityCheckSchemeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18398,6 +20097,10 @@ export default class Client extends OpenApi {
   async listRolesWithOptions(request: ListRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListRolesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18427,6 +20130,10 @@ export default class Client extends OpenApi {
   async listRulesWithOptions(request: ListRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListRulesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18455,6 +20162,11 @@ export default class Client extends OpenApi {
 
   async listRulesV4WithOptions(request: ListRulesV4Request, runtime: $Util.RuntimeOptions): Promise<ListRulesV4Response> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.businessName)) {
       body["BusinessName"] = request.businessName;
@@ -18557,6 +20269,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -18581,6 +20294,10 @@ export default class Client extends OpenApi {
   async listSchemeTaskConfigWithOptions(request: ListSchemeTaskConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListSchemeTaskConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -18610,6 +20327,10 @@ export default class Client extends OpenApi {
   async listSessionGroupWithOptions(request: ListSessionGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListSessionGroupResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -18639,6 +20360,10 @@ export default class Client extends OpenApi {
   async listSkillGroupConfigWithOptions(request: ListSkillGroupConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillGroupConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18668,6 +20393,10 @@ export default class Client extends OpenApi {
   async listTaskAssignRulesWithOptions(request: ListTaskAssignRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskAssignRulesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18697,6 +20426,10 @@ export default class Client extends OpenApi {
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18726,6 +20459,10 @@ export default class Client extends OpenApi {
   async listWarningConfigWithOptions(request: ListWarningConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListWarningConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18755,6 +20492,10 @@ export default class Client extends OpenApi {
   async listWarningStrategyConfigWithOptions(request: ListWarningStrategyConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListWarningStrategyConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18784,6 +20525,10 @@ export default class Client extends OpenApi {
   async restartAsrTaskWithOptions(request: RestartAsrTaskRequest, runtime: $Util.RuntimeOptions): Promise<RestartAsrTaskResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18813,6 +20558,10 @@ export default class Client extends OpenApi {
   async revertAssignedSessionWithOptions(request: RevertAssignedSessionRequest, runtime: $Util.RuntimeOptions): Promise<RevertAssignedSessionResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -18842,6 +20591,10 @@ export default class Client extends OpenApi {
   async revertAssignedSessionGroupWithOptions(request: RevertAssignedSessionGroupRequest, runtime: $Util.RuntimeOptions): Promise<RevertAssignedSessionGroupResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -18871,6 +20624,10 @@ export default class Client extends OpenApi {
   async saveConfigDataSetWithOptions(request: SaveConfigDataSetRequest, runtime: $Util.RuntimeOptions): Promise<SaveConfigDataSetResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18900,6 +20657,10 @@ export default class Client extends OpenApi {
   async submitComplaintWithOptions(request: SubmitComplaintRequest, runtime: $Util.RuntimeOptions): Promise<SubmitComplaintResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18929,6 +20690,10 @@ export default class Client extends OpenApi {
   async submitPrecisionTaskWithOptions(request: SubmitPrecisionTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitPrecisionTaskResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18958,6 +20723,10 @@ export default class Client extends OpenApi {
   async submitQualityCheckTaskWithOptions(request: SubmitQualityCheckTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitQualityCheckTaskResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -18987,6 +20756,10 @@ export default class Client extends OpenApi {
   async submitReviewInfoWithOptions(request: SubmitReviewInfoRequest, runtime: $Util.RuntimeOptions): Promise<SubmitReviewInfoResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19016,6 +20789,10 @@ export default class Client extends OpenApi {
   async syncQualityCheckWithOptions(request: SyncQualityCheckRequest, runtime: $Util.RuntimeOptions): Promise<SyncQualityCheckResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19042,9 +20819,46 @@ export default class Client extends OpenApi {
     return await this.syncQualityCheckWithOptions(request, runtime);
   }
 
+  async testRuleV4WithOptions(request: TestRuleV4Request, runtime: $Util.RuntimeOptions): Promise<TestRuleV4Response> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.isSchemeData)) {
+      body["IsSchemeData"] = request.isSchemeData;
+    }
+
+    if (!Util.isUnset(request.testJson)) {
+      body["TestJson"] = request.testJson;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TestRuleV4",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TestRuleV4Response>(await this.callApi(params, req, runtime), new TestRuleV4Response({}));
+  }
+
+  async testRuleV4(request: TestRuleV4Request): Promise<TestRuleV4Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.testRuleV4WithOptions(request, runtime);
+  }
+
   async updateAsrVocabWithOptions(request: UpdateAsrVocabRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAsrVocabResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19074,6 +20888,10 @@ export default class Client extends OpenApi {
   async updateCheckTypeToSchemeWithOptions(request: UpdateCheckTypeToSchemeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCheckTypeToSchemeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -19103,6 +20921,10 @@ export default class Client extends OpenApi {
   async updateQualityCheckDataWithOptions(request: UpdateQualityCheckDataRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQualityCheckDataResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19132,6 +20954,10 @@ export default class Client extends OpenApi {
   async updateQualityCheckSchemeWithOptions(request: UpdateQualityCheckSchemeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQualityCheckSchemeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -19161,6 +20987,10 @@ export default class Client extends OpenApi {
   async updateRuleWithOptions(request: UpdateRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRuleResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19189,6 +21019,11 @@ export default class Client extends OpenApi {
 
   async updateRuleByIdWithOptions(request: UpdateRuleByIdRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRuleByIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.isCopy)) {
       body["IsCopy"] = request.isCopy;
@@ -19207,6 +21042,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -19231,6 +21067,10 @@ export default class Client extends OpenApi {
   async updateRuleToSchemeWithOptions(request: UpdateRuleToSchemeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRuleToSchemeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -19259,6 +21099,11 @@ export default class Client extends OpenApi {
 
   async updateRuleV4WithOptions(request: UpdateRuleV4Request, runtime: $Util.RuntimeOptions): Promise<UpdateRuleV4Response> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.jsonStrForRule)) {
       body["JsonStrForRule"] = request.jsonStrForRule;
@@ -19269,6 +21114,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -19293,6 +21139,10 @@ export default class Client extends OpenApi {
   async updateSchemeTaskConfigWithOptions(request: UpdateSchemeTaskConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSchemeTaskConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["jsonStr"] = request.jsonStr;
     }
@@ -19322,6 +21172,10 @@ export default class Client extends OpenApi {
   async updateScoreForApiWithOptions(request: UpdateScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateScoreForApiResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19351,6 +21205,10 @@ export default class Client extends OpenApi {
   async updateSkillGroupConfigWithOptions(request: UpdateSkillGroupConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSkillGroupConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19380,6 +21238,10 @@ export default class Client extends OpenApi {
   async updateSubScoreForApiWithOptions(request: UpdateSubScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSubScoreForApiResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19409,6 +21271,10 @@ export default class Client extends OpenApi {
   async updateSyncQualityCheckDataWithOptions(request: UpdateSyncQualityCheckDataRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSyncQualityCheckDataResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19438,6 +21304,10 @@ export default class Client extends OpenApi {
   async updateTaskAssignRuleWithOptions(request: UpdateTaskAssignRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskAssignRuleResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19467,6 +21337,10 @@ export default class Client extends OpenApi {
   async updateUserWithOptions(request: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19496,6 +21370,10 @@ export default class Client extends OpenApi {
   async updateUserConfigWithOptions(request: UpdateUserConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19525,6 +21403,10 @@ export default class Client extends OpenApi {
   async updateWarningConfigWithOptions(request: UpdateWarningConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWarningConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19554,6 +21436,10 @@ export default class Client extends OpenApi {
   async updateWarningStrategyConfigWithOptions(request: UpdateWarningStrategyConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWarningStrategyConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19583,6 +21469,10 @@ export default class Client extends OpenApi {
   async uploadAudioDataWithOptions(request: UploadAudioDataRequest, runtime: $Util.RuntimeOptions): Promise<UploadAudioDataResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19609,9 +21499,21 @@ export default class Client extends OpenApi {
     return await this.uploadAudioDataWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead.
+    *
+    * @param request UploadDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UploadDataResponse
+   */
+  // Deprecated
   async uploadDataWithOptions(request: UploadDataRequest, runtime: $Util.RuntimeOptions): Promise<UploadDataResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19633,6 +21535,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadDataResponse>(await this.callApi(params, req, runtime), new UploadDataResponse({}));
   }
 
+  /**
+    * @deprecated : UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead.
+    *
+    * @param request UploadDataRequest
+    * @return UploadDataResponse
+   */
+  // Deprecated
   async uploadData(request: UploadDataRequest): Promise<UploadDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadDataWithOptions(request, runtime);
@@ -19641,6 +21550,10 @@ export default class Client extends OpenApi {
   async uploadDataSyncWithOptions(request: UploadDataSyncRequest, runtime: $Util.RuntimeOptions): Promise<UploadDataSyncResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19667,9 +21580,46 @@ export default class Client extends OpenApi {
     return await this.uploadDataSyncWithOptions(request, runtime);
   }
 
+  async uploadDataV4WithOptions(request: UploadDataV4Request, runtime: $Util.RuntimeOptions): Promise<UploadDataV4Response> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!Util.isUnset(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UploadDataV4",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadDataV4Response>(await this.callApi(params, req, runtime), new UploadDataV4Response({}));
+  }
+
+  async uploadDataV4(request: UploadDataV4Request): Promise<UploadDataV4Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uploadDataV4WithOptions(request, runtime);
+  }
+
   async uploadRuleWithOptions(request: UploadRuleRequest, runtime: $Util.RuntimeOptions): Promise<UploadRuleResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19699,6 +21649,10 @@ export default class Client extends OpenApi {
   async verifyFileWithOptions(request: VerifyFileRequest, runtime: $Util.RuntimeOptions): Promise<VerifyFileResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
@@ -19728,6 +21682,10 @@ export default class Client extends OpenApi {
   async verifySentenceWithOptions(request: VerifySentenceRequest, runtime: $Util.RuntimeOptions): Promise<VerifySentenceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
     if (!Util.isUnset(request.jsonStr)) {
       query["JsonStr"] = request.jsonStr;
     }
