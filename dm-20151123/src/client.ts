@@ -1386,6 +1386,10 @@ export class DescDomainResponseBody extends $tea.Model {
   dkimAuthStatus?: string;
   dkimPublicKey?: string;
   dkimRR?: string;
+  dmarcAuthStatus?: number;
+  dmarcHostRecord?: string;
+  dmarcRecord?: string;
+  dnsDmarc?: string;
   dnsMx?: string;
   dnsSpf?: string;
   dnsTxt?: string;
@@ -1413,6 +1417,10 @@ export class DescDomainResponseBody extends $tea.Model {
       dkimAuthStatus: 'DkimAuthStatus',
       dkimPublicKey: 'DkimPublicKey',
       dkimRR: 'DkimRR',
+      dmarcAuthStatus: 'DmarcAuthStatus',
+      dmarcHostRecord: 'DmarcHostRecord',
+      dmarcRecord: 'DmarcRecord',
+      dnsDmarc: 'DnsDmarc',
       dnsMx: 'DnsMx',
       dnsSpf: 'DnsSpf',
       dnsTxt: 'DnsTxt',
@@ -1443,6 +1451,10 @@ export class DescDomainResponseBody extends $tea.Model {
       dkimAuthStatus: 'string',
       dkimPublicKey: 'string',
       dkimRR: 'string',
+      dmarcAuthStatus: 'number',
+      dmarcHostRecord: 'string',
+      dmarcRecord: 'string',
+      dnsDmarc: 'string',
       dnsMx: 'string',
       dnsSpf: 'string',
       dnsTxt: 'string',
