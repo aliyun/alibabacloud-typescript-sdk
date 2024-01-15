@@ -7916,6 +7916,62 @@ export class GetWorkitemCommentListResponse extends $tea.Model {
   }
 }
 
+export class GetWorkitemFileResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: string;
+  workitemFile?: GetWorkitemFileResponseBodyWorkitemFile;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+      workitemFile: 'workitemFile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'string',
+      workitemFile: GetWorkitemFileResponseBodyWorkitemFile,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkitemFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetWorkitemFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWorkitemFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkitemRelationsRequest extends $tea.Model {
   relationType?: string;
   static names(): { [key: string]: string } {
@@ -22522,6 +22578,37 @@ export class GetWorkitemCommentListResponseBodyCommentList extends $tea.Model {
   }
 }
 
+export class GetWorkitemFileResponseBodyWorkitemFile extends $tea.Model {
+  id?: string;
+  name?: string;
+  size?: number;
+  suffix?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      name: 'name',
+      size: 'size',
+      suffix: 'suffix',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      size: 'number',
+      suffix: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkitemRelationsResponseBodyRelationList extends $tea.Model {
   assignedTo?: string;
   categoryIdentifier?: string;
@@ -32890,6 +32977,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getWorkitemCommentListWithOptions(organizationId, workitemId, headers, runtime);
+  }
+
+  async getWorkitemFileWithOptions(organizationId: string, workitemIdentifier: string, fileIdentifier: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkitemFileResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWorkitemFile",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitem/${OpenApiUtil.getEncodeParam(workitemIdentifier)}/files/${OpenApiUtil.getEncodeParam(fileIdentifier)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWorkitemFileResponse>(await this.callApi(params, req, runtime), new GetWorkitemFileResponse({}));
+  }
+
+  async getWorkitemFile(organizationId: string, workitemIdentifier: string, fileIdentifier: string): Promise<GetWorkitemFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkitemFileWithOptions(organizationId, workitemIdentifier, fileIdentifier, headers, runtime);
   }
 
   async getWorkitemRelationsWithOptions(organizationId: string, workitemId: string, request: GetWorkitemRelationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkitemRelationsResponse> {
