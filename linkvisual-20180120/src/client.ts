@@ -1177,6 +1177,7 @@ export class CreateEventRecordPlanResponse extends $tea.Model {
 
 export class CreateGbDeviceRequest extends $tea.Model {
   description?: string;
+  deviceName?: string;
   deviceType?: number;
   gbId?: string;
   iotInstanceId?: string;
@@ -1187,6 +1188,7 @@ export class CreateGbDeviceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      deviceName: 'DeviceName',
       deviceType: 'DeviceType',
       gbId: 'GbId',
       iotInstanceId: 'IotInstanceId',
@@ -1200,6 +1202,7 @@ export class CreateGbDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      deviceName: 'string',
       deviceType: 'number',
       gbId: 'string',
       iotInstanceId: 'string',
@@ -2504,6 +2507,87 @@ export class DeleteFaceUserPictureResponse extends $tea.Model {
   }
 }
 
+export class DeleteGbDeviceRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGbDeviceResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGbDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteGbDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGbDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteLocalFileUploadJobRequest extends $tea.Model {
   iotInstanceId?: string;
   jobId?: string;
@@ -3216,6 +3300,93 @@ export class DetectUserFaceByUrlResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetectUserFaceByUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableGbSubDeviceRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  subDeviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      subDeviceId: 'SubDeviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+      subDeviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableGbSubDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: EnableGbSubDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: EnableGbSubDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableGbSubDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableGbSubDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableGbSubDeviceResponseBody,
     };
   }
 
@@ -5642,6 +5813,96 @@ export class QueryFaceUserIdByCustomUserIdResponse extends $tea.Model {
   }
 }
 
+export class QueryGbSubDeviceListRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  pageSize?: number;
+  pageStart?: number;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      pageSize: 'PageSize',
+      pageStart: 'PageStart',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      pageSize: 'number',
+      pageStart: 'number',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGbSubDeviceListResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryGbSubDeviceListResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryGbSubDeviceListResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGbSubDeviceListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryGbSubDeviceListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryGbSubDeviceListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryLiveStreamingRequest extends $tea.Model {
   cacheDuration?: number;
   deviceName?: string;
@@ -7799,6 +8060,87 @@ export class QueryVoiceIntercomResponse extends $tea.Model {
   }
 }
 
+export class RefreshGbSubDeviceListRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshGbSubDeviceListResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshGbSubDeviceListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RefreshGbSubDeviceListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RefreshGbSubDeviceListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveFaceDeviceFromDeviceGroupRequest extends $tea.Model {
   deviceGroupId?: string;
   deviceName?: string;
@@ -8891,6 +9233,96 @@ export class UpdateFaceUserGroupAndDeviceGroupRelationResponse extends $tea.Mode
   }
 }
 
+export class UpdateGbDeviceRequest extends $tea.Model {
+  description?: string;
+  deviceName?: string;
+  gbId?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  password?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      deviceName: 'DeviceName',
+      gbId: 'GbId',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      password: 'Password',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      deviceName: 'string',
+      gbId: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      password: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGbDeviceResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGbDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateGbDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGbDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateInstanceInternetProtocolRequest extends $tea.Model {
   iotInstanceId?: string;
   ipVersion?: string;
@@ -9832,6 +10264,28 @@ export class DetectUserFaceByUrlResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: { 'type': 'array', 'itemType': DetectUserFaceByUrlResponseBodyDataData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableGbSubDeviceResponseBodyData extends $tea.Model {
+  deviceName?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      productKey: 'string',
     };
   }
 
@@ -11291,6 +11745,59 @@ export class QueryFaceUserIdByCustomUserIdResponseBodyData extends $tea.Model {
       name: 'string',
       params: 'string',
       userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGbSubDeviceListResponseBodyDataGbSubDeviceList extends $tea.Model {
+  deviceEnable?: number;
+  deviceId?: string;
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceEnable: 'DeviceEnable',
+      deviceId: 'DeviceId',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceEnable: 'number',
+      deviceId: 'string',
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGbSubDeviceListResponseBodyData extends $tea.Model {
+  gbSubDeviceList?: QueryGbSubDeviceListResponseBodyDataGbSubDeviceList[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gbSubDeviceList: 'GbSubDeviceList',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gbSubDeviceList: { 'type': 'array', 'itemType': QueryGbSubDeviceListResponseBodyDataGbSubDeviceList },
+      total: 'number',
     };
   }
 
@@ -13394,6 +13901,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
     if (!Util.isUnset(request.deviceType)) {
       query["DeviceType"] = request.deviceType;
     }
@@ -14051,6 +14562,47 @@ export default class Client extends OpenApi {
     return await this.deleteFaceUserPictureWithOptions(request, runtime);
   }
 
+  async deleteGbDeviceWithOptions(request: DeleteGbDeviceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGbDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGbDevice",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGbDeviceResponse>(await this.callApi(params, req, runtime), new DeleteGbDeviceResponse({}));
+  }
+
+  async deleteGbDevice(request: DeleteGbDeviceRequest): Promise<DeleteGbDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteGbDeviceWithOptions(request, runtime);
+  }
+
   async deleteLocalFileUploadJobWithOptions(request: DeleteLocalFileUploadJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLocalFileUploadJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14390,6 +14942,51 @@ export default class Client extends OpenApi {
   async detectUserFaceByUrl(request: DetectUserFaceByUrlRequest): Promise<DetectUserFaceByUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectUserFaceByUrlWithOptions(request, runtime);
+  }
+
+  async enableGbSubDeviceWithOptions(request: EnableGbSubDeviceRequest, runtime: $Util.RuntimeOptions): Promise<EnableGbSubDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.subDeviceId)) {
+      query["SubDeviceId"] = request.subDeviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableGbSubDevice",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableGbSubDeviceResponse>(await this.callApi(params, req, runtime), new EnableGbSubDeviceResponse({}));
+  }
+
+  async enableGbSubDevice(request: EnableGbSubDeviceRequest): Promise<EnableGbSubDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableGbSubDeviceWithOptions(request, runtime);
   }
 
   async getPictureSearchJobStatusWithOptions(request: GetPictureSearchJobStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPictureSearchJobStatusResponse> {
@@ -15628,6 +16225,55 @@ export default class Client extends OpenApi {
     return await this.queryFaceUserIdByCustomUserIdWithOptions(request, runtime);
   }
 
+  async queryGbSubDeviceListWithOptions(request: QueryGbSubDeviceListRequest, runtime: $Util.RuntimeOptions): Promise<QueryGbSubDeviceListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.pageStart)) {
+      query["PageStart"] = request.pageStart;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryGbSubDeviceList",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryGbSubDeviceListResponse>(await this.callApi(params, req, runtime), new QueryGbSubDeviceListResponse({}));
+  }
+
+  async queryGbSubDeviceList(request: QueryGbSubDeviceListRequest): Promise<QueryGbSubDeviceListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryGbSubDeviceListWithOptions(request, runtime);
+  }
+
   async queryLiveStreamingWithOptions(request: QueryLiveStreamingRequest, runtime: $Util.RuntimeOptions): Promise<QueryLiveStreamingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16729,6 +17375,47 @@ export default class Client extends OpenApi {
     return await this.queryVoiceIntercomWithOptions(request, runtime);
   }
 
+  async refreshGbSubDeviceListWithOptions(request: RefreshGbSubDeviceListRequest, runtime: $Util.RuntimeOptions): Promise<RefreshGbSubDeviceListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RefreshGbSubDeviceList",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RefreshGbSubDeviceListResponse>(await this.callApi(params, req, runtime), new RefreshGbSubDeviceListResponse({}));
+  }
+
+  async refreshGbSubDeviceList(request: RefreshGbSubDeviceListRequest): Promise<RefreshGbSubDeviceListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refreshGbSubDeviceListWithOptions(request, runtime);
+  }
+
   async removeFaceDeviceFromDeviceGroupWithOptions(request: RemoveFaceDeviceFromDeviceGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveFaceDeviceFromDeviceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17296,6 +17983,59 @@ export default class Client extends OpenApi {
   async updateFaceUserGroupAndDeviceGroupRelation(request: UpdateFaceUserGroupAndDeviceGroupRelationRequest): Promise<UpdateFaceUserGroupAndDeviceGroupRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFaceUserGroupAndDeviceGroupRelationWithOptions(request, runtime);
+  }
+
+  async updateGbDeviceWithOptions(request: UpdateGbDeviceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGbDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.gbId)) {
+      query["GbId"] = request.gbId;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGbDevice",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGbDeviceResponse>(await this.callApi(params, req, runtime), new UpdateGbDeviceResponse({}));
+  }
+
+  async updateGbDevice(request: UpdateGbDeviceRequest): Promise<UpdateGbDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGbDeviceWithOptions(request, runtime);
   }
 
   async updateInstanceInternetProtocolWithOptions(request: UpdateInstanceInternetProtocolRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceInternetProtocolResponse> {
