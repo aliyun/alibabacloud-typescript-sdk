@@ -2823,6 +2823,7 @@ export class ModifyPlaybookResponse extends $tea.Model {
 }
 
 export class ModifyPlaybookInputOutputRequest extends $tea.Model {
+  exeConfig?: string;
   inputParams?: string;
   lang?: string;
   outputParams?: string;
@@ -2830,6 +2831,7 @@ export class ModifyPlaybookInputOutputRequest extends $tea.Model {
   playbookUuid?: string;
   static names(): { [key: string]: string } {
     return {
+      exeConfig: 'ExeConfig',
       inputParams: 'InputParams',
       lang: 'Lang',
       outputParams: 'OutputParams',
@@ -2840,6 +2842,7 @@ export class ModifyPlaybookInputOutputRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      exeConfig: 'string',
       inputParams: 'string',
       lang: 'string',
       outputParams: 'string',
@@ -4002,12 +4005,14 @@ export class DescribePlaybookResponseBodyPlaybook extends $tea.Model {
 }
 
 export class DescribePlaybookInputOutputResponseBodyConfig extends $tea.Model {
+  exeConfig?: string;
   inputParams?: string;
   outputParams?: string;
   paramType?: string;
   playbookUuid?: string;
   static names(): { [key: string]: string } {
     return {
+      exeConfig: 'ExeConfig',
       inputParams: 'InputParams',
       outputParams: 'OutputParams',
       paramType: 'ParamType',
@@ -4017,6 +4022,7 @@ export class DescribePlaybookInputOutputResponseBodyConfig extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      exeConfig: 'string',
       inputParams: 'string',
       outputParams: 'string',
       paramType: 'string',
@@ -5785,6 +5791,10 @@ export default class Client extends OpenApi {
   async modifyPlaybookInputOutputWithOptions(request: ModifyPlaybookInputOutputRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPlaybookInputOutputResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.exeConfig)) {
+      body["ExeConfig"] = request.exeConfig;
+    }
+
     if (!Util.isUnset(request.inputParams)) {
       body["InputParams"] = request.inputParams;
     }
@@ -6002,6 +6012,13 @@ export default class Client extends OpenApi {
     return await this.revertPlaybookReleaseWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+    *
+    * @param request RunPython3ScriptRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RunPython3ScriptResponse
+   */
   async runPython3ScriptWithOptions(request: RunPython3ScriptRequest, runtime: $Util.RuntimeOptions): Promise<RunPython3ScriptResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6038,11 +6055,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RunPython3ScriptResponse>(await this.callApi(params, req, runtime), new RunPython3ScriptResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+    *
+    * @param request RunPython3ScriptRequest
+    * @return RunPython3ScriptResponse
+   */
   async runPython3Script(request: RunPython3ScriptRequest): Promise<RunPython3ScriptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runPython3ScriptWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+    *
+    * @param request TriggerPlaybookRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TriggerPlaybookResponse
+   */
   async triggerPlaybookWithOptions(request: TriggerPlaybookRequest, runtime: $Util.RuntimeOptions): Promise<TriggerPlaybookResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6071,6 +6101,12 @@ export default class Client extends OpenApi {
     return $tea.cast<TriggerPlaybookResponse>(await this.callApi(params, req, runtime), new TriggerPlaybookResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+    *
+    * @param request TriggerPlaybookRequest
+    * @return TriggerPlaybookResponse
+   */
   async triggerPlaybook(request: TriggerPlaybookRequest): Promise<TriggerPlaybookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.triggerPlaybookWithOptions(request, runtime);
@@ -6111,6 +6147,13 @@ export default class Client extends OpenApi {
     return await this.triggerProcessTaskWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+    *
+    * @param request TriggerSophonPlaybookRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TriggerSophonPlaybookResponse
+   */
   async triggerSophonPlaybookWithOptions(request: TriggerSophonPlaybookRequest, runtime: $Util.RuntimeOptions): Promise<TriggerSophonPlaybookResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6151,6 +6194,12 @@ export default class Client extends OpenApi {
     return $tea.cast<TriggerSophonPlaybookResponse>(await this.callApi(params, req, runtime), new TriggerSophonPlaybookResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+    *
+    * @param request TriggerSophonPlaybookRequest
+    * @return TriggerSophonPlaybookResponse
+   */
   async triggerSophonPlaybook(request: TriggerSophonPlaybookRequest): Promise<TriggerSophonPlaybookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.triggerSophonPlaybookWithOptions(request, runtime);
