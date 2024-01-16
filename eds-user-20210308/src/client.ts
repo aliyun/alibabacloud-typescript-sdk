@@ -8,6 +8,31 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class GroupResources extends $tea.Model {
+  region?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WaIdPermissions extends $tea.Model {
   code?: string;
   isBasicChild?: boolean;
@@ -1863,6 +1888,7 @@ export class CreateUsersRequestUsers extends $tea.Model {
   ownerType?: string;
   password?: string;
   phone?: string;
+  realNickName?: string;
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1872,6 +1898,7 @@ export class CreateUsersRequestUsers extends $tea.Model {
       ownerType: 'OwnerType',
       password: 'Password',
       phone: 'Phone',
+      realNickName: 'RealNickName',
       remark: 'Remark',
     };
   }
@@ -1884,6 +1911,7 @@ export class CreateUsersRequestUsers extends $tea.Model {
       ownerType: 'string',
       password: 'string',
       phone: 'string',
+      realNickName: 'string',
       remark: 'string',
     };
   }
@@ -1897,12 +1925,14 @@ export class CreateUsersResponseBodyCreateResultCreatedUsers extends $tea.Model 
   email?: string;
   endUserId?: string;
   phone?: string;
+  realNickName?: string;
   remark?: string;
   static names(): { [key: string]: string } {
     return {
       email: 'Email',
       endUserId: 'EndUserId',
       phone: 'Phone',
+      realNickName: 'RealNickName',
       remark: 'Remark',
     };
   }
@@ -1912,6 +1942,7 @@ export class CreateUsersResponseBodyCreateResultCreatedUsers extends $tea.Model 
       email: 'string',
       endUserId: 'string',
       phone: 'string',
+      realNickName: 'string',
       remark: 'string',
     };
   }
