@@ -30,7 +30,7 @@ export class CreateTokenRequest extends $tea.Model {
 export class CreateTokenResponseBody extends $tea.Model {
   code?: string;
   data?: CreateTokenResponseBodyData;
-  httpStatusCode?: string;
+  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -49,7 +49,7 @@ export class CreateTokenResponseBody extends $tea.Model {
     return {
       code: 'string',
       data: CreateTokenResponseBodyData,
-      httpStatusCode: 'string',
+      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
