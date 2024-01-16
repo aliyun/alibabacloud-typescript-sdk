@@ -12429,12 +12429,16 @@ export class ListEventsResponseBody extends $tea.Model {
   nextToken?: string;
   requestId?: string;
   syncToken?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
   static names(): { [key: string]: string } {
     return {
       events: 'events',
       nextToken: 'nextToken',
       requestId: 'requestId',
       syncToken: 'syncToken',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
     };
   }
 
@@ -12444,6 +12448,8 @@ export class ListEventsResponseBody extends $tea.Model {
       nextToken: 'string',
       requestId: 'string',
       syncToken: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
     };
   }
 
@@ -23225,16 +23231,16 @@ export class CommentListReportResponseBodyComments extends $tea.Model {
 }
 
 export class CreateDeliveryPlanHeadersAccountContext extends $tea.Model {
-  accountId?: string;
+  userToken?: string;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'accountId',
+      userToken: 'userToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'string',
+      userToken: 'string',
     };
   }
 
