@@ -3319,6 +3319,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
   environmentName?: string;
   environmentSubType?: string;
   environmentType?: string;
+  managedType?: string;
   regionId?: string;
   resourceGroupId?: string;
   tags?: CreateEnvironmentRequestTags[];
@@ -3329,6 +3330,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
       environmentName: 'EnvironmentName',
       environmentSubType: 'EnvironmentSubType',
       environmentType: 'EnvironmentType',
+      managedType: 'ManagedType',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
@@ -3342,6 +3344,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
       environmentName: 'string',
       environmentSubType: 'string',
       environmentType: 'string',
+      managedType: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': CreateEnvironmentRequestTags },
@@ -3398,6 +3401,151 @@ export class CreateEnvironmentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateEnvironmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGrafanaWorkspaceRequest extends $tea.Model {
+  aliyunLang?: string;
+  description?: string;
+  grafanaVersion?: string;
+  grafanaWorkspaceEdition?: string;
+  grafanaWorkspaceName?: string;
+  password?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tags?: CreateGrafanaWorkspaceRequestTags[];
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      description: 'Description',
+      grafanaVersion: 'GrafanaVersion',
+      grafanaWorkspaceEdition: 'GrafanaWorkspaceEdition',
+      grafanaWorkspaceName: 'GrafanaWorkspaceName',
+      password: 'Password',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      description: 'string',
+      grafanaVersion: 'string',
+      grafanaWorkspaceEdition: 'string',
+      grafanaWorkspaceName: 'string',
+      password: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': CreateGrafanaWorkspaceRequestTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGrafanaWorkspaceShrinkRequest extends $tea.Model {
+  aliyunLang?: string;
+  description?: string;
+  grafanaVersion?: string;
+  grafanaWorkspaceEdition?: string;
+  grafanaWorkspaceName?: string;
+  password?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      description: 'Description',
+      grafanaVersion: 'GrafanaVersion',
+      grafanaWorkspaceEdition: 'GrafanaWorkspaceEdition',
+      grafanaWorkspaceName: 'GrafanaWorkspaceName',
+      password: 'Password',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      description: 'string',
+      grafanaVersion: 'string',
+      grafanaWorkspaceEdition: 'string',
+      grafanaWorkspaceName: 'string',
+      password: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGrafanaWorkspaceResponseBody extends $tea.Model {
+  code?: number;
+  data?: GrafanaWorkspace;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GrafanaWorkspace,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGrafanaWorkspaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateGrafanaWorkspaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateGrafanaWorkspaceResponseBody,
     };
   }
 
@@ -6352,6 +6500,87 @@ export class DeleteGrafanaResourceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteGrafanaResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGrafanaWorkspaceRequest extends $tea.Model {
+  grafanaWorkspaceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grafanaWorkspaceId: 'GrafanaWorkspaceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grafanaWorkspaceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGrafanaWorkspaceResponseBody extends $tea.Model {
+  code?: number;
+  data?: boolean;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGrafanaWorkspaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteGrafanaWorkspaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGrafanaWorkspaceResponseBody,
     };
   }
 
@@ -9491,6 +9720,90 @@ export class GetExploreUrlResponse extends $tea.Model {
   }
 }
 
+export class GetGrafanaWorkspaceRequest extends $tea.Model {
+  aliyunLang?: string;
+  grafanaWorkspaceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      grafanaWorkspaceId: 'GrafanaWorkspaceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      grafanaWorkspaceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGrafanaWorkspaceResponseBody extends $tea.Model {
+  code?: number;
+  data?: GrafanaWorkspace;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GrafanaWorkspace,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGrafanaWorkspaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetGrafanaWorkspaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetGrafanaWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetIntegrationStateRequest extends $tea.Model {
   clusterId?: string;
   integration?: string;
@@ -11430,11 +11743,13 @@ export class ImportAppAlertRulesResponse extends $tea.Model {
 export class InitEnvironmentRequest extends $tea.Model {
   aliyunLang?: string;
   environmentId?: string;
+  managedType?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       aliyunLang: 'AliyunLang',
       environmentId: 'EnvironmentId',
+      managedType: 'ManagedType',
       regionId: 'RegionId',
     };
   }
@@ -11443,6 +11758,7 @@ export class InitEnvironmentRequest extends $tea.Model {
     return {
       aliyunLang: 'string',
       environmentId: 'string',
+      managedType: 'string',
       regionId: 'string',
     };
   }
@@ -18483,6 +18799,183 @@ export class UpdateEnvironmentResponse extends $tea.Model {
   }
 }
 
+export class UpdateGrafanaWorkspaceRequest extends $tea.Model {
+  aliyunLang?: string;
+  description?: string;
+  grafanaWorkspaceId?: string;
+  grafanaWorkspaceName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      description: 'Description',
+      grafanaWorkspaceId: 'GrafanaWorkspaceId',
+      grafanaWorkspaceName: 'GrafanaWorkspaceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      description: 'string',
+      grafanaWorkspaceId: 'string',
+      grafanaWorkspaceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGrafanaWorkspaceResponseBody extends $tea.Model {
+  code?: number;
+  data?: boolean;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGrafanaWorkspaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateGrafanaWorkspaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGrafanaWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGrafanaWorkspaceVersionRequest extends $tea.Model {
+  aliyunLang?: string;
+  grafanaVersion?: string;
+  grafanaWorkspaceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunLang: 'AliyunLang',
+      grafanaVersion: 'GrafanaVersion',
+      grafanaWorkspaceId: 'GrafanaWorkspaceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunLang: 'string',
+      grafanaVersion: 'string',
+      grafanaWorkspaceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGrafanaWorkspaceVersionResponseBody extends $tea.Model {
+  code?: number;
+  data?: boolean;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGrafanaWorkspaceVersionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateGrafanaWorkspaceVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGrafanaWorkspaceVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateIntegrationRequest extends $tea.Model {
   autoRecover?: boolean;
   description?: string;
@@ -19981,6 +20474,28 @@ export class CreateEnvServiceMonitorResponseBodyData extends $tea.Model {
 }
 
 export class CreateEnvironmentRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGrafanaWorkspaceRequestTags extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -32851,6 +33366,10 @@ export default class Client extends OpenApi {
       query["EnvironmentType"] = request.environmentType;
     }
 
+    if (!Util.isUnset(request.managedType)) {
+      query["ManagedType"] = request.managedType;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -32883,6 +33402,73 @@ export default class Client extends OpenApi {
   async createEnvironment(request: CreateEnvironmentRequest): Promise<CreateEnvironmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEnvironmentWithOptions(request, runtime);
+  }
+
+  async createGrafanaWorkspaceWithOptions(tmpReq: CreateGrafanaWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateGrafanaWorkspaceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateGrafanaWorkspaceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.grafanaVersion)) {
+      query["GrafanaVersion"] = request.grafanaVersion;
+    }
+
+    if (!Util.isUnset(request.grafanaWorkspaceEdition)) {
+      query["GrafanaWorkspaceEdition"] = request.grafanaWorkspaceEdition;
+    }
+
+    if (!Util.isUnset(request.grafanaWorkspaceName)) {
+      query["GrafanaWorkspaceName"] = request.grafanaWorkspaceName;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateGrafanaWorkspace",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGrafanaWorkspaceResponse>(await this.callApi(params, req, runtime), new CreateGrafanaWorkspaceResponse({}));
+  }
+
+  async createGrafanaWorkspace(request: CreateGrafanaWorkspaceRequest): Promise<CreateGrafanaWorkspaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createGrafanaWorkspaceWithOptions(request, runtime);
   }
 
   async createIntegrationWithOptions(request: CreateIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateIntegrationResponse> {
@@ -34602,6 +35188,39 @@ export default class Client extends OpenApi {
     return await this.deleteGrafanaResourceWithOptions(request, runtime);
   }
 
+  async deleteGrafanaWorkspaceWithOptions(request: DeleteGrafanaWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGrafanaWorkspaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.grafanaWorkspaceId)) {
+      query["GrafanaWorkspaceId"] = request.grafanaWorkspaceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGrafanaWorkspace",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGrafanaWorkspaceResponse>(await this.callApi(params, req, runtime), new DeleteGrafanaWorkspaceResponse({}));
+  }
+
+  async deleteGrafanaWorkspace(request: DeleteGrafanaWorkspaceRequest): Promise<DeleteGrafanaWorkspaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteGrafanaWorkspaceWithOptions(request, runtime);
+  }
+
   async deleteIMRobotWithOptions(request: DeleteIMRobotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIMRobotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36078,6 +36697,43 @@ export default class Client extends OpenApi {
     return await this.getExploreUrlWithOptions(request, runtime);
   }
 
+  async getGrafanaWorkspaceWithOptions(request: GetGrafanaWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<GetGrafanaWorkspaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.grafanaWorkspaceId)) {
+      query["GrafanaWorkspaceId"] = request.grafanaWorkspaceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetGrafanaWorkspace",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetGrafanaWorkspaceResponse>(await this.callApi(params, req, runtime), new GetGrafanaWorkspaceResponse({}));
+  }
+
+  async getGrafanaWorkspace(request: GetGrafanaWorkspaceRequest): Promise<GetGrafanaWorkspaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getGrafanaWorkspaceWithOptions(request, runtime);
+  }
+
   async getIntegrationStateWithOptions(request: GetIntegrationStateRequest, runtime: $Util.RuntimeOptions): Promise<GetIntegrationStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37061,6 +37717,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.environmentId)) {
       query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.managedType)) {
+      query["ManagedType"] = request.managedType;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -40934,6 +41594,92 @@ export default class Client extends OpenApi {
   async updateEnvironment(request: UpdateEnvironmentRequest): Promise<UpdateEnvironmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEnvironmentWithOptions(request, runtime);
+  }
+
+  async updateGrafanaWorkspaceWithOptions(request: UpdateGrafanaWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGrafanaWorkspaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.grafanaWorkspaceId)) {
+      query["GrafanaWorkspaceId"] = request.grafanaWorkspaceId;
+    }
+
+    if (!Util.isUnset(request.grafanaWorkspaceName)) {
+      query["GrafanaWorkspaceName"] = request.grafanaWorkspaceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGrafanaWorkspace",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGrafanaWorkspaceResponse>(await this.callApi(params, req, runtime), new UpdateGrafanaWorkspaceResponse({}));
+  }
+
+  async updateGrafanaWorkspace(request: UpdateGrafanaWorkspaceRequest): Promise<UpdateGrafanaWorkspaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGrafanaWorkspaceWithOptions(request, runtime);
+  }
+
+  async updateGrafanaWorkspaceVersionWithOptions(request: UpdateGrafanaWorkspaceVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGrafanaWorkspaceVersionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.grafanaVersion)) {
+      query["GrafanaVersion"] = request.grafanaVersion;
+    }
+
+    if (!Util.isUnset(request.grafanaWorkspaceId)) {
+      query["GrafanaWorkspaceId"] = request.grafanaWorkspaceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGrafanaWorkspaceVersion",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGrafanaWorkspaceVersionResponse>(await this.callApi(params, req, runtime), new UpdateGrafanaWorkspaceVersionResponse({}));
+  }
+
+  async updateGrafanaWorkspaceVersion(request: UpdateGrafanaWorkspaceVersionRequest): Promise<UpdateGrafanaWorkspaceVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGrafanaWorkspaceVersionWithOptions(request, runtime);
   }
 
   async updateIntegrationWithOptions(request: UpdateIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIntegrationResponse> {
