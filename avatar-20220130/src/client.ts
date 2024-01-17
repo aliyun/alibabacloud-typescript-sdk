@@ -279,6 +279,81 @@ export class ClientStartResponse extends $tea.Model {
   }
 }
 
+export class ClientUnbindDeviceRequest extends $tea.Model {
+  deviceId?: string;
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceId: 'DeviceId',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceId: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClientUnbindDeviceResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClientUnbindDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ClientUnbindDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ClientUnbindDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CloseTimedResetOperateRequest extends $tea.Model {
   instanceId?: string;
   tenantId?: number;
@@ -5055,6 +5130,39 @@ export default class Client extends OpenApi {
   async clientStart(request: ClientStartRequest): Promise<ClientStartResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.clientStartWithOptions(request, runtime);
+  }
+
+  async clientUnbindDeviceWithOptions(request: ClientUnbindDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ClientUnbindDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ClientUnbindDevice",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ClientUnbindDeviceResponse>(await this.callApi(params, req, runtime), new ClientUnbindDeviceResponse({}));
+  }
+
+  async clientUnbindDevice(request: ClientUnbindDeviceRequest): Promise<ClientUnbindDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.clientUnbindDeviceWithOptions(request, runtime);
   }
 
   async closeTimedResetOperateWithOptions(request: CloseTimedResetOperateRequest, runtime: $Util.RuntimeOptions): Promise<CloseTimedResetOperateResponse> {
