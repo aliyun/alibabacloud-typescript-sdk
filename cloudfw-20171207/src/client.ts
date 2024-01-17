@@ -6820,6 +6820,78 @@ export class PutEnableFwSwitchResponse extends $tea.Model {
   }
 }
 
+export class ReleasePostInstanceRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleasePostInstanceResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  releaseStatus?: boolean;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      releaseStatus: 'ReleaseStatus',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      releaseStatus: 'boolean',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleasePostInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReleasePostInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleasePostInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResetVpcFirewallRuleHitCountRequest extends $tea.Model {
   aclUuid?: string;
   lang?: string;
@@ -9995,7 +10067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use this operation to create an access control policy to allow, deny, or monitor traffic that passes through a NAT firewall.
+    * You can call this operation to create a policy that allows, denies, or monitors the traffic that passes through the NAT firewall.
     *
     * @param request CreateNatFirewallControlPolicyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -10118,7 +10190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use this operation to create an access control policy to allow, deny, or monitor traffic that passes through a NAT firewall.
+    * You can call this operation to create a policy that allows, denies, or monitors the traffic that passes through the NAT firewall.
     *
     * @param request CreateNatFirewallControlPolicyRequest
     * @return CreateNatFirewallControlPolicyResponse
@@ -14804,6 +14876,35 @@ export default class Client extends OpenApi {
   async putEnableFwSwitch(request: PutEnableFwSwitchRequest): Promise<PutEnableFwSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putEnableFwSwitchWithOptions(request, runtime);
+  }
+
+  async releasePostInstanceWithOptions(request: ReleasePostInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleasePostInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleasePostInstance",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleasePostInstanceResponse>(await this.callApi(params, req, runtime), new ReleasePostInstanceResponse({}));
+  }
+
+  async releasePostInstance(request: ReleasePostInstanceRequest): Promise<ReleasePostInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releasePostInstanceWithOptions(request, runtime);
   }
 
   /**
