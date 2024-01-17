@@ -5700,11 +5700,13 @@ export class DescribePurchasedApiGroupsRequest extends $tea.Model {
   groupIds?: string;
   pageNumber?: number;
   pageSize?: number;
+  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       groupIds: 'GroupIds',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
     };
   }
 
@@ -5713,6 +5715,7 @@ export class DescribePurchasedApiGroupsRequest extends $tea.Model {
       groupIds: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      securityToken: 'string',
     };
   }
 
@@ -17412,6 +17415,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
