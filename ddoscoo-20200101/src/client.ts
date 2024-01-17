@@ -6599,6 +6599,81 @@ export class DescribePortAutoCcStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribePortCcAttackTopIPRequest extends $tea.Model {
+  ip?: string;
+  limit?: number;
+  port?: string;
+  startTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      limit: 'Limit',
+      port: 'Port',
+      startTimestamp: 'StartTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      limit: 'number',
+      port: 'string',
+      startTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePortCcAttackTopIPResponseBody extends $tea.Model {
+  requestId?: string;
+  topIp?: DescribePortCcAttackTopIPResponseBodyTopIp[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      topIp: 'TopIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      topIp: { 'type': 'array', 'itemType': DescribePortCcAttackTopIPResponseBodyTopIp },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePortCcAttackTopIPResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePortCcAttackTopIPResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePortCcAttackTopIPResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePortConnsCountRequest extends $tea.Model {
   endTime?: number;
   instanceIds?: string[];
@@ -9036,6 +9111,87 @@ export class DescribeWebPreciseAccessRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeWebPreciseAccessRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebReportTopIpRequest extends $tea.Model {
+  domain?: string;
+  endTime?: number;
+  interval?: number;
+  queryType?: string;
+  startTime?: number;
+  top?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      queryType: 'QueryType',
+      startTime: 'StartTime',
+      top: 'Top',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      endTime: 'number',
+      interval: 'number',
+      queryType: 'string',
+      startTime: 'number',
+      top: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebReportTopIpResponseBody extends $tea.Model {
+  dataList?: DescribeWebReportTopIpResponseBodyDataList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataList: 'DataList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataList: { 'type': 'array', 'itemType': DescribeWebReportTopIpResponseBodyDataList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebReportTopIpResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeWebReportTopIpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeWebReportTopIpResponseBody,
     };
   }
 
@@ -14115,6 +14271,31 @@ export class DescribePortAutoCcStatusResponseBodyPortAutoCcStatus extends $tea.M
   }
 }
 
+export class DescribePortCcAttackTopIPResponseBodyTopIp extends $tea.Model {
+  areaId?: string;
+  pv?: number;
+  srcIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      areaId: 'AreaId',
+      pv: 'Pv',
+      srcIp: 'SrcIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      areaId: 'string',
+      pv: 'number',
+      srcIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePortConnsListResponseBodyConnsList extends $tea.Model {
   actConns?: number;
   conns?: number;
@@ -14442,6 +14623,7 @@ export class DescribeSchedulerRulesResponseBodySchedulerRulesParam extends $tea.
 }
 
 export class DescribeSchedulerRulesResponseBodySchedulerRulesRules extends $tea.Model {
+  line?: string;
   priority?: number;
   regionId?: string;
   restoreDelay?: number;
@@ -14451,6 +14633,7 @@ export class DescribeSchedulerRulesResponseBodySchedulerRulesRules extends $tea.
   valueType?: number;
   static names(): { [key: string]: string } {
     return {
+      line: 'Line',
       priority: 'Priority',
       regionId: 'RegionId',
       restoreDelay: 'RestoreDelay',
@@ -14463,6 +14646,7 @@ export class DescribeSchedulerRulesResponseBodySchedulerRulesRules extends $tea.
 
   static types(): { [key: string]: any } {
     return {
+      line: 'string',
       priority: 'number',
       regionId: 'string',
       restoreDelay: 'number',
@@ -14875,6 +15059,7 @@ export class DescribeWebCcProtectSwitchResponseBodyProtectSwitchList extends $te
   blackWhiteListEnable?: number;
   ccCustomRuleEnable?: number;
   ccEnable?: number;
+  ccGlobalSwitch?: string;
   ccTemplate?: string;
   domain?: string;
   preciseRuleEnable?: number;
@@ -14887,6 +15072,7 @@ export class DescribeWebCcProtectSwitchResponseBodyProtectSwitchList extends $te
       blackWhiteListEnable: 'BlackWhiteListEnable',
       ccCustomRuleEnable: 'CcCustomRuleEnable',
       ccEnable: 'CcEnable',
+      ccGlobalSwitch: 'CcGlobalSwitch',
       ccTemplate: 'CcTemplate',
       domain: 'Domain',
       preciseRuleEnable: 'PreciseRuleEnable',
@@ -14902,6 +15088,7 @@ export class DescribeWebCcProtectSwitchResponseBodyProtectSwitchList extends $te
       blackWhiteListEnable: 'number',
       ccCustomRuleEnable: 'number',
       ccEnable: 'number',
+      ccGlobalSwitch: 'string',
       ccTemplate: 'string',
       domain: 'string',
       preciseRuleEnable: 'number',
@@ -14985,12 +15172,14 @@ export class DescribeWebInstanceRelationsResponseBodyWebInstanceRelations extend
 
 export class DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRuleListConditionList extends $tea.Model {
   content?: string;
+  contentList?: string[];
   field?: string;
   headerName?: string;
   matchMethod?: string;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
+      contentList: 'ContentList',
       field: 'Field',
       headerName: 'HeaderName',
       matchMethod: 'MatchMethod',
@@ -15000,6 +15189,7 @@ export class DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRule
   static types(): { [key: string]: any } {
     return {
       content: 'string',
+      contentList: { 'type': 'array', 'itemType': 'string' },
       field: 'string',
       headerName: 'string',
       matchMethod: 'string',
@@ -15056,6 +15246,34 @@ export class DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigList ext
     return {
       domain: 'string',
       ruleList: { 'type': 'array', 'itemType': DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRuleList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebReportTopIpResponseBodyDataList extends $tea.Model {
+  areaId?: string;
+  count?: number;
+  isp?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      areaId: 'AreaId',
+      count: 'Count',
+      isp: 'Isp',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      areaId: 'string',
+      count: 'number',
+      isp: 'string',
+      sourceIp: 'string',
     };
   }
 
@@ -19069,6 +19287,47 @@ export default class Client extends OpenApi {
     return await this.describePortAutoCcStatusWithOptions(request, runtime);
   }
 
+  async describePortCcAttackTopIPWithOptions(request: DescribePortCcAttackTopIPRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortCcAttackTopIPResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePortCcAttackTopIP",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePortCcAttackTopIPResponse>(await this.callApi(params, req, runtime), new DescribePortCcAttackTopIPResponse({}));
+  }
+
+  async describePortCcAttackTopIP(request: DescribePortCcAttackTopIPRequest): Promise<DescribePortCcAttackTopIPResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePortCcAttackTopIPWithOptions(request, runtime);
+  }
+
   async describePortConnsCountWithOptions(request: DescribePortConnsCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortConnsCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20464,6 +20723,55 @@ export default class Client extends OpenApi {
   async describeWebPreciseAccessRule(request: DescribeWebPreciseAccessRuleRequest): Promise<DescribeWebPreciseAccessRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebPreciseAccessRuleWithOptions(request, runtime);
+  }
+
+  async describeWebReportTopIpWithOptions(request: DescribeWebReportTopIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebReportTopIpResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.top)) {
+      query["Top"] = request.top;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWebReportTopIp",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWebReportTopIpResponse>(await this.callApi(params, req, runtime), new DescribeWebReportTopIpResponse({}));
+  }
+
+  async describeWebReportTopIp(request: DescribeWebReportTopIpRequest): Promise<DescribeWebReportTopIpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWebReportTopIpWithOptions(request, runtime);
   }
 
   async describeWebRulesWithOptions(request: DescribeWebRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebRulesResponse> {
