@@ -4873,15 +4873,18 @@ export class GetVisualServiceStatusResponse extends $tea.Model {
 
 export class InitializeEHPCRequest extends $tea.Model {
   regionId?: string;
+  serviceName?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      serviceName: 'ServiceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      serviceName: 'string',
     };
   }
 
@@ -12218,6 +12221,7 @@ export class DescribeClusterResponseBodyClusterInfo extends $tea.Model {
   sccClusterId?: string;
   schedulerPreInstall?: number;
   schedulerType?: string;
+  schedulerVersion?: string;
   securityGroupId?: string;
   status?: string;
   vSwitchId?: string;
@@ -12272,6 +12276,7 @@ export class DescribeClusterResponseBodyClusterInfo extends $tea.Model {
       sccClusterId: 'SccClusterId',
       schedulerPreInstall: 'SchedulerPreInstall',
       schedulerType: 'SchedulerType',
+      schedulerVersion: 'SchedulerVersion',
       securityGroupId: 'SecurityGroupId',
       status: 'Status',
       vSwitchId: 'VSwitchId',
@@ -12329,6 +12334,7 @@ export class DescribeClusterResponseBodyClusterInfo extends $tea.Model {
       sccClusterId: 'string',
       schedulerPreInstall: 'number',
       schedulerType: 'string',
+      schedulerVersion: 'string',
       securityGroupId: 'string',
       status: 'string',
       vSwitchId: 'string',
@@ -15272,6 +15278,7 @@ export class ListClustersMetaResponseBodyClustersClusterInfoSimple extends $tea.
   clientVersion?: string;
   deployMode?: string;
   description?: string;
+  ehpcVersion?: string;
   hasPlugin?: boolean;
   id?: string;
   isComputeEss?: boolean;
@@ -15287,6 +15294,7 @@ export class ListClustersMetaResponseBodyClustersClusterInfoSimple extends $tea.
       clientVersion: 'ClientVersion',
       deployMode: 'DeployMode',
       description: 'Description',
+      ehpcVersion: 'EhpcVersion',
       hasPlugin: 'HasPlugin',
       id: 'Id',
       isComputeEss: 'IsComputeEss',
@@ -15305,6 +15313,7 @@ export class ListClustersMetaResponseBodyClustersClusterInfoSimple extends $tea.
       clientVersion: 'string',
       deployMode: 'string',
       description: 'string',
+      ehpcVersion: 'string',
       hasPlugin: 'boolean',
       id: 'string',
       isComputeEss: 'boolean',
@@ -18815,6 +18824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## [](#)Description
     * You can call the ApplyNodes operation to specify the number of compute nodes, the number of vCPUs, and the memory size when you add nodes to a cluster.
     *
     * @param request ApplyNodesRequest
@@ -18842,6 +18852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## [](#)Description
     * You can call the ApplyNodes operation to specify the number of compute nodes, the number of vCPUs, and the memory size when you add nodes to a cluster.
     *
     * @param request ApplyNodesRequest
@@ -19041,7 +19052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After a cluster is released, the pay-as-you-go nodes and the subscription nodes that have expired are automatically released. The subscription nodes that have not expired are retained. If you need to release the subscription nodes that have not expired, change their billing method to pay-as-you-go. Before you release a cluster, make sure that you will no longer use the cluster.
+    * After a cluster is released, the pay-as-you-go nodes and the subscription nodes that are expired are automatically released. The subscription nodes that are expired are retained. If you need to release subscription nodes that are not expired, change the billing method to pay-as-you-go. Before you release a cluster, make sure that you no longer use the cluster.
     *
     * @param request DeleteClusterRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19068,7 +19079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After a cluster is released, the pay-as-you-go nodes and the subscription nodes that have expired are automatically released. The subscription nodes that have not expired are retained. If you need to release the subscription nodes that have not expired, change their billing method to pay-as-you-go. Before you release a cluster, make sure that you will no longer use the cluster.
+    * After a cluster is released, the pay-as-you-go nodes and the subscription nodes that are expired are automatically released. The subscription nodes that are expired are retained. If you need to release subscription nodes that are not expired, change the billing method to pay-as-you-go. Before you release a cluster, make sure that you no longer use the cluster.
     *
     * @param request DeleteClusterRequest
     * @return DeleteClusterResponse
