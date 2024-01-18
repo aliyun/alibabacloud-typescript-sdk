@@ -1020,6 +1020,7 @@ export class AddGatewayDomainResponse extends $tea.Model {
 
 export class AddGatewayRouteRequest extends $tea.Model {
   acceptLanguage?: string;
+  description?: string;
   destinationType?: string;
   directResponseJSON?: AddGatewayRouteRequestDirectResponseJSON;
   domainId?: number;
@@ -1039,6 +1040,7 @@ export class AddGatewayRouteRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      description: 'Description',
       destinationType: 'DestinationType',
       directResponseJSON: 'DirectResponseJSON',
       domainId: 'DomainId',
@@ -1061,6 +1063,7 @@ export class AddGatewayRouteRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      description: 'string',
       destinationType: 'string',
       directResponseJSON: AddGatewayRouteRequestDirectResponseJSON,
       domainId: 'number',
@@ -1087,6 +1090,7 @@ export class AddGatewayRouteRequest extends $tea.Model {
 
 export class AddGatewayRouteShrinkRequest extends $tea.Model {
   acceptLanguage?: string;
+  description?: string;
   destinationType?: string;
   directResponseJSONShrink?: string;
   domainId?: number;
@@ -1106,6 +1110,7 @@ export class AddGatewayRouteShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      description: 'Description',
       destinationType: 'DestinationType',
       directResponseJSONShrink: 'DirectResponseJSON',
       domainId: 'DomainId',
@@ -1128,6 +1133,7 @@ export class AddGatewayRouteShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      description: 'string',
       destinationType: 'string',
       directResponseJSONShrink: 'string',
       domainId: 'number',
@@ -10237,6 +10243,7 @@ export class ListClusterVersionsResponse extends $tea.Model {
 export class ListClustersRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterAliasName?: string;
+  keyId?: string;
   pageNum?: number;
   pageSize?: number;
   regionId?: string;
@@ -10247,6 +10254,7 @@ export class ListClustersRequest extends $tea.Model {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterAliasName: 'ClusterAliasName',
+      keyId: 'KeyId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -10260,6 +10268,7 @@ export class ListClustersRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterAliasName: 'string',
+      keyId: 'string',
       pageNum: 'number',
       pageSize: 'number',
       regionId: 'string',
@@ -11284,11 +11293,13 @@ export class ListGatewayAuthConsumerResourceResponse extends $tea.Model {
 
 export class ListGatewayDomainRequest extends $tea.Model {
   acceptLanguage?: string;
+  domainName?: string;
   gatewayUniqueId?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      domainName: 'DomainName',
       gatewayUniqueId: 'GatewayUniqueId',
       type: 'Type',
     };
@@ -11297,6 +11308,7 @@ export class ListGatewayDomainRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      domainName: 'string',
       gatewayUniqueId: 'string',
       type: 'string',
     };
@@ -12537,10 +12549,12 @@ export class ListNamingTrackResponse extends $tea.Model {
 
 export class ListSSLCertRequest extends $tea.Model {
   acceptLanguage?: string;
+  certName?: string;
   gatewayUniqueId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      certName: 'CertName',
       gatewayUniqueId: 'GatewayUniqueId',
     };
   }
@@ -12548,6 +12562,7 @@ export class ListSSLCertRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      certName: 'string',
       gatewayUniqueId: 'string',
     };
   }
@@ -17451,6 +17466,7 @@ export class UpdateGatewayOptionResponse extends $tea.Model {
 
 export class UpdateGatewayRouteRequest extends $tea.Model {
   acceptLanguage?: string;
+  description?: string;
   destinationType?: string;
   directResponseJSON?: UpdateGatewayRouteRequestDirectResponseJSON;
   domainIdListJSON?: string;
@@ -17468,6 +17484,7 @@ export class UpdateGatewayRouteRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      description: 'Description',
       destinationType: 'DestinationType',
       directResponseJSON: 'DirectResponseJSON',
       domainIdListJSON: 'DomainIdListJSON',
@@ -17488,6 +17505,7 @@ export class UpdateGatewayRouteRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      description: 'string',
       destinationType: 'string',
       directResponseJSON: UpdateGatewayRouteRequestDirectResponseJSON,
       domainIdListJSON: 'string',
@@ -17512,6 +17530,7 @@ export class UpdateGatewayRouteRequest extends $tea.Model {
 
 export class UpdateGatewayRouteShrinkRequest extends $tea.Model {
   acceptLanguage?: string;
+  description?: string;
   destinationType?: string;
   directResponseJSONShrink?: string;
   domainIdListJSON?: string;
@@ -17529,6 +17548,7 @@ export class UpdateGatewayRouteShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      description: 'Description',
       destinationType: 'DestinationType',
       directResponseJSONShrink: 'DirectResponseJSON',
       domainIdListJSON: 'DomainIdListJSON',
@@ -17549,6 +17569,7 @@ export class UpdateGatewayRouteShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      description: 'string',
       destinationType: 'string',
       directResponseJSONShrink: 'string',
       domainIdListJSON: 'string',
@@ -23343,6 +23364,7 @@ export class GetGatewayRouteDetailResponseBodyDataRoutePredicates extends $tea.M
 export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $tea.Model {
   agreementType?: string;
   groupName?: string;
+  healthStatus?: string;
   name?: string;
   namespace?: string;
   percent?: number;
@@ -23350,11 +23372,13 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $tea.Mod
   serviceName?: string;
   servicePort?: number;
   sourceType?: string;
+  unhealthyEndpoints?: string[];
   version?: string;
   static names(): { [key: string]: string } {
     return {
       agreementType: 'AgreementType',
       groupName: 'GroupName',
+      healthStatus: 'HealthStatus',
       name: 'Name',
       namespace: 'Namespace',
       percent: 'Percent',
@@ -23362,6 +23386,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $tea.Mod
       serviceName: 'ServiceName',
       servicePort: 'ServicePort',
       sourceType: 'SourceType',
+      unhealthyEndpoints: 'UnhealthyEndpoints',
       version: 'Version',
     };
   }
@@ -23370,6 +23395,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $tea.Mod
     return {
       agreementType: 'string',
       groupName: 'string',
+      healthStatus: 'string',
       name: 'string',
       namespace: 'string',
       percent: 'number',
@@ -23377,6 +23403,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $tea.Mod
       serviceName: 'string',
       servicePort: 'number',
       sourceType: 'string',
+      unhealthyEndpoints: { 'type': 'array', 'itemType': 'string' },
       version: 'string',
     };
   }
@@ -23416,6 +23443,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $tea.Model {
   cors?: GetGatewayRouteDetailResponseBodyDataCors;
   defaultServiceId?: number;
   defaultServiceName?: string;
+  description?: string;
   destinationType?: string;
   directResponse?: GetGatewayRouteDetailResponseBodyDataDirectResponse;
   domainId?: number;
@@ -23450,6 +23478,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $tea.Model {
       cors: 'Cors',
       defaultServiceId: 'DefaultServiceId',
       defaultServiceName: 'DefaultServiceName',
+      description: 'Description',
       destinationType: 'DestinationType',
       directResponse: 'DirectResponse',
       domainId: 'DomainId',
@@ -23487,6 +23516,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $tea.Model {
       cors: GetGatewayRouteDetailResponseBodyDataCors,
       defaultServiceId: 'number',
       defaultServiceName: 'string',
+      description: 'string',
       destinationType: 'string',
       directResponse: GetGatewayRouteDetailResponseBodyDataDirectResponse,
       domainId: 'number',
@@ -26693,6 +26723,7 @@ export class ListGatewayRouteRequestFilterParams extends $tea.Model {
   gatewayId?: number;
   gatewayUniqueId?: string;
   name?: string;
+  path?: string;
   routeOrder?: number;
   status?: number;
   static names(): { [key: string]: string } {
@@ -26703,6 +26734,7 @@ export class ListGatewayRouteRequestFilterParams extends $tea.Model {
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       name: 'Name',
+      path: 'Path',
       routeOrder: 'RouteOrder',
       status: 'Status',
     };
@@ -26716,6 +26748,7 @@ export class ListGatewayRouteRequestFilterParams extends $tea.Model {
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       name: 'string',
+      path: 'string',
       routeOrder: 'number',
       status: 'number',
     };
@@ -27031,6 +27064,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
 export class ListGatewayRouteResponseBodyDataResultRouteServices extends $tea.Model {
   agreementType?: string;
   groupName?: string;
+  healthStatus?: string;
   httpDubboTranscoder?: ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoder;
   name?: string;
   namespace?: string;
@@ -27039,11 +27073,13 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $tea.Mo
   serviceName?: string;
   servicePort?: number;
   sourceType?: string;
+  unhealthyEndpoints?: string[];
   version?: string;
   static names(): { [key: string]: string } {
     return {
       agreementType: 'AgreementType',
       groupName: 'GroupName',
+      healthStatus: 'HealthStatus',
       httpDubboTranscoder: 'HttpDubboTranscoder',
       name: 'Name',
       namespace: 'Namespace',
@@ -27052,6 +27088,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $tea.Mo
       serviceName: 'ServiceName',
       servicePort: 'ServicePort',
       sourceType: 'SourceType',
+      unhealthyEndpoints: 'UnhealthyEndpoints',
       version: 'Version',
     };
   }
@@ -27060,6 +27097,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $tea.Mo
     return {
       agreementType: 'string',
       groupName: 'string',
+      healthStatus: 'string',
       httpDubboTranscoder: ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoder,
       name: 'string',
       namespace: 'string',
@@ -27068,6 +27106,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $tea.Mo
       serviceName: 'string',
       servicePort: 'number',
       sourceType: 'string',
+      unhealthyEndpoints: { 'type': 'array', 'itemType': 'string' },
       version: 'string',
     };
   }
@@ -27864,6 +27903,7 @@ export class ListNacosHistoryConfigsResponseBodyHistoryItems extends $tea.Model 
   id?: number;
   lastModifiedTime?: number;
   opType?: string;
+  srcUser?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -27872,6 +27912,7 @@ export class ListNacosHistoryConfigsResponseBodyHistoryItems extends $tea.Model 
       id: 'Id',
       lastModifiedTime: 'LastModifiedTime',
       opType: 'OpType',
+      srcUser: 'SrcUser',
     };
   }
 
@@ -27883,6 +27924,7 @@ export class ListNacosHistoryConfigsResponseBodyHistoryItems extends $tea.Model 
       id: 'number',
       lastModifiedTime: 'number',
       opType: 'string',
+      srcUser: 'string',
     };
   }
 
@@ -31195,6 +31237,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
     }
 
     if (!Util.isUnset(request.destinationType)) {
@@ -36154,6 +36200,10 @@ export default class Client extends OpenApi {
       query["ClusterAliasName"] = request.clusterAliasName;
     }
 
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
     if (!Util.isUnset(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
@@ -36620,6 +36670,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
     }
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
@@ -37208,6 +37262,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.certName)) {
+      query["CertName"] = request.certName;
     }
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
@@ -39678,6 +39736,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
     }
 
     if (!Util.isUnset(request.destinationType)) {
