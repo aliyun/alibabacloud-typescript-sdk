@@ -6812,10 +6812,14 @@ export class GetDatabaseObjectsResponse extends $tea.Model {
 export class GetSparkAppAttemptLogRequest extends $tea.Model {
   attemptId?: string;
   logLength?: number;
+  pageNumber?: number;
+  pageSize?: string;
   static names(): { [key: string]: string } {
     return {
       attemptId: 'AttemptId',
       logLength: 'LogLength',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
@@ -6823,6 +6827,8 @@ export class GetSparkAppAttemptLogRequest extends $tea.Model {
     return {
       attemptId: 'string',
       logLength: 'number',
+      pageNumber: 'number',
+      pageSize: 'string',
     };
   }
 
@@ -6951,11 +6957,15 @@ export class GetSparkAppLogRequest extends $tea.Model {
   appId?: string;
   DBClusterId?: string;
   logLength?: number;
+  pageNumber?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       DBClusterId: 'DBClusterId',
       logLength: 'LogLength',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
@@ -6964,6 +6974,8 @@ export class GetSparkAppLogRequest extends $tea.Model {
       appId: 'string',
       DBClusterId: 'string',
       logLength: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -13018,12 +13030,14 @@ export class GetSparkAppAttemptLogResponseBodyData extends $tea.Model {
   appId?: string;
   DBClusterId?: string;
   logContent?: string;
+  logSize?: number;
   message?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       DBClusterId: 'DBClusterId',
       logContent: 'LogContent',
+      logSize: 'LogSize',
       message: 'Message',
     };
   }
@@ -13033,6 +13047,7 @@ export class GetSparkAppAttemptLogResponseBodyData extends $tea.Model {
       appId: 'string',
       DBClusterId: 'string',
       logContent: 'string',
+      logSize: 'number',
       message: 'string',
     };
   }
@@ -13045,11 +13060,13 @@ export class GetSparkAppAttemptLogResponseBodyData extends $tea.Model {
 export class GetSparkAppLogResponseBodyData extends $tea.Model {
   DBClusterId?: string;
   logContent?: string;
+  logSize?: number;
   message?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       logContent: 'LogContent',
+      logSize: 'LogSize',
       message: 'Message',
     };
   }
@@ -13058,6 +13075,7 @@ export class GetSparkAppLogResponseBodyData extends $tea.Model {
     return {
       DBClusterId: 'string',
       logContent: 'string',
+      logSize: 'number',
       message: 'string',
     };
   }
@@ -16920,6 +16938,15 @@ export default class Client extends OpenApi {
 
   async getSparkAppAttemptLogWithOptions(request: GetSparkAppAttemptLogRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkAppAttemptLogResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.attemptId)) {
       body["AttemptId"] = request.attemptId;
@@ -16930,6 +16957,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -16991,6 +17019,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     let body : {[key: string ]: any} = { };
