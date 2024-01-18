@@ -7028,10 +7028,13 @@ export class PushBroadcastResponse extends $tea.Model {
 }
 
 export class PushMultipleRequest extends $tea.Model {
+  activityContentState?: any;
+  activityEvent?: string;
   appId?: string;
   channelId?: string;
   classification?: string;
   deliveryType?: number;
+  dismissalDate?: number;
   expiredSeconds?: number;
   extendedParams?: string;
   miChannelId?: string;
@@ -7047,10 +7050,13 @@ export class PushMultipleRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      activityContentState: 'ActivityContentState',
+      activityEvent: 'ActivityEvent',
       appId: 'AppId',
       channelId: 'ChannelId',
       classification: 'Classification',
       deliveryType: 'DeliveryType',
+      dismissalDate: 'DismissalDate',
       expiredSeconds: 'ExpiredSeconds',
       extendedParams: 'ExtendedParams',
       miChannelId: 'MiChannelId',
@@ -7069,10 +7075,13 @@ export class PushMultipleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      activityContentState: 'any',
+      activityEvent: 'string',
       appId: 'string',
       channelId: 'string',
       classification: 'string',
       deliveryType: 'number',
+      dismissalDate: 'number',
       expiredSeconds: 'number',
       extendedParams: 'string',
       miChannelId: 'string',
@@ -7095,10 +7104,13 @@ export class PushMultipleRequest extends $tea.Model {
 }
 
 export class PushMultipleShrinkRequest extends $tea.Model {
+  activityContentState?: any;
+  activityEvent?: string;
   appId?: string;
   channelId?: string;
   classification?: string;
   deliveryType?: number;
+  dismissalDate?: number;
   expiredSeconds?: number;
   extendedParams?: string;
   miChannelId?: string;
@@ -7114,10 +7126,13 @@ export class PushMultipleShrinkRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      activityContentState: 'ActivityContentState',
+      activityEvent: 'ActivityEvent',
       appId: 'AppId',
       channelId: 'ChannelId',
       classification: 'Classification',
       deliveryType: 'DeliveryType',
+      dismissalDate: 'DismissalDate',
       expiredSeconds: 'ExpiredSeconds',
       extendedParams: 'ExtendedParams',
       miChannelId: 'MiChannelId',
@@ -7136,10 +7151,13 @@ export class PushMultipleShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      activityContentState: 'any',
+      activityEvent: 'string',
       appId: 'string',
       channelId: 'string',
       classification: 'string',
       deliveryType: 'number',
+      dismissalDate: 'number',
       expiredSeconds: 'number',
       extendedParams: 'string',
       miChannelId: 'string',
@@ -7323,11 +7341,14 @@ export class PushReportResponse extends $tea.Model {
 }
 
 export class PushSimpleRequest extends $tea.Model {
+  activityContentState?: any;
+  activityEvent?: string;
   appId?: string;
   channelId?: string;
   classification?: string;
   content?: string;
   deliveryType?: number;
+  dismissalDate?: number;
   expiredSeconds?: number;
   extendedParams?: string;
   iconUrls?: string;
@@ -7351,11 +7372,14 @@ export class PushSimpleRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      activityContentState: 'ActivityContentState',
+      activityEvent: 'ActivityEvent',
       appId: 'AppId',
       channelId: 'ChannelId',
       classification: 'Classification',
       content: 'Content',
       deliveryType: 'DeliveryType',
+      dismissalDate: 'DismissalDate',
       expiredSeconds: 'ExpiredSeconds',
       extendedParams: 'ExtendedParams',
       iconUrls: 'IconUrls',
@@ -7382,11 +7406,14 @@ export class PushSimpleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      activityContentState: 'any',
+      activityEvent: 'string',
       appId: 'string',
       channelId: 'string',
       classification: 'string',
       content: 'string',
       deliveryType: 'number',
+      dismissalDate: 'number',
       expiredSeconds: 'number',
       extendedParams: 'string',
       iconUrls: 'string',
@@ -7417,11 +7444,14 @@ export class PushSimpleRequest extends $tea.Model {
 }
 
 export class PushSimpleShrinkRequest extends $tea.Model {
+  activityContentState?: any;
+  activityEvent?: string;
   appId?: string;
   channelId?: string;
   classification?: string;
   content?: string;
   deliveryType?: number;
+  dismissalDate?: number;
   expiredSeconds?: number;
   extendedParams?: string;
   iconUrls?: string;
@@ -7445,11 +7475,14 @@ export class PushSimpleShrinkRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      activityContentState: 'ActivityContentState',
+      activityEvent: 'ActivityEvent',
       appId: 'AppId',
       channelId: 'ChannelId',
       classification: 'Classification',
       content: 'Content',
       deliveryType: 'DeliveryType',
+      dismissalDate: 'DismissalDate',
       expiredSeconds: 'ExpiredSeconds',
       extendedParams: 'ExtendedParams',
       iconUrls: 'IconUrls',
@@ -7476,11 +7509,14 @@ export class PushSimpleShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      activityContentState: 'any',
+      activityEvent: 'string',
       appId: 'string',
       channelId: 'string',
       classification: 'string',
       content: 'string',
       deliveryType: 'number',
+      dismissalDate: 'number',
       expiredSeconds: 'number',
       extendedParams: 'string',
       iconUrls: 'string',
@@ -7564,10 +7600,13 @@ export class PushSimpleResponse extends $tea.Model {
 }
 
 export class PushTemplateRequest extends $tea.Model {
+  activityContentState?: any;
+  activityEvent?: string;
   appId?: string;
   channelId?: string;
   classification?: string;
   deliveryType?: number;
+  dismissalDate?: number;
   expiredSeconds?: number;
   extendedParams?: string;
   miChannelId?: string;
@@ -7588,10 +7627,13 @@ export class PushTemplateRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      activityContentState: 'ActivityContentState',
+      activityEvent: 'ActivityEvent',
       appId: 'AppId',
       channelId: 'ChannelId',
       classification: 'Classification',
       deliveryType: 'DeliveryType',
+      dismissalDate: 'DismissalDate',
       expiredSeconds: 'ExpiredSeconds',
       extendedParams: 'ExtendedParams',
       miChannelId: 'MiChannelId',
@@ -7615,10 +7657,13 @@ export class PushTemplateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      activityContentState: 'any',
+      activityEvent: 'string',
       appId: 'string',
       channelId: 'string',
       classification: 'string',
       deliveryType: 'number',
+      dismissalDate: 'number',
       expiredSeconds: 'number',
       extendedParams: 'string',
       miChannelId: 'string',
@@ -7646,10 +7691,13 @@ export class PushTemplateRequest extends $tea.Model {
 }
 
 export class PushTemplateShrinkRequest extends $tea.Model {
+  activityContentState?: any;
+  activityEvent?: string;
   appId?: string;
   channelId?: string;
   classification?: string;
   deliveryType?: number;
+  dismissalDate?: number;
   expiredSeconds?: number;
   extendedParams?: string;
   miChannelId?: string;
@@ -7670,10 +7718,13 @@ export class PushTemplateShrinkRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      activityContentState: 'ActivityContentState',
+      activityEvent: 'ActivityEvent',
       appId: 'AppId',
       channelId: 'ChannelId',
       classification: 'Classification',
       deliveryType: 'DeliveryType',
+      dismissalDate: 'DismissalDate',
       expiredSeconds: 'ExpiredSeconds',
       extendedParams: 'ExtendedParams',
       miChannelId: 'MiChannelId',
@@ -7697,10 +7748,13 @@ export class PushTemplateShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      activityContentState: 'any',
+      activityEvent: 'string',
       appId: 'string',
       channelId: 'string',
       classification: 'string',
       deliveryType: 'number',
+      dismissalDate: 'number',
       expiredSeconds: 'number',
       extendedParams: 'string',
       miChannelId: 'string',
@@ -21650,6 +21704,14 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.activityContentState)) {
+      body["ActivityContentState"] = request.activityContentState;
+    }
+
+    if (!Util.isUnset(request.activityEvent)) {
+      body["ActivityEvent"] = request.activityEvent;
+    }
+
     if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
@@ -21664,6 +21726,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deliveryType)) {
       body["DeliveryType"] = request.deliveryType;
+    }
+
+    if (!Util.isUnset(request.dismissalDate)) {
+      body["DismissalDate"] = request.dismissalDate;
     }
 
     if (!Util.isUnset(request.expiredSeconds)) {
@@ -21826,6 +21892,14 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.activityContentState)) {
+      body["ActivityContentState"] = request.activityContentState;
+    }
+
+    if (!Util.isUnset(request.activityEvent)) {
+      body["ActivityEvent"] = request.activityEvent;
+    }
+
     if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
@@ -21844,6 +21918,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deliveryType)) {
       body["DeliveryType"] = request.deliveryType;
+    }
+
+    if (!Util.isUnset(request.dismissalDate)) {
+      body["DismissalDate"] = request.dismissalDate;
     }
 
     if (!Util.isUnset(request.expiredSeconds)) {
@@ -21961,6 +22039,14 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.activityContentState)) {
+      body["ActivityContentState"] = request.activityContentState;
+    }
+
+    if (!Util.isUnset(request.activityEvent)) {
+      body["ActivityEvent"] = request.activityEvent;
+    }
+
     if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
@@ -21975,6 +22061,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deliveryType)) {
       body["DeliveryType"] = request.deliveryType;
+    }
+
+    if (!Util.isUnset(request.dismissalDate)) {
+      body["DismissalDate"] = request.dismissalDate;
     }
 
     if (!Util.isUnset(request.expiredSeconds)) {
