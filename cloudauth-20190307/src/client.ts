@@ -1326,6 +1326,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
   outerOrderNo?: string;
   procedurePriority?: string;
   productCode?: string;
+  rarelyCharacters?: string;
   readImg?: string;
   returnUrl?: string;
   sceneId?: number;
@@ -1360,6 +1361,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
       outerOrderNo: 'OuterOrderNo',
       procedurePriority: 'ProcedurePriority',
       productCode: 'ProductCode',
+      rarelyCharacters: 'RarelyCharacters',
       readImg: 'ReadImg',
       returnUrl: 'ReturnUrl',
       sceneId: 'SceneId',
@@ -1397,6 +1399,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
       outerOrderNo: 'string',
       procedurePriority: 'string',
       productCode: 'string',
+      rarelyCharacters: 'string',
       readImg: 'string',
       returnUrl: 'string',
       sceneId: 'number',
@@ -2063,6 +2066,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $tea.Model {
   passed?: string;
   subCode?: string;
   success?: string;
+  userInfo?: string;
   static names(): { [key: string]: string } {
     return {
       deviceRisk: 'DeviceRisk',
@@ -2072,6 +2076,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $tea.Model {
       passed: 'Passed',
       subCode: 'SubCode',
       success: 'Success',
+      userInfo: 'UserInfo',
     };
   }
 
@@ -2084,6 +2089,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $tea.Model {
       passed: 'string',
       subCode: 'string',
       success: 'string',
+      userInfo: 'string',
     };
   }
 
@@ -3543,6 +3549,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.productCode)) {
       query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.rarelyCharacters)) {
+      query["RarelyCharacters"] = request.rarelyCharacters;
     }
 
     if (!Util.isUnset(request.readImg)) {
