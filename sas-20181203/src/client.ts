@@ -27709,6 +27709,7 @@ export class ExportVulResponse extends $tea.Model {
 export class ExportWarningRequest extends $tea.Model {
   dealed?: string;
   exportType?: string;
+  groupId?: number;
   isCleartextPwd?: number;
   isSummaryExport?: number;
   lang?: string;
@@ -27726,6 +27727,7 @@ export class ExportWarningRequest extends $tea.Model {
     return {
       dealed: 'Dealed',
       exportType: 'ExportType',
+      groupId: 'GroupId',
       isCleartextPwd: 'IsCleartextPwd',
       isSummaryExport: 'IsSummaryExport',
       lang: 'Lang',
@@ -27746,6 +27748,7 @@ export class ExportWarningRequest extends $tea.Model {
     return {
       dealed: 'string',
       exportType: 'string',
+      groupId: 'number',
       isCleartextPwd: 'number',
       isSummaryExport: 'number',
       lang: 'string',
@@ -93583,6 +93586,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.exportType)) {
       query["ExportType"] = request.exportType;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
     }
 
     if (!Util.isUnset(request.isCleartextPwd)) {
