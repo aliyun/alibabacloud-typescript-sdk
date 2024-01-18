@@ -1562,6 +1562,7 @@ export class InitializeRequest extends $tea.Model {
   flowType?: string;
   idFaceQuality?: string;
   idSpoof?: string;
+  languageConfig?: string;
   merchantBizId?: string;
   merchantUserId?: string;
   metaInfo?: string;
@@ -1587,6 +1588,7 @@ export class InitializeRequest extends $tea.Model {
       flowType: 'FlowType',
       idFaceQuality: 'IdFaceQuality',
       idSpoof: 'IdSpoof',
+      languageConfig: 'LanguageConfig',
       merchantBizId: 'MerchantBizId',
       merchantUserId: 'MerchantUserId',
       metaInfo: 'MetaInfo',
@@ -1615,6 +1617,7 @@ export class InitializeRequest extends $tea.Model {
       flowType: 'string',
       idFaceQuality: 'string',
       idSpoof: 'string',
+      languageConfig: 'string',
       merchantBizId: 'string',
       merchantUserId: 'string',
       metaInfo: 'string',
@@ -3531,6 +3534,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.idSpoof)) {
       query["IdSpoof"] = request.idSpoof;
+    }
+
+    if (!Util.isUnset(request.languageConfig)) {
+      query["LanguageConfig"] = request.languageConfig;
     }
 
     if (!Util.isUnset(request.merchantBizId)) {
