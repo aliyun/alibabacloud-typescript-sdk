@@ -3,9 +3,14 @@
  *
  */
 import Util, * as $Util from '@alicloud/tea-util';
+import OSS, * as $OSS from '@alicloud/oss-client';
+import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
+import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
+import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
+import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AllocateInstancePublicConnectionRequest extends $tea.Model {
@@ -81,6 +86,93 @@ export class AllocateInstancePublicConnectionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AllocateInstancePublicConnectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelUpsertCollectionDataJobRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  jobId?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      jobId: 'JobId',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      jobId: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelUpsertCollectionDataJobResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelUpsertCollectionDataJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CancelUpsertCollectionDataJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelUpsertCollectionDataJobResponseBody,
     };
   }
 
@@ -243,6 +335,7 @@ export class CreateCollectionRequest extends $tea.Model {
   collection?: string;
   DBInstanceId?: string;
   dimension?: number;
+  externalStorage?: number;
   fullTextRetrievalFields?: string;
   hnswM?: number;
   managerAccount?: string;
@@ -259,6 +352,7 @@ export class CreateCollectionRequest extends $tea.Model {
       collection: 'Collection',
       DBInstanceId: 'DBInstanceId',
       dimension: 'Dimension',
+      externalStorage: 'ExternalStorage',
       fullTextRetrievalFields: 'FullTextRetrievalFields',
       hnswM: 'HnswM',
       managerAccount: 'ManagerAccount',
@@ -278,6 +372,7 @@ export class CreateCollectionRequest extends $tea.Model {
       collection: 'string',
       DBInstanceId: 'string',
       dimension: 'number',
+      externalStorage: 'number',
       fullTextRetrievalFields: 'string',
       hnswM: 'number',
       managerAccount: 'string',
@@ -642,6 +737,7 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   collection?: string;
   DBInstanceId?: string;
   embeddingModel?: string;
+  externalStorage?: number;
   fullTextRetrievalFields?: string;
   hnswM?: number;
   managerAccount?: string;
@@ -658,6 +754,7 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
       collection: 'Collection',
       DBInstanceId: 'DBInstanceId',
       embeddingModel: 'EmbeddingModel',
+      externalStorage: 'ExternalStorage',
       fullTextRetrievalFields: 'FullTextRetrievalFields',
       hnswM: 'HnswM',
       managerAccount: 'ManagerAccount',
@@ -677,6 +774,7 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
       collection: 'string',
       DBInstanceId: 'string',
       embeddingModel: 'string',
+      externalStorage: 'number',
       fullTextRetrievalFields: 'string',
       hnswM: 'number',
       managerAccount: 'string',
@@ -978,6 +1076,7 @@ export class CreateVectorIndexRequest extends $tea.Model {
   collection?: string;
   DBInstanceId?: string;
   dimension?: number;
+  externalStorage?: number;
   hnswM?: number;
   managerAccount?: string;
   managerAccountPassword?: string;
@@ -991,6 +1090,7 @@ export class CreateVectorIndexRequest extends $tea.Model {
       collection: 'Collection',
       DBInstanceId: 'DBInstanceId',
       dimension: 'Dimension',
+      externalStorage: 'ExternalStorage',
       hnswM: 'HnswM',
       managerAccount: 'ManagerAccount',
       managerAccountPassword: 'ManagerAccountPassword',
@@ -1007,6 +1107,7 @@ export class CreateVectorIndexRequest extends $tea.Model {
       collection: 'string',
       DBInstanceId: 'string',
       dimension: 'number',
+      externalStorage: 'number',
       hnswM: 'number',
       managerAccount: 'string',
       managerAccountPassword: 'string',
@@ -1806,6 +1907,99 @@ export class DescribeAccountsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAccountsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveSQLRecordsRequest extends $tea.Model {
+  DBInstanceId?: string;
+  database?: string;
+  endTime?: string;
+  keyword?: string;
+  maxDuration?: string;
+  minDuration?: string;
+  order?: string;
+  startTime?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      endTime: 'EndTime',
+      keyword: 'Keyword',
+      maxDuration: 'MaxDuration',
+      minDuration: 'MinDuration',
+      order: 'Order',
+      startTime: 'StartTime',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      database: 'string',
+      endTime: 'string',
+      keyword: 'string',
+      maxDuration: 'string',
+      minDuration: 'string',
+      order: 'string',
+      startTime: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveSQLRecordsResponseBody extends $tea.Model {
+  DBInstanceId?: string;
+  queries?: DescribeActiveSQLRecordsResponseBodyQueries[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      queries: 'Queries',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      queries: { 'type': 'array', 'itemType': DescribeActiveSQLRecordsResponseBodyQueries },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveSQLRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeActiveSQLRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeActiveSQLRecordsResponseBody,
     };
   }
 
@@ -6165,6 +6359,96 @@ export class DownloadSQLLogsRecordsResponse extends $tea.Model {
   }
 }
 
+export class GetUpsertCollectionDataJobRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  jobId?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      jobId: 'JobId',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      jobId: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUpsertCollectionDataJobResponseBody extends $tea.Model {
+  job?: GetUpsertCollectionDataJobResponseBodyJob;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      job: 'Job',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      job: GetUpsertCollectionDataJobResponseBodyJob,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUpsertCollectionDataJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUpsertCollectionDataJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUpsertCollectionDataJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GrantCollectionRequest extends $tea.Model {
   collection?: string;
   DBInstanceId?: string;
@@ -8075,6 +8359,8 @@ export class QueryContentRequest extends $tea.Model {
   collection?: string;
   content?: string;
   DBInstanceId?: string;
+  fileName?: string;
+  fileUrl?: string;
   filter?: string;
   metrics?: string;
   namespace?: string;
@@ -8088,6 +8374,8 @@ export class QueryContentRequest extends $tea.Model {
       collection: 'Collection',
       content: 'Content',
       DBInstanceId: 'DBInstanceId',
+      fileName: 'FileName',
+      fileUrl: 'FileUrl',
       filter: 'Filter',
       metrics: 'Metrics',
       namespace: 'Namespace',
@@ -8104,6 +8392,63 @@ export class QueryContentRequest extends $tea.Model {
       collection: 'string',
       content: 'string',
       DBInstanceId: 'string',
+      fileName: 'string',
+      fileUrl: 'string',
+      filter: 'string',
+      metrics: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      topK: 'number',
+      useFullTextRetrieval: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryContentAdvanceRequest extends $tea.Model {
+  collection?: string;
+  content?: string;
+  DBInstanceId?: string;
+  fileName?: string;
+  fileUrlObject?: Readable;
+  filter?: string;
+  metrics?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  topK?: number;
+  useFullTextRetrieval?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      content: 'Content',
+      DBInstanceId: 'DBInstanceId',
+      fileName: 'FileName',
+      fileUrlObject: 'FileUrl',
+      filter: 'Filter',
+      metrics: 'Metrics',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      topK: 'TopK',
+      useFullTextRetrieval: 'UseFullTextRetrieval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      content: 'string',
+      DBInstanceId: 'string',
+      fileName: 'string',
+      fileUrlObject: 'Readable',
       filter: 'string',
       metrics: 'string',
       namespace: 'string',
@@ -8126,6 +8471,7 @@ export class QueryContentResponseBody extends $tea.Model {
   message?: string;
   requestId?: string;
   status?: string;
+  usage?: QueryContentResponseBodyUsage;
   static names(): { [key: string]: string } {
     return {
       embeddingTokens: 'EmbeddingTokens',
@@ -8133,6 +8479,7 @@ export class QueryContentResponseBody extends $tea.Model {
       message: 'Message',
       requestId: 'RequestId',
       status: 'Status',
+      usage: 'Usage',
     };
   }
 
@@ -8143,6 +8490,7 @@ export class QueryContentResponseBody extends $tea.Model {
       message: 'string',
       requestId: 'string',
       status: 'string',
+      usage: QueryContentResponseBodyUsage,
     };
   }
 
@@ -9782,6 +10130,133 @@ export class UpsertCollectionDataResponse extends $tea.Model {
   }
 }
 
+export class UpsertCollectionDataAsyncRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  fileUrl?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      fileUrl: 'FileUrl',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      fileUrl: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionDataAsyncAdvanceRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  fileUrlObject?: Readable;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      fileUrlObject: 'FileUrl',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      fileUrlObject: 'Readable',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionDataAsyncResponseBody extends $tea.Model {
+  jobId?: string;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionDataAsyncResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpsertCollectionDataAsyncResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpsertCollectionDataAsyncResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDBInstanceRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -9843,6 +10318,55 @@ export class DescribeAccountsResponseBodyAccounts extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceAccount: { 'type': 'array', 'itemType': DescribeAccountsResponseBodyAccountsDBInstanceAccount },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveSQLRecordsResponseBodyQueries extends $tea.Model {
+  clientAddr?: string;
+  database?: string;
+  PID?: string;
+  query?: string;
+  queryDuration?: string;
+  queryStart?: string;
+  sessionID?: string;
+  sqlTruncated?: string;
+  sqlTruncatedThreshold?: string;
+  state?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientAddr: 'ClientAddr',
+      database: 'Database',
+      PID: 'PID',
+      query: 'Query',
+      queryDuration: 'QueryDuration',
+      queryStart: 'QueryStart',
+      sessionID: 'SessionID',
+      sqlTruncated: 'SqlTruncated',
+      sqlTruncatedThreshold: 'SqlTruncatedThreshold',
+      state: 'State',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientAddr: 'string',
+      database: 'string',
+      PID: 'string',
+      query: 'string',
+      queryDuration: 'string',
+      queryStart: 'string',
+      sessionID: 'string',
+      sqlTruncated: 'string',
+      sqlTruncatedThreshold: 'string',
+      state: 'string',
+      user: 'string',
     };
   }
 
@@ -12488,6 +13012,43 @@ export class DescribeWaitingSQLRecordsResponseBodyItems extends $tea.Model {
   }
 }
 
+export class GetUpsertCollectionDataJobResponseBodyJob extends $tea.Model {
+  completed?: boolean;
+  createTime?: string;
+  error?: string;
+  id?: string;
+  progress?: number;
+  status?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      completed: 'Completed',
+      createTime: 'CreateTime',
+      error: 'Error',
+      id: 'Id',
+      progress: 'Progress',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completed: 'boolean',
+      createTime: 'string',
+      error: 'string',
+      id: 'string',
+      progress: 'number',
+      status: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HandleActiveSQLRecordResponseBodyResults extends $tea.Model {
   pid?: string;
   status?: string;
@@ -12802,6 +13363,7 @@ export class QueryContentResponseBodyMatchesMatchListVector extends $tea.Model {
 export class QueryContentResponseBodyMatchesMatchList extends $tea.Model {
   content?: string;
   fileName?: string;
+  fileURL?: string;
   id?: string;
   loaderMetadata?: string;
   metadata?: { [key: string]: string };
@@ -12812,6 +13374,7 @@ export class QueryContentResponseBodyMatchesMatchList extends $tea.Model {
     return {
       content: 'Content',
       fileName: 'FileName',
+      fileURL: 'FileURL',
       id: 'Id',
       loaderMetadata: 'LoaderMetadata',
       metadata: 'Metadata',
@@ -12825,6 +13388,7 @@ export class QueryContentResponseBodyMatchesMatchList extends $tea.Model {
     return {
       content: 'string',
       fileName: 'string',
+      fileURL: 'string',
       id: 'string',
       loaderMetadata: 'string',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -12850,6 +13414,28 @@ export class QueryContentResponseBodyMatches extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       matchList: { 'type': 'array', 'itemType': QueryContentResponseBodyMatchesMatchList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryContentResponseBodyUsage extends $tea.Model {
+  embeddingEntries?: string;
+  embeddingTokens?: string;
+  static names(): { [key: string]: string } {
+    return {
+      embeddingEntries: 'EmbeddingEntries',
+      embeddingTokens: 'EmbeddingTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      embeddingEntries: 'string',
+      embeddingTokens: 'string',
     };
   }
 
@@ -13035,6 +13621,61 @@ export default class Client extends OpenApi {
     return await this.allocateInstancePublicConnectionWithOptions(request, runtime);
   }
 
+  async cancelUpsertCollectionDataJobWithOptions(request: CancelUpsertCollectionDataJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelUpsertCollectionDataJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.collection)) {
+      body["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.namespacePassword)) {
+      body["NamespacePassword"] = request.namespacePassword;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelUpsertCollectionDataJob",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelUpsertCollectionDataJobResponse>(await this.callApi(params, req, runtime), new CancelUpsertCollectionDataJobResponse({}));
+  }
+
+  async cancelUpsertCollectionDataJob(request: CancelUpsertCollectionDataJobRequest): Promise<CancelUpsertCollectionDataJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelUpsertCollectionDataJobWithOptions(request, runtime);
+  }
+
   async checkServiceLinkedRoleWithOptions(request: CheckServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CheckServiceLinkedRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13149,6 +13790,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dimension)) {
       query["Dimension"] = request.dimension;
+    }
+
+    if (!Util.isUnset(request.externalStorage)) {
+      query["ExternalStorage"] = request.externalStorage;
     }
 
     if (!Util.isUnset(request.fullTextRetrievalFields)) {
@@ -13514,6 +14159,10 @@ export default class Client extends OpenApi {
       query["EmbeddingModel"] = request.embeddingModel;
     }
 
+    if (!Util.isUnset(request.externalStorage)) {
+      query["ExternalStorage"] = request.externalStorage;
+    }
+
     if (!Util.isUnset(request.fullTextRetrievalFields)) {
       query["FullTextRetrievalFields"] = request.fullTextRetrievalFields;
     }
@@ -13739,6 +14388,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dimension)) {
       query["Dimension"] = request.dimension;
+    }
+
+    if (!Util.isUnset(request.externalStorage)) {
+      query["ExternalStorage"] = request.externalStorage;
     }
 
     if (!Util.isUnset(request.hnswM)) {
@@ -14267,6 +14920,67 @@ export default class Client extends OpenApi {
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountsWithOptions(request, runtime);
+  }
+
+  async describeActiveSQLRecordsWithOptions(request: DescribeActiveSQLRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveSQLRecordsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.maxDuration)) {
+      query["MaxDuration"] = request.maxDuration;
+    }
+
+    if (!Util.isUnset(request.minDuration)) {
+      query["MinDuration"] = request.minDuration;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeActiveSQLRecords",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeActiveSQLRecordsResponse>(await this.callApi(params, req, runtime), new DescribeActiveSQLRecordsResponse({}));
+  }
+
+  async describeActiveSQLRecords(request: DescribeActiveSQLRecordsRequest): Promise<DescribeActiveSQLRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeActiveSQLRecordsWithOptions(request, runtime);
   }
 
   /**
@@ -17152,6 +17866,61 @@ export default class Client extends OpenApi {
     return await this.downloadSQLLogsRecordsWithOptions(request, runtime);
   }
 
+  async getUpsertCollectionDataJobWithOptions(request: GetUpsertCollectionDataJobRequest, runtime: $Util.RuntimeOptions): Promise<GetUpsertCollectionDataJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.collection)) {
+      body["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.namespacePassword)) {
+      body["NamespacePassword"] = request.namespacePassword;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUpsertCollectionDataJob",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUpsertCollectionDataJobResponse>(await this.callApi(params, req, runtime), new GetUpsertCollectionDataJobResponse({}));
+  }
+
+  async getUpsertCollectionDataJob(request: GetUpsertCollectionDataJobRequest): Promise<GetUpsertCollectionDataJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUpsertCollectionDataJobWithOptions(request, runtime);
+  }
+
   async grantCollectionWithOptions(request: GrantCollectionRequest, runtime: $Util.RuntimeOptions): Promise<GrantCollectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18306,6 +19075,14 @@ export default class Client extends OpenApi {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
     if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
     }
@@ -18358,6 +19135,80 @@ export default class Client extends OpenApi {
   async queryContent(request: QueryContentRequest): Promise<QueryContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryContentWithOptions(request, runtime);
+  }
+
+  async queryContentAdvance(request: QueryContentAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<QueryContentResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "gpdb",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let queryContentReq = new QueryContentRequest({ });
+    OpenApiUtil.convert(request, queryContentReq);
+    if (!Util.isUnset(request.fileUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.fileUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      queryContentReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let queryContentResp = await this.queryContentWithOptions(queryContentReq, runtime);
+    return queryContentResp;
   }
 
   async rebalanceDBInstanceWithOptions(request: RebalanceDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebalanceDBInstanceResponse> {
@@ -19349,6 +20200,135 @@ export default class Client extends OpenApi {
   async upsertCollectionData(request: UpsertCollectionDataRequest): Promise<UpsertCollectionDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upsertCollectionDataWithOptions(request, runtime);
+  }
+
+  async upsertCollectionDataAsyncWithOptions(request: UpsertCollectionDataAsyncRequest, runtime: $Util.RuntimeOptions): Promise<UpsertCollectionDataAsyncResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.collection)) {
+      body["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.namespacePassword)) {
+      body["NamespacePassword"] = request.namespacePassword;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpsertCollectionDataAsync",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpsertCollectionDataAsyncResponse>(await this.callApi(params, req, runtime), new UpsertCollectionDataAsyncResponse({}));
+  }
+
+  async upsertCollectionDataAsync(request: UpsertCollectionDataAsyncRequest): Promise<UpsertCollectionDataAsyncResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.upsertCollectionDataAsyncWithOptions(request, runtime);
+  }
+
+  async upsertCollectionDataAsyncAdvance(request: UpsertCollectionDataAsyncAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<UpsertCollectionDataAsyncResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "gpdb",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let upsertCollectionDataAsyncReq = new UpsertCollectionDataAsyncRequest({ });
+    OpenApiUtil.convert(request, upsertCollectionDataAsyncReq);
+    if (!Util.isUnset(request.fileUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.fileUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      upsertCollectionDataAsyncReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let upsertCollectionDataAsyncResp = await this.upsertCollectionDataAsyncWithOptions(upsertCollectionDataAsyncReq, runtime);
+    return upsertCollectionDataAsyncResp;
   }
 
 }
