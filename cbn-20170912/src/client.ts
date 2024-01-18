@@ -7502,6 +7502,7 @@ export class DissociateTransitRouterAttachmentFromRouteTableResponse extends $te
 
 export class EnableCenVbrHealthCheckRequest extends $tea.Model {
   cenId?: string;
+  description?: string;
   healthCheckInterval?: number;
   healthCheckOnly?: boolean;
   healthCheckSourceIp?: string;
@@ -7517,6 +7518,7 @@ export class EnableCenVbrHealthCheckRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       cenId: 'CenId',
+      description: 'Description',
       healthCheckInterval: 'HealthCheckInterval',
       healthCheckOnly: 'HealthCheckOnly',
       healthCheckSourceIp: 'HealthCheckSourceIp',
@@ -7535,6 +7537,7 @@ export class EnableCenVbrHealthCheckRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cenId: 'string',
+      description: 'string',
       healthCheckInterval: 'number',
       healthCheckOnly: 'boolean',
       healthCheckSourceIp: 'string',
@@ -24282,6 +24285,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.cenId)) {
       query["CenId"] = request.cenId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
     }
 
     if (!Util.isUnset(request.healthCheckInterval)) {
