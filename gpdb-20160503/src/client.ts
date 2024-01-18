@@ -13500,15 +13500,18 @@ export class GetUploadDocumentJobResponseBodyJob extends $tea.Model {
 }
 
 export class GetUploadDocumentJobResponseBodyUsage extends $tea.Model {
+  embeddingEntries?: number;
   embeddingTokens?: number;
   static names(): { [key: string]: string } {
     return {
+      embeddingEntries: 'EmbeddingEntries',
       embeddingTokens: 'EmbeddingTokens',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      embeddingEntries: 'number',
       embeddingTokens: 'number',
     };
   }
