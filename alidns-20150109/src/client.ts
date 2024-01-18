@@ -15954,10 +15954,12 @@ export class DescribeDomainResolveStatisticsSummaryResponseBodyStatistics extend
 
 export class DescribeDomainStatisticsResponseBodyStatisticsStatistic extends $tea.Model {
   count?: number;
+  domainName?: string;
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
       count: 'Count',
+      domainName: 'DomainName',
       timestamp: 'Timestamp',
     };
   }
@@ -15965,6 +15967,7 @@ export class DescribeDomainStatisticsResponseBodyStatisticsStatistic extends $te
   static types(): { [key: string]: any } {
     return {
       count: 'number',
+      domainName: 'string',
       timestamp: 'number',
     };
   }
@@ -15997,11 +16000,13 @@ export class DescribeDomainStatisticsSummaryResponseBodyStatisticsStatistic exte
   count?: number;
   domainName?: string;
   domainType?: string;
+  resolveAnalysisStatus?: string;
   static names(): { [key: string]: string } {
     return {
       count: 'Count',
       domainName: 'DomainName',
       domainType: 'DomainType',
+      resolveAnalysisStatus: 'resolveAnalysisStatus',
     };
   }
 
@@ -16010,6 +16015,7 @@ export class DescribeDomainStatisticsSummaryResponseBodyStatisticsStatistic exte
       count: 'number',
       domainName: 'string',
       domainType: 'string',
+      resolveAnalysisStatus: 'string',
     };
   }
 
