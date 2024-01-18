@@ -800,6 +800,87 @@ export class FetchImageTaskResponse extends $tea.Model {
   }
 }
 
+export class GenerateFileUrlByKeyRequest extends $tea.Model {
+  agentKey?: string;
+  fileKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      fileKey: 'FileKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      fileKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateFileUrlByKeyResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateFileUrlByKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateFileUrlByKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateFileUrlByKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateImageTaskRequest extends $tea.Model {
   agentKey?: string;
   articleTaskId?: string;
@@ -913,6 +994,90 @@ export class GenerateImageTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GenerateImageTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateUploadConfigRequest extends $tea.Model {
+  agentKey?: string;
+  fileName?: string;
+  parentDir?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      fileName: 'FileName',
+      parentDir: 'ParentDir',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      fileName: 'string',
+      parentDir: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateUploadConfigResponseBody extends $tea.Model {
+  code?: string;
+  data?: GenerateUploadConfigResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GenerateUploadConfigResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateUploadConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateUploadConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateUploadConfigResponseBody,
     };
   }
 
@@ -2562,6 +2727,148 @@ export class SaveMaterialDocumentResponse extends $tea.Model {
   }
 }
 
+export class SearchNewsRequest extends $tea.Model {
+  agentKey?: string;
+  filterNotNull?: boolean;
+  includeContent?: boolean;
+  page?: number;
+  pageSize?: number;
+  query?: string;
+  searchSources?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      filterNotNull: 'FilterNotNull',
+      includeContent: 'IncludeContent',
+      page: 'Page',
+      pageSize: 'PageSize',
+      query: 'Query',
+      searchSources: 'SearchSources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      filterNotNull: 'boolean',
+      includeContent: 'boolean',
+      page: 'number',
+      pageSize: 'number',
+      query: 'string',
+      searchSources: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchNewsShrinkRequest extends $tea.Model {
+  agentKey?: string;
+  filterNotNull?: boolean;
+  includeContent?: boolean;
+  page?: number;
+  pageSize?: number;
+  query?: string;
+  searchSourcesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      filterNotNull: 'FilterNotNull',
+      includeContent: 'IncludeContent',
+      page: 'Page',
+      pageSize: 'PageSize',
+      query: 'Query',
+      searchSourcesShrink: 'SearchSources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      filterNotNull: 'boolean',
+      includeContent: 'boolean',
+      page: 'number',
+      pageSize: 'number',
+      query: 'string',
+      searchSourcesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchNewsResponseBody extends $tea.Model {
+  code?: string;
+  current?: number;
+  data?: SearchNewsResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  size?: number;
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      current: 'Current',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      size: 'Size',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      current: 'number',
+      data: { 'type': 'array', 'itemType': SearchNewsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      size: 'number',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchNewsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SearchNewsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchNewsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitAsyncTaskRequest extends $tea.Model {
   agentKey?: string;
   taskCode?: string;
@@ -3121,6 +3428,31 @@ export class GenerateImageTaskResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       taskList: { 'type': 'array', 'itemType': GenerateImageTaskResponseBodyDataTaskList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateUploadConfigResponseBodyData extends $tea.Model {
+  fileKey?: string;
+  formDatas?: { [key: string]: any };
+  postUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileKey: 'FileKey',
+      formDatas: 'FormDatas',
+      postUrl: 'PostUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileKey: 'string',
+      formDatas: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      postUrl: 'string',
     };
   }
 
@@ -4155,6 +4487,61 @@ export class SaveDataSourceOrderConfigRequestUserConfigDataSourceList extends $t
   }
 }
 
+export class SearchNewsResponseBodyData extends $tea.Model {
+  author?: string;
+  content?: string;
+  docUuid?: string;
+  imageUrls?: string[];
+  pubTime?: string;
+  searchSource?: string;
+  searchSourceName?: string;
+  source?: string;
+  summary?: string;
+  tag?: string;
+  title?: string;
+  updateTime?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'Author',
+      content: 'Content',
+      docUuid: 'DocUuid',
+      imageUrls: 'ImageUrls',
+      pubTime: 'PubTime',
+      searchSource: 'SearchSource',
+      searchSourceName: 'SearchSourceName',
+      source: 'Source',
+      summary: 'Summary',
+      tag: 'Tag',
+      title: 'Title',
+      updateTime: 'UpdateTime',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: 'string',
+      content: 'string',
+      docUuid: 'string',
+      imageUrls: { 'type': 'array', 'itemType': 'string' },
+      pubTime: 'string',
+      searchSource: 'string',
+      searchSourceName: 'string',
+      source: 'string',
+      summary: 'string',
+      tag: 'string',
+      title: 'string',
+      updateTime: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitAsyncTaskResponseBodyData extends $tea.Model {
   taskId?: string;
   taskIntermediateResult?: any;
@@ -4551,6 +4938,41 @@ export default class Client extends OpenApi {
     return await this.fetchImageTaskWithOptions(request, runtime);
   }
 
+  async generateFileUrlByKeyWithOptions(request: GenerateFileUrlByKeyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateFileUrlByKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileKey)) {
+      body["FileKey"] = request.fileKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateFileUrlByKey",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateFileUrlByKeyResponse>(await this.callApi(params, req, runtime), new GenerateFileUrlByKeyResponse({}));
+  }
+
+  async generateFileUrlByKey(request: GenerateFileUrlByKeyRequest): Promise<GenerateFileUrlByKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateFileUrlByKeyWithOptions(request, runtime);
+  }
+
   async generateImageTaskWithOptions(tmpReq: GenerateImageTaskRequest, runtime: $Util.RuntimeOptions): Promise<GenerateImageTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new GenerateImageTaskShrinkRequest({ });
@@ -4602,6 +5024,45 @@ export default class Client extends OpenApi {
   async generateImageTask(request: GenerateImageTaskRequest): Promise<GenerateImageTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateImageTaskWithOptions(request, runtime);
+  }
+
+  async generateUploadConfigWithOptions(request: GenerateUploadConfigRequest, runtime: $Util.RuntimeOptions): Promise<GenerateUploadConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.parentDir)) {
+      body["ParentDir"] = request.parentDir;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateUploadConfig",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateUploadConfigResponse>(await this.callApi(params, req, runtime), new GenerateUploadConfigResponse({}));
+  }
+
+  async generateUploadConfig(request: GenerateUploadConfigRequest): Promise<GenerateUploadConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateUploadConfigWithOptions(request, runtime);
   }
 
   async generateViewPointWithOptions(tmpReq: GenerateViewPointRequest, runtime: $Util.RuntimeOptions): Promise<GenerateViewPointResponse> {
@@ -5355,6 +5816,67 @@ export default class Client extends OpenApi {
   async saveMaterialDocument(request: SaveMaterialDocumentRequest): Promise<SaveMaterialDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveMaterialDocumentWithOptions(request, runtime);
+  }
+
+  async searchNewsWithOptions(tmpReq: SearchNewsRequest, runtime: $Util.RuntimeOptions): Promise<SearchNewsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SearchNewsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.searchSources)) {
+      request.searchSourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchSources, "SearchSources", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.filterNotNull)) {
+      body["FilterNotNull"] = request.filterNotNull;
+    }
+
+    if (!Util.isUnset(request.includeContent)) {
+      body["IncludeContent"] = request.includeContent;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      body["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.searchSourcesShrink)) {
+      body["SearchSources"] = request.searchSourcesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchNews",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchNewsResponse>(await this.callApi(params, req, runtime), new SearchNewsResponse({}));
+  }
+
+  async searchNews(request: SearchNewsRequest): Promise<SearchNewsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchNewsWithOptions(request, runtime);
   }
 
   async submitAsyncTaskWithOptions(request: SubmitAsyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAsyncTaskResponse> {
