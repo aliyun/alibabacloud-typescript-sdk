@@ -2294,6 +2294,99 @@ export class ModifyTopicRemarkResponse extends $tea.Model {
   }
 }
 
+export class QueryMessageRequest extends $tea.Model {
+  beginTime?: number;
+  instanceId?: string;
+  offset?: string;
+  partition?: string;
+  queryType?: string;
+  regionId?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      instanceId: 'InstanceId',
+      offset: 'Offset',
+      partition: 'Partition',
+      queryType: 'QueryType',
+      regionId: 'RegionId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      instanceId: 'string',
+      offset: 'string',
+      partition: 'string',
+      queryType: 'string',
+      regionId: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMessageResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  messageList?: QueryMessageResponseBodyMessageList[];
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      messageList: 'MessageList',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      messageList: { 'type': 'array', 'itemType': QueryMessageResponseBodyMessageList },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMessageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryMessageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReleaseInstanceRequest extends $tea.Model {
   forceDeleteInstance?: boolean;
   instanceId?: string;
@@ -2938,6 +3031,93 @@ export class UpdateInstanceConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateInstanceConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTopicConfigRequest extends $tea.Model {
+  config?: string;
+  instanceId?: string;
+  regionId?: string;
+  topic?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      topic: 'Topic',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      topic: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTopicConfigResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTopicConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateTopicConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTopicConfigResponseBody,
     };
   }
 
@@ -4211,6 +4391,64 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMessageResponseBodyMessageList extends $tea.Model {
+  checksum?: number;
+  key?: string;
+  keyTruncated?: boolean;
+  offset?: number;
+  partition?: number;
+  serializedKeySize?: number;
+  serializedValueSize?: number;
+  timestamp?: number;
+  timestampType?: string;
+  topic?: string;
+  truncatedKeySize?: number;
+  truncatedValueSize?: number;
+  value?: string;
+  valueTruncated?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      checksum: 'Checksum',
+      key: 'Key',
+      keyTruncated: 'KeyTruncated',
+      offset: 'Offset',
+      partition: 'Partition',
+      serializedKeySize: 'SerializedKeySize',
+      serializedValueSize: 'SerializedValueSize',
+      timestamp: 'Timestamp',
+      timestampType: 'TimestampType',
+      topic: 'Topic',
+      truncatedKeySize: 'TruncatedKeySize',
+      truncatedValueSize: 'TruncatedValueSize',
+      value: 'Value',
+      valueTruncated: 'ValueTruncated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checksum: 'number',
+      key: 'string',
+      keyTruncated: 'boolean',
+      offset: 'number',
+      partition: 'number',
+      serializedKeySize: 'number',
+      serializedValueSize: 'number',
+      timestamp: 'number',
+      timestampType: 'string',
+      topic: 'string',
+      truncatedKeySize: 'number',
+      truncatedValueSize: 'number',
+      value: 'string',
+      valueTruncated: 'boolean',
     };
   }
 
@@ -5504,6 +5742,31 @@ export default class Client extends OpenApi {
     return await this.modifyTopicRemarkWithOptions(request, runtime);
   }
 
+  async queryMessageWithOptions(request: QueryMessageRequest, runtime: $Util.RuntimeOptions): Promise<QueryMessageResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryMessage",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMessageResponse>(await this.callApi(params, req, runtime), new QueryMessageResponse({}));
+  }
+
+  async queryMessage(request: QueryMessageRequest): Promise<QueryMessageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMessageWithOptions(request, runtime);
+  }
+
   /**
     * You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
     *
@@ -5951,9 +6214,54 @@ export default class Client extends OpenApi {
     return await this.updateInstanceConfigWithOptions(request, runtime);
   }
 
+  async updateTopicConfigWithOptions(request: UpdateTopicConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTopicConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateTopicConfig",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTopicConfigResponse>(await this.callApi(params, req, runtime), new UpdateTopicConfigResponse({}));
+  }
+
+  async updateTopicConfig(request: UpdateTopicConfigRequest): Promise<UpdateTopicConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateTopicConfigWithOptions(request, runtime);
+  }
+
   /**
     * ## **Permissions**
-    * A RAM user must be granted the required permissions before the RAM user call the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
+    * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
     * |API|Action|Resource|
     * |---|---|---|
     * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
@@ -5998,7 +6306,7 @@ export default class Client extends OpenApi {
 
   /**
     * ## **Permissions**
-    * A RAM user must be granted the required permissions before the RAM user call the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
+    * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
     * |API|Action|Resource|
     * |---|---|---|
     * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
