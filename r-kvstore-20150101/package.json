@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/r-kvstore20150101",
-  "version": "2.25.1",
+  "version": "2.25.2",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
