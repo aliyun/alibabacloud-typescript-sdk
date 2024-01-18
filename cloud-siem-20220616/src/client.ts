@@ -10699,6 +10699,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
   name?: string;
   opCode?: string;
   opLevel?: string;
+  paramConfig?: any[];
   taskConfig?: string;
   wafPlaybook?: boolean;
   static names(): { [key: string]: string } {
@@ -10708,6 +10709,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
       name: 'Name',
       opCode: 'OpCode',
       opLevel: 'OpLevel',
+      paramConfig: 'ParamConfig',
       taskConfig: 'TaskConfig',
       wafPlaybook: 'WafPlaybook',
     };
@@ -10720,6 +10722,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
       name: 'string',
       opCode: 'string',
       opLevel: 'string',
+      paramConfig: { 'type': 'array', 'itemType': 'any' },
       taskConfig: 'string',
       wafPlaybook: 'boolean',
     };
