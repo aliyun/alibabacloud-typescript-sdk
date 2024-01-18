@@ -2652,6 +2652,139 @@ export class SubmitAsyncTaskResponse extends $tea.Model {
   }
 }
 
+export class UpdateGeneratedContentRequest extends $tea.Model {
+  agentKey?: string;
+  content?: string;
+  contentText?: string;
+  id?: number;
+  keywords?: string[];
+  prompt?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      content: 'Content',
+      contentText: 'ContentText',
+      id: 'Id',
+      keywords: 'Keywords',
+      prompt: 'Prompt',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      content: 'string',
+      contentText: 'string',
+      id: 'number',
+      keywords: { 'type': 'array', 'itemType': 'string' },
+      prompt: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGeneratedContentShrinkRequest extends $tea.Model {
+  agentKey?: string;
+  content?: string;
+  contentText?: string;
+  id?: number;
+  keywordsShrink?: string;
+  prompt?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      content: 'Content',
+      contentText: 'ContentText',
+      id: 'Id',
+      keywordsShrink: 'Keywords',
+      prompt: 'Prompt',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      content: 'string',
+      contentText: 'string',
+      id: 'number',
+      keywordsShrink: 'string',
+      prompt: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGeneratedContentResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGeneratedContentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateGeneratedContentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGeneratedContentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateMaterialDocumentRequest extends $tea.Model {
   agentKey?: string;
   author?: string;
@@ -5269,6 +5402,67 @@ export default class Client extends OpenApi {
   async submitAsyncTask(request: SubmitAsyncTaskRequest): Promise<SubmitAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAsyncTaskWithOptions(request, runtime);
+  }
+
+  async updateGeneratedContentWithOptions(tmpReq: UpdateGeneratedContentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGeneratedContentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateGeneratedContentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.keywords)) {
+      request.keywordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.keywords, "Keywords", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.contentText)) {
+      body["ContentText"] = request.contentText;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.keywordsShrink)) {
+      body["Keywords"] = request.keywordsShrink;
+    }
+
+    if (!Util.isUnset(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGeneratedContent",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGeneratedContentResponse>(await this.callApi(params, req, runtime), new UpdateGeneratedContentResponse({}));
+  }
+
+  async updateGeneratedContent(request: UpdateGeneratedContentRequest): Promise<UpdateGeneratedContentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGeneratedContentWithOptions(request, runtime);
   }
 
   async updateMaterialDocumentWithOptions(tmpReq: UpdateMaterialDocumentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMaterialDocumentResponse> {
