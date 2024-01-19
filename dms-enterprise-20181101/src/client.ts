@@ -434,6 +434,159 @@ export class AddDesensitizationRuleResponse extends $tea.Model {
   }
 }
 
+export class AddInstanceRequest extends $tea.Model {
+  dataLinkName?: string;
+  databasePassword?: string;
+  databaseUser?: string;
+  dbaId?: number;
+  ddlOnline?: number;
+  ecsInstanceId?: string;
+  ecsRegion?: string;
+  enableSellCommon?: string;
+  enableSellSitd?: string;
+  enableSellStable?: string;
+  enableSellTrust?: string;
+  envType?: string;
+  exportTimeout?: number;
+  host?: string;
+  instanceAlias?: string;
+  instanceSource?: string;
+  instanceType?: string;
+  networkType?: string;
+  port?: number;
+  queryTimeout?: number;
+  safeRule?: string;
+  sid?: string;
+  skipTest?: boolean;
+  templateId?: number;
+  templateType?: string;
+  tid?: number;
+  useDsql?: number;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataLinkName: 'DataLinkName',
+      databasePassword: 'DatabasePassword',
+      databaseUser: 'DatabaseUser',
+      dbaId: 'DbaId',
+      ddlOnline: 'DdlOnline',
+      ecsInstanceId: 'EcsInstanceId',
+      ecsRegion: 'EcsRegion',
+      enableSellCommon: 'EnableSellCommon',
+      enableSellSitd: 'EnableSellSitd',
+      enableSellStable: 'EnableSellStable',
+      enableSellTrust: 'EnableSellTrust',
+      envType: 'EnvType',
+      exportTimeout: 'ExportTimeout',
+      host: 'Host',
+      instanceAlias: 'InstanceAlias',
+      instanceSource: 'InstanceSource',
+      instanceType: 'InstanceType',
+      networkType: 'NetworkType',
+      port: 'Port',
+      queryTimeout: 'QueryTimeout',
+      safeRule: 'SafeRule',
+      sid: 'Sid',
+      skipTest: 'SkipTest',
+      templateId: 'TemplateId',
+      templateType: 'TemplateType',
+      tid: 'Tid',
+      useDsql: 'UseDsql',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataLinkName: 'string',
+      databasePassword: 'string',
+      databaseUser: 'string',
+      dbaId: 'number',
+      ddlOnline: 'number',
+      ecsInstanceId: 'string',
+      ecsRegion: 'string',
+      enableSellCommon: 'string',
+      enableSellSitd: 'string',
+      enableSellStable: 'string',
+      enableSellTrust: 'string',
+      envType: 'string',
+      exportTimeout: 'number',
+      host: 'string',
+      instanceAlias: 'string',
+      instanceSource: 'string',
+      instanceType: 'string',
+      networkType: 'string',
+      port: 'number',
+      queryTimeout: 'number',
+      safeRule: 'string',
+      sid: 'string',
+      skipTest: 'boolean',
+      templateId: 'number',
+      templateType: 'string',
+      tid: 'number',
+      useDsql: 'number',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddInstanceResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddLhMembersRequest extends $tea.Model {
   members?: AddLhMembersRequestMembers[];
   objectId?: number;
@@ -15528,6 +15681,162 @@ export class ModifyDesensitizationStrategyResponse extends $tea.Model {
   }
 }
 
+export class ModifyInstanceRequest extends $tea.Model {
+  dataLinkName?: string;
+  databasePassword?: string;
+  databaseUser?: string;
+  dbaId?: number;
+  ddlOnline?: number;
+  ecsInstanceId?: string;
+  ecsRegion?: string;
+  enableSellCommon?: string;
+  enableSellSitd?: string;
+  enableSellStable?: string;
+  enableSellTrust?: string;
+  envType?: string;
+  exportTimeout?: number;
+  host?: string;
+  instanceAlias?: string;
+  instanceId?: string;
+  instanceSource?: string;
+  instanceType?: string;
+  networkType?: string;
+  port?: number;
+  queryTimeout?: number;
+  safeRule?: string;
+  sid?: string;
+  skipTest?: boolean;
+  templateId?: number;
+  templateType?: string;
+  tid?: number;
+  useDsql?: number;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataLinkName: 'DataLinkName',
+      databasePassword: 'DatabasePassword',
+      databaseUser: 'DatabaseUser',
+      dbaId: 'DbaId',
+      ddlOnline: 'DdlOnline',
+      ecsInstanceId: 'EcsInstanceId',
+      ecsRegion: 'EcsRegion',
+      enableSellCommon: 'EnableSellCommon',
+      enableSellSitd: 'EnableSellSitd',
+      enableSellStable: 'EnableSellStable',
+      enableSellTrust: 'EnableSellTrust',
+      envType: 'EnvType',
+      exportTimeout: 'ExportTimeout',
+      host: 'Host',
+      instanceAlias: 'InstanceAlias',
+      instanceId: 'InstanceId',
+      instanceSource: 'InstanceSource',
+      instanceType: 'InstanceType',
+      networkType: 'NetworkType',
+      port: 'Port',
+      queryTimeout: 'QueryTimeout',
+      safeRule: 'SafeRule',
+      sid: 'Sid',
+      skipTest: 'SkipTest',
+      templateId: 'TemplateId',
+      templateType: 'TemplateType',
+      tid: 'Tid',
+      useDsql: 'UseDsql',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataLinkName: 'string',
+      databasePassword: 'string',
+      databaseUser: 'string',
+      dbaId: 'number',
+      ddlOnline: 'number',
+      ecsInstanceId: 'string',
+      ecsRegion: 'string',
+      enableSellCommon: 'string',
+      enableSellSitd: 'string',
+      enableSellStable: 'string',
+      enableSellTrust: 'string',
+      envType: 'string',
+      exportTimeout: 'number',
+      host: 'string',
+      instanceAlias: 'string',
+      instanceId: 'string',
+      instanceSource: 'string',
+      instanceType: 'string',
+      networkType: 'string',
+      port: 'number',
+      queryTimeout: 'number',
+      safeRule: 'string',
+      sid: 'string',
+      skipTest: 'boolean',
+      templateId: 'number',
+      templateType: 'string',
+      tid: 'number',
+      useDsql: 'number',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MoveTaskFlowToScenarioRequest extends $tea.Model {
   dagId?: number;
   scenarioId?: number;
@@ -29421,6 +29730,143 @@ export default class Client extends OpenApi {
     return await this.addDesensitizationRuleWithOptions(request, runtime);
   }
 
+  async addInstanceWithOptions(request: AddInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AddInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataLinkName)) {
+      query["DataLinkName"] = request.dataLinkName;
+    }
+
+    if (!Util.isUnset(request.databasePassword)) {
+      query["DatabasePassword"] = request.databasePassword;
+    }
+
+    if (!Util.isUnset(request.databaseUser)) {
+      query["DatabaseUser"] = request.databaseUser;
+    }
+
+    if (!Util.isUnset(request.dbaId)) {
+      query["DbaId"] = request.dbaId;
+    }
+
+    if (!Util.isUnset(request.ddlOnline)) {
+      query["DdlOnline"] = request.ddlOnline;
+    }
+
+    if (!Util.isUnset(request.ecsInstanceId)) {
+      query["EcsInstanceId"] = request.ecsInstanceId;
+    }
+
+    if (!Util.isUnset(request.ecsRegion)) {
+      query["EcsRegion"] = request.ecsRegion;
+    }
+
+    if (!Util.isUnset(request.enableSellCommon)) {
+      query["EnableSellCommon"] = request.enableSellCommon;
+    }
+
+    if (!Util.isUnset(request.enableSellSitd)) {
+      query["EnableSellSitd"] = request.enableSellSitd;
+    }
+
+    if (!Util.isUnset(request.enableSellStable)) {
+      query["EnableSellStable"] = request.enableSellStable;
+    }
+
+    if (!Util.isUnset(request.enableSellTrust)) {
+      query["EnableSellTrust"] = request.enableSellTrust;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.exportTimeout)) {
+      query["ExportTimeout"] = request.exportTimeout;
+    }
+
+    if (!Util.isUnset(request.host)) {
+      query["Host"] = request.host;
+    }
+
+    if (!Util.isUnset(request.instanceAlias)) {
+      query["InstanceAlias"] = request.instanceAlias;
+    }
+
+    if (!Util.isUnset(request.instanceSource)) {
+      query["InstanceSource"] = request.instanceSource;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.queryTimeout)) {
+      query["QueryTimeout"] = request.queryTimeout;
+    }
+
+    if (!Util.isUnset(request.safeRule)) {
+      query["SafeRule"] = request.safeRule;
+    }
+
+    if (!Util.isUnset(request.sid)) {
+      query["Sid"] = request.sid;
+    }
+
+    if (!Util.isUnset(request.skipTest)) {
+      query["SkipTest"] = request.skipTest;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!Util.isUnset(request.useDsql)) {
+      query["UseDsql"] = request.useDsql;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddInstance",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddInstanceResponse>(await this.callApi(params, req, runtime), new AddInstanceResponse({}));
+  }
+
+  async addInstance(request: AddInstanceRequest): Promise<AddInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addInstanceWithOptions(request, runtime);
+  }
+
   /**
     * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
     * Usage notes:
@@ -37115,6 +37561,147 @@ export default class Client extends OpenApi {
   async modifyDesensitizationStrategy(request: ModifyDesensitizationStrategyRequest): Promise<ModifyDesensitizationStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDesensitizationStrategyWithOptions(request, runtime);
+  }
+
+  async modifyInstanceWithOptions(request: ModifyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataLinkName)) {
+      query["DataLinkName"] = request.dataLinkName;
+    }
+
+    if (!Util.isUnset(request.databasePassword)) {
+      query["DatabasePassword"] = request.databasePassword;
+    }
+
+    if (!Util.isUnset(request.databaseUser)) {
+      query["DatabaseUser"] = request.databaseUser;
+    }
+
+    if (!Util.isUnset(request.dbaId)) {
+      query["DbaId"] = request.dbaId;
+    }
+
+    if (!Util.isUnset(request.ddlOnline)) {
+      query["DdlOnline"] = request.ddlOnline;
+    }
+
+    if (!Util.isUnset(request.ecsInstanceId)) {
+      query["EcsInstanceId"] = request.ecsInstanceId;
+    }
+
+    if (!Util.isUnset(request.ecsRegion)) {
+      query["EcsRegion"] = request.ecsRegion;
+    }
+
+    if (!Util.isUnset(request.enableSellCommon)) {
+      query["EnableSellCommon"] = request.enableSellCommon;
+    }
+
+    if (!Util.isUnset(request.enableSellSitd)) {
+      query["EnableSellSitd"] = request.enableSellSitd;
+    }
+
+    if (!Util.isUnset(request.enableSellStable)) {
+      query["EnableSellStable"] = request.enableSellStable;
+    }
+
+    if (!Util.isUnset(request.enableSellTrust)) {
+      query["EnableSellTrust"] = request.enableSellTrust;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.exportTimeout)) {
+      query["ExportTimeout"] = request.exportTimeout;
+    }
+
+    if (!Util.isUnset(request.host)) {
+      query["Host"] = request.host;
+    }
+
+    if (!Util.isUnset(request.instanceAlias)) {
+      query["InstanceAlias"] = request.instanceAlias;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceSource)) {
+      query["InstanceSource"] = request.instanceSource;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.queryTimeout)) {
+      query["QueryTimeout"] = request.queryTimeout;
+    }
+
+    if (!Util.isUnset(request.safeRule)) {
+      query["SafeRule"] = request.safeRule;
+    }
+
+    if (!Util.isUnset(request.sid)) {
+      query["Sid"] = request.sid;
+    }
+
+    if (!Util.isUnset(request.skipTest)) {
+      query["SkipTest"] = request.skipTest;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!Util.isUnset(request.useDsql)) {
+      query["UseDsql"] = request.useDsql;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyInstance",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInstanceResponse>(await this.callApi(params, req, runtime), new ModifyInstanceResponse({}));
+  }
+
+  async modifyInstance(request: ModifyInstanceRequest): Promise<ModifyInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyInstanceWithOptions(request, runtime);
   }
 
   async moveTaskFlowToScenarioWithOptions(request: MoveTaskFlowToScenarioRequest, runtime: $Util.RuntimeOptions): Promise<MoveTaskFlowToScenarioResponse> {
