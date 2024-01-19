@@ -1528,6 +1528,96 @@ export class CreateProjectResponse extends $tea.Model {
   }
 }
 
+export class CreateProjectLabelRequest extends $tea.Model {
+  accessToken?: string;
+  color?: string;
+  description?: string;
+  name?: string;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      color: 'color',
+      description: 'description',
+      name: 'name',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      color: 'string',
+      description: 'string',
+      name: 'string',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectLabelResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: CreateProjectLabelResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: CreateProjectLabelResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectLabelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateProjectLabelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateProjectLabelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProtectdBranchRequest extends $tea.Model {
   accessToken?: string;
   allowMergeRoles?: number[];
@@ -4063,6 +4153,87 @@ export class DeleteProjectResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectLabelRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectLabelResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: DeleteProjectLabelResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: DeleteProjectLabelResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectLabelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteProjectLabelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteProjectLabelResponseBody,
     };
   }
 
@@ -8234,6 +8405,93 @@ export class JoinPipelineGroupResponse extends $tea.Model {
   }
 }
 
+export class LinkMergeRequestLabelRequest extends $tea.Model {
+  accessToken?: string;
+  labelIds?: string[];
+  localId?: number;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      labelIds: 'labelIds',
+      localId: 'localId',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      labelIds: { 'type': 'array', 'itemType': 'string' },
+      localId: 'number',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LinkMergeRequestLabelResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: LinkMergeRequestLabelResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: LinkMergeRequestLabelResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LinkMergeRequestLabelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: LinkMergeRequestLabelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LinkMergeRequestLabelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListApplicationMembersRequest extends $tea.Model {
   organizationId?: string;
   static names(): { [key: string]: string } {
@@ -8999,6 +9257,90 @@ export class ListMergeRequestFilesReadsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListMergeRequestFilesReadsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestLabelsRequest extends $tea.Model {
+  accessToken?: string;
+  localId?: number;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      localId: 'localId',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      localId: 'number',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestLabelsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListMergeRequestLabelsResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListMergeRequestLabelsResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestLabelsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMergeRequestLabelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMergeRequestLabelsResponseBody,
     };
   }
 
@@ -10013,6 +10355,108 @@ export class ListPipelinesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListPipelinesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectLabelsRequest extends $tea.Model {
+  accessToken?: string;
+  orderBy?: string;
+  organizationId?: string;
+  page?: number;
+  pageSize?: number;
+  repositoryIdentity?: string;
+  search?: string;
+  sort?: string;
+  withCounts?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      orderBy: 'orderBy',
+      organizationId: 'organizationId',
+      page: 'page',
+      pageSize: 'pageSize',
+      repositoryIdentity: 'repositoryIdentity',
+      search: 'search',
+      sort: 'sort',
+      withCounts: 'withCounts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      orderBy: 'string',
+      organizationId: 'string',
+      page: 'number',
+      pageSize: 'number',
+      repositoryIdentity: 'string',
+      search: 'string',
+      sort: 'string',
+      withCounts: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectLabelsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListProjectLabelsResponseBodyResult[];
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListProjectLabelsResponseBodyResult },
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectLabelsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListProjectLabelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListProjectLabelsResponseBody,
     };
   }
 
@@ -15313,6 +15757,96 @@ export class UpdateProjectFieldResponse extends $tea.Model {
   }
 }
 
+export class UpdateProjectLabelRequest extends $tea.Model {
+  accessToken?: string;
+  color?: string;
+  description?: string;
+  name?: string;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      color: 'color',
+      description: 'description',
+      name: 'name',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      color: 'string',
+      description: 'string',
+      name: 'string',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectLabelResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: UpdateProjectLabelResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: UpdateProjectLabelResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectLabelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateProjectLabelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateProjectLabelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateProjectMemberRequest extends $tea.Model {
   roleIdentifier?: string;
   targetIdentifier?: string;
@@ -17170,6 +17704,34 @@ export class CreateProjectResponseBodyProject extends $tea.Model {
   }
 }
 
+export class CreateProjectLabelResponseBodyResult extends $tea.Model {
+  color?: string;
+  description?: string;
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      color: 'color',
+      description: 'description',
+      id: 'id',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      color: 'string',
+      description: 'string',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProtectdBranchRequestMergeRequestSetting extends $tea.Model {
   allowMergeRequestRoles?: number[];
   defaultAssignees?: string[];
@@ -18881,6 +19443,25 @@ export class DeleteGroupMemberResponseBodyResult extends $tea.Model {
       sourceId: 'number',
       state: 'string',
       username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectLabelResponseBodyResult extends $tea.Model {
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
     };
   }
 
@@ -22723,6 +23304,25 @@ export class GetWorkspaceResponseBodyWorkspace extends $tea.Model {
   }
 }
 
+export class LinkMergeRequestLabelResponseBodyResult extends $tea.Model {
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListApplicationMembersResponseBodyRecordsRoleList extends $tea.Model {
   displayName?: string;
   name?: string;
@@ -23553,6 +24153,34 @@ export class ListMergeRequestFilesReadsResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListMergeRequestLabelsResponseBodyResult extends $tea.Model {
+  color?: string;
+  description?: string;
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      color: 'color',
+      description: 'description',
+      id: 'id',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      color: 'string',
+      description: 'string',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMergeRequestPatchSetsResponseBodyResult extends $tea.Model {
   commitId?: string;
   createdAt?: string;
@@ -24106,6 +24734,37 @@ export class ListPipelinesResponseBodyPipelines extends $tea.Model {
       groupId: 'number',
       pipelineId: 'number',
       pipelineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectLabelsResponseBodyResult extends $tea.Model {
+  color?: string;
+  description?: string;
+  id?: string;
+  name?: string;
+  openMergeRequestsCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      color: 'color',
+      description: 'description',
+      id: 'id',
+      name: 'name',
+      openMergeRequestsCount: 'openMergeRequestsCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      color: 'string',
+      description: 'string',
+      id: 'string',
+      name: 'string',
+      openMergeRequestsCount: 'number',
     };
   }
 
@@ -27557,6 +28216,34 @@ export class UpdateProjectFieldResponseBodyProject extends $tea.Model {
   }
 }
 
+export class UpdateProjectLabelResponseBodyResult extends $tea.Model {
+  color?: string;
+  description?: string;
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      color: 'color',
+      description: 'description',
+      id: 'id',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      color: 'string',
+      description: 'string',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateProjectMemberResponseBodyMember extends $tea.Model {
   gmtCreate?: number;
   gmtModified?: number;
@@ -29765,6 +30452,59 @@ export default class Client extends OpenApi {
     return await this.createProjectWithOptions(organizationId, request, headers, runtime);
   }
 
+  async createProjectLabelWithOptions(request: CreateProjectLabelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProjectLabelResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.color)) {
+      body["color"] = request.color;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateProjectLabel",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/labels`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateProjectLabelResponse>(await this.callApi(params, req, runtime), new CreateProjectLabelResponse({}));
+  }
+
+  async createProjectLabel(request: CreateProjectLabelRequest): Promise<CreateProjectLabelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createProjectLabelWithOptions(request, headers, runtime);
+  }
+
   async createProtectdBranchWithOptions(repositoryId: string, request: CreateProtectdBranchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProtectdBranchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -31208,6 +31948,45 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteProjectWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async deleteProjectLabelWithOptions(labelId: string, request: DeleteProjectLabelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProjectLabelResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteProjectLabel",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/labels/${OpenApiUtil.getEncodeParam(labelId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteProjectLabelResponse>(await this.callApi(params, req, runtime), new DeleteProjectLabelResponse({}));
+  }
+
+  async deleteProjectLabel(labelId: string, request: DeleteProjectLabelRequest): Promise<DeleteProjectLabelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteProjectLabelWithOptions(labelId, request, headers, runtime);
   }
 
   async deleteProtectedBranchWithOptions(repositoryId: string, protectedBranchId: string, request: DeleteProtectedBranchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProtectedBranchResponse> {
@@ -33117,6 +33896,55 @@ export default class Client extends OpenApi {
     return await this.joinPipelineGroupWithOptions(organizationId, request, headers, runtime);
   }
 
+  async linkMergeRequestLabelWithOptions(request: LinkMergeRequestLabelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<LinkMergeRequestLabelResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.localId)) {
+      query["localId"] = request.localId;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.labelIds)) {
+      body["labelIds"] = request.labelIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "LinkMergeRequestLabel",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/merge_requests/link_labels`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<LinkMergeRequestLabelResponse>(await this.callApi(params, req, runtime), new LinkMergeRequestLabelResponse({}));
+  }
+
+  async linkMergeRequestLabel(request: LinkMergeRequestLabelRequest): Promise<LinkMergeRequestLabelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.linkMergeRequestLabelWithOptions(request, headers, runtime);
+  }
+
   async listApplicationMembersWithOptions(appName: string, request: ListApplicationMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListApplicationMembersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -33533,6 +34361,49 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMergeRequestFilesReadsWithOptions(request, headers, runtime);
+  }
+
+  async listMergeRequestLabelsWithOptions(request: ListMergeRequestLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMergeRequestLabelsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.localId)) {
+      query["localId"] = request.localId;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMergeRequestLabels",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/merge_requests/labels`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMergeRequestLabelsResponse>(await this.callApi(params, req, runtime), new ListMergeRequestLabelsResponse({}));
+  }
+
+  async listMergeRequestLabels(request: ListMergeRequestLabelsRequest): Promise<ListMergeRequestLabelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMergeRequestLabelsWithOptions(request, headers, runtime);
   }
 
   async listMergeRequestPatchSetsWithOptions(request: ListMergeRequestPatchSetsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMergeRequestPatchSetsResponse> {
@@ -34070,6 +34941,69 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listPipelinesWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listProjectLabelsWithOptions(request: ListProjectLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectLabelsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    if (!Util.isUnset(request.search)) {
+      query["search"] = request.search;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.withCounts)) {
+      query["withCounts"] = request.withCounts;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProjectLabels",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/labels`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProjectLabelsResponse>(await this.callApi(params, req, runtime), new ListProjectLabelsResponse({}));
+  }
+
+  async listProjectLabels(request: ListProjectLabelsRequest): Promise<ListProjectLabelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProjectLabelsWithOptions(request, headers, runtime);
   }
 
   async listProjectMembersWithOptions(organizationId: string, projectId: string, request: ListProjectMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectMembersResponse> {
@@ -36762,6 +37696,59 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateProjectFieldWithOptions(organizationId, identifier, request, headers, runtime);
+  }
+
+  async updateProjectLabelWithOptions(labelId: string, request: UpdateProjectLabelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectLabelResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.color)) {
+      body["color"] = request.color;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateProjectLabel",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/labels/${OpenApiUtil.getEncodeParam(labelId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateProjectLabelResponse>(await this.callApi(params, req, runtime), new UpdateProjectLabelResponse({}));
+  }
+
+  async updateProjectLabel(labelId: string, request: UpdateProjectLabelRequest): Promise<UpdateProjectLabelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateProjectLabelWithOptions(labelId, request, headers, runtime);
   }
 
   async updateProjectMemberWithOptions(organizationId: string, projectId: string, request: UpdateProjectMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectMemberResponse> {
