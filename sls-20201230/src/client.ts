@@ -3970,6 +3970,7 @@ export class GetLogsV2Headers extends $tea.Model {
 export class GetLogsV2Request extends $tea.Model {
   forward?: boolean;
   from?: number;
+  highlight?: boolean;
   line?: number;
   offset?: number;
   powerSql?: boolean;
@@ -3983,6 +3984,7 @@ export class GetLogsV2Request extends $tea.Model {
     return {
       forward: 'forward',
       from: 'from',
+      highlight: 'highlight',
       line: 'line',
       offset: 'offset',
       powerSql: 'powerSql',
@@ -3999,6 +4001,7 @@ export class GetLogsV2Request extends $tea.Model {
     return {
       forward: 'boolean',
       from: 'number',
+      highlight: 'boolean',
       line: 'number',
       offset: 'number',
       powerSql: 'boolean',
@@ -7737,30 +7740,74 @@ export class GetIndexResponseBodyLine extends $tea.Model {
   }
 }
 
+export class GetLogsV2ResponseBodyMetaPhraseQueryInfo extends $tea.Model {
+  beginOffset?: number;
+  endOffset?: number;
+  endTime?: number;
+  scanAll?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      beginOffset: 'beginOffset',
+      endOffset: 'endOffset',
+      endTime: 'endTime',
+      scanAll: 'scanAll',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginOffset: 'number',
+      endOffset: 'number',
+      endTime: 'number',
+      scanAll: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLogsV2ResponseBodyMeta extends $tea.Model {
   aggQuery?: string;
+  columnTypes?: string[];
   count?: number;
+  cpuCores?: number;
+  cpuSec?: number;
   elapsedMillisecond?: number;
   hasSQL?: boolean;
+  highlights?: LogContent[][];
   isAccurate?: boolean;
   keys?: string[];
+  limited?: number;
+  mode?: number;
+  phraseQueryInfo?: GetLogsV2ResponseBodyMetaPhraseQueryInfo;
   processedBytes?: number;
   processedRows?: number;
   progress?: string;
+  scanBytes?: number;
   telementryType?: string;
   terms?: { [key: string]: any }[];
   whereQuery?: string;
   static names(): { [key: string]: string } {
     return {
       aggQuery: 'aggQuery',
+      columnTypes: 'columnTypes',
       count: 'count',
+      cpuCores: 'cpuCores',
+      cpuSec: 'cpuSec',
       elapsedMillisecond: 'elapsedMillisecond',
       hasSQL: 'hasSQL',
+      highlights: 'highlights',
       isAccurate: 'isAccurate',
       keys: 'keys',
+      limited: 'limited',
+      mode: 'mode',
+      phraseQueryInfo: 'phraseQueryInfo',
       processedBytes: 'processedBytes',
       processedRows: 'processedRows',
       progress: 'progress',
+      scanBytes: 'scanBytes',
       telementryType: 'telementryType',
       terms: 'terms',
       whereQuery: 'whereQuery',
@@ -7770,14 +7817,22 @@ export class GetLogsV2ResponseBodyMeta extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aggQuery: 'string',
+      columnTypes: { 'type': 'array', 'itemType': 'string' },
       count: 'number',
+      cpuCores: 'number',
+      cpuSec: 'number',
       elapsedMillisecond: 'number',
       hasSQL: 'boolean',
+      highlights: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': LogContent } },
       isAccurate: 'boolean',
       keys: { 'type': 'array', 'itemType': 'string' },
+      limited: 'number',
+      mode: 'number',
+      phraseQueryInfo: GetLogsV2ResponseBodyMetaPhraseQueryInfo,
       processedBytes: 'number',
       processedRows: 'number',
       progress: 'string',
+      scanBytes: 'number',
       telementryType: 'string',
       terms: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       whereQuery: 'string',
@@ -11054,6 +11109,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.from)) {
       body["from"] = request.from;
+    }
+
+    if (!Util.isUnset(request.highlight)) {
+      body["highlight"] = request.highlight;
     }
 
     if (!Util.isUnset(request.line)) {
