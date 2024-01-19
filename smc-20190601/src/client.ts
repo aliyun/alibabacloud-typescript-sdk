@@ -4,110 +4,201 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class CreateReplicationJobRequest extends $tea.Model {
+export class CreateAccessTokenRequest extends $tea.Model {
+  count?: string;
+  description?: string;
+  name?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
-  regionId?: string;
-  clientToken?: string;
-  name?: string;
-  description?: string;
-  sourceId?: string;
-  targetType?: string;
-  scheduledStartTime?: string;
-  validTime?: string;
-  imageName?: string;
-  instanceId?: string;
-  systemDiskSize?: number;
-  vpcId?: string;
-  vSwitchId?: string;
-  replicationParameters?: string;
-  netMode?: number;
-  runOnce?: boolean;
-  frequency?: number;
-  maxNumberOfImageToKeep?: number;
-  instanceType?: string;
-  launchTemplateId?: string;
-  launchTemplateVersion?: string;
-  instanceRamRole?: string;
-  containerNamespace?: string;
-  containerRepository?: string;
-  containerTag?: string;
-  licenseType?: string;
-  dataDisk?: CreateReplicationJobRequestDataDisk[];
-  tag?: CreateReplicationJobRequestTag[];
-  systemDiskPart?: CreateReplicationJobRequestSystemDiskPart[];
+  timeToLiveInDays?: string;
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
+      description: 'Description',
+      name: 'Name',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
-      name: 'Name',
-      description: 'Description',
-      sourceId: 'SourceId',
-      targetType: 'TargetType',
-      scheduledStartTime: 'ScheduledStartTime',
-      validTime: 'ValidTime',
-      imageName: 'ImageName',
-      instanceId: 'InstanceId',
-      systemDiskSize: 'SystemDiskSize',
-      vpcId: 'VpcId',
-      vSwitchId: 'VSwitchId',
-      replicationParameters: 'ReplicationParameters',
-      netMode: 'NetMode',
-      runOnce: 'RunOnce',
-      frequency: 'Frequency',
-      maxNumberOfImageToKeep: 'MaxNumberOfImageToKeep',
-      instanceType: 'InstanceType',
-      launchTemplateId: 'LaunchTemplateId',
-      launchTemplateVersion: 'LaunchTemplateVersion',
-      instanceRamRole: 'InstanceRamRole',
-      containerNamespace: 'ContainerNamespace',
-      containerRepository: 'ContainerRepository',
-      containerTag: 'ContainerTag',
-      licenseType: 'LicenseType',
-      dataDisk: 'DataDisk',
-      tag: 'Tag',
-      systemDiskPart: 'SystemDiskPart',
+      timeToLiveInDays: 'TimeToLiveInDays',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      count: 'string',
+      description: 'string',
+      name: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
-      regionId: 'string',
+      timeToLiveInDays: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessTokenResponseBody extends $tea.Model {
+  accessTokenCode?: string;
+  accessTokenId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessTokenCode: 'AccessTokenCode',
+      accessTokenId: 'AccessTokenId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessTokenCode: 'string',
+      accessTokenId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateAccessTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAccessTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateReplicationJobRequest extends $tea.Model {
+  clientToken?: string;
+  containerNamespace?: string;
+  containerRepository?: string;
+  containerTag?: string;
+  dataDisk?: CreateReplicationJobRequestDataDisk[];
+  description?: string;
+  frequency?: number;
+  imageName?: string;
+  instanceId?: string;
+  instanceRamRole?: string;
+  instanceType?: string;
+  jobType?: number;
+  launchTemplateId?: string;
+  launchTemplateVersion?: string;
+  licenseType?: string;
+  maxNumberOfImageToKeep?: number;
+  name?: string;
+  netMode?: number;
+  ownerId?: number;
+  regionId?: string;
+  replicationParameters?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  runOnce?: boolean;
+  scheduledStartTime?: string;
+  sourceId?: string;
+  systemDiskPart?: CreateReplicationJobRequestSystemDiskPart[];
+  systemDiskSize?: number;
+  tag?: CreateReplicationJobRequestTag[];
+  targetType?: string;
+  vSwitchId?: string;
+  validTime?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      containerNamespace: 'ContainerNamespace',
+      containerRepository: 'ContainerRepository',
+      containerTag: 'ContainerTag',
+      dataDisk: 'DataDisk',
+      description: 'Description',
+      frequency: 'Frequency',
+      imageName: 'ImageName',
+      instanceId: 'InstanceId',
+      instanceRamRole: 'InstanceRamRole',
+      instanceType: 'InstanceType',
+      jobType: 'JobType',
+      launchTemplateId: 'LaunchTemplateId',
+      launchTemplateVersion: 'LaunchTemplateVersion',
+      licenseType: 'LicenseType',
+      maxNumberOfImageToKeep: 'MaxNumberOfImageToKeep',
+      name: 'Name',
+      netMode: 'NetMode',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      replicationParameters: 'ReplicationParameters',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      runOnce: 'RunOnce',
+      scheduledStartTime: 'ScheduledStartTime',
+      sourceId: 'SourceId',
+      systemDiskPart: 'SystemDiskPart',
+      systemDiskSize: 'SystemDiskSize',
+      tag: 'Tag',
+      targetType: 'TargetType',
+      vSwitchId: 'VSwitchId',
+      validTime: 'ValidTime',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       clientToken: 'string',
-      name: 'string',
-      description: 'string',
-      sourceId: 'string',
-      targetType: 'string',
-      scheduledStartTime: 'string',
-      validTime: 'string',
-      imageName: 'string',
-      instanceId: 'string',
-      systemDiskSize: 'number',
-      vpcId: 'string',
-      vSwitchId: 'string',
-      replicationParameters: 'string',
-      netMode: 'number',
-      runOnce: 'boolean',
-      frequency: 'number',
-      maxNumberOfImageToKeep: 'number',
-      instanceType: 'string',
-      launchTemplateId: 'string',
-      launchTemplateVersion: 'string',
-      instanceRamRole: 'string',
       containerNamespace: 'string',
       containerRepository: 'string',
       containerTag: 'string',
-      licenseType: 'string',
       dataDisk: { 'type': 'array', 'itemType': CreateReplicationJobRequestDataDisk },
-      tag: { 'type': 'array', 'itemType': CreateReplicationJobRequestTag },
+      description: 'string',
+      frequency: 'number',
+      imageName: 'string',
+      instanceId: 'string',
+      instanceRamRole: 'string',
+      instanceType: 'string',
+      jobType: 'number',
+      launchTemplateId: 'string',
+      launchTemplateVersion: 'string',
+      licenseType: 'string',
+      maxNumberOfImageToKeep: 'number',
+      name: 'string',
+      netMode: 'number',
+      ownerId: 'number',
+      regionId: 'string',
+      replicationParameters: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      runOnce: 'boolean',
+      scheduledStartTime: 'string',
+      sourceId: 'string',
       systemDiskPart: { 'type': 'array', 'itemType': CreateReplicationJobRequestSystemDiskPart },
+      systemDiskSize: 'number',
+      tag: { 'type': 'array', 'itemType': CreateReplicationJobRequestTag },
+      targetType: 'string',
+      vSwitchId: 'string',
+      validTime: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -117,19 +208,19 @@ export class CreateReplicationJobRequest extends $tea.Model {
 }
 
 export class CreateReplicationJobResponseBody extends $tea.Model {
-  requestId?: string;
   jobId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       jobId: 'JobId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       jobId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -140,10 +231,12 @@ export class CreateReplicationJobResponseBody extends $tea.Model {
 
 export class CreateReplicationJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateReplicationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -151,6 +244,7 @@ export class CreateReplicationJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateReplicationJobResponseBody,
     };
   }
@@ -161,24 +255,24 @@ export class CreateReplicationJobResponse extends $tea.Model {
 }
 
 export class CutOverReplicationJobRequest extends $tea.Model {
+  jobId?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
-  jobId?: string;
   syncData?: boolean;
   static names(): { [key: string]: string } {
     return {
+      jobId: 'JobId',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
-      jobId: 'JobId',
       syncData: 'SyncData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      jobId: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
-      jobId: 'string',
       syncData: 'boolean',
     };
   }
@@ -209,10 +303,12 @@ export class CutOverReplicationJobResponseBody extends $tea.Model {
 
 export class CutOverReplicationJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CutOverReplicationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -220,6 +316,7 @@ export class CutOverReplicationJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CutOverReplicationJobResponseBody,
     };
   }
@@ -229,23 +326,92 @@ export class CutOverReplicationJobResponse extends $tea.Model {
   }
 }
 
-export class DeleteReplicationJobRequest extends $tea.Model {
+export class DeleteAccessTokenRequest extends $tea.Model {
+  accessTokenId?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
-  jobId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessTokenId: 'AccessTokenId',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
-      jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessTokenId: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessTokenResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteAccessTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAccessTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteReplicationJobRequest extends $tea.Model {
+  jobId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       jobId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
     };
   }
 
@@ -275,10 +441,12 @@ export class DeleteReplicationJobResponseBody extends $tea.Model {
 
 export class DeleteReplicationJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteReplicationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -286,6 +454,7 @@ export class DeleteReplicationJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteReplicationJobResponseBody,
     };
   }
@@ -296,25 +465,25 @@ export class DeleteReplicationJobResponse extends $tea.Model {
 }
 
 export class DeleteSourceServerRequest extends $tea.Model {
+  force?: boolean;
   ownerId?: number;
   resourceOwnerAccount?: string;
   sourceId?: string;
-  force?: boolean;
   static names(): { [key: string]: string } {
     return {
+      force: 'Force',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       sourceId: 'SourceId',
-      force: 'Force',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      force: 'boolean',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       sourceId: 'string',
-      force: 'boolean',
     };
   }
 
@@ -344,10 +513,12 @@ export class DeleteSourceServerResponseBody extends $tea.Model {
 
 export class DeleteSourceServerResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSourceServerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -355,6 +526,7 @@ export class DeleteSourceServerResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSourceServerResponseBody,
     };
   }
@@ -365,43 +537,55 @@ export class DeleteSourceServerResponse extends $tea.Model {
 }
 
 export class DescribeReplicationJobsRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  name?: string;
-  regionId?: string;
-  status?: string;
   businessStatus?: string;
+  instanceId?: string[];
+  jobId?: string[];
+  jobType?: number;
+  name?: string;
+  ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
   sourceId?: string[];
-  jobId?: string[];
+  status?: string;
+  tag?: DescribeReplicationJobsRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      name: 'Name',
-      regionId: 'RegionId',
-      status: 'Status',
       businessStatus: 'BusinessStatus',
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+      jobType: 'JobType',
+      name: 'Name',
+      ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
       sourceId: 'SourceId',
-      jobId: 'JobId',
+      status: 'Status',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      name: 'string',
-      regionId: 'string',
-      status: 'string',
       businessStatus: 'string',
+      instanceId: { 'type': 'array', 'itemType': 'string' },
+      jobId: { 'type': 'array', 'itemType': 'string' },
+      jobType: 'number',
+      name: 'string',
+      ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
       sourceId: { 'type': 'array', 'itemType': 'string' },
-      jobId: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeReplicationJobsRequestTag },
     };
   }
 
@@ -411,28 +595,28 @@ export class DescribeReplicationJobsRequest extends $tea.Model {
 }
 
 export class DescribeReplicationJobsResponseBody extends $tea.Model {
-  totalCount?: number;
-  replicationJobs?: DescribeReplicationJobsResponseBodyReplicationJobs;
-  pageSize?: number;
-  requestId?: string;
   pageNumber?: number;
+  pageSize?: number;
+  replicationJobs?: DescribeReplicationJobsResponseBodyReplicationJobs;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      replicationJobs: 'ReplicationJobs',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      replicationJobs: 'ReplicationJobs',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      replicationJobs: DescribeReplicationJobsResponseBodyReplicationJobs,
-      pageSize: 'number',
-      requestId: 'string',
       pageNumber: 'number',
+      pageSize: 'number',
+      replicationJobs: DescribeReplicationJobsResponseBodyReplicationJobs,
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -443,10 +627,12 @@ export class DescribeReplicationJobsResponseBody extends $tea.Model {
 
 export class DescribeReplicationJobsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeReplicationJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -454,6 +640,7 @@ export class DescribeReplicationJobsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeReplicationJobsResponseBody,
     };
   }
@@ -464,37 +651,43 @@ export class DescribeReplicationJobsResponse extends $tea.Model {
 }
 
 export class DescribeSourceServersRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
   jobId?: string;
-  state?: string;
   name?: string;
+  ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
   sourceId?: string[];
+  state?: string;
+  tag?: DescribeSourceServersRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
       jobId: 'JobId',
-      state: 'State',
       name: 'Name',
+      ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
       sourceId: 'SourceId',
+      state: 'State',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
       jobId: 'string',
-      state: 'string',
       name: 'string',
+      ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
       sourceId: { 'type': 'array', 'itemType': 'string' },
+      state: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeSourceServersRequestTag },
     };
   }
 
@@ -504,28 +697,28 @@ export class DescribeSourceServersRequest extends $tea.Model {
 }
 
 export class DescribeSourceServersResponseBody extends $tea.Model {
-  sourceServers?: DescribeSourceServersResponseBodySourceServers;
-  totalCount?: number;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
+  sourceServers?: DescribeSourceServersResponseBodySourceServers;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceServers: 'SourceServers',
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
+      sourceServers: 'SourceServers',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceServers: DescribeSourceServersResponseBodySourceServers,
-      totalCount: 'number',
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
+      sourceServers: DescribeSourceServersResponseBodySourceServers,
+      totalCount: 'number',
     };
   }
 
@@ -536,10 +729,12 @@ export class DescribeSourceServersResponseBody extends $tea.Model {
 
 export class DescribeSourceServersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSourceServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -547,6 +742,7 @@ export class DescribeSourceServersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSourceServersResponseBody,
     };
   }
@@ -556,31 +752,187 @@ export class DescribeSourceServersResponse extends $tea.Model {
   }
 }
 
-export class ListTagResourcesRequest extends $tea.Model {
+export class DisableAccessTokenRequest extends $tea.Model {
+  accessTokenId?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
-  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessTokenId: 'AccessTokenId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessTokenId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableAccessTokenResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableAccessTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DisableAccessTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableAccessTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessTokensRequest extends $tea.Model {
+  accessTokenId?: string[];
+  name?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessTokenId: 'AccessTokenId',
+      name: 'Name',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessTokenId: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessTokensResponseBody extends $tea.Model {
+  accessTokens?: ListAccessTokensResponseBodyAccessTokens;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessTokens: 'AccessTokens',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessTokens: ListAccessTokensResponseBodyAccessTokens,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessTokensResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAccessTokensResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAccessTokensResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $tea.Model {
   nextToken?: string;
+  ownerId?: number;
   resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceType?: string;
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      nextToken: 'NextToken',
       ownerId: 'OwnerId',
+      resourceId: 'ResourceId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceType: 'ResourceType',
-      nextToken: 'NextToken',
-      resourceId: 'ResourceId',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nextToken: 'string',
       ownerId: 'number',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceOwnerAccount: 'string',
       resourceType: 'string',
-      nextToken: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
       tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
     };
   }
@@ -617,10 +969,12 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 
 export class ListTagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -628,6 +982,7 @@ export class ListTagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTagResourcesResponseBody,
     };
   }
@@ -638,79 +993,94 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ModifyReplicationJobAttributeRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  jobId?: string;
-  name?: string;
-  description?: string;
-  targetType?: string;
-  scheduledStartTime?: string;
-  imageName?: string;
-  instanceId?: string;
-  systemDiskSize?: number;
-  frequency?: number;
-  maxNumberOfImageToKeep?: number;
-  instanceType?: string;
-  launchTemplateId?: string;
-  launchTemplateVersion?: string;
-  instanceRamRole?: string;
   containerNamespace?: string;
   containerRepository?: string;
   containerTag?: string;
-  validTime?: string;
-  systemDiskPart?: ModifyReplicationJobAttributeRequestSystemDiskPart[];
   dataDisk?: ModifyReplicationJobAttributeRequestDataDisk[];
+  description?: string;
+  frequency?: number;
+  imageName?: string;
+  instanceId?: string;
+  instanceRamRole?: string;
+  instanceType?: string;
+  jobId?: string;
+  launchTemplateId?: string;
+  launchTemplateVersion?: string;
+  licenseType?: string;
+  maxNumberOfImageToKeep?: number;
+  name?: string;
+  netMode?: number;
+  ownerId?: number;
+  replicationParameters?: string;
+  resourceOwnerAccount?: string;
+  scheduledStartTime?: string;
+  systemDiskPart?: ModifyReplicationJobAttributeRequestSystemDiskPart[];
+  systemDiskSize?: number;
+  targetType?: string;
+  vSwitchId?: string;
+  validTime?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      jobId: 'JobId',
-      name: 'Name',
-      description: 'Description',
-      targetType: 'TargetType',
-      scheduledStartTime: 'ScheduledStartTime',
-      imageName: 'ImageName',
-      instanceId: 'InstanceId',
-      systemDiskSize: 'SystemDiskSize',
-      frequency: 'Frequency',
-      maxNumberOfImageToKeep: 'MaxNumberOfImageToKeep',
-      instanceType: 'InstanceType',
-      launchTemplateId: 'LaunchTemplateId',
-      launchTemplateVersion: 'LaunchTemplateVersion',
-      instanceRamRole: 'InstanceRamRole',
       containerNamespace: 'ContainerNamespace',
       containerRepository: 'ContainerRepository',
       containerTag: 'ContainerTag',
-      validTime: 'ValidTime',
-      systemDiskPart: 'SystemDiskPart',
       dataDisk: 'DataDisk',
+      description: 'Description',
+      frequency: 'Frequency',
+      imageName: 'ImageName',
+      instanceId: 'InstanceId',
+      instanceRamRole: 'InstanceRamRole',
+      instanceType: 'InstanceType',
+      jobId: 'JobId',
+      launchTemplateId: 'LaunchTemplateId',
+      launchTemplateVersion: 'LaunchTemplateVersion',
+      licenseType: 'LicenseType',
+      maxNumberOfImageToKeep: 'MaxNumberOfImageToKeep',
+      name: 'Name',
+      netMode: 'NetMode',
+      ownerId: 'OwnerId',
+      replicationParameters: 'ReplicationParameters',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      scheduledStartTime: 'ScheduledStartTime',
+      systemDiskPart: 'SystemDiskPart',
+      systemDiskSize: 'SystemDiskSize',
+      targetType: 'TargetType',
+      vSwitchId: 'VSwitchId',
+      validTime: 'ValidTime',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      jobId: 'string',
-      name: 'string',
-      description: 'string',
-      targetType: 'string',
-      scheduledStartTime: 'string',
-      imageName: 'string',
-      instanceId: 'string',
-      systemDiskSize: 'number',
-      frequency: 'number',
-      maxNumberOfImageToKeep: 'number',
-      instanceType: 'string',
-      launchTemplateId: 'string',
-      launchTemplateVersion: 'string',
-      instanceRamRole: 'string',
       containerNamespace: 'string',
       containerRepository: 'string',
       containerTag: 'string',
-      validTime: 'string',
-      systemDiskPart: { 'type': 'array', 'itemType': ModifyReplicationJobAttributeRequestSystemDiskPart },
       dataDisk: { 'type': 'array', 'itemType': ModifyReplicationJobAttributeRequestDataDisk },
+      description: 'string',
+      frequency: 'number',
+      imageName: 'string',
+      instanceId: 'string',
+      instanceRamRole: 'string',
+      instanceType: 'string',
+      jobId: 'string',
+      launchTemplateId: 'string',
+      launchTemplateVersion: 'string',
+      licenseType: 'string',
+      maxNumberOfImageToKeep: 'number',
+      name: 'string',
+      netMode: 'number',
+      ownerId: 'number',
+      replicationParameters: 'string',
+      resourceOwnerAccount: 'string',
+      scheduledStartTime: 'string',
+      systemDiskPart: { 'type': 'array', 'itemType': ModifyReplicationJobAttributeRequestSystemDiskPart },
+      systemDiskSize: 'number',
+      targetType: 'string',
+      vSwitchId: 'string',
+      validTime: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -740,10 +1110,12 @@ export class ModifyReplicationJobAttributeResponseBody extends $tea.Model {
 
 export class ModifyReplicationJobAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyReplicationJobAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -751,6 +1123,7 @@ export class ModifyReplicationJobAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyReplicationJobAttributeResponseBody,
     };
   }
@@ -761,28 +1134,28 @@ export class ModifyReplicationJobAttributeResponse extends $tea.Model {
 }
 
 export class ModifySourceServerAttributeRequest extends $tea.Model {
+  description?: string;
+  name?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   sourceId?: string;
-  name?: string;
-  description?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
+      name: 'Name',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       sourceId: 'SourceId',
-      name: 'Name',
-      description: 'Description',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
+      name: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       sourceId: 'string',
-      name: 'string',
-      description: 'string',
     };
   }
 
@@ -812,10 +1185,12 @@ export class ModifySourceServerAttributeResponseBody extends $tea.Model {
 
 export class ModifySourceServerAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySourceServerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -823,6 +1198,7 @@ export class ModifySourceServerAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySourceServerAttributeResponseBody,
     };
   }
@@ -833,22 +1209,22 @@ export class ModifySourceServerAttributeResponse extends $tea.Model {
 }
 
 export class StartReplicationJobRequest extends $tea.Model {
+  jobId?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
-  jobId?: string;
   static names(): { [key: string]: string } {
     return {
+      jobId: 'JobId',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
-      jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      jobId: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
-      jobId: 'string',
     };
   }
 
@@ -878,10 +1254,12 @@ export class StartReplicationJobResponseBody extends $tea.Model {
 
 export class StartReplicationJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartReplicationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -889,6 +1267,7 @@ export class StartReplicationJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartReplicationJobResponseBody,
     };
   }
@@ -899,22 +1278,22 @@ export class StartReplicationJobResponse extends $tea.Model {
 }
 
 export class StopReplicationJobRequest extends $tea.Model {
+  jobId?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
-  jobId?: string;
   static names(): { [key: string]: string } {
     return {
+      jobId: 'JobId',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
-      jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      jobId: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
-      jobId: 'string',
     };
   }
 
@@ -944,10 +1323,12 @@ export class StopReplicationJobResponseBody extends $tea.Model {
 
 export class StopReplicationJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopReplicationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -955,6 +1336,7 @@ export class StopReplicationJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopReplicationJobResponseBody,
     };
   }
@@ -966,16 +1348,16 @@ export class StopReplicationJobResponse extends $tea.Model {
 
 export class TagResourcesRequest extends $tea.Model {
   ownerId?: number;
+  resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceType?: string;
-  resourceId?: string[];
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
+      resourceId: 'ResourceId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceType: 'ResourceType',
-      resourceId: 'ResourceId',
       tag: 'Tag',
     };
   }
@@ -983,9 +1365,9 @@ export class TagResourcesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceOwnerAccount: 'string',
       resourceType: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
       tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
     };
   }
@@ -1016,10 +1398,12 @@ export class TagResourcesResponseBody extends $tea.Model {
 
 export class TagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1027,6 +1411,7 @@ export class TagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TagResourcesResponseBody,
     };
   }
@@ -1037,30 +1422,30 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
   ownerId?: number;
+  resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceType?: string;
-  all?: boolean;
-  resourceId?: string[];
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
+      all: 'All',
       ownerId: 'OwnerId',
+      resourceId: 'ResourceId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceType: 'ResourceType',
-      all: 'All',
-      resourceId: 'ResourceId',
       tagKey: 'TagKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      all: 'boolean',
       ownerId: 'number',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceOwnerAccount: 'string',
       resourceType: 'string',
-      all: 'boolean',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
       tagKey: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -1091,10 +1476,12 @@ export class UntagResourcesResponseBody extends $tea.Model {
 
 export class UntagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1102,6 +1489,7 @@ export class UntagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UntagResourcesResponseBody,
     };
   }
@@ -1112,22 +1500,22 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class CreateReplicationJobRequestDataDiskPart extends $tea.Model {
-  sizeBytes?: number;
   block?: boolean;
   device?: string;
+  sizeBytes?: number;
   static names(): { [key: string]: string } {
     return {
-      sizeBytes: 'SizeBytes',
       block: 'Block',
       device: 'Device',
+      sizeBytes: 'SizeBytes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sizeBytes: 'number',
       block: 'boolean',
       device: 'string',
+      sizeBytes: 'number',
     };
   }
 
@@ -1161,6 +1549,31 @@ export class CreateReplicationJobRequestDataDisk extends $tea.Model {
   }
 }
 
+export class CreateReplicationJobRequestSystemDiskPart extends $tea.Model {
+  block?: boolean;
+  device?: string;
+  sizeBytes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      block: 'Block',
+      device: 'Device',
+      sizeBytes: 'SizeBytes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      block: 'boolean',
+      device: 'string',
+      sizeBytes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateReplicationJobRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -1183,23 +1596,20 @@ export class CreateReplicationJobRequestTag extends $tea.Model {
   }
 }
 
-export class CreateReplicationJobRequestSystemDiskPart extends $tea.Model {
-  sizeBytes?: number;
-  block?: boolean;
-  device?: string;
+export class DescribeReplicationJobsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      sizeBytes: 'SizeBytes',
-      block: 'Block',
-      device: 'Device',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sizeBytes: 'number',
-      block: 'boolean',
-      device: 'string',
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -1209,22 +1619,22 @@ export class CreateReplicationJobRequestSystemDiskPart extends $tea.Model {
 }
 
 export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobDataDisksDataDiskPartsPart extends $tea.Model {
-  sizeBytes?: number;
   block?: boolean;
   device?: string;
+  sizeBytes?: number;
   static names(): { [key: string]: string } {
     return {
-      sizeBytes: 'SizeBytes',
       block: 'Block',
       device: 'Device',
+      sizeBytes: 'SizeBytes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sizeBytes: 'number',
       block: 'boolean',
       device: 'string',
+      sizeBytes: 'number',
     };
   }
 
@@ -1254,21 +1664,21 @@ export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobDat
 
 export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobDataDisksDataDisk extends $tea.Model {
   index?: number;
-  size?: number;
   parts?: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobDataDisksDataDiskParts;
+  size?: number;
   static names(): { [key: string]: string } {
     return {
       index: 'Index',
-      size: 'Size',
       parts: 'Parts',
+      size: 'Size',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       index: 'number',
-      size: 'number',
       parts: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobDataDisksDataDiskParts,
+      size: 'number',
     };
   }
 
@@ -1296,70 +1706,26 @@ export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobDat
   }
 }
 
-export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobSystemDiskPartsSystemDiskPart extends $tea.Model {
-  sizeBytes?: number;
-  block?: boolean;
-  device?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sizeBytes: 'SizeBytes',
-      block: 'Block',
-      device: 'Device',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sizeBytes: 'number',
-      block: 'boolean',
-      device: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobSystemDiskParts extends $tea.Model {
-  systemDiskPart?: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobSystemDiskPartsSystemDiskPart[];
-  static names(): { [key: string]: string } {
-    return {
-      systemDiskPart: 'SystemDiskPart',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      systemDiskPart: { 'type': 'array', 'itemType': DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobSystemDiskPartsSystemDiskPart },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobReplicationJobRunsReplicationJobRun extends $tea.Model {
   endTime?: string;
-  type?: string;
-  startTime?: string;
   imageId?: string;
+  startTime?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      type: 'Type',
-      startTime: 'StartTime',
       imageId: 'ImageId',
+      startTime: 'StartTime',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      type: 'string',
-      startTime: 'string',
       imageId: 'string',
+      startTime: 'string',
+      type: 'string',
     };
   }
 
@@ -1387,131 +1753,225 @@ export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobRep
   }
 }
 
-export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJob extends $tea.Model {
-  frequency?: number;
-  vpcId?: string;
-  creationTime?: string;
-  status?: string;
-  scheduledStartTime?: string;
-  maxNumberOfImageToKeep?: number;
-  containerNamespace?: string;
-  dataDisks?: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobDataDisks;
-  statusInfo?: string;
-  instanceRamRole?: string;
-  systemDiskSize?: number;
-  description?: string;
-  replicationParameters?: string;
-  errorCode?: string;
-  validTime?: string;
-  netMode?: number;
-  containerTag?: string;
-  licenseType?: string;
-  name?: string;
-  imageId?: string;
-  progress?: number;
-  runOnce?: boolean;
-  launchTemplateId?: string;
-  containerRepository?: string;
-  instanceId?: string;
-  systemDiskParts?: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobSystemDiskParts;
-  instanceType?: string;
-  sourceId?: string;
-  launchTemplateVersion?: string;
-  regionId?: string;
-  transitionInstanceId?: string;
-  endTime?: string;
-  startTime?: string;
-  vSwitchId?: string;
-  jobId?: string;
-  imageName?: string;
-  businessStatus?: string;
-  replicationJobRuns?: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobReplicationJobRuns;
-  targetType?: string;
+export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobSystemDiskPartsSystemDiskPart extends $tea.Model {
+  block?: boolean;
+  device?: string;
+  sizeBytes?: number;
   static names(): { [key: string]: string } {
     return {
-      frequency: 'Frequency',
-      vpcId: 'VpcId',
-      creationTime: 'CreationTime',
-      status: 'Status',
-      scheduledStartTime: 'ScheduledStartTime',
-      maxNumberOfImageToKeep: 'MaxNumberOfImageToKeep',
-      containerNamespace: 'ContainerNamespace',
-      dataDisks: 'DataDisks',
-      statusInfo: 'StatusInfo',
-      instanceRamRole: 'InstanceRamRole',
-      systemDiskSize: 'SystemDiskSize',
-      description: 'Description',
-      replicationParameters: 'ReplicationParameters',
-      errorCode: 'ErrorCode',
-      validTime: 'ValidTime',
-      netMode: 'NetMode',
-      containerTag: 'ContainerTag',
-      licenseType: 'LicenseType',
-      name: 'Name',
-      imageId: 'ImageId',
-      progress: 'Progress',
-      runOnce: 'RunOnce',
-      launchTemplateId: 'LaunchTemplateId',
-      containerRepository: 'ContainerRepository',
-      instanceId: 'InstanceId',
-      systemDiskParts: 'SystemDiskParts',
-      instanceType: 'InstanceType',
-      sourceId: 'SourceId',
-      launchTemplateVersion: 'LaunchTemplateVersion',
-      regionId: 'RegionId',
-      transitionInstanceId: 'TransitionInstanceId',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      vSwitchId: 'VSwitchId',
-      jobId: 'JobId',
-      imageName: 'ImageName',
-      businessStatus: 'BusinessStatus',
-      replicationJobRuns: 'ReplicationJobRuns',
-      targetType: 'TargetType',
+      block: 'Block',
+      device: 'Device',
+      sizeBytes: 'SizeBytes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      frequency: 'number',
-      vpcId: 'string',
-      creationTime: 'string',
-      status: 'string',
-      scheduledStartTime: 'string',
-      maxNumberOfImageToKeep: 'number',
-      containerNamespace: 'string',
-      dataDisks: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobDataDisks,
-      statusInfo: 'string',
-      instanceRamRole: 'string',
-      systemDiskSize: 'number',
-      description: 'string',
-      replicationParameters: 'string',
-      errorCode: 'string',
-      validTime: 'string',
-      netMode: 'number',
-      containerTag: 'string',
-      licenseType: 'string',
-      name: 'string',
-      imageId: 'string',
-      progress: 'number',
-      runOnce: 'boolean',
-      launchTemplateId: 'string',
-      containerRepository: 'string',
-      instanceId: 'string',
-      systemDiskParts: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobSystemDiskParts,
-      instanceType: 'string',
-      sourceId: 'string',
-      launchTemplateVersion: 'string',
-      regionId: 'string',
-      transitionInstanceId: 'string',
-      endTime: 'string',
-      startTime: 'string',
-      vSwitchId: 'string',
-      jobId: 'string',
-      imageName: 'string',
+      block: 'boolean',
+      device: 'string',
+      sizeBytes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobSystemDiskParts extends $tea.Model {
+  systemDiskPart?: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobSystemDiskPartsSystemDiskPart[];
+  static names(): { [key: string]: string } {
+    return {
+      systemDiskPart: 'SystemDiskPart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      systemDiskPart: { 'type': 'array', 'itemType': DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobSystemDiskPartsSystemDiskPart },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobTags extends $tea.Model {
+  tag?: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicationJobsResponseBodyReplicationJobsReplicationJob extends $tea.Model {
+  businessStatus?: string;
+  containerNamespace?: string;
+  containerRepository?: string;
+  containerTag?: string;
+  creationTime?: string;
+  dataDisks?: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobDataDisks;
+  description?: string;
+  endTime?: string;
+  errorCode?: string;
+  frequency?: number;
+  imageId?: string;
+  imageName?: string;
+  instanceId?: string;
+  instanceRamRole?: string;
+  instanceType?: string;
+  jobId?: string;
+  jobType?: number;
+  launchTemplateId?: string;
+  launchTemplateVersion?: string;
+  licenseType?: string;
+  maxNumberOfImageToKeep?: number;
+  name?: string;
+  netMode?: number;
+  progress?: number;
+  regionId?: string;
+  replicationJobRuns?: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobReplicationJobRuns;
+  replicationParameters?: string;
+  resourceGroupId?: string;
+  runOnce?: boolean;
+  scheduledStartTime?: string;
+  sourceId?: string;
+  startTime?: string;
+  status?: string;
+  statusInfo?: string;
+  systemDiskParts?: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobSystemDiskParts;
+  systemDiskSize?: number;
+  tags?: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobTags;
+  targetType?: string;
+  transitionInstanceId?: string;
+  vSwitchId?: string;
+  validTime?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessStatus: 'BusinessStatus',
+      containerNamespace: 'ContainerNamespace',
+      containerRepository: 'ContainerRepository',
+      containerTag: 'ContainerTag',
+      creationTime: 'CreationTime',
+      dataDisks: 'DataDisks',
+      description: 'Description',
+      endTime: 'EndTime',
+      errorCode: 'ErrorCode',
+      frequency: 'Frequency',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      instanceId: 'InstanceId',
+      instanceRamRole: 'InstanceRamRole',
+      instanceType: 'InstanceType',
+      jobId: 'JobId',
+      jobType: 'JobType',
+      launchTemplateId: 'LaunchTemplateId',
+      launchTemplateVersion: 'LaunchTemplateVersion',
+      licenseType: 'LicenseType',
+      maxNumberOfImageToKeep: 'MaxNumberOfImageToKeep',
+      name: 'Name',
+      netMode: 'NetMode',
+      progress: 'Progress',
+      regionId: 'RegionId',
+      replicationJobRuns: 'ReplicationJobRuns',
+      replicationParameters: 'ReplicationParameters',
+      resourceGroupId: 'ResourceGroupId',
+      runOnce: 'RunOnce',
+      scheduledStartTime: 'ScheduledStartTime',
+      sourceId: 'SourceId',
+      startTime: 'StartTime',
+      status: 'Status',
+      statusInfo: 'StatusInfo',
+      systemDiskParts: 'SystemDiskParts',
+      systemDiskSize: 'SystemDiskSize',
+      tags: 'Tags',
+      targetType: 'TargetType',
+      transitionInstanceId: 'TransitionInstanceId',
+      vSwitchId: 'VSwitchId',
+      validTime: 'ValidTime',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       businessStatus: 'string',
+      containerNamespace: 'string',
+      containerRepository: 'string',
+      containerTag: 'string',
+      creationTime: 'string',
+      dataDisks: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobDataDisks,
+      description: 'string',
+      endTime: 'string',
+      errorCode: 'string',
+      frequency: 'number',
+      imageId: 'string',
+      imageName: 'string',
+      instanceId: 'string',
+      instanceRamRole: 'string',
+      instanceType: 'string',
+      jobId: 'string',
+      jobType: 'number',
+      launchTemplateId: 'string',
+      launchTemplateVersion: 'string',
+      licenseType: 'string',
+      maxNumberOfImageToKeep: 'number',
+      name: 'string',
+      netMode: 'number',
+      progress: 'number',
+      regionId: 'string',
       replicationJobRuns: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobReplicationJobRuns,
+      replicationParameters: 'string',
+      resourceGroupId: 'string',
+      runOnce: 'boolean',
+      scheduledStartTime: 'string',
+      sourceId: 'string',
+      startTime: 'string',
+      status: 'string',
+      statusInfo: 'string',
+      systemDiskParts: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobSystemDiskParts,
+      systemDiskSize: 'number',
+      tags: DescribeReplicationJobsResponseBodyReplicationJobsReplicationJobTags,
       targetType: 'string',
+      transitionInstanceId: 'string',
+      vSwitchId: 'string',
+      validTime: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -1539,29 +1999,51 @@ export class DescribeReplicationJobsResponseBodyReplicationJobs extends $tea.Mod
   }
 }
 
+export class DescribeSourceServersRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSourceServersResponseBodySourceServersSourceServerDataDisksDataDiskPartsPart extends $tea.Model {
   canBlock?: boolean;
-  sizeBytes?: number;
-  need?: boolean;
   device?: string;
+  need?: boolean;
   path?: string;
+  sizeBytes?: number;
   static names(): { [key: string]: string } {
     return {
       canBlock: 'CanBlock',
-      sizeBytes: 'SizeBytes',
-      need: 'Need',
       device: 'Device',
+      need: 'Need',
       path: 'Path',
+      sizeBytes: 'SizeBytes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       canBlock: 'boolean',
-      sizeBytes: 'number',
-      need: 'boolean',
       device: 'string',
+      need: 'boolean',
       path: 'string',
+      sizeBytes: 'number',
     };
   }
 
@@ -1591,24 +2073,24 @@ export class DescribeSourceServersResponseBodySourceServersSourceServerDataDisks
 
 export class DescribeSourceServersResponseBodySourceServersSourceServerDataDisksDataDisk extends $tea.Model {
   index?: number;
-  size?: number;
   parts?: DescribeSourceServersResponseBodySourceServersSourceServerDataDisksDataDiskParts;
   path?: string;
+  size?: number;
   static names(): { [key: string]: string } {
     return {
       index: 'Index',
-      size: 'Size',
       parts: 'Parts',
       path: 'Path',
+      size: 'Size',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       index: 'number',
-      size: 'number',
       parts: DescribeSourceServersResponseBodySourceServersSourceServerDataDisksDataDiskParts,
       path: 'string',
+      size: 'number',
     };
   }
 
@@ -1638,27 +2120,27 @@ export class DescribeSourceServersResponseBodySourceServersSourceServerDataDisks
 
 export class DescribeSourceServersResponseBodySourceServersSourceServerSystemDiskPartsSystemDiskPart extends $tea.Model {
   canBlock?: boolean;
-  sizeBytes?: number;
-  need?: boolean;
   device?: string;
+  need?: boolean;
   path?: string;
+  sizeBytes?: number;
   static names(): { [key: string]: string } {
     return {
       canBlock: 'CanBlock',
-      sizeBytes: 'SizeBytes',
-      need: 'Need',
       device: 'Device',
+      need: 'Need',
       path: 'Path',
+      sizeBytes: 'SizeBytes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       canBlock: 'boolean',
-      sizeBytes: 'number',
-      need: 'boolean',
       device: 'string',
+      need: 'boolean',
       path: 'string',
+      sizeBytes: 'number',
     };
   }
 
@@ -1686,68 +2168,115 @@ export class DescribeSourceServersResponseBodySourceServersSourceServerSystemDis
   }
 }
 
-export class DescribeSourceServersResponseBodySourceServersSourceServer extends $tea.Model {
-  creationTime?: string;
-  heartbeatRate?: number;
-  state?: string;
-  dataDisks?: DescribeSourceServersResponseBodySourceServersSourceServerDataDisks;
-  systemDiskParts?: DescribeSourceServersResponseBodySourceServersSourceServerSystemDiskParts;
-  kernelLevel?: number;
-  sourceId?: string;
-  agentVersion?: string;
-  statusInfo?: string;
-  systemDiskSize?: number;
-  description?: string;
-  errorCode?: string;
-  jobId?: string;
-  platform?: string;
-  replicationDriver?: string;
-  name?: string;
-  systemInfo?: string;
-  architecture?: string;
+export class DescribeSourceServersResponseBodySourceServersSourceServerTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      creationTime: 'CreationTime',
-      heartbeatRate: 'HeartbeatRate',
-      state: 'State',
-      dataDisks: 'DataDisks',
-      systemDiskParts: 'SystemDiskParts',
-      kernelLevel: 'KernelLevel',
-      sourceId: 'SourceId',
-      agentVersion: 'AgentVersion',
-      statusInfo: 'StatusInfo',
-      systemDiskSize: 'SystemDiskSize',
-      description: 'Description',
-      errorCode: 'ErrorCode',
-      jobId: 'JobId',
-      platform: 'Platform',
-      replicationDriver: 'ReplicationDriver',
-      name: 'Name',
-      systemInfo: 'SystemInfo',
-      architecture: 'Architecture',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      creationTime: 'string',
-      heartbeatRate: 'number',
-      state: 'string',
-      dataDisks: DescribeSourceServersResponseBodySourceServersSourceServerDataDisks,
-      systemDiskParts: DescribeSourceServersResponseBodySourceServersSourceServerSystemDiskParts,
-      kernelLevel: 'number',
-      sourceId: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSourceServersResponseBodySourceServersSourceServerTags extends $tea.Model {
+  tag?: DescribeSourceServersResponseBodySourceServersSourceServerTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeSourceServersResponseBodySourceServersSourceServerTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSourceServersResponseBodySourceServersSourceServer extends $tea.Model {
+  agentVersion?: string;
+  architecture?: string;
+  creationTime?: string;
+  dataDisks?: DescribeSourceServersResponseBodySourceServersSourceServerDataDisks;
+  description?: string;
+  errorCode?: string;
+  heartbeatRate?: number;
+  jobId?: string;
+  kernelLevel?: number;
+  name?: string;
+  platform?: string;
+  replicationDriver?: string;
+  resourceGroupId?: string;
+  sourceId?: string;
+  state?: string;
+  statusInfo?: string;
+  systemDiskParts?: DescribeSourceServersResponseBodySourceServersSourceServerSystemDiskParts;
+  systemDiskSize?: number;
+  systemInfo?: string;
+  tags?: DescribeSourceServersResponseBodySourceServersSourceServerTags;
+  static names(): { [key: string]: string } {
+    return {
+      agentVersion: 'AgentVersion',
+      architecture: 'Architecture',
+      creationTime: 'CreationTime',
+      dataDisks: 'DataDisks',
+      description: 'Description',
+      errorCode: 'ErrorCode',
+      heartbeatRate: 'HeartbeatRate',
+      jobId: 'JobId',
+      kernelLevel: 'KernelLevel',
+      name: 'Name',
+      platform: 'Platform',
+      replicationDriver: 'ReplicationDriver',
+      resourceGroupId: 'ResourceGroupId',
+      sourceId: 'SourceId',
+      state: 'State',
+      statusInfo: 'StatusInfo',
+      systemDiskParts: 'SystemDiskParts',
+      systemDiskSize: 'SystemDiskSize',
+      systemInfo: 'SystemInfo',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       agentVersion: 'string',
-      statusInfo: 'string',
-      systemDiskSize: 'number',
+      architecture: 'string',
+      creationTime: 'string',
+      dataDisks: DescribeSourceServersResponseBodySourceServersSourceServerDataDisks,
       description: 'string',
       errorCode: 'string',
+      heartbeatRate: 'number',
       jobId: 'string',
+      kernelLevel: 'number',
+      name: 'string',
       platform: 'string',
       replicationDriver: 'string',
-      name: 'string',
+      resourceGroupId: 'string',
+      sourceId: 'string',
+      state: 'string',
+      statusInfo: 'string',
+      systemDiskParts: DescribeSourceServersResponseBodySourceServersSourceServerSystemDiskParts,
+      systemDiskSize: 'number',
       systemInfo: 'string',
-      architecture: 'string',
+      tags: DescribeSourceServersResponseBodySourceServersSourceServerTags,
     };
   }
 
@@ -1767,6 +2296,65 @@ export class DescribeSourceServersResponseBodySourceServers extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       sourceServer: { 'type': 'array', 'itemType': DescribeSourceServersResponseBodySourceServersSourceServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessTokensResponseBodyAccessTokensAccessToken extends $tea.Model {
+  accessTokenId?: string;
+  count?: string;
+  creationTime?: string;
+  description?: string;
+  name?: string;
+  registeredCount?: string;
+  status?: string;
+  timeToLiveInDays?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessTokenId: 'AccessTokenId',
+      count: 'Count',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      name: 'Name',
+      registeredCount: 'RegisteredCount',
+      status: 'Status',
+      timeToLiveInDays: 'TimeToLiveInDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessTokenId: 'string',
+      count: 'string',
+      creationTime: 'string',
+      description: 'string',
+      name: 'string',
+      registeredCount: 'string',
+      status: 'string',
+      timeToLiveInDays: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessTokensResponseBodyAccessTokens extends $tea.Model {
+  accessToken?: ListAccessTokensResponseBodyAccessTokensAccessToken[];
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: { 'type': 'array', 'itemType': ListAccessTokensResponseBodyAccessTokensAccessToken },
     };
   }
 
@@ -1798,25 +2386,25 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
-  resourceType?: string;
-  tagValue?: string;
   resourceId?: string;
+  resourceType?: string;
   tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
-      tagValue: 'TagValue',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
-      tagValue: 'string',
       resourceId: 'string',
+      resourceType: 'string',
       tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -1844,48 +2432,23 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
-export class ModifyReplicationJobAttributeRequestSystemDiskPart extends $tea.Model {
-  sizeBytes?: number;
-  block?: boolean;
-  device?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sizeBytes: 'SizeBytes',
-      block: 'Block',
-      device: 'Device',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sizeBytes: 'number',
-      block: 'boolean',
-      device: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyReplicationJobAttributeRequestDataDiskPart extends $tea.Model {
-  sizeBytes?: number;
   block?: boolean;
   device?: string;
+  sizeBytes?: number;
   static names(): { [key: string]: string } {
     return {
-      sizeBytes: 'SizeBytes',
       block: 'Block',
       device: 'Device',
+      sizeBytes: 'SizeBytes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sizeBytes: 'number',
       block: 'boolean',
       device: 'string',
+      sizeBytes: 'number',
     };
   }
 
@@ -1911,6 +2474,31 @@ export class ModifyReplicationJobAttributeRequestDataDisk extends $tea.Model {
       index: 'number',
       part: { 'type': 'array', 'itemType': ModifyReplicationJobAttributeRequestDataDiskPart },
       size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyReplicationJobAttributeRequestSystemDiskPart extends $tea.Model {
+  block?: boolean;
+  device?: string;
+  sizeBytes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      block: 'Block',
+      device: 'Device',
+      sizeBytes: 'SizeBytes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      block: 'boolean',
+      device: 'string',
+      sizeBytes: 'number',
     };
   }
 
@@ -1964,90 +2552,798 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async createReplicationJobWithOptions(request: CreateReplicationJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateReplicationJobResponse> {
+  /**
+    * If you want to import the information of migration sources by using an activation code, you can call this operation to create one.
+    *
+    * @param request CreateAccessTokenRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAccessTokenResponse
+   */
+  async createAccessTokenWithOptions(request: CreateAccessTokenRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessTokenResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.count)) {
+      query["Count"] = request.count;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.timeToLiveInDays)) {
+      query["TimeToLiveInDays"] = request.timeToLiveInDays;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateReplicationJobResponse>(await this.doRPCRequest("CreateReplicationJob", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateReplicationJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAccessToken",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAccessTokenResponse>(await this.callApi(params, req, runtime), new CreateAccessTokenResponse({}));
   }
 
+  /**
+    * If you want to import the information of migration sources by using an activation code, you can call this operation to create one.
+    *
+    * @param request CreateAccessTokenRequest
+    * @return CreateAccessTokenResponse
+   */
+  async createAccessToken(request: CreateAccessTokenRequest): Promise<CreateAccessTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAccessTokenWithOptions(request, runtime);
+  }
+
+  /**
+    * ## Usage notes
+    * *   You can create migration jobs only for source servers that are in the Available state.
+    * *   Each source server can be associated with only one migration job that is in the Ready, Running, Stopped, Waiting, InError, or Expired state.
+    * *   You can create a maximum of 1,000 migration jobs within each Alibaba Cloud account.
+    * *   If you migrate a source server to an image, you must specify the ImageName, SystemDiskSize, and DataDisk parameters.
+    * *   If you use a virtual private cloud (VPC) to migrate data, the VSwitchId parameter is required and the VpcId parameter is optional.
+    * *   Server Migration Center (SMC) allows you to migrate source servers to Docker container images. This allows you to migrate containerized applications in a cost-effective way.
+    *
+    * @param request CreateReplicationJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateReplicationJobResponse
+   */
+  async createReplicationJobWithOptions(request: CreateReplicationJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateReplicationJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.containerNamespace)) {
+      query["ContainerNamespace"] = request.containerNamespace;
+    }
+
+    if (!Util.isUnset(request.containerRepository)) {
+      query["ContainerRepository"] = request.containerRepository;
+    }
+
+    if (!Util.isUnset(request.containerTag)) {
+      query["ContainerTag"] = request.containerTag;
+    }
+
+    if (!Util.isUnset(request.dataDisk)) {
+      query["DataDisk"] = request.dataDisk;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.frequency)) {
+      query["Frequency"] = request.frequency;
+    }
+
+    if (!Util.isUnset(request.imageName)) {
+      query["ImageName"] = request.imageName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceRamRole)) {
+      query["InstanceRamRole"] = request.instanceRamRole;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!Util.isUnset(request.launchTemplateId)) {
+      query["LaunchTemplateId"] = request.launchTemplateId;
+    }
+
+    if (!Util.isUnset(request.launchTemplateVersion)) {
+      query["LaunchTemplateVersion"] = request.launchTemplateVersion;
+    }
+
+    if (!Util.isUnset(request.licenseType)) {
+      query["LicenseType"] = request.licenseType;
+    }
+
+    if (!Util.isUnset(request.maxNumberOfImageToKeep)) {
+      query["MaxNumberOfImageToKeep"] = request.maxNumberOfImageToKeep;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.netMode)) {
+      query["NetMode"] = request.netMode;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicationParameters)) {
+      query["ReplicationParameters"] = request.replicationParameters;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.runOnce)) {
+      query["RunOnce"] = request.runOnce;
+    }
+
+    if (!Util.isUnset(request.scheduledStartTime)) {
+      query["ScheduledStartTime"] = request.scheduledStartTime;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!Util.isUnset(request.systemDiskPart)) {
+      query["SystemDiskPart"] = request.systemDiskPart;
+    }
+
+    if (!Util.isUnset(request.systemDiskSize)) {
+      query["SystemDiskSize"] = request.systemDiskSize;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.validTime)) {
+      query["ValidTime"] = request.validTime;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateReplicationJob",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateReplicationJobResponse>(await this.callApi(params, req, runtime), new CreateReplicationJobResponse({}));
+  }
+
+  /**
+    * ## Usage notes
+    * *   You can create migration jobs only for source servers that are in the Available state.
+    * *   Each source server can be associated with only one migration job that is in the Ready, Running, Stopped, Waiting, InError, or Expired state.
+    * *   You can create a maximum of 1,000 migration jobs within each Alibaba Cloud account.
+    * *   If you migrate a source server to an image, you must specify the ImageName, SystemDiskSize, and DataDisk parameters.
+    * *   If you use a virtual private cloud (VPC) to migrate data, the VSwitchId parameter is required and the VpcId parameter is optional.
+    * *   Server Migration Center (SMC) allows you to migrate source servers to Docker container images. This allows you to migrate containerized applications in a cost-effective way.
+    *
+    * @param request CreateReplicationJobRequest
+    * @return CreateReplicationJobResponse
+   */
   async createReplicationJob(request: CreateReplicationJobRequest): Promise<CreateReplicationJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createReplicationJobWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * *   The incremental migration job must be in the Waiting state.
+    * *   After you call this operation, the incremental migration job no longer periodically runs. In the meantime, Server Migration Center (SMC) determines whether to perform a full data migration for the last time based on the value of the `SyncData` parameter. If you set the SyncData parameter to `false`, SMC releases intermediate resources without data migration before the migration job is complete. If you set the SyncData parameter to `true`, SMC performs a full data migration and releases intermediate resources before the migration job is complete.
+    *
+    * @param request CutOverReplicationJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CutOverReplicationJobResponse
+   */
   async cutOverReplicationJobWithOptions(request: CutOverReplicationJobRequest, runtime: $Util.RuntimeOptions): Promise<CutOverReplicationJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.syncData)) {
+      query["SyncData"] = request.syncData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CutOverReplicationJobResponse>(await this.doRPCRequest("CutOverReplicationJob", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new CutOverReplicationJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CutOverReplicationJob",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CutOverReplicationJobResponse>(await this.callApi(params, req, runtime), new CutOverReplicationJobResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * *   The incremental migration job must be in the Waiting state.
+    * *   After you call this operation, the incremental migration job no longer periodically runs. In the meantime, Server Migration Center (SMC) determines whether to perform a full data migration for the last time based on the value of the `SyncData` parameter. If you set the SyncData parameter to `false`, SMC releases intermediate resources without data migration before the migration job is complete. If you set the SyncData parameter to `true`, SMC performs a full data migration and releases intermediate resources before the migration job is complete.
+    *
+    * @param request CutOverReplicationJobRequest
+    * @return CutOverReplicationJobResponse
+   */
   async cutOverReplicationJob(request: CutOverReplicationJobRequest): Promise<CutOverReplicationJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cutOverReplicationJobWithOptions(request, runtime);
   }
 
-  async deleteReplicationJobWithOptions(request: DeleteReplicationJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteReplicationJobResponse> {
+  /**
+    * You can call this operation to delete an activation code if you no longer need to import the information about migration sources by using the activation code or if the activation code has expired.
+    *
+    * @param request DeleteAccessTokenRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAccessTokenResponse
+   */
+  async deleteAccessTokenWithOptions(request: DeleteAccessTokenRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessTokenResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessTokenId)) {
+      query["AccessTokenId"] = request.accessTokenId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteReplicationJobResponse>(await this.doRPCRequest("DeleteReplicationJob", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteReplicationJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAccessToken",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAccessTokenResponse>(await this.callApi(params, req, runtime), new DeleteAccessTokenResponse({}));
   }
 
+  /**
+    * You can call this operation to delete an activation code if you no longer need to import the information about migration sources by using the activation code or if the activation code has expired.
+    *
+    * @param request DeleteAccessTokenRequest
+    * @return DeleteAccessTokenResponse
+   */
+  async deleteAccessToken(request: DeleteAccessTokenRequest): Promise<DeleteAccessTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAccessTokenWithOptions(request, runtime);
+  }
+
+  /**
+    * ## Usage notes
+    * *   Deleted migration jobs cannot be restored.
+    * *   After a migration job is deleted, associated resources, such as the intermediate instance, are automatically released.
+    *
+    * @param request DeleteReplicationJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteReplicationJobResponse
+   */
+  async deleteReplicationJobWithOptions(request: DeleteReplicationJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteReplicationJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteReplicationJob",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteReplicationJobResponse>(await this.callApi(params, req, runtime), new DeleteReplicationJobResponse({}));
+  }
+
+  /**
+    * ## Usage notes
+    * *   Deleted migration jobs cannot be restored.
+    * *   After a migration job is deleted, associated resources, such as the intermediate instance, are automatically released.
+    *
+    * @param request DeleteReplicationJobRequest
+    * @return DeleteReplicationJobResponse
+   */
   async deleteReplicationJob(request: DeleteReplicationJobRequest): Promise<DeleteReplicationJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteReplicationJobWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * *   If a migration job is created for the migration source and the migration job is in the Running state, the migration source cannot be deleted.
+    * *   If a migration job is created for the migration source but the migration job is not in the Running state, you can set the `Force` parameter to true to delete the migration source.
+    *
+    * @param request DeleteSourceServerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteSourceServerResponse
+   */
   async deleteSourceServerWithOptions(request: DeleteSourceServerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSourceServerResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteSourceServerResponse>(await this.doRPCRequest("DeleteSourceServer", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSourceServerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteSourceServer",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSourceServerResponse>(await this.callApi(params, req, runtime), new DeleteSourceServerResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * *   If a migration job is created for the migration source and the migration job is in the Running state, the migration source cannot be deleted.
+    * *   If a migration job is created for the migration source but the migration job is not in the Running state, you can set the `Force` parameter to true to delete the migration source.
+    *
+    * @param request DeleteSourceServerRequest
+    * @return DeleteSourceServerResponse
+   */
   async deleteSourceServer(request: DeleteSourceServerRequest): Promise<DeleteSourceServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSourceServerWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are used as filter conditions.
+    * *   Server Migration Center (SMC) allows you to migrate source servers to Docker container images. You can use SMC to migrate containerized applications in a cost-effective way. For more information, see [Terms](~~60744~~).
+    *
+    * @param request DescribeReplicationJobsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeReplicationJobsResponse
+   */
   async describeReplicationJobsWithOptions(request: DescribeReplicationJobsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeReplicationJobsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.businessStatus)) {
+      query["BusinessStatus"] = request.businessStatus;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeReplicationJobsResponse>(await this.doRPCRequest("DescribeReplicationJobs", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeReplicationJobsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeReplicationJobs",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeReplicationJobsResponse>(await this.callApi(params, req, runtime), new DescribeReplicationJobsResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are used as filter conditions.
+    * *   Server Migration Center (SMC) allows you to migrate source servers to Docker container images. You can use SMC to migrate containerized applications in a cost-effective way. For more information, see [Terms](~~60744~~).
+    *
+    * @param request DescribeReplicationJobsRequest
+    * @return DescribeReplicationJobsResponse
+   */
   async describeReplicationJobs(request: DescribeReplicationJobsRequest): Promise<DescribeReplicationJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeReplicationJobsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are used as filter conditions.
+    *
+    * @param request DescribeSourceServersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSourceServersResponse
+   */
   async describeSourceServersWithOptions(request: DescribeSourceServersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSourceServersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSourceServersResponse>(await this.doRPCRequest("DescribeSourceServers", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSourceServersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSourceServers",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSourceServersResponse>(await this.callApi(params, req, runtime), new DescribeSourceServersResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are used as filter conditions.
+    *
+    * @param request DescribeSourceServersRequest
+    * @return DescribeSourceServersResponse
+   */
   async describeSourceServers(request: DescribeSourceServersRequest): Promise<DescribeSourceServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSourceServersWithOptions(request, runtime);
   }
 
+  /**
+    * To prevent an activation code from being leaked, you can call this operation to disable the activation code. Disabled activation codes can no longer be used to import the information about migration sources. However, migration sources whose information has been imported are not affected.
+    *
+    * @param request DisableAccessTokenRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DisableAccessTokenResponse
+   */
+  async disableAccessTokenWithOptions(request: DisableAccessTokenRequest, runtime: $Util.RuntimeOptions): Promise<DisableAccessTokenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessTokenId)) {
+      query["AccessTokenId"] = request.accessTokenId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableAccessToken",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableAccessTokenResponse>(await this.callApi(params, req, runtime), new DisableAccessTokenResponse({}));
+  }
+
+  /**
+    * To prevent an activation code from being leaked, you can call this operation to disable the activation code. Disabled activation codes can no longer be used to import the information about migration sources. However, migration sources whose information has been imported are not affected.
+    *
+    * @param request DisableAccessTokenRequest
+    * @return DisableAccessTokenResponse
+   */
+  async disableAccessToken(request: DisableAccessTokenRequest): Promise<DisableAccessTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableAccessTokenWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call this operation to query activation codes and the usage details of the activation codes. An activation code can be in the activated, unactivated, or expired state.
+    *
+    * @param request ListAccessTokensRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAccessTokensResponse
+   */
+  async listAccessTokensWithOptions(request: ListAccessTokensRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessTokensResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessTokenId)) {
+      query["AccessTokenId"] = request.accessTokenId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAccessTokens",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAccessTokensResponse>(await this.callApi(params, req, runtime), new ListAccessTokensResponse({}));
+  }
+
+  /**
+    * You can call this operation to query activation codes and the usage details of the activation codes. An activation code can be in the activated, unactivated, or expired state.
+    *
+    * @param request ListAccessTokensRequest
+    * @return ListAccessTokensResponse
+   */
+  async listAccessTokens(request: ListAccessTokensRequest): Promise<ListAccessTokensResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAccessTokensWithOptions(request, runtime);
+  }
+
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.doRPCRequest("ListTagResources", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
@@ -2055,79 +3351,443 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * Before you modify the parameters of a migration job, take note of the following information:
+    * *   The `Name` and `Description` parameters can be modified during the lifecycle of the migration job.
+    * *   The `Frequency` and `MaxNumberOfImageToKeep` parameters can be modified only before the migration job is executed or when the migration job is in the `Waiting` state.
+    * *   Other parameters can be modified only before the migration job is executed.
+    *
+    * @param request ModifyReplicationJobAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyReplicationJobAttributeResponse
+   */
   async modifyReplicationJobAttributeWithOptions(request: ModifyReplicationJobAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReplicationJobAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.containerNamespace)) {
+      query["ContainerNamespace"] = request.containerNamespace;
+    }
+
+    if (!Util.isUnset(request.containerRepository)) {
+      query["ContainerRepository"] = request.containerRepository;
+    }
+
+    if (!Util.isUnset(request.containerTag)) {
+      query["ContainerTag"] = request.containerTag;
+    }
+
+    if (!Util.isUnset(request.dataDisk)) {
+      query["DataDisk"] = request.dataDisk;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.frequency)) {
+      query["Frequency"] = request.frequency;
+    }
+
+    if (!Util.isUnset(request.imageName)) {
+      query["ImageName"] = request.imageName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceRamRole)) {
+      query["InstanceRamRole"] = request.instanceRamRole;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.launchTemplateId)) {
+      query["LaunchTemplateId"] = request.launchTemplateId;
+    }
+
+    if (!Util.isUnset(request.launchTemplateVersion)) {
+      query["LaunchTemplateVersion"] = request.launchTemplateVersion;
+    }
+
+    if (!Util.isUnset(request.licenseType)) {
+      query["LicenseType"] = request.licenseType;
+    }
+
+    if (!Util.isUnset(request.maxNumberOfImageToKeep)) {
+      query["MaxNumberOfImageToKeep"] = request.maxNumberOfImageToKeep;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.netMode)) {
+      query["NetMode"] = request.netMode;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.replicationParameters)) {
+      query["ReplicationParameters"] = request.replicationParameters;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.scheduledStartTime)) {
+      query["ScheduledStartTime"] = request.scheduledStartTime;
+    }
+
+    if (!Util.isUnset(request.systemDiskPart)) {
+      query["SystemDiskPart"] = request.systemDiskPart;
+    }
+
+    if (!Util.isUnset(request.systemDiskSize)) {
+      query["SystemDiskSize"] = request.systemDiskSize;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.validTime)) {
+      query["ValidTime"] = request.validTime;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyReplicationJobAttributeResponse>(await this.doRPCRequest("ModifyReplicationJobAttribute", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyReplicationJobAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyReplicationJobAttribute",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyReplicationJobAttributeResponse>(await this.callApi(params, req, runtime), new ModifyReplicationJobAttributeResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * Before you modify the parameters of a migration job, take note of the following information:
+    * *   The `Name` and `Description` parameters can be modified during the lifecycle of the migration job.
+    * *   The `Frequency` and `MaxNumberOfImageToKeep` parameters can be modified only before the migration job is executed or when the migration job is in the `Waiting` state.
+    * *   Other parameters can be modified only before the migration job is executed.
+    *
+    * @param request ModifyReplicationJobAttributeRequest
+    * @return ModifyReplicationJobAttributeResponse
+   */
   async modifyReplicationJobAttribute(request: ModifyReplicationJobAttributeRequest): Promise<ModifyReplicationJobAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyReplicationJobAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * You can call this operation regardless of the status of the migration source.
+    *
+    * @param request ModifySourceServerAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifySourceServerAttributeResponse
+   */
   async modifySourceServerAttributeWithOptions(request: ModifySourceServerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifySourceServerAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifySourceServerAttributeResponse>(await this.doRPCRequest("ModifySourceServerAttribute", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySourceServerAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifySourceServerAttribute",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifySourceServerAttributeResponse>(await this.callApi(params, req, runtime), new ModifySourceServerAttributeResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * You can call this operation regardless of the status of the migration source.
+    *
+    * @param request ModifySourceServerAttributeRequest
+    * @return ModifySourceServerAttributeResponse
+   */
   async modifySourceServerAttribute(request: ModifySourceServerAttributeRequest): Promise<ModifySourceServerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySourceServerAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * This operation can only be used to start the migration jobs that are in the Ready, Stopped, or InError state.
+    *
+    * @param request StartReplicationJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartReplicationJobResponse
+   */
   async startReplicationJobWithOptions(request: StartReplicationJobRequest, runtime: $Util.RuntimeOptions): Promise<StartReplicationJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StartReplicationJobResponse>(await this.doRPCRequest("StartReplicationJob", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new StartReplicationJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartReplicationJob",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartReplicationJobResponse>(await this.callApi(params, req, runtime), new StartReplicationJobResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * This operation can only be used to start the migration jobs that are in the Ready, Stopped, or InError state.
+    *
+    * @param request StartReplicationJobRequest
+    * @return StartReplicationJobResponse
+   */
   async startReplicationJob(request: StartReplicationJobRequest): Promise<StartReplicationJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startReplicationJobWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * You can call this operation to pause only a migration job whose primary status is Running and business status is Syncing.
+    *
+    * @param request StopReplicationJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopReplicationJobResponse
+   */
   async stopReplicationJobWithOptions(request: StopReplicationJobRequest, runtime: $Util.RuntimeOptions): Promise<StopReplicationJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StopReplicationJobResponse>(await this.doRPCRequest("StopReplicationJob", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new StopReplicationJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopReplicationJob",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopReplicationJobResponse>(await this.callApi(params, req, runtime), new StopReplicationJobResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * You can call this operation to pause only a migration job whose primary status is Running and business status is Syncing.
+    *
+    * @param request StopReplicationJobRequest
+    * @return StopReplicationJobResponse
+   */
   async stopReplicationJob(request: StopReplicationJobRequest): Promise<StopReplicationJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopReplicationJobWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * Up to 20 tags can be added to each SMC resource.
+    * Before you add tags to an SMC resource, Alibaba Cloud checks the number of the tags that have been added to the resource. If the maximum number is reached, an error message is returned.
+    *
+    * @param request TagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TagResourcesResponse>(await this.doRPCRequest("TagResources", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * Up to 20 tags can be added to each SMC resource.
+    * Before you add tags to an SMC resource, Alibaba Cloud checks the number of the tags that have been added to the resource. If the maximum number is reached, an error message is returned.
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to remove tags that are added to one or more SMC resources and deletes the tags if the tags are no longer used.
+    *
+    * @param request UntagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UntagResourcesResponse>(await this.doRPCRequest("UntagResources", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new UntagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+    * You can call this operation to remove tags that are added to one or more SMC resources and deletes the tags if the tags are no longer used.
+    *
+    * @param request UntagResourcesRequest
+    * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
