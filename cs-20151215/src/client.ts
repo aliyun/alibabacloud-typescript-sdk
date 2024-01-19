@@ -1220,10 +1220,12 @@ export class CreateClusterNodePoolRequest extends $tea.Model {
 
 export class CreateClusterNodePoolResponseBody extends $tea.Model {
   nodepoolId?: string;
+  requestId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
       nodepoolId: 'nodepool_id',
+      requestId: 'request_id',
       taskId: 'task_id',
     };
   }
@@ -1231,6 +1233,7 @@ export class CreateClusterNodePoolResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       nodepoolId: 'string',
+      requestId: 'string',
       taskId: 'string',
     };
   }
@@ -5804,10 +5807,12 @@ export class ModifyClusterNodePoolRequest extends $tea.Model {
 
 export class ModifyClusterNodePoolResponseBody extends $tea.Model {
   nodepoolId?: string;
+  requestId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
       nodepoolId: 'nodepool_id',
+      requestId: 'request_id',
       taskId: 'task_id',
     };
   }
@@ -5815,6 +5820,7 @@ export class ModifyClusterNodePoolResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       nodepoolId: 'string',
+      requestId: 'string',
       taskId: 'string',
     };
   }
@@ -7609,13 +7615,40 @@ export class UpgradeClusterRequest extends $tea.Model {
   }
 }
 
+export class UpgradeClusterResponseBody extends $tea.Model {
+  clusterId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      requestId: 'request_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
+  body: UpgradeClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
@@ -7623,6 +7656,7 @@ export class UpgradeClusterResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+      body: UpgradeClusterResponseBody,
     };
   }
 
@@ -12204,6 +12238,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $tea.Model {
   runtime?: string;
   runtimeVersion?: string;
   taints?: Taint[];
+  unschedulable?: boolean;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12213,6 +12248,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $tea.Model {
       runtime: 'runtime',
       runtimeVersion: 'runtime_version',
       taints: 'taints',
+      unschedulable: 'unschedulable',
       userData: 'user_data',
     };
   }
@@ -12225,6 +12261,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $tea.Model {
       runtime: 'string',
       runtimeVersion: 'string',
       taints: { 'type': 'array', 'itemType': Taint },
+      unschedulable: 'boolean',
       userData: 'string',
     };
   }
@@ -12921,6 +12958,14 @@ export default class Client extends OpenApi {
     return await this.attachInstancesToNodePoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelClusterUpgradeResponse
+   */
+  // Deprecated
   async cancelClusterUpgradeWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelClusterUpgradeResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -12939,6 +12984,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelClusterUpgradeResponse>(await this.callApi(params, req, runtime), new CancelClusterUpgradeResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @return CancelClusterUpgradeResponse
+   */
+  // Deprecated
   async cancelClusterUpgrade(ClusterId: string): Promise<CancelClusterUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -13160,9 +13211,9 @@ export default class Client extends OpenApi {
     * *   [Create an ACK managed cluster](~~90776~~)
     * *   [Create an ACK dedicated cluster](~~197620~~)
     * *   [Create an ACK Serverless cluster](~~144246~~)
-    * *   [Create an ACK Edge cluster](128204)
+    * *   [Create an ACK Edge cluster](~~128204~~)
     * *   [Create an ACK Basic cluster that supports sandboxed containers](~~196321~~)
-    * *   [Create an ACK Pro cluster that supports sandboxed containers](140623)
+    * *   [Create an ACK Pro cluster that supports sandboxed containers](~~140623~~)
     *
     * @param request CreateClusterRequest
     * @param headers map
@@ -13555,9 +13606,9 @@ export default class Client extends OpenApi {
     * *   [Create an ACK managed cluster](~~90776~~)
     * *   [Create an ACK dedicated cluster](~~197620~~)
     * *   [Create an ACK Serverless cluster](~~144246~~)
-    * *   [Create an ACK Edge cluster](128204)
+    * *   [Create an ACK Edge cluster](~~128204~~)
     * *   [Create an ACK Basic cluster that supports sandboxed containers](~~196321~~)
-    * *   [Create an ACK Pro cluster that supports sandboxed containers](140623)
+    * *   [Create an ACK Pro cluster that supports sandboxed containers](~~140623~~)
     *
     * @param request CreateClusterRequest
     * @return CreateClusterResponse
@@ -14242,6 +14293,15 @@ export default class Client extends OpenApi {
     return await this.describeAddonWithOptions(addonName, request, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeAddonsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAddonsResponse
+   */
+  // Deprecated
   async describeAddonsWithOptions(request: DescribeAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeAddonsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -14283,12 +14343,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAddonsResponse>(await this.callApi(params, req, runtime), new DescribeAddonsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeAddonsRequest
+    * @return DescribeAddonsResponse
+   */
+  // Deprecated
   async describeAddons(request: DescribeAddonsRequest): Promise<DescribeAddonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeAddonsWithOptions(request, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeClusterAddonInstanceResponse
+   */
+  // Deprecated
   async describeClusterAddonInstanceWithOptions(ClusterID: string, AddonName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -14307,12 +14382,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterAddonInstanceResponse>(await this.callApi(params, req, runtime), new DescribeClusterAddonInstanceResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @return DescribeClusterAddonInstanceResponse
+   */
+  // Deprecated
   async describeClusterAddonInstance(ClusterID: string, AddonName: string): Promise<DescribeClusterAddonInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeClusterAddonInstanceWithOptions(ClusterID, AddonName, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeClusterAddonMetadataResponse
+   */
+  // Deprecated
   async describeClusterAddonMetadataWithOptions(clusterId: string, componentId: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonMetadataResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -14331,6 +14420,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterAddonMetadataResponse>(await this.callApi(params, req, runtime), new DescribeClusterAddonMetadataResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @return DescribeClusterAddonMetadataResponse
+   */
+  // Deprecated
   async describeClusterAddonMetadata(clusterId: string, componentId: string, version: string): Promise<DescribeClusterAddonMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -14375,6 +14470,15 @@ export default class Client extends OpenApi {
     return await this.describeClusterAddonUpgradeStatusWithOptions(ClusterId, ComponentId, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param tmpReq DescribeClusterAddonsUpgradeStatusRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeClusterAddonsUpgradeStatusResponse
+   */
+  // Deprecated
   async describeClusterAddonsUpgradeStatusWithOptions(ClusterId: string, tmpReq: DescribeClusterAddonsUpgradeStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonsUpgradeStatusResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeClusterAddonsUpgradeStatusShrinkRequest({ });
@@ -14406,12 +14510,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterAddonsUpgradeStatusResponse>(await this.callApi(params, req, runtime), new DescribeClusterAddonsUpgradeStatusResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeClusterAddonsUpgradeStatusRequest
+    * @return DescribeClusterAddonsUpgradeStatusResponse
+   */
+  // Deprecated
   async describeClusterAddonsUpgradeStatus(ClusterId: string, request: DescribeClusterAddonsUpgradeStatusRequest): Promise<DescribeClusterAddonsUpgradeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeClusterAddonsUpgradeStatusWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeClusterAddonsVersionResponse
+   */
+  // Deprecated
   async describeClusterAddonsVersionWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonsVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -14430,6 +14549,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterAddonsVersionResponse>(await this.callApi(params, req, runtime), new DescribeClusterAddonsVersionResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @return DescribeClusterAddonsVersionResponse
+   */
+  // Deprecated
   async describeClusterAddonsVersion(ClusterId: string): Promise<DescribeClusterAddonsVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -16579,6 +16704,14 @@ export default class Client extends OpenApi {
     return await this.openAckServiceWithOptions(request, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PauseClusterUpgradeResponse
+   */
+  // Deprecated
   async pauseClusterUpgradeWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseClusterUpgradeResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16597,6 +16730,12 @@ export default class Client extends OpenApi {
     return $tea.cast<PauseClusterUpgradeResponse>(await this.callApi(params, req, runtime), new PauseClusterUpgradeResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @return PauseClusterUpgradeResponse
+   */
+  // Deprecated
   async pauseClusterUpgrade(ClusterId: string): Promise<PauseClusterUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -16898,6 +17037,14 @@ export default class Client extends OpenApi {
     return await this.resumeTaskWithOptions(taskId, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ResumeUpgradeClusterResponse
+   */
+  // Deprecated
   async resumeUpgradeClusterWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeUpgradeClusterResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16916,6 +17063,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeUpgradeClusterResponse>(await this.callApi(params, req, runtime), new ResumeUpgradeClusterResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @return ResumeUpgradeClusterResponse
+   */
+  // Deprecated
   async resumeUpgradeCluster(ClusterId: string): Promise<ResumeUpgradeClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -17758,7 +17911,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "json",
     });
     return $tea.cast<UpgradeClusterResponse>(await this.callApi(params, req, runtime), new UpgradeClusterResponse({}));
   }
