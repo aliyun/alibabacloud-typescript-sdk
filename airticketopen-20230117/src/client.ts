@@ -8891,9 +8891,9 @@ export default class Client extends OpenApi {
       request.flightSegmentParamListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.flightSegmentParamList, "flight_segment_param_list", "json");
     }
 
-    let body : {[key: string ]: any} = { };
+    let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.flightSegmentParamListShrink)) {
-      body["flight_segment_param_list"] = request.flightSegmentParamListShrink;
+      query["flight_segment_param_list"] = request.flightSegmentParamListShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -8911,7 +8911,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "LuggageDirect",
@@ -8921,7 +8921,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "formData",
+      reqBodyType: "json",
       bodyType: "json",
     });
     return $tea.cast<LuggageDirectResponse>(await this.callApi(params, req, runtime), new LuggageDirectResponse({}));
@@ -9421,9 +9421,9 @@ export default class Client extends OpenApi {
       request.flightSegmentParamListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.flightSegmentParamList, "flight_segment_param_list", "json");
     }
 
-    let body : {[key: string ]: any} = { };
+    let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.flightSegmentParamListShrink)) {
-      body["flight_segment_param_list"] = request.flightSegmentParamListShrink;
+      query["flight_segment_param_list"] = request.flightSegmentParamListShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -9441,7 +9441,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "TransitVisa",
@@ -9451,7 +9451,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "formData",
+      reqBodyType: "json",
       bodyType: "json",
     });
     return $tea.cast<TransitVisaResponse>(await this.callApi(params, req, runtime), new TransitVisaResponse({}));
