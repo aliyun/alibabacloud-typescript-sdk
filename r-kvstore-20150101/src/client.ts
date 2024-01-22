@@ -2478,6 +2478,9 @@ export class DescribeBackupsRequest extends $tea.Model {
 export class DescribeBackupsResponseBody extends $tea.Model {
   accessDeniedDetail?: DescribeBackupsResponseBodyAccessDeniedDetail;
   backups?: DescribeBackupsResponseBodyBackups;
+  freeSize?: number;
+  fullStorageSize?: number;
+  logStorageSize?: number;
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
@@ -2486,6 +2489,9 @@ export class DescribeBackupsResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       backups: 'Backups',
+      freeSize: 'FreeSize',
+      fullStorageSize: 'FullStorageSize',
+      logStorageSize: 'LogStorageSize',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -2497,6 +2503,9 @@ export class DescribeBackupsResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: DescribeBackupsResponseBodyAccessDeniedDetail,
       backups: DescribeBackupsResponseBodyBackups,
+      freeSize: 'number',
+      fullStorageSize: 'number',
+      logStorageSize: 'number',
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
@@ -2795,6 +2804,9 @@ export class DescribeClusterBackupListRequest extends $tea.Model {
 
 export class DescribeClusterBackupListResponseBody extends $tea.Model {
   clusterBackups?: DescribeClusterBackupListResponseBodyClusterBackups[];
+  freeSize?: number;
+  fullStorageSize?: number;
+  logStorageSize?: number;
   maxResults?: number;
   pageNumber?: number;
   pageSize?: number;
@@ -2802,6 +2814,9 @@ export class DescribeClusterBackupListResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clusterBackups: 'ClusterBackups',
+      freeSize: 'FreeSize',
+      fullStorageSize: 'FullStorageSize',
+      logStorageSize: 'LogStorageSize',
       maxResults: 'MaxResults',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -2812,6 +2827,9 @@ export class DescribeClusterBackupListResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clusterBackups: { 'type': 'array', 'itemType': DescribeClusterBackupListResponseBodyClusterBackups },
+      freeSize: 'number',
+      fullStorageSize: 'number',
+      logStorageSize: 'number',
       maxResults: 'number',
       pageNumber: 'number',
       pageSize: 'number',
