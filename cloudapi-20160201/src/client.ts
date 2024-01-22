@@ -2606,11 +2606,13 @@ export class DescribeApiResponse extends $tea.Model {
 export class DescribeApiDocRequest extends $tea.Model {
   apiId?: string;
   groupId?: string;
+  securityToken?: string;
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
       apiId: 'ApiId',
       groupId: 'GroupId',
+      securityToken: 'SecurityToken',
       stageName: 'StageName',
     };
   }
@@ -2619,6 +2621,7 @@ export class DescribeApiDocRequest extends $tea.Model {
     return {
       apiId: 'string',
       groupId: 'string',
+      securityToken: 'string',
       stageName: 'string',
     };
   }
@@ -2753,6 +2756,7 @@ export class DescribeApiDocsRequest extends $tea.Model {
   groupId?: string;
   pageNumber?: number;
   pageSize?: number;
+  securityToken?: string;
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2761,6 +2765,7 @@ export class DescribeApiDocsRequest extends $tea.Model {
       groupId: 'GroupId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
       stageName: 'StageName',
     };
   }
@@ -2772,6 +2777,7 @@ export class DescribeApiDocsRequest extends $tea.Model {
       groupId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      securityToken: 'string',
       stageName: 'string',
     };
   }
@@ -3112,12 +3118,14 @@ export class DescribeApiGroupsRequest extends $tea.Model {
   groupName?: string;
   pageNumber?: number;
   pageSize?: number;
+  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
       groupName: 'GroupName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
     };
   }
 
@@ -3127,6 +3135,7 @@ export class DescribeApiGroupsRequest extends $tea.Model {
       groupName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      securityToken: 'string',
     };
   }
 
@@ -16079,6 +16088,10 @@ export default class Client extends OpenApi {
       query["GroupId"] = request.groupId;
     }
 
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     if (!Util.isUnset(request.stageName)) {
       query["StageName"] = request.stageName;
     }
@@ -16126,6 +16139,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
     }
 
     if (!Util.isUnset(request.stageName)) {
@@ -16294,6 +16311,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
