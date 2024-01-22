@@ -6474,6 +6474,7 @@ export class CreatePublicIpAddressPoolRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  securityProtectionTypes?: string[];
   tag?: CreatePublicIpAddressPoolRequestTag[];
   zones?: string[];
   static names(): { [key: string]: string } {
@@ -6490,6 +6491,7 @@ export class CreatePublicIpAddressPoolRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      securityProtectionTypes: 'SecurityProtectionTypes',
       tag: 'Tag',
       zones: 'Zones',
     };
@@ -6509,6 +6511,7 @@ export class CreatePublicIpAddressPoolRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      securityProtectionTypes: { 'type': 'array', 'itemType': 'string' },
       tag: { 'type': 'array', 'itemType': CreatePublicIpAddressPoolRequestTag },
       zones: { 'type': 'array', 'itemType': 'string' },
     };
@@ -25122,6 +25125,7 @@ export class ListPublicIpAddressPoolsRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  securityProtectionEnabled?: boolean;
   status?: string;
   tags?: ListPublicIpAddressPoolsRequestTags[];
   static names(): { [key: string]: string } {
@@ -25138,6 +25142,7 @@ export class ListPublicIpAddressPoolsRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      securityProtectionEnabled: 'SecurityProtectionEnabled',
       status: 'Status',
       tags: 'Tags',
     };
@@ -25157,6 +25162,7 @@ export class ListPublicIpAddressPoolsRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      securityProtectionEnabled: 'boolean',
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListPublicIpAddressPoolsRequestTags },
     };
@@ -46891,6 +46897,7 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends
   publicIpAddressPoolId?: string;
   regionId?: string;
   resourceGroupId?: string;
+  securityProtectionTypes?: string[];
   shareType?: string;
   status?: string;
   tags?: ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListTags[];
@@ -46910,6 +46917,7 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends
       publicIpAddressPoolId: 'PublicIpAddressPoolId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      securityProtectionTypes: 'SecurityProtectionTypes',
       shareType: 'ShareType',
       status: 'Status',
       tags: 'Tags',
@@ -46932,6 +46940,7 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends
       publicIpAddressPoolId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      securityProtectionTypes: { 'type': 'array', 'itemType': 'string' },
       shareType: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListTags },
@@ -54618,6 +54627,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityProtectionTypes)) {
+      query["SecurityProtectionTypes"] = request.securityProtectionTypes;
     }
 
     if (!Util.isUnset(request.tag)) {
@@ -68476,6 +68489,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityProtectionEnabled)) {
+      query["SecurityProtectionEnabled"] = request.securityProtectionEnabled;
     }
 
     if (!Util.isUnset(request.status)) {
