@@ -29249,11 +29249,13 @@ export class GetCheckSaleResponse extends $tea.Model {
 }
 
 export class GetCheckSummaryRequest extends $tea.Model {
+  isItemStatistic?: boolean;
   lang?: string;
   resourceDirectoryAccountId?: string;
   vendors?: string[];
   static names(): { [key: string]: string } {
     return {
+      isItemStatistic: 'IsItemStatistic',
       lang: 'Lang',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       vendors: 'Vendors',
@@ -29262,6 +29264,7 @@ export class GetCheckSummaryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      isItemStatistic: 'boolean',
       lang: 'string',
       resourceDirectoryAccountId: 'string',
       vendors: { 'type': 'array', 'itemType': 'string' },
@@ -29274,11 +29277,13 @@ export class GetCheckSummaryRequest extends $tea.Model {
 }
 
 export class GetCheckSummaryResponseBody extends $tea.Model {
+  overallItemStatistic?: GetCheckSummaryResponseBodyOverallItemStatistic;
   overallStatistic?: GetCheckSummaryResponseBodyOverallStatistic;
   requestId?: string;
   summarys?: GetCheckSummaryResponseBodySummarys[];
   static names(): { [key: string]: string } {
     return {
+      overallItemStatistic: 'OverallItemStatistic',
       overallStatistic: 'OverallStatistic',
       requestId: 'RequestId',
       summarys: 'Summarys',
@@ -29287,6 +29292,7 @@ export class GetCheckSummaryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      overallItemStatistic: GetCheckSummaryResponseBodyOverallItemStatistic,
       overallStatistic: GetCheckSummaryResponseBodyOverallStatistic,
       requestId: 'string',
       summarys: { 'type': 'array', 'itemType': GetCheckSummaryResponseBodySummarys },
@@ -67225,6 +67231,28 @@ export class GetCheckSaleResponseBodyCheckSale extends $tea.Model {
   }
 }
 
+export class GetCheckSummaryResponseBodyOverallItemStatistic extends $tea.Model {
+  releaseCount?: number;
+  resultCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      releaseCount: 'ReleaseCount',
+      resultCount: 'ResultCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      releaseCount: 'number',
+      resultCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCheckSummaryResponseBodyOverallStatistic extends $tea.Model {
   notCheckCount?: number;
   notCheckHighCount?: number;
@@ -94362,6 +94390,10 @@ export default class Client extends OpenApi {
   async getCheckSummaryWithOptions(request: GetCheckSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetCheckSummaryResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.isItemStatistic)) {
+      query["IsItemStatistic"] = request.isItemStatistic;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
