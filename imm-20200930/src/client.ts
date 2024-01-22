@@ -341,12 +341,14 @@ export class Body extends $tea.Model {
 export class Boundary extends $tea.Model {
   height?: number;
   left?: number;
+  polygon?: PointInt64[];
   top?: number;
   width?: number;
   static names(): { [key: string]: string } {
     return {
       height: 'Height',
       left: 'Left',
+      polygon: 'Polygon',
       top: 'Top',
       width: 'Width',
     };
@@ -356,6 +358,7 @@ export class Boundary extends $tea.Model {
     return {
       height: 'number',
       left: 'number',
+      polygon: { 'type': 'array', 'itemType': PointInt64 },
       top: 'number',
       width: 'number',
     };
@@ -644,6 +647,50 @@ export class Dataset extends $tea.Model {
   }
 }
 
+export class Element extends $tea.Model {
+  elementContents?: ElementContent[];
+  static names(): { [key: string]: string } {
+    return {
+      elementContents: 'ElementContents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elementContents: { 'type': 'array', 'itemType': ElementContent },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElementContent extends $tea.Model {
+  content?: string;
+  type?: string;
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      type: 'Type',
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      type: 'string',
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FastFailPolicy extends $tea.Model {
   action?: string;
   static names(): { [key: string]: string } {
@@ -889,6 +936,7 @@ export class File extends $tea.Model {
   duration?: number;
   ETag?: string;
   EXIF?: string;
+  elements?: Element[];
   figureCount?: number;
   figures?: Figure[];
   fileAccessTime?: string;
@@ -906,6 +954,7 @@ export class File extends $tea.Model {
   latLong?: string;
   mediaType?: string;
   OCRContents?: OCRContents[];
+  OCRTexts?: string;
   OSSCRC64?: string;
   OSSDeleteMarker?: string;
   OSSExpiration?: string;
@@ -926,6 +975,7 @@ export class File extends $tea.Model {
   produceTime?: string;
   programCount?: number;
   projectName?: string;
+  semanticTypes?: string[];
   serverSideDataEncryption?: string;
   serverSideEncryption?: string;
   serverSideEncryptionCustomerAlgorithm?: string;
@@ -968,6 +1018,7 @@ export class File extends $tea.Model {
       duration: 'Duration',
       ETag: 'ETag',
       EXIF: 'EXIF',
+      elements: 'Elements',
       figureCount: 'FigureCount',
       figures: 'Figures',
       fileAccessTime: 'FileAccessTime',
@@ -985,6 +1036,7 @@ export class File extends $tea.Model {
       latLong: 'LatLong',
       mediaType: 'MediaType',
       OCRContents: 'OCRContents',
+      OCRTexts: 'OCRTexts',
       OSSCRC64: 'OSSCRC64',
       OSSDeleteMarker: 'OSSDeleteMarker',
       OSSExpiration: 'OSSExpiration',
@@ -1005,6 +1057,7 @@ export class File extends $tea.Model {
       produceTime: 'ProduceTime',
       programCount: 'ProgramCount',
       projectName: 'ProjectName',
+      semanticTypes: 'SemanticTypes',
       serverSideDataEncryption: 'ServerSideDataEncryption',
       serverSideEncryption: 'ServerSideEncryption',
       serverSideEncryptionCustomerAlgorithm: 'ServerSideEncryptionCustomerAlgorithm',
@@ -1050,6 +1103,7 @@ export class File extends $tea.Model {
       duration: 'number',
       ETag: 'string',
       EXIF: 'string',
+      elements: { 'type': 'array', 'itemType': Element },
       figureCount: 'number',
       figures: { 'type': 'array', 'itemType': Figure },
       fileAccessTime: 'string',
@@ -1067,6 +1121,7 @@ export class File extends $tea.Model {
       latLong: 'string',
       mediaType: 'string',
       OCRContents: { 'type': 'array', 'itemType': OCRContents },
+      OCRTexts: 'string',
       OSSCRC64: 'string',
       OSSDeleteMarker: 'string',
       OSSExpiration: 'string',
@@ -1087,6 +1142,7 @@ export class File extends $tea.Model {
       produceTime: 'string',
       programCount: 'number',
       projectName: 'string',
+      semanticTypes: { 'type': 'array', 'itemType': 'string' },
       serverSideDataEncryption: 'string',
       serverSideEncryption: 'string',
       serverSideEncryptionCustomerAlgorithm: 'string',
@@ -1632,6 +1688,28 @@ export class Optimization extends $tea.Model {
     return {
       learningRate: 'number',
       optimizer: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PointInt64 extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
     };
   }
 
@@ -8009,11 +8087,13 @@ export class DetectTextAnomalyResponse extends $tea.Model {
 export class ExtractDocumentTextRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   projectName?: string;
+  sourceType?: string;
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
       credentialConfig: 'CredentialConfig',
       projectName: 'ProjectName',
+      sourceType: 'SourceType',
       sourceURI: 'SourceURI',
     };
   }
@@ -8022,6 +8102,7 @@ export class ExtractDocumentTextRequest extends $tea.Model {
     return {
       credentialConfig: CredentialConfig,
       projectName: 'string',
+      sourceType: 'string',
       sourceURI: 'string',
     };
   }
@@ -8034,11 +8115,13 @@ export class ExtractDocumentTextRequest extends $tea.Model {
 export class ExtractDocumentTextShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
   projectName?: string;
+  sourceType?: string;
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
       credentialConfigShrink: 'CredentialConfig',
       projectName: 'ProjectName',
+      sourceType: 'SourceType',
       sourceURI: 'SourceURI',
     };
   }
@@ -8047,6 +8130,7 @@ export class ExtractDocumentTextShrinkRequest extends $tea.Model {
     return {
       credentialConfigShrink: 'string',
       projectName: 'string',
+      sourceType: 'string',
       sourceURI: 'string',
     };
   }
@@ -16821,6 +16905,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.projectName)) {
       query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
     }
 
     if (!Util.isUnset(request.sourceURI)) {
