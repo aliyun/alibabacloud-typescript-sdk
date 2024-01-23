@@ -984,6 +984,7 @@ export class GetInstanceResponseBodyInstance extends $tea.Model {
   leaderInstanceId?: string;
   memory?: number;
   regionId?: string;
+  replicaRole?: string;
   resourceGroupId?: string;
   suspendReason?: string;
   tags?: GetInstanceResponseBodyInstanceTags[];
@@ -1013,6 +1014,7 @@ export class GetInstanceResponseBodyInstance extends $tea.Model {
       leaderInstanceId: 'LeaderInstanceId',
       memory: 'Memory',
       regionId: 'RegionId',
+      replicaRole: 'ReplicaRole',
       resourceGroupId: 'ResourceGroupId',
       suspendReason: 'SuspendReason',
       tags: 'Tags',
@@ -1045,6 +1047,7 @@ export class GetInstanceResponseBodyInstance extends $tea.Model {
       leaderInstanceId: 'string',
       memory: 'number',
       regionId: 'string',
+      replicaRole: 'string',
       resourceGroupId: 'string',
       suspendReason: 'string',
       tags: { 'type': 'array', 'itemType': GetInstanceResponseBodyInstanceTags },
@@ -1650,8 +1653,8 @@ export default class Client extends OpenApi {
 
   /**
     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-    * *   For more information about the billing details of Hologres, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
-    * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resources of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade and downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications?spm=a2c63.p38356.0.0.2bb57c8dbVt68U).
+    * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+    * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resource specifications of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
     *
     * @param request ScaleInstanceRequest
     * @param headers map
@@ -1701,8 +1704,8 @@ export default class Client extends OpenApi {
 
   /**
     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-    * *   For more information about the billing details of Hologres, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
-    * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resources of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade and downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications?spm=a2c63.p38356.0.0.2bb57c8dbVt68U).
+    * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+    * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resource specifications of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
     *
     * @param request ScaleInstanceRequest
     * @return ScaleInstanceResponse
