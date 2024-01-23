@@ -14148,6 +14148,7 @@ export class DescribeNetworkRulesResponseBodyNetworkRules extends $tea.Model {
   isAutoCreate?: boolean;
   protocol?: string;
   realServers?: string[];
+  remark?: string;
   static names(): { [key: string]: string } {
     return {
       backendPort: 'BackendPort',
@@ -14156,6 +14157,7 @@ export class DescribeNetworkRulesResponseBodyNetworkRules extends $tea.Model {
       isAutoCreate: 'IsAutoCreate',
       protocol: 'Protocol',
       realServers: 'RealServers',
+      remark: 'Remark',
     };
   }
 
@@ -14167,6 +14169,7 @@ export class DescribeNetworkRulesResponseBodyNetworkRules extends $tea.Model {
       isAutoCreate: 'boolean',
       protocol: 'string',
       realServers: { 'type': 'array', 'itemType': 'string' },
+      remark: 'string',
     };
   }
 
