@@ -22825,6 +22825,7 @@ export class DescribeAddonReleaseResponseBodyDataRelease extends $tea.Model {
   haveConfig?: boolean;
   installUserId?: string;
   language?: string;
+  managed?: boolean;
   regionId?: string;
   releaseId?: string;
   releaseName?: string;
@@ -22845,6 +22846,7 @@ export class DescribeAddonReleaseResponseBodyDataRelease extends $tea.Model {
       haveConfig: 'HaveConfig',
       installUserId: 'InstallUserId',
       language: 'Language',
+      managed: 'Managed',
       regionId: 'RegionId',
       releaseId: 'ReleaseId',
       releaseName: 'ReleaseName',
@@ -22868,6 +22870,7 @@ export class DescribeAddonReleaseResponseBodyDataRelease extends $tea.Model {
       haveConfig: 'boolean',
       installUserId: 'string',
       language: 'string',
+      managed: 'boolean',
       regionId: 'string',
       releaseId: 'string',
       releaseName: 'string',
@@ -23453,6 +23456,7 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeature extends $tea.Mode
   icon?: string;
   language?: string;
   latestVersion?: string;
+  managed?: boolean;
   name?: string;
   status?: string;
   version?: string;
@@ -23465,6 +23469,7 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeature extends $tea.Mode
       icon: 'Icon',
       language: 'Language',
       latestVersion: 'LatestVersion',
+      managed: 'Managed',
       name: 'Name',
       status: 'Status',
       version: 'Version',
@@ -23480,6 +23485,7 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeature extends $tea.Mode
       icon: 'string',
       language: 'string',
       latestVersion: 'string',
+      managed: 'boolean',
       name: 'string',
       status: 'string',
       version: 'string',
@@ -26887,6 +26893,7 @@ export class InstallAddonResponseBodyData extends $tea.Model {
   haveConfig?: boolean;
   installUserId?: string;
   language?: string;
+  managed?: boolean;
   regionId?: string;
   releaseId?: string;
   releaseName?: string;
@@ -26907,6 +26914,7 @@ export class InstallAddonResponseBodyData extends $tea.Model {
       haveConfig: 'HaveConfig',
       installUserId: 'InstallUserId',
       language: 'Language',
+      managed: 'Managed',
       regionId: 'RegionId',
       releaseId: 'ReleaseId',
       releaseName: 'ReleaseName',
@@ -26930,6 +26938,7 @@ export class InstallAddonResponseBodyData extends $tea.Model {
       haveConfig: 'boolean',
       installUserId: 'string',
       language: 'string',
+      managed: 'boolean',
       regionId: 'string',
       releaseId: 'string',
       releaseName: 'string',
@@ -27105,6 +27114,7 @@ export class ListAddonReleasesResponseBodyDataReleases extends $tea.Model {
   haveConfig?: boolean;
   installUserId?: string;
   language?: string;
+  managed?: boolean;
   regionId?: string;
   releaseId?: string;
   releaseName?: string;
@@ -27125,6 +27135,7 @@ export class ListAddonReleasesResponseBodyDataReleases extends $tea.Model {
       haveConfig: 'HaveConfig',
       installUserId: 'InstallUserId',
       language: 'Language',
+      managed: 'Managed',
       regionId: 'RegionId',
       releaseId: 'ReleaseId',
       releaseName: 'ReleaseName',
@@ -27148,6 +27159,7 @@ export class ListAddonReleasesResponseBodyDataReleases extends $tea.Model {
       haveConfig: 'boolean',
       installUserId: 'string',
       language: 'string',
+      managed: 'boolean',
       regionId: 'string',
       releaseId: 'string',
       releaseName: 'string',
@@ -28020,6 +28032,7 @@ export class ListEnvironmentFeaturesResponseBodyData extends $tea.Model {
   icon?: string;
   language?: string;
   latestVersion?: string;
+  managed?: boolean;
   name?: string;
   status?: string;
   version?: string;
@@ -28032,6 +28045,7 @@ export class ListEnvironmentFeaturesResponseBodyData extends $tea.Model {
       icon: 'Icon',
       language: 'Language',
       latestVersion: 'LatestVersion',
+      managed: 'Managed',
       name: 'Name',
       status: 'Status',
       version: 'Version',
@@ -28047,6 +28061,7 @@ export class ListEnvironmentFeaturesResponseBodyData extends $tea.Model {
       icon: 'string',
       language: 'string',
       latestVersion: 'string',
+      managed: 'boolean',
       name: 'string',
       status: 'string',
       version: 'string',
@@ -28174,6 +28189,7 @@ export class ListEnvironmentsResponseBodyDataEnvironments extends $tea.Model {
   grafanaFolderTitle?: string;
   grafanaFolderUid?: string;
   latestReleaseCreateTime?: string;
+  managedType?: string;
   prometheusId?: number;
   prometheusInstanceId?: string;
   regionId?: string;
@@ -28198,6 +28214,7 @@ export class ListEnvironmentsResponseBodyDataEnvironments extends $tea.Model {
       grafanaFolderTitle: 'GrafanaFolderTitle',
       grafanaFolderUid: 'GrafanaFolderUid',
       latestReleaseCreateTime: 'LatestReleaseCreateTime',
+      managedType: 'ManagedType',
       prometheusId: 'PrometheusId',
       prometheusInstanceId: 'PrometheusInstanceId',
       regionId: 'RegionId',
@@ -28225,6 +28242,7 @@ export class ListEnvironmentsResponseBodyDataEnvironments extends $tea.Model {
       grafanaFolderTitle: 'string',
       grafanaFolderUid: 'string',
       latestReleaseCreateTime: 'string',
+      managedType: 'string',
       prometheusId: 'number',
       prometheusInstanceId: 'string',
       regionId: 'string',
