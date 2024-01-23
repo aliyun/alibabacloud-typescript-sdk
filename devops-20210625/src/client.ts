@@ -9438,6 +9438,7 @@ export class ListMergeRequestsRequest extends $tea.Model {
   authorIds?: string;
   filter?: string;
   groupIds?: string;
+  labelIds?: string;
   orderBy?: string;
   organizationId?: string;
   page?: number;
@@ -9453,6 +9454,7 @@ export class ListMergeRequestsRequest extends $tea.Model {
       authorIds: 'authorIds',
       filter: 'filter',
       groupIds: 'groupIds',
+      labelIds: 'labelIds',
       orderBy: 'orderBy',
       organizationId: 'organizationId',
       page: 'page',
@@ -9471,6 +9473,7 @@ export class ListMergeRequestsRequest extends $tea.Model {
       authorIds: 'string',
       filter: 'string',
       groupIds: 'string',
+      labelIds: 'string',
       orderBy: 'string',
       organizationId: 'string',
       page: 'number',
@@ -24252,6 +24255,34 @@ export class ListMergeRequestsResponseBodyResultAuthor extends $tea.Model {
   }
 }
 
+export class ListMergeRequestsResponseBodyResultLabels extends $tea.Model {
+  color?: string;
+  description?: string;
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      color: 'color',
+      description: 'description',
+      id: 'id',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      color: 'string',
+      description: 'string',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMergeRequestsResponseBodyResultReviewers extends $tea.Model {
   avatarUrl?: string;
   email?: string;
@@ -24334,6 +24365,7 @@ export class ListMergeRequestsResponseBodyResult extends $tea.Model {
   detailUrl?: string;
   id?: number;
   iid?: number;
+  labels?: ListMergeRequestsResponseBodyResultLabels[];
   localId?: number;
   mrBizId?: string;
   nameWithNamespace?: string;
@@ -24364,6 +24396,7 @@ export class ListMergeRequestsResponseBodyResult extends $tea.Model {
       detailUrl: 'detailUrl',
       id: 'id',
       iid: 'iid',
+      labels: 'labels',
       localId: 'localId',
       mrBizId: 'mrBizId',
       nameWithNamespace: 'nameWithNamespace',
@@ -24397,6 +24430,7 @@ export class ListMergeRequestsResponseBodyResult extends $tea.Model {
       detailUrl: 'string',
       id: 'number',
       iid: 'number',
+      labels: { 'type': 'array', 'itemType': ListMergeRequestsResponseBodyResultLabels },
       localId: 'number',
       mrBizId: 'string',
       nameWithNamespace: 'string',
@@ -27703,15 +27737,27 @@ export class LogVMDeployMachineResponseBodyDeployMachineLog extends $tea.Model {
 }
 
 export class MergeMergeRequestResponseBodyResult extends $tea.Model {
+  bizId?: string;
+  localId?: number;
+  mergedRevision?: string;
+  projectId?: number;
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
+      bizId: 'bizId',
+      localId: 'localId',
+      mergedRevision: 'mergedRevision',
+      projectId: 'projectId',
       result: 'result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizId: 'string',
+      localId: 'number',
+      mergedRevision: 'string',
+      projectId: 'number',
       result: 'boolean',
     };
   }
@@ -34466,6 +34512,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupIds)) {
       query["groupIds"] = request.groupIds;
+    }
+
+    if (!Util.isUnset(request.labelIds)) {
+      query["labelIds"] = request.labelIds;
     }
 
     if (!Util.isUnset(request.orderBy)) {
