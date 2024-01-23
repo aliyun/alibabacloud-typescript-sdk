@@ -78,12 +78,14 @@ export class AssociateResourceShareRequest extends $tea.Model {
   permissionNames?: string[];
   resourceShareId?: string;
   resources?: AssociateResourceShareRequestResources[];
+  targetProperties?: AssociateResourceShareRequestTargetProperties[];
   targets?: string[];
   static names(): { [key: string]: string } {
     return {
       permissionNames: 'PermissionNames',
       resourceShareId: 'ResourceShareId',
       resources: 'Resources',
+      targetProperties: 'TargetProperties',
       targets: 'Targets',
     };
   }
@@ -93,6 +95,7 @@ export class AssociateResourceShareRequest extends $tea.Model {
       permissionNames: { 'type': 'array', 'itemType': 'string' },
       resourceShareId: 'string',
       resources: { 'type': 'array', 'itemType': AssociateResourceShareRequestResources },
+      targetProperties: { 'type': 'array', 'itemType': AssociateResourceShareRequestTargetProperties },
       targets: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -339,6 +342,7 @@ export class CreateResourceShareRequest extends $tea.Model {
   permissionNames?: string[];
   resourceShareName?: string;
   resources?: CreateResourceShareRequestResources[];
+  targetProperties?: CreateResourceShareRequestTargetProperties[];
   targets?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -346,6 +350,7 @@ export class CreateResourceShareRequest extends $tea.Model {
       permissionNames: 'PermissionNames',
       resourceShareName: 'ResourceShareName',
       resources: 'Resources',
+      targetProperties: 'TargetProperties',
       targets: 'Targets',
     };
   }
@@ -356,6 +361,7 @@ export class CreateResourceShareRequest extends $tea.Model {
       permissionNames: { 'type': 'array', 'itemType': 'string' },
       resourceShareName: 'string',
       resources: { 'type': 'array', 'itemType': CreateResourceShareRequestResources },
+      targetProperties: { 'type': 'array', 'itemType': CreateResourceShareRequestTargetProperties },
       targets: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -1680,6 +1686,28 @@ export class AssociateResourceShareRequestResources extends $tea.Model {
   }
 }
 
+export class AssociateResourceShareRequestTargetProperties extends $tea.Model {
+  property?: string;
+  targetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      property: 'Property',
+      targetId: 'TargetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      property: 'string',
+      targetId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AssociateResourceShareResponseBodyResourceShareAssociations extends $tea.Model {
   associationStatus?: string;
   associationStatusMessage?: string;
@@ -1740,6 +1768,28 @@ export class CreateResourceShareRequestResources extends $tea.Model {
     return {
       resourceId: 'string',
       resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceShareRequestTargetProperties extends $tea.Model {
+  property?: string;
+  targetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      property: 'Property',
+      targetId: 'TargetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      property: 'string',
+      targetId: 'string',
     };
   }
 
@@ -2458,6 +2508,10 @@ export default class Client extends OpenApi {
       query["Resources"] = request.resources;
     }
 
+    if (!Util.isUnset(request.targetProperties)) {
+      query["TargetProperties"] = request.targetProperties;
+    }
+
     if (!Util.isUnset(request.targets)) {
       query["Targets"] = request.targets;
     }
@@ -2623,6 +2677,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resources)) {
       query["Resources"] = request.resources;
+    }
+
+    if (!Util.isUnset(request.targetProperties)) {
+      query["TargetProperties"] = request.targetProperties;
     }
 
     if (!Util.isUnset(request.targets)) {
