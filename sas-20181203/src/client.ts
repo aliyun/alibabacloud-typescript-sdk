@@ -27383,11 +27383,13 @@ export class ExecStrategyResponse extends $tea.Model {
 }
 
 export class ExportRecordRequest extends $tea.Model {
+  exportFileType?: string;
   exportType?: string;
   lang?: string;
   params?: string;
   static names(): { [key: string]: string } {
     return {
+      exportFileType: 'ExportFileType',
       exportType: 'ExportType',
       lang: 'Lang',
       params: 'Params',
@@ -27396,6 +27398,7 @@ export class ExportRecordRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      exportFileType: 'string',
       exportType: 'string',
       lang: 'string',
       params: 'string',
@@ -93336,6 +93339,10 @@ export default class Client extends OpenApi {
   async exportRecordWithOptions(request: ExportRecordRequest, runtime: $Util.RuntimeOptions): Promise<ExportRecordResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.exportFileType)) {
+      query["ExportFileType"] = request.exportFileType;
+    }
+
     if (!Util.isUnset(request.exportType)) {
       query["ExportType"] = request.exportType;
     }
