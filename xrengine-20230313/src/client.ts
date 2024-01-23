@@ -5294,11 +5294,13 @@ export class BatchQueryMotionShopTaskStatusResponseBodyDataTasksResult extends $
 }
 
 export class BatchQueryMotionShopTaskStatusResponseBodyDataTasks extends $tea.Model {
+  errorMessage?: string;
   result?: BatchQueryMotionShopTaskStatusResponseBodyDataTasksResult;
   status?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      errorMessage: 'ErrorMessage',
       result: 'Result',
       status: 'Status',
       taskId: 'TaskId',
@@ -5307,6 +5309,7 @@ export class BatchQueryMotionShopTaskStatusResponseBodyDataTasks extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
+      errorMessage: 'string',
       result: BatchQueryMotionShopTaskStatusResponseBodyDataTasksResult,
       status: 'string',
       taskId: 'string',
@@ -5624,12 +5627,14 @@ export class ListMotionShopTasksResponseBodyDataResult extends $tea.Model {
 }
 
 export class ListMotionShopTasksResponseBodyData extends $tea.Model {
+  errorMessage?: string;
   material?: ListMotionShopTasksResponseBodyDataMaterial;
   result?: ListMotionShopTasksResponseBodyDataResult;
   status?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      errorMessage: 'ErrorMessage',
       material: 'Material',
       result: 'Result',
       status: 'Status',
@@ -5639,6 +5644,7 @@ export class ListMotionShopTasksResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      errorMessage: 'string',
       material: ListMotionShopTasksResponseBodyDataMaterial,
       result: ListMotionShopTasksResponseBodyDataResult,
       status: 'string',
