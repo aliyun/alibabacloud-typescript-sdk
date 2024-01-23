@@ -2831,6 +2831,7 @@ export class RecognizeHandwritingRequest extends $tea.Model {
   needSortPage?: boolean;
   outputCharInfo?: boolean;
   outputTable?: boolean;
+  paragraph?: boolean;
   url?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
@@ -2839,6 +2840,7 @@ export class RecognizeHandwritingRequest extends $tea.Model {
       needSortPage: 'NeedSortPage',
       outputCharInfo: 'OutputCharInfo',
       outputTable: 'OutputTable',
+      paragraph: 'Paragraph',
       url: 'Url',
       body: 'body',
     };
@@ -2850,6 +2852,7 @@ export class RecognizeHandwritingRequest extends $tea.Model {
       needSortPage: 'boolean',
       outputCharInfo: 'boolean',
       outputTable: 'boolean',
+      paragraph: 'boolean',
       url: 'string',
       body: 'Readable',
     };
@@ -8658,6 +8661,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.outputTable)) {
       query["OutputTable"] = request.outputTable;
+    }
+
+    if (!Util.isUnset(request.paragraph)) {
+      query["Paragraph"] = request.paragraph;
     }
 
     if (!Util.isUnset(request.url)) {
