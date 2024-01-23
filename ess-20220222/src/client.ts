@@ -8,6 +8,78 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ApplyScalingGroupRequest extends $tea.Model {
+  content?: string;
+  format?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      format: 'Format',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      format: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyScalingGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  scalingGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      scalingGroupId: 'ScalingGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      scalingGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyScalingGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ApplyScalingGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyScalingGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachAlbServerGroupsRequest extends $tea.Model {
   albServerGroups?: AttachAlbServerGroupsRequestAlbServerGroups[];
   clientToken?: string;
@@ -8404,6 +8476,20 @@ export class CreateEciScalingConfigurationRequestContainers extends $tea.Model {
   gpu?: number;
   image?: string;
   imagePullPolicy?: string;
+  lifecyclePostStartHandlerExecs?: string[];
+  lifecyclePostStartHandlerHttpGetHost?: string;
+  lifecyclePostStartHandlerHttpGetPath?: string;
+  lifecyclePostStartHandlerHttpGetPort?: number;
+  lifecyclePostStartHandlerHttpGetScheme?: string;
+  lifecyclePostStartHandlerTcpSocketHost?: string;
+  lifecyclePostStartHandlerTcpSocketPort?: number;
+  lifecyclePreStopHandlerExecs?: string[];
+  lifecyclePreStopHandlerHttpGetHost?: string;
+  lifecyclePreStopHandlerHttpGetPath?: string;
+  lifecyclePreStopHandlerHttpGetPort?: number;
+  lifecyclePreStopHandlerHttpGetScheme?: string;
+  lifecyclePreStopHandlerTcpSocketHost?: string;
+  lifecyclePreStopHandlerTcpSocketPort?: number;
   memory?: number;
   name?: string;
   ports?: CreateEciScalingConfigurationRequestContainersPorts[];
@@ -8424,6 +8510,20 @@ export class CreateEciScalingConfigurationRequestContainers extends $tea.Model {
       gpu: 'Gpu',
       image: 'Image',
       imagePullPolicy: 'ImagePullPolicy',
+      lifecyclePostStartHandlerExecs: 'LifecyclePostStartHandlerExecs',
+      lifecyclePostStartHandlerHttpGetHost: 'LifecyclePostStartHandlerHttpGetHost',
+      lifecyclePostStartHandlerHttpGetPath: 'LifecyclePostStartHandlerHttpGetPath',
+      lifecyclePostStartHandlerHttpGetPort: 'LifecyclePostStartHandlerHttpGetPort',
+      lifecyclePostStartHandlerHttpGetScheme: 'LifecyclePostStartHandlerHttpGetScheme',
+      lifecyclePostStartHandlerTcpSocketHost: 'LifecyclePostStartHandlerTcpSocketHost',
+      lifecyclePostStartHandlerTcpSocketPort: 'LifecyclePostStartHandlerTcpSocketPort',
+      lifecyclePreStopHandlerExecs: 'LifecyclePreStopHandlerExecs',
+      lifecyclePreStopHandlerHttpGetHost: 'LifecyclePreStopHandlerHttpGetHost',
+      lifecyclePreStopHandlerHttpGetPath: 'LifecyclePreStopHandlerHttpGetPath',
+      lifecyclePreStopHandlerHttpGetPort: 'LifecyclePreStopHandlerHttpGetPort',
+      lifecyclePreStopHandlerHttpGetScheme: 'LifecyclePreStopHandlerHttpGetScheme',
+      lifecyclePreStopHandlerTcpSocketHost: 'LifecyclePreStopHandlerTcpSocketHost',
+      lifecyclePreStopHandlerTcpSocketPort: 'LifecyclePreStopHandlerTcpSocketPort',
       memory: 'Memory',
       name: 'Name',
       ports: 'Ports',
@@ -8447,6 +8547,20 @@ export class CreateEciScalingConfigurationRequestContainers extends $tea.Model {
       gpu: 'number',
       image: 'string',
       imagePullPolicy: 'string',
+      lifecyclePostStartHandlerExecs: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePostStartHandlerHttpGetHost: 'string',
+      lifecyclePostStartHandlerHttpGetPath: 'string',
+      lifecyclePostStartHandlerHttpGetPort: 'number',
+      lifecyclePostStartHandlerHttpGetScheme: 'string',
+      lifecyclePostStartHandlerTcpSocketHost: 'string',
+      lifecyclePostStartHandlerTcpSocketPort: 'number',
+      lifecyclePreStopHandlerExecs: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePreStopHandlerHttpGetHost: 'string',
+      lifecyclePreStopHandlerHttpGetPath: 'string',
+      lifecyclePreStopHandlerHttpGetPort: 'number',
+      lifecyclePreStopHandlerHttpGetScheme: 'string',
+      lifecyclePreStopHandlerTcpSocketHost: 'string',
+      lifecyclePreStopHandlerTcpSocketPort: 'number',
       memory: 'number',
       name: 'string',
       ports: { 'type': 'array', 'itemType': CreateEciScalingConfigurationRequestContainersPorts },
@@ -9888,6 +10002,20 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsCo
   gpu?: number;
   image?: string;
   imagePullPolicy?: string;
+  lifecyclePostStartHandlerExecs?: string[];
+  lifecyclePostStartHandlerHttpGetHost?: string;
+  lifecyclePostStartHandlerHttpGetPath?: string;
+  lifecyclePostStartHandlerHttpGetPort?: number;
+  lifecyclePostStartHandlerHttpGetScheme?: string;
+  lifecyclePostStartHandlerTcpSocketHost?: string;
+  lifecyclePostStartHandlerTcpSocketPort?: number;
+  lifecyclePreStopHandlerExecs?: string[];
+  lifecyclePreStopHandlerHttpGetHost?: string;
+  lifecyclePreStopHandlerHttpGetPath?: string;
+  lifecyclePreStopHandlerHttpGetPort?: number;
+  lifecyclePreStopHandlerHttpGetScheme?: string;
+  lifecyclePreStopHandlerTcpSocketHost?: string;
+  lifecyclePreStopHandlerTcpSocketPort?: number;
   livenessProbeExecCommands?: string[];
   livenessProbeFailureThreshold?: number;
   livenessProbeHttpGetPath?: string;
@@ -9928,6 +10056,20 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsCo
       gpu: 'Gpu',
       image: 'Image',
       imagePullPolicy: 'ImagePullPolicy',
+      lifecyclePostStartHandlerExecs: 'LifecyclePostStartHandlerExecs',
+      lifecyclePostStartHandlerHttpGetHost: 'LifecyclePostStartHandlerHttpGetHost',
+      lifecyclePostStartHandlerHttpGetPath: 'LifecyclePostStartHandlerHttpGetPath',
+      lifecyclePostStartHandlerHttpGetPort: 'LifecyclePostStartHandlerHttpGetPort',
+      lifecyclePostStartHandlerHttpGetScheme: 'LifecyclePostStartHandlerHttpGetScheme',
+      lifecyclePostStartHandlerTcpSocketHost: 'LifecyclePostStartHandlerTcpSocketHost',
+      lifecyclePostStartHandlerTcpSocketPort: 'LifecyclePostStartHandlerTcpSocketPort',
+      lifecyclePreStopHandlerExecs: 'LifecyclePreStopHandlerExecs',
+      lifecyclePreStopHandlerHttpGetHost: 'LifecyclePreStopHandlerHttpGetHost',
+      lifecyclePreStopHandlerHttpGetPath: 'LifecyclePreStopHandlerHttpGetPath',
+      lifecyclePreStopHandlerHttpGetPort: 'LifecyclePreStopHandlerHttpGetPort',
+      lifecyclePreStopHandlerHttpGetScheme: 'LifecyclePreStopHandlerHttpGetScheme',
+      lifecyclePreStopHandlerTcpSocketHost: 'LifecyclePreStopHandlerTcpSocketHost',
+      lifecyclePreStopHandlerTcpSocketPort: 'LifecyclePreStopHandlerTcpSocketPort',
       livenessProbeExecCommands: 'LivenessProbeExecCommands',
       livenessProbeFailureThreshold: 'LivenessProbeFailureThreshold',
       livenessProbeHttpGetPath: 'LivenessProbeHttpGetPath',
@@ -9971,6 +10113,20 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsCo
       gpu: 'number',
       image: 'string',
       imagePullPolicy: 'string',
+      lifecyclePostStartHandlerExecs: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePostStartHandlerHttpGetHost: 'string',
+      lifecyclePostStartHandlerHttpGetPath: 'string',
+      lifecyclePostStartHandlerHttpGetPort: 'number',
+      lifecyclePostStartHandlerHttpGetScheme: 'string',
+      lifecyclePostStartHandlerTcpSocketHost: 'string',
+      lifecyclePostStartHandlerTcpSocketPort: 'number',
+      lifecyclePreStopHandlerExecs: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePreStopHandlerHttpGetHost: 'string',
+      lifecyclePreStopHandlerHttpGetPath: 'string',
+      lifecyclePreStopHandlerHttpGetPort: 'number',
+      lifecyclePreStopHandlerHttpGetScheme: 'string',
+      lifecyclePreStopHandlerTcpSocketHost: 'string',
+      lifecyclePreStopHandlerTcpSocketPort: 'number',
       livenessProbeExecCommands: { 'type': 'array', 'itemType': 'string' },
       livenessProbeFailureThreshold: 'number',
       livenessProbeHttpGetPath: 'string',
@@ -12433,6 +12589,20 @@ export class ModifyEciScalingConfigurationRequestContainers extends $tea.Model {
   gpu?: number;
   image?: string;
   imagePullPolicy?: string;
+  lifecyclePostStartHandlerExecs?: string[];
+  lifecyclePostStartHandlerHttpGetHost?: string;
+  lifecyclePostStartHandlerHttpGetPath?: string;
+  lifecyclePostStartHandlerHttpGetPort?: number;
+  lifecyclePostStartHandlerHttpGetScheme?: string;
+  lifecyclePostStartHandlerTcpSocketHost?: string;
+  lifecyclePostStartHandlerTcpSocketPort?: number;
+  lifecyclePreStopHandlerExecs?: string[];
+  lifecyclePreStopHandlerHttpGetHost?: string;
+  lifecyclePreStopHandlerHttpGetPath?: string;
+  lifecyclePreStopHandlerHttpGetPort?: number;
+  lifecyclePreStopHandlerHttpGetScheme?: string;
+  lifecyclePreStopHandlerTcpSocketHost?: string;
+  lifecyclePreStopHandlerTcpSocketPort?: number;
   memory?: number;
   name?: string;
   ports?: ModifyEciScalingConfigurationRequestContainersPorts[];
@@ -12453,6 +12623,20 @@ export class ModifyEciScalingConfigurationRequestContainers extends $tea.Model {
       gpu: 'Gpu',
       image: 'Image',
       imagePullPolicy: 'ImagePullPolicy',
+      lifecyclePostStartHandlerExecs: 'LifecyclePostStartHandlerExecs',
+      lifecyclePostStartHandlerHttpGetHost: 'LifecyclePostStartHandlerHttpGetHost',
+      lifecyclePostStartHandlerHttpGetPath: 'LifecyclePostStartHandlerHttpGetPath',
+      lifecyclePostStartHandlerHttpGetPort: 'LifecyclePostStartHandlerHttpGetPort',
+      lifecyclePostStartHandlerHttpGetScheme: 'LifecyclePostStartHandlerHttpGetScheme',
+      lifecyclePostStartHandlerTcpSocketHost: 'LifecyclePostStartHandlerTcpSocketHost',
+      lifecyclePostStartHandlerTcpSocketPort: 'LifecyclePostStartHandlerTcpSocketPort',
+      lifecyclePreStopHandlerExecs: 'LifecyclePreStopHandlerExecs',
+      lifecyclePreStopHandlerHttpGetHost: 'LifecyclePreStopHandlerHttpGetHost',
+      lifecyclePreStopHandlerHttpGetPath: 'LifecyclePreStopHandlerHttpGetPath',
+      lifecyclePreStopHandlerHttpGetPort: 'LifecyclePreStopHandlerHttpGetPort',
+      lifecyclePreStopHandlerHttpGetScheme: 'LifecyclePreStopHandlerHttpGetScheme',
+      lifecyclePreStopHandlerTcpSocketHost: 'LifecyclePreStopHandlerTcpSocketHost',
+      lifecyclePreStopHandlerTcpSocketPort: 'LifecyclePreStopHandlerTcpSocketPort',
       memory: 'Memory',
       name: 'Name',
       ports: 'Ports',
@@ -12476,6 +12660,20 @@ export class ModifyEciScalingConfigurationRequestContainers extends $tea.Model {
       gpu: 'number',
       image: 'string',
       imagePullPolicy: 'string',
+      lifecyclePostStartHandlerExecs: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePostStartHandlerHttpGetHost: 'string',
+      lifecyclePostStartHandlerHttpGetPath: 'string',
+      lifecyclePostStartHandlerHttpGetPort: 'number',
+      lifecyclePostStartHandlerHttpGetScheme: 'string',
+      lifecyclePostStartHandlerTcpSocketHost: 'string',
+      lifecyclePostStartHandlerTcpSocketPort: 'number',
+      lifecyclePreStopHandlerExecs: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePreStopHandlerHttpGetHost: 'string',
+      lifecyclePreStopHandlerHttpGetPath: 'string',
+      lifecyclePreStopHandlerHttpGetPort: 'number',
+      lifecyclePreStopHandlerHttpGetScheme: 'string',
+      lifecyclePreStopHandlerTcpSocketHost: 'string',
+      lifecyclePreStopHandlerTcpSocketPort: 'number',
       memory: 'number',
       name: 'string',
       ports: { 'type': 'array', 'itemType': ModifyEciScalingConfigurationRequestContainersPorts },
@@ -13691,6 +13889,43 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async applyScalingGroupWithOptions(request: ApplyScalingGroupRequest, runtime: $Util.RuntimeOptions): Promise<ApplyScalingGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.format)) {
+      query["Format"] = request.format;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApplyScalingGroup",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyScalingGroupResponse>(await this.callApi(params, req, runtime), new ApplyScalingGroupResponse({}));
+  }
+
+  async applyScalingGroup(request: ApplyScalingGroupRequest): Promise<ApplyScalingGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.applyScalingGroupWithOptions(request, runtime);
   }
 
   /**
