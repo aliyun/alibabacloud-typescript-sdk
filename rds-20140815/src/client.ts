@@ -14699,6 +14699,7 @@ export class DescribeParameterGroupResponse extends $tea.Model {
 }
 
 export class DescribeParameterGroupsRequest extends $tea.Model {
+  enableDetail?: boolean;
   ownerId?: number;
   regionId?: string;
   resourceGroupId?: string;
@@ -14706,6 +14707,7 @@ export class DescribeParameterGroupsRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      enableDetail: 'EnableDetail',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -14716,6 +14718,7 @@ export class DescribeParameterGroupsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableDetail: 'boolean',
       ownerId: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -49031,6 +49034,10 @@ export default class Client extends OpenApi {
   async describeParameterGroupsWithOptions(request: DescribeParameterGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.enableDetail)) {
+      query["EnableDetail"] = request.enableDetail;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
