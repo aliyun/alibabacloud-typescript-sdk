@@ -5335,6 +5335,8 @@ export class ListEventCenterRecordRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
+  repoName?: string;
+  repoNamespaceName?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5342,6 +5344,8 @@ export class ListEventCenterRecordRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
       ruleId: 'RuleId',
     };
   }
@@ -5352,6 +5356,8 @@ export class ListEventCenterRecordRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      repoName: 'string',
+      repoNamespaceName: 'string',
       ruleId: 'string',
     };
   }
@@ -5591,10 +5597,12 @@ export class ListInstanceResponse extends $tea.Model {
 export class ListInstanceEndpointRequest extends $tea.Model {
   instanceId?: string;
   moduleName?: string;
+  summary?: boolean;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
+      summary: 'Summary',
     };
   }
 
@@ -5602,6 +5610,7 @@ export class ListInstanceEndpointRequest extends $tea.Model {
     return {
       instanceId: 'string',
       moduleName: 'string',
+      summary: 'boolean',
     };
   }
 
@@ -12287,6 +12296,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.moduleName)) {
       query["ModuleName"] = request.moduleName;
+    }
+
+    if (!Util.isUnset(request.summary)) {
+      query["Summary"] = request.summary;
     }
 
     let req = new $OpenApi.OpenApiRequest({
