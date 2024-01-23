@@ -4397,6 +4397,115 @@ export class PostMSConvSearchTokenGeneratedResponse extends $tea.Model {
   }
 }
 
+export class PostMSDataProcessingCountRequest extends $tea.Model {
+  dataIds?: string[];
+  dataImportId?: number;
+  serviceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataIds: 'DataIds',
+      dataImportId: 'DataImportId',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataIds: { 'type': 'array', 'itemType': 'string' },
+      dataImportId: 'number',
+      serviceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostMSDataProcessingCountShrinkRequest extends $tea.Model {
+  dataIdsShrink?: string;
+  dataImportId?: number;
+  serviceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataIdsShrink: 'DataIds',
+      dataImportId: 'DataImportId',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataIdsShrink: 'string',
+      dataImportId: 'number',
+      serviceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostMSDataProcessingCountResponseBody extends $tea.Model {
+  code?: number;
+  data?: PostMSDataProcessingCountResponseBodyData;
+  httpStatusCode?: number;
+  msg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      msg: 'Msg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: PostMSDataProcessingCountResponseBodyData,
+      httpStatusCode: 'number',
+      msg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostMSDataProcessingCountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PostMSDataProcessingCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PostMSDataProcessingCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PostMSSearchEnhanceRequest extends $tea.Model {
   body?: string;
   customConfigInfo?: { [key: string]: any };
@@ -4802,6 +4911,87 @@ export class UpdateServiceDataResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateServiceDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostMSDataProcessingCountResponseBodyDataDataProcessedStatusesErrorDataList extends $tea.Model {
+  count?: number;
+  errorCode?: string;
+  opType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      errorCode: 'ErrorCode',
+      opType: 'OpType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      errorCode: 'string',
+      opType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostMSDataProcessingCountResponseBodyDataDataProcessedStatuses extends $tea.Model {
+  chunkNum?: string;
+  dataId?: string;
+  errorDataList?: PostMSDataProcessingCountResponseBodyDataDataProcessedStatusesErrorDataList[];
+  opStatus?: { [key: string]: number };
+  status?: string;
+  versionValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chunkNum: 'ChunkNum',
+      dataId: 'DataId',
+      errorDataList: 'ErrorDataList',
+      opStatus: 'OpStatus',
+      status: 'Status',
+      versionValue: 'VersionValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chunkNum: 'string',
+      dataId: 'string',
+      errorDataList: { 'type': 'array', 'itemType': PostMSDataProcessingCountResponseBodyDataDataProcessedStatusesErrorDataList },
+      opStatus: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+      status: 'string',
+      versionValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostMSDataProcessingCountResponseBodyData extends $tea.Model {
+  dataProcessedStatuses?: PostMSDataProcessingCountResponseBodyDataDataProcessedStatuses[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataProcessedStatuses: 'DataProcessedStatuses',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataProcessedStatuses: { 'type': 'array', 'itemType': PostMSDataProcessingCountResponseBodyDataDataProcessedStatuses },
+      status: 'string',
     };
   }
 
@@ -7038,6 +7228,49 @@ export default class Client extends OpenApi {
   async postMSConvSearchTokenGenerated(): Promise<PostMSConvSearchTokenGeneratedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.postMSConvSearchTokenGeneratedWithOptions(runtime);
+  }
+
+  async postMSDataProcessingCountWithOptions(tmpReq: PostMSDataProcessingCountRequest, runtime: $Util.RuntimeOptions): Promise<PostMSDataProcessingCountResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PostMSDataProcessingCountShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dataIds)) {
+      request.dataIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataIds, "DataIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataIdsShrink)) {
+      body["DataIds"] = request.dataIdsShrink;
+    }
+
+    if (!Util.isUnset(request.dataImportId)) {
+      body["DataImportId"] = request.dataImportId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      body["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PostMSDataProcessingCount",
+      version: "2020-06-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PostMSDataProcessingCountResponse>(await this.callApi(params, req, runtime), new PostMSDataProcessingCountResponse({}));
+  }
+
+  async postMSDataProcessingCount(request: PostMSDataProcessingCountRequest): Promise<PostMSDataProcessingCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.postMSDataProcessingCountWithOptions(request, runtime);
   }
 
   async postMSSearchEnhanceWithOptions(tmpReq: PostMSSearchEnhanceRequest, runtime: $Util.RuntimeOptions): Promise<PostMSSearchEnhanceResponse> {
