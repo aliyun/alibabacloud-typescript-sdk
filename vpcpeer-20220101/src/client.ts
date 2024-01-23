@@ -1397,7 +1397,7 @@ export default class Client extends OpenApi {
   /**
     * Before you create a VPC peering connection, make sure that the following requirements are met:
     * *   Cloud Data Transfer (CDT) is activated to manage the billing of intra-border data transfers. To activate CDT, call the [OpenCdtService](~~337842~~) operation.
-    * *   **CreateVpcPeerConnection** is an asynchronous operation. After a request is sent, the system returns **a request ID and a VPC ID** and runs the task in the background. You can call the [GetVpcPeerConnectionAttribute](~~426095~~) operation to query the status of a the task.
+    * *   **CreateVpcPeerConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and an **instance ID** and runs the task in the background. You can call the [GetVpcPeerConnectionAttribute](~~426095~~) operation to query the status of the task.
     *     *   If a VPC peering connection is in the **Creating** state, the VPC peering connection is being created.
     *     *   If a VPC peering connection is in the **Activated** state, the VPC peering connection is created.
     *     *   If a VPC peering connection is in the **Accepting** state, the VPC peering connection is created across accounts and the accepter is accepting the VPC peering connection.
@@ -1474,7 +1474,7 @@ export default class Client extends OpenApi {
   /**
     * Before you create a VPC peering connection, make sure that the following requirements are met:
     * *   Cloud Data Transfer (CDT) is activated to manage the billing of intra-border data transfers. To activate CDT, call the [OpenCdtService](~~337842~~) operation.
-    * *   **CreateVpcPeerConnection** is an asynchronous operation. After a request is sent, the system returns **a request ID and a VPC ID** and runs the task in the background. You can call the [GetVpcPeerConnectionAttribute](~~426095~~) operation to query the status of a the task.
+    * *   **CreateVpcPeerConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and an **instance ID** and runs the task in the background. You can call the [GetVpcPeerConnectionAttribute](~~426095~~) operation to query the status of the task.
     *     *   If a VPC peering connection is in the **Creating** state, the VPC peering connection is being created.
     *     *   If a VPC peering connection is in the **Activated** state, the VPC peering connection is created.
     *     *   If a VPC peering connection is in the **Accepting** state, the VPC peering connection is created across accounts and the accepter is accepting the VPC peering connection.
