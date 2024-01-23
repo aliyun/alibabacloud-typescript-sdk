@@ -759,6 +759,99 @@ export class GetJMeterLogsResponse extends $tea.Model {
   }
 }
 
+export class GetJMeterReportDetailsRequest extends $tea.Model {
+  reportId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reportId: 'ReportId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reportId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJMeterReportDetailsResponseBody extends $tea.Model {
+  code?: string;
+  codeKey?: string;
+  documentUrl?: string;
+  dynamicCtx?: string;
+  httpStatusCode?: number;
+  message?: string;
+  reportOverView?: GetJMeterReportDetailsResponseBodyReportOverView;
+  requestId?: string;
+  samplerMetricsList?: GetJMeterReportDetailsResponseBodySamplerMetricsList[];
+  sceneMetrics?: GetJMeterReportDetailsResponseBodySceneMetrics;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      codeKey: 'CodeKey',
+      documentUrl: 'DocumentUrl',
+      dynamicCtx: 'DynamicCtx',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      reportOverView: 'ReportOverView',
+      requestId: 'RequestId',
+      samplerMetricsList: 'SamplerMetricsList',
+      sceneMetrics: 'SceneMetrics',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      codeKey: 'string',
+      documentUrl: 'string',
+      dynamicCtx: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      reportOverView: GetJMeterReportDetailsResponseBodyReportOverView,
+      requestId: 'string',
+      samplerMetricsList: { 'type': 'array', 'itemType': GetJMeterReportDetailsResponseBodySamplerMetricsList },
+      sceneMetrics: GetJMeterReportDetailsResponseBodySceneMetrics,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJMeterReportDetailsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetJMeterReportDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetJMeterReportDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJMeterSampleMetricsRequest extends $tea.Model {
   beginTime?: number;
   endTime?: number;
@@ -3806,14 +3899,137 @@ export class AdjustPtsSceneSpeedRequestApiSpeedList extends $tea.Model {
   }
 }
 
+export class GetJMeterReportDetailsResponseBodyReportOverView extends $tea.Model {
+  agentCount?: number;
+  endTime?: string;
+  reportId?: string;
+  reportName?: string;
+  startTime?: string;
+  vum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentCount: 'AgentCount',
+      endTime: 'EndTime',
+      reportId: 'ReportId',
+      reportName: 'ReportName',
+      startTime: 'StartTime',
+      vum: 'Vum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentCount: 'number',
+      endTime: 'string',
+      reportId: 'string',
+      reportName: 'string',
+      startTime: 'string',
+      vum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJMeterReportDetailsResponseBodySamplerMetricsList extends $tea.Model {
+  allCount?: number;
+  apiName?: string;
+  avgRt?: number;
+  avgTps?: number;
+  failCountReq?: number;
+  maxRt?: number;
+  minRt?: number;
+  seg75Rt?: number;
+  seg90Rt?: number;
+  seg99Rt?: number;
+  successRateReq?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allCount: 'AllCount',
+      apiName: 'ApiName',
+      avgRt: 'AvgRt',
+      avgTps: 'AvgTps',
+      failCountReq: 'FailCountReq',
+      maxRt: 'MaxRt',
+      minRt: 'MinRt',
+      seg75Rt: 'Seg75Rt',
+      seg90Rt: 'Seg90Rt',
+      seg99Rt: 'Seg99Rt',
+      successRateReq: 'SuccessRateReq',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allCount: 'number',
+      apiName: 'string',
+      avgRt: 'number',
+      avgTps: 'number',
+      failCountReq: 'number',
+      maxRt: 'number',
+      minRt: 'number',
+      seg75Rt: 'number',
+      seg90Rt: 'number',
+      seg99Rt: 'number',
+      successRateReq: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJMeterReportDetailsResponseBodySceneMetrics extends $tea.Model {
+  allCount?: number;
+  avgRt?: number;
+  avgTps?: number;
+  failCountReq?: number;
+  seg90Rt?: number;
+  seg99Rt?: number;
+  successRateReq?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allCount: 'AllCount',
+      avgRt: 'AvgRt',
+      avgTps: 'AvgTps',
+      failCountReq: 'FailCountReq',
+      seg90Rt: 'Seg90Rt',
+      seg99Rt: 'Seg99Rt',
+      successRateReq: 'SuccessRateReq',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allCount: 'number',
+      avgRt: 'number',
+      avgTps: 'number',
+      failCountReq: 'number',
+      seg90Rt: 'number',
+      seg99Rt: 'number',
+      successRateReq: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJMeterSceneRunningDataResponseBodyRunningData extends $tea.Model {
   agentCount?: number;
   agentIdList?: string[];
   allSampleStat?: { [key: string]: any };
   concurrency?: number;
+  errorMessage?: string;
+  hasError?: boolean;
   hasReport?: boolean;
   holdFor?: number;
   isDebugging?: boolean;
+  reportId?: string;
   sampleStatList?: { [key: string]: any }[];
   sceneId?: string;
   sceneName?: string;
@@ -3827,9 +4043,12 @@ export class GetJMeterSceneRunningDataResponseBodyRunningData extends $tea.Model
       agentIdList: 'AgentIdList',
       allSampleStat: 'AllSampleStat',
       concurrency: 'Concurrency',
+      errorMessage: 'ErrorMessage',
+      hasError: 'HasError',
       hasReport: 'HasReport',
       holdFor: 'HoldFor',
       isDebugging: 'IsDebugging',
+      reportId: 'ReportId',
       sampleStatList: 'SampleStatList',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
@@ -3846,9 +4065,12 @@ export class GetJMeterSceneRunningDataResponseBodyRunningData extends $tea.Model
       agentIdList: { 'type': 'array', 'itemType': 'string' },
       allSampleStat: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       concurrency: 'number',
+      errorMessage: 'string',
+      hasError: 'boolean',
       hasReport: 'boolean',
       holdFor: 'number',
       isDebugging: 'boolean',
+      reportId: 'string',
       sampleStatList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       sceneId: 'string',
       sceneName: 'string',
@@ -3960,6 +4182,28 @@ export class GetOpenJMeterSceneResponseBodySceneFileList extends $tea.Model {
   }
 }
 
+export class GetOpenJMeterSceneResponseBodySceneRegionalCondition extends $tea.Model {
+  amount?: number;
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
   agentCount?: number;
   baseInfo?: GetOpenJMeterSceneResponseBodySceneBaseInfo;
@@ -3975,6 +4219,7 @@ export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
   pool?: string;
   rampUp?: number;
   regionId?: string;
+  regionalCondition?: GetOpenJMeterSceneResponseBodySceneRegionalCondition[];
   sceneId?: string;
   sceneName?: string;
   securityGroupId?: string;
@@ -4001,6 +4246,7 @@ export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
       pool: 'Pool',
       rampUp: 'RampUp',
       regionId: 'RegionId',
+      regionalCondition: 'RegionalCondition',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
       securityGroupId: 'SecurityGroupId',
@@ -4030,6 +4276,7 @@ export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
       pool: 'string',
       rampUp: 'number',
       regionId: 'string',
+      regionalCondition: { 'type': 'array', 'itemType': GetOpenJMeterSceneResponseBodySceneRegionalCondition },
       sceneId: 'string',
       sceneName: 'string',
       securityGroupId: 'string',
@@ -5727,11 +5974,13 @@ export class ListOpenJMeterScenesResponseBodyJMeterScene extends $tea.Model {
   durationStr?: string;
   sceneId?: string;
   sceneName?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       durationStr: 'DurationStr',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
+      status: 'Status',
     };
   }
 
@@ -5740,6 +5989,7 @@ export class ListOpenJMeterScenesResponseBodyJMeterScene extends $tea.Model {
       durationStr: 'string',
       sceneId: 'string',
       sceneName: 'string',
+      status: 'string',
     };
   }
 
@@ -5966,6 +6216,28 @@ export class SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties extends $
   }
 }
 
+export class SaveOpenJMeterSceneRequestOpenJMeterSceneRegionalCondition extends $tea.Model {
+  amount?: number;
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
   agentCount?: number;
   concurrency?: number;
@@ -5981,6 +6253,7 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
   mode?: string;
   rampUp?: number;
   regionId?: string;
+  regionalCondition?: SaveOpenJMeterSceneRequestOpenJMeterSceneRegionalCondition[];
   sceneId?: string;
   sceneName?: string;
   securityGroupId?: string;
@@ -6007,6 +6280,7 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
       mode: 'Mode',
       rampUp: 'RampUp',
       regionId: 'RegionId',
+      regionalCondition: 'RegionalCondition',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
       securityGroupId: 'SecurityGroupId',
@@ -6036,6 +6310,7 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
       mode: 'string',
       rampUp: 'number',
       regionId: 'string',
+      regionalCondition: { 'type': 'array', 'itemType': SaveOpenJMeterSceneRequestOpenJMeterSceneRegionalCondition },
       sceneId: 'string',
       sceneName: 'string',
       securityGroupId: 'string',
@@ -6869,6 +7144,35 @@ export default class Client extends OpenApi {
   async getJMeterLogs(request: GetJMeterLogsRequest): Promise<GetJMeterLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getJMeterLogsWithOptions(request, runtime);
+  }
+
+  async getJMeterReportDetailsWithOptions(request: GetJMeterReportDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetJMeterReportDetailsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.reportId)) {
+      query["ReportId"] = request.reportId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetJMeterReportDetails",
+      version: "2020-10-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetJMeterReportDetailsResponse>(await this.callApi(params, req, runtime), new GetJMeterReportDetailsResponse({}));
+  }
+
+  async getJMeterReportDetails(request: GetJMeterReportDetailsRequest): Promise<GetJMeterReportDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getJMeterReportDetailsWithOptions(request, runtime);
   }
 
   async getJMeterSampleMetricsWithOptions(request: GetJMeterSampleMetricsRequest, runtime: $Util.RuntimeOptions): Promise<GetJMeterSampleMetricsResponse> {
