@@ -15446,6 +15446,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $tea.Mo
   regionId?: string;
   replicaLag?: string;
   role?: string;
+  serverlessType?: string;
   storageUsed?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15462,6 +15463,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $tea.Mo
       regionId: 'RegionId',
       replicaLag: 'ReplicaLag',
       role: 'Role',
+      serverlessType: 'ServerlessType',
       storageUsed: 'StorageUsed',
     };
   }
@@ -15481,6 +15483,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $tea.Mo
       regionId: 'string',
       replicaLag: 'string',
       role: 'string',
+      serverlessType: 'string',
       storageUsed: 'string',
     };
   }
