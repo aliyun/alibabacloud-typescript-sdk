@@ -382,6 +382,7 @@ export class EcsSpec extends $tea.Model {
   instanceType?: string;
   isAvailable?: boolean;
   memory?: number;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
@@ -391,6 +392,7 @@ export class EcsSpec extends $tea.Model {
       instanceType: 'InstanceType',
       isAvailable: 'IsAvailable',
       memory: 'Memory',
+      resourceType: 'ResourceType',
     };
   }
 
@@ -403,6 +405,7 @@ export class EcsSpec extends $tea.Model {
       instanceType: 'string',
       isAvailable: 'boolean',
       memory: 'number',
+      resourceType: 'string',
     };
   }
 
@@ -799,6 +802,7 @@ export class JobItem extends $tea.Model {
   resourceId?: string;
   resourceLevel?: string;
   resourceName?: string;
+  resourceType?: string;
   settings?: JobSettings;
   status?: string;
   subStatus?: string;
@@ -834,6 +838,7 @@ export class JobItem extends $tea.Model {
       resourceId: 'ResourceId',
       resourceLevel: 'ResourceLevel',
       resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
       settings: 'Settings',
       status: 'Status',
       subStatus: 'SubStatus',
@@ -872,6 +877,7 @@ export class JobItem extends $tea.Model {
       resourceId: 'string',
       resourceLevel: 'string',
       resourceName: 'string',
+      resourceType: 'string',
       settings: JobSettings,
       status: 'string',
       subStatus: 'string',
@@ -1971,6 +1977,7 @@ export class GetJobResponseBody extends $tea.Model {
   requestId?: string;
   resourceId?: string;
   resourceLevel?: string;
+  resourceType?: string;
   restartTimes?: string;
   settings?: JobSettings;
   status?: string;
@@ -2010,6 +2017,7 @@ export class GetJobResponseBody extends $tea.Model {
       requestId: 'RequestId',
       resourceId: 'ResourceId',
       resourceLevel: 'ResourceLevel',
+      resourceType: 'ResourceType',
       restartTimes: 'RestartTimes',
       settings: 'Settings',
       status: 'Status',
@@ -2052,6 +2060,7 @@ export class GetJobResponseBody extends $tea.Model {
       requestId: 'string',
       resourceId: 'string',
       resourceLevel: 'string',
+      resourceType: 'string',
       restartTimes: 'string',
       settings: JobSettings,
       status: 'string',
@@ -2758,16 +2767,20 @@ export class GetWebTerminalResponse extends $tea.Model {
 
 export class ListEcsSpecsRequest extends $tea.Model {
   acceleratorType?: string;
+  instanceTypes?: string;
   order?: string;
   pageNumber?: number;
   pageSize?: number;
+  resourceType?: string;
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
+      instanceTypes: 'InstanceTypes',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceType: 'ResourceType',
       sortBy: 'SortBy',
     };
   }
@@ -2775,9 +2788,11 @@ export class ListEcsSpecsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceleratorType: 'string',
+      instanceTypes: 'string',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceType: 'string',
       sortBy: 'string',
     };
   }
@@ -4532,6 +4547,10 @@ export default class Client extends OpenApi {
       query["AcceleratorType"] = request.acceleratorType;
     }
 
+    if (!Util.isUnset(request.instanceTypes)) {
+      query["InstanceTypes"] = request.instanceTypes;
+    }
+
     if (!Util.isUnset(request.order)) {
       query["Order"] = request.order;
     }
@@ -4542,6 +4561,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
     }
 
     if (!Util.isUnset(request.sortBy)) {
