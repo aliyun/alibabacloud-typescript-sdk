@@ -9,25 +9,25 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddClientToBlackListRequest extends $tea.Model {
-  regionId?: string;
-  fileSystemId?: string;
   clientIP?: string;
   clientToken?: string;
+  fileSystemId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      fileSystemId: 'FileSystemId',
       clientIP: 'ClientIP',
       clientToken: 'ClientToken',
+      fileSystemId: 'FileSystemId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      fileSystemId: 'string',
       clientIP: 'string',
       clientToken: 'string',
+      fileSystemId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -57,10 +57,12 @@ export class AddClientToBlackListResponseBody extends $tea.Model {
 
 export class AddClientToBlackListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddClientToBlackListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -68,6 +70,7 @@ export class AddClientToBlackListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddClientToBlackListResponseBody,
     };
   }
@@ -120,10 +123,12 @@ export class AddTagsResponseBody extends $tea.Model {
 
 export class AddTagsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -131,6 +136,7 @@ export class AddTagsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddTagsResponseBody,
     };
   }
@@ -183,10 +189,12 @@ export class ApplyAutoSnapshotPolicyResponseBody extends $tea.Model {
 
 export class ApplyAutoSnapshotPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ApplyAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -194,7 +202,89 @@ export class ApplyAutoSnapshotPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ApplyAutoSnapshotPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyDataFlowAutoRefreshRequest extends $tea.Model {
+  autoRefreshInterval?: number;
+  autoRefreshPolicy?: string;
+  autoRefreshs?: ApplyDataFlowAutoRefreshRequestAutoRefreshs[];
+  clientToken?: string;
+  dataFlowId?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRefreshInterval: 'AutoRefreshInterval',
+      autoRefreshPolicy: 'AutoRefreshPolicy',
+      autoRefreshs: 'AutoRefreshs',
+      clientToken: 'ClientToken',
+      dataFlowId: 'DataFlowId',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRefreshInterval: 'number',
+      autoRefreshPolicy: 'string',
+      autoRefreshs: { 'type': 'array', 'itemType': ApplyDataFlowAutoRefreshRequestAutoRefreshs },
+      clientToken: 'string',
+      dataFlowId: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyDataFlowAutoRefreshResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyDataFlowAutoRefreshResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ApplyDataFlowAutoRefreshResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyDataFlowAutoRefreshResponseBody,
     };
   }
 
@@ -243,10 +333,12 @@ export class CancelAutoSnapshotPolicyResponseBody extends $tea.Model {
 
 export class CancelAutoSnapshotPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -254,7 +346,158 @@ export class CancelAutoSnapshotPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelAutoSnapshotPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelDataFlowAutoRefreshRequest extends $tea.Model {
+  clientToken?: string;
+  dataFlowId?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
+  refreshPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dataFlowId: 'DataFlowId',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+      refreshPath: 'RefreshPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dataFlowId: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+      refreshPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelDataFlowAutoRefreshResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelDataFlowAutoRefreshResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CancelDataFlowAutoRefreshResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelDataFlowAutoRefreshResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelDataFlowTaskRequest extends $tea.Model {
+  clientToken?: string;
+  dataFlowId?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dataFlowId: 'DataFlowId',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dataFlowId: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelDataFlowTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelDataFlowTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CancelDataFlowTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelDataFlowTaskResponseBody,
     };
   }
 
@@ -266,14 +509,14 @@ export class CancelAutoSnapshotPolicyResponse extends $tea.Model {
 export class CancelDirQuotaRequest extends $tea.Model {
   fileSystemId?: string;
   path?: string;
-  userType?: string;
   userId?: string;
+  userType?: string;
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
       path: 'Path',
-      userType: 'UserType',
       userId: 'UserId',
+      userType: 'UserType',
     };
   }
 
@@ -281,8 +524,8 @@ export class CancelDirQuotaRequest extends $tea.Model {
     return {
       fileSystemId: 'string',
       path: 'string',
-      userType: 'string',
       userId: 'string',
+      userType: 'string',
     };
   }
 
@@ -292,19 +535,19 @@ export class CancelDirQuotaRequest extends $tea.Model {
 }
 
 export class CancelDirQuotaResponseBody extends $tea.Model {
-  success?: boolean;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      success: 'Success',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      success: 'boolean',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -315,10 +558,12 @@ export class CancelDirQuotaResponseBody extends $tea.Model {
 
 export class CancelDirQuotaResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelDirQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -326,6 +571,7 @@ export class CancelDirQuotaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelDirQuotaResponseBody,
     };
   }
@@ -375,10 +621,12 @@ export class CancelLifecycleRetrieveJobResponseBody extends $tea.Model {
 
 export class CancelLifecycleRetrieveJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelLifecycleRetrieveJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -386,6 +634,7 @@ export class CancelLifecycleRetrieveJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelLifecycleRetrieveJobResponseBody,
     };
   }
@@ -435,10 +684,12 @@ export class CancelRecycleBinJobResponseBody extends $tea.Model {
 
 export class CancelRecycleBinJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelRecycleBinJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -446,7 +697,80 @@ export class CancelRecycleBinJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelRecycleBinJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupRequest extends $tea.Model {
+  newResourceGroupId?: string;
+  regionId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newResourceGroupId: 'NewResourceGroupId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newResourceGroupId: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
     };
   }
 
@@ -507,10 +831,12 @@ export class CreateAccessGroupResponseBody extends $tea.Model {
 
 export class CreateAccessGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAccessGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -518,6 +844,7 @@ export class CreateAccessGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAccessGroupResponseBody,
     };
   }
@@ -529,33 +856,33 @@ export class CreateAccessGroupResponse extends $tea.Model {
 
 export class CreateAccessRuleRequest extends $tea.Model {
   accessGroupName?: string;
-  sourceCidrIp?: string;
-  RWAccessType?: string;
-  userAccessType?: string;
-  priority?: number;
   fileSystemType?: string;
   ipv6SourceCidrIp?: string;
+  priority?: number;
+  RWAccessType?: string;
+  sourceCidrIp?: string;
+  userAccessType?: string;
   static names(): { [key: string]: string } {
     return {
       accessGroupName: 'AccessGroupName',
-      sourceCidrIp: 'SourceCidrIp',
-      RWAccessType: 'RWAccessType',
-      userAccessType: 'UserAccessType',
-      priority: 'Priority',
       fileSystemType: 'FileSystemType',
       ipv6SourceCidrIp: 'Ipv6SourceCidrIp',
+      priority: 'Priority',
+      RWAccessType: 'RWAccessType',
+      sourceCidrIp: 'SourceCidrIp',
+      userAccessType: 'UserAccessType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accessGroupName: 'string',
-      sourceCidrIp: 'string',
-      RWAccessType: 'string',
-      userAccessType: 'string',
-      priority: 'number',
       fileSystemType: 'string',
       ipv6SourceCidrIp: 'string',
+      priority: 'number',
+      RWAccessType: 'string',
+      sourceCidrIp: 'string',
+      userAccessType: 'string',
     };
   }
 
@@ -588,10 +915,12 @@ export class CreateAccessRuleResponseBody extends $tea.Model {
 
 export class CreateAccessRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAccessRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -599,6 +928,7 @@ export class CreateAccessRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAccessRuleResponseBody,
     };
   }
@@ -609,28 +939,28 @@ export class CreateAccessRuleResponse extends $tea.Model {
 }
 
 export class CreateAutoSnapshotPolicyRequest extends $tea.Model {
-  repeatWeekdays?: string;
-  timePoints?: string;
-  retentionDays?: number;
   autoSnapshotPolicyName?: string;
   fileSystemType?: string;
+  repeatWeekdays?: string;
+  retentionDays?: number;
+  timePoints?: string;
   static names(): { [key: string]: string } {
     return {
-      repeatWeekdays: 'RepeatWeekdays',
-      timePoints: 'TimePoints',
-      retentionDays: 'RetentionDays',
       autoSnapshotPolicyName: 'AutoSnapshotPolicyName',
       fileSystemType: 'FileSystemType',
+      repeatWeekdays: 'RepeatWeekdays',
+      retentionDays: 'RetentionDays',
+      timePoints: 'TimePoints',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      repeatWeekdays: 'string',
-      timePoints: 'string',
-      retentionDays: 'number',
       autoSnapshotPolicyName: 'string',
       fileSystemType: 'string',
+      repeatWeekdays: 'string',
+      retentionDays: 'number',
+      timePoints: 'string',
     };
   }
 
@@ -663,10 +993,12 @@ export class CreateAutoSnapshotPolicyResponseBody extends $tea.Model {
 
 export class CreateAutoSnapshotPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -674,6 +1006,7 @@ export class CreateAutoSnapshotPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAutoSnapshotPolicyResponseBody,
     };
   }
@@ -683,62 +1016,326 @@ export class CreateAutoSnapshotPolicyResponse extends $tea.Model {
   }
 }
 
-export class CreateFileSystemRequest extends $tea.Model {
-  fileSystemType?: string;
-  chargeType?: string;
-  duration?: number;
-  capacity?: number;
-  bandwidth?: number;
-  storageType?: string;
-  zoneId?: string;
-  protocolType?: string;
-  encryptType?: number;
-  snapshotId?: string;
-  vpcId?: string;
-  vSwitchId?: string;
-  description?: string;
+export class CreateDataFlowRequest extends $tea.Model {
+  autoRefreshInterval?: number;
+  autoRefreshPolicy?: string;
+  autoRefreshs?: CreateDataFlowRequestAutoRefreshs[];
   clientToken?: string;
-  kmsKeyId?: string;
+  description?: string;
   dryRun?: boolean;
+  fileSystemId?: string;
+  fsetId?: string;
+  sourceSecurityType?: string;
+  sourceStorage?: string;
+  throughput?: number;
   static names(): { [key: string]: string } {
     return {
-      fileSystemType: 'FileSystemType',
-      chargeType: 'ChargeType',
-      duration: 'Duration',
-      capacity: 'Capacity',
-      bandwidth: 'Bandwidth',
-      storageType: 'StorageType',
-      zoneId: 'ZoneId',
-      protocolType: 'ProtocolType',
-      encryptType: 'EncryptType',
-      snapshotId: 'SnapshotId',
-      vpcId: 'VpcId',
-      vSwitchId: 'VSwitchId',
-      description: 'Description',
+      autoRefreshInterval: 'AutoRefreshInterval',
+      autoRefreshPolicy: 'AutoRefreshPolicy',
+      autoRefreshs: 'AutoRefreshs',
       clientToken: 'ClientToken',
-      kmsKeyId: 'KmsKeyId',
+      description: 'Description',
       dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+      fsetId: 'FsetId',
+      sourceSecurityType: 'SourceSecurityType',
+      sourceStorage: 'SourceStorage',
+      throughput: 'Throughput',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystemType: 'string',
-      chargeType: 'string',
-      duration: 'number',
-      capacity: 'number',
-      bandwidth: 'number',
-      storageType: 'string',
-      zoneId: 'string',
-      protocolType: 'string',
-      encryptType: 'number',
-      snapshotId: 'string',
-      vpcId: 'string',
-      vSwitchId: 'string',
-      description: 'string',
+      autoRefreshInterval: 'number',
+      autoRefreshPolicy: 'string',
+      autoRefreshs: { 'type': 'array', 'itemType': CreateDataFlowRequestAutoRefreshs },
       clientToken: 'string',
-      kmsKeyId: 'string',
+      description: 'string',
       dryRun: 'boolean',
+      fileSystemId: 'string',
+      fsetId: 'string',
+      sourceSecurityType: 'string',
+      sourceStorage: 'string',
+      throughput: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataFlowResponseBody extends $tea.Model {
+  dataFlowId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataFlowId: 'DataFlowId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFlowId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDataFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataFlowTaskRequest extends $tea.Model {
+  clientToken?: string;
+  dataFlowId?: string;
+  dataType?: string;
+  directory?: string;
+  dryRun?: boolean;
+  entryList?: string;
+  fileSystemId?: string;
+  srcTaskId?: string;
+  taskAction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dataFlowId: 'DataFlowId',
+      dataType: 'DataType',
+      directory: 'Directory',
+      dryRun: 'DryRun',
+      entryList: 'EntryList',
+      fileSystemId: 'FileSystemId',
+      srcTaskId: 'SrcTaskId',
+      taskAction: 'TaskAction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dataFlowId: 'string',
+      dataType: 'string',
+      directory: 'string',
+      dryRun: 'boolean',
+      entryList: 'string',
+      fileSystemId: 'string',
+      srcTaskId: 'string',
+      taskAction: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataFlowTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataFlowTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDataFlowTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataFlowTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileRequest extends $tea.Model {
+  fileSystemId?: string;
+  owner?: string;
+  ownerAccessInheritable?: boolean;
+  path?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      owner: 'Owner',
+      ownerAccessInheritable: 'OwnerAccessInheritable',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      owner: 'string',
+      ownerAccessInheritable: 'boolean',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileSystemRequest extends $tea.Model {
+  bandwidth?: number;
+  capacity?: number;
+  chargeType?: string;
+  clientToken?: string;
+  description?: string;
+  dryRun?: boolean;
+  duration?: number;
+  encryptType?: number;
+  fileSystemType?: string;
+  kmsKeyId?: string;
+  protocolType?: string;
+  resourceGroupId?: string;
+  snapshotId?: string;
+  storageType?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      capacity: 'Capacity',
+      chargeType: 'ChargeType',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      dryRun: 'DryRun',
+      duration: 'Duration',
+      encryptType: 'EncryptType',
+      fileSystemType: 'FileSystemType',
+      kmsKeyId: 'KmsKeyId',
+      protocolType: 'ProtocolType',
+      resourceGroupId: 'ResourceGroupId',
+      snapshotId: 'SnapshotId',
+      storageType: 'StorageType',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      capacity: 'number',
+      chargeType: 'string',
+      clientToken: 'string',
+      description: 'string',
+      dryRun: 'boolean',
+      duration: 'number',
+      encryptType: 'number',
+      fileSystemType: 'string',
+      kmsKeyId: 'string',
+      protocolType: 'string',
+      resourceGroupId: 'string',
+      snapshotId: 'string',
+      storageType: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -748,19 +1345,19 @@ export class CreateFileSystemRequest extends $tea.Model {
 }
 
 export class CreateFileSystemResponseBody extends $tea.Model {
-  requestId?: string;
   fileSystemId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       fileSystemId: 'FileSystemId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       fileSystemId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -771,10 +1368,12 @@ export class CreateFileSystemResponseBody extends $tea.Model {
 
 export class CreateFileSystemResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateFileSystemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -782,6 +1381,7 @@ export class CreateFileSystemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateFileSystemResponseBody,
     };
   }
@@ -791,26 +1391,104 @@ export class CreateFileSystemResponse extends $tea.Model {
   }
 }
 
-export class CreateLDAPConfigRequest extends $tea.Model {
+export class CreateFilesetRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  dryRun?: boolean;
   fileSystemId?: string;
-  URI?: string;
-  bindDN?: string;
-  searchBase?: string;
+  fileSystemPath?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      dryRun: 'DryRun',
       fileSystemId: 'FileSystemId',
-      URI: 'URI',
-      bindDN: 'BindDN',
-      searchBase: 'SearchBase',
+      fileSystemPath: 'FileSystemPath',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      description: 'string',
+      dryRun: 'boolean',
       fileSystemId: 'string',
-      URI: 'string',
+      fileSystemPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFilesetResponseBody extends $tea.Model {
+  fsetId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fsetId: 'FsetId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fsetId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFilesetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateFilesetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFilesetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLDAPConfigRequest extends $tea.Model {
+  bindDN?: string;
+  fileSystemId?: string;
+  searchBase?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindDN: 'BindDN',
+      fileSystemId: 'FileSystemId',
+      searchBase: 'SearchBase',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       bindDN: 'string',
+      fileSystemId: 'string',
       searchBase: 'string',
+      URI: 'string',
     };
   }
 
@@ -840,10 +1518,12 @@ export class CreateLDAPConfigResponseBody extends $tea.Model {
 
 export class CreateLDAPConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateLDAPConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -851,6 +1531,7 @@ export class CreateLDAPConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateLDAPConfigResponseBody,
     };
   }
@@ -863,18 +1544,18 @@ export class CreateLDAPConfigResponse extends $tea.Model {
 export class CreateLifecyclePolicyRequest extends $tea.Model {
   fileSystemId?: string;
   lifecyclePolicyName?: string;
-  path?: string;
   lifecycleRuleName?: string;
-  storageType?: string;
+  path?: string;
   paths?: string[];
+  storageType?: string;
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
       lifecyclePolicyName: 'LifecyclePolicyName',
-      path: 'Path',
       lifecycleRuleName: 'LifecycleRuleName',
-      storageType: 'StorageType',
+      path: 'Path',
       paths: 'Paths',
+      storageType: 'StorageType',
     };
   }
 
@@ -882,10 +1563,10 @@ export class CreateLifecyclePolicyRequest extends $tea.Model {
     return {
       fileSystemId: 'string',
       lifecyclePolicyName: 'string',
-      path: 'string',
       lifecycleRuleName: 'string',
-      storageType: 'string',
+      path: 'string',
       paths: { 'type': 'array', 'itemType': 'string' },
+      storageType: 'string',
     };
   }
 
@@ -918,10 +1599,12 @@ export class CreateLifecyclePolicyResponseBody extends $tea.Model {
 
 export class CreateLifecyclePolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateLifecyclePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -929,6 +1612,7 @@ export class CreateLifecyclePolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateLifecyclePolicyResponseBody,
     };
   }
@@ -961,19 +1645,19 @@ export class CreateLifecycleRetrieveJobRequest extends $tea.Model {
 }
 
 export class CreateLifecycleRetrieveJobResponseBody extends $tea.Model {
-  requestId?: string;
   jobId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       jobId: 'JobId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       jobId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -984,10 +1668,12 @@ export class CreateLifecycleRetrieveJobResponseBody extends $tea.Model {
 
 export class CreateLifecycleRetrieveJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateLifecycleRetrieveJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -995,6 +1681,7 @@ export class CreateLifecycleRetrieveJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateLifecycleRetrieveJobResponseBody,
     };
   }
@@ -1004,38 +1691,104 @@ export class CreateLifecycleRetrieveJobResponse extends $tea.Model {
   }
 }
 
-export class CreateMountTargetRequest extends $tea.Model {
+export class CreateLogAnalysisRequest extends $tea.Model {
   fileSystemId?: string;
-  accessGroupName?: string;
-  networkType?: string;
-  vpcId?: string;
-  vSwitchId?: string;
-  securityGroupId?: string;
-  enableIpv6?: boolean;
-  dryRun?: boolean;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
-      accessGroupName: 'AccessGroupName',
-      networkType: 'NetworkType',
-      vpcId: 'VpcId',
-      vSwitchId: 'VSwitchId',
-      securityGroupId: 'SecurityGroupId',
-      enableIpv6: 'EnableIpv6',
-      dryRun: 'DryRun',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       fileSystemId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLogAnalysisResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLogAnalysisResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateLogAnalysisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateLogAnalysisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMountTargetRequest extends $tea.Model {
+  accessGroupName?: string;
+  dryRun?: boolean;
+  enableIpv6?: boolean;
+  fileSystemId?: string;
+  networkType?: string;
+  securityGroupId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessGroupName: 'AccessGroupName',
+      dryRun: 'DryRun',
+      enableIpv6: 'EnableIpv6',
+      fileSystemId: 'FileSystemId',
+      networkType: 'NetworkType',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       accessGroupName: 'string',
-      networkType: 'string',
-      vpcId: 'string',
-      vSwitchId: 'string',
-      securityGroupId: 'string',
-      enableIpv6: 'boolean',
       dryRun: 'boolean',
+      enableIpv6: 'boolean',
+      fileSystemId: 'string',
+      networkType: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -1045,22 +1798,22 @@ export class CreateMountTargetRequest extends $tea.Model {
 }
 
 export class CreateMountTargetResponseBody extends $tea.Model {
-  requestId?: string;
   mountTargetDomain?: string;
   mountTargetExtra?: CreateMountTargetResponseBodyMountTargetExtra;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       mountTargetDomain: 'MountTargetDomain',
       mountTargetExtra: 'MountTargetExtra',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       mountTargetDomain: 'string',
       mountTargetExtra: CreateMountTargetResponseBodyMountTargetExtra,
+      requestId: 'string',
     };
   }
 
@@ -1071,10 +1824,12 @@ export class CreateMountTargetResponseBody extends $tea.Model {
 
 export class CreateMountTargetResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateMountTargetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1082,6 +1837,7 @@ export class CreateMountTargetResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateMountTargetResponseBody,
     };
   }
@@ -1091,23 +1847,206 @@ export class CreateMountTargetResponse extends $tea.Model {
   }
 }
 
-export class CreateRecycleBinDeleteJobRequest extends $tea.Model {
-  fileSystemId?: string;
-  fileId?: string;
+export class CreateProtocolMountTargetRequest extends $tea.Model {
+  accessGroupName?: string;
   clientToken?: string;
+  description?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
+  fsetId?: string;
+  path?: string;
+  protocolServiceId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      fileSystemId: 'FileSystemId',
-      fileId: 'FileId',
+      accessGroupName: 'AccessGroupName',
       clientToken: 'ClientToken',
+      description: 'Description',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+      fsetId: 'FsetId',
+      path: 'Path',
+      protocolServiceId: 'ProtocolServiceId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystemId: 'string',
-      fileId: 'string',
+      accessGroupName: 'string',
       clientToken: 'string',
+      description: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+      fsetId: 'string',
+      path: 'string',
+      protocolServiceId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProtocolMountTargetResponseBody extends $tea.Model {
+  exportId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exportId: 'ExportId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exportId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProtocolMountTargetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateProtocolMountTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateProtocolMountTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProtocolServiceRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
+  protocolSpec?: string;
+  protocolType?: string;
+  throughput?: number;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+      protocolSpec: 'ProtocolSpec',
+      protocolType: 'ProtocolType',
+      throughput: 'Throughput',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+      protocolSpec: 'string',
+      protocolType: 'string',
+      throughput: 'number',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProtocolServiceResponseBody extends $tea.Model {
+  protocolServiceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      protocolServiceId: 'ProtocolServiceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      protocolServiceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProtocolServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateProtocolServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateProtocolServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRecycleBinDeleteJobRequest extends $tea.Model {
+  clientToken?: string;
+  fileId?: string;
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      fileId: 'FileId',
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      fileId: 'string',
+      fileSystemId: 'string',
     };
   }
 
@@ -1117,19 +2056,19 @@ export class CreateRecycleBinDeleteJobRequest extends $tea.Model {
 }
 
 export class CreateRecycleBinDeleteJobResponseBody extends $tea.Model {
-  requestId?: string;
   jobId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       jobId: 'JobId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       jobId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1140,10 +2079,12 @@ export class CreateRecycleBinDeleteJobResponseBody extends $tea.Model {
 
 export class CreateRecycleBinDeleteJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateRecycleBinDeleteJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1151,6 +2092,7 @@ export class CreateRecycleBinDeleteJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateRecycleBinDeleteJobResponseBody,
     };
   }
@@ -1161,25 +2103,25 @@ export class CreateRecycleBinDeleteJobResponse extends $tea.Model {
 }
 
 export class CreateRecycleBinRestoreJobRequest extends $tea.Model {
-  fileSystemId?: string;
-  fileId?: string;
-  targetFileId?: string;
   clientToken?: string;
+  fileId?: string;
+  fileSystemId?: string;
+  targetFileId?: string;
   static names(): { [key: string]: string } {
     return {
-      fileSystemId: 'FileSystemId',
-      fileId: 'FileId',
-      targetFileId: 'TargetFileId',
       clientToken: 'ClientToken',
+      fileId: 'FileId',
+      fileSystemId: 'FileSystemId',
+      targetFileId: 'TargetFileId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystemId: 'string',
-      fileId: 'string',
-      targetFileId: 'string',
       clientToken: 'string',
+      fileId: 'string',
+      fileSystemId: 'string',
+      targetFileId: 'string',
     };
   }
 
@@ -1189,19 +2131,19 @@ export class CreateRecycleBinRestoreJobRequest extends $tea.Model {
 }
 
 export class CreateRecycleBinRestoreJobResponseBody extends $tea.Model {
-  requestId?: string;
   jobId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       jobId: 'JobId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       jobId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1212,10 +2154,12 @@ export class CreateRecycleBinRestoreJobResponseBody extends $tea.Model {
 
 export class CreateRecycleBinRestoreJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateRecycleBinRestoreJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1223,6 +2167,7 @@ export class CreateRecycleBinRestoreJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateRecycleBinRestoreJobResponseBody,
     };
   }
@@ -1233,25 +2178,25 @@ export class CreateRecycleBinRestoreJobResponse extends $tea.Model {
 }
 
 export class CreateSnapshotRequest extends $tea.Model {
-  fileSystemId?: string;
-  snapshotName?: string;
   description?: string;
+  fileSystemId?: string;
   retentionDays?: number;
+  snapshotName?: string;
   static names(): { [key: string]: string } {
     return {
-      fileSystemId: 'FileSystemId',
-      snapshotName: 'SnapshotName',
       description: 'Description',
+      fileSystemId: 'FileSystemId',
       retentionDays: 'RetentionDays',
+      snapshotName: 'SnapshotName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystemId: 'string',
-      snapshotName: 'string',
       description: 'string',
+      fileSystemId: 'string',
       retentionDays: 'number',
+      snapshotName: 'string',
     };
   }
 
@@ -1261,19 +2206,19 @@ export class CreateSnapshotRequest extends $tea.Model {
 }
 
 export class CreateSnapshotResponseBody extends $tea.Model {
-  snapshotId?: string;
   requestId?: string;
+  snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
-      snapshotId: 'SnapshotId',
       requestId: 'RequestId',
+      snapshotId: 'SnapshotId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      snapshotId: 'string',
       requestId: 'string',
+      snapshotId: 'string',
     };
   }
 
@@ -1284,10 +2229,12 @@ export class CreateSnapshotResponseBody extends $tea.Model {
 
 export class CreateSnapshotResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateSnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1295,6 +2242,7 @@ export class CreateSnapshotResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateSnapshotResponseBody,
     };
   }
@@ -1347,10 +2295,12 @@ export class DeleteAccessGroupResponseBody extends $tea.Model {
 
 export class DeleteAccessGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAccessGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1358,6 +2308,7 @@ export class DeleteAccessGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAccessGroupResponseBody,
     };
   }
@@ -1413,10 +2364,12 @@ export class DeleteAccessRuleResponseBody extends $tea.Model {
 
 export class DeleteAccessRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAccessRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1424,6 +2377,7 @@ export class DeleteAccessRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAccessRuleResponseBody,
     };
   }
@@ -1473,10 +2427,12 @@ export class DeleteAutoSnapshotPolicyResponseBody extends $tea.Model {
 
 export class DeleteAutoSnapshotPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1484,7 +2440,80 @@ export class DeleteAutoSnapshotPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAutoSnapshotPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataFlowRequest extends $tea.Model {
+  clientToken?: string;
+  dataFlowId?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dataFlowId: 'DataFlowId',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dataFlowId: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataFlowResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDataFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataFlowResponseBody,
     };
   }
 
@@ -1533,10 +2562,12 @@ export class DeleteFileSystemResponseBody extends $tea.Model {
 
 export class DeleteFileSystemResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteFileSystemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1544,7 +2575,80 @@ export class DeleteFileSystemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteFileSystemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFilesetRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
+  fsetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+      fsetId: 'FsetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+      fsetId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFilesetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFilesetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteFilesetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFilesetResponseBody,
     };
   }
 
@@ -1593,10 +2697,12 @@ export class DeleteLDAPConfigResponseBody extends $tea.Model {
 
 export class DeleteLDAPConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteLDAPConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1604,6 +2710,7 @@ export class DeleteLDAPConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteLDAPConfigResponseBody,
     };
   }
@@ -1636,19 +2743,19 @@ export class DeleteLifecyclePolicyRequest extends $tea.Model {
 }
 
 export class DeleteLifecyclePolicyResponseBody extends $tea.Model {
-  success?: boolean;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      success: 'Success',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      success: 'boolean',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -1659,10 +2766,12 @@ export class DeleteLifecyclePolicyResponseBody extends $tea.Model {
 
 export class DeleteLifecyclePolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteLifecyclePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1670,7 +2779,74 @@ export class DeleteLifecyclePolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteLifecyclePolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLogAnalysisRequest extends $tea.Model {
+  fileSystemId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLogAnalysisResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLogAnalysisResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteLogAnalysisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteLogAnalysisResponseBody,
     };
   }
 
@@ -1722,10 +2898,12 @@ export class DeleteMountTargetResponseBody extends $tea.Model {
 
 export class DeleteMountTargetResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteMountTargetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1733,7 +2911,155 @@ export class DeleteMountTargetResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteMountTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProtocolMountTargetRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  exportId?: string;
+  fileSystemId?: string;
+  protocolServiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      exportId: 'ExportId',
+      fileSystemId: 'FileSystemId',
+      protocolServiceId: 'ProtocolServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      exportId: 'string',
+      fileSystemId: 'string',
+      protocolServiceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProtocolMountTargetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProtocolMountTargetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteProtocolMountTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteProtocolMountTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProtocolServiceRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
+  protocolServiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+      protocolServiceId: 'ProtocolServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+      protocolServiceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProtocolServiceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProtocolServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteProtocolServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteProtocolServiceResponseBody,
     };
   }
 
@@ -1782,10 +3108,12 @@ export class DeleteSnapshotResponseBody extends $tea.Model {
 
 export class DeleteSnapshotResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1793,6 +3121,7 @@ export class DeleteSnapshotResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSnapshotResponseBody,
     };
   }
@@ -1804,27 +3133,27 @@ export class DeleteSnapshotResponse extends $tea.Model {
 
 export class DescribeAccessGroupsRequest extends $tea.Model {
   accessGroupName?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  useUTCDateTime?: boolean;
   fileSystemType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  useUTCDateTime?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessGroupName: 'AccessGroupName',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      useUTCDateTime: 'UseUTCDateTime',
       fileSystemType: 'FileSystemType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      useUTCDateTime: 'UseUTCDateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accessGroupName: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      useUTCDateTime: 'boolean',
       fileSystemType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      useUTCDateTime: 'boolean',
     };
   }
 
@@ -1834,28 +3163,28 @@ export class DescribeAccessGroupsRequest extends $tea.Model {
 }
 
 export class DescribeAccessGroupsResponseBody extends $tea.Model {
-  pageNumber?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalCount?: number;
   accessGroups?: DescribeAccessGroupsResponseBodyAccessGroups;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      pageNumber: 'PageNumber',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       accessGroups: 'AccessGroups',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNumber: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalCount: 'number',
       accessGroups: DescribeAccessGroupsResponseBodyAccessGroups,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -1866,10 +3195,12 @@ export class DescribeAccessGroupsResponseBody extends $tea.Model {
 
 export class DescribeAccessGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAccessGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1877,6 +3208,7 @@ export class DescribeAccessGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAccessGroupsResponseBody,
     };
   }
@@ -1889,16 +3221,16 @@ export class DescribeAccessGroupsResponse extends $tea.Model {
 export class DescribeAccessRulesRequest extends $tea.Model {
   accessGroupName?: string;
   accessRuleId?: string;
-  pageSize?: number;
-  pageNumber?: number;
   fileSystemType?: string;
+  pageNumber?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       accessGroupName: 'AccessGroupName',
       accessRuleId: 'AccessRuleId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
       fileSystemType: 'FileSystemType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
@@ -1906,9 +3238,9 @@ export class DescribeAccessRulesRequest extends $tea.Model {
     return {
       accessGroupName: 'string',
       accessRuleId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
       fileSystemType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -1918,28 +3250,28 @@ export class DescribeAccessRulesRequest extends $tea.Model {
 }
 
 export class DescribeAccessRulesResponseBody extends $tea.Model {
-  pageNumber?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalCount?: number;
   accessRules?: DescribeAccessRulesResponseBodyAccessRules;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      pageNumber: 'PageNumber',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       accessRules: 'AccessRules',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNumber: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalCount: 'number',
       accessRules: DescribeAccessRulesResponseBodyAccessRules,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -1950,10 +3282,12 @@ export class DescribeAccessRulesResponseBody extends $tea.Model {
 
 export class DescribeAccessRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAccessRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1961,6 +3295,7 @@ export class DescribeAccessRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAccessRulesResponseBody,
     };
   }
@@ -1972,24 +3307,24 @@ export class DescribeAccessRulesResponse extends $tea.Model {
 
 export class DescribeAutoSnapshotPoliciesRequest extends $tea.Model {
   autoSnapshotPolicyId?: string;
-  pageSize?: number;
-  pageNumber?: number;
   fileSystemType?: string;
+  pageNumber?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       autoSnapshotPolicyId: 'AutoSnapshotPolicyId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
       fileSystemType: 'FileSystemType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       autoSnapshotPolicyId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
       fileSystemType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -1999,28 +3334,28 @@ export class DescribeAutoSnapshotPoliciesRequest extends $tea.Model {
 }
 
 export class DescribeAutoSnapshotPoliciesResponseBody extends $tea.Model {
-  pageNumber?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalCount?: number;
   autoSnapshotPolicies?: DescribeAutoSnapshotPoliciesResponseBodyAutoSnapshotPolicies;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      pageNumber: 'PageNumber',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       autoSnapshotPolicies: 'AutoSnapshotPolicies',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNumber: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalCount: 'number',
       autoSnapshotPolicies: DescribeAutoSnapshotPoliciesResponseBodyAutoSnapshotPolicies,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2031,10 +3366,12 @@ export class DescribeAutoSnapshotPoliciesResponseBody extends $tea.Model {
 
 export class DescribeAutoSnapshotPoliciesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAutoSnapshotPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2042,6 +3379,7 @@ export class DescribeAutoSnapshotPoliciesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAutoSnapshotPoliciesResponseBody,
     };
   }
@@ -2052,28 +3390,28 @@ export class DescribeAutoSnapshotPoliciesResponse extends $tea.Model {
 }
 
 export class DescribeAutoSnapshotTasksRequest extends $tea.Model {
-  fileSystemIds?: string;
   autoSnapshotPolicyIds?: string;
+  fileSystemIds?: string;
   fileSystemType?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      fileSystemIds: 'FileSystemIds',
       autoSnapshotPolicyIds: 'AutoSnapshotPolicyIds',
+      fileSystemIds: 'FileSystemIds',
       fileSystemType: 'FileSystemType',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystemIds: 'string',
       autoSnapshotPolicyIds: 'string',
+      fileSystemIds: 'string',
       fileSystemType: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -2083,28 +3421,28 @@ export class DescribeAutoSnapshotTasksRequest extends $tea.Model {
 }
 
 export class DescribeAutoSnapshotTasksResponseBody extends $tea.Model {
-  pageNumber?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalCount?: number;
   autoSnapshotTasks?: DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasks;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      pageNumber: 'PageNumber',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       autoSnapshotTasks: 'AutoSnapshotTasks',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNumber: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalCount: 'number',
       autoSnapshotTasks: DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasks,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2115,10 +3453,12 @@ export class DescribeAutoSnapshotTasksResponseBody extends $tea.Model {
 
 export class DescribeAutoSnapshotTasksResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAutoSnapshotTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2126,6 +3466,7 @@ export class DescribeAutoSnapshotTasksResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAutoSnapshotTasksResponseBody,
     };
   }
@@ -2136,22 +3477,22 @@ export class DescribeAutoSnapshotTasksResponse extends $tea.Model {
 }
 
 export class DescribeBlackListClientsRequest extends $tea.Model {
-  regionId?: string;
-  fileSystemId?: string;
   clientIP?: string;
+  fileSystemId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      fileSystemId: 'FileSystemId',
       clientIP: 'ClientIP',
+      fileSystemId: 'FileSystemId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      fileSystemId: 'string',
       clientIP: 'string',
+      fileSystemId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2184,10 +3525,12 @@ export class DescribeBlackListClientsResponseBody extends $tea.Model {
 
 export class DescribeBlackListClientsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeBlackListClientsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2195,7 +3538,164 @@ export class DescribeBlackListClientsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeBlackListClientsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowTasksRequest extends $tea.Model {
+  fileSystemId?: string;
+  filters?: DescribeDataFlowTasksRequestFilters[];
+  maxResults?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      filters: 'Filters',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      filters: { 'type': 'array', 'itemType': DescribeDataFlowTasksRequestFilters },
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowTasksResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  taskInfo?: DescribeDataFlowTasksResponseBodyTaskInfo;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      taskInfo: 'TaskInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      taskInfo: DescribeDataFlowTasksResponseBodyTaskInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDataFlowTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataFlowTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowsRequest extends $tea.Model {
+  fileSystemId?: string;
+  filters?: DescribeDataFlowsRequestFilters[];
+  maxResults?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      filters: 'Filters',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      filters: { 'type': 'array', 'itemType': DescribeDataFlowsRequestFilters },
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowsResponseBody extends $tea.Model {
+  dataFlowInfo?: DescribeDataFlowsResponseBodyDataFlowInfo;
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataFlowInfo: 'DataFlowInfo',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFlowInfo: DescribeDataFlowsResponseBodyDataFlowInfo,
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDataFlowsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataFlowsResponseBody,
     };
   }
 
@@ -2206,24 +3706,24 @@ export class DescribeBlackListClientsResponse extends $tea.Model {
 
 export class DescribeDirQuotasRequest extends $tea.Model {
   fileSystemId?: string;
-  path?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  path?: string;
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
-      path: 'Path',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      path: 'Path',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       fileSystemId: 'string',
-      path: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      path: 'string',
     };
   }
 
@@ -2233,28 +3733,28 @@ export class DescribeDirQuotasRequest extends $tea.Model {
 }
 
 export class DescribeDirQuotasResponseBody extends $tea.Model {
-  pageNumber?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalCount?: number;
   dirQuotaInfos?: DescribeDirQuotasResponseBodyDirQuotaInfos[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      pageNumber: 'PageNumber',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       dirQuotaInfos: 'DirQuotaInfos',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNumber: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalCount: 'number',
       dirQuotaInfos: { 'type': 'array', 'itemType': DescribeDirQuotasResponseBodyDirQuotaInfos },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2265,10 +3765,12 @@ export class DescribeDirQuotasResponseBody extends $tea.Model {
 
 export class DescribeDirQuotasResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDirQuotasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2276,7 +3778,89 @@ export class DescribeDirQuotasResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDirQuotasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemStatisticsRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemStatisticsResponseBody extends $tea.Model {
+  fileSystemStatistics?: DescribeFileSystemStatisticsResponseBodyFileSystemStatistics;
+  fileSystems?: DescribeFileSystemStatisticsResponseBodyFileSystems;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemStatistics: 'FileSystemStatistics',
+      fileSystems: 'FileSystems',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemStatistics: DescribeFileSystemStatisticsResponseBodyFileSystemStatistics,
+      fileSystems: DescribeFileSystemStatisticsResponseBodyFileSystems,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeFileSystemStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFileSystemStatisticsResponseBody,
     };
   }
 
@@ -2288,18 +3872,20 @@ export class DescribeDirQuotasResponse extends $tea.Model {
 export class DescribeFileSystemsRequest extends $tea.Model {
   fileSystemId?: string;
   fileSystemType?: string;
-  vpcId?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  resourceGroupId?: string;
   tag?: DescribeFileSystemsRequestTag[];
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
       fileSystemType: 'FileSystemType',
-      vpcId: 'VpcId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
+      vpcId: 'VpcId',
     };
   }
 
@@ -2307,10 +3893,11 @@ export class DescribeFileSystemsRequest extends $tea.Model {
     return {
       fileSystemId: 'string',
       fileSystemType: 'string',
-      vpcId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': DescribeFileSystemsRequestTag },
+      vpcId: 'string',
     };
   }
 
@@ -2320,28 +3907,28 @@ export class DescribeFileSystemsRequest extends $tea.Model {
 }
 
 export class DescribeFileSystemsResponseBody extends $tea.Model {
-  pageNumber?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalCount?: number;
   fileSystems?: DescribeFileSystemsResponseBodyFileSystems;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      pageNumber: 'PageNumber',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       fileSystems: 'FileSystems',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNumber: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalCount: 'number',
       fileSystems: DescribeFileSystemsResponseBodyFileSystems,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2352,10 +3939,12 @@ export class DescribeFileSystemsResponseBody extends $tea.Model {
 
 export class DescribeFileSystemsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeFileSystemsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2363,6 +3952,7 @@ export class DescribeFileSystemsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeFileSystemsResponseBody,
     };
   }
@@ -2372,95 +3962,26 @@ export class DescribeFileSystemsResponse extends $tea.Model {
   }
 }
 
-export class DescribeFileSystemStatisticsRequest extends $tea.Model {
-  pageSize?: number;
-  pageNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageSize: 'number',
-      pageNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileSystemStatisticsResponseBody extends $tea.Model {
-  requestId?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  totalCount?: number;
-  fileSystemStatistics?: DescribeFileSystemStatisticsResponseBodyFileSystemStatistics;
-  fileSystems?: DescribeFileSystemStatisticsResponseBodyFileSystems;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      totalCount: 'TotalCount',
-      fileSystemStatistics: 'FileSystemStatistics',
-      fileSystems: 'FileSystems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      totalCount: 'number',
-      fileSystemStatistics: DescribeFileSystemStatisticsResponseBodyFileSystemStatistics,
-      fileSystems: DescribeFileSystemStatisticsResponseBodyFileSystems,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileSystemStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeFileSystemStatisticsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeFileSystemStatisticsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLDAPConfigRequest extends $tea.Model {
+export class DescribeFilesetsRequest extends $tea.Model {
   fileSystemId?: string;
+  filters?: DescribeFilesetsRequestFilters[];
+  maxResults?: number;
+  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
+      filters: 'Filters',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       fileSystemId: 'string',
+      filters: { 'type': 'array', 'itemType': DescribeFilesetsRequestFilters },
+      maxResults: 'number',
+      nextToken: 'string',
     };
   }
 
@@ -2469,20 +3990,26 @@ export class DescribeLDAPConfigRequest extends $tea.Model {
   }
 }
 
-export class DescribeLDAPConfigResponseBody extends $tea.Model {
+export class DescribeFilesetsResponseBody extends $tea.Model {
+  entries?: DescribeFilesetsResponseBodyEntries;
+  fileSystemId?: string;
+  nextToken?: string;
   requestId?: string;
-  ldap?: DescribeLDAPConfigResponseBodyLdap;
   static names(): { [key: string]: string } {
     return {
+      entries: 'Entries',
+      fileSystemId: 'FileSystemId',
+      nextToken: 'NextToken',
       requestId: 'RequestId',
-      ldap: 'Ldap',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      entries: DescribeFilesetsResponseBodyEntries,
+      fileSystemId: 'string',
+      nextToken: 'string',
       requestId: 'string',
-      ldap: DescribeLDAPConfigResponseBodyLdap,
     };
   }
 
@@ -2491,12 +4018,14 @@ export class DescribeLDAPConfigResponseBody extends $tea.Model {
   }
 }
 
-export class DescribeLDAPConfigResponse extends $tea.Model {
+export class DescribeFilesetsResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DescribeLDAPConfigResponseBody;
+  statusCode: number;
+  body: DescribeFilesetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2504,7 +4033,8 @@ export class DescribeLDAPConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeLDAPConfigResponseBody,
+      statusCode: 'number',
+      body: DescribeFilesetsResponseBody,
     };
   }
 
@@ -2515,21 +4045,24 @@ export class DescribeLDAPConfigResponse extends $tea.Model {
 
 export class DescribeLifecyclePoliciesRequest extends $tea.Model {
   fileSystemId?: string;
-  pageSize?: number;
+  lifecyclePolicyName?: string;
   pageNumber?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
-      pageSize: 'PageSize',
+      lifecyclePolicyName: 'LifecyclePolicyName',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       fileSystemId: 'string',
-      pageSize: 'number',
+      lifecyclePolicyName: 'string',
       pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -2539,28 +4072,28 @@ export class DescribeLifecyclePoliciesRequest extends $tea.Model {
 }
 
 export class DescribeLifecyclePoliciesResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  pageSize?: number;
-  pageNumber?: number;
   lifecyclePolicies?: DescribeLifecyclePoliciesResponseBodyLifecyclePolicies[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
       lifecyclePolicies: 'LifecyclePolicies',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
       lifecyclePolicies: { 'type': 'array', 'itemType': DescribeLifecyclePoliciesResponseBodyLifecyclePolicies },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2571,10 +4104,12 @@ export class DescribeLifecyclePoliciesResponseBody extends $tea.Model {
 
 export class DescribeLifecyclePoliciesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeLifecyclePoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2582,6 +4117,7 @@ export class DescribeLifecyclePoliciesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeLifecyclePoliciesResponseBody,
     };
   }
@@ -2592,22 +4128,22 @@ export class DescribeLifecyclePoliciesResponse extends $tea.Model {
 }
 
 export class DescribeLogAnalysisRequest extends $tea.Model {
-  regionId?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
     };
   }
 
@@ -2617,31 +4153,31 @@ export class DescribeLogAnalysisRequest extends $tea.Model {
 }
 
 export class DescribeLogAnalysisResponseBody extends $tea.Model {
+  analyses?: DescribeLogAnalysisResponseBodyAnalyses;
   code?: string;
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
   totalCount?: number;
-  analyses?: DescribeLogAnalysisResponseBodyAnalyses;
   static names(): { [key: string]: string } {
     return {
+      analyses: 'Analyses',
       code: 'Code',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
-      analyses: 'Analyses',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      analyses: DescribeLogAnalysisResponseBodyAnalyses,
       code: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
       totalCount: 'number',
-      analyses: DescribeLogAnalysisResponseBodyAnalyses,
     };
   }
 
@@ -2652,10 +4188,12 @@ export class DescribeLogAnalysisResponseBody extends $tea.Model {
 
 export class DescribeLogAnalysisResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeLogAnalysisResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2663,6 +4201,7 @@ export class DescribeLogAnalysisResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeLogAnalysisResponseBody,
     };
   }
@@ -2672,116 +4211,29 @@ export class DescribeLogAnalysisResponse extends $tea.Model {
   }
 }
 
-export class DescribeMountedClientsRequest extends $tea.Model {
-  regionId?: string;
-  pageSize?: number;
-  fileSystemId?: string;
-  clientIP?: string;
-  mountTargetDomain?: string;
-  pageNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      pageSize: 'PageSize',
-      fileSystemId: 'FileSystemId',
-      clientIP: 'ClientIP',
-      mountTargetDomain: 'MountTargetDomain',
-      pageNumber: 'PageNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      pageSize: 'number',
-      fileSystemId: 'string',
-      clientIP: 'string',
-      mountTargetDomain: 'string',
-      pageNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMountedClientsResponseBody extends $tea.Model {
-  pageNumber?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalCount?: number;
-  clients?: DescribeMountedClientsResponseBodyClients;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      clients: 'Clients',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalCount: 'number',
-      clients: DescribeMountedClientsResponseBodyClients,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMountedClientsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeMountedClientsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeMountedClientsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeMountTargetsRequest extends $tea.Model {
+  dualStackMountTargetDomain?: string;
   fileSystemId?: string;
   mountTargetDomain?: string;
-  pageSize?: number;
   pageNumber?: number;
-  dualStackMountTargetDomain?: string;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      dualStackMountTargetDomain: 'DualStackMountTargetDomain',
       fileSystemId: 'FileSystemId',
       mountTargetDomain: 'MountTargetDomain',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
-      dualStackMountTargetDomain: 'DualStackMountTargetDomain',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dualStackMountTargetDomain: 'string',
       fileSystemId: 'string',
       mountTargetDomain: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
-      dualStackMountTargetDomain: 'string',
+      pageSize: 'number',
     };
   }
 
@@ -2791,28 +4243,28 @@ export class DescribeMountTargetsRequest extends $tea.Model {
 }
 
 export class DescribeMountTargetsResponseBody extends $tea.Model {
-  pageNumber?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalCount?: number;
   mountTargets?: DescribeMountTargetsResponseBodyMountTargets;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      pageNumber: 'PageNumber',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       mountTargets: 'MountTargets',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNumber: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalCount: 'number',
       mountTargets: DescribeMountTargetsResponseBodyMountTargets,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2823,10 +4275,12 @@ export class DescribeMountTargetsResponseBody extends $tea.Model {
 
 export class DescribeMountTargetsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeMountTargetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2834,6 +4288,7 @@ export class DescribeMountTargetsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeMountTargetsResponseBody,
     };
   }
@@ -2843,23 +4298,347 @@ export class DescribeMountTargetsResponse extends $tea.Model {
   }
 }
 
-export class DescribeRegionsRequest extends $tea.Model {
-  pageSize?: number;
+export class DescribeMountedClientsRequest extends $tea.Model {
+  clientIP?: string;
+  fileSystemId?: string;
+  mountTargetDomain?: string;
   pageNumber?: number;
-  fileSystemType?: string;
+  pageSize?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      pageSize: 'PageSize',
+      clientIP: 'ClientIP',
+      fileSystemId: 'FileSystemId',
+      mountTargetDomain: 'MountTargetDomain',
       pageNumber: 'PageNumber',
-      fileSystemType: 'FileSystemType',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageSize: 'number',
+      clientIP: 'string',
+      fileSystemId: 'string',
+      mountTargetDomain: 'string',
       pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMountedClientsResponseBody extends $tea.Model {
+  clients?: DescribeMountedClientsResponseBodyClients;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clients: 'Clients',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clients: DescribeMountedClientsResponseBodyClients,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMountedClientsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeMountedClientsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeMountedClientsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNfsAclRequest extends $tea.Model {
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNfsAclResponseBody extends $tea.Model {
+  acl?: DescribeNfsAclResponseBodyAcl;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acl: 'Acl',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acl: DescribeNfsAclResponseBodyAcl,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNfsAclResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeNfsAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNfsAclResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProtocolMountTargetRequest extends $tea.Model {
+  clientToken?: string;
+  fileSystemId?: string;
+  filters?: DescribeProtocolMountTargetRequestFilters[];
+  maxResults?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      fileSystemId: 'FileSystemId',
+      filters: 'Filters',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      fileSystemId: 'string',
+      filters: { 'type': 'array', 'itemType': DescribeProtocolMountTargetRequestFilters },
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProtocolMountTargetResponseBody extends $tea.Model {
+  nextToken?: string;
+  protocolMountTargets?: DescribeProtocolMountTargetResponseBodyProtocolMountTargets[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      protocolMountTargets: 'ProtocolMountTargets',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      protocolMountTargets: { 'type': 'array', 'itemType': DescribeProtocolMountTargetResponseBodyProtocolMountTargets },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProtocolMountTargetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeProtocolMountTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeProtocolMountTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProtocolServiceRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  fileSystemId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  protocolServiceIds?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      fileSystemId: 'FileSystemId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      protocolServiceIds: 'ProtocolServiceIds',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      fileSystemId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      protocolServiceIds: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProtocolServiceResponseBody extends $tea.Model {
+  nextToken?: string;
+  protocolServices?: DescribeProtocolServiceResponseBodyProtocolServices[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      protocolServices: 'ProtocolServices',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      protocolServices: { 'type': 'array', 'itemType': DescribeProtocolServiceResponseBodyProtocolServices },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProtocolServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeProtocolServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeProtocolServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $tea.Model {
+  fileSystemType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemType: 'FileSystemType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       fileSystemType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -2870,27 +4649,27 @@ export class DescribeRegionsRequest extends $tea.Model {
 
 export class DescribeRegionsResponseBody extends $tea.Model {
   pageNumber?: number;
-  requestId?: string;
   pageSize?: number;
-  totalCount?: number;
   regions?: DescribeRegionsResponseBodyRegions;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
-      requestId: 'RequestId',
       pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       regions: 'Regions',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       pageNumber: 'number',
-      requestId: 'string',
       pageSize: 'number',
-      totalCount: 'number',
       regions: DescribeRegionsResponseBodyRegions,
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2901,10 +4680,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2912,6 +4693,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -2921,38 +4703,104 @@ export class DescribeRegionsResponse extends $tea.Model {
   }
 }
 
-export class DescribeSnapshotsRequest extends $tea.Model {
-  fileSystemType?: string;
+export class DescribeSmbAclRequest extends $tea.Model {
   fileSystemId?: string;
-  snapshotIds?: string;
-  snapshotName?: string;
-  snapshotType?: string;
-  status?: string;
-  pageSize?: number;
-  pageNumber?: number;
   static names(): { [key: string]: string } {
     return {
-      fileSystemType: 'FileSystemType',
       fileSystemId: 'FileSystemId',
-      snapshotIds: 'SnapshotIds',
-      snapshotName: 'SnapshotName',
-      snapshotType: 'SnapshotType',
-      status: 'Status',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystemType: 'string',
       fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSmbAclResponseBody extends $tea.Model {
+  acl?: DescribeSmbAclResponseBodyAcl;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acl: 'Acl',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acl: DescribeSmbAclResponseBodyAcl,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSmbAclResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSmbAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSmbAclResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSnapshotsRequest extends $tea.Model {
+  fileSystemId?: string;
+  fileSystemType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  snapshotIds?: string;
+  snapshotName?: string;
+  snapshotType?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      fileSystemType: 'FileSystemType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      snapshotIds: 'SnapshotIds',
+      snapshotName: 'SnapshotName',
+      snapshotType: 'SnapshotType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      fileSystemType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       snapshotIds: 'string',
       snapshotName: 'string',
       snapshotType: 'string',
       status: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
     };
   }
 
@@ -2963,27 +4811,27 @@ export class DescribeSnapshotsRequest extends $tea.Model {
 
 export class DescribeSnapshotsResponseBody extends $tea.Model {
   pageNumber?: number;
-  requestId?: string;
   pageSize?: number;
-  totalCount?: number;
+  requestId?: string;
   snapshots?: DescribeSnapshotsResponseBodySnapshots;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
-      requestId: 'RequestId',
       pageSize: 'PageSize',
-      totalCount: 'TotalCount',
+      requestId: 'RequestId',
       snapshots: 'Snapshots',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       pageNumber: 'number',
-      requestId: 'string',
       pageSize: 'number',
-      totalCount: 'number',
+      requestId: 'string',
       snapshots: DescribeSnapshotsResponseBodySnapshots,
+      totalCount: 'number',
     };
   }
 
@@ -2994,10 +4842,12 @@ export class DescribeSnapshotsResponseBody extends $tea.Model {
 
 export class DescribeSnapshotsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSnapshotsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3005,6 +4855,7 @@ export class DescribeSnapshotsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSnapshotsResponseBody,
     };
   }
@@ -3015,25 +4866,25 @@ export class DescribeSnapshotsResponse extends $tea.Model {
 }
 
 export class DescribeStoragePackagesRequest extends $tea.Model {
-  regionId?: string;
-  pageSize?: number;
-  useUTCDateTime?: boolean;
   pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  useUTCDateTime?: boolean;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      pageSize: 'PageSize',
-      useUTCDateTime: 'UseUTCDateTime',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      useUTCDateTime: 'UseUTCDateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      pageSize: 'number',
-      useUTCDateTime: 'boolean',
       pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      useUTCDateTime: 'boolean',
     };
   }
 
@@ -3043,28 +4894,28 @@ export class DescribeStoragePackagesRequest extends $tea.Model {
 }
 
 export class DescribeStoragePackagesResponseBody extends $tea.Model {
-  pageNumber?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalCount?: number;
   packages?: DescribeStoragePackagesResponseBodyPackages;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      pageNumber: 'PageNumber',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       packages: 'Packages',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNumber: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalCount: 'number',
       packages: DescribeStoragePackagesResponseBodyPackages,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -3075,10 +4926,12 @@ export class DescribeStoragePackagesResponseBody extends $tea.Model {
 
 export class DescribeStoragePackagesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeStoragePackagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3086,6 +4939,7 @@ export class DescribeStoragePackagesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeStoragePackagesResponseBody,
     };
   }
@@ -3095,101 +4949,20 @@ export class DescribeStoragePackagesResponse extends $tea.Model {
   }
 }
 
-export class DescribeTagsRequest extends $tea.Model {
-  fileSystemId?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  tag?: DescribeTagsRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      tag: { 'type': 'array', 'itemType': DescribeTagsRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTagsResponseBody extends $tea.Model {
-  pageNumber?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalCount?: number;
-  tags?: DescribeTagsResponseBodyTags;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalCount: 'number',
-      tags: DescribeTagsResponseBodyTags,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeTagsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeTagsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeZonesRequest extends $tea.Model {
-  regionId?: string;
   fileSystemType?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       fileSystemType: 'FileSystemType',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       fileSystemType: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3222,10 +4995,12 @@ export class DescribeZonesResponseBody extends $tea.Model {
 
 export class DescribeZonesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3233,6 +5008,7 @@ export class DescribeZonesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeZonesResponseBody,
     };
   }
@@ -3282,10 +5058,12 @@ export class DisableAndCleanRecycleBinResponseBody extends $tea.Model {
 
 export class DisableAndCleanRecycleBinResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisableAndCleanRecycleBinResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3293,7 +5071,197 @@ export class DisableAndCleanRecycleBinResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisableAndCleanRecycleBinResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableNfsAclRequest extends $tea.Model {
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableNfsAclResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableNfsAclResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DisableNfsAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableNfsAclResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableSmbAclRequest extends $tea.Model {
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableSmbAclResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableSmbAclResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DisableSmbAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableSmbAclResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableNfsAclRequest extends $tea.Model {
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableNfsAclResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableNfsAclResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableNfsAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableNfsAclResponseBody,
     };
   }
 
@@ -3345,10 +5313,12 @@ export class EnableRecycleBinResponseBody extends $tea.Model {
 
 export class EnableRecycleBinResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EnableRecycleBinResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3356,7 +5326,77 @@ export class EnableRecycleBinResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EnableRecycleBinResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableSmbAclRequest extends $tea.Model {
+  fileSystemId?: string;
+  keytab?: string;
+  keytabMd5?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      keytab: 'Keytab',
+      keytabMd5: 'KeytabMd5',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      keytab: 'string',
+      keytabMd5: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableSmbAclResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableSmbAclResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableSmbAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableSmbAclResponseBody,
     };
   }
 
@@ -3411,10 +5451,12 @@ export class GetDirectoryOrFilePropertiesResponseBody extends $tea.Model {
 
 export class GetDirectoryOrFilePropertiesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetDirectoryOrFilePropertiesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3422,6 +5464,7 @@ export class GetDirectoryOrFilePropertiesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetDirectoryOrFilePropertiesResponseBody,
     };
   }
@@ -3451,19 +5494,19 @@ export class GetRecycleBinAttributeRequest extends $tea.Model {
 }
 
 export class GetRecycleBinAttributeResponseBody extends $tea.Model {
-  requestId?: string;
   recycleBinAttribute?: GetRecycleBinAttributeResponseBodyRecycleBinAttribute;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       recycleBinAttribute: 'RecycleBinAttribute',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       recycleBinAttribute: GetRecycleBinAttributeResponseBodyRecycleBinAttribute,
+      requestId: 'string',
     };
   }
 
@@ -3474,10 +5517,12 @@ export class GetRecycleBinAttributeResponseBody extends $tea.Model {
 
 export class GetRecycleBinAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetRecycleBinAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3485,6 +5530,7 @@ export class GetRecycleBinAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetRecycleBinAttributeResponseBody,
     };
   }
@@ -3495,31 +5541,31 @@ export class GetRecycleBinAttributeResponse extends $tea.Model {
 }
 
 export class ListDirectoriesAndFilesRequest extends $tea.Model {
-  fileSystemId?: string;
-  path?: string;
-  nextToken?: string;
-  storageType?: string;
   directoryOnly?: boolean;
+  fileSystemId?: string;
   maxResults?: number;
+  nextToken?: string;
+  path?: string;
+  storageType?: string;
   static names(): { [key: string]: string } {
     return {
-      fileSystemId: 'FileSystemId',
-      path: 'Path',
-      nextToken: 'NextToken',
-      storageType: 'StorageType',
       directoryOnly: 'DirectoryOnly',
+      fileSystemId: 'FileSystemId',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      path: 'Path',
+      storageType: 'StorageType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystemId: 'string',
-      path: 'string',
-      nextToken: 'string',
-      storageType: 'string',
       directoryOnly: 'boolean',
+      fileSystemId: 'string',
       maxResults: 'number',
+      nextToken: 'string',
+      path: 'string',
+      storageType: 'string',
     };
   }
 
@@ -3529,22 +5575,22 @@ export class ListDirectoriesAndFilesRequest extends $tea.Model {
 }
 
 export class ListDirectoriesAndFilesResponseBody extends $tea.Model {
+  entries?: ListDirectoriesAndFilesResponseBodyEntries[];
   nextToken?: string;
   requestId?: string;
-  entries?: ListDirectoriesAndFilesResponseBodyEntries[];
   static names(): { [key: string]: string } {
     return {
+      entries: 'Entries',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      entries: 'Entries',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      entries: { 'type': 'array', 'itemType': ListDirectoriesAndFilesResponseBodyEntries },
       nextToken: 'string',
       requestId: 'string',
-      entries: { 'type': 'array', 'itemType': ListDirectoriesAndFilesResponseBodyEntries },
     };
   }
 
@@ -3555,10 +5601,12 @@ export class ListDirectoriesAndFilesResponseBody extends $tea.Model {
 
 export class ListDirectoriesAndFilesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListDirectoriesAndFilesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3566,6 +5614,7 @@ export class ListDirectoriesAndFilesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListDirectoriesAndFilesResponseBody,
     };
   }
@@ -3576,24 +5625,24 @@ export class ListDirectoriesAndFilesResponse extends $tea.Model {
 }
 
 export class ListLifecycleRetrieveJobsRequest extends $tea.Model {
-  pageSize?: number;
-  pageNumber?: number;
   fileSystemId?: string;
+  pageNumber?: number;
+  pageSize?: number;
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
       fileSystemId: 'FileSystemId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageSize: 'number',
-      pageNumber: 'number',
       fileSystemId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       status: 'string',
     };
   }
@@ -3604,28 +5653,28 @@ export class ListLifecycleRetrieveJobsRequest extends $tea.Model {
 }
 
 export class ListLifecycleRetrieveJobsResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  pageSize?: number;
-  pageNumber?: number;
   lifecycleRetrieveJobs?: ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
       lifecycleRetrieveJobs: 'LifecycleRetrieveJobs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
       lifecycleRetrieveJobs: { 'type': 'array', 'itemType': ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -3636,10 +5685,12 @@ export class ListLifecycleRetrieveJobsResponseBody extends $tea.Model {
 
 export class ListLifecycleRetrieveJobsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListLifecycleRetrieveJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3647,6 +5698,7 @@ export class ListLifecycleRetrieveJobsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListLifecycleRetrieveJobsResponseBody,
     };
   }
@@ -3658,21 +5710,21 @@ export class ListLifecycleRetrieveJobsResponse extends $tea.Model {
 
 export class ListRecentlyRecycledDirectoriesRequest extends $tea.Model {
   fileSystemId?: string;
-  nextToken?: string;
   maxResults?: number;
+  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
-      nextToken: 'NextToken',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       fileSystemId: 'string',
-      nextToken: 'string',
       maxResults: 'number',
+      nextToken: 'string',
     };
   }
 
@@ -3682,22 +5734,22 @@ export class ListRecentlyRecycledDirectoriesRequest extends $tea.Model {
 }
 
 export class ListRecentlyRecycledDirectoriesResponseBody extends $tea.Model {
-  requestId?: string;
-  nextToken?: string;
   entries?: ListRecentlyRecycledDirectoriesResponseBodyEntries[];
+  nextToken?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      nextToken: 'NextToken',
       entries: 'Entries',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      nextToken: 'string',
       entries: { 'type': 'array', 'itemType': ListRecentlyRecycledDirectoriesResponseBodyEntries },
+      nextToken: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3708,10 +5760,12 @@ export class ListRecentlyRecycledDirectoriesResponseBody extends $tea.Model {
 
 export class ListRecentlyRecycledDirectoriesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListRecentlyRecycledDirectoriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3719,6 +5773,7 @@ export class ListRecentlyRecycledDirectoriesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListRecentlyRecycledDirectoriesResponseBody,
     };
   }
@@ -3731,15 +5786,15 @@ export class ListRecentlyRecycledDirectoriesResponse extends $tea.Model {
 export class ListRecycleBinJobsRequest extends $tea.Model {
   fileSystemId?: string;
   jobId?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
       jobId: 'JobId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       status: 'Status',
     };
   }
@@ -3748,8 +5803,8 @@ export class ListRecycleBinJobsRequest extends $tea.Model {
     return {
       fileSystemId: 'string',
       jobId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
       status: 'string',
     };
   }
@@ -3760,28 +5815,28 @@ export class ListRecycleBinJobsRequest extends $tea.Model {
 }
 
 export class ListRecycleBinJobsResponseBody extends $tea.Model {
-  requestId?: string;
-  totalCount?: number;
+  jobs?: ListRecycleBinJobsResponseBodyJobs[];
   pageNumber?: number;
   pageSize?: number;
-  jobs?: ListRecycleBinJobsResponseBodyJobs[];
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
+      jobs: 'Jobs',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      jobs: 'Jobs',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      totalCount: 'number',
+      jobs: { 'type': 'array', 'itemType': ListRecycleBinJobsResponseBodyJobs },
       pageNumber: 'number',
       pageSize: 'number',
-      jobs: { 'type': 'array', 'itemType': ListRecycleBinJobsResponseBodyJobs },
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -3792,10 +5847,12 @@ export class ListRecycleBinJobsResponseBody extends $tea.Model {
 
 export class ListRecycleBinJobsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListRecycleBinJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3803,6 +5860,7 @@ export class ListRecycleBinJobsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListRecycleBinJobsResponseBody,
     };
   }
@@ -3813,25 +5871,25 @@ export class ListRecycleBinJobsResponse extends $tea.Model {
 }
 
 export class ListRecycledDirectoriesAndFilesRequest extends $tea.Model {
-  fileSystemId?: string;
   fileId?: string;
-  nextToken?: string;
+  fileSystemId?: string;
   maxResults?: number;
+  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
-      fileSystemId: 'FileSystemId',
       fileId: 'FileId',
-      nextToken: 'NextToken',
+      fileSystemId: 'FileSystemId',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystemId: 'string',
       fileId: 'string',
-      nextToken: 'string',
+      fileSystemId: 'string',
       maxResults: 'number',
+      nextToken: 'string',
     };
   }
 
@@ -3841,22 +5899,22 @@ export class ListRecycledDirectoriesAndFilesRequest extends $tea.Model {
 }
 
 export class ListRecycledDirectoriesAndFilesResponseBody extends $tea.Model {
-  requestId?: string;
-  nextToken?: string;
   entries?: ListRecycledDirectoriesAndFilesResponseBodyEntries[];
+  nextToken?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      nextToken: 'NextToken',
       entries: 'Entries',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      nextToken: 'string',
       entries: { 'type': 'array', 'itemType': ListRecycledDirectoriesAndFilesResponseBodyEntries },
+      nextToken: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3867,10 +5925,12 @@ export class ListRecycledDirectoriesAndFilesResponseBody extends $tea.Model {
 
 export class ListRecycledDirectoriesAndFilesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListRecycledDirectoriesAndFilesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3878,6 +5938,7 @@ export class ListRecycledDirectoriesAndFilesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListRecycledDirectoriesAndFilesResponseBody,
     };
   }
@@ -3888,24 +5949,24 @@ export class ListRecycledDirectoriesAndFilesResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
-  resourceType?: string;
   nextToken?: string;
   resourceId?: string[];
+  resourceType?: string;
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
       nextToken: 'NextToken',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
       nextToken: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
       tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
     };
   }
@@ -3942,10 +6003,12 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 
 export class ListTagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3953,6 +6016,7 @@ export class ListTagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTagResourcesResponseBody,
     };
   }
@@ -4008,10 +6072,12 @@ export class ModifyAccessGroupResponseBody extends $tea.Model {
 
 export class ModifyAccessGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyAccessGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4019,6 +6085,7 @@ export class ModifyAccessGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyAccessGroupResponseBody,
     };
   }
@@ -4031,22 +6098,22 @@ export class ModifyAccessGroupResponse extends $tea.Model {
 export class ModifyAccessRuleRequest extends $tea.Model {
   accessGroupName?: string;
   accessRuleId?: string;
-  sourceCidrIp?: string;
-  RWAccessType?: string;
-  userAccessType?: string;
-  priority?: number;
   fileSystemType?: string;
   ipv6SourceCidrIp?: string;
+  priority?: number;
+  RWAccessType?: string;
+  sourceCidrIp?: string;
+  userAccessType?: string;
   static names(): { [key: string]: string } {
     return {
       accessGroupName: 'AccessGroupName',
       accessRuleId: 'AccessRuleId',
-      sourceCidrIp: 'SourceCidrIp',
-      RWAccessType: 'RWAccessType',
-      userAccessType: 'UserAccessType',
-      priority: 'Priority',
       fileSystemType: 'FileSystemType',
       ipv6SourceCidrIp: 'Ipv6SourceCidrIp',
+      priority: 'Priority',
+      RWAccessType: 'RWAccessType',
+      sourceCidrIp: 'SourceCidrIp',
+      userAccessType: 'UserAccessType',
     };
   }
 
@@ -4054,12 +6121,12 @@ export class ModifyAccessRuleRequest extends $tea.Model {
     return {
       accessGroupName: 'string',
       accessRuleId: 'string',
-      sourceCidrIp: 'string',
-      RWAccessType: 'string',
-      userAccessType: 'string',
-      priority: 'number',
       fileSystemType: 'string',
       ipv6SourceCidrIp: 'string',
+      priority: 'number',
+      RWAccessType: 'string',
+      sourceCidrIp: 'string',
+      userAccessType: 'string',
     };
   }
 
@@ -4089,10 +6156,12 @@ export class ModifyAccessRuleResponseBody extends $tea.Model {
 
 export class ModifyAccessRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyAccessRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4100,6 +6169,7 @@ export class ModifyAccessRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyAccessRuleResponseBody,
     };
   }
@@ -4161,10 +6231,12 @@ export class ModifyAutoSnapshotPolicyResponseBody extends $tea.Model {
 
 export class ModifyAutoSnapshotPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4172,6 +6244,7 @@ export class ModifyAutoSnapshotPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyAutoSnapshotPolicyResponseBody,
     };
   }
@@ -4181,20 +6254,176 @@ export class ModifyAutoSnapshotPolicyResponse extends $tea.Model {
   }
 }
 
-export class ModifyFileSystemRequest extends $tea.Model {
-  fileSystemId?: string;
+export class ModifyDataFlowRequest extends $tea.Model {
+  clientToken?: string;
+  dataFlowId?: string;
   description?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
+  throughput?: number;
   static names(): { [key: string]: string } {
     return {
-      fileSystemId: 'FileSystemId',
+      clientToken: 'ClientToken',
+      dataFlowId: 'DataFlowId',
       description: 'Description',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+      throughput: 'Throughput',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystemId: 'string',
+      clientToken: 'string',
+      dataFlowId: 'string',
       description: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+      throughput: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataFlowResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyDataFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDataFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataFlowAutoRefreshRequest extends $tea.Model {
+  autoRefreshInterval?: number;
+  autoRefreshPolicy?: string;
+  clientToken?: string;
+  dataFlowId?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRefreshInterval: 'AutoRefreshInterval',
+      autoRefreshPolicy: 'AutoRefreshPolicy',
+      clientToken: 'ClientToken',
+      dataFlowId: 'DataFlowId',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRefreshInterval: 'number',
+      autoRefreshPolicy: 'string',
+      clientToken: 'string',
+      dataFlowId: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataFlowAutoRefreshResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataFlowAutoRefreshResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyDataFlowAutoRefreshResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDataFlowAutoRefreshResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFileSystemRequest extends $tea.Model {
+  description?: string;
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      fileSystemId: 'string',
     };
   }
 
@@ -4224,10 +6453,12 @@ export class ModifyFileSystemResponseBody extends $tea.Model {
 
 export class ModifyFileSystemResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyFileSystemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4235,6 +6466,7 @@ export class ModifyFileSystemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyFileSystemResponseBody,
     };
   }
@@ -4244,26 +6476,101 @@ export class ModifyFileSystemResponse extends $tea.Model {
   }
 }
 
-export class ModifyLDAPConfigRequest extends $tea.Model {
+export class ModifyFilesetRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  dryRun?: boolean;
   fileSystemId?: string;
-  URI?: string;
-  bindDN?: string;
-  searchBase?: string;
+  fsetId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      dryRun: 'DryRun',
       fileSystemId: 'FileSystemId',
-      URI: 'URI',
-      bindDN: 'BindDN',
-      searchBase: 'SearchBase',
+      fsetId: 'FsetId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      description: 'string',
+      dryRun: 'boolean',
       fileSystemId: 'string',
-      URI: 'string',
+      fsetId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFilesetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFilesetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyFilesetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyFilesetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyLDAPConfigRequest extends $tea.Model {
+  bindDN?: string;
+  fileSystemId?: string;
+  searchBase?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindDN: 'BindDN',
+      fileSystemId: 'FileSystemId',
+      searchBase: 'SearchBase',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       bindDN: 'string',
+      fileSystemId: 'string',
       searchBase: 'string',
+      URI: 'string',
     };
   }
 
@@ -4293,10 +6600,12 @@ export class ModifyLDAPConfigResponseBody extends $tea.Model {
 
 export class ModifyLDAPConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyLDAPConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4304,6 +6613,7 @@ export class ModifyLDAPConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyLDAPConfigResponseBody,
     };
   }
@@ -4316,15 +6626,15 @@ export class ModifyLDAPConfigResponse extends $tea.Model {
 export class ModifyLifecyclePolicyRequest extends $tea.Model {
   fileSystemId?: string;
   lifecyclePolicyName?: string;
-  path?: string;
   lifecycleRuleName?: string;
+  path?: string;
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
       lifecyclePolicyName: 'LifecyclePolicyName',
-      path: 'Path',
       lifecycleRuleName: 'LifecycleRuleName',
+      path: 'Path',
       storageType: 'StorageType',
     };
   }
@@ -4333,8 +6643,8 @@ export class ModifyLifecyclePolicyRequest extends $tea.Model {
     return {
       fileSystemId: 'string',
       lifecyclePolicyName: 'string',
-      path: 'string',
       lifecycleRuleName: 'string',
+      path: 'string',
       storageType: 'string',
     };
   }
@@ -4368,10 +6678,12 @@ export class ModifyLifecyclePolicyResponseBody extends $tea.Model {
 
 export class ModifyLifecyclePolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyLifecyclePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4379,6 +6691,7 @@ export class ModifyLifecyclePolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyLifecyclePolicyResponseBody,
     };
   }
@@ -4389,28 +6702,28 @@ export class ModifyLifecyclePolicyResponse extends $tea.Model {
 }
 
 export class ModifyMountTargetRequest extends $tea.Model {
+  accessGroupName?: string;
+  dualStackMountTargetDomain?: string;
   fileSystemId?: string;
   mountTargetDomain?: string;
-  accessGroupName?: string;
   status?: string;
-  dualStackMountTargetDomain?: string;
   static names(): { [key: string]: string } {
     return {
+      accessGroupName: 'AccessGroupName',
+      dualStackMountTargetDomain: 'DualStackMountTargetDomain',
       fileSystemId: 'FileSystemId',
       mountTargetDomain: 'MountTargetDomain',
-      accessGroupName: 'AccessGroupName',
       status: 'Status',
-      dualStackMountTargetDomain: 'DualStackMountTargetDomain',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessGroupName: 'string',
+      dualStackMountTargetDomain: 'string',
       fileSystemId: 'string',
       mountTargetDomain: 'string',
-      accessGroupName: 'string',
       status: 'string',
-      dualStackMountTargetDomain: 'string',
     };
   }
 
@@ -4440,10 +6753,12 @@ export class ModifyMountTargetResponseBody extends $tea.Model {
 
 export class ModifyMountTargetResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyMountTargetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4451,7 +6766,245 @@ export class ModifyMountTargetResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyMountTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyProtocolMountTargetRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  dryRun?: boolean;
+  exportId?: string;
+  fileSystemId?: string;
+  protocolServiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      dryRun: 'DryRun',
+      exportId: 'ExportId',
+      fileSystemId: 'FileSystemId',
+      protocolServiceId: 'ProtocolServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      dryRun: 'boolean',
+      exportId: 'string',
+      fileSystemId: 'string',
+      protocolServiceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyProtocolMountTargetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyProtocolMountTargetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyProtocolMountTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyProtocolMountTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyProtocolServiceRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
+  protocolServiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+      protocolServiceId: 'ProtocolServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+      protocolServiceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyProtocolServiceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyProtocolServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyProtocolServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyProtocolServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySmbAclRequest extends $tea.Model {
+  enableAnonymousAccess?: boolean;
+  encryptData?: boolean;
+  fileSystemId?: string;
+  homeDirPath?: string;
+  keytab?: string;
+  keytabMd5?: string;
+  rejectUnencryptedAccess?: boolean;
+  superAdminSid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableAnonymousAccess: 'EnableAnonymousAccess',
+      encryptData: 'EncryptData',
+      fileSystemId: 'FileSystemId',
+      homeDirPath: 'HomeDirPath',
+      keytab: 'Keytab',
+      keytabMd5: 'KeytabMd5',
+      rejectUnencryptedAccess: 'RejectUnencryptedAccess',
+      superAdminSid: 'SuperAdminSid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableAnonymousAccess: 'boolean',
+      encryptData: 'boolean',
+      fileSystemId: 'string',
+      homeDirPath: 'string',
+      keytab: 'string',
+      keytabMd5: 'string',
+      rejectUnencryptedAccess: 'boolean',
+      superAdminSid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySmbAclResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySmbAclResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifySmbAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifySmbAclResponseBody,
     };
   }
 
@@ -4484,10 +7037,12 @@ export class OpenNASServiceResponseBody extends $tea.Model {
 
 export class OpenNASServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OpenNASServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4495,6 +7050,7 @@ export class OpenNASServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OpenNASServiceResponseBody,
     };
   }
@@ -4505,25 +7061,25 @@ export class OpenNASServiceResponse extends $tea.Model {
 }
 
 export class RemoveClientFromBlackListRequest extends $tea.Model {
-  regionId?: string;
-  fileSystemId?: string;
   clientIP?: string;
   clientToken?: string;
+  fileSystemId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      fileSystemId: 'FileSystemId',
       clientIP: 'ClientIP',
       clientToken: 'ClientToken',
+      fileSystemId: 'FileSystemId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      fileSystemId: 'string',
       clientIP: 'string',
       clientToken: 'string',
+      fileSystemId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -4553,10 +7109,12 @@ export class RemoveClientFromBlackListResponseBody extends $tea.Model {
 
 export class RemoveClientFromBlackListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveClientFromBlackListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4564,6 +7122,7 @@ export class RemoveClientFromBlackListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveClientFromBlackListResponseBody,
     };
   }
@@ -4616,10 +7175,12 @@ export class RemoveTagsResponseBody extends $tea.Model {
 
 export class RemoveTagsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4627,6 +7188,7 @@ export class RemoveTagsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveTagsResponseBody,
     };
   }
@@ -4679,10 +7241,12 @@ export class ResetFileSystemResponseBody extends $tea.Model {
 
 export class ResetFileSystemResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ResetFileSystemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4690,6 +7254,7 @@ export class ResetFileSystemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ResetFileSystemResponseBody,
     };
   }
@@ -4739,10 +7304,12 @@ export class RetryLifecycleRetrieveJobResponseBody extends $tea.Model {
 
 export class RetryLifecycleRetrieveJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RetryLifecycleRetrieveJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4750,6 +7317,7 @@ export class RetryLifecycleRetrieveJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RetryLifecycleRetrieveJobResponseBody,
     };
   }
@@ -4760,34 +7328,34 @@ export class RetryLifecycleRetrieveJobResponse extends $tea.Model {
 }
 
 export class SetDirQuotaRequest extends $tea.Model {
+  fileCountLimit?: number;
   fileSystemId?: string;
   path?: string;
   quotaType?: string;
-  userType?: string;
-  userId?: string;
   sizeLimit?: number;
-  fileCountLimit?: number;
+  userId?: string;
+  userType?: string;
   static names(): { [key: string]: string } {
     return {
+      fileCountLimit: 'FileCountLimit',
       fileSystemId: 'FileSystemId',
       path: 'Path',
       quotaType: 'QuotaType',
-      userType: 'UserType',
-      userId: 'UserId',
       sizeLimit: 'SizeLimit',
-      fileCountLimit: 'FileCountLimit',
+      userId: 'UserId',
+      userType: 'UserType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      fileCountLimit: 'number',
       fileSystemId: 'string',
       path: 'string',
       quotaType: 'string',
-      userType: 'string',
-      userId: 'string',
       sizeLimit: 'number',
-      fileCountLimit: 'number',
+      userId: 'string',
+      userType: 'string',
     };
   }
 
@@ -4797,19 +7365,19 @@ export class SetDirQuotaRequest extends $tea.Model {
 }
 
 export class SetDirQuotaResponseBody extends $tea.Model {
-  success?: boolean;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      success: 'Success',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      success: 'boolean',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -4820,10 +7388,12 @@ export class SetDirQuotaResponseBody extends $tea.Model {
 
 export class SetDirQuotaResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetDirQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4831,6 +7401,7 @@ export class SetDirQuotaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetDirQuotaResponseBody,
     };
   }
@@ -4840,22 +7411,166 @@ export class SetDirQuotaResponse extends $tea.Model {
   }
 }
 
+export class StartDataFlowRequest extends $tea.Model {
+  clientToken?: string;
+  dataFlowId?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dataFlowId: 'DataFlowId',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dataFlowId: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDataFlowResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDataFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartDataFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartDataFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDataFlowRequest extends $tea.Model {
+  clientToken?: string;
+  dataFlowId?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dataFlowId: 'DataFlowId',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dataFlowId: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDataFlowResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDataFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StopDataFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopDataFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequest extends $tea.Model {
-  resourceType?: string;
   resourceId?: string[];
+  resourceType?: string;
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
       tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
     };
   }
@@ -4886,10 +7601,12 @@ export class TagResourcesResponseBody extends $tea.Model {
 
 export class TagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4897,6 +7614,7 @@ export class TagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TagResourcesResponseBody,
     };
   }
@@ -4907,24 +7625,24 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
-  resourceType?: string;
   all?: boolean;
   resourceId?: string[];
+  resourceType?: string;
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
       all: 'All',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tagKey: 'TagKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
       all: 'boolean',
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
       tagKey: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -4955,10 +7673,12 @@ export class UntagResourcesResponseBody extends $tea.Model {
 
 export class UntagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4966,6 +7686,7 @@ export class UntagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UntagResourcesResponseBody,
     };
   }
@@ -5018,10 +7739,12 @@ export class UpdateRecycleBinAttributeResponseBody extends $tea.Model {
 
 export class UpdateRecycleBinAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateRecycleBinAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5029,6 +7752,7 @@ export class UpdateRecycleBinAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateRecycleBinAttributeResponseBody,
     };
   }
@@ -5039,25 +7763,25 @@ export class UpdateRecycleBinAttributeResponse extends $tea.Model {
 }
 
 export class UpgradeFileSystemRequest extends $tea.Model {
-  fileSystemId?: string;
   capacity?: number;
-  dryRun?: boolean;
   clientToken?: string;
+  dryRun?: boolean;
+  fileSystemId?: string;
   static names(): { [key: string]: string } {
     return {
-      fileSystemId: 'FileSystemId',
       capacity: 'Capacity',
-      dryRun: 'DryRun',
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      fileSystemId: 'FileSystemId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystemId: 'string',
       capacity: 'number',
-      dryRun: 'boolean',
       clientToken: 'string',
+      dryRun: 'boolean',
+      fileSystemId: 'string',
     };
   }
 
@@ -5087,10 +7811,12 @@ export class UpgradeFileSystemResponseBody extends $tea.Model {
 
 export class UpgradeFileSystemResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpgradeFileSystemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5098,6 +7824,7 @@ export class UpgradeFileSystemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpgradeFileSystemResponseBody,
     };
   }
@@ -5129,6 +7856,44 @@ export class AddTagsRequestTag extends $tea.Model {
   }
 }
 
+export class ApplyDataFlowAutoRefreshRequestAutoRefreshs extends $tea.Model {
+  refreshPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      refreshPath: 'RefreshPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      refreshPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataFlowRequestAutoRefreshs extends $tea.Model {
+  refreshPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      refreshPath: 'RefreshPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      refreshPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMountTargetResponseBodyMountTargetExtra extends $tea.Model {
   dualStackMountTargetDomain?: string;
   static names(): { [key: string]: string } {
@@ -5150,27 +7915,30 @@ export class CreateMountTargetResponseBodyMountTargetExtra extends $tea.Model {
 
 export class DescribeAccessGroupsResponseBodyAccessGroupsAccessGroup extends $tea.Model {
   accessGroupName?: string;
-  description?: string;
   accessGroupType?: string;
-  ruleCount?: number;
+  createTime?: string;
+  description?: string;
   mountTargetCount?: number;
+  ruleCount?: number;
   static names(): { [key: string]: string } {
     return {
       accessGroupName: 'AccessGroupName',
-      description: 'Description',
       accessGroupType: 'AccessGroupType',
-      ruleCount: 'RuleCount',
+      createTime: 'CreateTime',
+      description: 'Description',
       mountTargetCount: 'MountTargetCount',
+      ruleCount: 'RuleCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accessGroupName: 'string',
-      description: 'string',
       accessGroupType: 'string',
-      ruleCount: 'number',
+      createTime: 'string',
+      description: 'string',
       mountTargetCount: 'number',
+      ruleCount: 'number',
     };
   }
 
@@ -5200,30 +7968,30 @@ export class DescribeAccessGroupsResponseBodyAccessGroups extends $tea.Model {
 
 export class DescribeAccessRulesResponseBodyAccessRulesAccessRule extends $tea.Model {
   accessRuleId?: string;
-  sourceCidrIp?: string;
   ipv6SourceCidrIp?: string;
-  RWAccess?: string;
-  userAccess?: string;
   priority?: number;
+  RWAccess?: string;
+  sourceCidrIp?: string;
+  userAccess?: string;
   static names(): { [key: string]: string } {
     return {
       accessRuleId: 'AccessRuleId',
-      sourceCidrIp: 'SourceCidrIp',
       ipv6SourceCidrIp: 'Ipv6SourceCidrIp',
-      RWAccess: 'RWAccess',
-      userAccess: 'UserAccess',
       priority: 'Priority',
+      RWAccess: 'RWAccess',
+      sourceCidrIp: 'SourceCidrIp',
+      userAccess: 'UserAccess',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accessRuleId: 'string',
-      sourceCidrIp: 'string',
       ipv6SourceCidrIp: 'string',
-      RWAccess: 'string',
-      userAccess: 'string',
       priority: 'number',
+      RWAccess: 'string',
+      sourceCidrIp: 'string',
+      userAccess: 'string',
     };
   }
 
@@ -5252,40 +8020,40 @@ export class DescribeAccessRulesResponseBodyAccessRules extends $tea.Model {
 }
 
 export class DescribeAutoSnapshotPoliciesResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicy extends $tea.Model {
-  timePoints?: string;
-  status?: string;
-  repeatWeekdays?: string;
+  autoSnapshotPolicyId?: string;
   autoSnapshotPolicyName?: string;
   createTime?: string;
-  autoSnapshotPolicyId?: string;
-  retentionDays?: number;
   fileSystemNums?: number;
   regionId?: string;
+  repeatWeekdays?: string;
+  retentionDays?: number;
+  status?: string;
+  timePoints?: string;
   static names(): { [key: string]: string } {
     return {
-      timePoints: 'TimePoints',
-      status: 'Status',
-      repeatWeekdays: 'RepeatWeekdays',
+      autoSnapshotPolicyId: 'AutoSnapshotPolicyId',
       autoSnapshotPolicyName: 'AutoSnapshotPolicyName',
       createTime: 'CreateTime',
-      autoSnapshotPolicyId: 'AutoSnapshotPolicyId',
-      retentionDays: 'RetentionDays',
       fileSystemNums: 'FileSystemNums',
       regionId: 'RegionId',
+      repeatWeekdays: 'RepeatWeekdays',
+      retentionDays: 'RetentionDays',
+      status: 'Status',
+      timePoints: 'TimePoints',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      timePoints: 'string',
-      status: 'string',
-      repeatWeekdays: 'string',
+      autoSnapshotPolicyId: 'string',
       autoSnapshotPolicyName: 'string',
       createTime: 'string',
-      autoSnapshotPolicyId: 'string',
-      retentionDays: 'number',
       fileSystemNums: 'number',
       regionId: 'string',
+      repeatWeekdays: 'string',
+      retentionDays: 'number',
+      status: 'string',
+      timePoints: 'string',
     };
   }
 
@@ -5354,35 +8122,280 @@ export class DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasks extends $tea
   }
 }
 
-export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $tea.Model {
-  fileCountReal?: number;
-  userType?: string;
-  fileCountLimit?: number;
-  userId?: string;
-  sizeLimit?: number;
-  quotaType?: string;
-  sizeReal?: number;
+export class DescribeDataFlowTasksRequestFilters extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      fileCountReal: 'FileCountReal',
-      userType: 'UserType',
-      fileCountLimit: 'FileCountLimit',
-      userId: 'UserId',
-      sizeLimit: 'SizeLimit',
-      quotaType: 'QuotaType',
-      sizeReal: 'SizeReal',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileCountReal: 'number',
-      userType: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $tea.Model {
+  createTime?: string;
+  dataFlowId?: string;
+  dataType?: string;
+  endTime?: string;
+  fileSystemPath?: string;
+  filesystemId?: string;
+  fsPath?: string;
+  originator?: string;
+  progress?: number;
+  reportPath?: string;
+  sourceStorage?: string;
+  startTime?: string;
+  status?: string;
+  taskAction?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      dataFlowId: 'DataFlowId',
+      dataType: 'DataType',
+      endTime: 'EndTime',
+      fileSystemPath: 'FileSystemPath',
+      filesystemId: 'FilesystemId',
+      fsPath: 'FsPath',
+      originator: 'Originator',
+      progress: 'Progress',
+      reportPath: 'ReportPath',
+      sourceStorage: 'SourceStorage',
+      startTime: 'StartTime',
+      status: 'Status',
+      taskAction: 'TaskAction',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      dataFlowId: 'string',
+      dataType: 'string',
+      endTime: 'string',
+      fileSystemPath: 'string',
+      filesystemId: 'string',
+      fsPath: 'string',
+      originator: 'string',
+      progress: 'number',
+      reportPath: 'string',
+      sourceStorage: 'string',
+      startTime: 'string',
+      status: 'string',
+      taskAction: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowTasksResponseBodyTaskInfo extends $tea.Model {
+  task?: DescribeDataFlowTasksResponseBodyTaskInfoTask[];
+  static names(): { [key: string]: string } {
+    return {
+      task: 'Task',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      task: { 'type': 'array', 'itemType': DescribeDataFlowTasksResponseBodyTaskInfoTask },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowsRequestFilters extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlowAutoRefreshAutoRefresh extends $tea.Model {
+  refreshPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      refreshPath: 'RefreshPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      refreshPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlowAutoRefresh extends $tea.Model {
+  autoRefresh?: DescribeDataFlowsResponseBodyDataFlowInfoDataFlowAutoRefreshAutoRefresh[];
+  static names(): { [key: string]: string } {
+    return {
+      autoRefresh: 'AutoRefresh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRefresh: { 'type': 'array', 'itemType': DescribeDataFlowsResponseBodyDataFlowInfoDataFlowAutoRefreshAutoRefresh },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $tea.Model {
+  autoRefresh?: DescribeDataFlowsResponseBodyDataFlowInfoDataFlowAutoRefresh;
+  autoRefreshInterval?: number;
+  autoRefreshPolicy?: string;
+  createTime?: string;
+  dataFlowId?: string;
+  description?: string;
+  errorMessage?: string;
+  fileSystemId?: string;
+  fileSystemPath?: string;
+  fsetDescription?: string;
+  fsetId?: string;
+  sourceSecurityType?: string;
+  sourceStorage?: string;
+  status?: string;
+  throughput?: number;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRefresh: 'AutoRefresh',
+      autoRefreshInterval: 'AutoRefreshInterval',
+      autoRefreshPolicy: 'AutoRefreshPolicy',
+      createTime: 'CreateTime',
+      dataFlowId: 'DataFlowId',
+      description: 'Description',
+      errorMessage: 'ErrorMessage',
+      fileSystemId: 'FileSystemId',
+      fileSystemPath: 'FileSystemPath',
+      fsetDescription: 'FsetDescription',
+      fsetId: 'FsetId',
+      sourceSecurityType: 'SourceSecurityType',
+      sourceStorage: 'SourceStorage',
+      status: 'Status',
+      throughput: 'Throughput',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRefresh: DescribeDataFlowsResponseBodyDataFlowInfoDataFlowAutoRefresh,
+      autoRefreshInterval: 'number',
+      autoRefreshPolicy: 'string',
+      createTime: 'string',
+      dataFlowId: 'string',
+      description: 'string',
+      errorMessage: 'string',
+      fileSystemId: 'string',
+      fileSystemPath: 'string',
+      fsetDescription: 'string',
+      fsetId: 'string',
+      sourceSecurityType: 'string',
+      sourceStorage: 'string',
+      status: 'string',
+      throughput: 'number',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataFlowsResponseBodyDataFlowInfo extends $tea.Model {
+  dataFlow?: DescribeDataFlowsResponseBodyDataFlowInfoDataFlow[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFlow: 'DataFlow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFlow: { 'type': 'array', 'itemType': DescribeDataFlowsResponseBodyDataFlowInfoDataFlow },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $tea.Model {
+  fileCountLimit?: number;
+  fileCountReal?: number;
+  quotaType?: string;
+  sizeLimit?: number;
+  sizeReal?: number;
+  userId?: string;
+  userType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileCountLimit: 'FileCountLimit',
+      fileCountReal: 'FileCountReal',
+      quotaType: 'QuotaType',
+      sizeLimit: 'SizeLimit',
+      sizeReal: 'SizeReal',
+      userId: 'UserId',
+      userType: 'UserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       fileCountLimit: 'number',
-      userId: 'string',
-      sizeLimit: 'number',
+      fileCountReal: 'number',
       quotaType: 'string',
+      sizeLimit: 'number',
       sizeReal: 'number',
+      userId: 'string',
+      userType: 'string',
     };
   }
 
@@ -5392,25 +8405,202 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $t
 }
 
 export class DescribeDirQuotasResponseBodyDirQuotaInfos extends $tea.Model {
+  dirInode?: string;
   path?: string;
   status?: string;
-  dirInode?: string;
   userQuotaInfos?: DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos[];
   static names(): { [key: string]: string } {
     return {
+      dirInode: 'DirInode',
       path: 'Path',
       status: 'Status',
-      dirInode: 'DirInode',
       userQuotaInfos: 'UserQuotaInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dirInode: 'string',
       path: 'string',
       status: 'string',
-      dirInode: 'string',
       userQuotaInfos: { 'type': 'array', 'itemType': DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemStatisticsResponseBodyFileSystemStatisticsFileSystemStatistic extends $tea.Model {
+  expiredCount?: number;
+  expiringCount?: number;
+  fileSystemType?: string;
+  meteredSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      expiredCount: 'ExpiredCount',
+      expiringCount: 'ExpiringCount',
+      fileSystemType: 'FileSystemType',
+      meteredSize: 'MeteredSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expiredCount: 'number',
+      expiringCount: 'number',
+      fileSystemType: 'string',
+      meteredSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemStatisticsResponseBodyFileSystemStatistics extends $tea.Model {
+  fileSystemStatistic?: DescribeFileSystemStatisticsResponseBodyFileSystemStatisticsFileSystemStatistic[];
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemStatistic: 'FileSystemStatistic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemStatistic: { 'type': 'array', 'itemType': DescribeFileSystemStatisticsResponseBodyFileSystemStatisticsFileSystemStatistic },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackagesPackage extends $tea.Model {
+  expiredTime?: string;
+  packageId?: string;
+  size?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expiredTime: 'ExpiredTime',
+      packageId: 'PackageId',
+      size: 'Size',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expiredTime: 'string',
+      packageId: 'string',
+      size: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackages extends $tea.Model {
+  package?: DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackagesPackage[];
+  static names(): { [key: string]: string } {
+    return {
+      package: 'Package',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      package: { 'type': 'array', 'itemType': DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackagesPackage },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystem extends $tea.Model {
+  capacity?: number;
+  chargeType?: string;
+  createTime?: string;
+  description?: string;
+  expiredTime?: string;
+  fileSystemId?: string;
+  fileSystemType?: string;
+  meteredIASize?: number;
+  meteredSize?: number;
+  packages?: DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackages;
+  protocolType?: string;
+  regionId?: string;
+  status?: string;
+  storageType?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      chargeType: 'ChargeType',
+      createTime: 'CreateTime',
+      description: 'Description',
+      expiredTime: 'ExpiredTime',
+      fileSystemId: 'FileSystemId',
+      fileSystemType: 'FileSystemType',
+      meteredIASize: 'MeteredIASize',
+      meteredSize: 'MeteredSize',
+      packages: 'Packages',
+      protocolType: 'ProtocolType',
+      regionId: 'RegionId',
+      status: 'Status',
+      storageType: 'StorageType',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'number',
+      chargeType: 'string',
+      createTime: 'string',
+      description: 'string',
+      expiredTime: 'string',
+      fileSystemId: 'string',
+      fileSystemType: 'string',
+      meteredIASize: 'number',
+      meteredSize: 'number',
+      packages: DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackages,
+      protocolType: 'string',
+      regionId: 'string',
+      status: 'string',
+      storageType: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemStatisticsResponseBodyFileSystems extends $tea.Model {
+  fileSystem?: DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystem[];
+  static names(): { [key: string]: string } {
+    return {
+      fileSystem: 'FileSystem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystem: { 'type': 'array', 'itemType': DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystem },
     };
   }
 
@@ -5441,23 +8631,48 @@ export class DescribeFileSystemsRequestTag extends $tea.Model {
   }
 }
 
-export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetClientMasterNodesClientMasterNode extends $tea.Model {
-  ecsIp?: string;
-  ecsId?: string;
-  defaultPasswd?: string;
+export class DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap extends $tea.Model {
+  bindDN?: string;
+  searchBase?: string;
+  URI?: string;
   static names(): { [key: string]: string } {
     return {
-      ecsIp: 'EcsIp',
-      ecsId: 'EcsId',
-      defaultPasswd: 'DefaultPasswd',
+      bindDN: 'BindDN',
+      searchBase: 'SearchBase',
+      URI: 'URI',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ecsIp: 'string',
-      ecsId: 'string',
+      bindDN: 'string',
+      searchBase: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetClientMasterNodesClientMasterNode extends $tea.Model {
+  defaultPasswd?: string;
+  ecsId?: string;
+  ecsIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultPasswd: 'DefaultPasswd',
+      ecsId: 'EcsId',
+      ecsIp: 'EcsIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       defaultPasswd: 'string',
+      ecsId: 'string',
+      ecsIp: 'string',
     };
   }
 
@@ -5527,40 +8742,40 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMou
 }
 
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTarget extends $tea.Model {
-  vpcId?: string;
-  status?: string;
-  mountTargetDomain?: string;
   accessGroupName?: string;
-  dualStackMountTargetDomain?: string;
-  vswId?: string;
-  networkType?: string;
   clientMasterNodes?: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetClientMasterNodes;
+  dualStackMountTargetDomain?: string;
+  mountTargetDomain?: string;
+  networkType?: string;
+  status?: string;
   tags?: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetTags;
+  vpcId?: string;
+  vswId?: string;
   static names(): { [key: string]: string } {
     return {
-      vpcId: 'VpcId',
-      status: 'Status',
-      mountTargetDomain: 'MountTargetDomain',
       accessGroupName: 'AccessGroupName',
-      dualStackMountTargetDomain: 'DualStackMountTargetDomain',
-      vswId: 'VswId',
-      networkType: 'NetworkType',
       clientMasterNodes: 'ClientMasterNodes',
+      dualStackMountTargetDomain: 'DualStackMountTargetDomain',
+      mountTargetDomain: 'MountTargetDomain',
+      networkType: 'NetworkType',
+      status: 'Status',
       tags: 'Tags',
+      vpcId: 'VpcId',
+      vswId: 'VswId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      vpcId: 'string',
-      status: 'string',
-      mountTargetDomain: 'string',
       accessGroupName: 'string',
-      dualStackMountTargetDomain: 'string',
-      vswId: 'string',
-      networkType: 'string',
       clientMasterNodes: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetClientMasterNodes,
+      dualStackMountTargetDomain: 'string',
+      mountTargetDomain: 'string',
+      networkType: 'string',
+      status: 'string',
       tags: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetTags,
+      vpcId: 'string',
+      vswId: 'string',
     };
   }
 
@@ -5589,28 +8804,28 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets ex
 }
 
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystemPackagesPackage extends $tea.Model {
-  startTime?: string;
-  packageId?: string;
   expiredTime?: string;
-  size?: number;
+  packageId?: string;
   packageType?: string;
+  size?: number;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
-      startTime: 'StartTime',
-      packageId: 'PackageId',
       expiredTime: 'ExpiredTime',
-      size: 'Size',
+      packageId: 'PackageId',
       packageType: 'PackageType',
+      size: 'Size',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startTime: 'string',
-      packageId: 'string',
       expiredTime: 'string',
-      size: 'number',
+      packageId: 'string',
       packageType: 'string',
+      size: 'number',
+      startTime: 'string',
     };
   }
 
@@ -5630,6 +8845,25 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages extend
   static types(): { [key: string]: any } {
     return {
       package: { 'type': 'array', 'itemType': DescribeFileSystemsResponseBodyFileSystemsFileSystemPackagesPackage },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures extends $tea.Model {
+  supportedFeature?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedFeature: 'SupportedFeature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedFeature: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5679,127 +8913,89 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemTags extends $t
   }
 }
 
-export class DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures extends $tea.Model {
-  supportedFeature?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedFeature: 'SupportedFeature',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedFeature: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap extends $tea.Model {
-  searchBase?: string;
-  URI?: string;
-  bindDN?: string;
-  static names(): { [key: string]: string } {
-    return {
-      searchBase: 'SearchBase',
-      URI: 'URI',
-      bindDN: 'BindDN',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      searchBase: 'string',
-      URI: 'string',
-      bindDN: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.Model {
-  status?: string;
-  capacity?: number;
-  meteredIASize?: number;
-  createTime?: string;
-  chargeType?: string;
-  storageType?: string;
-  regionId?: string;
-  fileSystemType?: string;
-  fileSystemId?: string;
-  meteredSize?: number;
-  encryptType?: number;
+  accessPointCount?: string;
   bandwidth?: number;
+  capacity?: number;
+  chargeType?: string;
+  createTime?: string;
   description?: string;
-  version?: string;
+  encryptType?: number;
   expiredTime?: string;
-  zoneId?: string;
-  protocolType?: string;
+  fileSystemId?: string;
+  fileSystemType?: string;
   KMSKeyId?: string;
+  ldap?: DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap;
+  meteredIASize?: number;
+  meteredSize?: number;
   mountTargets?: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets;
   packages?: DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages;
-  tags?: DescribeFileSystemsResponseBodyFileSystemsFileSystemTags;
+  protocolType?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  status?: string;
+  storageType?: string;
   supportedFeatures?: DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures;
-  ldap?: DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap;
+  tags?: DescribeFileSystemsResponseBodyFileSystemsFileSystemTags;
+  version?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      capacity: 'Capacity',
-      meteredIASize: 'MeteredIASize',
-      createTime: 'CreateTime',
-      chargeType: 'ChargeType',
-      storageType: 'StorageType',
-      regionId: 'RegionId',
-      fileSystemType: 'FileSystemType',
-      fileSystemId: 'FileSystemId',
-      meteredSize: 'MeteredSize',
-      encryptType: 'EncryptType',
+      accessPointCount: 'AccessPointCount',
       bandwidth: 'Bandwidth',
+      capacity: 'Capacity',
+      chargeType: 'ChargeType',
+      createTime: 'CreateTime',
       description: 'Description',
-      version: 'Version',
+      encryptType: 'EncryptType',
       expiredTime: 'ExpiredTime',
-      zoneId: 'ZoneId',
-      protocolType: 'ProtocolType',
+      fileSystemId: 'FileSystemId',
+      fileSystemType: 'FileSystemType',
       KMSKeyId: 'KMSKeyId',
+      ldap: 'Ldap',
+      meteredIASize: 'MeteredIASize',
+      meteredSize: 'MeteredSize',
       mountTargets: 'MountTargets',
       packages: 'Packages',
-      tags: 'Tags',
+      protocolType: 'ProtocolType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      storageType: 'StorageType',
       supportedFeatures: 'SupportedFeatures',
-      ldap: 'Ldap',
+      tags: 'Tags',
+      version: 'Version',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      capacity: 'number',
-      meteredIASize: 'number',
-      createTime: 'string',
-      chargeType: 'string',
-      storageType: 'string',
-      regionId: 'string',
-      fileSystemType: 'string',
-      fileSystemId: 'string',
-      meteredSize: 'number',
-      encryptType: 'number',
+      accessPointCount: 'string',
       bandwidth: 'number',
+      capacity: 'number',
+      chargeType: 'string',
+      createTime: 'string',
       description: 'string',
-      version: 'string',
+      encryptType: 'number',
       expiredTime: 'string',
-      zoneId: 'string',
-      protocolType: 'string',
+      fileSystemId: 'string',
+      fileSystemType: 'string',
       KMSKeyId: 'string',
+      ldap: DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap,
+      meteredIASize: 'number',
+      meteredSize: 'number',
       mountTargets: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets,
       packages: DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages,
-      tags: DescribeFileSystemsResponseBodyFileSystemsFileSystemTags,
+      protocolType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+      storageType: 'string',
       supportedFeatures: DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures,
-      ldap: DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap,
+      tags: DescribeFileSystemsResponseBodyFileSystemsFileSystemTags,
+      version: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -5827,29 +9023,20 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $tea.Model {
   }
 }
 
-export class DescribeFileSystemStatisticsResponseBodyFileSystemStatisticsFileSystemStatistic extends $tea.Model {
-  expiringCount?: number;
-  fileSystemType?: string;
-  meteredSize?: number;
-  totalCount?: number;
-  expiredCount?: number;
+export class DescribeFilesetsRequestFilters extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      expiringCount: 'ExpiringCount',
-      fileSystemType: 'FileSystemType',
-      meteredSize: 'MeteredSize',
-      totalCount: 'TotalCount',
-      expiredCount: 'ExpiredCount',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      expiringCount: 'number',
-      fileSystemType: 'string',
-      meteredSize: 'number',
-      totalCount: 'number',
-      expiredCount: 'number',
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -5858,125 +9045,32 @@ export class DescribeFileSystemStatisticsResponseBodyFileSystemStatisticsFileSys
   }
 }
 
-export class DescribeFileSystemStatisticsResponseBodyFileSystemStatistics extends $tea.Model {
-  fileSystemStatistic?: DescribeFileSystemStatisticsResponseBodyFileSystemStatisticsFileSystemStatistic[];
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemStatistic: 'FileSystemStatistic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemStatistic: { 'type': 'array', 'itemType': DescribeFileSystemStatisticsResponseBodyFileSystemStatisticsFileSystemStatistic },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackagesPackage extends $tea.Model {
-  startTime?: string;
-  packageId?: string;
-  expiredTime?: string;
-  size?: number;
-  static names(): { [key: string]: string } {
-    return {
-      startTime: 'StartTime',
-      packageId: 'PackageId',
-      expiredTime: 'ExpiredTime',
-      size: 'Size',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      startTime: 'string',
-      packageId: 'string',
-      expiredTime: 'string',
-      size: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackages extends $tea.Model {
-  package?: DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackagesPackage[];
-  static names(): { [key: string]: string } {
-    return {
-      package: 'Package',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      package: { 'type': 'array', 'itemType': DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackagesPackage },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystem extends $tea.Model {
-  status?: string;
-  meteredIASize?: number;
-  capacity?: number;
+export class DescribeFilesetsResponseBodyEntriesEntrie extends $tea.Model {
   createTime?: string;
-  chargeType?: string;
-  storageType?: string;
-  regionId?: string;
-  fileSystemId?: string;
-  fileSystemType?: string;
-  meteredSize?: number;
   description?: string;
-  expiredTime?: string;
-  zoneId?: string;
-  protocolType?: string;
-  packages?: DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackages;
+  fileSystemPath?: string;
+  fsetId?: string;
+  status?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      meteredIASize: 'MeteredIASize',
-      capacity: 'Capacity',
       createTime: 'CreateTime',
-      chargeType: 'ChargeType',
-      storageType: 'StorageType',
-      regionId: 'RegionId',
-      fileSystemId: 'FileSystemId',
-      fileSystemType: 'FileSystemType',
-      meteredSize: 'MeteredSize',
       description: 'Description',
-      expiredTime: 'ExpiredTime',
-      zoneId: 'ZoneId',
-      protocolType: 'ProtocolType',
-      packages: 'Packages',
+      fileSystemPath: 'FileSystemPath',
+      fsetId: 'FsetId',
+      status: 'Status',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      meteredIASize: 'number',
-      capacity: 'number',
       createTime: 'string',
-      chargeType: 'string',
-      storageType: 'string',
-      regionId: 'string',
-      fileSystemId: 'string',
-      fileSystemType: 'string',
-      meteredSize: 'number',
       description: 'string',
-      expiredTime: 'string',
-      zoneId: 'string',
-      protocolType: 'string',
-      packages: DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackages,
+      fileSystemPath: 'string',
+      fsetId: 'string',
+      status: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -5985,42 +9079,17 @@ export class DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystem exten
   }
 }
 
-export class DescribeFileSystemStatisticsResponseBodyFileSystems extends $tea.Model {
-  fileSystem?: DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystem[];
+export class DescribeFilesetsResponseBodyEntries extends $tea.Model {
+  entrie?: DescribeFilesetsResponseBodyEntriesEntrie[];
   static names(): { [key: string]: string } {
     return {
-      fileSystem: 'FileSystem',
+      entrie: 'Entrie',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystem: { 'type': 'array', 'itemType': DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystem },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLDAPConfigResponseBodyLdap extends $tea.Model {
-  searchBase?: string;
-  URI?: string;
-  bindDN?: string;
-  static names(): { [key: string]: string } {
-    return {
-      searchBase: 'SearchBase',
-      URI: 'URI',
-      bindDN: 'BindDN',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      searchBase: 'string',
-      URI: 'string',
-      bindDN: 'string',
+      entrie: { 'type': 'array', 'itemType': DescribeFilesetsResponseBodyEntriesEntrie },
     };
   }
 
@@ -6030,34 +9099,34 @@ export class DescribeLDAPConfigResponseBodyLdap extends $tea.Model {
 }
 
 export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $tea.Model {
-  fileSystemId?: string;
-  lifecycleRuleName?: string;
   createTime?: string;
-  path?: string;
-  storageType?: string;
+  fileSystemId?: string;
   lifecyclePolicyName?: string;
+  lifecycleRuleName?: string;
+  path?: string;
   paths?: string[];
+  storageType?: string;
   static names(): { [key: string]: string } {
     return {
-      fileSystemId: 'FileSystemId',
-      lifecycleRuleName: 'LifecycleRuleName',
       createTime: 'CreateTime',
-      path: 'Path',
-      storageType: 'StorageType',
+      fileSystemId: 'FileSystemId',
       lifecyclePolicyName: 'LifecyclePolicyName',
+      lifecycleRuleName: 'LifecycleRuleName',
+      path: 'Path',
       paths: 'Paths',
+      storageType: 'StorageType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystemId: 'string',
-      lifecycleRuleName: 'string',
       createTime: 'string',
-      path: 'string',
-      storageType: 'string',
+      fileSystemId: 'string',
       lifecyclePolicyName: 'string',
+      lifecycleRuleName: 'string',
+      path: 'string',
       paths: { 'type': 'array', 'itemType': 'string' },
+      storageType: 'string',
     };
   }
 
@@ -6068,24 +9137,24 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $tea
 
 export class DescribeLogAnalysisResponseBodyAnalysesAnalysisMetaValue extends $tea.Model {
   logstore?: string;
-  roleArn?: string;
   project?: string;
   region?: string;
+  roleArn?: string;
   static names(): { [key: string]: string } {
     return {
       logstore: 'Logstore',
-      roleArn: 'RoleArn',
       project: 'Project',
       region: 'Region',
+      roleArn: 'RoleArn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       logstore: 'string',
-      roleArn: 'string',
       project: 'string',
       region: 'string',
+      roleArn: 'string',
     };
   }
 
@@ -6135,6 +9204,112 @@ export class DescribeLogAnalysisResponseBodyAnalyses extends $tea.Model {
   }
 }
 
+export class DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodesClientMasterNode extends $tea.Model {
+  defaultPasswd?: string;
+  ecsId?: string;
+  ecsIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultPasswd: 'DefaultPasswd',
+      ecsId: 'EcsId',
+      ecsIp: 'EcsIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultPasswd: 'string',
+      ecsId: 'string',
+      ecsIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodes extends $tea.Model {
+  clientMasterNode?: DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodesClientMasterNode[];
+  static names(): { [key: string]: string } {
+    return {
+      clientMasterNode: 'ClientMasterNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientMasterNode: { 'type': 'array', 'itemType': DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodesClientMasterNode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMountTargetsResponseBodyMountTargetsMountTarget extends $tea.Model {
+  accessGroup?: string;
+  clientMasterNodes?: DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodes;
+  dualStackMountTargetDomain?: string;
+  IPVersion?: string;
+  mountTargetDomain?: string;
+  networkType?: string;
+  status?: string;
+  vpcId?: string;
+  vswId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessGroup: 'AccessGroup',
+      clientMasterNodes: 'ClientMasterNodes',
+      dualStackMountTargetDomain: 'DualStackMountTargetDomain',
+      IPVersion: 'IPVersion',
+      mountTargetDomain: 'MountTargetDomain',
+      networkType: 'NetworkType',
+      status: 'Status',
+      vpcId: 'VpcId',
+      vswId: 'VswId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessGroup: 'string',
+      clientMasterNodes: DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodes,
+      dualStackMountTargetDomain: 'string',
+      IPVersion: 'string',
+      mountTargetDomain: 'string',
+      networkType: 'string',
+      status: 'string',
+      vpcId: 'string',
+      vswId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMountTargetsResponseBodyMountTargets extends $tea.Model {
+  mountTarget?: DescribeMountTargetsResponseBodyMountTargetsMountTarget[];
+  static names(): { [key: string]: string } {
+    return {
+      mountTarget: 'MountTarget',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountTarget: { 'type': 'array', 'itemType': DescribeMountTargetsResponseBodyMountTargetsMountTarget },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMountedClientsResponseBodyClientsClient extends $tea.Model {
   clientIP?: string;
   static names(): { [key: string]: string } {
@@ -6173,23 +9348,17 @@ export class DescribeMountedClientsResponseBodyClients extends $tea.Model {
   }
 }
 
-export class DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodesClientMasterNode extends $tea.Model {
-  ecsIp?: string;
-  ecsId?: string;
-  defaultPasswd?: string;
+export class DescribeNfsAclResponseBodyAcl extends $tea.Model {
+  enabled?: boolean;
   static names(): { [key: string]: string } {
     return {
-      ecsIp: 'EcsIp',
-      ecsId: 'EcsId',
-      defaultPasswd: 'DefaultPasswd',
+      enabled: 'Enabled',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ecsIp: 'string',
-      ecsId: 'string',
-      defaultPasswd: 'string',
+      enabled: 'boolean',
     };
   }
 
@@ -6198,17 +9367,20 @@ export class DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMaster
   }
 }
 
-export class DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodes extends $tea.Model {
-  clientMasterNode?: DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodesClientMasterNode[];
+export class DescribeProtocolMountTargetRequestFilters extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      clientMasterNode: 'ClientMasterNode',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientMasterNode: { 'type': 'array', 'itemType': DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodesClientMasterNode },
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -6217,38 +9389,50 @@ export class DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMaster
   }
 }
 
-export class DescribeMountTargetsResponseBodyMountTargetsMountTarget extends $tea.Model {
-  vpcId?: string;
+export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends $tea.Model {
+  accessGroupName?: string;
+  createTime?: string;
+  description?: string;
+  exportId?: string;
+  fsetId?: string;
+  path?: string;
+  protocolMountTargetDomain?: string;
+  protocolServiceId?: string;
+  protocolType?: string;
   status?: string;
-  mountTargetDomain?: string;
-  accessGroup?: string;
-  dualStackMountTargetDomain?: string;
-  vswId?: string;
-  networkType?: string;
-  clientMasterNodes?: DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodes;
+  vSwitchId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      vpcId: 'VpcId',
+      accessGroupName: 'AccessGroupName',
+      createTime: 'CreateTime',
+      description: 'Description',
+      exportId: 'ExportId',
+      fsetId: 'FsetId',
+      path: 'Path',
+      protocolMountTargetDomain: 'ProtocolMountTargetDomain',
+      protocolServiceId: 'ProtocolServiceId',
+      protocolType: 'ProtocolType',
       status: 'Status',
-      mountTargetDomain: 'MountTargetDomain',
-      accessGroup: 'AccessGroup',
-      dualStackMountTargetDomain: 'DualStackMountTargetDomain',
-      vswId: 'VswId',
-      networkType: 'NetworkType',
-      clientMasterNodes: 'ClientMasterNodes',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      vpcId: 'string',
+      accessGroupName: 'string',
+      createTime: 'string',
+      description: 'string',
+      exportId: 'string',
+      fsetId: 'string',
+      path: 'string',
+      protocolMountTargetDomain: 'string',
+      protocolServiceId: 'string',
+      protocolType: 'string',
       status: 'string',
-      mountTargetDomain: 'string',
-      accessGroup: 'string',
-      dualStackMountTargetDomain: 'string',
-      vswId: 'string',
-      networkType: 'string',
-      clientMasterNodes: DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodes,
+      vSwitchId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -6257,17 +9441,53 @@ export class DescribeMountTargetsResponseBodyMountTargetsMountTarget extends $te
   }
 }
 
-export class DescribeMountTargetsResponseBodyMountTargets extends $tea.Model {
-  mountTarget?: DescribeMountTargetsResponseBodyMountTargetsMountTarget[];
+export class DescribeProtocolServiceResponseBodyProtocolServices extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  fileSystemId?: string;
+  instanceBaseThroughput?: number;
+  instanceBurstThroughput?: number;
+  instanceRAM?: number;
+  modifyTime?: string;
+  mountTargetCount?: number;
+  protocolServiceId?: string;
+  protocolSpec?: string;
+  protocolThroughput?: number;
+  protocolType?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      mountTarget: 'MountTarget',
+      createTime: 'CreateTime',
+      description: 'Description',
+      fileSystemId: 'FileSystemId',
+      instanceBaseThroughput: 'InstanceBaseThroughput',
+      instanceBurstThroughput: 'InstanceBurstThroughput',
+      instanceRAM: 'InstanceRAM',
+      modifyTime: 'ModifyTime',
+      mountTargetCount: 'MountTargetCount',
+      protocolServiceId: 'ProtocolServiceId',
+      protocolSpec: 'ProtocolSpec',
+      protocolThroughput: 'ProtocolThroughput',
+      protocolType: 'ProtocolType',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      mountTarget: { 'type': 'array', 'itemType': DescribeMountTargetsResponseBodyMountTargetsMountTarget },
+      createTime: 'string',
+      description: 'string',
+      fileSystemId: 'string',
+      instanceBaseThroughput: 'number',
+      instanceBurstThroughput: 'number',
+      instanceRAM: 'number',
+      modifyTime: 'string',
+      mountTargetCount: 'number',
+      protocolServiceId: 'string',
+      protocolSpec: 'string',
+      protocolThroughput: 'number',
+      protocolType: 'string',
+      status: 'string',
     };
   }
 
@@ -6277,21 +9497,21 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
-  regionEndpoint?: string;
   localName?: string;
+  regionEndpoint?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionEndpoint: 'RegionEndpoint',
       localName: 'LocalName',
+      regionEndpoint: 'RegionEndpoint',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionEndpoint: 'string',
       localName: 'string',
+      regionEndpoint: 'string',
       regionId: 'string',
     };
   }
@@ -6320,50 +9540,84 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
-export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
-  status?: string;
-  progress?: string;
-  createTime?: string;
-  sourceFileSystemId?: string;
-  remainTime?: number;
-  retentionDays?: number;
-  sourceFileSystemSize?: number;
-  snapshotName?: string;
-  sourceFileSystemVersion?: string;
-  encryptType?: number;
-  description?: string;
-  snapshotId?: string;
+export class DescribeSmbAclResponseBodyAcl extends $tea.Model {
+  enableAnonymousAccess?: boolean;
+  enabled?: boolean;
+  encryptData?: boolean;
+  homeDirPath?: string;
+  rejectUnencryptedAccess?: boolean;
+  superAdminSid?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      progress: 'Progress',
-      createTime: 'CreateTime',
-      sourceFileSystemId: 'SourceFileSystemId',
-      remainTime: 'RemainTime',
-      retentionDays: 'RetentionDays',
-      sourceFileSystemSize: 'SourceFileSystemSize',
-      snapshotName: 'SnapshotName',
-      sourceFileSystemVersion: 'SourceFileSystemVersion',
-      encryptType: 'EncryptType',
-      description: 'Description',
-      snapshotId: 'SnapshotId',
+      enableAnonymousAccess: 'EnableAnonymousAccess',
+      enabled: 'Enabled',
+      encryptData: 'EncryptData',
+      homeDirPath: 'HomeDirPath',
+      rejectUnencryptedAccess: 'RejectUnencryptedAccess',
+      superAdminSid: 'SuperAdminSid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      progress: 'string',
+      enableAnonymousAccess: 'boolean',
+      enabled: 'boolean',
+      encryptData: 'boolean',
+      homeDirPath: 'string',
+      rejectUnencryptedAccess: 'boolean',
+      superAdminSid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  encryptType?: number;
+  progress?: string;
+  remainTime?: number;
+  retentionDays?: number;
+  snapshotId?: string;
+  snapshotName?: string;
+  sourceFileSystemId?: string;
+  sourceFileSystemSize?: number;
+  sourceFileSystemVersion?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      encryptType: 'EncryptType',
+      progress: 'Progress',
+      remainTime: 'RemainTime',
+      retentionDays: 'RetentionDays',
+      snapshotId: 'SnapshotId',
+      snapshotName: 'SnapshotName',
+      sourceFileSystemId: 'SourceFileSystemId',
+      sourceFileSystemSize: 'SourceFileSystemSize',
+      sourceFileSystemVersion: 'SourceFileSystemVersion',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       createTime: 'string',
-      sourceFileSystemId: 'string',
+      description: 'string',
+      encryptType: 'number',
+      progress: 'string',
       remainTime: 'number',
       retentionDays: 'number',
-      sourceFileSystemSize: 'number',
-      snapshotName: 'string',
-      sourceFileSystemVersion: 'string',
-      encryptType: 'number',
-      description: 'string',
       snapshotId: 'string',
+      snapshotName: 'string',
+      sourceFileSystemId: 'string',
+      sourceFileSystemSize: 'number',
+      sourceFileSystemVersion: 'string',
+      status: 'string',
     };
   }
 
@@ -6392,34 +9646,34 @@ export class DescribeSnapshotsResponseBodySnapshots extends $tea.Model {
 }
 
 export class DescribeStoragePackagesResponseBodyPackagesPackage extends $tea.Model {
-  status?: string;
-  fileSystemId?: string;
-  startTime?: string;
   expiredTime?: string;
-  size?: number;
-  storageType?: string;
+  fileSystemId?: string;
   packageId?: string;
+  size?: number;
+  startTime?: string;
+  status?: string;
+  storageType?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      fileSystemId: 'FileSystemId',
-      startTime: 'StartTime',
       expiredTime: 'ExpiredTime',
-      size: 'Size',
-      storageType: 'StorageType',
+      fileSystemId: 'FileSystemId',
       packageId: 'PackageId',
+      size: 'Size',
+      startTime: 'StartTime',
+      status: 'Status',
+      storageType: 'StorageType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      fileSystemId: 'string',
-      startTime: 'string',
       expiredTime: 'string',
-      size: 'number',
-      storageType: 'string',
+      fileSystemId: 'string',
       packageId: 'string',
+      size: 'number',
+      startTime: 'string',
+      status: 'string',
+      storageType: 'string',
     };
   }
 
@@ -6439,110 +9693,6 @@ export class DescribeStoragePackagesResponseBodyPackages extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       package: { 'type': 'array', 'itemType': DescribeStoragePackagesResponseBodyPackagesPackage },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTagsRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTagsResponseBodyTagsTagFileSystemIds extends $tea.Model {
-  fileSystemId?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTagsResponseBodyTagsTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  fileSystemIds?: DescribeTagsResponseBodyTagsTagFileSystemIds;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-      fileSystemIds: 'FileSystemIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-      fileSystemIds: DescribeTagsResponseBodyTagsTagFileSystemIds,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTagsResponseBodyTags extends $tea.Model {
-  tag?: DescribeTagsResponseBodyTagsTag[];
-  static names(): { [key: string]: string } {
-    return {
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tag: { 'type': 'array', 'itemType': DescribeTagsResponseBodyTagsTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeZonesResponseBodyZonesZonePerformance extends $tea.Model {
-  protocol?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      protocol: 'Protocol',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      protocol: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -6571,19 +9721,19 @@ export class DescribeZonesResponseBodyZonesZoneCapacity extends $tea.Model {
 }
 
 export class DescribeZonesResponseBodyZonesZoneInstanceTypesInstanceType extends $tea.Model {
-  storageType?: string;
   protocolType?: string;
+  storageType?: string;
   static names(): { [key: string]: string } {
     return {
-      storageType: 'StorageType',
       protocolType: 'ProtocolType',
+      storageType: 'StorageType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      storageType: 'string',
       protocolType: 'string',
+      storageType: 'string',
     };
   }
 
@@ -6611,26 +9761,45 @@ export class DescribeZonesResponseBodyZonesZoneInstanceTypes extends $tea.Model 
   }
 }
 
-export class DescribeZonesResponseBodyZonesZone extends $tea.Model {
-  performance?: DescribeZonesResponseBodyZonesZonePerformance;
-  capacity?: DescribeZonesResponseBodyZonesZoneCapacity;
-  zoneId?: string;
-  instanceTypes?: DescribeZonesResponseBodyZonesZoneInstanceTypes;
+export class DescribeZonesResponseBodyZonesZonePerformance extends $tea.Model {
+  protocol?: string[];
   static names(): { [key: string]: string } {
     return {
-      performance: 'Performance',
-      capacity: 'Capacity',
-      zoneId: 'ZoneId',
-      instanceTypes: 'InstanceTypes',
+      protocol: 'Protocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      performance: DescribeZonesResponseBodyZonesZonePerformance,
+      protocol: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeZonesResponseBodyZonesZone extends $tea.Model {
+  capacity?: DescribeZonesResponseBodyZonesZoneCapacity;
+  instanceTypes?: DescribeZonesResponseBodyZonesZoneInstanceTypes;
+  performance?: DescribeZonesResponseBodyZonesZonePerformance;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      instanceTypes: 'InstanceTypes',
+      performance: 'Performance',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       capacity: DescribeZonesResponseBodyZonesZoneCapacity,
-      zoneId: 'string',
       instanceTypes: DescribeZonesResponseBodyZonesZoneInstanceTypes,
+      performance: DescribeZonesResponseBodyZonesZonePerformance,
+      zoneId: 'string',
     };
   }
 
@@ -6659,43 +9828,43 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
 }
 
 export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $tea.Model {
-  type?: string;
-  hasInfrequentAccessFile?: boolean;
-  MTime?: string;
   ATime?: string;
-  size?: number;
   CTime?: string;
-  storageType?: string;
+  hasInfrequentAccessFile?: boolean;
+  inode?: string;
+  MTime?: string;
   name?: string;
   retrieveTime?: string;
-  inode?: string;
+  size?: number;
+  storageType?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      hasInfrequentAccessFile: 'HasInfrequentAccessFile',
-      MTime: 'MTime',
       ATime: 'ATime',
-      size: 'Size',
       CTime: 'CTime',
-      storageType: 'StorageType',
+      hasInfrequentAccessFile: 'HasInfrequentAccessFile',
+      inode: 'Inode',
+      MTime: 'MTime',
       name: 'Name',
       retrieveTime: 'RetrieveTime',
-      inode: 'Inode',
+      size: 'Size',
+      storageType: 'StorageType',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      hasInfrequentAccessFile: 'boolean',
-      MTime: 'string',
       ATime: 'string',
-      size: 'number',
       CTime: 'string',
-      storageType: 'string',
+      hasInfrequentAccessFile: 'boolean',
+      inode: 'string',
+      MTime: 'string',
       name: 'string',
       retrieveTime: 'string',
-      inode: 'string',
+      size: 'number',
+      storageType: 'string',
+      type: 'string',
     };
   }
 
@@ -6705,25 +9874,28 @@ export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $tea.Model {
 }
 
 export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $tea.Model {
+  enableTime?: string;
+  reservedDays?: number;
+  secondarySize?: number;
   size?: number;
   status?: string;
-  reservedDays?: number;
-  enableTime?: string;
   static names(): { [key: string]: string } {
     return {
+      enableTime: 'EnableTime',
+      reservedDays: 'ReservedDays',
+      secondarySize: 'SecondarySize',
       size: 'Size',
       status: 'Status',
-      reservedDays: 'ReservedDays',
-      enableTime: 'EnableTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      enableTime: 'string',
+      reservedDays: 'number',
+      secondarySize: 'number',
       size: 'number',
       status: 'string',
-      reservedDays: 'number',
-      enableTime: 'string',
     };
   }
 
@@ -6733,46 +9905,49 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $tea.
 }
 
 export class ListDirectoriesAndFilesResponseBodyEntries extends $tea.Model {
-  type?: string;
-  hasInfrequentAccessFile?: boolean;
+  atime?: string;
   ctime?: string;
+  fileId?: string;
+  hasInfrequentAccessFile?: boolean;
+  inode?: string;
   mtime?: string;
+  name?: string;
+  owner?: string;
+  retrieveTime?: string;
   size?: number;
   storageType?: string;
-  atime?: string;
-  name?: string;
-  retrieveTime?: string;
-  inode?: string;
-  fileId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      hasInfrequentAccessFile: 'HasInfrequentAccessFile',
+      atime: 'Atime',
       ctime: 'Ctime',
+      fileId: 'FileId',
+      hasInfrequentAccessFile: 'HasInfrequentAccessFile',
+      inode: 'Inode',
       mtime: 'Mtime',
+      name: 'Name',
+      owner: 'Owner',
+      retrieveTime: 'RetrieveTime',
       size: 'Size',
       storageType: 'StorageType',
-      atime: 'Atime',
-      name: 'Name',
-      retrieveTime: 'RetrieveTime',
-      inode: 'Inode',
-      fileId: 'FileId',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      hasInfrequentAccessFile: 'boolean',
+      atime: 'string',
       ctime: 'string',
+      fileId: 'string',
+      hasInfrequentAccessFile: 'boolean',
+      inode: 'string',
       mtime: 'string',
+      name: 'string',
+      owner: 'string',
+      retrieveTime: 'string',
       size: 'number',
       storageType: 'string',
-      atime: 'string',
-      name: 'string',
-      retrieveTime: 'string',
-      inode: 'string',
-      fileId: 'string',
+      type: 'string',
     };
   }
 
@@ -6782,37 +9957,37 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $tea.Model {
 }
 
 export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends $tea.Model {
-  fileSystemId?: string;
-  status?: string;
+  createTime?: string;
   discoveredFileCount?: number;
-  updateTime?: string;
+  fileSystemId?: string;
+  jobId?: string;
   paths?: string[];
   retrievedFileCount?: number;
-  jobId?: string;
-  createTime?: string;
+  status?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      fileSystemId: 'FileSystemId',
-      status: 'Status',
+      createTime: 'CreateTime',
       discoveredFileCount: 'DiscoveredFileCount',
-      updateTime: 'UpdateTime',
+      fileSystemId: 'FileSystemId',
+      jobId: 'JobId',
       paths: 'Paths',
       retrievedFileCount: 'RetrievedFileCount',
-      jobId: 'JobId',
-      createTime: 'CreateTime',
+      status: 'Status',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystemId: 'string',
-      status: 'string',
+      createTime: 'string',
       discoveredFileCount: 'number',
-      updateTime: 'string',
+      fileSystemId: 'string',
+      jobId: 'string',
       paths: { 'type': 'array', 'itemType': 'string' },
       retrievedFileCount: 'number',
-      jobId: 'string',
-      createTime: 'string',
+      status: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -6823,24 +9998,24 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
 
 export class ListRecentlyRecycledDirectoriesResponseBodyEntries extends $tea.Model {
   fileId?: string;
-  path?: string;
-  name?: string;
   lastDeleteTime?: string;
+  name?: string;
+  path?: string;
   static names(): { [key: string]: string } {
     return {
       fileId: 'FileId',
-      path: 'Path',
-      name: 'Name',
       lastDeleteTime: 'LastDeleteTime',
+      name: 'Name',
+      path: 'Path',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       fileId: 'string',
-      path: 'string',
-      name: 'string',
       lastDeleteTime: 'string',
+      name: 'string',
+      path: 'string',
     };
   }
 
@@ -6850,40 +10025,40 @@ export class ListRecentlyRecycledDirectoriesResponseBodyEntries extends $tea.Mod
 }
 
 export class ListRecycleBinJobsResponseBodyJobs extends $tea.Model {
-  id?: string;
-  type?: string;
-  fileId?: string;
-  status?: string;
-  errorCode?: string;
-  progress?: string;
   createTime?: string;
-  fileName?: string;
+  errorCode?: string;
   errorMessage?: string;
+  fileId?: string;
+  fileName?: string;
+  id?: string;
+  progress?: string;
+  status?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      type: 'Type',
-      fileId: 'FileId',
-      status: 'Status',
-      errorCode: 'ErrorCode',
-      progress: 'Progress',
       createTime: 'CreateTime',
-      fileName: 'FileName',
+      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      fileId: 'FileId',
+      fileName: 'FileName',
+      id: 'Id',
+      progress: 'Progress',
+      status: 'Status',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      type: 'string',
-      fileId: 'string',
-      status: 'string',
-      errorCode: 'string',
-      progress: 'string',
       createTime: 'string',
-      fileName: 'string',
+      errorCode: 'string',
       errorMessage: 'string',
+      fileId: 'string',
+      fileName: 'string',
+      id: 'string',
+      progress: 'string',
+      status: 'string',
+      type: 'string',
     };
   }
 
@@ -6893,40 +10068,40 @@ export class ListRecycleBinJobsResponseBodyJobs extends $tea.Model {
 }
 
 export class ListRecycledDirectoriesAndFilesResponseBodyEntries extends $tea.Model {
-  fileId?: string;
-  type?: string;
-  name?: string;
-  deleteTime?: string;
-  inode?: string;
   ATime?: string;
-  MTime?: string;
   CTime?: string;
+  deleteTime?: string;
+  fileId?: string;
+  inode?: string;
+  MTime?: string;
+  name?: string;
   size?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      fileId: 'FileId',
-      type: 'Type',
-      name: 'Name',
-      deleteTime: 'DeleteTime',
-      inode: 'Inode',
       ATime: 'ATime',
-      MTime: 'MTime',
       CTime: 'CTime',
+      deleteTime: 'DeleteTime',
+      fileId: 'FileId',
+      inode: 'Inode',
+      MTime: 'MTime',
+      name: 'Name',
       size: 'Size',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileId: 'string',
-      type: 'string',
-      name: 'string',
-      deleteTime: 'string',
-      inode: 'string',
       ATime: 'string',
-      MTime: 'string',
       CTime: 'string',
+      deleteTime: 'string',
+      fileId: 'string',
+      inode: 'string',
+      MTime: 'string',
+      name: 'string',
       size: 'number',
+      type: 'string',
     };
   }
 
@@ -6958,25 +10133,25 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
-  tagValue?: string;
-  resourceType?: string;
   resourceId?: string;
+  resourceType?: string;
   tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      tagValue: 'TagValue',
-      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagValue: 'string',
-      resourceType: 'string',
       resourceId: 'string',
+      resourceType: 'string',
       tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -7076,104 +10251,647 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * The API operation is available only for CPFS file systems.
+    *
+    * @param request AddClientToBlackListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddClientToBlackListResponse
+   */
   async addClientToBlackListWithOptions(request: AddClientToBlackListRequest, runtime: $Util.RuntimeOptions): Promise<AddClientToBlackListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientIP)) {
+      query["ClientIP"] = request.clientIP;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddClientToBlackListResponse>(await this.doRPCRequest("AddClientToBlackList", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new AddClientToBlackListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddClientToBlackList",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddClientToBlackListResponse>(await this.callApi(params, req, runtime), new AddClientToBlackListResponse({}));
   }
 
+  /**
+    * The API operation is available only for CPFS file systems.
+    *
+    * @param request AddClientToBlackListRequest
+    * @return AddClientToBlackListResponse
+   */
   async addClientToBlackList(request: AddClientToBlackListRequest): Promise<AddClientToBlackListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addClientToBlackListWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   Each tag includes a TagKey and a TagValue.
+    * *   Placeholders at the start and end of each TagKey and TagValue are automatically removed. These placeholders include the spacebar ( ), tab (\\t), line break (\\n), and carriage return (\\r).
+    * *   You must specify a TagKey. You can leave a TagValue empty.
+    * *   A TagKey and TagValue are not case-sensitive.
+    * *   A TagKey can be a maximum of 64 characters in length. A TagValue can be a maximum of 128 characters in length.
+    * *   You can add a maximum of 10 tags to a file system at a time. If you add two tags with the same TagKey, the new tag added will overwrite the existing tag.
+    * *   If you remove a tag from all linked file systems, the tag is automatically deleted.
+    *
+    * @param request AddTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddTagsResponse
+   */
   async addTagsWithOptions(request: AddTagsRequest, runtime: $Util.RuntimeOptions): Promise<AddTagsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddTagsResponse>(await this.doRPCRequest("AddTags", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new AddTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddTags",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddTagsResponse>(await this.callApi(params, req, runtime), new AddTagsResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   Each tag includes a TagKey and a TagValue.
+    * *   Placeholders at the start and end of each TagKey and TagValue are automatically removed. These placeholders include the spacebar ( ), tab (\\t), line break (\\n), and carriage return (\\r).
+    * *   You must specify a TagKey. You can leave a TagValue empty.
+    * *   A TagKey and TagValue are not case-sensitive.
+    * *   A TagKey can be a maximum of 64 characters in length. A TagValue can be a maximum of 128 characters in length.
+    * *   You can add a maximum of 10 tags to a file system at a time. If you add two tags with the same TagKey, the new tag added will overwrite the existing tag.
+    * *   If you remove a tag from all linked file systems, the tag is automatically deleted.
+    *
+    * @param request AddTagsRequest
+    * @return AddTagsResponse
+   */
   async addTags(request: AddTagsRequest): Promise<AddTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTagsWithOptions(request, runtime);
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    * *   You can apply only one automatic snapshot policy to each file system.
+    * *   Each automatic snapshot policy can be applied to multiple file systems.
+    * *   If an automatic snapshot policy is applied to a file system, you can call the ApplyAutoSnapshotPolicy operation to change the automatic snapshot policy.
+    *
+    * @param request ApplyAutoSnapshotPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ApplyAutoSnapshotPolicyResponse
+   */
   async applyAutoSnapshotPolicyWithOptions(request: ApplyAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ApplyAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoSnapshotPolicyId)) {
+      query["AutoSnapshotPolicyId"] = request.autoSnapshotPolicyId;
+    }
+
+    if (!Util.isUnset(request.fileSystemIds)) {
+      query["FileSystemIds"] = request.fileSystemIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ApplyAutoSnapshotPolicyResponse>(await this.doRPCRequest("ApplyAutoSnapshotPolicy", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ApplyAutoSnapshotPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ApplyAutoSnapshotPolicy",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new ApplyAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    * *   You can apply only one automatic snapshot policy to each file system.
+    * *   Each automatic snapshot policy can be applied to multiple file systems.
+    * *   If an automatic snapshot policy is applied to a file system, you can call the ApplyAutoSnapshotPolicy operation to change the automatic snapshot policy.
+    *
+    * @param request ApplyAutoSnapshotPolicyRequest
+    * @return ApplyAutoSnapshotPolicyResponse
+   */
   async applyAutoSnapshotPolicy(request: ApplyAutoSnapshotPolicyRequest): Promise<ApplyAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
-  async cancelAutoSnapshotPolicyWithOptions(request: CancelAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CancelAutoSnapshotPolicyResponse> {
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+    * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
+    * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
+    * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](~~336901~~) operation to query the dataflow status.
+    * *   AutoRefresh depends on the object modification events collected by EventBridge from the source Object Storage Service (OSS) bucket. You must first [activate EventBridge](~~182246~~).
+    *     **
+    *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
+    * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
+    * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
+    * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
+    *
+    * @param request ApplyDataFlowAutoRefreshRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ApplyDataFlowAutoRefreshResponse
+   */
+  async applyDataFlowAutoRefreshWithOptions(request: ApplyDataFlowAutoRefreshRequest, runtime: $Util.RuntimeOptions): Promise<ApplyDataFlowAutoRefreshResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoRefreshInterval)) {
+      query["AutoRefreshInterval"] = request.autoRefreshInterval;
+    }
+
+    if (!Util.isUnset(request.autoRefreshPolicy)) {
+      query["AutoRefreshPolicy"] = request.autoRefreshPolicy;
+    }
+
+    if (!Util.isUnset(request.autoRefreshs)) {
+      query["AutoRefreshs"] = request.autoRefreshs;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataFlowId)) {
+      query["DataFlowId"] = request.dataFlowId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelAutoSnapshotPolicyResponse>(await this.doRPCRequest("CancelAutoSnapshotPolicy", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CancelAutoSnapshotPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ApplyDataFlowAutoRefresh",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyDataFlowAutoRefreshResponse>(await this.callApi(params, req, runtime), new ApplyDataFlowAutoRefreshResponse({}));
   }
 
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+    * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
+    * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
+    * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](~~336901~~) operation to query the dataflow status.
+    * *   AutoRefresh depends on the object modification events collected by EventBridge from the source Object Storage Service (OSS) bucket. You must first [activate EventBridge](~~182246~~).
+    *     **
+    *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
+    * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
+    * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
+    * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
+    *
+    * @param request ApplyDataFlowAutoRefreshRequest
+    * @return ApplyDataFlowAutoRefreshResponse
+   */
+  async applyDataFlowAutoRefresh(request: ApplyDataFlowAutoRefreshRequest): Promise<ApplyDataFlowAutoRefreshResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.applyDataFlowAutoRefreshWithOptions(request, runtime);
+  }
+
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    *
+    * @param request CancelAutoSnapshotPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelAutoSnapshotPolicyResponse
+   */
+  async cancelAutoSnapshotPolicyWithOptions(request: CancelAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CancelAutoSnapshotPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemIds)) {
+      query["FileSystemIds"] = request.fileSystemIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelAutoSnapshotPolicy",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new CancelAutoSnapshotPolicyResponse({}));
+  }
+
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    *
+    * @param request CancelAutoSnapshotPolicyRequest
+    * @return CancelAutoSnapshotPolicyResponse
+   */
   async cancelAutoSnapshotPolicy(request: CancelAutoSnapshotPolicyRequest): Promise<CancelAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
-  async cancelDirQuotaWithOptions(request: CancelDirQuotaRequest, runtime: $Util.RuntimeOptions): Promise<CancelDirQuotaResponse> {
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+    * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
+    * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](~~336901~~) operation to query the status of the AutoRefresh tasks.
+    *
+    * @param request CancelDataFlowAutoRefreshRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelDataFlowAutoRefreshResponse
+   */
+  async cancelDataFlowAutoRefreshWithOptions(request: CancelDataFlowAutoRefreshRequest, runtime: $Util.RuntimeOptions): Promise<CancelDataFlowAutoRefreshResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataFlowId)) {
+      query["DataFlowId"] = request.dataFlowId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.refreshPath)) {
+      query["RefreshPath"] = request.refreshPath;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelDirQuotaResponse>(await this.doRPCRequest("CancelDirQuota", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CancelDirQuotaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelDataFlowAutoRefresh",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelDataFlowAutoRefreshResponse>(await this.callApi(params, req, runtime), new CancelDataFlowAutoRefreshResponse({}));
   }
 
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+    * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
+    * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](~~336901~~) operation to query the status of the AutoRefresh tasks.
+    *
+    * @param request CancelDataFlowAutoRefreshRequest
+    * @return CancelDataFlowAutoRefreshResponse
+   */
+  async cancelDataFlowAutoRefresh(request: CancelDataFlowAutoRefreshRequest): Promise<CancelDataFlowAutoRefreshResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelDataFlowAutoRefreshWithOptions(request, runtime);
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflow tasks. You can view the version information on the file system details page in the console.
+    * *   You can cancel only the dataflow tasks that are in the `Pending` and `Executing` states.
+    * *   It generally takes 5 to 10 minutes to cancel a dataflow task. You can query the task execution status by calling the [DescribeDataFlowTasks](~~2402275~~) operation.
+    *
+    * @param request CancelDataFlowTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelDataFlowTaskResponse
+   */
+  async cancelDataFlowTaskWithOptions(request: CancelDataFlowTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelDataFlowTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataFlowId)) {
+      query["DataFlowId"] = request.dataFlowId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelDataFlowTask",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelDataFlowTaskResponse>(await this.callApi(params, req, runtime), new CancelDataFlowTaskResponse({}));
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflow tasks. You can view the version information on the file system details page in the console.
+    * *   You can cancel only the dataflow tasks that are in the `Pending` and `Executing` states.
+    * *   It generally takes 5 to 10 minutes to cancel a dataflow task. You can query the task execution status by calling the [DescribeDataFlowTasks](~~2402275~~) operation.
+    *
+    * @param request CancelDataFlowTaskRequest
+    * @return CancelDataFlowTaskResponse
+   */
+  async cancelDataFlowTask(request: CancelDataFlowTaskRequest): Promise<CancelDataFlowTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelDataFlowTaskWithOptions(request, runtime);
+  }
+
+  /**
+    * Only General-purpose file systems support the directory quota feature.
+    *
+    * @param request CancelDirQuotaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelDirQuotaResponse
+   */
+  async cancelDirQuotaWithOptions(request: CancelDirQuotaRequest, runtime: $Util.RuntimeOptions): Promise<CancelDirQuotaResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userType)) {
+      query["UserType"] = request.userType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelDirQuota",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelDirQuotaResponse>(await this.callApi(params, req, runtime), new CancelDirQuotaResponse({}));
+  }
+
+  /**
+    * Only General-purpose file systems support the directory quota feature.
+    *
+    * @param request CancelDirQuotaRequest
+    * @return CancelDirQuotaResponse
+   */
   async cancelDirQuota(request: CancelDirQuotaRequest): Promise<CancelDirQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelDirQuotaWithOptions(request, runtime);
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request CancelLifecycleRetrieveJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelLifecycleRetrieveJobResponse
+   */
   async cancelLifecycleRetrieveJobWithOptions(request: CancelLifecycleRetrieveJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelLifecycleRetrieveJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelLifecycleRetrieveJobResponse>(await this.doRPCRequest("CancelLifecycleRetrieveJob", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CancelLifecycleRetrieveJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelLifecycleRetrieveJob",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelLifecycleRetrieveJobResponse>(await this.callApi(params, req, runtime), new CancelLifecycleRetrieveJobResponse({}));
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request CancelLifecycleRetrieveJobRequest
+    * @return CancelLifecycleRetrieveJobResponse
+   */
   async cancelLifecycleRetrieveJob(request: CancelLifecycleRetrieveJobRequest): Promise<CancelLifecycleRetrieveJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelLifecycleRetrieveJobWithOptions(request, runtime);
   }
 
+  /**
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   You can cancel only jobs that are in the Running state. You cannot cancel jobs that are in the PartialSuccess, Success, Fail, or Cancelled state.
+    * *   If you cancel a running job that permanently deletes files, you cannot restore the files that are already permanently deleted.
+    * *   If you cancel a running job that restores files, you can query the restored files from the file system, and query the unrestored files from the recycle bin.
+    *
+    * @param request CancelRecycleBinJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelRecycleBinJobResponse
+   */
   async cancelRecycleBinJobWithOptions(request: CancelRecycleBinJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelRecycleBinJobResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelRecycleBinJobResponse>(await this.doRPCRequest("CancelRecycleBinJob", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new CancelRecycleBinJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelRecycleBinJob",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelRecycleBinJobResponse>(await this.callApi(params, req, runtime), new CancelRecycleBinJobResponse({}));
   }
 
+  /**
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   You can cancel only jobs that are in the Running state. You cannot cancel jobs that are in the PartialSuccess, Success, Fail, or Cancelled state.
+    * *   If you cancel a running job that permanently deletes files, you cannot restore the files that are already permanently deleted.
+    * *   If you cancel a running job that restores files, you can query the restored files from the file system, and query the unrestored files from the recycle bin.
+    *
+    * @param request CancelRecycleBinJobRequest
+    * @return CancelRecycleBinJobResponse
+   */
   async cancelRecycleBinJob(request: CancelRecycleBinJobRequest): Promise<CancelRecycleBinJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelRecycleBinJobWithOptions(request, runtime);
   }
 
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
   async createAccessGroupWithOptions(request: CreateAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessGroupName)) {
+      query["AccessGroupName"] = request.accessGroupName;
+    }
+
+    if (!Util.isUnset(request.accessGroupType)) {
+      query["AccessGroupType"] = request.accessGroupType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateAccessGroupResponse>(await this.doRPCRequest("CreateAccessGroup", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAccessGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAccessGroup",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAccessGroupResponse>(await this.callApi(params, req, runtime), new CreateAccessGroupResponse({}));
   }
 
   async createAccessGroup(request: CreateAccessGroupRequest): Promise<CreateAccessGroupResponse> {
@@ -7183,10 +10901,50 @@ export default class Client extends OpenApi {
 
   async createAccessRuleWithOptions(request: CreateAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessGroupName)) {
+      query["AccessGroupName"] = request.accessGroupName;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
+    if (!Util.isUnset(request.ipv6SourceCidrIp)) {
+      query["Ipv6SourceCidrIp"] = request.ipv6SourceCidrIp;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.RWAccessType)) {
+      query["RWAccessType"] = request.RWAccessType;
+    }
+
+    if (!Util.isUnset(request.sourceCidrIp)) {
+      query["SourceCidrIp"] = request.sourceCidrIp;
+    }
+
+    if (!Util.isUnset(request.userAccessType)) {
+      query["UserAccessType"] = request.userAccessType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateAccessRuleResponse>(await this.doRPCRequest("CreateAccessRule", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAccessRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAccessRule",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAccessRuleResponse>(await this.callApi(params, req, runtime), new CreateAccessRuleResponse({}));
   }
 
   async createAccessRule(request: CreateAccessRuleRequest): Promise<CreateAccessRuleResponse> {
@@ -7194,38 +10952,586 @@ export default class Client extends OpenApi {
     return await this.createAccessRuleWithOptions(request, runtime);
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
+    * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
+    * *   A maximum of 128 auto snapshots can be created for a file system. If the upper limit is reached, the earliest auto snapshot is deleted. This rule does not apply to manual snapshots.
+    * *   If you modify the retention period of an automatic snapshot policy, the modification applies only to subsequent snapshots, but not to the existing snapshots.
+    * *   If an auto snapshot is being created for a file system, you cannot create a manual snapshot for the file system. You must wait after the auto snapshot is created.
+    * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
+    * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
+    * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
+    *
+    * @param request CreateAutoSnapshotPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAutoSnapshotPolicyResponse
+   */
   async createAutoSnapshotPolicyWithOptions(request: CreateAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoSnapshotPolicyName)) {
+      query["AutoSnapshotPolicyName"] = request.autoSnapshotPolicyName;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
+    if (!Util.isUnset(request.repeatWeekdays)) {
+      query["RepeatWeekdays"] = request.repeatWeekdays;
+    }
+
+    if (!Util.isUnset(request.retentionDays)) {
+      query["RetentionDays"] = request.retentionDays;
+    }
+
+    if (!Util.isUnset(request.timePoints)) {
+      query["TimePoints"] = request.timePoints;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateAutoSnapshotPolicyResponse>(await this.doRPCRequest("CreateAutoSnapshotPolicy", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAutoSnapshotPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAutoSnapshotPolicy",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new CreateAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
+    * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
+    * *   A maximum of 128 auto snapshots can be created for a file system. If the upper limit is reached, the earliest auto snapshot is deleted. This rule does not apply to manual snapshots.
+    * *   If you modify the retention period of an automatic snapshot policy, the modification applies only to subsequent snapshots, but not to the existing snapshots.
+    * *   If an auto snapshot is being created for a file system, you cannot create a manual snapshot for the file system. You must wait after the auto snapshot is created.
+    * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
+    * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
+    * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
+    *
+    * @param request CreateAutoSnapshotPolicyRequest
+    * @return CreateAutoSnapshotPolicyResponse
+   */
   async createAutoSnapshotPolicy(request: CreateAutoSnapshotPolicyRequest): Promise<CreateAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
-  async createFileSystemWithOptions(request: CreateFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileSystemResponse> {
+  /**
+    * *   Billing
+    *     *   If you create a dataflow, you are charged for using the dataflow throughput. For more information, see [Billing methods and billable items of CPFS](~~111858~~).
+    *     *   When you configure the AutoRefresh feature for a dataflow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](~~163752~~).
+    * *   Dataflow specifications
+    *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
+    *     *   When you create a dataflow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
+    *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
+    * *   Fileset
+    *     *   The destination for a dataflow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
+    *     *   When you create a dataflow, the related fileset must already exist and cannot be nested with other filesets. Only one dataflow can be created in a fileset, which corresponds to one source storage.
+    *     *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
+    *     **
+    *     **Note** If data already exists in the fileset, after you create a dataflow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
+    * *   Source storage
+    *     *   The source storage is an OSS bucket. SourceStorage for a dataflow must be an OSS bucket. The prefix of an OSS bucket is not supported.
+    *     *   CPFS dataflows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
+    *     *   If dataflows for multiple CPFS file systems or multiple dataflows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
+    *     *   Dataflows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
+    *         **
+    *         **Note** Before you create a dataflow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created dataflow can access the data in the OSS bucket. When a dataflow is being used, do not delete or modify the tag. Otherwise, the dataflow for CPFS cannot access the data in the OSS bucket.
+    * *   AutoRefresh
+    *     *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
+    *     *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](~~182246~~).
+    *     *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a dataflow.
+    *     *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes `Misconfigured`. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
+    *     *   When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
+    *     **
+    *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly
+    * *   Permissions
+    *     When you create a dataflow, CPFS obtains two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](~~185138~~).
+    * *   Basic operations
+    *     *   Only CPFS V2.2.0 and later support dataflows.
+    *     *   You can create a dataflow only if the CPFS file system is in the Running state.
+    *     *   A maximum of 10 dataflows can be created for a CPFS file system.
+    *     *   It generally takes 2 to 5 minutes to create a dataflow. You can call the DescribeDataFlows operation to check whether the dataflow has been created.
+    *
+    * @param request CreateDataFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDataFlowResponse
+   */
+  async createDataFlowWithOptions(request: CreateDataFlowRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataFlowResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoRefreshInterval)) {
+      query["AutoRefreshInterval"] = request.autoRefreshInterval;
+    }
+
+    if (!Util.isUnset(request.autoRefreshPolicy)) {
+      query["AutoRefreshPolicy"] = request.autoRefreshPolicy;
+    }
+
+    if (!Util.isUnset(request.autoRefreshs)) {
+      query["AutoRefreshs"] = request.autoRefreshs;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.fsetId)) {
+      query["FsetId"] = request.fsetId;
+    }
+
+    if (!Util.isUnset(request.sourceSecurityType)) {
+      query["SourceSecurityType"] = request.sourceSecurityType;
+    }
+
+    if (!Util.isUnset(request.sourceStorage)) {
+      query["SourceStorage"] = request.sourceStorage;
+    }
+
+    if (!Util.isUnset(request.throughput)) {
+      query["Throughput"] = request.throughput;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateFileSystemResponse>(await this.doRPCRequest("CreateFileSystem", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CreateFileSystemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDataFlow",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataFlowResponse>(await this.callApi(params, req, runtime), new CreateDataFlowResponse({}));
   }
 
+  /**
+    * *   Billing
+    *     *   If you create a dataflow, you are charged for using the dataflow throughput. For more information, see [Billing methods and billable items of CPFS](~~111858~~).
+    *     *   When you configure the AutoRefresh feature for a dataflow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](~~163752~~).
+    * *   Dataflow specifications
+    *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
+    *     *   When you create a dataflow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
+    *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
+    * *   Fileset
+    *     *   The destination for a dataflow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
+    *     *   When you create a dataflow, the related fileset must already exist and cannot be nested with other filesets. Only one dataflow can be created in a fileset, which corresponds to one source storage.
+    *     *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
+    *     **
+    *     **Note** If data already exists in the fileset, after you create a dataflow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
+    * *   Source storage
+    *     *   The source storage is an OSS bucket. SourceStorage for a dataflow must be an OSS bucket. The prefix of an OSS bucket is not supported.
+    *     *   CPFS dataflows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
+    *     *   If dataflows for multiple CPFS file systems or multiple dataflows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
+    *     *   Dataflows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
+    *         **
+    *         **Note** Before you create a dataflow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created dataflow can access the data in the OSS bucket. When a dataflow is being used, do not delete or modify the tag. Otherwise, the dataflow for CPFS cannot access the data in the OSS bucket.
+    * *   AutoRefresh
+    *     *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
+    *     *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](~~182246~~).
+    *     *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a dataflow.
+    *     *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes `Misconfigured`. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
+    *     *   When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
+    *     **
+    *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly
+    * *   Permissions
+    *     When you create a dataflow, CPFS obtains two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](~~185138~~).
+    * *   Basic operations
+    *     *   Only CPFS V2.2.0 and later support dataflows.
+    *     *   You can create a dataflow only if the CPFS file system is in the Running state.
+    *     *   A maximum of 10 dataflows can be created for a CPFS file system.
+    *     *   It generally takes 2 to 5 minutes to create a dataflow. You can call the DescribeDataFlows operation to check whether the dataflow has been created.
+    *
+    * @param request CreateDataFlowRequest
+    * @return CreateDataFlowResponse
+   */
+  async createDataFlow(request: CreateDataFlowRequest): Promise<CreateDataFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataFlowWithOptions(request, runtime);
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Dataflow tasks can be created only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
+    * *   You can create a dataflow task only for a dataflow that is in the Running state.
+    * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](~~336914~~) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
+    * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
+    *
+    * @param request CreateDataFlowTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDataFlowTaskResponse
+   */
+  async createDataFlowTaskWithOptions(request: CreateDataFlowTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataFlowTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataFlowId)) {
+      query["DataFlowId"] = request.dataFlowId;
+    }
+
+    if (!Util.isUnset(request.dataType)) {
+      query["DataType"] = request.dataType;
+    }
+
+    if (!Util.isUnset(request.directory)) {
+      query["Directory"] = request.directory;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.entryList)) {
+      query["EntryList"] = request.entryList;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.srcTaskId)) {
+      query["SrcTaskId"] = request.srcTaskId;
+    }
+
+    if (!Util.isUnset(request.taskAction)) {
+      query["TaskAction"] = request.taskAction;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataFlowTask",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataFlowTaskResponse>(await this.callApi(params, req, runtime), new CreateDataFlowTaskResponse({}));
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Dataflow tasks can be created only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
+    * *   You can create a dataflow task only for a dataflow that is in the Running state.
+    * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](~~336914~~) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
+    * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
+    *
+    * @param request CreateDataFlowTaskRequest
+    * @return CreateDataFlowTaskResponse
+   */
+  async createDataFlowTask(request: CreateDataFlowTaskRequest): Promise<CreateDataFlowTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataFlowTaskWithOptions(request, runtime);
+  }
+
+  /**
+    * *   This operation is only available to some users.
+    * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
+    *
+    * @param request CreateFileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateFileResponse
+   */
+  async createFileWithOptions(request: CreateFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.ownerAccessInheritable)) {
+      query["OwnerAccessInheritable"] = request.ownerAccessInheritable;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFile",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFileResponse>(await this.callApi(params, req, runtime), new CreateFileResponse({}));
+  }
+
+  /**
+    * *   This operation is only available to some users.
+    * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
+    *
+    * @param request CreateFileRequest
+    * @return CreateFileResponse
+   */
+  async createFile(request: CreateFileRequest): Promise<CreateFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFileWithOptions(request, runtime);
+  }
+
+  /**
+    * *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](~~178365~~) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
+    * *   Before you create a file system, you must complete real-name verification.
+    * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](~~208530~~).
+    *
+    * @param request CreateFileSystemRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateFileSystemResponse
+   */
+  async createFileSystemWithOptions(request: CreateFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileSystemResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.capacity)) {
+      query["Capacity"] = request.capacity;
+    }
+
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.encryptType)) {
+      query["EncryptType"] = request.encryptType;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
+    if (!Util.isUnset(request.kmsKeyId)) {
+      query["KmsKeyId"] = request.kmsKeyId;
+    }
+
+    if (!Util.isUnset(request.protocolType)) {
+      query["ProtocolType"] = request.protocolType;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFileSystem",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFileSystemResponse>(await this.callApi(params, req, runtime), new CreateFileSystemResponse({}));
+  }
+
+  /**
+    * *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](~~178365~~) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
+    * *   Before you create a file system, you must complete real-name verification.
+    * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](~~208530~~).
+    *
+    * @param request CreateFileSystemRequest
+    * @return CreateFileSystemResponse
+   */
   async createFileSystem(request: CreateFileSystemRequest): Promise<CreateFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFileSystemWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
+    * *   A maximum of 10 filesets can be created for a CPFS file system.
+    * *   The maximum depth supported by a fileset is eight levels. The depth of the root directory / is 0 levels. For example, the /test/aaa/ccc/ fileset has three levels.
+    * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
+    * *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
+    *
+    * @param request CreateFilesetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateFilesetResponse
+   */
+  async createFilesetWithOptions(request: CreateFilesetRequest, runtime: $Util.RuntimeOptions): Promise<CreateFilesetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.fileSystemPath)) {
+      query["FileSystemPath"] = request.fileSystemPath;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFileset",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFilesetResponse>(await this.callApi(params, req, runtime), new CreateFilesetResponse({}));
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
+    * *   A maximum of 10 filesets can be created for a CPFS file system.
+    * *   The maximum depth supported by a fileset is eight levels. The depth of the root directory / is 0 levels. For example, the /test/aaa/ccc/ fileset has three levels.
+    * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
+    * *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
+    *
+    * @param request CreateFilesetRequest
+    * @return CreateFilesetResponse
+   */
+  async createFileset(request: CreateFilesetRequest): Promise<CreateFilesetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFilesetWithOptions(request, runtime);
+  }
+
   async createLDAPConfigWithOptions(request: CreateLDAPConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateLDAPConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bindDN)) {
+      query["BindDN"] = request.bindDN;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.searchBase)) {
+      query["SearchBase"] = request.searchBase;
+    }
+
+    if (!Util.isUnset(request.URI)) {
+      query["URI"] = request.URI;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateLDAPConfigResponse>(await this.doRPCRequest("CreateLDAPConfig", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLDAPConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLDAPConfig",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLDAPConfigResponse>(await this.callApi(params, req, runtime), new CreateLDAPConfigResponse({}));
   }
 
   async createLDAPConfig(request: CreateLDAPConfigRequest): Promise<CreateLDAPConfigResponse> {
@@ -7233,144 +11539,895 @@ export default class Client extends OpenApi {
     return await this.createLDAPConfigWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can create lifecycle policies only for General-purpose NAS file systems.
+    * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
+    *
+    * @param request CreateLifecyclePolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLifecyclePolicyResponse
+   */
   async createLifecyclePolicyWithOptions(request: CreateLifecyclePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateLifecyclePolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.lifecyclePolicyName)) {
+      query["LifecyclePolicyName"] = request.lifecyclePolicyName;
+    }
+
+    if (!Util.isUnset(request.lifecycleRuleName)) {
+      query["LifecycleRuleName"] = request.lifecycleRuleName;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.paths)) {
+      query["Paths"] = request.paths;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateLifecyclePolicyResponse>(await this.doRPCRequest("CreateLifecyclePolicy", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLifecyclePolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLifecyclePolicy",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLifecyclePolicyResponse>(await this.callApi(params, req, runtime), new CreateLifecyclePolicyResponse({}));
   }
 
+  /**
+    * *   You can create lifecycle policies only for General-purpose NAS file systems.
+    * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
+    *
+    * @param request CreateLifecyclePolicyRequest
+    * @return CreateLifecyclePolicyResponse
+   */
   async createLifecyclePolicy(request: CreateLifecyclePolicyRequest): Promise<CreateLifecyclePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLifecyclePolicyWithOptions(request, runtime);
   }
 
+  /**
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
+    *
+    * @param request CreateLifecycleRetrieveJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLifecycleRetrieveJobResponse
+   */
   async createLifecycleRetrieveJobWithOptions(request: CreateLifecycleRetrieveJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateLifecycleRetrieveJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.paths)) {
+      query["Paths"] = request.paths;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateLifecycleRetrieveJobResponse>(await this.doRPCRequest("CreateLifecycleRetrieveJob", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLifecycleRetrieveJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLifecycleRetrieveJob",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLifecycleRetrieveJobResponse>(await this.callApi(params, req, runtime), new CreateLifecycleRetrieveJobResponse({}));
   }
 
+  /**
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
+    *
+    * @param request CreateLifecycleRetrieveJobRequest
+    * @return CreateLifecycleRetrieveJobResponse
+   */
   async createLifecycleRetrieveJob(request: CreateLifecycleRetrieveJobRequest): Promise<CreateLifecycleRetrieveJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLifecycleRetrieveJobWithOptions(request, runtime);
   }
 
-  async createMountTargetWithOptions(request: CreateMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<CreateMountTargetResponse> {
+  async createLogAnalysisWithOptions(request: CreateLogAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<CreateLogAnalysisResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateMountTargetResponse>(await this.doRPCRequest("CreateMountTarget", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CreateMountTargetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLogAnalysis",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLogAnalysisResponse>(await this.callApi(params, req, runtime), new CreateLogAnalysisResponse({}));
   }
 
+  async createLogAnalysis(request: CreateLogAnalysisRequest): Promise<CreateLogAnalysisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLogAnalysisWithOptions(request, runtime);
+  }
+
+  /**
+    * *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
+    * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](~~208530~~).
+    *
+    * @param request CreateMountTargetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateMountTargetResponse
+   */
+  async createMountTargetWithOptions(request: CreateMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<CreateMountTargetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessGroupName)) {
+      query["AccessGroupName"] = request.accessGroupName;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.enableIpv6)) {
+      query["EnableIpv6"] = request.enableIpv6;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateMountTarget",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateMountTargetResponse>(await this.callApi(params, req, runtime), new CreateMountTargetResponse({}));
+  }
+
+  /**
+    * *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
+    * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](~~208530~~).
+    *
+    * @param request CreateMountTargetRequest
+    * @return CreateMountTargetResponse
+   */
   async createMountTarget(request: CreateMountTargetRequest): Promise<CreateMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMountTargetWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Prerequisites
+    *     A protocol service is created.
+    * *   Others
+    *     *   The virtual private cloud (VPC) CIDR block of the export directory for the protocol service cannot overlap with the VPC CIDR block of the file system.
+    *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
+    *     *   You can create a maximum of 10 export directories for a protocol service.
+    *     *   When you create export directories for a protocol service, a maximum of 32 IP addresses that are allocated by the specified vSwitch are used. Make sure that the vSwitch can provide sufficient IP addresses.
+    *
+    * @param request CreateProtocolMountTargetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateProtocolMountTargetResponse
+   */
+  async createProtocolMountTargetWithOptions(request: CreateProtocolMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<CreateProtocolMountTargetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessGroupName)) {
+      query["AccessGroupName"] = request.accessGroupName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.fsetId)) {
+      query["FsetId"] = request.fsetId;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.protocolServiceId)) {
+      query["ProtocolServiceId"] = request.protocolServiceId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateProtocolMountTarget",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateProtocolMountTargetResponse>(await this.callApi(params, req, runtime), new CreateProtocolMountTargetResponse({}));
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Prerequisites
+    *     A protocol service is created.
+    * *   Others
+    *     *   The virtual private cloud (VPC) CIDR block of the export directory for the protocol service cannot overlap with the VPC CIDR block of the file system.
+    *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
+    *     *   You can create a maximum of 10 export directories for a protocol service.
+    *     *   When you create export directories for a protocol service, a maximum of 32 IP addresses that are allocated by the specified vSwitch are used. Make sure that the vSwitch can provide sufficient IP addresses.
+    *
+    * @param request CreateProtocolMountTargetRequest
+    * @return CreateProtocolMountTargetResponse
+   */
+  async createProtocolMountTarget(request: CreateProtocolMountTargetRequest): Promise<CreateProtocolMountTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createProtocolMountTargetWithOptions(request, runtime);
+  }
+
+  /**
+    * *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](~~2402188.~~) operation.
+    * *   Protocol service types
+    *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
+    *     *   General-purpose protocol services: provide NFS access and [directory-level mount targets](~~427175~~) for CPFS file systems. You do not need to configure a POSIX client to manage clusters. General-purpose protocol services are provided free of charge.
+    *     *   Cache protocol services: provide the server memory cache based on the least recently used (LRU) policy. When data is cached in the memory, CPFS provides higher internal bandwidth. Cache protocol services are divided into Cache L1 and Cache L2 specifications. The differences are the internal bandwidth size and memory cache size.
+    *        >   Note You are charged for using cache protocol services, which are in invitational preview. For more information about the billing method of cache protocol services, see [Billable items](~~111858~~). If you have any feedback or questions, you can join the DingTalk group (group number: 31045006299).
+    * *   Protocol type
+    *     Only NFSv3 is supported.
+    * *   Others
+    *     *   Only one protocol service can be created for a CPFS file system.
+    *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
+    *
+    * @param request CreateProtocolServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateProtocolServiceResponse
+   */
+  async createProtocolServiceWithOptions(request: CreateProtocolServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateProtocolServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.protocolSpec)) {
+      query["ProtocolSpec"] = request.protocolSpec;
+    }
+
+    if (!Util.isUnset(request.protocolType)) {
+      query["ProtocolType"] = request.protocolType;
+    }
+
+    if (!Util.isUnset(request.throughput)) {
+      query["Throughput"] = request.throughput;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateProtocolService",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateProtocolServiceResponse>(await this.callApi(params, req, runtime), new CreateProtocolServiceResponse({}));
+  }
+
+  /**
+    * *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](~~2402188.~~) operation.
+    * *   Protocol service types
+    *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
+    *     *   General-purpose protocol services: provide NFS access and [directory-level mount targets](~~427175~~) for CPFS file systems. You do not need to configure a POSIX client to manage clusters. General-purpose protocol services are provided free of charge.
+    *     *   Cache protocol services: provide the server memory cache based on the least recently used (LRU) policy. When data is cached in the memory, CPFS provides higher internal bandwidth. Cache protocol services are divided into Cache L1 and Cache L2 specifications. The differences are the internal bandwidth size and memory cache size.
+    *        >   Note You are charged for using cache protocol services, which are in invitational preview. For more information about the billing method of cache protocol services, see [Billable items](~~111858~~). If you have any feedback or questions, you can join the DingTalk group (group number: 31045006299).
+    * *   Protocol type
+    *     Only NFSv3 is supported.
+    * *   Others
+    *     *   Only one protocol service can be created for a CPFS file system.
+    *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
+    *
+    * @param request CreateProtocolServiceRequest
+    * @return CreateProtocolServiceResponse
+   */
+  async createProtocolService(request: CreateProtocolServiceRequest): Promise<CreateProtocolServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createProtocolServiceWithOptions(request, runtime);
+  }
+
+  /**
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   If you permanently delete a directory, the files in the directory are recursively cleared.
+    * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
+    *
+    * @param request CreateRecycleBinDeleteJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRecycleBinDeleteJobResponse
+   */
   async createRecycleBinDeleteJobWithOptions(request: CreateRecycleBinDeleteJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateRecycleBinDeleteJobResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateRecycleBinDeleteJobResponse>(await this.doRPCRequest("CreateRecycleBinDeleteJob", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new CreateRecycleBinDeleteJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRecycleBinDeleteJob",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRecycleBinDeleteJobResponse>(await this.callApi(params, req, runtime), new CreateRecycleBinDeleteJobResponse({}));
   }
 
+  /**
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   If you permanently delete a directory, the files in the directory are recursively cleared.
+    * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
+    *
+    * @param request CreateRecycleBinDeleteJobRequest
+    * @return CreateRecycleBinDeleteJobResponse
+   */
   async createRecycleBinDeleteJob(request: CreateRecycleBinDeleteJobRequest): Promise<CreateRecycleBinDeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRecycleBinDeleteJobWithOptions(request, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
+    * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
+    * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
+    *
+    * @param request CreateRecycleBinRestoreJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRecycleBinRestoreJobResponse
+   */
   async createRecycleBinRestoreJobWithOptions(request: CreateRecycleBinRestoreJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateRecycleBinRestoreJobResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateRecycleBinRestoreJobResponse>(await this.doRPCRequest("CreateRecycleBinRestoreJob", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new CreateRecycleBinRestoreJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRecycleBinRestoreJob",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRecycleBinRestoreJobResponse>(await this.callApi(params, req, runtime), new CreateRecycleBinRestoreJobResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
+    * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
+    * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
+    *
+    * @param request CreateRecycleBinRestoreJobRequest
+    * @return CreateRecycleBinRestoreJobResponse
+   */
   async createRecycleBinRestoreJob(request: CreateRecycleBinRestoreJobRequest): Promise<CreateRecycleBinRestoreJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRecycleBinRestoreJobWithOptions(request, runtime);
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/zh/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support the snapshot feature.
+    * *   You can create a maximum of 128 snapshots for a file system.
+    * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
+    * *   You can create only one snapshot for a file system at a time.
+    * *   If the file system expires when a snapshot is being created, the file system is released and the snapshot is deleted.
+    * *   When you create a snapshot for a file system, the I/O performance of the file system may be degraded for a short period of time. We recommend that you create snapshots during off-peak hours.
+    * *   A snapshot is a backup of a file system at a specific point in time. After you create a snapshot, incremental data that is generated in the file system will not be synchronized to the snapshot.
+    * *   Manually created snapshots will not be deleted until 15 days after the service is suspended due to an overdue payment. We recommend that you delete unnecessary snapshots at regular intervals to prevent extra fees incurred by the snapshots.
+    *
+    * @param request CreateSnapshotRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSnapshotResponse
+   */
   async createSnapshotWithOptions(request: CreateSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.retentionDays)) {
+      query["RetentionDays"] = request.retentionDays;
+    }
+
+    if (!Util.isUnset(request.snapshotName)) {
+      query["SnapshotName"] = request.snapshotName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateSnapshotResponse>(await this.doRPCRequest("CreateSnapshot", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSnapshotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateSnapshot",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSnapshotResponse>(await this.callApi(params, req, runtime), new CreateSnapshotResponse({}));
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/zh/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support the snapshot feature.
+    * *   You can create a maximum of 128 snapshots for a file system.
+    * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
+    * *   You can create only one snapshot for a file system at a time.
+    * *   If the file system expires when a snapshot is being created, the file system is released and the snapshot is deleted.
+    * *   When you create a snapshot for a file system, the I/O performance of the file system may be degraded for a short period of time. We recommend that you create snapshots during off-peak hours.
+    * *   A snapshot is a backup of a file system at a specific point in time. After you create a snapshot, incremental data that is generated in the file system will not be synchronized to the snapshot.
+    * *   Manually created snapshots will not be deleted until 15 days after the service is suspended due to an overdue payment. We recommend that you delete unnecessary snapshots at regular intervals to prevent extra fees incurred by the snapshots.
+    *
+    * @param request CreateSnapshotRequest
+    * @return CreateSnapshotResponse
+   */
   async createSnapshot(request: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSnapshotWithOptions(request, runtime);
   }
 
+  /**
+    * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+    *
+    * @param request DeleteAccessGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAccessGroupResponse
+   */
   async deleteAccessGroupWithOptions(request: DeleteAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessGroupName)) {
+      query["AccessGroupName"] = request.accessGroupName;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteAccessGroupResponse>(await this.doRPCRequest("DeleteAccessGroup", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAccessGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAccessGroup",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAccessGroupResponse>(await this.callApi(params, req, runtime), new DeleteAccessGroupResponse({}));
   }
 
+  /**
+    * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+    *
+    * @param request DeleteAccessGroupRequest
+    * @return DeleteAccessGroupResponse
+   */
   async deleteAccessGroup(request: DeleteAccessGroupRequest): Promise<DeleteAccessGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccessGroupWithOptions(request, runtime);
   }
 
+  /**
+    * Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+    *
+    * @param request DeleteAccessRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAccessRuleResponse
+   */
   async deleteAccessRuleWithOptions(request: DeleteAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessGroupName)) {
+      query["AccessGroupName"] = request.accessGroupName;
+    }
+
+    if (!Util.isUnset(request.accessRuleId)) {
+      query["AccessRuleId"] = request.accessRuleId;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteAccessRuleResponse>(await this.doRPCRequest("DeleteAccessRule", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAccessRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAccessRule",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAccessRuleResponse>(await this.callApi(params, req, runtime), new DeleteAccessRuleResponse({}));
   }
 
+  /**
+    * Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+    *
+    * @param request DeleteAccessRuleRequest
+    * @return DeleteAccessRuleResponse
+   */
   async deleteAccessRule(request: DeleteAccessRuleRequest): Promise<DeleteAccessRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccessRuleWithOptions(request, runtime);
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
+    *
+    * @param request DeleteAutoSnapshotPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAutoSnapshotPolicyResponse
+   */
   async deleteAutoSnapshotPolicyWithOptions(request: DeleteAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoSnapshotPolicyId)) {
+      query["AutoSnapshotPolicyId"] = request.autoSnapshotPolicyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteAutoSnapshotPolicyResponse>(await this.doRPCRequest("DeleteAutoSnapshotPolicy", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAutoSnapshotPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAutoSnapshotPolicy",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new DeleteAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
+    *
+    * @param request DeleteAutoSnapshotPolicyRequest
+    * @return DeleteAutoSnapshotPolicyResponse
+   */
   async deleteAutoSnapshotPolicy(request: DeleteAutoSnapshotPolicyRequest): Promise<DeleteAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
-  async deleteFileSystemWithOptions(request: DeleteFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileSystemResponse> {
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   You can create filesets only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
+    * *   You can delete the dataflows that are only in the `Running` or `Stopped` state.
+    * *   After a dataflow is deleted, the resources related to the dataflow are released and cannot be restored. You must create a dataflow again if required.
+    *
+    * @param request DeleteDataFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDataFlowResponse
+   */
+  async deleteDataFlowWithOptions(request: DeleteDataFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataFlowResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataFlowId)) {
+      query["DataFlowId"] = request.dataFlowId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteFileSystemResponse>(await this.doRPCRequest("DeleteFileSystem", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteFileSystemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDataFlow",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataFlowResponse>(await this.callApi(params, req, runtime), new DeleteDataFlowResponse({}));
   }
 
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   You can create filesets only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
+    * *   You can delete the dataflows that are only in the `Running` or `Stopped` state.
+    * *   After a dataflow is deleted, the resources related to the dataflow are released and cannot be restored. You must create a dataflow again if required.
+    *
+    * @param request DeleteDataFlowRequest
+    * @return DeleteDataFlowResponse
+   */
+  async deleteDataFlow(request: DeleteDataFlowRequest): Promise<DeleteDataFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataFlowWithOptions(request, runtime);
+  }
+
+  /**
+    * *   Before you delete a file system, you must delete all mount targets of the file system.
+    * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
+    * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
+    *
+    * @param request DeleteFileSystemRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteFileSystemResponse
+   */
+  async deleteFileSystemWithOptions(request: DeleteFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileSystemResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFileSystem",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFileSystemResponse>(await this.callApi(params, req, runtime), new DeleteFileSystemResponse({}));
+  }
+
+  /**
+    * *   Before you delete a file system, you must delete all mount targets of the file system.
+    * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
+    * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
+    *
+    * @param request DeleteFileSystemRequest
+    * @return DeleteFileSystemResponse
+   */
   async deleteFileSystem(request: DeleteFileSystemRequest): Promise<DeleteFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFileSystemWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support fileset deletion. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
+    *
+    * @param request DeleteFilesetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteFilesetResponse
+   */
+  async deleteFilesetWithOptions(request: DeleteFilesetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFilesetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.fsetId)) {
+      query["FsetId"] = request.fsetId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFileset",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFilesetResponse>(await this.callApi(params, req, runtime), new DeleteFilesetResponse({}));
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support fileset deletion. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
+    *
+    * @param request DeleteFilesetRequest
+    * @return DeleteFilesetResponse
+   */
+  async deleteFileset(request: DeleteFilesetRequest): Promise<DeleteFilesetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteFilesetWithOptions(request, runtime);
+  }
+
   async deleteLDAPConfigWithOptions(request: DeleteLDAPConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLDAPConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteLDAPConfigResponse>(await this.doRPCRequest("DeleteLDAPConfig", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteLDAPConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteLDAPConfig",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLDAPConfigResponse>(await this.callApi(params, req, runtime), new DeleteLDAPConfigResponse({}));
   }
 
   async deleteLDAPConfig(request: DeleteLDAPConfigRequest): Promise<DeleteLDAPConfigResponse> {
@@ -7378,40 +12435,284 @@ export default class Client extends OpenApi {
     return await this.deleteLDAPConfigWithOptions(request, runtime);
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request DeleteLifecyclePolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteLifecyclePolicyResponse
+   */
   async deleteLifecyclePolicyWithOptions(request: DeleteLifecyclePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLifecyclePolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.lifecyclePolicyName)) {
+      query["LifecyclePolicyName"] = request.lifecyclePolicyName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteLifecyclePolicyResponse>(await this.doRPCRequest("DeleteLifecyclePolicy", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteLifecyclePolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteLifecyclePolicy",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLifecyclePolicyResponse>(await this.callApi(params, req, runtime), new DeleteLifecyclePolicyResponse({}));
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request DeleteLifecyclePolicyRequest
+    * @return DeleteLifecyclePolicyResponse
+   */
   async deleteLifecyclePolicy(request: DeleteLifecyclePolicyRequest): Promise<DeleteLifecyclePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLifecyclePolicyWithOptions(request, runtime);
   }
 
-  async deleteMountTargetWithOptions(request: DeleteMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMountTargetResponse> {
+  async deleteLogAnalysisWithOptions(request: DeleteLogAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLogAnalysisResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteMountTargetResponse>(await this.doRPCRequest("DeleteMountTarget", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteMountTargetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteLogAnalysis",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLogAnalysisResponse>(await this.callApi(params, req, runtime), new DeleteLogAnalysisResponse({}));
   }
 
+  async deleteLogAnalysis(request: DeleteLogAnalysisRequest): Promise<DeleteLogAnalysisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteLogAnalysisWithOptions(request, runtime);
+  }
+
+  /**
+    * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+    *
+    * @param request DeleteMountTargetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteMountTargetResponse
+   */
+  async deleteMountTargetWithOptions(request: DeleteMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMountTargetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.mountTargetDomain)) {
+      query["MountTargetDomain"] = request.mountTargetDomain;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMountTarget",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMountTargetResponse>(await this.callApi(params, req, runtime), new DeleteMountTargetResponse({}));
+  }
+
+  /**
+    * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+    *
+    * @param request DeleteMountTargetRequest
+    * @return DeleteMountTargetResponse
+   */
   async deleteMountTarget(request: DeleteMountTargetRequest): Promise<DeleteMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMountTargetWithOptions(request, runtime);
   }
 
-  async deleteSnapshotWithOptions(request: DeleteSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotResponse> {
+  /**
+    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    *
+    * @param request DeleteProtocolMountTargetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteProtocolMountTargetResponse
+   */
+  async deleteProtocolMountTargetWithOptions(request: DeleteProtocolMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProtocolMountTargetResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.exportId)) {
+      query["ExportId"] = request.exportId;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.protocolServiceId)) {
+      query["ProtocolServiceId"] = request.protocolServiceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteSnapshotResponse>(await this.doRPCRequest("DeleteSnapshot", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSnapshotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteProtocolMountTarget",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteProtocolMountTargetResponse>(await this.callApi(params, req, runtime), new DeleteProtocolMountTargetResponse({}));
   }
 
+  /**
+    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    *
+    * @param request DeleteProtocolMountTargetRequest
+    * @return DeleteProtocolMountTargetResponse
+   */
+  async deleteProtocolMountTarget(request: DeleteProtocolMountTargetRequest): Promise<DeleteProtocolMountTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteProtocolMountTargetWithOptions(request, runtime);
+  }
+
+  /**
+    * *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+    * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
+    *
+    * @param request DeleteProtocolServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteProtocolServiceResponse
+   */
+  async deleteProtocolServiceWithOptions(request: DeleteProtocolServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProtocolServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.protocolServiceId)) {
+      query["ProtocolServiceId"] = request.protocolServiceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteProtocolService",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteProtocolServiceResponse>(await this.callApi(params, req, runtime), new DeleteProtocolServiceResponse({}));
+  }
+
+  /**
+    * *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+    * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
+    *
+    * @param request DeleteProtocolServiceRequest
+    * @return DeleteProtocolServiceResponse
+   */
+  async deleteProtocolService(request: DeleteProtocolServiceRequest): Promise<DeleteProtocolServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteProtocolServiceWithOptions(request, runtime);
+  }
+
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    *
+    * @param request DeleteSnapshotRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteSnapshotResponse
+   */
+  async deleteSnapshotWithOptions(request: DeleteSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSnapshot",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSnapshotResponse>(await this.callApi(params, req, runtime), new DeleteSnapshotResponse({}));
+  }
+
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    *
+    * @param request DeleteSnapshotRequest
+    * @return DeleteSnapshotResponse
+   */
   async deleteSnapshot(request: DeleteSnapshotRequest): Promise<DeleteSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSnapshotWithOptions(request, runtime);
@@ -7419,10 +12720,42 @@ export default class Client extends OpenApi {
 
   async describeAccessGroupsWithOptions(request: DescribeAccessGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessGroupName)) {
+      query["AccessGroupName"] = request.accessGroupName;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.useUTCDateTime)) {
+      query["UseUTCDateTime"] = request.useUTCDateTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAccessGroupsResponse>(await this.doRPCRequest("DescribeAccessGroups", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAccessGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAccessGroups",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAccessGroupsResponse>(await this.callApi(params, req, runtime), new DescribeAccessGroupsResponse({}));
   }
 
   async describeAccessGroups(request: DescribeAccessGroupsRequest): Promise<DescribeAccessGroupsResponse> {
@@ -7432,10 +12765,42 @@ export default class Client extends OpenApi {
 
   async describeAccessRulesWithOptions(request: DescribeAccessRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessGroupName)) {
+      query["AccessGroupName"] = request.accessGroupName;
+    }
+
+    if (!Util.isUnset(request.accessRuleId)) {
+      query["AccessRuleId"] = request.accessRuleId;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAccessRulesResponse>(await this.doRPCRequest("DescribeAccessRules", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAccessRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAccessRules",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAccessRulesResponse>(await this.callApi(params, req, runtime), new DescribeAccessRulesResponse({}));
   }
 
   async describeAccessRules(request: DescribeAccessRulesRequest): Promise<DescribeAccessRulesResponse> {
@@ -7443,77 +12808,370 @@ export default class Client extends OpenApi {
     return await this.describeAccessRulesWithOptions(request, runtime);
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    *
+    * @param request DescribeAutoSnapshotPoliciesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAutoSnapshotPoliciesResponse
+   */
   async describeAutoSnapshotPoliciesWithOptions(request: DescribeAutoSnapshotPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoSnapshotPoliciesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoSnapshotPolicyId)) {
+      query["AutoSnapshotPolicyId"] = request.autoSnapshotPolicyId;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAutoSnapshotPoliciesResponse>(await this.doRPCRequest("DescribeAutoSnapshotPolicies", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAutoSnapshotPoliciesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAutoSnapshotPolicies",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAutoSnapshotPoliciesResponse>(await this.callApi(params, req, runtime), new DescribeAutoSnapshotPoliciesResponse({}));
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    *
+    * @param request DescribeAutoSnapshotPoliciesRequest
+    * @return DescribeAutoSnapshotPoliciesResponse
+   */
   async describeAutoSnapshotPolicies(request: DescribeAutoSnapshotPoliciesRequest): Promise<DescribeAutoSnapshotPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAutoSnapshotPoliciesWithOptions(request, runtime);
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    *
+    * @param request DescribeAutoSnapshotTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAutoSnapshotTasksResponse
+   */
   async describeAutoSnapshotTasksWithOptions(request: DescribeAutoSnapshotTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoSnapshotTasksResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoSnapshotPolicyIds)) {
+      query["AutoSnapshotPolicyIds"] = request.autoSnapshotPolicyIds;
+    }
+
+    if (!Util.isUnset(request.fileSystemIds)) {
+      query["FileSystemIds"] = request.fileSystemIds;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAutoSnapshotTasksResponse>(await this.doRPCRequest("DescribeAutoSnapshotTasks", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAutoSnapshotTasksResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAutoSnapshotTasks",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAutoSnapshotTasksResponse>(await this.callApi(params, req, runtime), new DescribeAutoSnapshotTasksResponse({}));
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    *
+    * @param request DescribeAutoSnapshotTasksRequest
+    * @return DescribeAutoSnapshotTasksResponse
+   */
   async describeAutoSnapshotTasks(request: DescribeAutoSnapshotTasksRequest): Promise<DescribeAutoSnapshotTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAutoSnapshotTasksWithOptions(request, runtime);
   }
 
+  /**
+    * The API operation is available only for CPFS file systems.
+    *
+    * @param request DescribeBlackListClientsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeBlackListClientsResponse
+   */
   async describeBlackListClientsWithOptions(request: DescribeBlackListClientsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBlackListClientsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientIP)) {
+      query["ClientIP"] = request.clientIP;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeBlackListClientsResponse>(await this.doRPCRequest("DescribeBlackListClients", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBlackListClientsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBlackListClients",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBlackListClientsResponse>(await this.callApi(params, req, runtime), new DescribeBlackListClientsResponse({}));
   }
 
+  /**
+    * The API operation is available only for CPFS file systems.
+    *
+    * @param request DescribeBlackListClientsRequest
+    * @return DescribeBlackListClientsResponse
+   */
   async describeBlackListClients(request: DescribeBlackListClientsRequest): Promise<DescribeBlackListClientsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBlackListClientsWithOptions(request, runtime);
   }
 
-  async describeDirQuotasWithOptions(request: DescribeDirQuotasRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDirQuotasResponse> {
+  /**
+    * ###
+    * *
+    * *
+    *
+    * @param request DescribeDataFlowTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDataFlowTasksResponse
+   */
+  async describeDataFlowTasksWithOptions(request: DescribeDataFlowTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataFlowTasksResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDirQuotasResponse>(await this.doRPCRequest("DescribeDirQuotas", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDirQuotasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDataFlowTasks",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataFlowTasksResponse>(await this.callApi(params, req, runtime), new DescribeDataFlowTasksResponse({}));
   }
 
+  /**
+    * ###
+    * *
+    * *
+    *
+    * @param request DescribeDataFlowTasksRequest
+    * @return DescribeDataFlowTasksResponse
+   */
+  async describeDataFlowTasks(request: DescribeDataFlowTasksRequest): Promise<DescribeDataFlowTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDataFlowTasksWithOptions(request, runtime);
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+    * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath and Description support fuzzy match.
+    * *   Combined query is supported.
+    *
+    * @param request DescribeDataFlowsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDataFlowsResponse
+   */
+  async describeDataFlowsWithOptions(request: DescribeDataFlowsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataFlowsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDataFlows",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataFlowsResponse>(await this.callApi(params, req, runtime), new DescribeDataFlowsResponse({}));
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+    * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath and Description support fuzzy match.
+    * *   Combined query is supported.
+    *
+    * @param request DescribeDataFlowsRequest
+    * @return DescribeDataFlowsResponse
+   */
+  async describeDataFlows(request: DescribeDataFlowsRequest): Promise<DescribeDataFlowsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDataFlowsWithOptions(request, runtime);
+  }
+
+  /**
+    * Only General-purpose NAS file systems support the directory quota feature.
+    *
+    * @param request DescribeDirQuotasRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDirQuotasResponse
+   */
+  async describeDirQuotasWithOptions(request: DescribeDirQuotasRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDirQuotasResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDirQuotas",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDirQuotasResponse>(await this.callApi(params, req, runtime), new DescribeDirQuotasResponse({}));
+  }
+
+  /**
+    * Only General-purpose NAS file systems support the directory quota feature.
+    *
+    * @param request DescribeDirQuotasRequest
+    * @return DescribeDirQuotasResponse
+   */
   async describeDirQuotas(request: DescribeDirQuotasRequest): Promise<DescribeDirQuotasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDirQuotasWithOptions(request, runtime);
   }
 
-  async describeFileSystemsWithOptions(request: DescribeFileSystemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFileSystemsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeFileSystemsResponse>(await this.doRPCRequest("DescribeFileSystems", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFileSystemsResponse({}));
-  }
-
-  async describeFileSystems(request: DescribeFileSystemsRequest): Promise<DescribeFileSystemsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeFileSystemsWithOptions(request, runtime);
-  }
-
   async describeFileSystemStatisticsWithOptions(request: DescribeFileSystemStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFileSystemStatisticsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeFileSystemStatisticsResponse>(await this.doRPCRequest("DescribeFileSystemStatistics", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFileSystemStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeFileSystemStatistics",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFileSystemStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeFileSystemStatisticsResponse({}));
   }
 
   async describeFileSystemStatistics(request: DescribeFileSystemStatisticsRequest): Promise<DescribeFileSystemStatisticsResponse> {
@@ -7521,28 +13179,152 @@ export default class Client extends OpenApi {
     return await this.describeFileSystemStatisticsWithOptions(request, runtime);
   }
 
-  async describeLDAPConfigWithOptions(request: DescribeLDAPConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLDAPConfigResponse> {
+  async describeFileSystemsWithOptions(request: DescribeFileSystemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFileSystemsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeLDAPConfigResponse>(await this.doRPCRequest("DescribeLDAPConfig", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLDAPConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeFileSystems",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFileSystemsResponse>(await this.callApi(params, req, runtime), new DescribeFileSystemsResponse({}));
   }
 
-  async describeLDAPConfig(request: DescribeLDAPConfigRequest): Promise<DescribeLDAPConfigResponse> {
+  async describeFileSystems(request: DescribeFileSystemsRequest): Promise<DescribeFileSystemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeLDAPConfigWithOptions(request, runtime);
+    return await this.describeFileSystemsWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support filesets. You can view the version information on the file system details page in the console.
+    * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
+    * *   Combined query is supported.
+    *
+    * @param request DescribeFilesetsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeFilesetsResponse
+   */
+  async describeFilesetsWithOptions(request: DescribeFilesetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFilesetsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFilesets",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFilesetsResponse>(await this.callApi(params, req, runtime), new DescribeFilesetsResponse({}));
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support filesets. You can view the version information on the file system details page in the console.
+    * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
+    * *   Combined query is supported.
+    *
+    * @param request DescribeFilesetsRequest
+    * @return DescribeFilesetsResponse
+   */
+  async describeFilesets(request: DescribeFilesetsRequest): Promise<DescribeFilesetsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFilesetsWithOptions(request, runtime);
+  }
+
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request DescribeLifecyclePoliciesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeLifecyclePoliciesResponse
+   */
   async describeLifecyclePoliciesWithOptions(request: DescribeLifecyclePoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLifecyclePoliciesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeLifecyclePoliciesResponse>(await this.doRPCRequest("DescribeLifecyclePolicies", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeLifecyclePoliciesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeLifecyclePolicies",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLifecyclePoliciesResponse>(await this.callApi(params, req, runtime), new DescribeLifecyclePoliciesResponse({}));
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request DescribeLifecyclePoliciesRequest
+    * @return DescribeLifecyclePoliciesResponse
+   */
   async describeLifecyclePolicies(request: DescribeLifecyclePoliciesRequest): Promise<DescribeLifecyclePoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLifecyclePoliciesWithOptions(request, runtime);
@@ -7550,10 +13332,34 @@ export default class Client extends OpenApi {
 
   async describeLogAnalysisWithOptions(request: DescribeLogAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogAnalysisResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeLogAnalysisResponse>(await this.doRPCRequest("DescribeLogAnalysis", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLogAnalysisResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeLogAnalysis",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLogAnalysisResponse>(await this.callApi(params, req, runtime), new DescribeLogAnalysisResponse({}));
   }
 
   async describeLogAnalysis(request: DescribeLogAnalysisRequest): Promise<DescribeLogAnalysisResponse> {
@@ -7561,25 +13367,44 @@ export default class Client extends OpenApi {
     return await this.describeLogAnalysisWithOptions(request, runtime);
   }
 
-  async describeMountedClientsWithOptions(request: DescribeMountedClientsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMountedClientsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeMountedClientsResponse>(await this.doRPCRequest("DescribeMountedClients", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeMountedClientsResponse({}));
-  }
-
-  async describeMountedClients(request: DescribeMountedClientsRequest): Promise<DescribeMountedClientsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeMountedClientsWithOptions(request, runtime);
-  }
-
   async describeMountTargetsWithOptions(request: DescribeMountTargetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMountTargetsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dualStackMountTargetDomain)) {
+      query["DualStackMountTargetDomain"] = request.dualStackMountTargetDomain;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.mountTargetDomain)) {
+      query["MountTargetDomain"] = request.mountTargetDomain;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeMountTargetsResponse>(await this.doRPCRequest("DescribeMountTargets", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeMountTargetsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeMountTargets",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMountTargetsResponse>(await this.callApi(params, req, runtime), new DescribeMountTargetsResponse({}));
   }
 
   async describeMountTargets(request: DescribeMountTargetsRequest): Promise<DescribeMountTargetsResponse> {
@@ -7587,12 +13412,253 @@ export default class Client extends OpenApi {
     return await this.describeMountTargetsWithOptions(request, runtime);
   }
 
+  /**
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
+    *
+    * @param request DescribeMountedClientsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeMountedClientsResponse
+   */
+  async describeMountedClientsWithOptions(request: DescribeMountedClientsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMountedClientsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientIP)) {
+      query["ClientIP"] = request.clientIP;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.mountTargetDomain)) {
+      query["MountTargetDomain"] = request.mountTargetDomain;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeMountedClients",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMountedClientsResponse>(await this.callApi(params, req, runtime), new DescribeMountedClientsResponse({}));
+  }
+
+  /**
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
+    *
+    * @param request DescribeMountedClientsRequest
+    * @return DescribeMountedClientsResponse
+   */
+  async describeMountedClients(request: DescribeMountedClientsRequest): Promise<DescribeMountedClientsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeMountedClientsWithOptions(request, runtime);
+  }
+
+  async describeNfsAclWithOptions(request: DescribeNfsAclRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNfsAclResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeNfsAcl",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNfsAclResponse>(await this.callApi(params, req, runtime), new DescribeNfsAclResponse({}));
+  }
+
+  async describeNfsAcl(request: DescribeNfsAclRequest): Promise<DescribeNfsAclResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeNfsAclWithOptions(request, runtime);
+  }
+
+  /**
+    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    *
+    * @param request DescribeProtocolMountTargetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeProtocolMountTargetResponse
+   */
+  async describeProtocolMountTargetWithOptions(request: DescribeProtocolMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtocolMountTargetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeProtocolMountTarget",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProtocolMountTargetResponse>(await this.callApi(params, req, runtime), new DescribeProtocolMountTargetResponse({}));
+  }
+
+  /**
+    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    *
+    * @param request DescribeProtocolMountTargetRequest
+    * @return DescribeProtocolMountTargetResponse
+   */
+  async describeProtocolMountTarget(request: DescribeProtocolMountTargetRequest): Promise<DescribeProtocolMountTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProtocolMountTargetWithOptions(request, runtime);
+  }
+
+  /**
+    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    *
+    * @param request DescribeProtocolServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeProtocolServiceResponse
+   */
+  async describeProtocolServiceWithOptions(request: DescribeProtocolServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtocolServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.protocolServiceIds)) {
+      query["ProtocolServiceIds"] = request.protocolServiceIds;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeProtocolService",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProtocolServiceResponse>(await this.callApi(params, req, runtime), new DescribeProtocolServiceResponse({}));
+  }
+
+  /**
+    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    *
+    * @param request DescribeProtocolServiceRequest
+    * @return DescribeProtocolServiceResponse
+   */
+  async describeProtocolService(request: DescribeProtocolServiceRequest): Promise<DescribeProtocolServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProtocolServiceWithOptions(request, runtime);
+  }
+
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -7600,14 +13666,102 @@ export default class Client extends OpenApi {
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
-  async describeSnapshotsWithOptions(request: DescribeSnapshotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotsResponse> {
+  async describeSmbAclWithOptions(request: DescribeSmbAclRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmbAclResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSnapshotsResponse>(await this.doRPCRequest("DescribeSnapshots", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSnapshotsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSmbAcl",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSmbAclResponse>(await this.callApi(params, req, runtime), new DescribeSmbAclResponse({}));
   }
 
+  async describeSmbAcl(request: DescribeSmbAclRequest): Promise<DescribeSmbAclResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSmbAclWithOptions(request, runtime);
+  }
+
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    *
+    * @param request DescribeSnapshotsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSnapshotsResponse
+   */
+  async describeSnapshotsWithOptions(request: DescribeSnapshotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.snapshotIds)) {
+      query["SnapshotIds"] = request.snapshotIds;
+    }
+
+    if (!Util.isUnset(request.snapshotName)) {
+      query["SnapshotName"] = request.snapshotName;
+    }
+
+    if (!Util.isUnset(request.snapshotType)) {
+      query["SnapshotType"] = request.snapshotType;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSnapshots",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSnapshotsResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotsResponse({}));
+  }
+
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    *
+    * @param request DescribeSnapshotsRequest
+    * @return DescribeSnapshotsResponse
+   */
   async describeSnapshots(request: DescribeSnapshotsRequest): Promise<DescribeSnapshotsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnapshotsWithOptions(request, runtime);
@@ -7615,10 +13769,38 @@ export default class Client extends OpenApi {
 
   async describeStoragePackagesWithOptions(request: DescribeStoragePackagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStoragePackagesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.useUTCDateTime)) {
+      query["UseUTCDateTime"] = request.useUTCDateTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeStoragePackagesResponse>(await this.doRPCRequest("DescribeStoragePackages", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeStoragePackagesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeStoragePackages",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeStoragePackagesResponse>(await this.callApi(params, req, runtime), new DescribeStoragePackagesResponse({}));
   }
 
   async describeStoragePackages(request: DescribeStoragePackagesRequest): Promise<DescribeStoragePackagesResponse> {
@@ -7626,25 +13808,32 @@ export default class Client extends OpenApi {
     return await this.describeStoragePackagesWithOptions(request, runtime);
   }
 
-  async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeTagsResponse>(await this.doRPCRequest("DescribeTags", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeTagsResponse({}));
-  }
-
-  async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeTagsWithOptions(request, runtime);
-  }
-
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeZonesResponse>(await this.doRPCRequest("DescribeZones", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeZonesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeZones",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
@@ -7652,41 +13841,259 @@ export default class Client extends OpenApi {
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  /**
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   If you disable the recycle bin, all files in the recycle bin are permanently deleted.
+    * *   If you disable and then enable the recycle bin, the recycle bin is empty. You cannot retrieve the deleted files.
+    *
+    * @param request DisableAndCleanRecycleBinRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DisableAndCleanRecycleBinResponse
+   */
   async disableAndCleanRecycleBinWithOptions(request: DisableAndCleanRecycleBinRequest, runtime: $Util.RuntimeOptions): Promise<DisableAndCleanRecycleBinResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DisableAndCleanRecycleBinResponse>(await this.doRPCRequest("DisableAndCleanRecycleBin", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new DisableAndCleanRecycleBinResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DisableAndCleanRecycleBin",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableAndCleanRecycleBinResponse>(await this.callApi(params, req, runtime), new DisableAndCleanRecycleBinResponse({}));
   }
 
+  /**
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   If you disable the recycle bin, all files in the recycle bin are permanently deleted.
+    * *   If you disable and then enable the recycle bin, the recycle bin is empty. You cannot retrieve the deleted files.
+    *
+    * @param request DisableAndCleanRecycleBinRequest
+    * @return DisableAndCleanRecycleBinResponse
+   */
   async disableAndCleanRecycleBin(request: DisableAndCleanRecycleBinRequest): Promise<DisableAndCleanRecycleBinResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableAndCleanRecycleBinWithOptions(request, runtime);
   }
 
-  async enableRecycleBinWithOptions(request: EnableRecycleBinRequest, runtime: $Util.RuntimeOptions): Promise<EnableRecycleBinResponse> {
+  async disableNfsAclWithOptions(request: DisableNfsAclRequest, runtime: $Util.RuntimeOptions): Promise<DisableNfsAclResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<EnableRecycleBinResponse>(await this.doRPCRequest("EnableRecycleBin", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new EnableRecycleBinResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DisableNfsAcl",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableNfsAclResponse>(await this.callApi(params, req, runtime), new DisableNfsAclResponse({}));
   }
 
+  async disableNfsAcl(request: DisableNfsAclRequest): Promise<DisableNfsAclResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableNfsAclWithOptions(request, runtime);
+  }
+
+  async disableSmbAclWithOptions(request: DisableSmbAclRequest, runtime: $Util.RuntimeOptions): Promise<DisableSmbAclResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableSmbAcl",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableSmbAclResponse>(await this.callApi(params, req, runtime), new DisableSmbAclResponse({}));
+  }
+
+  async disableSmbAcl(request: DisableSmbAclRequest): Promise<DisableSmbAclResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableSmbAclWithOptions(request, runtime);
+  }
+
+  async enableNfsAclWithOptions(request: EnableNfsAclRequest, runtime: $Util.RuntimeOptions): Promise<EnableNfsAclResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableNfsAcl",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableNfsAclResponse>(await this.callApi(params, req, runtime), new EnableNfsAclResponse({}));
+  }
+
+  async enableNfsAcl(request: EnableNfsAclRequest): Promise<EnableNfsAclResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableNfsAclWithOptions(request, runtime);
+  }
+
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request EnableRecycleBinRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnableRecycleBinResponse
+   */
+  async enableRecycleBinWithOptions(request: EnableRecycleBinRequest, runtime: $Util.RuntimeOptions): Promise<EnableRecycleBinResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.reservedDays)) {
+      query["ReservedDays"] = request.reservedDays;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableRecycleBin",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableRecycleBinResponse>(await this.callApi(params, req, runtime), new EnableRecycleBinResponse({}));
+  }
+
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request EnableRecycleBinRequest
+    * @return EnableRecycleBinResponse
+   */
   async enableRecycleBin(request: EnableRecycleBinRequest): Promise<EnableRecycleBinResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableRecycleBinWithOptions(request, runtime);
   }
 
-  async getDirectoryOrFilePropertiesWithOptions(request: GetDirectoryOrFilePropertiesRequest, runtime: $Util.RuntimeOptions): Promise<GetDirectoryOrFilePropertiesResponse> {
+  async enableSmbAclWithOptions(request: EnableSmbAclRequest, runtime: $Util.RuntimeOptions): Promise<EnableSmbAclResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.keytab)) {
+      query["Keytab"] = request.keytab;
+    }
+
+    if (!Util.isUnset(request.keytabMd5)) {
+      query["KeytabMd5"] = request.keytabMd5;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetDirectoryOrFilePropertiesResponse>(await this.doRPCRequest("GetDirectoryOrFileProperties", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new GetDirectoryOrFilePropertiesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "EnableSmbAcl",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableSmbAclResponse>(await this.callApi(params, req, runtime), new EnableSmbAclResponse({}));
   }
 
+  async enableSmbAcl(request: EnableSmbAclRequest): Promise<EnableSmbAclResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableSmbAclWithOptions(request, runtime);
+  }
+
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request GetDirectoryOrFilePropertiesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetDirectoryOrFilePropertiesResponse
+   */
+  async getDirectoryOrFilePropertiesWithOptions(request: GetDirectoryOrFilePropertiesRequest, runtime: $Util.RuntimeOptions): Promise<GetDirectoryOrFilePropertiesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDirectoryOrFileProperties",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDirectoryOrFilePropertiesResponse>(await this.callApi(params, req, runtime), new GetDirectoryOrFilePropertiesResponse({}));
+  }
+
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request GetDirectoryOrFilePropertiesRequest
+    * @return GetDirectoryOrFilePropertiesResponse
+   */
   async getDirectoryOrFileProperties(request: GetDirectoryOrFilePropertiesRequest): Promise<GetDirectoryOrFilePropertiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDirectoryOrFilePropertiesWithOptions(request, runtime);
@@ -7696,9 +14103,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetRecycleBinAttributeResponse>(await this.doRPCRequest("GetRecycleBinAttribute", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new GetRecycleBinAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRecycleBinAttribute",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRecycleBinAttributeResponse>(await this.callApi(params, req, runtime), new GetRecycleBinAttributeResponse({}));
   }
 
   async getRecycleBinAttribute(request: GetRecycleBinAttributeRequest): Promise<GetRecycleBinAttributeResponse> {
@@ -7706,69 +14124,233 @@ export default class Client extends OpenApi {
     return await this.getRecycleBinAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request ListDirectoriesAndFilesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDirectoriesAndFilesResponse
+   */
   async listDirectoriesAndFilesWithOptions(request: ListDirectoriesAndFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListDirectoriesAndFilesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.directoryOnly)) {
+      query["DirectoryOnly"] = request.directoryOnly;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListDirectoriesAndFilesResponse>(await this.doRPCRequest("ListDirectoriesAndFiles", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ListDirectoriesAndFilesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDirectoriesAndFiles",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDirectoriesAndFilesResponse>(await this.callApi(params, req, runtime), new ListDirectoriesAndFilesResponse({}));
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request ListDirectoriesAndFilesRequest
+    * @return ListDirectoriesAndFilesResponse
+   */
   async listDirectoriesAndFiles(request: ListDirectoriesAndFilesRequest): Promise<ListDirectoriesAndFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDirectoriesAndFilesWithOptions(request, runtime);
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request ListLifecycleRetrieveJobsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListLifecycleRetrieveJobsResponse
+   */
   async listLifecycleRetrieveJobsWithOptions(request: ListLifecycleRetrieveJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListLifecycleRetrieveJobsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListLifecycleRetrieveJobsResponse>(await this.doRPCRequest("ListLifecycleRetrieveJobs", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ListLifecycleRetrieveJobsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListLifecycleRetrieveJobs",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLifecycleRetrieveJobsResponse>(await this.callApi(params, req, runtime), new ListLifecycleRetrieveJobsResponse({}));
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request ListLifecycleRetrieveJobsRequest
+    * @return ListLifecycleRetrieveJobsResponse
+   */
   async listLifecycleRetrieveJobs(request: ListLifecycleRetrieveJobsRequest): Promise<ListLifecycleRetrieveJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLifecycleRetrieveJobsWithOptions(request, runtime);
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request ListRecentlyRecycledDirectoriesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListRecentlyRecycledDirectoriesResponse
+   */
   async listRecentlyRecycledDirectoriesWithOptions(request: ListRecentlyRecycledDirectoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListRecentlyRecycledDirectoriesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListRecentlyRecycledDirectoriesResponse>(await this.doRPCRequest("ListRecentlyRecycledDirectories", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new ListRecentlyRecycledDirectoriesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRecentlyRecycledDirectories",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRecentlyRecycledDirectoriesResponse>(await this.callApi(params, req, runtime), new ListRecentlyRecycledDirectoriesResponse({}));
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request ListRecentlyRecycledDirectoriesRequest
+    * @return ListRecentlyRecycledDirectoriesResponse
+   */
   async listRecentlyRecycledDirectories(request: ListRecentlyRecycledDirectoriesRequest): Promise<ListRecentlyRecycledDirectoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRecentlyRecycledDirectoriesWithOptions(request, runtime);
   }
 
+  /**
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   You can query a maximum of 50 jobs that are recently executed.
+    *
+    * @param request ListRecycleBinJobsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListRecycleBinJobsResponse
+   */
   async listRecycleBinJobsWithOptions(request: ListRecycleBinJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListRecycleBinJobsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListRecycleBinJobsResponse>(await this.doRPCRequest("ListRecycleBinJobs", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new ListRecycleBinJobsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRecycleBinJobs",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRecycleBinJobsResponse>(await this.callApi(params, req, runtime), new ListRecycleBinJobsResponse({}));
   }
 
+  /**
+    * *   Only General-purpose NAS file systems support this operation.
+    * *   You can query a maximum of 50 jobs that are recently executed.
+    *
+    * @param request ListRecycleBinJobsRequest
+    * @return ListRecycleBinJobsResponse
+   */
   async listRecycleBinJobs(request: ListRecycleBinJobsRequest): Promise<ListRecycleBinJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRecycleBinJobsWithOptions(request, runtime);
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request ListRecycledDirectoriesAndFilesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListRecycledDirectoriesAndFilesResponse
+   */
   async listRecycledDirectoriesAndFilesWithOptions(request: ListRecycledDirectoriesAndFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListRecycledDirectoriesAndFilesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListRecycledDirectoriesAndFilesResponse>(await this.doRPCRequest("ListRecycledDirectoriesAndFiles", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new ListRecycledDirectoriesAndFilesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRecycledDirectoriesAndFiles",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRecycledDirectoriesAndFilesResponse>(await this.callApi(params, req, runtime), new ListRecycledDirectoriesAndFilesResponse({}));
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request ListRecycledDirectoriesAndFilesRequest
+    * @return ListRecycledDirectoriesAndFilesResponse
+   */
   async listRecycledDirectoriesAndFiles(request: ListRecycledDirectoriesAndFilesRequest): Promise<ListRecycledDirectoriesAndFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRecycledDirectoriesAndFilesWithOptions(request, runtime);
@@ -7776,10 +14358,38 @@ export default class Client extends OpenApi {
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.doRPCRequest("ListTagResources", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
@@ -7787,51 +14397,339 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+    *
+    * @param request ModifyAccessGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyAccessGroupResponse
+   */
   async modifyAccessGroupWithOptions(request: ModifyAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccessGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessGroupName)) {
+      query["AccessGroupName"] = request.accessGroupName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyAccessGroupResponse>(await this.doRPCRequest("ModifyAccessGroup", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyAccessGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyAccessGroup",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAccessGroupResponse>(await this.callApi(params, req, runtime), new ModifyAccessGroupResponse({}));
   }
 
+  /**
+    * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+    *
+    * @param request ModifyAccessGroupRequest
+    * @return ModifyAccessGroupResponse
+   */
   async modifyAccessGroup(request: ModifyAccessGroupRequest): Promise<ModifyAccessGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccessGroupWithOptions(request, runtime);
   }
 
+  /**
+    * The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+    *
+    * @param request ModifyAccessRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyAccessRuleResponse
+   */
   async modifyAccessRuleWithOptions(request: ModifyAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccessRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessGroupName)) {
+      query["AccessGroupName"] = request.accessGroupName;
+    }
+
+    if (!Util.isUnset(request.accessRuleId)) {
+      query["AccessRuleId"] = request.accessRuleId;
+    }
+
+    if (!Util.isUnset(request.fileSystemType)) {
+      query["FileSystemType"] = request.fileSystemType;
+    }
+
+    if (!Util.isUnset(request.ipv6SourceCidrIp)) {
+      query["Ipv6SourceCidrIp"] = request.ipv6SourceCidrIp;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.RWAccessType)) {
+      query["RWAccessType"] = request.RWAccessType;
+    }
+
+    if (!Util.isUnset(request.sourceCidrIp)) {
+      query["SourceCidrIp"] = request.sourceCidrIp;
+    }
+
+    if (!Util.isUnset(request.userAccessType)) {
+      query["UserAccessType"] = request.userAccessType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyAccessRuleResponse>(await this.doRPCRequest("ModifyAccessRule", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyAccessRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyAccessRule",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAccessRuleResponse>(await this.callApi(params, req, runtime), new ModifyAccessRuleResponse({}));
   }
 
+  /**
+    * The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+    *
+    * @param request ModifyAccessRuleRequest
+    * @return ModifyAccessRuleResponse
+   */
   async modifyAccessRule(request: ModifyAccessRuleRequest): Promise<ModifyAccessRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccessRuleWithOptions(request, runtime);
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    *
+    * @param request ModifyAutoSnapshotPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyAutoSnapshotPolicyResponse
+   */
   async modifyAutoSnapshotPolicyWithOptions(request: ModifyAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoSnapshotPolicyId)) {
+      query["AutoSnapshotPolicyId"] = request.autoSnapshotPolicyId;
+    }
+
+    if (!Util.isUnset(request.autoSnapshotPolicyName)) {
+      query["AutoSnapshotPolicyName"] = request.autoSnapshotPolicyName;
+    }
+
+    if (!Util.isUnset(request.repeatWeekdays)) {
+      query["RepeatWeekdays"] = request.repeatWeekdays;
+    }
+
+    if (!Util.isUnset(request.retentionDays)) {
+      query["RetentionDays"] = request.retentionDays;
+    }
+
+    if (!Util.isUnset(request.timePoints)) {
+      query["TimePoints"] = request.timePoints;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyAutoSnapshotPolicyResponse>(await this.doRPCRequest("ModifyAutoSnapshotPolicy", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyAutoSnapshotPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyAutoSnapshotPolicy",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new ModifyAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    *
+    * @param request ModifyAutoSnapshotPolicyRequest
+    * @return ModifyAutoSnapshotPolicyResponse
+   */
   async modifyAutoSnapshotPolicy(request: ModifyAutoSnapshotPolicyRequest): Promise<ModifyAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflows.
+    * *   You can modify the attributes only of the dataflows that are in the `Running` state.
+    * *   It generally takes 2 to 5 minutes to modify the attributes of a dataflow. You can call the [DescribeDataFlows](~~336901~~) operation to query the status of the dataflow to be modified.
+    * *   Data flow specifications:
+    *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
+    *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
+    * *   Billing
+    *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](~~111858~~).
+    *
+    * @param request ModifyDataFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDataFlowResponse
+   */
+  async modifyDataFlowWithOptions(request: ModifyDataFlowRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDataFlowResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataFlowId)) {
+      query["DataFlowId"] = request.dataFlowId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.throughput)) {
+      query["Throughput"] = request.throughput;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDataFlow",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDataFlowResponse>(await this.callApi(params, req, runtime), new ModifyDataFlowResponse({}));
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflows.
+    * *   You can modify the attributes only of the dataflows that are in the `Running` state.
+    * *   It generally takes 2 to 5 minutes to modify the attributes of a dataflow. You can call the [DescribeDataFlows](~~336901~~) operation to query the status of the dataflow to be modified.
+    * *   Data flow specifications:
+    *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
+    *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
+    * *   Billing
+    *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](~~111858~~).
+    *
+    * @param request ModifyDataFlowRequest
+    * @return ModifyDataFlowResponse
+   */
+  async modifyDataFlow(request: ModifyDataFlowRequest): Promise<ModifyDataFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDataFlowWithOptions(request, runtime);
+  }
+
+  async modifyDataFlowAutoRefreshWithOptions(request: ModifyDataFlowAutoRefreshRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDataFlowAutoRefreshResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoRefreshInterval)) {
+      query["AutoRefreshInterval"] = request.autoRefreshInterval;
+    }
+
+    if (!Util.isUnset(request.autoRefreshPolicy)) {
+      query["AutoRefreshPolicy"] = request.autoRefreshPolicy;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataFlowId)) {
+      query["DataFlowId"] = request.dataFlowId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDataFlowAutoRefresh",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDataFlowAutoRefreshResponse>(await this.callApi(params, req, runtime), new ModifyDataFlowAutoRefreshResponse({}));
+  }
+
+  async modifyDataFlowAutoRefresh(request: ModifyDataFlowAutoRefreshRequest): Promise<ModifyDataFlowAutoRefreshResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDataFlowAutoRefreshWithOptions(request, runtime);
+  }
+
   async modifyFileSystemWithOptions(request: ModifyFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFileSystemResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyFileSystemResponse>(await this.doRPCRequest("ModifyFileSystem", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyFileSystemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyFileSystem",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyFileSystemResponse>(await this.callApi(params, req, runtime), new ModifyFileSystemResponse({}));
   }
 
   async modifyFileSystem(request: ModifyFileSystemRequest): Promise<ModifyFileSystemResponse> {
@@ -7839,27 +14737,173 @@ export default class Client extends OpenApi {
     return await this.modifyFileSystemWithOptions(request, runtime);
   }
 
-  async modifyLDAPConfigWithOptions(request: ModifyLDAPConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLDAPConfigResponse> {
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support fileset modification.
+    *
+    * @param request ModifyFilesetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyFilesetResponse
+   */
+  async modifyFilesetWithOptions(request: ModifyFilesetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFilesetResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.fsetId)) {
+      query["FsetId"] = request.fsetId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyLDAPConfigResponse>(await this.doRPCRequest("ModifyLDAPConfig", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyLDAPConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyFileset",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyFilesetResponse>(await this.callApi(params, req, runtime), new ModifyFilesetResponse({}));
   }
 
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support fileset modification.
+    *
+    * @param request ModifyFilesetRequest
+    * @return ModifyFilesetResponse
+   */
+  async modifyFileset(request: ModifyFilesetRequest): Promise<ModifyFilesetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyFilesetWithOptions(request, runtime);
+  }
+
+  /**
+    * #
+    *
+    * @param request ModifyLDAPConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyLDAPConfigResponse
+   */
+  async modifyLDAPConfigWithOptions(request: ModifyLDAPConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLDAPConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bindDN)) {
+      query["BindDN"] = request.bindDN;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.searchBase)) {
+      query["SearchBase"] = request.searchBase;
+    }
+
+    if (!Util.isUnset(request.URI)) {
+      query["URI"] = request.URI;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyLDAPConfig",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyLDAPConfigResponse>(await this.callApi(params, req, runtime), new ModifyLDAPConfigResponse({}));
+  }
+
+  /**
+    * #
+    *
+    * @param request ModifyLDAPConfigRequest
+    * @return ModifyLDAPConfigResponse
+   */
   async modifyLDAPConfig(request: ModifyLDAPConfigRequest): Promise<ModifyLDAPConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLDAPConfigWithOptions(request, runtime);
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request ModifyLifecyclePolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyLifecyclePolicyResponse
+   */
   async modifyLifecyclePolicyWithOptions(request: ModifyLifecyclePolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLifecyclePolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.lifecyclePolicyName)) {
+      query["LifecyclePolicyName"] = request.lifecyclePolicyName;
+    }
+
+    if (!Util.isUnset(request.lifecycleRuleName)) {
+      query["LifecycleRuleName"] = request.lifecycleRuleName;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyLifecyclePolicyResponse>(await this.doRPCRequest("ModifyLifecyclePolicy", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyLifecyclePolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyLifecyclePolicy",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyLifecyclePolicyResponse>(await this.callApi(params, req, runtime), new ModifyLifecyclePolicyResponse({}));
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request ModifyLifecyclePolicyRequest
+    * @return ModifyLifecyclePolicyResponse
+   */
   async modifyLifecyclePolicy(request: ModifyLifecyclePolicyRequest): Promise<ModifyLifecyclePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLifecyclePolicyWithOptions(request, runtime);
@@ -7867,10 +14911,42 @@ export default class Client extends OpenApi {
 
   async modifyMountTargetWithOptions(request: ModifyMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMountTargetResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessGroupName)) {
+      query["AccessGroupName"] = request.accessGroupName;
+    }
+
+    if (!Util.isUnset(request.dualStackMountTargetDomain)) {
+      query["DualStackMountTargetDomain"] = request.dualStackMountTargetDomain;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.mountTargetDomain)) {
+      query["MountTargetDomain"] = request.mountTargetDomain;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyMountTargetResponse>(await this.doRPCRequest("ModifyMountTarget", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyMountTargetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyMountTarget",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyMountTargetResponse>(await this.callApi(params, req, runtime), new ModifyMountTargetResponse({}));
   }
 
   async modifyMountTarget(request: ModifyMountTargetRequest): Promise<ModifyMountTargetResponse> {
@@ -7878,9 +14954,197 @@ export default class Client extends OpenApi {
     return await this.modifyMountTargetWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    *
+    * @param request ModifyProtocolMountTargetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyProtocolMountTargetResponse
+   */
+  async modifyProtocolMountTargetWithOptions(request: ModifyProtocolMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtocolMountTargetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.exportId)) {
+      query["ExportId"] = request.exportId;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.protocolServiceId)) {
+      query["ProtocolServiceId"] = request.protocolServiceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyProtocolMountTarget",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyProtocolMountTargetResponse>(await this.callApi(params, req, runtime), new ModifyProtocolMountTargetResponse({}));
+  }
+
+  /**
+    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    *
+    * @param request ModifyProtocolMountTargetRequest
+    * @return ModifyProtocolMountTargetResponse
+   */
+  async modifyProtocolMountTarget(request: ModifyProtocolMountTargetRequest): Promise<ModifyProtocolMountTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyProtocolMountTargetWithOptions(request, runtime);
+  }
+
+  /**
+    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    *
+    * @param request ModifyProtocolServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyProtocolServiceResponse
+   */
+  async modifyProtocolServiceWithOptions(request: ModifyProtocolServiceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtocolServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.protocolServiceId)) {
+      query["ProtocolServiceId"] = request.protocolServiceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyProtocolService",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyProtocolServiceResponse>(await this.callApi(params, req, runtime), new ModifyProtocolServiceResponse({}));
+  }
+
+  /**
+    * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    *
+    * @param request ModifyProtocolServiceRequest
+    * @return ModifyProtocolServiceResponse
+   */
+  async modifyProtocolService(request: ModifyProtocolServiceRequest): Promise<ModifyProtocolServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyProtocolServiceWithOptions(request, runtime);
+  }
+
+  async modifySmbAclWithOptions(request: ModifySmbAclRequest, runtime: $Util.RuntimeOptions): Promise<ModifySmbAclResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.enableAnonymousAccess)) {
+      query["EnableAnonymousAccess"] = request.enableAnonymousAccess;
+    }
+
+    if (!Util.isUnset(request.encryptData)) {
+      query["EncryptData"] = request.encryptData;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.homeDirPath)) {
+      query["HomeDirPath"] = request.homeDirPath;
+    }
+
+    if (!Util.isUnset(request.keytab)) {
+      query["Keytab"] = request.keytab;
+    }
+
+    if (!Util.isUnset(request.keytabMd5)) {
+      query["KeytabMd5"] = request.keytabMd5;
+    }
+
+    if (!Util.isUnset(request.rejectUnencryptedAccess)) {
+      query["RejectUnencryptedAccess"] = request.rejectUnencryptedAccess;
+    }
+
+    if (!Util.isUnset(request.superAdminSid)) {
+      query["SuperAdminSid"] = request.superAdminSid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifySmbAcl",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifySmbAclResponse>(await this.callApi(params, req, runtime), new ModifySmbAclResponse({}));
+  }
+
+  async modifySmbAcl(request: ModifySmbAclRequest): Promise<ModifySmbAclResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifySmbAclWithOptions(request, runtime);
+  }
+
   async openNASServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<OpenNASServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<OpenNASServiceResponse>(await this.doRPCRequest("OpenNASService", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new OpenNASServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OpenNASService",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenNASServiceResponse>(await this.callApi(params, req, runtime), new OpenNASServiceResponse({}));
   }
 
   async openNASService(): Promise<OpenNASServiceResponse> {
@@ -7888,77 +15152,422 @@ export default class Client extends OpenApi {
     return await this.openNASServiceWithOptions(runtime);
   }
 
+  /**
+    * The IP address of a client to remove from the blacklist.
+    *
+    * @param request RemoveClientFromBlackListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveClientFromBlackListResponse
+   */
   async removeClientFromBlackListWithOptions(request: RemoveClientFromBlackListRequest, runtime: $Util.RuntimeOptions): Promise<RemoveClientFromBlackListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientIP)) {
+      query["ClientIP"] = request.clientIP;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveClientFromBlackListResponse>(await this.doRPCRequest("RemoveClientFromBlackList", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveClientFromBlackListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveClientFromBlackList",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveClientFromBlackListResponse>(await this.callApi(params, req, runtime), new RemoveClientFromBlackListResponse({}));
   }
 
+  /**
+    * The IP address of a client to remove from the blacklist.
+    *
+    * @param request RemoveClientFromBlackListRequest
+    * @return RemoveClientFromBlackListResponse
+   */
   async removeClientFromBlackList(request: RemoveClientFromBlackListRequest): Promise<RemoveClientFromBlackListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeClientFromBlackListWithOptions(request, runtime);
   }
 
+  /**
+    * A request ID is returned even if the tag that you want to remove or the associated file system does not exist. For example, if the associated file system does not exist, or the TagKey and TagValue cannot be found, a request ID is returned.
+    *
+    * @param request RemoveTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveTagsResponse
+   */
   async removeTagsWithOptions(request: RemoveTagsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTagsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveTagsResponse>(await this.doRPCRequest("RemoveTags", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveTags",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveTagsResponse>(await this.callApi(params, req, runtime), new RemoveTagsResponse({}));
   }
 
+  /**
+    * A request ID is returned even if the tag that you want to remove or the associated file system does not exist. For example, if the associated file system does not exist, or the TagKey and TagValue cannot be found, a request ID is returned.
+    *
+    * @param request RemoveTagsRequest
+    * @return RemoveTagsResponse
+   */
   async removeTags(request: RemoveTagsRequest): Promise<RemoveTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeTagsWithOptions(request, runtime);
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    * *   The file system must be in the Running state.
+    * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
+    *
+    * @param request ResetFileSystemRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ResetFileSystemResponse
+   */
   async resetFileSystemWithOptions(request: ResetFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<ResetFileSystemResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ResetFileSystemResponse>(await this.doRPCRequest("ResetFileSystem", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ResetFileSystemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ResetFileSystem",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetFileSystemResponse>(await this.callApi(params, req, runtime), new ResetFileSystemResponse({}));
   }
 
+  /**
+    * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+    * *   Only advanced Extreme NAS file systems support this feature.
+    * *   The file system must be in the Running state.
+    * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
+    *
+    * @param request ResetFileSystemRequest
+    * @return ResetFileSystemResponse
+   */
   async resetFileSystem(request: ResetFileSystemRequest): Promise<ResetFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetFileSystemWithOptions(request, runtime);
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request RetryLifecycleRetrieveJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RetryLifecycleRetrieveJobResponse
+   */
   async retryLifecycleRetrieveJobWithOptions(request: RetryLifecycleRetrieveJobRequest, runtime: $Util.RuntimeOptions): Promise<RetryLifecycleRetrieveJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RetryLifecycleRetrieveJobResponse>(await this.doRPCRequest("RetryLifecycleRetrieveJob", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new RetryLifecycleRetrieveJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RetryLifecycleRetrieveJob",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RetryLifecycleRetrieveJobResponse>(await this.callApi(params, req, runtime), new RetryLifecycleRetrieveJobResponse({}));
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request RetryLifecycleRetrieveJobRequest
+    * @return RetryLifecycleRetrieveJobResponse
+   */
   async retryLifecycleRetrieveJob(request: RetryLifecycleRetrieveJobRequest): Promise<RetryLifecycleRetrieveJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.retryLifecycleRetrieveJobWithOptions(request, runtime);
   }
 
+  /**
+    * Only General-purpose NFS file systems support the directory quota feature.
+    *
+    * @param request SetDirQuotaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDirQuotaResponse
+   */
   async setDirQuotaWithOptions(request: SetDirQuotaRequest, runtime: $Util.RuntimeOptions): Promise<SetDirQuotaResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileCountLimit)) {
+      query["FileCountLimit"] = request.fileCountLimit;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.quotaType)) {
+      query["QuotaType"] = request.quotaType;
+    }
+
+    if (!Util.isUnset(request.sizeLimit)) {
+      query["SizeLimit"] = request.sizeLimit;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userType)) {
+      query["UserType"] = request.userType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetDirQuotaResponse>(await this.doRPCRequest("SetDirQuota", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new SetDirQuotaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetDirQuota",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDirQuotaResponse>(await this.callApi(params, req, runtime), new SetDirQuotaResponse({}));
   }
 
+  /**
+    * Only General-purpose NFS file systems support the directory quota feature.
+    *
+    * @param request SetDirQuotaRequest
+    * @return SetDirQuotaResponse
+   */
   async setDirQuota(request: SetDirQuotaRequest): Promise<SetDirQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDirQuotaWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+    * *   You can enable the dataflows that are only in the `Stopped` state.
+    * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified dataflow. If the resources are insufficient, the dataflow cannot be enabled.
+    * *   It generally takes 2 to 5 minutes to enable a dataflow. You can query the dataflow status by calling the [DescribeDataFlows](~~2402270~~) operation.
+    *
+    * @param request StartDataFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartDataFlowResponse
+   */
+  async startDataFlowWithOptions(request: StartDataFlowRequest, runtime: $Util.RuntimeOptions): Promise<StartDataFlowResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataFlowId)) {
+      query["DataFlowId"] = request.dataFlowId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartDataFlow",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartDataFlowResponse>(await this.callApi(params, req, runtime), new StartDataFlowResponse({}));
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+    * *   You can enable the dataflows that are only in the `Stopped` state.
+    * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified dataflow. If the resources are insufficient, the dataflow cannot be enabled.
+    * *   It generally takes 2 to 5 minutes to enable a dataflow. You can query the dataflow status by calling the [DescribeDataFlows](~~2402270~~) operation.
+    *
+    * @param request StartDataFlowRequest
+    * @return StartDataFlowResponse
+   */
+  async startDataFlow(request: StartDataFlowRequest): Promise<StartDataFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startDataFlowWithOptions(request, runtime);
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+    * *   You can disable only the dataflows that are in the `Running` state.
+    * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
+    * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
+    * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](~~2402271~~) operation to query the dataflow status.
+    *
+    * @param request StopDataFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopDataFlowResponse
+   */
+  async stopDataFlowWithOptions(request: StopDataFlowRequest, runtime: $Util.RuntimeOptions): Promise<StopDataFlowResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataFlowId)) {
+      query["DataFlowId"] = request.dataFlowId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopDataFlow",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopDataFlowResponse>(await this.callApi(params, req, runtime), new StopDataFlowResponse({}));
+  }
+
+  /**
+    * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+    * *   You can disable only the dataflows that are in the `Running` state.
+    * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
+    * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
+    * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](~~2402271~~) operation to query the dataflow status.
+    *
+    * @param request StopDataFlowRequest
+    * @return StopDataFlowResponse
+   */
+  async stopDataFlow(request: StopDataFlowRequest): Promise<StopDataFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopDataFlowWithOptions(request, runtime);
+  }
+
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TagResourcesResponse>(await this.doRPCRequest("TagResources", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
@@ -7968,10 +15577,38 @@ export default class Client extends OpenApi {
 
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UntagResourcesResponse>(await this.doRPCRequest("UntagResources", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new UntagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
@@ -7979,28 +15616,95 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request UpdateRecycleBinAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateRecycleBinAttributeResponse
+   */
   async updateRecycleBinAttributeWithOptions(request: UpdateRecycleBinAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRecycleBinAttributeResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateRecycleBinAttributeResponse>(await this.doRPCRequest("UpdateRecycleBinAttribute", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new UpdateRecycleBinAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateRecycleBinAttribute",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRecycleBinAttributeResponse>(await this.callApi(params, req, runtime), new UpdateRecycleBinAttributeResponse({}));
   }
 
+  /**
+    * Only General-purpose NAS file systems support this operation.
+    *
+    * @param request UpdateRecycleBinAttributeRequest
+    * @return UpdateRecycleBinAttributeResponse
+   */
   async updateRecycleBinAttribute(request: UpdateRecycleBinAttributeRequest): Promise<UpdateRecycleBinAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRecycleBinAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
+    * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
+    *
+    * @param request UpgradeFileSystemRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradeFileSystemResponse
+   */
   async upgradeFileSystemWithOptions(request: UpgradeFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeFileSystemResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.capacity)) {
+      query["Capacity"] = request.capacity;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpgradeFileSystemResponse>(await this.doRPCRequest("UpgradeFileSystem", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new UpgradeFileSystemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpgradeFileSystem",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeFileSystemResponse>(await this.callApi(params, req, runtime), new UpgradeFileSystemResponse({}));
   }
 
+  /**
+    * *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
+    * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
+    *
+    * @param request UpgradeFileSystemRequest
+    * @return UpgradeFileSystemResponse
+   */
   async upgradeFileSystem(request: UpgradeFileSystemRequest): Promise<UpgradeFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeFileSystemWithOptions(request, runtime);
