@@ -3367,6 +3367,7 @@ export class GetInstanceResponseBody extends $tea.Model {
   modifiedTime?: number;
   requestId?: string;
   resourceGroupId?: string;
+  tags?: GetInstanceResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -3380,6 +3381,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       modifiedTime: 'ModifiedTime',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -3396,6 +3398,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       modifiedTime: 'number',
       requestId: 'string',
       resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': GetInstanceResponseBodyTags },
     };
   }
 
@@ -8118,6 +8121,28 @@ export class GetChainResponseBodyChainConfig extends $tea.Model {
   }
 }
 
+export class GetInstanceResponseBodyTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceEndpointResponseBodyAclEntries extends $tea.Model {
   comment?: string;
   entry?: string;
@@ -8831,6 +8856,28 @@ export class ListEventCenterRuleNameResponseBodyRuleNames extends $tea.Model {
   }
 }
 
+export class ListInstanceResponseBodyInstancesTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceResponseBodyInstances extends $tea.Model {
   createTime?: string;
   instanceId?: string;
@@ -8841,6 +8888,7 @@ export class ListInstanceResponseBodyInstances extends $tea.Model {
   modifiedTime?: string;
   regionId?: string;
   resourceGroupId?: string;
+  tags?: ListInstanceResponseBodyInstancesTags[];
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -8852,6 +8900,7 @@ export class ListInstanceResponseBodyInstances extends $tea.Model {
       modifiedTime: 'ModifiedTime',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -8866,6 +8915,7 @@ export class ListInstanceResponseBodyInstances extends $tea.Model {
       modifiedTime: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListInstanceResponseBodyInstancesTags },
     };
   }
 
