@@ -301,6 +301,7 @@ export class CreateInstanceRequest extends $tea.Model {
   autoRenew?: boolean;
   autoRenewPeriod?: number;
   clientToken?: string;
+  instanceName?: string;
   instanceType?: string;
   maxConnections?: number;
   maxEipTps?: number;
@@ -309,6 +310,8 @@ export class CreateInstanceRequest extends $tea.Model {
   period?: number;
   periodCycle?: string;
   queueCapacity?: number;
+  renewStatus?: string;
+  renewalDurationUnit?: string;
   storageSize?: number;
   supportEip?: boolean;
   supportTracing?: boolean;
@@ -318,6 +321,7 @@ export class CreateInstanceRequest extends $tea.Model {
       autoRenew: 'AutoRenew',
       autoRenewPeriod: 'AutoRenewPeriod',
       clientToken: 'ClientToken',
+      instanceName: 'InstanceName',
       instanceType: 'InstanceType',
       maxConnections: 'MaxConnections',
       maxEipTps: 'MaxEipTps',
@@ -326,6 +330,8 @@ export class CreateInstanceRequest extends $tea.Model {
       period: 'Period',
       periodCycle: 'PeriodCycle',
       queueCapacity: 'QueueCapacity',
+      renewStatus: 'RenewStatus',
+      renewalDurationUnit: 'RenewalDurationUnit',
       storageSize: 'StorageSize',
       supportEip: 'SupportEip',
       supportTracing: 'SupportTracing',
@@ -338,6 +344,7 @@ export class CreateInstanceRequest extends $tea.Model {
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
       clientToken: 'string',
+      instanceName: 'string',
       instanceType: 'string',
       maxConnections: 'number',
       maxEipTps: 'number',
@@ -346,6 +353,8 @@ export class CreateInstanceRequest extends $tea.Model {
       period: 'number',
       periodCycle: 'string',
       queueCapacity: 'number',
+      renewStatus: 'string',
+      renewalDurationUnit: 'string',
       storageSize: 'number',
       supportEip: 'boolean',
       supportTracing: 'boolean',
@@ -2492,6 +2501,12 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    *
+    * @param request CreateAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAccountResponse
+   */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2536,6 +2551,11 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
   }
 
+  /**
+    *
+    * @param request CreateAccountRequest
+    * @return CreateAccountResponse
+   */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccountWithOptions(request, runtime);
@@ -2662,6 +2682,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
     if (!Util.isUnset(request.instanceType)) {
       query["InstanceType"] = request.instanceType;
     }
@@ -2692,6 +2716,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.queueCapacity)) {
       query["QueueCapacity"] = request.queueCapacity;
+    }
+
+    if (!Util.isUnset(request.renewStatus)) {
+      query["RenewStatus"] = request.renewStatus;
+    }
+
+    if (!Util.isUnset(request.renewalDurationUnit)) {
+      query["RenewalDurationUnit"] = request.renewalDurationUnit;
     }
 
     if (!Util.isUnset(request.storageSize)) {
@@ -2916,6 +2948,15 @@ export default class Client extends OpenApi {
     return await this.deleteBindingWithOptions(request, runtime);
   }
 
+  /**
+    * ## [](#)Usage notes
+    * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
+    * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+    *
+    * @param request DeleteExchangeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteExchangeResponse
+   */
   async deleteExchangeWithOptions(request: DeleteExchangeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExchangeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2948,6 +2989,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteExchangeResponse>(await this.callApi(params, req, runtime), new DeleteExchangeResponse({}));
   }
 
+  /**
+    * ## [](#)Usage notes
+    * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
+    * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+    *
+    * @param request DeleteExchangeRequest
+    * @return DeleteExchangeResponse
+   */
   async deleteExchange(request: DeleteExchangeRequest): Promise<DeleteExchangeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteExchangeWithOptions(request, runtime);
@@ -2990,6 +3039,13 @@ export default class Client extends OpenApi {
     return await this.deleteQueueWithOptions(request, runtime);
   }
 
+  /**
+    * Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+    *
+    * @param request DeleteVirtualHostRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVirtualHostResponse
+   */
   async deleteVirtualHostWithOptions(request: DeleteVirtualHostRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualHostResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3018,6 +3074,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVirtualHostResponse>(await this.callApi(params, req, runtime), new DeleteVirtualHostResponse({}));
   }
 
+  /**
+    * Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+    *
+    * @param request DeleteVirtualHostRequest
+    * @return DeleteVirtualHostResponse
+   */
   async deleteVirtualHost(request: DeleteVirtualHostRequest): Promise<DeleteVirtualHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVirtualHostWithOptions(request, runtime);
@@ -3202,6 +3264,13 @@ export default class Client extends OpenApi {
     return await this.listInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * ApsaraMQ for RabbitMQ allows you to query only online consumers.
+    *
+    * @param request ListQueueConsumersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListQueueConsumersResponse
+   */
   async listQueueConsumersWithOptions(request: ListQueueConsumersRequest, runtime: $Util.RuntimeOptions): Promise<ListQueueConsumersResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3222,6 +3291,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQueueConsumersResponse>(await this.callApi(params, req, runtime), new ListQueueConsumersResponse({}));
   }
 
+  /**
+    * ApsaraMQ for RabbitMQ allows you to query only online consumers.
+    *
+    * @param request ListQueueConsumersRequest
+    * @return ListQueueConsumersResponse
+   */
   async listQueueConsumers(request: ListQueueConsumersRequest): Promise<ListQueueConsumersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQueueConsumersWithOptions(request, runtime);
