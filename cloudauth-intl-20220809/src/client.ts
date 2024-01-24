@@ -2675,10 +2675,6 @@ export default class Client extends OpenApi {
       query["IdFaceQuality"] = request.idFaceQuality;
     }
 
-    if (!Util.isUnset(request.idOcrPictureBase64)) {
-      query["IdOcrPictureBase64"] = request.idOcrPictureBase64;
-    }
-
     if (!Util.isUnset(request.idOcrPictureUrl)) {
       query["IdOcrPictureUrl"] = request.idOcrPictureUrl;
     }
@@ -2703,8 +2699,14 @@ export default class Client extends OpenApi {
       query["Spoof"] = request.spoof;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.idOcrPictureBase64)) {
+      body["IdOcrPictureBase64"] = request.idOcrPictureBase64;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CardOcr",
