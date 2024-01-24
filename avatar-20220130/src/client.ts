@@ -2050,6 +2050,7 @@ export class StartInstanceRequest extends $tea.Model {
   channel?: StartInstanceRequestChannel;
   commandRequest?: StartInstanceRequestCommandRequest;
   tenantId?: number;
+  textRequest?: StartInstanceRequestTextRequest;
   user?: StartInstanceRequestUser;
   static names(): { [key: string]: string } {
     return {
@@ -2058,6 +2059,7 @@ export class StartInstanceRequest extends $tea.Model {
       channel: 'Channel',
       commandRequest: 'CommandRequest',
       tenantId: 'TenantId',
+      textRequest: 'TextRequest',
       user: 'User',
     };
   }
@@ -2069,6 +2071,7 @@ export class StartInstanceRequest extends $tea.Model {
       channel: StartInstanceRequestChannel,
       commandRequest: StartInstanceRequestCommandRequest,
       tenantId: 'number',
+      textRequest: StartInstanceRequestTextRequest,
       user: StartInstanceRequestUser,
     };
   }
@@ -2084,6 +2087,7 @@ export class StartInstanceShrinkRequest extends $tea.Model {
   channelShrink?: string;
   commandRequestShrink?: string;
   tenantId?: number;
+  textRequestShrink?: string;
   userShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2092,6 +2096,7 @@ export class StartInstanceShrinkRequest extends $tea.Model {
       channelShrink: 'Channel',
       commandRequestShrink: 'CommandRequest',
       tenantId: 'TenantId',
+      textRequestShrink: 'TextRequest',
       userShrink: 'User',
     };
   }
@@ -2103,6 +2108,7 @@ export class StartInstanceShrinkRequest extends $tea.Model {
       channelShrink: 'string',
       commandRequestShrink: 'string',
       tenantId: 'number',
+      textRequestShrink: 'string',
       userShrink: 'string',
     };
   }
@@ -4211,15 +4217,49 @@ export class StartInstanceRequestChannel extends $tea.Model {
 
 export class StartInstanceRequestCommandRequest extends $tea.Model {
   alphaSwitch?: boolean;
+  backGroundImageUrl?: string;
+  locate?: number;
   static names(): { [key: string]: string } {
     return {
       alphaSwitch: 'AlphaSwitch',
+      backGroundImageUrl: 'BackGroundImageUrl',
+      locate: 'Locate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       alphaSwitch: 'boolean',
+      backGroundImageUrl: 'string',
+      locate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartInstanceRequestTextRequest extends $tea.Model {
+  pitchRate?: number;
+  speechRate?: number;
+  voice?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pitchRate: 'PitchRate',
+      speechRate: 'SpeechRate',
+      voice: 'Voice',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pitchRate: 'number',
+      speechRate: 'number',
+      voice: 'string',
+      volume: 'number',
     };
   }
 
@@ -5956,6 +5996,10 @@ export default class Client extends OpenApi {
       request.commandRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commandRequest, "CommandRequest", "json");
     }
 
+    if (!Util.isUnset(tmpReq.textRequest)) {
+      request.textRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.textRequest, "TextRequest", "json");
+    }
+
     if (!Util.isUnset(tmpReq.user)) {
       request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.user, "User", "json");
     }
@@ -5979,6 +6023,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tenantId)) {
       query["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.textRequestShrink)) {
+      query["TextRequest"] = request.textRequestShrink;
     }
 
     if (!Util.isUnset(request.userShrink)) {
