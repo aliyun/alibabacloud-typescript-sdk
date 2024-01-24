@@ -14,6 +14,7 @@ export class CreateAppRequest extends $tea.Model {
   chargeType?: string;
   description?: string;
   network?: CreateAppRequestNetwork[];
+  privateNetwork?: CreateAppRequestPrivateNetwork[];
   quotaInfo?: CreateAppRequestQuotaInfo;
   regionId?: string;
   version?: string;
@@ -25,6 +26,7 @@ export class CreateAppRequest extends $tea.Model {
       chargeType: 'chargeType',
       description: 'description',
       network: 'network',
+      privateNetwork: 'privateNetwork',
       quotaInfo: 'quotaInfo',
       regionId: 'regionId',
       version: 'version',
@@ -39,6 +41,7 @@ export class CreateAppRequest extends $tea.Model {
       chargeType: 'string',
       description: 'string',
       network: { 'type': 'array', 'itemType': CreateAppRequestNetwork },
+      privateNetwork: { 'type': 'array', 'itemType': CreateAppRequestPrivateNetwork },
       quotaInfo: CreateAppRequestQuotaInfo,
       regionId: 'string',
       version: 'string',
@@ -421,22 +424,34 @@ export class ListAppsResponse extends $tea.Model {
 }
 
 export class UpdateAppRequest extends $tea.Model {
+  applyReason?: string;
   authentication?: UpdateAppRequestAuthentication;
+  contactInfo?: string;
   description?: string;
+  limiterInfo?: UpdateAppRequestLimiterInfo;
   network?: UpdateAppRequestNetwork[];
+  privateNetwork?: UpdateAppRequestPrivateNetwork[];
   static names(): { [key: string]: string } {
     return {
+      applyReason: 'applyReason',
       authentication: 'authentication',
+      contactInfo: 'contactInfo',
       description: 'description',
+      limiterInfo: 'limiterInfo',
       network: 'network',
+      privateNetwork: 'privateNetwork',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      applyReason: 'string',
       authentication: UpdateAppRequestAuthentication,
+      contactInfo: 'string',
       description: 'string',
+      limiterInfo: UpdateAppRequestLimiterInfo,
       network: { 'type': 'array', 'itemType': UpdateAppRequestNetwork },
+      privateNetwork: { 'type': 'array', 'itemType': UpdateAppRequestPrivateNetwork },
     };
   }
 
@@ -578,6 +593,59 @@ export class CreateAppRequestNetwork extends $tea.Model {
       port: 'number',
       type: 'string',
       whiteIpGroup: { 'type': 'array', 'itemType': CreateAppRequestNetworkWhiteIpGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppRequestPrivateNetworkWhiteIpGroup extends $tea.Model {
+  groupName?: string;
+  ips?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'groupName',
+      ips: 'ips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      ips: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppRequestPrivateNetwork extends $tea.Model {
+  enabled?: boolean;
+  pvlEndpointId?: string;
+  type?: string;
+  vpcId?: string;
+  whiteIpGroup?: CreateAppRequestPrivateNetworkWhiteIpGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      pvlEndpointId: 'pvlEndpointId',
+      type: 'type',
+      vpcId: 'vpcId',
+      whiteIpGroup: 'whiteIpGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      pvlEndpointId: 'string',
+      type: 'string',
+      vpcId: 'string',
+      whiteIpGroup: { 'type': 'array', 'itemType': CreateAppRequestPrivateNetworkWhiteIpGroup },
     };
   }
 
@@ -885,6 +953,53 @@ export class UpdateAppRequestAuthentication extends $tea.Model {
   }
 }
 
+export class UpdateAppRequestLimiterInfoLimiters extends $tea.Model {
+  maxValue?: number;
+  minValue?: number;
+  type?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      maxValue: 'maxValue',
+      minValue: 'minValue',
+      type: 'type',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxValue: 'number',
+      minValue: 'number',
+      type: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppRequestLimiterInfo extends $tea.Model {
+  limiters?: UpdateAppRequestLimiterInfoLimiters[];
+  static names(): { [key: string]: string } {
+    return {
+      limiters: 'limiters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limiters: { 'type': 'array', 'itemType': UpdateAppRequestLimiterInfoLimiters },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAppRequestNetworkWhiteIpGroup extends $tea.Model {
   groupName?: string;
   ips?: string[];
@@ -930,6 +1045,59 @@ export class UpdateAppRequestNetwork extends $tea.Model {
       port: 'number',
       type: 'string',
       whiteIpGroup: { 'type': 'array', 'itemType': UpdateAppRequestNetworkWhiteIpGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppRequestPrivateNetworkWhiteIpGroup extends $tea.Model {
+  groupName?: string;
+  ips?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'groupName',
+      ips: 'ips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      ips: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppRequestPrivateNetwork extends $tea.Model {
+  enabled?: boolean;
+  pvlEndpointId?: string;
+  type?: string;
+  vpcId?: string;
+  whiteIpGroup?: UpdateAppRequestPrivateNetworkWhiteIpGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      pvlEndpointId: 'pvlEndpointId',
+      type: 'type',
+      vpcId: 'vpcId',
+      whiteIpGroup: 'whiteIpGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      pvlEndpointId: 'string',
+      type: 'string',
+      vpcId: 'string',
+      whiteIpGroup: { 'type': 'array', 'itemType': UpdateAppRequestPrivateNetworkWhiteIpGroup },
     };
   }
 
@@ -1006,6 +1174,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.network)) {
       body["network"] = request.network;
+    }
+
+    if (!Util.isUnset(request.privateNetwork)) {
+      body["privateNetwork"] = request.privateNetwork;
     }
 
     if (!Util.isUnset(request.quotaInfo)) {
@@ -1208,16 +1380,32 @@ export default class Client extends OpenApi {
   async updateAppWithOptions(appName: string, request: UpdateAppRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applyReason)) {
+      body["applyReason"] = request.applyReason;
+    }
+
     if (!Util.isUnset(request.authentication)) {
       body["authentication"] = request.authentication;
+    }
+
+    if (!Util.isUnset(request.contactInfo)) {
+      body["contactInfo"] = request.contactInfo;
     }
 
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
     }
 
+    if (!Util.isUnset(request.limiterInfo)) {
+      body["limiterInfo"] = request.limiterInfo;
+    }
+
     if (!Util.isUnset(request.network)) {
       body["network"] = request.network;
+    }
+
+    if (!Util.isUnset(request.privateNetwork)) {
+      body["privateNetwork"] = request.privateNetwork;
     }
 
     let req = new $OpenApi.OpenApiRequest({
