@@ -3486,6 +3486,7 @@ export class ListAlgorithmsResponse extends $tea.Model {
 
 export class ListQuotasRequest extends $tea.Model {
   labels?: string;
+  layoutMode?: string;
   order?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -3499,6 +3500,7 @@ export class ListQuotasRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       labels: 'Labels',
+      layoutMode: 'LayoutMode',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -3515,6 +3517,7 @@ export class ListQuotasRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       labels: 'string',
+      layoutMode: 'string',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -6808,6 +6811,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.labels)) {
       query["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.layoutMode)) {
+      query["LayoutMode"] = request.layoutMode;
     }
 
     if (!Util.isUnset(request.order)) {
