@@ -1681,6 +1681,87 @@ export class QueryBenefitGrantResultResponse extends $tea.Model {
   }
 }
 
+export class QueryFinanceUserInfoRequest extends $tea.Model {
+  activityId?: number;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      activityId: 'ActivityId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityId: 'number',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFinanceUserInfoResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  ext?: { [key: string]: string };
+  header?: QueryFinanceUserInfoResponseBodyHeader;
+  result?: QueryFinanceUserInfoResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      ext: 'Ext',
+      header: 'Header',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      header: QueryFinanceUserInfoResponseBodyHeader,
+      result: QueryFinanceUserInfoResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFinanceUserInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryFinanceUserInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryFinanceUserInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryOrderRequest extends $tea.Model {
   channelId?: string;
   channelTradeId?: string;
@@ -3834,6 +3915,68 @@ export class QueryBenefitGrantResultResponseBodyModel extends $tea.Model {
   }
 }
 
+export class QueryFinanceUserInfoResponseBodyHeader extends $tea.Model {
+  costTime?: number;
+  innerErrorCode?: string;
+  innerErrorMsg?: string;
+  rpcId?: string;
+  traceId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTime: 'CostTime',
+      innerErrorCode: 'InnerErrorCode',
+      innerErrorMsg: 'InnerErrorMsg',
+      rpcId: 'RpcId',
+      traceId: 'TraceId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTime: 'number',
+      innerErrorCode: 'string',
+      innerErrorMsg: 'string',
+      rpcId: 'string',
+      traceId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFinanceUserInfoResponseBodyResult extends $tea.Model {
+  requestId?: string;
+  totalIncomeAmount?: number;
+  userPageType?: string;
+  yesterdayIncomeAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalIncomeAmount: 'TotalIncomeAmount',
+      userPageType: 'UserPageType',
+      yesterdayIncomeAmount: 'YesterdayIncomeAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalIncomeAmount: 'number',
+      userPageType: 'string',
+      yesterdayIncomeAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryOrderResponseBodyHeader extends $tea.Model {
   costTime?: number;
   innerErrorCode?: string;
@@ -5318,6 +5461,39 @@ export default class Client extends OpenApi {
   async queryBenefitGrantResult(request: QueryBenefitGrantResultRequest): Promise<QueryBenefitGrantResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryBenefitGrantResultWithOptions(request, runtime);
+  }
+
+  async queryFinanceUserInfoWithOptions(request: QueryFinanceUserInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryFinanceUserInfoResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.activityId)) {
+      body["ActivityId"] = request.activityId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryFinanceUserInfo",
+      version: "2022-07-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryFinanceUserInfoResponse>(await this.callApi(params, req, runtime), new QueryFinanceUserInfoResponse({}));
+  }
+
+  async queryFinanceUserInfo(request: QueryFinanceUserInfoRequest): Promise<QueryFinanceUserInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryFinanceUserInfoWithOptions(request, runtime);
   }
 
   async queryOrderWithOptions(request: QueryOrderRequest, runtime: $Util.RuntimeOptions): Promise<QueryOrderResponse> {
