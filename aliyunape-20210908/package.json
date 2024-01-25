@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/aliyunape20210908",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -19,10 +19,9 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "@alicloud/tea-typescript": "latest",
-    "@alicloud/tea-util": "^1.4.0",
-    "@alicloud/openapi-client": "^0.4.0",
-    "@alicloud/openapi-util": "^0.2.7",
+    "@alicloud/tea-typescript": "^1.7.1",
+    "@alicloud/tea-util": "^1.4.7",
+    "@alicloud/openapi-client": "^0.4.7",
     "@alicloud/endpoint-util": "^0.0.1"
   },
   "files": [
