@@ -74,9 +74,9 @@ export class AllocateAnycastEipAddressResponseBody extends $tea.Model {
 }
 
 export class AllocateAnycastEipAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AllocateAnycastEipAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AllocateAnycastEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -161,9 +161,9 @@ export class AssociateAnycastEipAddressResponseBody extends $tea.Model {
 }
 
 export class AssociateAnycastEipAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssociateAnycastEipAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateAnycastEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -278,9 +278,9 @@ export class DescribeAnycastEipAddressResponseBody extends $tea.Model {
 }
 
 export class DescribeAnycastEipAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAnycastEipAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAnycastEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -347,9 +347,9 @@ export class DescribeAnycastPopLocationsResponseBody extends $tea.Model {
 }
 
 export class DescribeAnycastPopLocationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAnycastPopLocationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAnycastPopLocationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -416,9 +416,9 @@ export class DescribeAnycastServerRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeAnycastServerRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAnycastServerRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAnycastServerRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -527,9 +527,9 @@ export class ListAnycastEipAddressesResponseBody extends $tea.Model {
 }
 
 export class ListAnycastEipAddressesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAnycastEipAddressesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAnycastEipAddressesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -608,9 +608,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -677,9 +677,9 @@ export class ModifyAnycastEipAddressAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyAnycastEipAddressAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAnycastEipAddressAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAnycastEipAddressAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -743,9 +743,9 @@ export class ModifyAnycastEipAddressSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyAnycastEipAddressSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAnycastEipAddressSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAnycastEipAddressSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -809,9 +809,9 @@ export class ReleaseAnycastEipAddressResponseBody extends $tea.Model {
 }
 
 export class ReleaseAnycastEipAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleaseAnycastEipAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseAnycastEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -881,9 +881,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -962,9 +962,9 @@ export class UnassociateAnycastEipAddressResponseBody extends $tea.Model {
 }
 
 export class UnassociateAnycastEipAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnassociateAnycastEipAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnassociateAnycastEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1034,9 +1034,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1115,9 +1115,9 @@ export class UpdateAnycastEipAddressAssociationsResponseBody extends $tea.Model 
 }
 
 export class UpdateAnycastEipAddressAssociationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAnycastEipAddressAssociationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAnycastEipAddressAssociationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
