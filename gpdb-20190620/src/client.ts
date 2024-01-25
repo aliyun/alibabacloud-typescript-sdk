@@ -74,9 +74,9 @@ export class DescribeDBInstanceForDmsResponseBody extends $tea.Model {
 }
 
 export class DescribeDBInstanceForDmsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBInstanceForDmsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceForDmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -158,9 +158,9 @@ export class DescribeDBInstanceSecurityIpsResponseBody extends $tea.Model {
 }
 
 export class DescribeDBInstanceSecurityIpsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBInstanceSecurityIpsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceSecurityIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -242,9 +242,9 @@ export class DescribeDBInstancesForDmsResponseBody extends $tea.Model {
 }
 
 export class DescribeDBInstancesForDmsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBInstancesForDmsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstancesForDmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -329,9 +329,9 @@ export class ModifyDBInstanceSecurityIpsResponseBody extends $tea.Model {
 }
 
 export class ModifyDBInstanceSecurityIpsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDBInstanceSecurityIpsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceSecurityIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
