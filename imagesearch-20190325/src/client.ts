@@ -86,9 +86,9 @@ export class AddImageResponseBody extends $tea.Model {
 }
 
 export class AddImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -164,9 +164,9 @@ export class DeleteImageResponseBody extends $tea.Model {
 }
 
 export class DeleteImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -275,9 +275,9 @@ export class SearchImageResponseBody extends $tea.Model {
 }
 
 export class SearchImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
