@@ -65,9 +65,9 @@ export class AdjustJMeterSceneSpeedResponseBody extends $tea.Model {
 }
 
 export class AdjustJMeterSceneSpeedResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AdjustJMeterSceneSpeedResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AdjustJMeterSceneSpeedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -165,9 +165,9 @@ export class AdjustPtsSceneSpeedResponseBody extends $tea.Model {
 }
 
 export class AdjustPtsSceneSpeedResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AdjustPtsSceneSpeedResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AdjustPtsSceneSpeedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -243,9 +243,9 @@ export class CreatePtsSceneResponseBody extends $tea.Model {
 }
 
 export class CreatePtsSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePtsSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -321,9 +321,9 @@ export class CreatePtsSceneBaseLineFromReportResponseBody extends $tea.Model {
 }
 
 export class CreatePtsSceneBaseLineFromReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePtsSceneBaseLineFromReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePtsSceneBaseLineFromReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -396,9 +396,9 @@ export class DeletePtsSceneResponseBody extends $tea.Model {
 }
 
 export class DeletePtsSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePtsSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -471,9 +471,9 @@ export class DeletePtsSceneBaseLineResponseBody extends $tea.Model {
 }
 
 export class DeletePtsSceneBaseLineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePtsSceneBaseLineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePtsSceneBaseLineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -565,9 +565,9 @@ export class DeletePtsScenesResponseBody extends $tea.Model {
 }
 
 export class DeletePtsScenesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePtsScenesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePtsScenesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -624,9 +624,9 @@ export class GetAllRegionsResponseBody extends $tea.Model {
 }
 
 export class GetAllRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAllRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAllRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -735,9 +735,9 @@ export class GetJMeterLogsResponseBody extends $tea.Model {
 }
 
 export class GetJMeterLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJMeterLogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJMeterLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -828,9 +828,9 @@ export class GetJMeterReportDetailsResponseBody extends $tea.Model {
 }
 
 export class GetJMeterReportDetailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJMeterReportDetailsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJMeterReportDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -915,9 +915,9 @@ export class GetJMeterSampleMetricsResponseBody extends $tea.Model {
 }
 
 export class GetJMeterSampleMetricsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJMeterSampleMetricsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJMeterSampleMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1038,9 +1038,9 @@ export class GetJMeterSamplingLogsResponseBody extends $tea.Model {
 }
 
 export class GetJMeterSamplingLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJMeterSamplingLogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJMeterSamplingLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1119,9 +1119,9 @@ export class GetJMeterSceneRunningDataResponseBody extends $tea.Model {
 }
 
 export class GetJMeterSceneRunningDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJMeterSceneRunningDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJMeterSceneRunningDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1197,9 +1197,9 @@ export class GetOpenJMeterSceneResponseBody extends $tea.Model {
 }
 
 export class GetOpenJMeterSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetOpenJMeterSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOpenJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1287,9 +1287,9 @@ export class GetPtsDebugSampleLogsResponseBody extends $tea.Model {
 }
 
 export class GetPtsDebugSampleLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPtsDebugSampleLogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPtsDebugSampleLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1377,9 +1377,9 @@ export class GetPtsReportDetailsResponseBody extends $tea.Model {
 }
 
 export class GetPtsReportDetailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPtsReportDetailsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPtsReportDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1461,9 +1461,9 @@ export class GetPtsReportsBySceneIdResponseBody extends $tea.Model {
 }
 
 export class GetPtsReportsBySceneIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPtsReportsBySceneIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPtsReportsBySceneIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1539,9 +1539,9 @@ export class GetPtsSceneResponseBody extends $tea.Model {
 }
 
 export class GetPtsSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPtsSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1620,9 +1620,9 @@ export class GetPtsSceneBaseLineResponseBody extends $tea.Model {
 }
 
 export class GetPtsSceneBaseLineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPtsSceneBaseLineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPtsSceneBaseLineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1755,9 +1755,9 @@ export class GetPtsSceneRunningDataResponseBody extends $tea.Model {
 }
 
 export class GetPtsSceneRunningDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPtsSceneRunningDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPtsSceneRunningDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1842,9 +1842,9 @@ export class GetPtsSceneRunningStatusResponseBody extends $tea.Model {
 }
 
 export class GetPtsSceneRunningStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPtsSceneRunningStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPtsSceneRunningStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1938,9 +1938,9 @@ export class GetUserVpcSecurityGroupResponseBody extends $tea.Model {
 }
 
 export class GetUserVpcSecurityGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserVpcSecurityGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserVpcSecurityGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2034,9 +2034,9 @@ export class GetUserVpcVSwitchResponseBody extends $tea.Model {
 }
 
 export class GetUserVpcVSwitchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserVpcVSwitchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserVpcVSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2130,9 +2130,9 @@ export class GetUserVpcsResponseBody extends $tea.Model {
 }
 
 export class GetUserVpcsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserVpcsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserVpcsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2226,9 +2226,9 @@ export class ListEnvsResponseBody extends $tea.Model {
 }
 
 export class ListEnvsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEnvsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEnvsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2331,9 +2331,9 @@ export class ListJMeterReportsResponseBody extends $tea.Model {
 }
 
 export class ListJMeterReportsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListJMeterReportsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListJMeterReportsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2427,9 +2427,9 @@ export class ListOpenJMeterScenesResponseBody extends $tea.Model {
 }
 
 export class ListOpenJMeterScenesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListOpenJMeterScenesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOpenJMeterScenesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2532,9 +2532,9 @@ export class ListPtsReportsResponseBody extends $tea.Model {
 }
 
 export class ListPtsReportsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPtsReportsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPtsReportsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2616,9 +2616,9 @@ export class ListPtsSceneResponseBody extends $tea.Model {
 }
 
 export class ListPtsSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPtsSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2691,9 +2691,9 @@ export class ModifyPtsSceneResponseBody extends $tea.Model {
 }
 
 export class ModifyPtsSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPtsSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2766,9 +2766,9 @@ export class RemoveEnvResponseBody extends $tea.Model {
 }
 
 export class RemoveEnvResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveEnvResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveEnvResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2841,9 +2841,9 @@ export class RemoveOpenJMeterSceneResponseBody extends $tea.Model {
 }
 
 export class RemoveOpenJMeterSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveOpenJMeterSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveOpenJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2938,9 +2938,9 @@ export class SaveEnvResponseBody extends $tea.Model {
 }
 
 export class SaveEnvResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveEnvResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveEnvResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3035,9 +3035,9 @@ export class SaveOpenJMeterSceneResponseBody extends $tea.Model {
 }
 
 export class SaveOpenJMeterSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveOpenJMeterSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveOpenJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3132,9 +3132,9 @@ export class SavePtsSceneResponseBody extends $tea.Model {
 }
 
 export class SavePtsSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SavePtsSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SavePtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3210,9 +3210,9 @@ export class StartDebugPtsSceneResponseBody extends $tea.Model {
 }
 
 export class StartDebugPtsSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartDebugPtsSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartDebugPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3288,9 +3288,9 @@ export class StartDebuggingJMeterSceneResponseBody extends $tea.Model {
 }
 
 export class StartDebuggingJMeterSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartDebuggingJMeterSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartDebuggingJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3366,9 +3366,9 @@ export class StartPtsSceneResponseBody extends $tea.Model {
 }
 
 export class StartPtsSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartPtsSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3444,9 +3444,9 @@ export class StartTestingJMeterSceneResponseBody extends $tea.Model {
 }
 
 export class StartTestingJMeterSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartTestingJMeterSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartTestingJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3522,9 +3522,9 @@ export class StopDebugPtsSceneResponseBody extends $tea.Model {
 }
 
 export class StopDebugPtsSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopDebugPtsSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDebugPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3597,9 +3597,9 @@ export class StopDebuggingJMeterSceneResponseBody extends $tea.Model {
 }
 
 export class StopDebuggingJMeterSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopDebuggingJMeterSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDebuggingJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3672,9 +3672,9 @@ export class StopPtsSceneResponseBody extends $tea.Model {
 }
 
 export class StopPtsSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopPtsSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3747,9 +3747,9 @@ export class StopTestingJMeterSceneResponseBody extends $tea.Model {
 }
 
 export class StopTestingJMeterSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopTestingJMeterSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopTestingJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3853,9 +3853,9 @@ export class UpdatePtsSceneBaseLineResponseBody extends $tea.Model {
 }
 
 export class UpdatePtsSceneBaseLineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePtsSceneBaseLineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePtsSceneBaseLineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
