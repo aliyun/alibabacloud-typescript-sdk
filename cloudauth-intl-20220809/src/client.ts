@@ -80,9 +80,9 @@ export class CardOcrResponseBody extends $tea.Model {
 }
 
 export class CardOcrResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CardOcrResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CardOcrResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -164,9 +164,9 @@ export class CheckResultResponseBody extends $tea.Model {
 }
 
 export class CheckResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -239,9 +239,9 @@ export class DeletePictureResponseBody extends $tea.Model {
 }
 
 export class DeletePictureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePictureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePictureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -317,9 +317,9 @@ export class DeleteVerifyResultResponseBody extends $tea.Model {
 }
 
 export class DeleteVerifyResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVerifyResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVerifyResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -398,9 +398,9 @@ export class DescribeAddressLabelsResponseBody extends $tea.Model {
 }
 
 export class DescribeAddressLabelsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAddressLabelsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAddressLabelsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -479,9 +479,9 @@ export class DescribeAddressOverviewResponseBody extends $tea.Model {
 }
 
 export class DescribeAddressOverviewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAddressOverviewResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAddressOverviewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -563,9 +563,9 @@ export class DescribeMaliciousAddressResponseBody extends $tea.Model {
 }
 
 export class DescribeMaliciousAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMaliciousAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMaliciousAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -644,9 +644,9 @@ export class DescribeRiskScoreResponseBody extends $tea.Model {
 }
 
 export class DescribeRiskScoreResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRiskScoreResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRiskScoreResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -737,9 +737,9 @@ export class DescribeTransactionsListResponseBody extends $tea.Model {
 }
 
 export class DescribeTransactionsListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTransactionsListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTransactionsListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -818,9 +818,9 @@ export class DescribeWeb3AddressLabelsResponseBody extends $tea.Model {
 }
 
 export class DescribeWeb3AddressLabelsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeWeb3AddressLabelsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeWeb3AddressLabelsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -905,9 +905,9 @@ export class DescribeWeb3RiskScoreResponseBody extends $tea.Model {
 }
 
 export class DescribeWeb3RiskScoreResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeWeb3RiskScoreResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeWeb3RiskScoreResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -986,9 +986,9 @@ export class DescribeWeb3TransactionLabelsResponseBody extends $tea.Model {
 }
 
 export class DescribeWeb3TransactionLabelsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeWeb3TransactionLabelsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeWeb3TransactionLabelsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1082,9 +1082,9 @@ export class DocOcrResponseBody extends $tea.Model {
 }
 
 export class DocOcrResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DocOcrResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DocOcrResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1187,9 +1187,9 @@ export class EkycVerifyResponseBody extends $tea.Model {
 }
 
 export class EkycVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EkycVerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EkycVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1271,9 +1271,9 @@ export class FaceCompareResponseBody extends $tea.Model {
 }
 
 export class FaceCompareResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FaceCompareResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FaceCompareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1364,9 +1364,9 @@ export class FaceLivenessResponseBody extends $tea.Model {
 }
 
 export class FaceLivenessResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FaceLivenessResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FaceLivenessResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1445,9 +1445,9 @@ export class FraudResultCallBackResponseBody extends $tea.Model {
 }
 
 export class FraudResultCallBackResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FraudResultCallBackResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FraudResultCallBackResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1526,9 +1526,9 @@ export class Id2MetaVerifyIntlResponseBody extends $tea.Model {
 }
 
 export class Id2MetaVerifyIntlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Id2MetaVerifyIntlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Id2MetaVerifyIntlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1667,9 +1667,9 @@ export class InitializeResponseBody extends $tea.Model {
 }
 
 export class InitializeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InitializeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InitializeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1751,9 +1751,9 @@ export class Mobile3MetaVerifyIntlResponseBody extends $tea.Model {
 }
 
 export class Mobile3MetaVerifyIntlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Mobile3MetaVerifyIntlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Mobile3MetaVerifyIntlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3359,10 +3359,6 @@ export default class Client extends OpenApi {
       query["Crop"] = request.crop;
     }
 
-    if (!Util.isUnset(request.facePictureBase64)) {
-      query["FacePictureBase64"] = request.facePictureBase64;
-    }
-
     if (!Util.isUnset(request.facePictureUrl)) {
       query["FacePictureUrl"] = request.facePictureUrl;
     }
@@ -3387,8 +3383,14 @@ export default class Client extends OpenApi {
       query["ProductCode"] = request.productCode;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.facePictureBase64)) {
+      body["FacePictureBase64"] = request.facePictureBase64;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "FaceLiveness",
