@@ -72,9 +72,9 @@ export class AttachApplication2ConnectorResponseBody extends $tea.Model {
 }
 
 export class AttachApplication2ConnectorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachApplication2ConnectorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachApplication2ConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -165,9 +165,9 @@ export class CreateDynamicRouteResponseBody extends $tea.Model {
 }
 
 export class CreateDynamicRouteResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDynamicRouteResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDynamicRouteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -249,9 +249,9 @@ export class CreatePrivateAccessApplicationResponseBody extends $tea.Model {
 }
 
 export class CreatePrivateAccessApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePrivateAccessApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePrivateAccessApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -278,6 +278,7 @@ export class CreatePrivateAccessPolicyRequest extends $tea.Model {
   applicationType?: string;
   customUserAttributes?: CreatePrivateAccessPolicyRequestCustomUserAttributes[];
   description?: string;
+  deviceAttributeId?: string;
   name?: string;
   policyAction?: string;
   priority?: number;
@@ -291,6 +292,7 @@ export class CreatePrivateAccessPolicyRequest extends $tea.Model {
       applicationType: 'ApplicationType',
       customUserAttributes: 'CustomUserAttributes',
       description: 'Description',
+      deviceAttributeId: 'DeviceAttributeId',
       name: 'Name',
       policyAction: 'PolicyAction',
       priority: 'Priority',
@@ -307,6 +309,7 @@ export class CreatePrivateAccessPolicyRequest extends $tea.Model {
       applicationType: 'string',
       customUserAttributes: { 'type': 'array', 'itemType': CreatePrivateAccessPolicyRequestCustomUserAttributes },
       description: 'string',
+      deviceAttributeId: 'string',
       name: 'string',
       policyAction: 'string',
       priority: 'number',
@@ -345,9 +348,9 @@ export class CreatePrivateAccessPolicyResponseBody extends $tea.Model {
 }
 
 export class CreatePrivateAccessPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePrivateAccessPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePrivateAccessPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -414,9 +417,9 @@ export class CreatePrivateAccessTagResponseBody extends $tea.Model {
 }
 
 export class CreatePrivateAccessTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePrivateAccessTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePrivateAccessTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -559,9 +562,9 @@ export class CreateRegistrationPolicyResponseBody extends $tea.Model {
 }
 
 export class CreateRegistrationPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRegistrationPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRegistrationPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -631,9 +634,9 @@ export class CreateUserGroupResponseBody extends $tea.Model {
 }
 
 export class CreateUserGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateUserGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateUserGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -694,9 +697,9 @@ export class DeleteDynamicRouteResponseBody extends $tea.Model {
 }
 
 export class DeleteDynamicRouteResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDynamicRouteResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDynamicRouteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -757,9 +760,9 @@ export class DeletePrivateAccessApplicationResponseBody extends $tea.Model {
 }
 
 export class DeletePrivateAccessApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePrivateAccessApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePrivateAccessApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -820,9 +823,9 @@ export class DeletePrivateAccessPolicyResponseBody extends $tea.Model {
 }
 
 export class DeletePrivateAccessPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePrivateAccessPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePrivateAccessPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -883,9 +886,9 @@ export class DeletePrivateAccessTagResponseBody extends $tea.Model {
 }
 
 export class DeletePrivateAccessTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePrivateAccessTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePrivateAccessTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -946,9 +949,9 @@ export class DeleteRegistrationPoliciesResponseBody extends $tea.Model {
 }
 
 export class DeleteRegistrationPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRegistrationPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRegistrationPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1009,9 +1012,9 @@ export class DeleteUserGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteUserGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteUserGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteUserGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1097,9 +1100,9 @@ export class DetachApplication2ConnectorResponseBody extends $tea.Model {
 }
 
 export class DetachApplication2ConnectorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachApplication2ConnectorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachApplication2ConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1163,9 +1166,9 @@ export class GetDynamicRouteResponseBody extends $tea.Model {
 }
 
 export class GetDynamicRouteResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDynamicRouteResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDynamicRouteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1229,9 +1232,9 @@ export class GetPrivateAccessApplicationResponseBody extends $tea.Model {
 }
 
 export class GetPrivateAccessApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPrivateAccessApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPrivateAccessApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1295,9 +1298,9 @@ export class GetPrivateAccessPolicyResponseBody extends $tea.Model {
 }
 
 export class GetPrivateAccessPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPrivateAccessPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPrivateAccessPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1388,9 +1391,9 @@ export class GetRegistrationPolicyResponseBody extends $tea.Model {
 }
 
 export class GetRegistrationPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRegistrationPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRegistrationPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1454,9 +1457,9 @@ export class GetUserDeviceResponseBody extends $tea.Model {
 }
 
 export class GetUserDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1520,9 +1523,9 @@ export class GetUserGroupResponseBody extends $tea.Model {
 }
 
 export class GetUserGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1586,9 +1589,9 @@ export class ListApplicationsForPrivateAccessPolicyResponseBody extends $tea.Mod
 }
 
 export class ListApplicationsForPrivateAccessPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListApplicationsForPrivateAccessPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApplicationsForPrivateAccessPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1652,9 +1655,9 @@ export class ListApplicationsForPrivateAccessTagResponseBody extends $tea.Model 
 }
 
 export class ListApplicationsForPrivateAccessTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListApplicationsForPrivateAccessTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApplicationsForPrivateAccessTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1736,9 +1739,9 @@ export class ListConnectorsResponseBody extends $tea.Model {
 }
 
 export class ListConnectorsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListConnectorsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConnectorsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1786,9 +1789,9 @@ export class ListDynamicRouteRegionsResponseBody extends $tea.Model {
 }
 
 export class ListDynamicRouteRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDynamicRouteRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDynamicRouteRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1879,9 +1882,9 @@ export class ListDynamicRoutesResponseBody extends $tea.Model {
 }
 
 export class ListDynamicRoutesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDynamicRoutesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDynamicRoutesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1975,9 +1978,9 @@ export class ListExcessiveDeviceRegistrationApplicationsResponseBody extends $te
 }
 
 export class ListExcessiveDeviceRegistrationApplicationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListExcessiveDeviceRegistrationApplicationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListExcessiveDeviceRegistrationApplicationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2041,9 +2044,9 @@ export class ListPolicesForPrivateAccessApplicationResponseBody extends $tea.Mod
 }
 
 export class ListPolicesForPrivateAccessApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPolicesForPrivateAccessApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPolicesForPrivateAccessApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2107,9 +2110,9 @@ export class ListPolicesForPrivateAccessTagResponseBody extends $tea.Model {
 }
 
 export class ListPolicesForPrivateAccessTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPolicesForPrivateAccessTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPolicesForPrivateAccessTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2173,9 +2176,9 @@ export class ListPolicesForUserGroupResponseBody extends $tea.Model {
 }
 
 export class ListPolicesForUserGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPolicesForUserGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPolicesForUserGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2189,6 +2192,78 @@ export class ListPolicesForUserGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListPolicesForUserGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPopTrafficStatisticsRequest extends $tea.Model {
+  endTime?: string;
+  region?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      region: 'Region',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      region: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPopTrafficStatisticsResponseBody extends $tea.Model {
+  requestId?: string;
+  trafficData?: ListPopTrafficStatisticsResponseBodyTrafficData[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      trafficData: 'TrafficData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      trafficData: { 'type': 'array', 'itemType': ListPopTrafficStatisticsResponseBodyTrafficData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPopTrafficStatisticsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPopTrafficStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPopTrafficStatisticsResponseBody,
     };
   }
 
@@ -2266,9 +2341,9 @@ export class ListPrivateAccessApplicationsResponseBody extends $tea.Model {
 }
 
 export class ListPrivateAccessApplicationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPrivateAccessApplicationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPrivateAccessApplicationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2332,9 +2407,9 @@ export class ListPrivateAccessApplicationsForDynamicRouteResponseBody extends $t
 }
 
 export class ListPrivateAccessApplicationsForDynamicRouteResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPrivateAccessApplicationsForDynamicRouteResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPrivateAccessApplicationsForDynamicRouteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2358,6 +2433,7 @@ export class ListPrivateAccessApplicationsForDynamicRouteResponse extends $tea.M
 
 export class ListPrivateAccessPolicesRequest extends $tea.Model {
   applicationId?: string;
+  applicationName?: string;
   currentPage?: number;
   name?: string;
   pageSize?: number;
@@ -2365,10 +2441,12 @@ export class ListPrivateAccessPolicesRequest extends $tea.Model {
   policyIds?: string[];
   status?: string;
   tagId?: string;
+  tagName?: string;
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
+      applicationName: 'ApplicationName',
       currentPage: 'CurrentPage',
       name: 'Name',
       pageSize: 'PageSize',
@@ -2376,6 +2454,7 @@ export class ListPrivateAccessPolicesRequest extends $tea.Model {
       policyIds: 'PolicyIds',
       status: 'Status',
       tagId: 'TagId',
+      tagName: 'TagName',
       userGroupId: 'UserGroupId',
     };
   }
@@ -2383,6 +2462,7 @@ export class ListPrivateAccessPolicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
+      applicationName: 'string',
       currentPage: 'number',
       name: 'string',
       pageSize: 'number',
@@ -2390,6 +2470,7 @@ export class ListPrivateAccessPolicesRequest extends $tea.Model {
       policyIds: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
       tagId: 'string',
+      tagName: 'string',
       userGroupId: 'string',
     };
   }
@@ -2425,9 +2506,9 @@ export class ListPrivateAccessPolicesResponseBody extends $tea.Model {
 }
 
 export class ListPrivateAccessPolicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPrivateAccessPolicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPrivateAccessPolicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2512,9 +2593,9 @@ export class ListPrivateAccessTagsResponseBody extends $tea.Model {
 }
 
 export class ListPrivateAccessTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPrivateAccessTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPrivateAccessTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2578,9 +2659,9 @@ export class ListPrivateAccessTagsForDynamicRouteResponseBody extends $tea.Model
 }
 
 export class ListPrivateAccessTagsForDynamicRouteResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPrivateAccessTagsForDynamicRouteResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPrivateAccessTagsForDynamicRouteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2671,9 +2752,9 @@ export class ListRegistrationPoliciesResponseBody extends $tea.Model {
 }
 
 export class ListRegistrationPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRegistrationPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRegistrationPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2737,9 +2818,9 @@ export class ListRegistrationPoliciesForUserGroupResponseBody extends $tea.Model
 }
 
 export class ListRegistrationPoliciesForUserGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRegistrationPoliciesForUserGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRegistrationPoliciesForUserGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2812,9 +2893,9 @@ export class ListSoftwareForUserDeviceResponseBody extends $tea.Model {
 }
 
 export class ListSoftwareForUserDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSoftwareForUserDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSoftwareForUserDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2878,9 +2959,9 @@ export class ListTagsForPrivateAccessApplicationResponseBody extends $tea.Model 
 }
 
 export class ListTagsForPrivateAccessApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagsForPrivateAccessApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagsForPrivateAccessApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2944,9 +3025,9 @@ export class ListTagsForPrivateAccessPolicyResponseBody extends $tea.Model {
 }
 
 export class ListTagsForPrivateAccessPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagsForPrivateAccessPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagsForPrivateAccessPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3064,9 +3145,9 @@ export class ListUserDevicesResponseBody extends $tea.Model {
 }
 
 export class ListUserDevicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserDevicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserDevicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3148,9 +3229,9 @@ export class ListUserGroupsResponseBody extends $tea.Model {
 }
 
 export class ListUserGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3214,9 +3295,9 @@ export class ListUserGroupsForPrivateAccessPolicyResponseBody extends $tea.Model
 }
 
 export class ListUserGroupsForPrivateAccessPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserGroupsForPrivateAccessPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserGroupsForPrivateAccessPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3280,9 +3361,9 @@ export class ListUserGroupsForRegistrationPolicyResponseBody extends $tea.Model 
 }
 
 export class ListUserGroupsForRegistrationPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserGroupsForRegistrationPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserGroupsForRegistrationPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3376,9 +3457,9 @@ export class UpdateDynamicRouteResponseBody extends $tea.Model {
 }
 
 export class UpdateDynamicRouteResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateDynamicRouteResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDynamicRouteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3445,9 +3526,9 @@ export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody ext
 }
 
 export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3529,9 +3610,9 @@ export class UpdatePrivateAccessApplicationResponseBody extends $tea.Model {
 }
 
 export class UpdatePrivateAccessApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePrivateAccessApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePrivateAccessApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3558,6 +3639,7 @@ export class UpdatePrivateAccessPolicyRequest extends $tea.Model {
   applicationType?: string;
   customUserAttributes?: UpdatePrivateAccessPolicyRequestCustomUserAttributes[];
   description?: string;
+  deviceAttributeId?: string;
   modifyType?: string;
   policyAction?: string;
   policyId?: string;
@@ -3572,6 +3654,7 @@ export class UpdatePrivateAccessPolicyRequest extends $tea.Model {
       applicationType: 'ApplicationType',
       customUserAttributes: 'CustomUserAttributes',
       description: 'Description',
+      deviceAttributeId: 'DeviceAttributeId',
       modifyType: 'ModifyType',
       policyAction: 'PolicyAction',
       policyId: 'PolicyId',
@@ -3589,6 +3672,7 @@ export class UpdatePrivateAccessPolicyRequest extends $tea.Model {
       applicationType: 'string',
       customUserAttributes: { 'type': 'array', 'itemType': UpdatePrivateAccessPolicyRequestCustomUserAttributes },
       description: 'string',
+      deviceAttributeId: 'string',
       modifyType: 'string',
       policyAction: 'string',
       policyId: 'string',
@@ -3625,9 +3709,9 @@ export class UpdatePrivateAccessPolicyResponseBody extends $tea.Model {
 }
 
 export class UpdatePrivateAccessPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePrivateAccessPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePrivateAccessPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3776,9 +3860,9 @@ export class UpdateRegistrationPolicyResponseBody extends $tea.Model {
 }
 
 export class UpdateRegistrationPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateRegistrationPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRegistrationPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3845,9 +3929,9 @@ export class UpdateUserDevicesSharingStatusResponseBody extends $tea.Model {
 }
 
 export class UpdateUserDevicesSharingStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateUserDevicesSharingStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserDevicesSharingStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3914,9 +3998,9 @@ export class UpdateUserDevicesStatusResponseBody extends $tea.Model {
 }
 
 export class UpdateUserDevicesStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateUserDevicesStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserDevicesStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3986,9 +4070,9 @@ export class UpdateUserGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateUserGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateUserGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4391,6 +4475,7 @@ export class GetPrivateAccessPolicyResponseBodyPolicy extends $tea.Model {
   createTime?: string;
   customUserAttributes?: GetPrivateAccessPolicyResponseBodyPolicyCustomUserAttributes[];
   description?: string;
+  deviceAttributeId?: string;
   name?: string;
   policyAction?: string;
   policyId?: string;
@@ -4406,6 +4491,7 @@ export class GetPrivateAccessPolicyResponseBodyPolicy extends $tea.Model {
       createTime: 'CreateTime',
       customUserAttributes: 'CustomUserAttributes',
       description: 'Description',
+      deviceAttributeId: 'DeviceAttributeId',
       name: 'Name',
       policyAction: 'PolicyAction',
       policyId: 'PolicyId',
@@ -4424,6 +4510,7 @@ export class GetPrivateAccessPolicyResponseBodyPolicy extends $tea.Model {
       createTime: 'string',
       customUserAttributes: { 'type': 'array', 'itemType': GetPrivateAccessPolicyResponseBodyPolicyCustomUserAttributes },
       description: 'string',
+      deviceAttributeId: 'string',
       name: 'string',
       policyAction: 'string',
       policyId: 'string',
@@ -5291,6 +5378,50 @@ export class ListPolicesForUserGroupResponseBodyUserGroups extends $tea.Model {
   }
 }
 
+export class ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints extends $tea.Model {
+  average?: number;
+  dateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      average: 'Average',
+      dateTime: 'DateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      average: 'number',
+      dateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPopTrafficStatisticsResponseBodyTrafficData extends $tea.Model {
+  datapoints?: ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints[];
+  metricName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datapoints: 'Datapoints',
+      metricName: 'MetricName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datapoints: { 'type': 'array', 'itemType': ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints },
+      metricName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPrivateAccessApplicationsResponseBodyApplicationsPortRanges extends $tea.Model {
   begin?: number;
   end?: number;
@@ -5480,6 +5611,7 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $tea.Model {
   createTime?: string;
   customUserAttributes?: ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes[];
   description?: string;
+  deviceAttributeId?: string;
   name?: string;
   policyAction?: string;
   policyId?: string;
@@ -5495,6 +5627,7 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $tea.Model {
       createTime: 'CreateTime',
       customUserAttributes: 'CustomUserAttributes',
       description: 'Description',
+      deviceAttributeId: 'DeviceAttributeId',
       name: 'Name',
       policyAction: 'PolicyAction',
       policyId: 'PolicyId',
@@ -5513,6 +5646,7 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $tea.Model {
       createTime: 'string',
       customUserAttributes: { 'type': 'array', 'itemType': ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes },
       description: 'string',
+      deviceAttributeId: 'string',
       name: 'string',
       policyAction: 'string',
       policyId: 'string',
@@ -6944,6 +7078,10 @@ export default class Client extends OpenApi {
       body["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.deviceAttributeId)) {
+      body["DeviceAttributeId"] = request.deviceAttributeId;
+    }
+
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
     }
@@ -7746,6 +7884,31 @@ export default class Client extends OpenApi {
     return await this.listPolicesForUserGroupWithOptions(request, runtime);
   }
 
+  async listPopTrafficStatisticsWithOptions(request: ListPopTrafficStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListPopTrafficStatisticsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPopTrafficStatistics",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPopTrafficStatisticsResponse>(await this.callApi(params, req, runtime), new ListPopTrafficStatisticsResponse({}));
+  }
+
+  async listPopTrafficStatistics(request: ListPopTrafficStatisticsRequest): Promise<ListPopTrafficStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPopTrafficStatisticsWithOptions(request, runtime);
+  }
+
   async listPrivateAccessApplicationsWithOptions(request: ListPrivateAccessApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessApplicationsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -8292,6 +8455,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.deviceAttributeId)) {
+      body["DeviceAttributeId"] = request.deviceAttributeId;
     }
 
     if (!Util.isUnset(request.modifyType)) {
