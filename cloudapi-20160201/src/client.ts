@@ -358,15 +358,18 @@ export class CheckAccountForInnerResponse extends $tea.Model {
 
 export class CheckAoneAppAuditRequest extends $tea.Model {
   aoneAppName?: string;
+  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       aoneAppName: 'AoneAppName',
+      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       aoneAppName: 'string',
+      securityToken: 'string',
     };
   }
 
@@ -14860,6 +14863,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.aoneAppName)) {
       query["AoneAppName"] = request.aoneAppName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
