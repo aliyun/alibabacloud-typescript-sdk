@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/arms20190808",
-  "version": "4.1.2",
+  "version": "4.2.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
