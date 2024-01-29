@@ -4225,6 +4225,72 @@ export class GetAvatarTrainingJobResponse extends $tea.Model {
   }
 }
 
+export class GetBatchMediaProducingJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchMediaProducingJobResponseBody extends $tea.Model {
+  editingBatchJob?: GetBatchMediaProducingJobResponseBodyEditingBatchJob;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      editingBatchJob: 'EditingBatchJob',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      editingBatchJob: GetBatchMediaProducingJobResponseBodyEditingBatchJob,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchMediaProducingJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBatchMediaProducingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBatchMediaProducingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCategoriesRequest extends $tea.Model {
   cateId?: number;
   pageNo?: number;
@@ -11907,6 +11973,84 @@ export class SubmitAvatarVideoJobResponse extends $tea.Model {
   }
 }
 
+export class SubmitBatchMediaProducingJobRequest extends $tea.Model {
+  clientToken?: string;
+  editingConfig?: string;
+  inputConfig?: string;
+  outputConfig?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      editingConfig: 'EditingConfig',
+      inputConfig: 'InputConfig',
+      outputConfig: 'OutputConfig',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      editingConfig: 'string',
+      inputConfig: 'string',
+      outputConfig: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBatchMediaProducingJobResponseBody extends $tea.Model {
+  jobId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBatchMediaProducingJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitBatchMediaProducingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitBatchMediaProducingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitCustomizedVoiceJobRequest extends $tea.Model {
   demoAudioMediaURL?: string;
   voiceId?: string;
@@ -16548,6 +16692,80 @@ export class GetAvatarTrainingJobResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       avatarTrainingJob: GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  jobId?: string;
+  mediaId?: string;
+  mediaURL?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      jobId: 'JobId',
+      mediaId: 'MediaId',
+      mediaURL: 'MediaURL',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      jobId: 'string',
+      mediaId: 'string',
+      mediaURL: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $tea.Model {
+  editingConfig?: string;
+  extend?: string;
+  inputConfig?: string;
+  jobId?: string;
+  outputConfig?: string;
+  status?: string;
+  subJobList?: GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList[];
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      editingConfig: 'EditingConfig',
+      extend: 'Extend',
+      inputConfig: 'InputConfig',
+      jobId: 'JobId',
+      outputConfig: 'OutputConfig',
+      status: 'Status',
+      subJobList: 'SubJobList',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      editingConfig: 'string',
+      extend: 'string',
+      inputConfig: 'string',
+      jobId: 'string',
+      outputConfig: 'string',
+      status: 'string',
+      subJobList: { 'type': 'array', 'itemType': GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList },
+      userData: 'string',
     };
   }
 
@@ -33474,6 +33692,35 @@ export default class Client extends OpenApi {
     return await this.getAvatarTrainingJobWithOptions(request, runtime);
   }
 
+  async getBatchMediaProducingJobWithOptions(request: GetBatchMediaProducingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchMediaProducingJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBatchMediaProducingJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBatchMediaProducingJobResponse>(await this.callApi(params, req, runtime), new GetBatchMediaProducingJobResponse({}));
+  }
+
+  async getBatchMediaProducingJob(request: GetBatchMediaProducingJobRequest): Promise<GetBatchMediaProducingJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBatchMediaProducingJobWithOptions(request, runtime);
+  }
+
   async getCategoriesWithOptions(request: GetCategoriesRequest, runtime: $Util.RuntimeOptions): Promise<GetCategoriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37182,6 +37429,53 @@ export default class Client extends OpenApi {
   async submitAvatarVideoJob(request: SubmitAvatarVideoJobRequest): Promise<SubmitAvatarVideoJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAvatarVideoJobWithOptions(request, runtime);
+  }
+
+  async submitBatchMediaProducingJobWithOptions(request: SubmitBatchMediaProducingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitBatchMediaProducingJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.editingConfig)) {
+      body["EditingConfig"] = request.editingConfig;
+    }
+
+    if (!Util.isUnset(request.inputConfig)) {
+      body["InputConfig"] = request.inputConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitBatchMediaProducingJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitBatchMediaProducingJobResponse>(await this.callApi(params, req, runtime), new SubmitBatchMediaProducingJobResponse({}));
+  }
+
+  async submitBatchMediaProducingJob(request: SubmitBatchMediaProducingJobRequest): Promise<SubmitBatchMediaProducingJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitBatchMediaProducingJobWithOptions(request, runtime);
   }
 
   async submitCustomizedVoiceJobWithOptions(request: SubmitCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCustomizedVoiceJobResponse> {
