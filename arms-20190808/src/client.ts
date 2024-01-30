@@ -3560,6 +3560,7 @@ export class CreateIntegrationRequest extends $tea.Model {
   integrationName?: string;
   integrationProductType?: string;
   recoverTime?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       autoRecover: 'AutoRecover',
@@ -3567,6 +3568,7 @@ export class CreateIntegrationRequest extends $tea.Model {
       integrationName: 'IntegrationName',
       integrationProductType: 'IntegrationProductType',
       recoverTime: 'RecoverTime',
+      regionId: 'RegionId',
     };
   }
 
@@ -3577,6 +3579,7 @@ export class CreateIntegrationRequest extends $tea.Model {
       integrationName: 'string',
       integrationProductType: 'string',
       recoverTime: 'number',
+      regionId: 'string',
     };
   }
 
@@ -13320,6 +13323,7 @@ export class ListEnvironmentFeaturesResponse extends $tea.Model {
 
 export class ListEnvironmentsRequest extends $tea.Model {
   addonName?: string;
+  bindResourceId?: string;
   environmentType?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -13327,6 +13331,7 @@ export class ListEnvironmentsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       addonName: 'AddonName',
+      bindResourceId: 'BindResourceId',
       environmentType: 'EnvironmentType',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -13337,6 +13342,7 @@ export class ListEnvironmentsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       addonName: 'string',
+      bindResourceId: 'string',
       environmentType: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -13351,6 +13357,7 @@ export class ListEnvironmentsRequest extends $tea.Model {
 
 export class ListEnvironmentsShrinkRequest extends $tea.Model {
   addonName?: string;
+  bindResourceId?: string;
   environmentType?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -13358,6 +13365,7 @@ export class ListEnvironmentsShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       addonName: 'AddonName',
+      bindResourceId: 'BindResourceId',
       environmentType: 'EnvironmentType',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -13368,6 +13376,7 @@ export class ListEnvironmentsShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       addonName: 'string',
+      bindResourceId: 'string',
       environmentType: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -23466,6 +23475,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
   grafanaFolderTitle?: string;
   grafanaFolderUid?: string;
   grafanaFolderUrl?: string;
+  managedType?: string;
   prometheusInstanceId?: string;
   prometheusInstanceName?: string;
   regionId?: string;
@@ -23490,6 +23500,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
       grafanaFolderTitle: 'GrafanaFolderTitle',
       grafanaFolderUid: 'GrafanaFolderUid',
       grafanaFolderUrl: 'GrafanaFolderUrl',
+      managedType: 'ManagedType',
       prometheusInstanceId: 'PrometheusInstanceId',
       prometheusInstanceName: 'PrometheusInstanceName',
       regionId: 'RegionId',
@@ -23517,6 +23528,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
       grafanaFolderTitle: 'string',
       grafanaFolderUid: 'string',
       grafanaFolderUrl: 'string',
+      managedType: 'string',
       prometheusInstanceId: 'string',
       prometheusInstanceName: 'string',
       regionId: 'string',
@@ -32415,6 +32427,14 @@ export default class Client extends OpenApi {
     return await this.addGrafanaWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
+    *
+    * @param request AddIntegrationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddIntegrationResponse
+   */
+  // Deprecated
   async addIntegrationWithOptions(request: AddIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<AddIntegrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32447,6 +32467,13 @@ export default class Client extends OpenApi {
     return $tea.cast<AddIntegrationResponse>(await this.callApi(params, req, runtime), new AddIntegrationResponse({}));
   }
 
+  /**
+    * @deprecated : AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
+    *
+    * @param request AddIntegrationRequest
+    * @return AddIntegrationResponse
+   */
+  // Deprecated
   async addIntegration(request: AddIntegrationRequest): Promise<AddIntegrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addIntegrationWithOptions(request, runtime);
@@ -33631,6 +33658,11 @@ export default class Client extends OpenApi {
 
   async createIntegrationWithOptions(request: CreateIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateIntegrationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.autoRecover)) {
       body["AutoRecover"] = request.autoRecover;
@@ -33653,6 +33685,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -35408,6 +35441,14 @@ export default class Client extends OpenApi {
     return await this.deleteIMRobotWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
+    *
+    * @param request DeleteIntegrationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteIntegrationResponse
+   */
+  // Deprecated
   async deleteIntegrationWithOptions(request: DeleteIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIntegrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35440,6 +35481,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIntegrationResponse>(await this.callApi(params, req, runtime), new DeleteIntegrationResponse({}));
   }
 
+  /**
+    * @deprecated : DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
+    *
+    * @param request DeleteIntegrationRequest
+    * @return DeleteIntegrationResponse
+   */
+  // Deprecated
   async deleteIntegration(request: DeleteIntegrationRequest): Promise<DeleteIntegrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIntegrationWithOptions(request, runtime);
@@ -36892,6 +36940,14 @@ export default class Client extends OpenApi {
     return await this.getGrafanaWorkspaceWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead.
+    *
+    * @param request GetIntegrationStateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetIntegrationStateResponse
+   */
+  // Deprecated
   async getIntegrationStateWithOptions(request: GetIntegrationStateRequest, runtime: $Util.RuntimeOptions): Promise<GetIntegrationStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36924,6 +36980,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIntegrationStateResponse>(await this.callApi(params, req, runtime), new GetIntegrationStateResponse({}));
   }
 
+  /**
+    * @deprecated : GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead.
+    *
+    * @param request GetIntegrationStateRequest
+    * @return GetIntegrationStateResponse
+   */
+  // Deprecated
   async getIntegrationState(request: GetIntegrationStateRequest): Promise<GetIntegrationStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getIntegrationStateWithOptions(request, runtime);
@@ -38766,6 +38829,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.addonName)) {
       query["AddonName"] = request.addonName;
+    }
+
+    if (!Util.isUnset(request.bindResourceId)) {
+      query["BindResourceId"] = request.bindResourceId;
     }
 
     if (!Util.isUnset(request.environmentType)) {
