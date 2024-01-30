@@ -823,6 +823,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   destDataSourceId?: string;
   destSourceType?: string;
   detail?: { [key: string]: any };
+  disabled?: boolean;
   exclude?: string;
   fileSystemId?: string;
   include?: string;
@@ -854,6 +855,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
       destDataSourceId: 'DestDataSourceId',
       destSourceType: 'DestSourceType',
       detail: 'Detail',
+      disabled: 'Disabled',
       exclude: 'Exclude',
       fileSystemId: 'FileSystemId',
       include: 'Include',
@@ -888,6 +890,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
       destDataSourceId: 'string',
       destSourceType: 'string',
       detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      disabled: 'boolean',
       exclude: 'string',
       fileSystemId: 'string',
       include: 'string',
@@ -926,6 +929,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   destDataSourceId?: string;
   destSourceType?: string;
   detailShrink?: string;
+  disabled?: boolean;
   exclude?: string;
   fileSystemId?: string;
   include?: string;
@@ -957,6 +961,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
       destDataSourceId: 'DestDataSourceId',
       destSourceType: 'DestSourceType',
       detailShrink: 'Detail',
+      disabled: 'Disabled',
       exclude: 'Exclude',
       fileSystemId: 'FileSystemId',
       include: 'Include',
@@ -991,6 +996,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
       destDataSourceId: 'string',
       destSourceType: 'string',
       detailShrink: 'string',
+      disabled: 'boolean',
       exclude: 'string',
       fileSystemId: 'string',
       include: 'string',
@@ -2396,11 +2402,13 @@ export class DeleteBackupClientResourceResponse extends $tea.Model {
 
 export class DeleteBackupPlanRequest extends $tea.Model {
   planId?: string;
+  requireNoRunningJobs?: boolean;
   sourceType?: string;
   vaultId?: string;
   static names(): { [key: string]: string } {
     return {
       planId: 'PlanId',
+      requireNoRunningJobs: 'RequireNoRunningJobs',
       sourceType: 'SourceType',
       vaultId: 'VaultId',
     };
@@ -2409,6 +2417,7 @@ export class DeleteBackupPlanRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       planId: 'string',
+      requireNoRunningJobs: 'boolean',
       sourceType: 'string',
       vaultId: 'string',
     };
@@ -9196,6 +9205,7 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $tea.M
   instanceId?: string;
   instanceName?: string;
   keepLatestSnapshots?: number;
+  latestExecuteJobId?: string;
   options?: string;
   otsDetail?: DescribeBackupPlansResponseBodyBackupPlansBackupPlanOtsDetail;
   paths?: DescribeBackupPlansResponseBodyBackupPlansBackupPlanPaths;
@@ -9237,6 +9247,7 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $tea.M
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       keepLatestSnapshots: 'KeepLatestSnapshots',
+      latestExecuteJobId: 'LatestExecuteJobId',
       options: 'Options',
       otsDetail: 'OtsDetail',
       paths: 'Paths',
@@ -9281,6 +9292,7 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $tea.M
       instanceId: 'string',
       instanceName: 'string',
       keepLatestSnapshots: 'number',
+      latestExecuteJobId: 'string',
       options: 'string',
       otsDetail: DescribeBackupPlansResponseBodyBackupPlansBackupPlanOtsDetail,
       paths: DescribeBackupPlansResponseBodyBackupPlansBackupPlanPaths,
@@ -12240,6 +12252,10 @@ export default class Client extends OpenApi {
       query["Detail"] = request.detailShrink;
     }
 
+    if (!Util.isUnset(request.disabled)) {
+      query["Disabled"] = request.disabled;
+    }
+
     if (!Util.isUnset(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
@@ -13248,6 +13264,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.planId)) {
       query["PlanId"] = request.planId;
+    }
+
+    if (!Util.isUnset(request.requireNoRunningJobs)) {
+      query["RequireNoRunningJobs"] = request.requireNoRunningJobs;
     }
 
     if (!Util.isUnset(request.sourceType)) {
