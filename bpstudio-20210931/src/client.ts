@@ -8,6 +8,153 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AppFailBackRequest extends $tea.Model {
+  applicationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AppFailBackResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AppFailBackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AppFailBackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AppFailBackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AppFailOverRequest extends $tea.Model {
+  applicationId?: string;
+  failZone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      failZone: 'FailZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      failZone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AppFailOverResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AppFailOverResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AppFailOverResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AppFailOverResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChangeResourceGroupRequest extends $tea.Model {
   newResourceGroupId?: string;
   resourceId?: string;
@@ -62,9 +209,9 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -195,9 +342,9 @@ export class CreateApplicationResponseBody extends $tea.Model {
 }
 
 export class CreateApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -267,9 +414,9 @@ export class DeleteApplicationResponseBody extends $tea.Model {
 }
 
 export class DeleteApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -342,9 +489,9 @@ export class DeployApplicationResponseBody extends $tea.Model {
 }
 
 export class DeployApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeployApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeployApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -457,9 +604,9 @@ export class ExecuteOperationASyncResponseBody extends $tea.Model {
 }
 
 export class ExecuteOperationASyncResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ExecuteOperationASyncResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteOperationASyncResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -532,9 +679,9 @@ export class GetApplicationResponseBody extends $tea.Model {
 }
 
 export class GetApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -607,9 +754,9 @@ export class GetExecuteOperationResultResponseBody extends $tea.Model {
 }
 
 export class GetExecuteOperationResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetExecuteOperationResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetExecuteOperationResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -623,6 +770,153 @@ export class GetExecuteOperationResultResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetExecuteOperationResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFoTaskStatusRequest extends $tea.Model {
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFoTaskStatusResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFoTaskStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFoTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFoTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPotentialFailZonesRequest extends $tea.Model {
+  isPlanId?: boolean;
+  objectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isPlanId: 'IsPlanId',
+      objectId: 'ObjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isPlanId: 'boolean',
+      objectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPotentialFailZonesResponseBody extends $tea.Model {
+  code?: string;
+  data?: string[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPotentialFailZonesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPotentialFailZonesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPotentialFailZonesResponseBody,
     };
   }
 
@@ -685,9 +979,9 @@ export class GetTemplateResponseBody extends $tea.Model {
 }
 
 export class GetTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -757,9 +1051,9 @@ export class GetTokenResponseBody extends $tea.Model {
 }
 
 export class GetTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -781,13 +1075,87 @@ export class GetTokenResponse extends $tea.Model {
   }
 }
 
+export class InitAppFailOverRequest extends $tea.Model {
+  applicationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitAppFailOverResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitAppFailOverResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InitAppFailOverResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InitAppFailOverResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListApplicationRequest extends $tea.Model {
   keyword?: string;
   maxResults?: number;
   nextToken?: number;
   orderType?: number;
   resourceGroupId?: string;
+  resourceId?: string;
   status?: string;
+  templateId?: string;
   static names(): { [key: string]: string } {
     return {
       keyword: 'Keyword',
@@ -795,7 +1163,9 @@ export class ListApplicationRequest extends $tea.Model {
       nextToken: 'NextToken',
       orderType: 'OrderType',
       resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
       status: 'Status',
+      templateId: 'TemplateId',
     };
   }
 
@@ -806,7 +1176,9 @@ export class ListApplicationRequest extends $tea.Model {
       nextToken: 'number',
       orderType: 'number',
       resourceGroupId: 'string',
+      resourceId: 'string',
       status: 'string',
+      templateId: 'string',
     };
   }
 
@@ -850,9 +1222,9 @@ export class ListApplicationResponseBody extends $tea.Model {
 }
 
 export class ListApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -875,7 +1247,7 @@ export class ListApplicationResponse extends $tea.Model {
 }
 
 export class ListFoCreatedAppsResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   data?: ListFoCreatedAppsResponseBodyData[];
   message?: string;
   requestId?: string;
@@ -890,7 +1262,7 @@ export class ListFoCreatedAppsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       data: { 'type': 'array', 'itemType': ListFoCreatedAppsResponseBodyData },
       message: 'string',
       requestId: 'string',
@@ -903,9 +1275,9 @@ export class ListFoCreatedAppsResponseBody extends $tea.Model {
 }
 
 export class ListFoCreatedAppsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFoCreatedAppsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFoCreatedAppsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -993,9 +1365,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1089,9 +1461,9 @@ export class ListTemplateResponseBody extends $tea.Model {
 }
 
 export class ListTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1164,9 +1536,9 @@ export class ReleaseApplicationResponseBody extends $tea.Model {
 }
 
 export class ReleaseApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleaseApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1239,9 +1611,9 @@ export class ValidateApplicationResponseBody extends $tea.Model {
 }
 
 export class ValidateApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ValidateApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ValidateApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1314,9 +1686,9 @@ export class ValuateApplicationResponseBody extends $tea.Model {
 }
 
 export class ValuateApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ValuateApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ValuateApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1435,9 +1807,9 @@ export class ValuateTemplateResponseBody extends $tea.Model {
 }
 
 export class ValuateTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ValuateTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ValuateTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1833,13 +2205,13 @@ export class ListApplicationResponseBodyData extends $tea.Model {
 }
 
 export class ListFoCreatedAppsResponseBodyData extends $tea.Model {
-  appId?: string;
+  applicationId?: string;
   reportUrl?: string;
   status?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
+      applicationId: 'ApplicationId',
       reportUrl: 'ReportUrl',
       status: 'Status',
       title: 'Title',
@@ -1848,7 +2220,7 @@ export class ListFoCreatedAppsResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
+      applicationId: 'string',
       reportUrl: 'string',
       status: 'string',
       title: 'string',
@@ -2095,6 +2467,68 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async appFailBackWithOptions(request: AppFailBackRequest, runtime: $Util.RuntimeOptions): Promise<AppFailBackResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AppFailBack",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AppFailBackResponse>(await this.callApi(params, req, runtime), new AppFailBackResponse({}));
+  }
+
+  async appFailBack(request: AppFailBackRequest): Promise<AppFailBackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.appFailBackWithOptions(request, runtime);
+  }
+
+  async appFailOverWithOptions(request: AppFailOverRequest, runtime: $Util.RuntimeOptions): Promise<AppFailOverResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.failZone)) {
+      body["FailZone"] = request.failZone;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AppFailOver",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AppFailOverResponse>(await this.callApi(params, req, runtime), new AppFailOverResponse({}));
+  }
+
+  async appFailOver(request: AppFailOverRequest): Promise<AppFailOverResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.appFailOverWithOptions(request, runtime);
   }
 
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
@@ -2403,6 +2837,68 @@ export default class Client extends OpenApi {
     return await this.getExecuteOperationResultWithOptions(request, runtime);
   }
 
+  async getFoTaskStatusWithOptions(request: GetFoTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetFoTaskStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFoTaskStatus",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFoTaskStatusResponse>(await this.callApi(params, req, runtime), new GetFoTaskStatusResponse({}));
+  }
+
+  async getFoTaskStatus(request: GetFoTaskStatusRequest): Promise<GetFoTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFoTaskStatusWithOptions(request, runtime);
+  }
+
+  async getPotentialFailZonesWithOptions(request: GetPotentialFailZonesRequest, runtime: $Util.RuntimeOptions): Promise<GetPotentialFailZonesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.isPlanId)) {
+      body["IsPlanId"] = request.isPlanId;
+    }
+
+    if (!Util.isUnset(request.objectId)) {
+      body["ObjectId"] = request.objectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPotentialFailZones",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPotentialFailZonesResponse>(await this.callApi(params, req, runtime), new GetPotentialFailZonesResponse({}));
+  }
+
+  async getPotentialFailZones(request: GetPotentialFailZonesRequest): Promise<GetPotentialFailZonesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPotentialFailZonesWithOptions(request, runtime);
+  }
+
   async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2486,6 +2982,35 @@ export default class Client extends OpenApi {
     return await this.getTokenWithOptions(request, runtime);
   }
 
+  async initAppFailOverWithOptions(request: InitAppFailOverRequest, runtime: $Util.RuntimeOptions): Promise<InitAppFailOverResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "InitAppFailOver",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InitAppFailOverResponse>(await this.callApi(params, req, runtime), new InitAppFailOverResponse({}));
+  }
+
+  async initAppFailOver(request: InitAppFailOverRequest): Promise<InitAppFailOverResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.initAppFailOverWithOptions(request, runtime);
+  }
+
   async listApplicationWithOptions(request: ListApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2509,8 +3034,16 @@ export default class Client extends OpenApi {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!Util.isUnset(request.resourceId)) {
+      body["ResourceId"] = request.resourceId;
+    }
+
     if (!Util.isUnset(request.status)) {
       body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
