@@ -1156,6 +1156,75 @@ export class DeleteAppResponse extends $tea.Model {
   }
 }
 
+export class DeleteEntityRequest extends $tea.Model {
+  entityType?: string;
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityType: 'EntityType',
+      workspace: 'Workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityType: 'string',
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEntityResponseBody extends $tea.Model {
+  hostId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostId: 'HostId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEntityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEntityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEntityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteEntityItemsRequest extends $tea.Model {
   entityNames?: string[];
   entityType?: string;
@@ -7005,6 +7074,39 @@ export default class Client extends OpenApi {
   async deleteApp(request: DeleteAppRequest): Promise<DeleteAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppWithOptions(request, runtime);
+  }
+
+  async deleteEntityWithOptions(request: DeleteEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEntityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEntity",
+      version: "2021-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEntityResponse>(await this.callApi(params, req, runtime), new DeleteEntityResponse({}));
+  }
+
+  async deleteEntity(request: DeleteEntityRequest): Promise<DeleteEntityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEntityWithOptions(request, runtime);
   }
 
   async deleteEntityItemsWithOptions(tmpReq: DeleteEntityItemsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEntityItemsResponse> {
