@@ -35886,7 +35886,19 @@ export default class Client extends OpenApi {
 
   async listSmartSysAvatarModelsWithOptions(request: ListSmartSysAvatarModelsRequest, runtime: $Util.RuntimeOptions): Promise<ListSmartSysAvatarModelsResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sdkVersion)) {
+      query["SdkVersion"] = request.sdkVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -35895,7 +35907,7 @@ export default class Client extends OpenApi {
       version: "2020-11-09",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
