@@ -7371,6 +7371,7 @@ export class ModifyAuditLogConfigResponse extends $tea.Model {
 }
 
 export class ModifyBackupPolicyRequest extends $tea.Model {
+  backupRetentionPeriod?: number;
   enableBackupLog?: number;
   instanceId?: string;
   ownerAccount?: string;
@@ -7382,6 +7383,7 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
+      backupRetentionPeriod: 'BackupRetentionPeriod',
       enableBackupLog: 'EnableBackupLog',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
@@ -7396,6 +7398,7 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backupRetentionPeriod: 'number',
       enableBackupLog: 'number',
       instanceId: 'string',
       ownerAccount: 'string',
@@ -9550,6 +9553,7 @@ export class RenewAdditionalBandwidthResponse extends $tea.Model {
 
 export class RenewInstanceRequest extends $tea.Model {
   autoPay?: boolean;
+  autoRenew?: boolean;
   businessInfo?: string;
   capacity?: string;
   clientToken?: string;
@@ -9566,6 +9570,7 @@ export class RenewInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
       businessInfo: 'BusinessInfo',
       capacity: 'Capacity',
       clientToken: 'ClientToken',
@@ -9585,6 +9590,7 @@ export class RenewInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+      autoRenew: 'boolean',
       businessInfo: 'string',
       capacity: 'string',
       clientToken: 'string',
@@ -19893,6 +19899,10 @@ export default class Client extends OpenApi {
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.backupRetentionPeriod)) {
+      query["BackupRetentionPeriod"] = request.backupRetentionPeriod;
+    }
+
     if (!Util.isUnset(request.enableBackupLog)) {
       query["EnableBackupLog"] = request.enableBackupLog;
     }
@@ -21666,6 +21676,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
     }
 
     if (!Util.isUnset(request.businessInfo)) {
