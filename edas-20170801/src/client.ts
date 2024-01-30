@@ -168,9 +168,9 @@ export class AbortAndRollbackChangeOrderResponseBody extends $tea.Model {
 }
 
 export class AbortAndRollbackChangeOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AbortAndRollbackChangeOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AbortAndRollbackChangeOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -246,9 +246,9 @@ export class AbortChangeOrderResponseBody extends $tea.Model {
 }
 
 export class AbortChangeOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AbortChangeOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AbortChangeOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -318,9 +318,9 @@ export class AddLogPathResponseBody extends $tea.Model {
 }
 
 export class AddLogPathResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddLogPathResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddLogPathResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -390,9 +390,9 @@ export class AuthorizeApplicationResponseBody extends $tea.Model {
 }
 
 export class AuthorizeApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AuthorizeApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AuthorizeApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -462,9 +462,9 @@ export class AuthorizeResourceGroupResponseBody extends $tea.Model {
 }
 
 export class AuthorizeResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AuthorizeResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AuthorizeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -534,9 +534,9 @@ export class AuthorizeRoleResponseBody extends $tea.Model {
 }
 
 export class AuthorizeRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AuthorizeRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AuthorizeRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -630,9 +630,9 @@ export class BindEcsSlbResponseBody extends $tea.Model {
 }
 
 export class BindEcsSlbResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BindEcsSlbResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindEcsSlbResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -729,9 +729,9 @@ export class BindK8sSlbResponseBody extends $tea.Model {
 }
 
 export class BindK8sSlbResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BindK8sSlbResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindK8sSlbResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -816,9 +816,9 @@ export class BindSlbResponseBody extends $tea.Model {
 }
 
 export class BindSlbResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BindSlbResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindSlbResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -897,9 +897,9 @@ export class ChangeDeployGroupResponseBody extends $tea.Model {
 }
 
 export class ChangeDeployGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeDeployGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeDeployGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -969,9 +969,9 @@ export class ContinuePipelineResponseBody extends $tea.Model {
 }
 
 export class ContinuePipelineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ContinuePipelineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ContinuePipelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1047,9 +1047,9 @@ export class ConvertK8sResourceResponseBody extends $tea.Model {
 }
 
 export class ConvertK8sResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConvertK8sResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConvertK8sResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1140,9 +1140,9 @@ export class CreateApplicationScalingRuleResponseBody extends $tea.Model {
 }
 
 export class CreateApplicationScalingRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateApplicationScalingRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateApplicationScalingRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1221,9 +1221,9 @@ export class CreateConfigTemplateResponseBody extends $tea.Model {
 }
 
 export class CreateConfigTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateConfigTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConfigTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1293,9 +1293,9 @@ export class CreateIDCImportCommandResponseBody extends $tea.Model {
 }
 
 export class CreateIDCImportCommandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateIDCImportCommandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIDCImportCommandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1371,9 +1371,9 @@ export class CreateK8sConfigMapResponseBody extends $tea.Model {
 }
 
 export class CreateK8sConfigMapResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateK8sConfigMapResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateK8sConfigMapResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1452,9 +1452,9 @@ export class CreateK8sIngressRuleResponseBody extends $tea.Model {
 }
 
 export class CreateK8sIngressRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateK8sIngressRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateK8sIngressRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1542,9 +1542,9 @@ export class CreateK8sSecretResponseBody extends $tea.Model {
 }
 
 export class CreateK8sSecretResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateK8sSecretResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateK8sSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1626,9 +1626,9 @@ export class CreateK8sServiceResponseBody extends $tea.Model {
 }
 
 export class CreateK8sServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateK8sServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateK8sServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1698,9 +1698,9 @@ export class DeleteApplicationResponseBody extends $tea.Model {
 }
 
 export class DeleteApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1764,9 +1764,9 @@ export class DeleteApplicationScalingRuleResponseBody extends $tea.Model {
 }
 
 export class DeleteApplicationScalingRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteApplicationScalingRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteApplicationScalingRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1839,9 +1839,9 @@ export class DeleteClusterResponseBody extends $tea.Model {
 }
 
 export class DeleteClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1914,9 +1914,9 @@ export class DeleteClusterMemberResponseBody extends $tea.Model {
 }
 
 export class DeleteClusterMemberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteClusterMemberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteClusterMemberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1983,9 +1983,9 @@ export class DeleteConfigTemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteConfigTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteConfigTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConfigTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2058,9 +2058,9 @@ export class DeleteDeployGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteDeployGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDeployGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDeployGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2130,9 +2130,9 @@ export class DeleteEcuResponseBody extends $tea.Model {
 }
 
 export class DeleteEcuResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEcuResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEcuResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2205,9 +2205,9 @@ export class DeleteK8sApplicationResponseBody extends $tea.Model {
 }
 
 export class DeleteK8sApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteK8sApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteK8sApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2280,9 +2280,9 @@ export class DeleteK8sConfigMapResponseBody extends $tea.Model {
 }
 
 export class DeleteK8sConfigMapResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteK8sConfigMapResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteK8sConfigMapResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2352,9 +2352,9 @@ export class DeleteK8sIngressRuleResponseBody extends $tea.Model {
 }
 
 export class DeleteK8sIngressRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteK8sIngressRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteK8sIngressRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2427,9 +2427,9 @@ export class DeleteK8sSecretResponseBody extends $tea.Model {
 }
 
 export class DeleteK8sSecretResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteK8sSecretResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteK8sSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2502,9 +2502,9 @@ export class DeleteK8sServiceResponseBody extends $tea.Model {
 }
 
 export class DeleteK8sServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteK8sServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteK8sServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2574,9 +2574,9 @@ export class DeleteLogPathResponseBody extends $tea.Model {
 }
 
 export class DeleteLogPathResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteLogPathResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLogPathResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2643,9 +2643,9 @@ export class DeleteRoleResponseBody extends $tea.Model {
 }
 
 export class DeleteRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2712,9 +2712,9 @@ export class DeleteServiceGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteServiceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteServiceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteServiceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2784,9 +2784,9 @@ export class DeleteSwimmingLaneResponseBody extends $tea.Model {
 }
 
 export class DeleteSwimmingLaneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSwimmingLaneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSwimmingLaneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2859,9 +2859,9 @@ export class DeleteUserDefineRegionResponseBody extends $tea.Model {
 }
 
 export class DeleteUserDefineRegionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteUserDefineRegionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteUserDefineRegionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2973,9 +2973,9 @@ export class DeployApplicationResponseBody extends $tea.Model {
 }
 
 export class DeployApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeployApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeployApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3011,6 +3011,7 @@ export class DeployK8sApplicationRequest extends $tea.Model {
   cpuLimit?: number;
   cpuRequest?: number;
   customAffinity?: string;
+  customAgentVersion?: string;
   customTolerations?: string;
   deployAcrossNodes?: string;
   deployAcrossZones?: string;
@@ -3080,6 +3081,7 @@ export class DeployK8sApplicationRequest extends $tea.Model {
       cpuLimit: 'CpuLimit',
       cpuRequest: 'CpuRequest',
       customAffinity: 'CustomAffinity',
+      customAgentVersion: 'CustomAgentVersion',
       customTolerations: 'CustomTolerations',
       deployAcrossNodes: 'DeployAcrossNodes',
       deployAcrossZones: 'DeployAcrossZones',
@@ -3152,6 +3154,7 @@ export class DeployK8sApplicationRequest extends $tea.Model {
       cpuLimit: 'number',
       cpuRequest: 'number',
       customAffinity: 'string',
+      customAgentVersion: 'string',
       customTolerations: 'string',
       deployAcrossNodes: 'string',
       deployAcrossZones: 'string',
@@ -3243,9 +3246,9 @@ export class DeployK8sApplicationResponseBody extends $tea.Model {
 }
 
 export class DeployK8sApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeployK8sApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeployK8sApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3318,9 +3321,9 @@ export class DescribeAppInstanceListResponseBody extends $tea.Model {
 }
 
 export class DescribeAppInstanceListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAppInstanceListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAppInstanceListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3390,9 +3393,9 @@ export class DescribeApplicationScalingRulesResponseBody extends $tea.Model {
 }
 
 export class DescribeApplicationScalingRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeApplicationScalingRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApplicationScalingRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3465,9 +3468,9 @@ export class DisableApplicationScalingRuleResponseBody extends $tea.Model {
 }
 
 export class DisableApplicationScalingRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableApplicationScalingRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableApplicationScalingRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3540,9 +3543,9 @@ export class EnableApplicationScalingRuleResponseBody extends $tea.Model {
 }
 
 export class EnableApplicationScalingRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableApplicationScalingRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableApplicationScalingRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3612,9 +3615,9 @@ export class GetAppDeploymentResponseBody extends $tea.Model {
 }
 
 export class GetAppDeploymentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAppDeploymentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppDeploymentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3684,9 +3687,9 @@ export class GetApplicationResponseBody extends $tea.Model {
 }
 
 export class GetApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3756,9 +3759,9 @@ export class GetChangeOrderInfoResponseBody extends $tea.Model {
 }
 
 export class GetChangeOrderInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetChangeOrderInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetChangeOrderInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3828,9 +3831,9 @@ export class GetClusterResponseBody extends $tea.Model {
 }
 
 export class GetClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3903,9 +3906,9 @@ export class GetContainerConfigurationResponseBody extends $tea.Model {
 }
 
 export class GetContainerConfigurationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetContainerConfigurationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetContainerConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3975,9 +3978,9 @@ export class GetJavaStartUpConfigResponseBody extends $tea.Model {
 }
 
 export class GetJavaStartUpConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJavaStartUpConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJavaStartUpConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4050,9 +4053,9 @@ export class GetJvmConfigurationResponseBody extends $tea.Model {
 }
 
 export class GetJvmConfigurationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJvmConfigurationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJvmConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4128,9 +4131,9 @@ export class GetK8sAppPrecheckResultResponseBody extends $tea.Model {
 }
 
 export class GetK8sAppPrecheckResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetK8sAppPrecheckResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetK8sAppPrecheckResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4203,9 +4206,9 @@ export class GetK8sApplicationResponseBody extends $tea.Model {
 }
 
 export class GetK8sApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetK8sApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetK8sApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4287,9 +4290,9 @@ export class GetK8sClusterResponseBody extends $tea.Model {
 }
 
 export class GetK8sClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetK8sClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetK8sClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4359,9 +4362,9 @@ export class GetK8sServicesResponseBody extends $tea.Model {
 }
 
 export class GetK8sServicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetK8sServicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetK8sServicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4412,9 +4415,9 @@ export class GetPackageStorageCredentialResponseBody extends $tea.Model {
 }
 
 export class GetPackageStorageCredentialResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPackageStorageCredentialResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPackageStorageCredentialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4493,9 +4496,9 @@ export class GetScalingRulesResponseBody extends $tea.Model {
 }
 
 export class GetScalingRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetScalingRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetScalingRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4565,9 +4568,9 @@ export class GetSecureTokenResponseBody extends $tea.Model {
 }
 
 export class GetSecureTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSecureTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSecureTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4676,9 +4679,9 @@ export class GetServiceConsumersPageResponseBody extends $tea.Model {
 }
 
 export class GetServiceConsumersPageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceConsumersPageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceConsumersPageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4781,9 +4784,9 @@ export class GetServiceDetailResponseBody extends $tea.Model {
 }
 
 export class GetServiceDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4877,9 +4880,9 @@ export class GetServiceListPageResponseBody extends $tea.Model {
 }
 
 export class GetServiceListPageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceListPageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceListPageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5003,9 +5006,9 @@ export class GetServiceMethodPageResponseBody extends $tea.Model {
 }
 
 export class GetServiceMethodPageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceMethodPageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceMethodPageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5114,9 +5117,9 @@ export class GetServiceProvidersPageResponseBody extends $tea.Model {
 }
 
 export class GetServiceProvidersPageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceProvidersPageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceProvidersPageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5186,9 +5189,9 @@ export class GetWebContainerConfigResponseBody extends $tea.Model {
 }
 
 export class GetWebContainerConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetWebContainerConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWebContainerConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5267,9 +5270,9 @@ export class ImportK8sClusterResponseBody extends $tea.Model {
 }
 
 export class ImportK8sClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ImportK8sClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportK8sClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5405,9 +5408,9 @@ export class InsertApplicationResponseBody extends $tea.Model {
 }
 
 export class InsertApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InsertApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5495,9 +5498,9 @@ export class InsertClusterResponseBody extends $tea.Model {
 }
 
 export class InsertClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InsertClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5573,9 +5576,9 @@ export class InsertClusterMemberResponseBody extends $tea.Model {
 }
 
 export class InsertClusterMemberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InsertClusterMemberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertClusterMemberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5651,9 +5654,9 @@ export class InsertDeployGroupResponseBody extends $tea.Model {
 }
 
 export class InsertDeployGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InsertDeployGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertDeployGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5689,6 +5692,7 @@ export class InsertK8sApplicationRequest extends $tea.Model {
   containerRegistryId?: string;
   csClusterId?: string;
   customAffinity?: string;
+  customAgentVersion?: string;
   customTolerations?: string;
   deployAcrossNodes?: string;
   deployAcrossZones?: string;
@@ -5700,6 +5704,7 @@ export class InsertK8sApplicationRequest extends $tea.Model {
   enableLosslessRule?: boolean;
   envFroms?: string;
   envs?: string;
+  featureConfig?: string;
   imagePlatforms?: string;
   imageUrl?: string;
   initContainers?: string;
@@ -5774,6 +5779,7 @@ export class InsertK8sApplicationRequest extends $tea.Model {
       containerRegistryId: 'ContainerRegistryId',
       csClusterId: 'CsClusterId',
       customAffinity: 'CustomAffinity',
+      customAgentVersion: 'CustomAgentVersion',
       customTolerations: 'CustomTolerations',
       deployAcrossNodes: 'DeployAcrossNodes',
       deployAcrossZones: 'DeployAcrossZones',
@@ -5785,6 +5791,7 @@ export class InsertK8sApplicationRequest extends $tea.Model {
       enableLosslessRule: 'EnableLosslessRule',
       envFroms: 'EnvFroms',
       envs: 'Envs',
+      featureConfig: 'FeatureConfig',
       imagePlatforms: 'ImagePlatforms',
       imageUrl: 'ImageUrl',
       initContainers: 'InitContainers',
@@ -5862,6 +5869,7 @@ export class InsertK8sApplicationRequest extends $tea.Model {
       containerRegistryId: 'string',
       csClusterId: 'string',
       customAffinity: 'string',
+      customAgentVersion: 'string',
       customTolerations: 'string',
       deployAcrossNodes: 'string',
       deployAcrossZones: 'string',
@@ -5873,6 +5881,7 @@ export class InsertK8sApplicationRequest extends $tea.Model {
       enableLosslessRule: 'boolean',
       envFroms: 'string',
       envs: 'string',
+      featureConfig: 'string',
       imagePlatforms: 'string',
       imageUrl: 'string',
       initContainers: 'string',
@@ -5969,9 +5978,9 @@ export class InsertK8sApplicationResponseBody extends $tea.Model {
 }
 
 export class InsertK8sApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InsertK8sApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertK8sApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6059,9 +6068,9 @@ export class InsertOrUpdateRegionResponseBody extends $tea.Model {
 }
 
 export class InsertOrUpdateRegionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InsertOrUpdateRegionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertOrUpdateRegionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6134,9 +6143,9 @@ export class InsertRoleResponseBody extends $tea.Model {
 }
 
 export class InsertRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InsertRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6203,9 +6212,9 @@ export class InsertServiceGroupResponseBody extends $tea.Model {
 }
 
 export class InsertServiceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InsertServiceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertServiceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6293,9 +6302,9 @@ export class InsertSwimmingLaneResponseBody extends $tea.Model {
 }
 
 export class InsertSwimmingLaneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InsertSwimmingLaneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertSwimmingLaneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6374,9 +6383,9 @@ export class InsertSwimmingLaneGroupResponseBody extends $tea.Model {
 }
 
 export class InsertSwimmingLaneGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InsertSwimmingLaneGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertSwimmingLaneGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6452,9 +6461,9 @@ export class InstallAgentResponseBody extends $tea.Model {
 }
 
 export class InstallAgentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InstallAgentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InstallAgentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6505,9 +6514,9 @@ export class ListAliyunRegionResponseBody extends $tea.Model {
 }
 
 export class ListAliyunRegionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAliyunRegionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAliyunRegionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6598,9 +6607,9 @@ export class ListApplicationResponseBody extends $tea.Model {
 }
 
 export class ListApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6673,9 +6682,9 @@ export class ListApplicationEcuResponseBody extends $tea.Model {
 }
 
 export class ListApplicationEcuResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListApplicationEcuResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApplicationEcuResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6726,9 +6735,9 @@ export class ListAuthorityResponseBody extends $tea.Model {
 }
 
 export class ListAuthorityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAuthorityResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAuthorityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6779,9 +6788,9 @@ export class ListBuildPackResponseBody extends $tea.Model {
 }
 
 export class ListBuildPackResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListBuildPackResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBuildPackResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6854,9 +6863,9 @@ export class ListClusterResponseBody extends $tea.Model {
 }
 
 export class ListClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6935,9 +6944,9 @@ export class ListClusterMembersResponseBody extends $tea.Model {
 }
 
 export class ListClusterMembersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListClusterMembersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListClusterMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6985,9 +6994,9 @@ export class ListComponentsResponseBody extends $tea.Model {
 }
 
 export class ListComponentsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListComponentsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListComponentsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7066,9 +7075,9 @@ export class ListConfigTemplatesResponseBody extends $tea.Model {
 }
 
 export class ListConfigTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListConfigTemplatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConfigTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7138,9 +7147,9 @@ export class ListConsumedServicesResponseBody extends $tea.Model {
 }
 
 export class ListConsumedServicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListConsumedServicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConsumedServicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7210,9 +7219,9 @@ export class ListConvertableEcuResponseBody extends $tea.Model {
 }
 
 export class ListConvertableEcuResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListConvertableEcuResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConvertableEcuResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7282,9 +7291,9 @@ export class ListDeployGroupResponseBody extends $tea.Model {
 }
 
 export class ListDeployGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDeployGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDeployGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7357,9 +7366,9 @@ export class ListEcsNotInClusterResponseBody extends $tea.Model {
 }
 
 export class ListEcsNotInClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEcsNotInClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEcsNotInClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7432,9 +7441,9 @@ export class ListEcuByRegionResponseBody extends $tea.Model {
 }
 
 export class ListEcuByRegionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEcuByRegionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEcuByRegionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7504,9 +7513,9 @@ export class ListHistoryDeployVersionResponseBody extends $tea.Model {
 }
 
 export class ListHistoryDeployVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListHistoryDeployVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHistoryDeployVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7594,9 +7603,9 @@ export class ListK8sConfigMapsResponseBody extends $tea.Model {
 }
 
 export class ListK8sConfigMapsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListK8sConfigMapsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListK8sConfigMapsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7675,9 +7684,9 @@ export class ListK8sIngressRulesResponseBody extends $tea.Model {
 }
 
 export class ListK8sIngressRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListK8sIngressRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListK8sIngressRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7747,9 +7756,9 @@ export class ListK8sNamespacesResponseBody extends $tea.Model {
 }
 
 export class ListK8sNamespacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListK8sNamespacesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListK8sNamespacesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7837,9 +7846,9 @@ export class ListK8sSecretsResponseBody extends $tea.Model {
 }
 
 export class ListK8sSecretsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListK8sSecretsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListK8sSecretsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7912,9 +7921,9 @@ export class ListMethodsResponseBody extends $tea.Model {
 }
 
 export class ListMethodsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListMethodsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMethodsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7984,9 +7993,9 @@ export class ListPublishedServicesResponseBody extends $tea.Model {
 }
 
 export class ListPublishedServicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPublishedServicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPublishedServicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8056,9 +8065,9 @@ export class ListRecentChangeOrderResponseBody extends $tea.Model {
 }
 
 export class ListRecentChangeOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRecentChangeOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRecentChangeOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8109,9 +8118,9 @@ export class ListResourceGroupResponseBody extends $tea.Model {
 }
 
 export class ListResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8162,9 +8171,9 @@ export class ListRoleResponseBody extends $tea.Model {
 }
 
 export class ListRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8252,9 +8261,9 @@ export class ListScaleOutEcuResponseBody extends $tea.Model {
 }
 
 export class ListScaleOutEcuResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListScaleOutEcuResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListScaleOutEcuResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8305,9 +8314,9 @@ export class ListServiceGroupsResponseBody extends $tea.Model {
 }
 
 export class ListServiceGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListServiceGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8383,9 +8392,9 @@ export class ListSlbResponseBody extends $tea.Model {
 }
 
 export class ListSlbResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSlbResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSlbResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8436,9 +8445,9 @@ export class ListSubAccountResponseBody extends $tea.Model {
 }
 
 export class ListSubAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSubAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSubAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8508,9 +8517,9 @@ export class ListSwimmingLaneResponseBody extends $tea.Model {
 }
 
 export class ListSwimmingLaneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSwimmingLaneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSwimmingLaneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8583,9 +8592,9 @@ export class ListSwimmingLaneGroupResponseBody extends $tea.Model {
 }
 
 export class ListSwimmingLaneGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSwimmingLaneGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSwimmingLaneGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8664,9 +8673,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8736,9 +8745,9 @@ export class ListUserDefineRegionResponseBody extends $tea.Model {
 }
 
 export class ListUserDefineRegionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserDefineRegionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserDefineRegionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8789,9 +8798,9 @@ export class ListVpcResponseBody extends $tea.Model {
 }
 
 export class ListVpcResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVpcResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpcResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8864,9 +8873,9 @@ export class MigrateEcuResponseBody extends $tea.Model {
 }
 
 export class MigrateEcuResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MigrateEcuResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MigrateEcuResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9020,9 +9029,9 @@ export class ModifyScalingRuleResponseBody extends $tea.Model {
 }
 
 export class ModifyScalingRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyScalingRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyScalingRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9092,9 +9101,9 @@ export class QueryApplicationStatusResponseBody extends $tea.Model {
 }
 
 export class QueryApplicationStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryApplicationStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryApplicationStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9164,9 +9173,9 @@ export class QueryEccInfoResponseBody extends $tea.Model {
 }
 
 export class QueryEccInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryEccInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryEccInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9236,9 +9245,9 @@ export class QueryMigrateEcuListResponseBody extends $tea.Model {
 }
 
 export class QueryMigrateEcuListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMigrateEcuListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMigrateEcuListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9308,9 +9317,9 @@ export class QueryMigrateRegionListResponseBody extends $tea.Model {
 }
 
 export class QueryMigrateRegionListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMigrateRegionListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMigrateRegionListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9361,9 +9370,9 @@ export class QueryRegionConfigResponseBody extends $tea.Model {
 }
 
 export class QueryRegionConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRegionConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRegionConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9445,9 +9454,9 @@ export class QuerySlsLogStoreListResponseBody extends $tea.Model {
 }
 
 export class QuerySlsLogStoreListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySlsLogStoreListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySlsLogStoreListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9520,9 +9529,9 @@ export class ResetApplicationResponseBody extends $tea.Model {
 }
 
 export class ResetApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9595,9 +9604,9 @@ export class RestartApplicationResponseBody extends $tea.Model {
 }
 
 export class RestartApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RestartApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestartApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9670,9 +9679,9 @@ export class RestartK8sApplicationResponseBody extends $tea.Model {
 }
 
 export class RestartK8sApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RestartK8sApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestartK8sApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9745,9 +9754,9 @@ export class RetryChangeOrderTaskResponseBody extends $tea.Model {
 }
 
 export class RetryChangeOrderTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RetryChangeOrderTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RetryChangeOrderTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9829,9 +9838,9 @@ export class RollbackApplicationResponseBody extends $tea.Model {
 }
 
 export class RollbackApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RollbackApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RollbackApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9907,9 +9916,9 @@ export class RollbackChangeOrderResponseBody extends $tea.Model {
 }
 
 export class RollbackChangeOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RollbackChangeOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RollbackChangeOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9982,9 +9991,9 @@ export class ScaleInApplicationResponseBody extends $tea.Model {
 }
 
 export class ScaleInApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ScaleInApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ScaleInApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10060,9 +10069,9 @@ export class ScaleK8sApplicationResponseBody extends $tea.Model {
 }
 
 export class ScaleK8sApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ScaleK8sApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ScaleK8sApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10138,9 +10147,9 @@ export class ScaleOutApplicationResponseBody extends $tea.Model {
 }
 
 export class ScaleOutApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ScaleOutApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ScaleOutApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10249,9 +10258,9 @@ export class ScaleoutApplicationWithNewInstancesResponseBody extends $tea.Model 
 }
 
 export class ScaleoutApplicationWithNewInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ScaleoutApplicationWithNewInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ScaleoutApplicationWithNewInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10324,9 +10333,9 @@ export class StartApplicationResponseBody extends $tea.Model {
 }
 
 export class StartApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10465,9 +10474,9 @@ export class StartK8sAppPrecheckResponseBody extends $tea.Model {
 }
 
 export class StartK8sAppPrecheckResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartK8sAppPrecheckResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartK8sAppPrecheckResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10543,9 +10552,9 @@ export class StartK8sApplicationResponseBody extends $tea.Model {
 }
 
 export class StartK8sApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartK8sApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartK8sApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10618,9 +10627,9 @@ export class StopApplicationResponseBody extends $tea.Model {
 }
 
 export class StopApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10693,9 +10702,9 @@ export class StopK8sApplicationResponseBody extends $tea.Model {
 }
 
 export class StopK8sApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopK8sApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopK8sApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10768,9 +10777,9 @@ export class SwitchAdvancedMonitoringResponseBody extends $tea.Model {
 }
 
 export class SwitchAdvancedMonitoringResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SwitchAdvancedMonitoringResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SwitchAdvancedMonitoringResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10846,9 +10855,9 @@ export class SynchronizeResourceResponseBody extends $tea.Model {
 }
 
 export class SynchronizeResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SynchronizeResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SynchronizeResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10924,9 +10933,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11002,9 +11011,9 @@ export class TransformClusterMemberResponseBody extends $tea.Model {
 }
 
 export class TransformClusterMemberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TransformClusterMemberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransformClusterMemberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11083,9 +11092,9 @@ export class UnbindK8sSlbResponseBody extends $tea.Model {
 }
 
 export class UnbindK8sSlbResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnbindK8sSlbResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindK8sSlbResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11164,9 +11173,9 @@ export class UnbindSlbResponseBody extends $tea.Model {
 }
 
 export class UnbindSlbResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnbindSlbResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindSlbResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11245,9 +11254,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11320,9 +11329,9 @@ export class UpdateAccountInfoResponseBody extends $tea.Model {
 }
 
 export class UpdateAccountInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAccountInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAccountInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11401,9 +11410,9 @@ export class UpdateApplicationBaseInfoResponseBody extends $tea.Model {
 }
 
 export class UpdateApplicationBaseInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateApplicationBaseInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateApplicationBaseInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11494,9 +11503,9 @@ export class UpdateApplicationScalingRuleResponseBody extends $tea.Model {
 }
 
 export class UpdateApplicationScalingRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateApplicationScalingRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateApplicationScalingRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11575,9 +11584,9 @@ export class UpdateConfigTemplateResponseBody extends $tea.Model {
 }
 
 export class UpdateConfigTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateConfigTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateConfigTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11650,9 +11659,9 @@ export class UpdateContainerResponseBody extends $tea.Model {
 }
 
 export class UpdateContainerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateContainerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateContainerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11740,9 +11749,9 @@ export class UpdateContainerConfigurationResponseBody extends $tea.Model {
 }
 
 export class UpdateContainerConfigurationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateContainerConfigurationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateContainerConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11815,9 +11824,9 @@ export class UpdateHealthCheckUrlResponseBody extends $tea.Model {
 }
 
 export class UpdateHealthCheckUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateHealthCheckUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateHealthCheckUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11893,9 +11902,9 @@ export class UpdateHookConfigurationResponseBody extends $tea.Model {
 }
 
 export class UpdateHookConfigurationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateHookConfigurationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateHookConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11980,9 +11989,9 @@ export class UpdateJvmConfigurationResponseBody extends $tea.Model {
 }
 
 export class UpdateJvmConfigurationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateJvmConfigurationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateJvmConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12064,9 +12073,9 @@ export class UpdateK8sApplicationBaseInfoResponseBody extends $tea.Model {
 }
 
 export class UpdateK8sApplicationBaseInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateK8sApplicationBaseInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateK8sApplicationBaseInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12166,9 +12175,9 @@ export class UpdateK8sApplicationConfigResponseBody extends $tea.Model {
 }
 
 export class UpdateK8sApplicationConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateK8sApplicationConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateK8sApplicationConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12244,9 +12253,9 @@ export class UpdateK8sConfigMapResponseBody extends $tea.Model {
 }
 
 export class UpdateK8sConfigMapResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateK8sConfigMapResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateK8sConfigMapResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12325,9 +12334,9 @@ export class UpdateK8sIngressRuleResponseBody extends $tea.Model {
 }
 
 export class UpdateK8sIngressRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateK8sIngressRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateK8sIngressRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12400,9 +12409,9 @@ export class UpdateK8sResourceResponseBody extends $tea.Model {
 }
 
 export class UpdateK8sResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateK8sResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateK8sResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12490,9 +12499,9 @@ export class UpdateK8sSecretResponseBody extends $tea.Model {
 }
 
 export class UpdateK8sSecretResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateK8sSecretResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateK8sSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12574,9 +12583,9 @@ export class UpdateK8sServiceResponseBody extends $tea.Model {
 }
 
 export class UpdateK8sServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateK8sServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateK8sServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12676,9 +12685,9 @@ export class UpdateK8sSlbResponseBody extends $tea.Model {
 }
 
 export class UpdateK8sSlbResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateK8sSlbResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateK8sSlbResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12748,9 +12757,9 @@ export class UpdateRoleResponseBody extends $tea.Model {
 }
 
 export class UpdateRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12820,9 +12829,9 @@ export class UpdateSlsLogStoreResponseBody extends $tea.Model {
 }
 
 export class UpdateSlsLogStoreResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSlsLogStoreResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSlsLogStoreResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12904,9 +12913,9 @@ export class UpdateSwimmingLaneResponseBody extends $tea.Model {
 }
 
 export class UpdateSwimmingLaneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSwimmingLaneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSwimmingLaneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12985,9 +12994,9 @@ export class UpdateSwimmingLaneGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateSwimmingLaneGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSwimmingLaneGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSwimmingLaneGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -15283,6 +15292,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $tea.Model {
   enableEmptyPushReject?: boolean;
   enableLosslessRule?: boolean;
   envList?: GetK8sApplicationResponseBodyApplcationAppEnvList;
+  featureAnnotations?: string;
   instances?: number;
   instancesBeforeScaling?: number;
   k8sNamespace?: string;
@@ -15301,6 +15311,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $tea.Model {
   requestMem?: number;
   slbInfo?: string;
   tomcatVersion?: string;
+  workloadType?: string;
   static names(): { [key: string]: string } {
     return {
       annotations: 'Annotations',
@@ -15318,6 +15329,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $tea.Model {
       enableEmptyPushReject: 'EnableEmptyPushReject',
       enableLosslessRule: 'EnableLosslessRule',
       envList: 'EnvList',
+      featureAnnotations: 'FeatureAnnotations',
       instances: 'Instances',
       instancesBeforeScaling: 'InstancesBeforeScaling',
       k8sNamespace: 'K8sNamespace',
@@ -15336,6 +15348,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $tea.Model {
       requestMem: 'RequestMem',
       slbInfo: 'SlbInfo',
       tomcatVersion: 'TomcatVersion',
+      workloadType: 'WorkloadType',
     };
   }
 
@@ -15356,6 +15369,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $tea.Model {
       enableEmptyPushReject: 'boolean',
       enableLosslessRule: 'boolean',
       envList: GetK8sApplicationResponseBodyApplcationAppEnvList,
+      featureAnnotations: 'string',
       instances: 'number',
       instancesBeforeScaling: 'number',
       k8sNamespace: 'string',
@@ -15374,6 +15388,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $tea.Model {
       requestMem: 'number',
       slbInfo: 'string',
       tomcatVersion: 'string',
+      workloadType: 'string',
     };
   }
 
@@ -22864,6 +22879,10 @@ export default class Client extends OpenApi {
       query["CustomAffinity"] = request.customAffinity;
     }
 
+    if (!Util.isUnset(request.customAgentVersion)) {
+      query["CustomAgentVersion"] = request.customAgentVersion;
+    }
+
     if (!Util.isUnset(request.customTolerations)) {
       query["CustomTolerations"] = request.customTolerations;
     }
@@ -24537,6 +24556,10 @@ export default class Client extends OpenApi {
       query["CustomAffinity"] = request.customAffinity;
     }
 
+    if (!Util.isUnset(request.customAgentVersion)) {
+      query["CustomAgentVersion"] = request.customAgentVersion;
+    }
+
     if (!Util.isUnset(request.customTolerations)) {
       query["CustomTolerations"] = request.customTolerations;
     }
@@ -24579,6 +24602,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.envs)) {
       query["Envs"] = request.envs;
+    }
+
+    if (!Util.isUnset(request.featureConfig)) {
+      query["FeatureConfig"] = request.featureConfig;
     }
 
     if (!Util.isUnset(request.imagePlatforms)) {
