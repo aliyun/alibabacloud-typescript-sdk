@@ -667,6 +667,53 @@ export class CreateModelFeatureResponse extends $tea.Model {
   }
 }
 
+export class CreateModelFeatureTrainingSetFGTableResponseBody extends $tea.Model {
+  trainingSetFGTableName?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      trainingSetFGTableName: 'TrainingSetFGTableName',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trainingSetFGTableName: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateModelFeatureTrainingSetFGTableResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateModelFeatureTrainingSetFGTableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateModelFeatureTrainingSetFGTableResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProjectRequest extends $tea.Model {
   description?: string;
   name?: string;
@@ -1073,6 +1120,72 @@ export class DeleteProjectResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportModelFeatureTrainingSetFGTableRequest extends $tea.Model {
+  trainingSetFgConfig?: ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig;
+  static names(): { [key: string]: string } {
+    return {
+      trainingSetFgConfig: 'TrainingSetFgConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trainingSetFgConfig: ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportModelFeatureTrainingSetFGTableResponseBody extends $tea.Model {
+  taskId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportModelFeatureTrainingSetFGTableResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportModelFeatureTrainingSetFGTableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExportModelFeatureTrainingSetFGTableResponseBody,
     };
   }
 
@@ -1657,6 +1770,109 @@ export class GetModelFeatureResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetModelFeatureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureFGFeatureResponseBody extends $tea.Model {
+  lookupFeatures?: GetModelFeatureFGFeatureResponseBodyLookupFeatures[];
+  rawFeatures?: GetModelFeatureFGFeatureResponseBodyRawFeatures[];
+  requestId?: string;
+  reserves?: string[];
+  sequenceFeatures?: GetModelFeatureFGFeatureResponseBodySequenceFeatures[];
+  static names(): { [key: string]: string } {
+    return {
+      lookupFeatures: 'LookupFeatures',
+      rawFeatures: 'RawFeatures',
+      requestId: 'RequestId',
+      reserves: 'Reserves',
+      sequenceFeatures: 'SequenceFeatures',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lookupFeatures: { 'type': 'array', 'itemType': GetModelFeatureFGFeatureResponseBodyLookupFeatures },
+      rawFeatures: { 'type': 'array', 'itemType': GetModelFeatureFGFeatureResponseBodyRawFeatures },
+      requestId: 'string',
+      reserves: { 'type': 'array', 'itemType': 'string' },
+      sequenceFeatures: { 'type': 'array', 'itemType': GetModelFeatureFGFeatureResponseBodySequenceFeatures },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureFGFeatureResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetModelFeatureFGFeatureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetModelFeatureFGFeatureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureFGInfoResponseBody extends $tea.Model {
+  content?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureFGInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetModelFeatureFGInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetModelFeatureFGInfoResponseBody,
     };
   }
 
@@ -2922,6 +3138,75 @@ export class ListLabelTablesResponse extends $tea.Model {
   }
 }
 
+export class ListModelFeatureAvailableFeaturesRequest extends $tea.Model {
+  featureName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      featureName: 'FeatureName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListModelFeatureAvailableFeaturesResponseBody extends $tea.Model {
+  avaliableFeatures?: ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures[];
+  totalCount?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avaliableFeatures: 'AvaliableFeatures',
+      totalCount: 'TotalCount',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avaliableFeatures: { 'type': 'array', 'itemType': ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures },
+      totalCount: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListModelFeatureAvailableFeaturesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListModelFeatureAvailableFeaturesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListModelFeatureAvailableFeaturesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListModelFeaturesRequest extends $tea.Model {
   modelFeatureIds?: string[];
   name?: string;
@@ -3813,6 +4098,141 @@ export class UpdateModelFeatureResponse extends $tea.Model {
   }
 }
 
+export class UpdateModelFeatureFGFeatureRequest extends $tea.Model {
+  lookupFeatures?: UpdateModelFeatureFGFeatureRequestLookupFeatures[];
+  rawFeatures?: UpdateModelFeatureFGFeatureRequestRawFeatures[];
+  reserves?: string[];
+  sequenceFeatures?: UpdateModelFeatureFGFeatureRequestSequenceFeatures[];
+  static names(): { [key: string]: string } {
+    return {
+      lookupFeatures: 'LookupFeatures',
+      rawFeatures: 'RawFeatures',
+      reserves: 'Reserves',
+      sequenceFeatures: 'SequenceFeatures',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lookupFeatures: { 'type': 'array', 'itemType': UpdateModelFeatureFGFeatureRequestLookupFeatures },
+      rawFeatures: { 'type': 'array', 'itemType': UpdateModelFeatureFGFeatureRequestRawFeatures },
+      reserves: { 'type': 'array', 'itemType': 'string' },
+      sequenceFeatures: { 'type': 'array', 'itemType': UpdateModelFeatureFGFeatureRequestSequenceFeatures },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateModelFeatureFGFeatureResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateModelFeatureFGFeatureResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateModelFeatureFGFeatureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateModelFeatureFGFeatureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateModelFeatureFGInfoRequest extends $tea.Model {
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateModelFeatureFGInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateModelFeatureFGInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateModelFeatureFGInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateModelFeatureFGInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateProjectRequest extends $tea.Model {
   description?: string;
   name?: string;
@@ -4095,6 +4515,31 @@ export class CreateModelFeatureRequestFeatures extends $tea.Model {
   }
 }
 
+export class ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig extends $tea.Model {
+  fgJsonName?: string;
+  jarName?: string;
+  partitions?: { [key: string]: {[key: string]: any} };
+  static names(): { [key: string]: string } {
+    return {
+      fgJsonName: 'FgJsonName',
+      jarName: 'JarName',
+      partitions: 'Partitions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fgJsonName: 'string',
+      jarName: 'string',
+      partitions: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExportModelFeatureTrainingSetTableRequestLabelInputConfig extends $tea.Model {
   eventTime?: string;
   partitions?: { [key: string]: {[key: string]: any} };
@@ -4306,6 +4751,142 @@ export class GetModelFeatureResponseBodyRelations extends $tea.Model {
     return {
       domains: { 'type': 'array', 'itemType': GetModelFeatureResponseBodyRelationsDomains },
       links: { 'type': 'array', 'itemType': GetModelFeatureResponseBodyRelationsLinks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureFGFeatureResponseBodyLookupFeatures extends $tea.Model {
+  defaultValue?: string;
+  featureName?: string;
+  keyFeatureDomain?: string;
+  keyFeatureName?: string;
+  mapFeatureDomain?: string;
+  mapFeatureName?: string;
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      featureName: 'FeatureName',
+      keyFeatureDomain: 'KeyFeatureDomain',
+      keyFeatureName: 'KeyFeatureName',
+      mapFeatureDomain: 'MapFeatureDomain',
+      mapFeatureName: 'MapFeatureName',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      featureName: 'string',
+      keyFeatureDomain: 'string',
+      keyFeatureName: 'string',
+      mapFeatureDomain: 'string',
+      mapFeatureName: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureFGFeatureResponseBodyRawFeatures extends $tea.Model {
+  defaultValue?: string;
+  featureDomain?: string;
+  featureName?: string;
+  featureType?: string;
+  inputFeatureName?: string;
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      featureDomain: 'FeatureDomain',
+      featureName: 'FeatureName',
+      featureType: 'FeatureType',
+      inputFeatureName: 'InputFeatureName',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      featureDomain: 'string',
+      featureName: 'string',
+      featureType: 'string',
+      inputFeatureName: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures extends $tea.Model {
+  defaultValue?: string;
+  featureDomain?: string;
+  featureName?: string;
+  featureType?: string;
+  inputFeatureName?: string;
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      featureDomain: 'FeatureDomain',
+      featureName: 'FeatureName',
+      featureType: 'FeatureType',
+      inputFeatureName: 'InputFeatureName',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      featureDomain: 'string',
+      featureName: 'string',
+      featureType: 'string',
+      inputFeatureName: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureFGFeatureResponseBodySequenceFeatures extends $tea.Model {
+  attributeDelim?: string;
+  featureName?: string;
+  sequenceDelim?: string;
+  sequenceLength?: number;
+  subFeatures?: GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures[];
+  static names(): { [key: string]: string } {
+    return {
+      attributeDelim: 'AttributeDelim',
+      featureName: 'FeatureName',
+      sequenceDelim: 'SequenceDelim',
+      sequenceLength: 'SequenceLength',
+      subFeatures: 'SubFeatures',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributeDelim: 'string',
+      featureName: 'string',
+      sequenceDelim: 'string',
+      sequenceLength: 'number',
+      subFeatures: { 'type': 'array', 'itemType': GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures },
     };
   }
 
@@ -4676,6 +5257,34 @@ export class ListLabelTablesResponseBodyLabelTables extends $tea.Model {
   }
 }
 
+export class ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures extends $tea.Model {
+  name?: string;
+  sourceName?: string;
+  sourceType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListModelFeaturesResponseBodyModelFeatures extends $tea.Model {
   gmtCreateTime?: string;
   gmtModifiedTime?: string;
@@ -4921,6 +5530,142 @@ export class UpdateModelFeatureRequestFeatures extends $tea.Model {
       featureViewId: 'string',
       name: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateModelFeatureFGFeatureRequestLookupFeatures extends $tea.Model {
+  defaultValue?: string;
+  featureName?: string;
+  keyFeatureDomain?: string;
+  keyFeatureName?: string;
+  mapFeatureDomain?: string;
+  mapFeatureName?: string;
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      featureName: 'FeatureName',
+      keyFeatureDomain: 'KeyFeatureDomain',
+      keyFeatureName: 'KeyFeatureName',
+      mapFeatureDomain: 'MapFeatureDomain',
+      mapFeatureName: 'MapFeatureName',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      featureName: 'string',
+      keyFeatureDomain: 'string',
+      keyFeatureName: 'string',
+      mapFeatureDomain: 'string',
+      mapFeatureName: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateModelFeatureFGFeatureRequestRawFeatures extends $tea.Model {
+  defaultValue?: string;
+  featureDomain?: string;
+  featureName?: string;
+  featureType?: string;
+  inputFeatureName?: string;
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      featureDomain: 'FeatureDomain',
+      featureName: 'FeatureName',
+      featureType: 'FeatureType',
+      inputFeatureName: 'InputFeatureName',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      featureDomain: 'string',
+      featureName: 'string',
+      featureType: 'string',
+      inputFeatureName: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures extends $tea.Model {
+  defaultValue?: string;
+  featureDomain?: string;
+  featureName?: string;
+  featureType?: string;
+  inputFeatureName?: string;
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      featureDomain: 'FeatureDomain',
+      featureName: 'FeatureName',
+      featureType: 'FeatureType',
+      inputFeatureName: 'InputFeatureName',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      featureDomain: 'string',
+      featureName: 'string',
+      featureType: 'string',
+      inputFeatureName: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateModelFeatureFGFeatureRequestSequenceFeatures extends $tea.Model {
+  attributeDelim?: string;
+  featureName?: string;
+  sequenceDelim?: string;
+  sequenceLength?: number;
+  subFeatures?: UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures[];
+  static names(): { [key: string]: string } {
+    return {
+      attributeDelim: 'AttributeDelim',
+      featureName: 'FeatureName',
+      sequenceDelim: 'SequenceDelim',
+      sequenceLength: 'SequenceLength',
+      subFeatures: 'SubFeatures',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributeDelim: 'string',
+      featureName: 'string',
+      sequenceDelim: 'string',
+      sequenceLength: 'number',
+      subFeatures: { 'type': 'array', 'itemType': UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures },
     };
   }
 
@@ -5329,6 +6074,30 @@ export default class Client extends OpenApi {
     return await this.createModelFeatureWithOptions(InstanceId, request, headers, runtime);
   }
 
+  async createModelFeatureTrainingSetFGTableWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateModelFeatureTrainingSetFGTableResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateModelFeatureTrainingSetFGTable",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/modelfeatures/${OpenApiUtil.getEncodeParam(ModelFeatureId)}/trainingsetfgtable`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateModelFeatureTrainingSetFGTableResponse>(await this.callApi(params, req, runtime), new CreateModelFeatureTrainingSetFGTableResponse({}));
+  }
+
+  async createModelFeatureTrainingSetFGTable(InstanceId: string, ModelFeatureId: string): Promise<CreateModelFeatureTrainingSetFGTableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createModelFeatureTrainingSetFGTableWithOptions(InstanceId, ModelFeatureId, headers, runtime);
+  }
+
   async createProjectWithOptions(InstanceId: string, request: CreateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5555,6 +6324,37 @@ export default class Client extends OpenApi {
     return await this.deleteProjectWithOptions(InstanceId, ProjectId, headers, runtime);
   }
 
+  async exportModelFeatureTrainingSetFGTableWithOptions(InstanceId: string, ModelFeatureId: string, request: ExportModelFeatureTrainingSetFGTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExportModelFeatureTrainingSetFGTableResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.trainingSetFgConfig)) {
+      body["TrainingSetFgConfig"] = request.trainingSetFgConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportModelFeatureTrainingSetFGTable",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/modelfeatures/${OpenApiUtil.getEncodeParam(ModelFeatureId)}/action/exporttrainingsetfgtable`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportModelFeatureTrainingSetFGTableResponse>(await this.callApi(params, req, runtime), new ExportModelFeatureTrainingSetFGTableResponse({}));
+  }
+
+  async exportModelFeatureTrainingSetFGTable(InstanceId: string, ModelFeatureId: string, request: ExportModelFeatureTrainingSetFGTableRequest): Promise<ExportModelFeatureTrainingSetFGTableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.exportModelFeatureTrainingSetFGTableWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
+  }
+
   async exportModelFeatureTrainingSetTableWithOptions(InstanceId: string, ModelFeatureId: string, request: ExportModelFeatureTrainingSetTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExportModelFeatureTrainingSetTableResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5760,6 +6560,54 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getModelFeatureWithOptions(InstanceId, ModelFeatureId, headers, runtime);
+  }
+
+  async getModelFeatureFGFeatureWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetModelFeatureFGFeatureResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetModelFeatureFGFeature",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/modelfeatures/${OpenApiUtil.getEncodeParam(ModelFeatureId)}/fgfeature`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetModelFeatureFGFeatureResponse>(await this.callApi(params, req, runtime), new GetModelFeatureFGFeatureResponse({}));
+  }
+
+  async getModelFeatureFGFeature(InstanceId: string, ModelFeatureId: string): Promise<GetModelFeatureFGFeatureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getModelFeatureFGFeatureWithOptions(InstanceId, ModelFeatureId, headers, runtime);
+  }
+
+  async getModelFeatureFGInfoWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetModelFeatureFGInfoResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetModelFeatureFGInfo",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/modelfeatures/${OpenApiUtil.getEncodeParam(ModelFeatureId)}/fginfo`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetModelFeatureFGInfoResponse>(await this.callApi(params, req, runtime), new GetModelFeatureFGInfoResponse({}));
+  }
+
+  async getModelFeatureFGInfo(InstanceId: string, ModelFeatureId: string): Promise<GetModelFeatureFGInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getModelFeatureFGInfoWithOptions(InstanceId, ModelFeatureId, headers, runtime);
   }
 
   async getProjectWithOptions(InstanceId: string, ProjectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
@@ -6318,6 +7166,37 @@ export default class Client extends OpenApi {
     return await this.listLabelTablesWithOptions(InstanceId, request, headers, runtime);
   }
 
+  async listModelFeatureAvailableFeaturesWithOptions(InstanceId: string, ModelFeatureId: string, request: ListModelFeatureAvailableFeaturesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListModelFeatureAvailableFeaturesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.featureName)) {
+      query["FeatureName"] = request.featureName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListModelFeatureAvailableFeatures",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/modelfeatures/${OpenApiUtil.getEncodeParam(ModelFeatureId)}/availablefeatures`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListModelFeatureAvailableFeaturesResponse>(await this.callApi(params, req, runtime), new ListModelFeatureAvailableFeaturesResponse({}));
+  }
+
+  async listModelFeatureAvailableFeatures(InstanceId: string, ModelFeatureId: string, request: ListModelFeatureAvailableFeaturesRequest): Promise<ListModelFeatureAvailableFeaturesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listModelFeatureAvailableFeaturesWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
+  }
+
   async listModelFeaturesWithOptions(InstanceId: string, tmpReq: ListModelFeaturesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListModelFeaturesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListModelFeaturesShrinkRequest({ });
@@ -6782,6 +7661,80 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateModelFeatureWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
+  }
+
+  async updateModelFeatureFGFeatureWithOptions(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGFeatureRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateModelFeatureFGFeatureResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.lookupFeatures)) {
+      body["LookupFeatures"] = request.lookupFeatures;
+    }
+
+    if (!Util.isUnset(request.rawFeatures)) {
+      body["RawFeatures"] = request.rawFeatures;
+    }
+
+    if (!Util.isUnset(request.reserves)) {
+      body["Reserves"] = request.reserves;
+    }
+
+    if (!Util.isUnset(request.sequenceFeatures)) {
+      body["SequenceFeatures"] = request.sequenceFeatures;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateModelFeatureFGFeature",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/modelfeatures/${OpenApiUtil.getEncodeParam(ModelFeatureId)}/fgfeature`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateModelFeatureFGFeatureResponse>(await this.callApi(params, req, runtime), new UpdateModelFeatureFGFeatureResponse({}));
+  }
+
+  async updateModelFeatureFGFeature(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGFeatureRequest): Promise<UpdateModelFeatureFGFeatureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateModelFeatureFGFeatureWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
+  }
+
+  async updateModelFeatureFGInfoWithOptions(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateModelFeatureFGInfoResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateModelFeatureFGInfo",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/modelfeatures/${OpenApiUtil.getEncodeParam(ModelFeatureId)}/fginfo`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateModelFeatureFGInfoResponse>(await this.callApi(params, req, runtime), new UpdateModelFeatureFGInfoResponse({}));
+  }
+
+  async updateModelFeatureFGInfo(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGInfoRequest): Promise<UpdateModelFeatureFGInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateModelFeatureFGInfoWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
   }
 
   async updateProjectWithOptions(InstanceId: string, ProjectId: string, request: UpdateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
