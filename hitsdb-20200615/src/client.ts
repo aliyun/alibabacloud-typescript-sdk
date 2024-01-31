@@ -71,9 +71,9 @@ export class CreateLdpsComputeGroupResponseBody extends $tea.Model {
 }
 
 export class CreateLdpsComputeGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLdpsComputeGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLdpsComputeGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -155,9 +155,9 @@ export class CreateLdpsNamespaceResponseBody extends $tea.Model {
 }
 
 export class CreateLdpsNamespaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLdpsNamespaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLdpsNamespaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -350,9 +350,9 @@ export class CreateLindormInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateLindormInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLindormInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLindormInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -434,9 +434,9 @@ export class DeleteLdpsComputeGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteLdpsComputeGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteLdpsComputeGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLdpsComputeGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -515,9 +515,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -531,6 +531,90 @@ export class DescribeRegionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientSourceIpRequest extends $tea.Model {
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientSourceIpResponseBody extends $tea.Model {
+  clientIp?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientIp: 'ClientIp',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientIp: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientSourceIpResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClientSourceIpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClientSourceIpResponseBody,
     };
   }
 
@@ -602,9 +686,9 @@ export class GetEngineDefaultAuthResponseBody extends $tea.Model {
 }
 
 export class GetEngineDefaultAuthResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetEngineDefaultAuthResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEngineDefaultAuthResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -689,9 +773,9 @@ export class GetInstanceIpWhiteListResponseBody extends $tea.Model {
 }
 
 export class GetInstanceIpWhiteListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceIpWhiteListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceIpWhiteListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -773,9 +857,9 @@ export class GetInstanceSecurityGroupsResponseBody extends $tea.Model {
 }
 
 export class GetInstanceSecurityGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceSecurityGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceSecurityGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -863,9 +947,9 @@ export class GetLdpsComputeGroupResponseBody extends $tea.Model {
 }
 
 export class GetLdpsComputeGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLdpsComputeGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLdpsComputeGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -950,9 +1034,9 @@ export class GetLdpsNamespacedQuotaResponseBody extends $tea.Model {
 }
 
 export class GetLdpsNamespacedQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLdpsNamespacedQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLdpsNamespacedQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1055,9 +1139,9 @@ export class GetLdpsResourceCostResponseBody extends $tea.Model {
 }
 
 export class GetLdpsResourceCostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLdpsResourceCostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLdpsResourceCostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1292,9 +1376,9 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
 }
 
 export class GetLindormInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLindormInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLindormInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1379,9 +1463,9 @@ export class GetLindormInstanceEngineListResponseBody extends $tea.Model {
 }
 
 export class GetLindormInstanceEngineListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLindormInstanceEngineListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLindormInstanceEngineListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1490,9 +1574,9 @@ export class GetLindormInstanceListResponseBody extends $tea.Model {
 }
 
 export class GetLindormInstanceListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLindormInstanceListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLindormInstanceListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1574,9 +1658,9 @@ export class ListLdpsComputeGroupsResponseBody extends $tea.Model {
 }
 
 export class ListLdpsComputeGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListLdpsComputeGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLdpsComputeGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1670,9 +1754,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1763,9 +1847,9 @@ export class ModifyInstancePayTypeResponseBody extends $tea.Model {
 }
 
 export class ModifyInstancePayTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstancePayTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstancePayTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1779,6 +1863,90 @@ export class ModifyInstancePayTypeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyInstancePayTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenComputeEngineRequest extends $tea.Model {
+  cpuLimit?: string;
+  instanceId?: string;
+  memoryLimit?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpuLimit: 'CpuLimit',
+      instanceId: 'InstanceId',
+      memoryLimit: 'MemoryLimit',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuLimit: 'string',
+      instanceId: 'string',
+      memoryLimit: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenComputeEngineResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenComputeEngineResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OpenComputeEngineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OpenComputeEngineResponseBody,
     };
   }
 
@@ -1844,9 +2012,9 @@ export class ReleaseLindormInstanceResponseBody extends $tea.Model {
 }
 
 export class ReleaseLindormInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleaseLindormInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseLindormInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1937,9 +2105,9 @@ export class RenewLindormInstanceResponseBody extends $tea.Model {
 }
 
 export class RenewLindormInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewLindormInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewLindormInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2021,9 +2189,9 @@ export class RestartLdpsComputeGroupResponseBody extends $tea.Model {
 }
 
 export class RestartLdpsComputeGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RestartLdpsComputeGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestartLdpsComputeGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2102,9 +2270,9 @@ export class SwitchLSQLV3MySQLServiceResponseBody extends $tea.Model {
 }
 
 export class SwitchLSQLV3MySQLServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SwitchLSQLV3MySQLServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SwitchLSQLV3MySQLServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2189,9 +2357,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2276,9 +2444,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2363,9 +2531,9 @@ export class UpdateInstanceIpWhiteListResponseBody extends $tea.Model {
 }
 
 export class UpdateInstanceIpWhiteListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateInstanceIpWhiteListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceIpWhiteListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2444,9 +2612,9 @@ export class UpdateInstanceSecurityGroupsResponseBody extends $tea.Model {
 }
 
 export class UpdateInstanceSecurityGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateInstanceSecurityGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceSecurityGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2531,9 +2699,9 @@ export class UpdateLdpsComputeGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateLdpsComputeGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateLdpsComputeGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLdpsComputeGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2675,9 +2843,9 @@ export class UpgradeLindormInstanceResponseBody extends $tea.Model {
 }
 
 export class UpgradeLindormInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpgradeLindormInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradeLindormInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3560,6 +3728,59 @@ export default class Client extends OpenApi {
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  async getClientSourceIpWithOptions(request: GetClientSourceIpRequest, runtime: $Util.RuntimeOptions): Promise<GetClientSourceIpResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClientSourceIp",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClientSourceIpResponse>(await this.callApi(params, req, runtime), new GetClientSourceIpResponse({}));
+  }
+
+  async getClientSourceIp(request: GetClientSourceIpRequest): Promise<GetClientSourceIpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getClientSourceIpWithOptions(request, runtime);
+  }
+
   async getEngineDefaultAuthWithOptions(request: GetEngineDefaultAuthRequest, runtime: $Util.RuntimeOptions): Promise<GetEngineDefaultAuthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4263,6 +4484,63 @@ export default class Client extends OpenApi {
     return await this.modifyInstancePayTypeWithOptions(request, runtime);
   }
 
+  async openComputeEngineWithOptions(request: OpenComputeEngineRequest, runtime: $Util.RuntimeOptions): Promise<OpenComputeEngineResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cpuLimit)) {
+      query["CpuLimit"] = request.cpuLimit;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.memoryLimit)) {
+      query["MemoryLimit"] = request.memoryLimit;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OpenComputeEngine",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenComputeEngineResponse>(await this.callApi(params, req, runtime), new OpenComputeEngineResponse({}));
+  }
+
+  async openComputeEngine(request: OpenComputeEngineRequest): Promise<OpenComputeEngineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.openComputeEngineWithOptions(request, runtime);
+  }
+
   async releaseLindormInstanceWithOptions(request: ReleaseLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseLindormInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4449,6 +4727,16 @@ export default class Client extends OpenApi {
     return await this.restartLdpsComputeGroupWithOptions(request, runtime);
   }
 
+  /**
+    * Prerequisites
+    * *   The LindormTable version of your instance is 2.6.0 or later.
+    * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
+    * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
+    *
+    * @param request SwitchLSQLV3MySQLServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SwitchLSQLV3MySQLServiceResponse
+   */
   async switchLSQLV3MySQLServiceWithOptions(request: SwitchLSQLV3MySQLServiceRequest, runtime: $Util.RuntimeOptions): Promise<SwitchLSQLV3MySQLServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4497,6 +4785,15 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchLSQLV3MySQLServiceResponse>(await this.callApi(params, req, runtime), new SwitchLSQLV3MySQLServiceResponse({}));
   }
 
+  /**
+    * Prerequisites
+    * *   The LindormTable version of your instance is 2.6.0 or later.
+    * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
+    * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
+    *
+    * @param request SwitchLSQLV3MySQLServiceRequest
+    * @return SwitchLSQLV3MySQLServiceResponse
+   */
   async switchLSQLV3MySQLService(request: SwitchLSQLV3MySQLServiceRequest): Promise<SwitchLSQLV3MySQLServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchLSQLV3MySQLServiceWithOptions(request, runtime);
