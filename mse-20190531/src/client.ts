@@ -16288,30 +16288,36 @@ export class UpdateClusterResponse extends $tea.Model {
 
 export class UpdateClusterSpecRequest extends $tea.Model {
   acceptLanguage?: string;
+  autoPay?: boolean;
   clusterId?: string;
   clusterSpecification?: string;
   instanceCount?: number;
   instanceId?: string;
   mseVersion?: string;
+  pubNetworkFlow?: number;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      autoPay: 'AutoPay',
       clusterId: 'ClusterId',
       clusterSpecification: 'ClusterSpecification',
       instanceCount: 'InstanceCount',
       instanceId: 'InstanceId',
       mseVersion: 'MseVersion',
+      pubNetworkFlow: 'PubNetworkFlow',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      autoPay: 'boolean',
       clusterId: 'string',
       clusterSpecification: 'string',
       instanceCount: 'number',
       instanceId: 'string',
       mseVersion: 'string',
+      pubNetworkFlow: 'number',
     };
   }
 
@@ -39155,6 +39161,10 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
@@ -39173,6 +39183,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.mseVersion)) {
       query["MseVersion"] = request.mseVersion;
+    }
+
+    if (!Util.isUnset(request.pubNetworkFlow)) {
+      query["PubNetworkFlow"] = request.pubNetworkFlow;
     }
 
     let req = new $OpenApi.OpenApiRequest({
