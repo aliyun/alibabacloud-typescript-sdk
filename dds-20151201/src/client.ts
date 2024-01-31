@@ -8785,6 +8785,7 @@ export class ReleasePublicNetworkAddressResponse extends $tea.Model {
 
 export class RenewDBInstanceRequest extends $tea.Model {
   autoPay?: boolean;
+  autoRenew?: boolean;
   businessInfo?: string;
   clientToken?: string;
   couponNo?: string;
@@ -8797,6 +8798,7 @@ export class RenewDBInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
       businessInfo: 'BusinessInfo',
       clientToken: 'ClientToken',
       couponNo: 'CouponNo',
@@ -8812,6 +8814,7 @@ export class RenewDBInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+      autoRenew: 'boolean',
       businessInfo: 'string',
       clientToken: 'string',
       couponNo: 'string',
@@ -12415,7 +12418,9 @@ export class DescribePriceResponseBodyOrder extends $tea.Model {
   coupons?: DescribePriceResponseBodyOrderCoupons;
   currency?: string;
   discountAmount?: string;
+  optionalPromotions?: string;
   originalAmount?: string;
+  promDetailList?: string;
   ruleIds?: DescribePriceResponseBodyOrderRuleIds;
   showDiscountInfo?: boolean;
   tradeAmount?: string;
@@ -12424,7 +12429,9 @@ export class DescribePriceResponseBodyOrder extends $tea.Model {
       coupons: 'Coupons',
       currency: 'Currency',
       discountAmount: 'DiscountAmount',
+      optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
+      promDetailList: 'PromDetailList',
       ruleIds: 'RuleIds',
       showDiscountInfo: 'ShowDiscountInfo',
       tradeAmount: 'TradeAmount',
@@ -12436,7 +12443,9 @@ export class DescribePriceResponseBodyOrder extends $tea.Model {
       coupons: DescribePriceResponseBodyOrderCoupons,
       currency: 'string',
       discountAmount: 'string',
+      optionalPromotions: 'string',
       originalAmount: 'string',
+      promDetailList: 'string',
       ruleIds: DescribePriceResponseBodyOrderRuleIds,
       showDiscountInfo: 'boolean',
       tradeAmount: 'string',
@@ -20289,6 +20298,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
     }
 
     if (!Util.isUnset(request.businessInfo)) {
