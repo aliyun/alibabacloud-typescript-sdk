@@ -59,9 +59,9 @@ export class DescribeFileModerationResultResponseBody extends $tea.Model {
 }
 
 export class DescribeFileModerationResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFileModerationResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFileModerationResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -131,9 +131,9 @@ export class DescribeImageModerationResultResponseBody extends $tea.Model {
 }
 
 export class DescribeImageModerationResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeImageModerationResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImageModerationResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -206,9 +206,9 @@ export class DescribeImageResultExtResponseBody extends $tea.Model {
 }
 
 export class DescribeImageResultExtResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeImageResultExtResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImageResultExtResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -259,9 +259,9 @@ export class DescribeUploadTokenResponseBody extends $tea.Model {
 }
 
 export class DescribeUploadTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeUploadTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUploadTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -275,6 +275,78 @@ export class DescribeUploadTokenResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeUploadTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUrlModerationResultRequest extends $tea.Model {
+  reqId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reqId: 'ReqId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reqId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUrlModerationResultResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeUrlModerationResultResponseBodyData;
+  msg?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeUrlModerationResultResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUrlModerationResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUrlModerationResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUrlModerationResultResponseBody,
     };
   }
 
@@ -334,9 +406,9 @@ export class FileModerationResponseBody extends $tea.Model {
 }
 
 export class FileModerationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FileModerationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FileModerationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -409,9 +481,9 @@ export class ImageAsyncModerationResponseBody extends $tea.Model {
 }
 
 export class ImageAsyncModerationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ImageAsyncModerationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImageAsyncModerationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -484,9 +556,9 @@ export class ImageModerationResponseBody extends $tea.Model {
 }
 
 export class ImageModerationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ImageModerationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImageModerationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -559,9 +631,9 @@ export class TextModerationResponseBody extends $tea.Model {
 }
 
 export class TextModerationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TextModerationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TextModerationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -634,9 +706,9 @@ export class TextModerationPlusResponseBody extends $tea.Model {
 }
 
 export class TextModerationPlusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TextModerationPlusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TextModerationPlusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -650,6 +722,81 @@ export class TextModerationPlusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TextModerationPlusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UrlAsyncModerationRequest extends $tea.Model {
+  service?: string;
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UrlAsyncModerationResponseBody extends $tea.Model {
+  code?: number;
+  data?: UrlAsyncModerationResponseBodyData;
+  msg?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: UrlAsyncModerationResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UrlAsyncModerationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UrlAsyncModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UrlAsyncModerationResponseBody,
     };
   }
 
@@ -709,9 +856,9 @@ export class VideoModerationResponseBody extends $tea.Model {
 }
 
 export class VideoModerationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VideoModerationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoModerationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -781,9 +928,9 @@ export class VideoModerationCancelResponseBody extends $tea.Model {
 }
 
 export class VideoModerationCancelResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VideoModerationCancelResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoModerationCancelResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -856,9 +1003,9 @@ export class VideoModerationResultResponseBody extends $tea.Model {
 }
 
 export class VideoModerationResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VideoModerationResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoModerationResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -931,9 +1078,9 @@ export class VoiceModerationResponseBody extends $tea.Model {
 }
 
 export class VoiceModerationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VoiceModerationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceModerationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1003,9 +1150,9 @@ export class VoiceModerationCancelResponseBody extends $tea.Model {
 }
 
 export class VoiceModerationCancelResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VoiceModerationCancelResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceModerationCancelResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1078,9 +1225,9 @@ export class VoiceModerationResultResponseBody extends $tea.Model {
 }
 
 export class VoiceModerationResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VoiceModerationResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceModerationResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1460,6 +1607,78 @@ export class DescribeUploadTokenResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeUrlModerationResultResponseBodyDataExtraInfo extends $tea.Model {
+  icpNo?: string;
+  icpType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      icpNo: 'IcpNo',
+      icpType: 'IcpType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      icpNo: 'string',
+      icpType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUrlModerationResultResponseBodyDataResult extends $tea.Model {
+  confidence?: number;
+  label?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      label: 'Label',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      label: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUrlModerationResultResponseBodyData extends $tea.Model {
+  dataId?: string;
+  extraInfo?: DescribeUrlModerationResultResponseBodyDataExtraInfo;
+  reqId?: string;
+  result?: DescribeUrlModerationResultResponseBodyDataResult[];
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+      extraInfo: 'ExtraInfo',
+      reqId: 'ReqId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+      extraInfo: DescribeUrlModerationResultResponseBodyDataExtraInfo,
+      reqId: 'string',
+      result: { 'type': 'array', 'itemType': DescribeUrlModerationResultResponseBodyDataResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FileModerationResponseBodyData extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -1659,6 +1878,28 @@ export class TextModerationPlusResponseBodyData extends $tea.Model {
       advice: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataAdvice },
       result: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataResult },
       score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UrlAsyncModerationResponseBodyData extends $tea.Model {
+  dataId?: string;
+  reqId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+      reqId: 'ReqId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+      reqId: 'string',
     };
   }
 
@@ -2184,6 +2425,35 @@ export default class Client extends OpenApi {
     return await this.describeUploadTokenWithOptions(runtime);
   }
 
+  async describeUrlModerationResultWithOptions(request: DescribeUrlModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUrlModerationResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.reqId)) {
+      body["ReqId"] = request.reqId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUrlModerationResult",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUrlModerationResultResponse>(await this.callApi(params, req, runtime), new DescribeUrlModerationResultResponse({}));
+  }
+
+  async describeUrlModerationResult(request: DescribeUrlModerationResultRequest): Promise<DescribeUrlModerationResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUrlModerationResultWithOptions(request, runtime);
+  }
+
   async fileModerationWithOptions(request: FileModerationRequest, runtime: $Util.RuntimeOptions): Promise<FileModerationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2347,6 +2617,39 @@ export default class Client extends OpenApi {
   async textModerationPlus(request: TextModerationPlusRequest): Promise<TextModerationPlusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.textModerationPlusWithOptions(request, runtime);
+  }
+
+  async urlAsyncModerationWithOptions(request: UrlAsyncModerationRequest, runtime: $Util.RuntimeOptions): Promise<UrlAsyncModerationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.service)) {
+      query["Service"] = request.service;
+    }
+
+    if (!Util.isUnset(request.serviceParameters)) {
+      query["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UrlAsyncModeration",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UrlAsyncModerationResponse>(await this.callApi(params, req, runtime), new UrlAsyncModerationResponse({}));
+  }
+
+  async urlAsyncModeration(request: UrlAsyncModerationRequest): Promise<UrlAsyncModerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.urlAsyncModerationWithOptions(request, runtime);
   }
 
   async videoModerationWithOptions(request: VideoModerationRequest, runtime: $Util.RuntimeOptions): Promise<VideoModerationResponse> {
