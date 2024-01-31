@@ -71459,7 +71459,11 @@ export class ListAgentlessTaskResponseBodyList extends $tea.Model {
   instanceName?: string;
   internetIp?: string;
   intranetIp?: string;
+  measureSpace?: number;
   progress?: number;
+  progressByProject?: string;
+  reportDownloadUrl?: string;
+  reportStatus?: string;
   result?: string;
   startTime?: number;
   status?: number;
@@ -71474,7 +71478,11 @@ export class ListAgentlessTaskResponseBodyList extends $tea.Model {
       instanceName: 'InstanceName',
       internetIp: 'InternetIp',
       intranetIp: 'IntranetIp',
+      measureSpace: 'MeasureSpace',
       progress: 'Progress',
+      progressByProject: 'ProgressByProject',
+      reportDownloadUrl: 'ReportDownloadUrl',
+      reportStatus: 'ReportStatus',
       result: 'Result',
       startTime: 'StartTime',
       status: 'Status',
@@ -71492,7 +71500,11 @@ export class ListAgentlessTaskResponseBodyList extends $tea.Model {
       instanceName: 'string',
       internetIp: 'string',
       intranetIp: 'string',
+      measureSpace: 'number',
       progress: 'number',
+      progressByProject: 'string',
+      reportDownloadUrl: 'string',
+      reportStatus: 'string',
       result: 'string',
       startTime: 'number',
       status: 'number',
