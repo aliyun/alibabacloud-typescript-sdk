@@ -565,6 +565,117 @@ export class CreateBranchResponse extends $tea.Model {
   }
 }
 
+export class CreateCheckRunRequest extends $tea.Model {
+  accessToken?: string;
+  annotations?: CreateCheckRunRequestAnnotations[];
+  completedAt?: string;
+  conclusion?: string;
+  detailsUrl?: string;
+  externalId?: string;
+  headSha?: string;
+  name?: string;
+  output?: CreateCheckRunRequestOutput;
+  startedAt?: string;
+  status?: string;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      annotations: 'annotations',
+      completedAt: 'completedAt',
+      conclusion: 'conclusion',
+      detailsUrl: 'detailsUrl',
+      externalId: 'externalId',
+      headSha: 'headSha',
+      name: 'name',
+      output: 'output',
+      startedAt: 'startedAt',
+      status: 'status',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      annotations: { 'type': 'array', 'itemType': CreateCheckRunRequestAnnotations },
+      completedAt: 'string',
+      conclusion: 'string',
+      detailsUrl: 'string',
+      externalId: 'string',
+      headSha: 'string',
+      name: 'string',
+      output: CreateCheckRunRequestOutput,
+      startedAt: 'string',
+      status: 'string',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCheckRunResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: CreateCheckRunResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: CreateCheckRunResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCheckRunResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCheckRunResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCheckRunResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCommitStatusRequest extends $tea.Model {
   accessToken?: string;
   context?: string;
@@ -5499,6 +5610,90 @@ export class GetBranchInfoResponse extends $tea.Model {
   }
 }
 
+export class GetCheckRunRequest extends $tea.Model {
+  accessToken?: string;
+  checkRunId?: number;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      checkRunId: 'checkRunId',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      checkRunId: 'number',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckRunResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: GetCheckRunResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: GetCheckRunResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckRunResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCheckRunResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCheckRunResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCodeupOrganizationRequest extends $tea.Model {
   accessToken?: string;
   static names(): { [key: string]: string } {
@@ -8646,6 +8841,96 @@ export class ListApplicationsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListApplicationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckRunsRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  page?: number;
+  pageSize?: number;
+  ref?: string;
+  repositoryIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+      page: 'page',
+      pageSize: 'pageSize',
+      ref: 'ref',
+      repositoryIdentity: 'repositoryIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+      page: 'number',
+      pageSize: 'number',
+      ref: 'string',
+      repositoryIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckRunsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListCheckRunsResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListCheckRunsResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckRunsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCheckRunsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCheckRunsResponseBody,
     };
   }
 
@@ -14764,6 +15049,117 @@ export class UpdateApplicationResponse extends $tea.Model {
   }
 }
 
+export class UpdateCheckRunRequest extends $tea.Model {
+  accessToken?: string;
+  annotations?: UpdateCheckRunRequestAnnotations[];
+  completedAt?: string;
+  conclusion?: string;
+  detailsUrl?: string;
+  externalId?: string;
+  name?: string;
+  output?: UpdateCheckRunRequestOutput;
+  startedAt?: string;
+  status?: string;
+  checkRunId?: number;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      annotations: 'annotations',
+      completedAt: 'completedAt',
+      conclusion: 'conclusion',
+      detailsUrl: 'detailsUrl',
+      externalId: 'externalId',
+      name: 'name',
+      output: 'output',
+      startedAt: 'startedAt',
+      status: 'status',
+      checkRunId: 'checkRunId',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      annotations: { 'type': 'array', 'itemType': UpdateCheckRunRequestAnnotations },
+      completedAt: 'string',
+      conclusion: 'string',
+      detailsUrl: 'string',
+      externalId: 'string',
+      name: 'string',
+      output: UpdateCheckRunRequestOutput,
+      startedAt: 'string',
+      status: 'string',
+      checkRunId: 'number',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCheckRunResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: UpdateCheckRunResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: UpdateCheckRunResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCheckRunResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCheckRunResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCheckRunResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateFileRequest extends $tea.Model {
   accessToken?: string;
   branchName?: string;
@@ -17280,6 +17676,312 @@ export class CreateBranchResponseBodyResult extends $tea.Model {
       commit: CreateBranchResponseBodyResultCommit,
       name: 'string',
       protected: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCheckRunRequestAnnotations extends $tea.Model {
+  annotationLevel?: string;
+  endColumn?: number;
+  endLine?: number;
+  message?: string;
+  path?: string;
+  rawDetails?: string;
+  startColumn?: number;
+  startLine?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      annotationLevel: 'annotationLevel',
+      endColumn: 'endColumn',
+      endLine: 'endLine',
+      message: 'message',
+      path: 'path',
+      rawDetails: 'rawDetails',
+      startColumn: 'startColumn',
+      startLine: 'startLine',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotationLevel: 'string',
+      endColumn: 'number',
+      endLine: 'number',
+      message: 'string',
+      path: 'string',
+      rawDetails: 'string',
+      startColumn: 'number',
+      startLine: 'number',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCheckRunRequestOutputImages extends $tea.Model {
+  alt?: string;
+  caption?: string;
+  imageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alt: 'alt',
+      caption: 'caption',
+      imageUrl: 'imageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alt: 'string',
+      caption: 'string',
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCheckRunRequestOutput extends $tea.Model {
+  images?: CreateCheckRunRequestOutputImages[];
+  summary?: string;
+  text?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'images',
+      summary: 'summary',
+      text: 'text',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': CreateCheckRunRequestOutputImages },
+      summary: 'string',
+      text: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCheckRunResponseBodyResultAnnotations extends $tea.Model {
+  annotationLevel?: string;
+  endColumn?: number;
+  endLine?: number;
+  id?: number;
+  message?: string;
+  path?: string;
+  rawDetails?: string;
+  startColumn?: number;
+  startLine?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      annotationLevel: 'annotationLevel',
+      endColumn: 'endColumn',
+      endLine: 'endLine',
+      id: 'id',
+      message: 'message',
+      path: 'path',
+      rawDetails: 'rawDetails',
+      startColumn: 'startColumn',
+      startLine: 'startLine',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotationLevel: 'string',
+      endColumn: 'number',
+      endLine: 'number',
+      id: 'number',
+      message: 'string',
+      path: 'string',
+      rawDetails: 'string',
+      startColumn: 'number',
+      startLine: 'number',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCheckRunResponseBodyResultCheckSuite extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCheckRunResponseBodyResultOutputImages extends $tea.Model {
+  alt?: string;
+  caption?: string;
+  imageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alt: 'alt',
+      caption: 'caption',
+      imageUrl: 'imageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alt: 'string',
+      caption: 'string',
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCheckRunResponseBodyResultOutput extends $tea.Model {
+  images?: CreateCheckRunResponseBodyResultOutputImages[];
+  summary?: string;
+  text?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'images',
+      summary: 'summary',
+      text: 'text',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': CreateCheckRunResponseBodyResultOutputImages },
+      summary: 'string',
+      text: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCheckRunResponseBodyResultWriter extends $tea.Model {
+  id?: string;
+  logoUrl?: string;
+  name?: string;
+  slug?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      logoUrl: 'logoUrl',
+      name: 'name',
+      slug: 'slug',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      logoUrl: 'string',
+      name: 'string',
+      slug: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCheckRunResponseBodyResult extends $tea.Model {
+  annotations?: CreateCheckRunResponseBodyResultAnnotations[];
+  checkSuite?: CreateCheckRunResponseBodyResultCheckSuite;
+  completedAt?: string;
+  conclusion?: string;
+  createdAt?: string;
+  detailsUrl?: string;
+  externalId?: string;
+  headSha?: string;
+  id?: number;
+  name?: string;
+  output?: CreateCheckRunResponseBodyResultOutput;
+  startedAt?: string;
+  status?: string;
+  updatedAt?: string;
+  writer?: CreateCheckRunResponseBodyResultWriter;
+  static names(): { [key: string]: string } {
+    return {
+      annotations: 'annotations',
+      checkSuite: 'checkSuite',
+      completedAt: 'completedAt',
+      conclusion: 'conclusion',
+      createdAt: 'createdAt',
+      detailsUrl: 'detailsUrl',
+      externalId: 'externalId',
+      headSha: 'headSha',
+      id: 'id',
+      name: 'name',
+      output: 'output',
+      startedAt: 'startedAt',
+      status: 'status',
+      updatedAt: 'updatedAt',
+      writer: 'writer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotations: { 'type': 'array', 'itemType': CreateCheckRunResponseBodyResultAnnotations },
+      checkSuite: CreateCheckRunResponseBodyResultCheckSuite,
+      completedAt: 'string',
+      conclusion: 'string',
+      createdAt: 'string',
+      detailsUrl: 'string',
+      externalId: 'string',
+      headSha: 'string',
+      id: 'number',
+      name: 'string',
+      output: CreateCheckRunResponseBodyResultOutput,
+      startedAt: 'string',
+      status: 'string',
+      updatedAt: 'string',
+      writer: CreateCheckRunResponseBodyResultWriter,
     };
   }
 
@@ -19911,6 +20613,216 @@ export class GetBranchInfoResponseBodyResult extends $tea.Model {
       commit: GetBranchInfoResponseBodyResultCommit,
       name: 'string',
       protected: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckRunResponseBodyResultAnnotations extends $tea.Model {
+  annotationLevel?: string;
+  endColumn?: number;
+  endLine?: number;
+  id?: number;
+  message?: string;
+  path?: string;
+  rawDetails?: string;
+  startColumn?: number;
+  startLine?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      annotationLevel: 'annotationLevel',
+      endColumn: 'endColumn',
+      endLine: 'endLine',
+      id: 'id',
+      message: 'message',
+      path: 'path',
+      rawDetails: 'rawDetails',
+      startColumn: 'startColumn',
+      startLine: 'startLine',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotationLevel: 'string',
+      endColumn: 'number',
+      endLine: 'number',
+      id: 'number',
+      message: 'string',
+      path: 'string',
+      rawDetails: 'string',
+      startColumn: 'number',
+      startLine: 'number',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckRunResponseBodyResultCheckSuite extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckRunResponseBodyResultOutputImages extends $tea.Model {
+  alt?: string;
+  caption?: string;
+  imageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alt: 'alt',
+      caption: 'caption',
+      imageUrl: 'imageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alt: 'string',
+      caption: 'string',
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckRunResponseBodyResultOutput extends $tea.Model {
+  images?: GetCheckRunResponseBodyResultOutputImages[];
+  summary?: string;
+  text?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'images',
+      summary: 'summary',
+      text: 'text',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': GetCheckRunResponseBodyResultOutputImages },
+      summary: 'string',
+      text: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckRunResponseBodyResultWriter extends $tea.Model {
+  id?: string;
+  logoUrl?: string;
+  name?: string;
+  slug?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      logoUrl: 'logoUrl',
+      name: 'name',
+      slug: 'slug',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      logoUrl: 'string',
+      name: 'string',
+      slug: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckRunResponseBodyResult extends $tea.Model {
+  annotations?: GetCheckRunResponseBodyResultAnnotations[];
+  checkSuite?: GetCheckRunResponseBodyResultCheckSuite;
+  completedAt?: string;
+  conclusion?: string;
+  createdAt?: string;
+  detailsUrl?: string;
+  externalId?: string;
+  headSha?: string;
+  id?: number;
+  name?: string;
+  output?: GetCheckRunResponseBodyResultOutput;
+  startedAt?: string;
+  status?: string;
+  updatedAt?: string;
+  writer?: GetCheckRunResponseBodyResultWriter;
+  static names(): { [key: string]: string } {
+    return {
+      annotations: 'annotations',
+      checkSuite: 'checkSuite',
+      completedAt: 'completedAt',
+      conclusion: 'conclusion',
+      createdAt: 'createdAt',
+      detailsUrl: 'detailsUrl',
+      externalId: 'externalId',
+      headSha: 'headSha',
+      id: 'id',
+      name: 'name',
+      output: 'output',
+      startedAt: 'startedAt',
+      status: 'status',
+      updatedAt: 'updatedAt',
+      writer: 'writer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotations: { 'type': 'array', 'itemType': GetCheckRunResponseBodyResultAnnotations },
+      checkSuite: GetCheckRunResponseBodyResultCheckSuite,
+      completedAt: 'string',
+      conclusion: 'string',
+      createdAt: 'string',
+      detailsUrl: 'string',
+      externalId: 'string',
+      headSha: 'string',
+      id: 'number',
+      name: 'string',
+      output: GetCheckRunResponseBodyResultOutput,
+      startedAt: 'string',
+      status: 'string',
+      updatedAt: 'string',
+      writer: GetCheckRunResponseBodyResultWriter,
     };
   }
 
@@ -23414,6 +24326,216 @@ export class ListApplicationsResponseBodyData extends $tea.Model {
       description: 'string',
       gmtCreate: 'string',
       name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckRunsResponseBodyResultAnnotations extends $tea.Model {
+  annotationLevel?: string;
+  endColumn?: number;
+  endLine?: number;
+  id?: number;
+  message?: string;
+  path?: string;
+  rawDetails?: string;
+  startColumn?: number;
+  startLine?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      annotationLevel: 'annotationLevel',
+      endColumn: 'endColumn',
+      endLine: 'endLine',
+      id: 'id',
+      message: 'message',
+      path: 'path',
+      rawDetails: 'rawDetails',
+      startColumn: 'startColumn',
+      startLine: 'startLine',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotationLevel: 'string',
+      endColumn: 'number',
+      endLine: 'number',
+      id: 'number',
+      message: 'string',
+      path: 'string',
+      rawDetails: 'string',
+      startColumn: 'number',
+      startLine: 'number',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckRunsResponseBodyResultCheckSuite extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckRunsResponseBodyResultOutputImages extends $tea.Model {
+  alt?: string;
+  caption?: string;
+  imageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alt: 'alt',
+      caption: 'caption',
+      imageUrl: 'imageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alt: 'string',
+      caption: 'string',
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckRunsResponseBodyResultOutput extends $tea.Model {
+  images?: ListCheckRunsResponseBodyResultOutputImages[];
+  summary?: string;
+  text?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'images',
+      summary: 'summary',
+      text: 'text',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': ListCheckRunsResponseBodyResultOutputImages },
+      summary: 'string',
+      text: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckRunsResponseBodyResultWriter extends $tea.Model {
+  id?: string;
+  logoUrl?: string;
+  name?: string;
+  slug?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      logoUrl: 'logoUrl',
+      name: 'name',
+      slug: 'slug',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      logoUrl: 'string',
+      name: 'string',
+      slug: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckRunsResponseBodyResult extends $tea.Model {
+  annotations?: ListCheckRunsResponseBodyResultAnnotations[];
+  checkSuite?: ListCheckRunsResponseBodyResultCheckSuite;
+  completedAt?: string;
+  conclusion?: string;
+  createdAt?: string;
+  detailsUrl?: string;
+  externalId?: string;
+  headSha?: string;
+  id?: number;
+  name?: string;
+  output?: ListCheckRunsResponseBodyResultOutput;
+  startedAt?: string;
+  status?: string;
+  updatedAt?: string;
+  writer?: ListCheckRunsResponseBodyResultWriter;
+  static names(): { [key: string]: string } {
+    return {
+      annotations: 'annotations',
+      checkSuite: 'checkSuite',
+      completedAt: 'completedAt',
+      conclusion: 'conclusion',
+      createdAt: 'createdAt',
+      detailsUrl: 'detailsUrl',
+      externalId: 'externalId',
+      headSha: 'headSha',
+      id: 'id',
+      name: 'name',
+      output: 'output',
+      startedAt: 'startedAt',
+      status: 'status',
+      updatedAt: 'updatedAt',
+      writer: 'writer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotations: { 'type': 'array', 'itemType': ListCheckRunsResponseBodyResultAnnotations },
+      checkSuite: ListCheckRunsResponseBodyResultCheckSuite,
+      completedAt: 'string',
+      conclusion: 'string',
+      createdAt: 'string',
+      detailsUrl: 'string',
+      externalId: 'string',
+      headSha: 'string',
+      id: 'number',
+      name: 'string',
+      output: ListCheckRunsResponseBodyResultOutput,
+      startedAt: 'string',
+      status: 'string',
+      updatedAt: 'string',
+      writer: ListCheckRunsResponseBodyResultWriter,
     };
   }
 
@@ -27974,6 +29096,312 @@ export class UpdateAppMemberRequestPlayer extends $tea.Model {
   }
 }
 
+export class UpdateCheckRunRequestAnnotations extends $tea.Model {
+  annotationLevel?: string;
+  endColumn?: number;
+  endLine?: number;
+  message?: string;
+  path?: string;
+  rawDetails?: string;
+  startColumn?: number;
+  startLine?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      annotationLevel: 'annotationLevel',
+      endColumn: 'endColumn',
+      endLine: 'endLine',
+      message: 'message',
+      path: 'path',
+      rawDetails: 'rawDetails',
+      startColumn: 'startColumn',
+      startLine: 'startLine',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotationLevel: 'string',
+      endColumn: 'number',
+      endLine: 'number',
+      message: 'string',
+      path: 'string',
+      rawDetails: 'string',
+      startColumn: 'number',
+      startLine: 'number',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCheckRunRequestOutputImages extends $tea.Model {
+  alt?: string;
+  caption?: string;
+  imageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alt: 'alt',
+      caption: 'caption',
+      imageUrl: 'imageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alt: 'string',
+      caption: 'string',
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCheckRunRequestOutput extends $tea.Model {
+  images?: UpdateCheckRunRequestOutputImages[];
+  summary?: string;
+  text?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'images',
+      summary: 'summary',
+      text: 'text',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': UpdateCheckRunRequestOutputImages },
+      summary: 'string',
+      text: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCheckRunResponseBodyResultAnnotations extends $tea.Model {
+  annotationLevel?: string;
+  endColumn?: number;
+  endLine?: number;
+  id?: number;
+  message?: string;
+  path?: string;
+  rawDetails?: string;
+  startColumn?: number;
+  startLine?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      annotationLevel: 'annotationLevel',
+      endColumn: 'endColumn',
+      endLine: 'endLine',
+      id: 'id',
+      message: 'message',
+      path: 'path',
+      rawDetails: 'rawDetails',
+      startColumn: 'startColumn',
+      startLine: 'startLine',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotationLevel: 'string',
+      endColumn: 'number',
+      endLine: 'number',
+      id: 'number',
+      message: 'string',
+      path: 'string',
+      rawDetails: 'string',
+      startColumn: 'number',
+      startLine: 'number',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCheckRunResponseBodyResultCheckSuite extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCheckRunResponseBodyResultOutputImages extends $tea.Model {
+  alt?: string;
+  caption?: string;
+  imageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alt: 'alt',
+      caption: 'caption',
+      imageUrl: 'imageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alt: 'string',
+      caption: 'string',
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCheckRunResponseBodyResultOutput extends $tea.Model {
+  images?: UpdateCheckRunResponseBodyResultOutputImages[];
+  summary?: string;
+  text?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'images',
+      summary: 'summary',
+      text: 'text',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': UpdateCheckRunResponseBodyResultOutputImages },
+      summary: 'string',
+      text: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCheckRunResponseBodyResultWriter extends $tea.Model {
+  id?: string;
+  logoUrl?: string;
+  name?: string;
+  slug?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      logoUrl: 'logoUrl',
+      name: 'name',
+      slug: 'slug',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      logoUrl: 'string',
+      name: 'string',
+      slug: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCheckRunResponseBodyResult extends $tea.Model {
+  annotations?: UpdateCheckRunResponseBodyResultAnnotations[];
+  checkSuite?: UpdateCheckRunResponseBodyResultCheckSuite;
+  completedAt?: string;
+  conclusion?: string;
+  createdAt?: string;
+  detailsUrl?: string;
+  externalId?: string;
+  headSha?: string;
+  id?: number;
+  name?: string;
+  output?: UpdateCheckRunResponseBodyResultOutput;
+  startedAt?: string;
+  status?: string;
+  updatedAt?: string;
+  writer?: UpdateCheckRunResponseBodyResultWriter;
+  static names(): { [key: string]: string } {
+    return {
+      annotations: 'annotations',
+      checkSuite: 'checkSuite',
+      completedAt: 'completedAt',
+      conclusion: 'conclusion',
+      createdAt: 'createdAt',
+      detailsUrl: 'detailsUrl',
+      externalId: 'externalId',
+      headSha: 'headSha',
+      id: 'id',
+      name: 'name',
+      output: 'output',
+      startedAt: 'startedAt',
+      status: 'status',
+      updatedAt: 'updatedAt',
+      writer: 'writer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotations: { 'type': 'array', 'itemType': UpdateCheckRunResponseBodyResultAnnotations },
+      checkSuite: UpdateCheckRunResponseBodyResultCheckSuite,
+      completedAt: 'string',
+      conclusion: 'string',
+      createdAt: 'string',
+      detailsUrl: 'string',
+      externalId: 'string',
+      headSha: 'string',
+      id: 'number',
+      name: 'string',
+      output: UpdateCheckRunResponseBodyResultOutput,
+      startedAt: 'string',
+      status: 'string',
+      updatedAt: 'string',
+      writer: UpdateCheckRunResponseBodyResultWriter,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateFileResponseBodyResult extends $tea.Model {
   branchName?: string;
   filePath?: string;
@@ -29996,6 +31424,87 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createBranchWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async createCheckRunWithOptions(request: CreateCheckRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCheckRunResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.annotations)) {
+      body["annotations"] = request.annotations;
+    }
+
+    if (!Util.isUnset(request.completedAt)) {
+      body["completedAt"] = request.completedAt;
+    }
+
+    if (!Util.isUnset(request.conclusion)) {
+      body["conclusion"] = request.conclusion;
+    }
+
+    if (!Util.isUnset(request.detailsUrl)) {
+      body["detailsUrl"] = request.detailsUrl;
+    }
+
+    if (!Util.isUnset(request.externalId)) {
+      body["externalId"] = request.externalId;
+    }
+
+    if (!Util.isUnset(request.headSha)) {
+      body["headSha"] = request.headSha;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.output)) {
+      body["output"] = request.output;
+    }
+
+    if (!Util.isUnset(request.startedAt)) {
+      body["startedAt"] = request.startedAt;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCheckRun",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/check_runs/create_check_run`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCheckRunResponse>(await this.callApi(params, req, runtime), new CreateCheckRunResponse({}));
+  }
+
+  async createCheckRun(request: CreateCheckRunRequest): Promise<CreateCheckRunResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createCheckRunWithOptions(request, headers, runtime);
   }
 
   async createCommitStatusWithOptions(request: CreateCommitStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCommitStatusResponse> {
@@ -32644,6 +34153,49 @@ export default class Client extends OpenApi {
     return await this.getBranchInfoWithOptions(repositoryId, request, headers, runtime);
   }
 
+  async getCheckRunWithOptions(request: GetCheckRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCheckRunResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.checkRunId)) {
+      query["checkRunId"] = request.checkRunId;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCheckRun",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/check_runs/get_check_run`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCheckRunResponse>(await this.callApi(params, req, runtime), new GetCheckRunResponse({}));
+  }
+
+  async getCheckRun(request: GetCheckRunRequest): Promise<GetCheckRunResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCheckRunWithOptions(request, headers, runtime);
+  }
+
   async getCodeupOrganizationWithOptions(identity: string, request: GetCodeupOrganizationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCodeupOrganizationResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -34104,6 +35656,57 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listApplicationsWithOptions(request, headers, runtime);
+  }
+
+  async listCheckRunsWithOptions(request: ListCheckRunsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCheckRunsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.ref)) {
+      query["ref"] = request.ref;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCheckRuns",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/check_runs/list_check_runs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCheckRunsResponse>(await this.callApi(params, req, runtime), new ListCheckRunsResponse({}));
+  }
+
+  async listCheckRuns(request: ListCheckRunsRequest): Promise<ListCheckRunsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listCheckRunsWithOptions(request, headers, runtime);
   }
 
   async listCommitStatusesWithOptions(request: ListCommitStatusesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCommitStatusesResponse> {
@@ -37245,6 +38848,87 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateApplicationWithOptions(appName, request, headers, runtime);
+  }
+
+  async updateCheckRunWithOptions(request: UpdateCheckRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCheckRunResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.checkRunId)) {
+      query["checkRunId"] = request.checkRunId;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.annotations)) {
+      body["annotations"] = request.annotations;
+    }
+
+    if (!Util.isUnset(request.completedAt)) {
+      body["completedAt"] = request.completedAt;
+    }
+
+    if (!Util.isUnset(request.conclusion)) {
+      body["conclusion"] = request.conclusion;
+    }
+
+    if (!Util.isUnset(request.detailsUrl)) {
+      body["detailsUrl"] = request.detailsUrl;
+    }
+
+    if (!Util.isUnset(request.externalId)) {
+      body["externalId"] = request.externalId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.output)) {
+      body["output"] = request.output;
+    }
+
+    if (!Util.isUnset(request.startedAt)) {
+      body["startedAt"] = request.startedAt;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCheckRun",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/check_runs/update_check_run`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCheckRunResponse>(await this.callApi(params, req, runtime), new UpdateCheckRunResponse({}));
+  }
+
+  async updateCheckRun(request: UpdateCheckRunRequest): Promise<UpdateCheckRunResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateCheckRunWithOptions(request, headers, runtime);
   }
 
   async updateFileWithOptions(repositoryId: string, request: UpdateFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFileResponse> {
