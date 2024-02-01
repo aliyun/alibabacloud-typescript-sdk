@@ -8,6 +8,361 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ChangeResourceGroupRequest extends $tea.Model {
+  newResourceGroupId?: string;
+  regionId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newResourceGroupId: 'NewResourceGroupId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newResourceGroupId: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContinueDeployServiceInstanceRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  option?: string[];
+  parameters?: string;
+  regionId?: string;
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      option: 'Option',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      option: { 'type': 'array', 'itemType': 'string' },
+      parameters: 'string',
+      regionId: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContinueDeployServiceInstanceResponseBody extends $tea.Model {
+  dryRunResult?: ContinueDeployServiceInstanceResponseBodyDryRunResult;
+  requestId?: string;
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dryRunResult: 'DryRunResult',
+      requestId: 'RequestId',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dryRunResult: ContinueDeployServiceInstanceResponseBodyDryRunResult,
+      requestId: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContinueDeployServiceInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ContinueDeployServiceInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ContinueDeployServiceInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceInstanceRequest extends $tea.Model {
+  businessInfo?: CreateServiceInstanceRequestBusinessInfo;
+  clientToken?: string;
+  commodity?: CreateServiceInstanceRequestCommodity;
+  contactGroup?: string;
+  dryRun?: boolean;
+  enableInstanceOps?: boolean;
+  enableUserPrometheus?: boolean;
+  name?: string;
+  operationMetadata?: CreateServiceInstanceRequestOperationMetadata;
+  parameters?: { [key: string]: any };
+  regionId?: string;
+  resourceGroupId?: string;
+  serviceId?: string;
+  serviceVersion?: string;
+  specificationCode?: string;
+  specificationName?: string;
+  tag?: CreateServiceInstanceRequestTag[];
+  templateName?: string;
+  trialType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessInfo: 'BusinessInfo',
+      clientToken: 'ClientToken',
+      commodity: 'Commodity',
+      contactGroup: 'ContactGroup',
+      dryRun: 'DryRun',
+      enableInstanceOps: 'EnableInstanceOps',
+      enableUserPrometheus: 'EnableUserPrometheus',
+      name: 'Name',
+      operationMetadata: 'OperationMetadata',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      serviceId: 'ServiceId',
+      serviceVersion: 'ServiceVersion',
+      specificationCode: 'SpecificationCode',
+      specificationName: 'SpecificationName',
+      tag: 'Tag',
+      templateName: 'TemplateName',
+      trialType: 'TrialType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessInfo: CreateServiceInstanceRequestBusinessInfo,
+      clientToken: 'string',
+      commodity: CreateServiceInstanceRequestCommodity,
+      contactGroup: 'string',
+      dryRun: 'boolean',
+      enableInstanceOps: 'boolean',
+      enableUserPrometheus: 'boolean',
+      name: 'string',
+      operationMetadata: CreateServiceInstanceRequestOperationMetadata,
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      regionId: 'string',
+      resourceGroupId: 'string',
+      serviceId: 'string',
+      serviceVersion: 'string',
+      specificationCode: 'string',
+      specificationName: 'string',
+      tag: { 'type': 'array', 'itemType': CreateServiceInstanceRequestTag },
+      templateName: 'string',
+      trialType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceInstanceShrinkRequest extends $tea.Model {
+  businessInfoShrink?: string;
+  clientToken?: string;
+  commodity?: CreateServiceInstanceShrinkRequestCommodity;
+  contactGroup?: string;
+  dryRun?: boolean;
+  enableInstanceOps?: boolean;
+  enableUserPrometheus?: boolean;
+  name?: string;
+  operationMetadata?: CreateServiceInstanceShrinkRequestOperationMetadata;
+  parametersShrink?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  serviceId?: string;
+  serviceVersion?: string;
+  specificationCode?: string;
+  specificationName?: string;
+  tag?: CreateServiceInstanceShrinkRequestTag[];
+  templateName?: string;
+  trialType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessInfoShrink: 'BusinessInfo',
+      clientToken: 'ClientToken',
+      commodity: 'Commodity',
+      contactGroup: 'ContactGroup',
+      dryRun: 'DryRun',
+      enableInstanceOps: 'EnableInstanceOps',
+      enableUserPrometheus: 'EnableUserPrometheus',
+      name: 'Name',
+      operationMetadata: 'OperationMetadata',
+      parametersShrink: 'Parameters',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      serviceId: 'ServiceId',
+      serviceVersion: 'ServiceVersion',
+      specificationCode: 'SpecificationCode',
+      specificationName: 'SpecificationName',
+      tag: 'Tag',
+      templateName: 'TemplateName',
+      trialType: 'TrialType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessInfoShrink: 'string',
+      clientToken: 'string',
+      commodity: CreateServiceInstanceShrinkRequestCommodity,
+      contactGroup: 'string',
+      dryRun: 'boolean',
+      enableInstanceOps: 'boolean',
+      enableUserPrometheus: 'boolean',
+      name: 'string',
+      operationMetadata: CreateServiceInstanceShrinkRequestOperationMetadata,
+      parametersShrink: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      serviceId: 'string',
+      serviceVersion: 'string',
+      specificationCode: 'string',
+      specificationName: 'string',
+      tag: { 'type': 'array', 'itemType': CreateServiceInstanceShrinkRequestTag },
+      templateName: 'string',
+      trialType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceInstanceResponseBody extends $tea.Model {
+  marketInstanceId?: string;
+  requestId?: string;
+  serviceInstanceId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      marketInstanceId: 'MarketInstanceId',
+      requestId: 'RequestId',
+      serviceInstanceId: 'ServiceInstanceId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      marketInstanceId: 'string',
+      requestId: 'string',
+      serviceInstanceId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteServiceInstancesRequest extends $tea.Model {
   clientToken?: string;
   regionId?: string;
@@ -53,11 +408,13 @@ export class DeleteServiceInstancesResponseBody extends $tea.Model {
 }
 
 export class DeleteServiceInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteServiceInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteServiceInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -65,6 +422,7 @@ export class DeleteServiceInstancesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteServiceInstancesResponseBody,
     };
   }
@@ -75,19 +433,22 @@ export class DeleteServiceInstancesResponse extends $tea.Model {
 }
 
 export class GetServiceInstanceRequest extends $tea.Model {
-  serviceInstanceId?: string;
+  marketInstanceId?: string;
   regionId?: string;
+  serviceInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      serviceInstanceId: 'ServiceInstanceId',
+      marketInstanceId: 'MarketInstanceId',
       regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serviceInstanceId: 'string',
+      marketInstanceId: 'string',
       regionId: 'string',
+      serviceInstanceId: 'string',
     };
   }
 
@@ -97,64 +458,112 @@ export class GetServiceInstanceRequest extends $tea.Model {
 }
 
 export class GetServiceInstanceResponseBody extends $tea.Model {
-  outputs?: string;
-  status?: string;
-  templateName?: string;
-  updateTime?: string;
-  progress?: number;
-  parameters?: string;
-  requestId?: string;
-  serviceInstanceId?: string;
+  bizStatus?: string;
+  components?: string;
   createTime?: string;
-  statusDetail?: string;
+  enableInstanceOps?: boolean;
+  enableUserPrometheus?: boolean;
+  endTime?: string;
+  isOperated?: boolean;
+  licenseEndTime?: string;
+  marketInstanceId?: string;
+  name?: string;
+  networkConfig?: GetServiceInstanceResponseBodyNetworkConfig;
+  operatedServiceInstanceId?: string;
+  operationEndTime?: string;
+  operationStartTime?: string;
+  outputs?: string;
+  parameters?: string;
+  payType?: string;
+  predefinedParameterName?: string;
+  progress?: number;
+  requestId?: string;
+  resourceGroupId?: string;
   resources?: string;
   service?: GetServiceInstanceResponseBodyService;
-  operationStartTime?: string;
-  operationEndTime?: string;
-  operatedServiceInstanceId?: string;
-  enableInstanceOps?: boolean;
-  isOperated?: boolean;
+  serviceInstanceId?: string;
+  serviceType?: string;
+  source?: string;
+  status?: string;
+  statusDetail?: string;
+  supplierUid?: number;
+  tags?: GetServiceInstanceResponseBodyTags[];
+  templateName?: string;
+  updateTime?: string;
+  userId?: number;
   static names(): { [key: string]: string } {
     return {
-      outputs: 'Outputs',
-      status: 'Status',
-      templateName: 'TemplateName',
-      updateTime: 'UpdateTime',
-      progress: 'Progress',
-      parameters: 'Parameters',
-      requestId: 'RequestId',
-      serviceInstanceId: 'ServiceInstanceId',
+      bizStatus: 'BizStatus',
+      components: 'Components',
       createTime: 'CreateTime',
-      statusDetail: 'StatusDetail',
+      enableInstanceOps: 'EnableInstanceOps',
+      enableUserPrometheus: 'EnableUserPrometheus',
+      endTime: 'EndTime',
+      isOperated: 'IsOperated',
+      licenseEndTime: 'LicenseEndTime',
+      marketInstanceId: 'MarketInstanceId',
+      name: 'Name',
+      networkConfig: 'NetworkConfig',
+      operatedServiceInstanceId: 'OperatedServiceInstanceId',
+      operationEndTime: 'OperationEndTime',
+      operationStartTime: 'OperationStartTime',
+      outputs: 'Outputs',
+      parameters: 'Parameters',
+      payType: 'PayType',
+      predefinedParameterName: 'PredefinedParameterName',
+      progress: 'Progress',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       resources: 'Resources',
       service: 'Service',
-      operationStartTime: 'OperationStartTime',
-      operationEndTime: 'OperationEndTime',
-      operatedServiceInstanceId: 'OperatedServiceInstanceId',
-      enableInstanceOps: 'EnableInstanceOps',
-      isOperated: 'IsOperated',
+      serviceInstanceId: 'ServiceInstanceId',
+      serviceType: 'ServiceType',
+      source: 'Source',
+      status: 'Status',
+      statusDetail: 'StatusDetail',
+      supplierUid: 'SupplierUid',
+      tags: 'Tags',
+      templateName: 'TemplateName',
+      updateTime: 'UpdateTime',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      outputs: 'string',
-      status: 'string',
-      templateName: 'string',
-      updateTime: 'string',
-      progress: 'number',
-      parameters: 'string',
-      requestId: 'string',
-      serviceInstanceId: 'string',
+      bizStatus: 'string',
+      components: 'string',
       createTime: 'string',
-      statusDetail: 'string',
+      enableInstanceOps: 'boolean',
+      enableUserPrometheus: 'boolean',
+      endTime: 'string',
+      isOperated: 'boolean',
+      licenseEndTime: 'string',
+      marketInstanceId: 'string',
+      name: 'string',
+      networkConfig: GetServiceInstanceResponseBodyNetworkConfig,
+      operatedServiceInstanceId: 'string',
+      operationEndTime: 'string',
+      operationStartTime: 'string',
+      outputs: 'string',
+      parameters: 'string',
+      payType: 'string',
+      predefinedParameterName: 'string',
+      progress: 'number',
+      requestId: 'string',
+      resourceGroupId: 'string',
       resources: 'string',
       service: GetServiceInstanceResponseBodyService,
-      operationStartTime: 'string',
-      operationEndTime: 'string',
-      operatedServiceInstanceId: 'string',
-      enableInstanceOps: 'boolean',
-      isOperated: 'boolean',
+      serviceInstanceId: 'string',
+      serviceType: 'string',
+      source: 'string',
+      status: 'string',
+      statusDetail: 'string',
+      supplierUid: 'number',
+      tags: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyTags },
+      templateName: 'string',
+      updateTime: 'string',
+      userId: 'number',
     };
   }
 
@@ -164,11 +573,13 @@ export class GetServiceInstanceResponseBody extends $tea.Model {
 }
 
 export class GetServiceInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetServiceInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -176,6 +587,7 @@ export class GetServiceInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetServiceInstanceResponseBody,
     };
   }
@@ -185,25 +597,130 @@ export class GetServiceInstanceResponse extends $tea.Model {
   }
 }
 
-export class ListServiceInstanceLogsRequest extends $tea.Model {
+export class GetServiceTemplateParameterConstraintsRequest extends $tea.Model {
+  clientToken?: string;
+  deployRegionId?: string;
+  enablePrivateVpcConnection?: boolean;
+  parameters?: GetServiceTemplateParameterConstraintsRequestParameters[];
   regionId?: string;
-  maxResults?: string;
+  serviceId?: string;
+  serviceInstanceId?: string;
+  serviceVersion?: string;
+  specificationName?: string;
+  templateName?: string;
+  trialType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      deployRegionId: 'DeployRegionId',
+      enablePrivateVpcConnection: 'EnablePrivateVpcConnection',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      serviceInstanceId: 'ServiceInstanceId',
+      serviceVersion: 'ServiceVersion',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+      trialType: 'TrialType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      deployRegionId: 'string',
+      enablePrivateVpcConnection: 'boolean',
+      parameters: { 'type': 'array', 'itemType': GetServiceTemplateParameterConstraintsRequestParameters },
+      regionId: 'string',
+      serviceId: 'string',
+      serviceInstanceId: 'string',
+      serviceVersion: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+      trialType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsResponseBody extends $tea.Model {
+  familyConstraints?: string[];
+  parameterConstraints?: GetServiceTemplateParameterConstraintsResponseBodyParameterConstraints[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      familyConstraints: 'FamilyConstraints',
+      parameterConstraints: 'ParameterConstraints',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      familyConstraints: { 'type': 'array', 'itemType': 'string' },
+      parameterConstraints: { 'type': 'array', 'itemType': GetServiceTemplateParameterConstraintsResponseBodyParameterConstraints },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceTemplateParameterConstraintsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceTemplateParameterConstraintsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceLogsRequest extends $tea.Model {
+  logSource?: string;
+  logstore?: string;
+  maxResults?: number;
   nextToken?: string;
+  regionId?: string;
   serviceInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      logSource: 'LogSource',
+      logstore: 'Logstore',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
       serviceInstanceId: 'ServiceInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      maxResults: 'string',
+      logSource: 'string',
+      logstore: 'string',
+      maxResults: 'number',
       nextToken: 'string',
+      regionId: 'string',
       serviceInstanceId: 'string',
     };
   }
@@ -214,24 +731,24 @@ export class ListServiceInstanceLogsRequest extends $tea.Model {
 }
 
 export class ListServiceInstanceLogsResponseBody extends $tea.Model {
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: string;
   serviceInstancesLogs?: ListServiceInstanceLogsResponseBodyServiceInstancesLogs[];
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
       serviceInstancesLogs: 'ServiceInstancesLogs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'string',
       serviceInstancesLogs: { 'type': 'array', 'itemType': ListServiceInstanceLogsResponseBodyServiceInstancesLogs },
     };
   }
@@ -242,11 +759,13 @@ export class ListServiceInstanceLogsResponseBody extends $tea.Model {
 }
 
 export class ListServiceInstanceLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListServiceInstanceLogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceInstanceLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -254,6 +773,7 @@ export class ListServiceInstanceLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListServiceInstanceLogsResponseBody,
     };
   }
@@ -263,115 +783,44 @@ export class ListServiceInstanceLogsResponse extends $tea.Model {
   }
 }
 
-export class CreateServiceInstanceRequest extends $tea.Model {
+export class ListServiceInstanceResourcesRequest extends $tea.Model {
+  expireTimeEnd?: string;
+  expireTimeStart?: string;
+  maxResults?: number;
+  nextToken?: string;
+  payType?: string;
   regionId?: string;
-  serviceId?: string;
-  serviceVersion?: string;
-  parameters?: { [key: string]: any };
-  clientToken?: string;
-  enableInstanceOps?: boolean;
-  enableAccountOps?: boolean;
-  templateName?: string;
-  operationMetadata?: CreateServiceInstanceRequestOperationMetadata;
-  requestTags?: CreateServiceInstanceRequestRequestTags[];
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      serviceId: 'ServiceId',
-      serviceVersion: 'ServiceVersion',
-      parameters: 'Parameters',
-      clientToken: 'ClientToken',
-      enableInstanceOps: 'EnableInstanceOps',
-      enableAccountOps: 'EnableAccountOps',
-      templateName: 'TemplateName',
-      operationMetadata: 'OperationMetadata',
-      requestTags: 'RequestTags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      serviceId: 'string',
-      serviceVersion: 'string',
-      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      clientToken: 'string',
-      enableInstanceOps: 'boolean',
-      enableAccountOps: 'boolean',
-      templateName: 'string',
-      operationMetadata: CreateServiceInstanceRequestOperationMetadata,
-      requestTags: { 'type': 'array', 'itemType': CreateServiceInstanceRequestRequestTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceInstanceShrinkRequest extends $tea.Model {
-  regionId?: string;
-  serviceId?: string;
-  serviceVersion?: string;
-  parametersShrink?: string;
-  clientToken?: string;
-  enableInstanceOps?: boolean;
-  enableAccountOps?: boolean;
-  templateName?: string;
-  operationMetadata?: CreateServiceInstanceShrinkRequestOperationMetadata;
-  requestTags?: CreateServiceInstanceShrinkRequestRequestTags[];
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      serviceId: 'ServiceId',
-      serviceVersion: 'ServiceVersion',
-      parametersShrink: 'Parameters',
-      clientToken: 'ClientToken',
-      enableInstanceOps: 'EnableInstanceOps',
-      enableAccountOps: 'EnableAccountOps',
-      templateName: 'TemplateName',
-      operationMetadata: 'OperationMetadata',
-      requestTags: 'RequestTags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      serviceId: 'string',
-      serviceVersion: 'string',
-      parametersShrink: 'string',
-      clientToken: 'string',
-      enableInstanceOps: 'boolean',
-      enableAccountOps: 'boolean',
-      templateName: 'string',
-      operationMetadata: CreateServiceInstanceShrinkRequestOperationMetadata,
-      requestTags: { 'type': 'array', 'itemType': CreateServiceInstanceShrinkRequestRequestTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceInstanceResponseBody extends $tea.Model {
-  status?: string;
-  requestId?: string;
+  resourceARN?: string[];
   serviceInstanceId?: string;
+  serviceInstanceResourceType?: string;
+  tag?: ListServiceInstanceResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      requestId: 'RequestId',
+      expireTimeEnd: 'ExpireTimeEnd',
+      expireTimeStart: 'ExpireTimeStart',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      payType: 'PayType',
+      regionId: 'RegionId',
+      resourceARN: 'ResourceARN',
       serviceInstanceId: 'ServiceInstanceId',
+      serviceInstanceResourceType: 'ServiceInstanceResourceType',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      requestId: 'string',
+      expireTimeEnd: 'string',
+      expireTimeStart: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      payType: 'string',
+      regionId: 'string',
+      resourceARN: { 'type': 'array', 'itemType': 'string' },
       serviceInstanceId: 'string',
+      serviceInstanceResourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListServiceInstanceResourcesRequestTag },
     };
   }
 
@@ -380,12 +829,42 @@ export class CreateServiceInstanceResponseBody extends $tea.Model {
   }
 }
 
-export class CreateServiceInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateServiceInstanceResponseBody;
+export class ListServiceInstanceResourcesResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  resources?: ListServiceInstanceResourcesResponseBodyResources[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      resources: { 'type': 'array', 'itemType': ListServiceInstanceResourcesResponseBodyResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceInstanceResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -393,205 +872,8 @@ export class CreateServiceInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateServiceInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContinueDeployServiceInstanceRequest extends $tea.Model {
-  clientToken?: string;
-  serviceInstanceId?: string;
-  regionId?: string;
-  parameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      serviceInstanceId: 'ServiceInstanceId',
-      regionId: 'RegionId',
-      parameters: 'Parameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      serviceInstanceId: 'string',
-      regionId: 'string',
-      parameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContinueDeployServiceInstanceResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContinueDeployServiceInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ContinueDeployServiceInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ContinueDeployServiceInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableOperationServiceInstanceRequest extends $tea.Model {
-  serviceInstanceId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceInstanceId: 'ServiceInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableOperationServiceInstanceResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableOperationServiceInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DisableOperationServiceInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DisableOperationServiceInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeployServiceInstanceRequest extends $tea.Model {
-  clientToken?: string;
-  serviceInstanceId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      serviceInstanceId: 'ServiceInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      serviceInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeployServiceInstanceResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeployServiceInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeployServiceInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeployServiceInstanceResponseBody,
+      statusCode: 'number',
+      body: ListServiceInstanceResourcesResponseBody,
     };
   }
 
@@ -601,28 +883,31 @@ export class DeployServiceInstanceResponse extends $tea.Model {
 }
 
 export class ListServiceInstancesRequest extends $tea.Model {
-  regionId?: string;
-  maxResults?: string;
-  nextToken?: string;
   filter?: ListServiceInstancesRequestFilter[];
-  requestTags?: ListServiceInstancesRequestRequestTags[];
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tag?: ListServiceInstancesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      filter: 'Filter',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
-      filter: 'Filter',
-      requestTags: 'RequestTags',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      maxResults: 'string',
-      nextToken: 'string',
       filter: { 'type': 'array', 'itemType': ListServiceInstancesRequestFilter },
-      requestTags: { 'type': 'array', 'itemType': ListServiceInstancesRequestRequestTags },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': ListServiceInstancesRequestTag },
     };
   }
 
@@ -632,28 +917,28 @@ export class ListServiceInstancesRequest extends $tea.Model {
 }
 
 export class ListServiceInstancesResponseBody extends $tea.Model {
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  totalCount?: number;
-  maxResults?: string;
   serviceInstances?: ListServiceInstancesResponseBodyServiceInstances[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      maxResults: 'MaxResults',
       serviceInstances: 'ServiceInstances',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      totalCount: 'number',
-      maxResults: 'string',
       serviceInstances: { 'type': 'array', 'itemType': ListServiceInstancesResponseBodyServiceInstances },
+      totalCount: 'number',
     };
   }
 
@@ -663,11 +948,13 @@ export class ListServiceInstancesResponseBody extends $tea.Model {
 }
 
 export class ListServiceInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListServiceInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -675,6 +962,7 @@ export class ListServiceInstancesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListServiceInstancesResponseBody,
     };
   }
@@ -684,23 +972,23 @@ export class ListServiceInstancesResponse extends $tea.Model {
   }
 }
 
-export class ListPoliciesRequest extends $tea.Model {
-  maxResults?: string;
-  nextToken?: string;
-  regionId?: string;
+export class ContinueDeployServiceInstanceResponseBodyDryRunResult extends $tea.Model {
+  parametersAllowedToBeModified?: string[];
+  parametersConditionallyAllowedToBeModified?: string[];
+  parametersNotAllowedToBeModified?: string[];
   static names(): { [key: string]: string } {
     return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      regionId: 'RegionId',
+      parametersAllowedToBeModified: 'ParametersAllowedToBeModified',
+      parametersConditionallyAllowedToBeModified: 'ParametersConditionallyAllowedToBeModified',
+      parametersNotAllowedToBeModified: 'ParametersNotAllowedToBeModified',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'string',
-      nextToken: 'string',
-      regionId: 'string',
+      parametersAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersNotAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -709,26 +997,17 @@ export class ListPoliciesRequest extends $tea.Model {
   }
 }
 
-export class ListPoliciesResponseBody extends $tea.Model {
-  requestId?: string;
-  nextToken?: string;
-  policies?: ListPoliciesResponseBodyPolicies[];
-  maxResults?: string;
+export class CreateServiceInstanceRequestBusinessInfo extends $tea.Model {
+  orderParams?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      nextToken: 'NextToken',
-      policies: 'Policies',
-      maxResults: 'MaxResults',
+      orderParams: 'OrderParams',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      nextToken: 'string',
-      policies: { 'type': 'array', 'itemType': ListPoliciesResponseBodyPolicies },
-      maxResults: 'string',
+      orderParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
 
@@ -737,20 +1016,20 @@ export class ListPoliciesResponseBody extends $tea.Model {
   }
 }
 
-export class ListPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListPoliciesResponseBody;
+export class CreateServiceInstanceRequestCommodity extends $tea.Model {
+  payPeriod?: number;
+  payPeriodUnit?: string;
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      body: 'body',
+      payPeriod: 'PayPeriod',
+      payPeriodUnit: 'PayPeriodUnit',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListPoliciesResponseBody,
+      payPeriod: 'number',
+      payPeriodUnit: 'string',
     };
   }
 
@@ -759,164 +1038,29 @@ export class ListPoliciesResponse extends $tea.Model {
   }
 }
 
-export class ListInuseServicesRequest extends $tea.Model {
-  regionId?: string;
-  maxResults?: string;
-  nextToken?: string;
-  filter?: ListInuseServicesRequestFilter[];
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      filter: 'Filter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      maxResults: 'string',
-      nextToken: 'string',
-      filter: { 'type': 'array', 'itemType': ListInuseServicesRequestFilter },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInuseServicesResponseBody extends $tea.Model {
-  nextToken?: string;
-  requestId?: string;
-  totalCount?: string;
-  maxResults?: string;
-  services?: ListInuseServicesResponseBodyServices[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      maxResults: 'MaxResults',
-      services: 'Services',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'string',
-      maxResults: 'string',
-      services: { 'type': 'array', 'itemType': ListInuseServicesResponseBodyServices },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInuseServicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListInuseServicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListInuseServicesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsRequest extends $tea.Model {
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBody extends $tea.Model {
-  requestId?: string;
-  regions?: DescribeRegionsResponseBodyRegions[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      regions: 'Regions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableOperationServiceInstanceRequest extends $tea.Model {
+export class CreateServiceInstanceRequestOperationMetadata extends $tea.Model {
+  endTime?: string;
+  extraInfo?: string;
+  resources?: string;
   serviceInstanceId?: string;
-  regionId?: string;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
+      extraInfo: 'ExtraInfo',
+      resources: 'Resources',
       serviceInstanceId: 'ServiceInstanceId',
-      regionId: 'RegionId',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'string',
+      extraInfo: 'string',
+      resources: 'string',
       serviceInstanceId: 'string',
-      regionId: 'string',
+      startTime: 'string',
     };
   }
 
@@ -925,17 +1069,20 @@ export class EnableOperationServiceInstanceRequest extends $tea.Model {
   }
 }
 
-export class EnableOperationServiceInstanceResponseBody extends $tea.Model {
-  requestId?: string;
+export class CreateServiceInstanceRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -944,20 +1091,20 @@ export class EnableOperationServiceInstanceResponseBody extends $tea.Model {
   }
 }
 
-export class EnableOperationServiceInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: EnableOperationServiceInstanceResponseBody;
+export class CreateServiceInstanceShrinkRequestCommodity extends $tea.Model {
+  payPeriod?: number;
+  payPeriodUnit?: string;
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      body: 'body',
+      payPeriod: 'PayPeriod',
+      payPeriodUnit: 'PayPeriodUnit',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: EnableOperationServiceInstanceResponseBody,
+      payPeriod: 'number',
+      payPeriodUnit: 'string',
     };
   }
 
@@ -966,23 +1113,94 @@ export class EnableOperationServiceInstanceResponse extends $tea.Model {
   }
 }
 
-export class GetServiceRequest extends $tea.Model {
+export class CreateServiceInstanceShrinkRequestOperationMetadata extends $tea.Model {
+  endTime?: string;
+  extraInfo?: string;
+  resources?: string;
+  serviceInstanceId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      extraInfo: 'ExtraInfo',
+      resources: 'Resources',
+      serviceInstanceId: 'ServiceInstanceId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      extraInfo: 'string',
+      resources: 'string',
+      serviceInstanceId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceInstanceShrinkRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs extends $tea.Model {
+  connectBandwidth?: number;
+  domainName?: string;
+  endpointIps?: string[];
+  ingressEndpointStatus?: string;
+  networkServiceStatus?: string;
   regionId?: string;
-  serviceId?: string;
-  serviceVersion?: string;
+  securityGroups?: string[];
+  vSwitches?: string[];
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      connectBandwidth: 'ConnectBandwidth',
+      domainName: 'DomainName',
+      endpointIps: 'EndpointIps',
+      ingressEndpointStatus: 'IngressEndpointStatus',
+      networkServiceStatus: 'NetworkServiceStatus',
       regionId: 'RegionId',
-      serviceId: 'ServiceId',
-      serviceVersion: 'ServiceVersion',
+      securityGroups: 'SecurityGroups',
+      vSwitches: 'VSwitches',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      connectBandwidth: 'number',
+      domainName: 'string',
+      endpointIps: { 'type': 'array', 'itemType': 'string' },
+      ingressEndpointStatus: 'string',
+      networkServiceStatus: 'string',
       regionId: 'string',
-      serviceId: 'string',
-      serviceVersion: 'string',
+      securityGroups: { 'type': 'array', 'itemType': 'string' },
+      vSwitches: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
     };
   }
 
@@ -991,59 +1209,29 @@ export class GetServiceRequest extends $tea.Model {
   }
 }
 
-export class GetServiceResponseBody extends $tea.Model {
-  status?: string;
-  deployMetadata?: string;
-  publishTime?: string;
-  requestId?: string;
-  version?: string;
-  deployType?: string;
-  serviceId?: string;
-  supplierUrl?: string;
-  serviceType?: string;
-  supplierName?: string;
-  serviceInfos?: GetServiceResponseBodyServiceInfos[];
-  commodityCode?: string;
-  isSupportOperated?: boolean;
-  policyNames?: string;
-  duration?: number;
+export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections extends $tea.Model {
+  connectionConfigs?: GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs[];
+  endpointId?: string;
+  privateZoneId?: string;
+  privateZoneName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      deployMetadata: 'DeployMetadata',
-      publishTime: 'PublishTime',
-      requestId: 'RequestId',
-      version: 'Version',
-      deployType: 'DeployType',
-      serviceId: 'ServiceId',
-      supplierUrl: 'SupplierUrl',
-      serviceType: 'ServiceType',
-      supplierName: 'SupplierName',
-      serviceInfos: 'ServiceInfos',
-      commodityCode: 'CommodityCode',
-      isSupportOperated: 'IsSupportOperated',
-      policyNames: 'PolicyNames',
-      duration: 'Duration',
+      connectionConfigs: 'ConnectionConfigs',
+      endpointId: 'EndpointId',
+      privateZoneId: 'PrivateZoneId',
+      privateZoneName: 'PrivateZoneName',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      deployMetadata: 'string',
-      publishTime: 'string',
-      requestId: 'string',
-      version: 'string',
-      deployType: 'string',
-      serviceId: 'string',
-      supplierUrl: 'string',
-      serviceType: 'string',
-      supplierName: 'string',
-      serviceInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfos },
-      commodityCode: 'string',
-      isSupportOperated: 'boolean',
-      policyNames: 'string',
-      duration: 'number',
+      connectionConfigs: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs },
+      endpointId: 'string',
+      privateZoneId: 'string',
+      privateZoneName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1052,20 +1240,45 @@ export class GetServiceResponseBody extends $tea.Model {
   }
 }
 
-export class GetServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetServiceResponseBody;
+export class GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnections extends $tea.Model {
+  endpointId?: string;
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      body: 'body',
+      endpointId: 'EndpointId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetServiceResponseBody,
+      endpointId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceResponseBodyNetworkConfig extends $tea.Model {
+  endpointId?: string;
+  privateVpcConnections?: GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections[];
+  privateZoneId?: string;
+  reversePrivateVpcConnections?: GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnections[];
+  static names(): { [key: string]: string } {
+    return {
+      endpointId: 'EndpointId',
+      privateVpcConnections: 'PrivateVpcConnections',
+      privateZoneId: 'PrivateZoneId',
+      reversePrivateVpcConnections: 'ReversePrivateVpcConnections',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointId: 'string',
+      privateVpcConnections: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections },
+      privateZoneId: 'string',
+      reversePrivateVpcConnections: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnections },
     };
   }
 
@@ -1075,14 +1288,14 @@ export class GetServiceResponse extends $tea.Model {
 }
 
 export class GetServiceInstanceResponseBodyServiceServiceInfos extends $tea.Model {
-  locale?: string;
   image?: string;
+  locale?: string;
   name?: string;
   shortDescription?: string;
   static names(): { [key: string]: string } {
     return {
-      locale: 'Locale',
       image: 'Image',
+      locale: 'Locale',
       name: 'Name',
       shortDescription: 'ShortDescription',
     };
@@ -1090,8 +1303,8 @@ export class GetServiceInstanceResponseBodyServiceServiceInfos extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
-      locale: 'string',
       image: 'string',
+      locale: 'string',
       name: 'string',
       shortDescription: 'string',
     };
@@ -1103,43 +1316,167 @@ export class GetServiceInstanceResponseBodyServiceServiceInfos extends $tea.Mode
 }
 
 export class GetServiceInstanceResponseBodyService extends $tea.Model {
-  status?: string;
-  publishTime?: string;
-  version?: string;
   deployMetadata?: string;
   deployType?: string;
+  publishTime?: string;
+  serviceDocUrl?: string;
   serviceId?: string;
-  supplierUrl?: string;
-  serviceType?: string;
-  supplierName?: string;
   serviceInfos?: GetServiceInstanceResponseBodyServiceServiceInfos[];
+  serviceProductUrl?: string;
+  serviceType?: string;
+  status?: string;
+  supplierName?: string;
+  supplierUrl?: string;
+  upgradableServiceVersions?: string[];
+  upgradeMetadata?: string;
+  version?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      publishTime: 'PublishTime',
-      version: 'Version',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
+      publishTime: 'PublishTime',
+      serviceDocUrl: 'ServiceDocUrl',
       serviceId: 'ServiceId',
-      supplierUrl: 'SupplierUrl',
-      serviceType: 'ServiceType',
-      supplierName: 'SupplierName',
       serviceInfos: 'ServiceInfos',
+      serviceProductUrl: 'ServiceProductUrl',
+      serviceType: 'ServiceType',
+      status: 'Status',
+      supplierName: 'SupplierName',
+      supplierUrl: 'SupplierUrl',
+      upgradableServiceVersions: 'UpgradableServiceVersions',
+      upgradeMetadata: 'UpgradeMetadata',
+      version: 'Version',
+      versionName: 'VersionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      publishTime: 'string',
-      version: 'string',
       deployMetadata: 'string',
       deployType: 'string',
+      publishTime: 'string',
+      serviceDocUrl: 'string',
       serviceId: 'string',
-      supplierUrl: 'string',
-      serviceType: 'string',
-      supplierName: 'string',
       serviceInfos: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyServiceServiceInfos },
+      serviceProductUrl: 'string',
+      serviceType: 'string',
+      status: 'string',
+      supplierName: 'string',
+      supplierUrl: 'string',
+      upgradableServiceVersions: { 'type': 'array', 'itemType': 'string' },
+      upgradeMetadata: 'string',
+      version: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceResponseBodyTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsRequestParameters extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints extends $tea.Model {
+  allowedValues?: string[];
+  propertyName?: string;
+  resourceName?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedValues: 'AllowedValues',
+      propertyName: 'PropertyName',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedValues: { 'type': 'array', 'itemType': 'string' },
+      propertyName: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstraints extends $tea.Model {
+  allowedValues?: string[];
+  associationParameterNames?: string[];
+  behavior?: string;
+  behaviorReason?: string;
+  originalConstraints?: GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints[];
+  parameterKey?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedValues: 'AllowedValues',
+      associationParameterNames: 'AssociationParameterNames',
+      behavior: 'Behavior',
+      behaviorReason: 'BehaviorReason',
+      originalConstraints: 'OriginalConstraints',
+      parameterKey: 'ParameterKey',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedValues: { 'type': 'array', 'itemType': 'string' },
+      associationParameterNames: { 'type': 'array', 'itemType': 'string' },
+      behavior: 'string',
+      behaviorReason: 'string',
+      originalConstraints: { 'type': 'array', 'itemType': GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints },
+      parameterKey: 'string',
+      type: 'string',
     };
   }
 
@@ -1149,28 +1486,34 @@ export class GetServiceInstanceResponseBodyService extends $tea.Model {
 }
 
 export class ListServiceInstanceLogsResponseBodyServiceInstancesLogs extends $tea.Model {
-  timestamp?: string;
-  serviceInstanceId?: string;
-  source?: string;
-  phase?: string;
   content?: string;
+  logType?: string;
+  resourceId?: string;
+  resourceType?: string;
+  source?: string;
+  status?: string;
+  timestamp?: string;
   static names(): { [key: string]: string } {
     return {
-      timestamp: 'Timestamp',
-      serviceInstanceId: 'ServiceInstanceId',
-      source: 'Source',
-      phase: 'Phase',
       content: 'Content',
+      logType: 'LogType',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      source: 'Source',
+      status: 'Status',
+      timestamp: 'Timestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      timestamp: 'string',
-      serviceInstanceId: 'string',
-      source: 'string',
-      phase: 'string',
       content: 'string',
+      logType: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      source: 'string',
+      status: 'string',
+      timestamp: 'string',
     };
   }
 
@@ -1179,35 +1522,7 @@ export class ListServiceInstanceLogsResponseBodyServiceInstancesLogs extends $te
   }
 }
 
-export class CreateServiceInstanceRequestOperationMetadata extends $tea.Model {
-  startTime?: string;
-  endTime?: string;
-  resources?: string;
-  serviceInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      resources: 'Resources',
-      serviceInstanceId: 'ServiceInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      startTime: 'string',
-      endTime: 'string',
-      resources: 'string',
-      serviceInstanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceInstanceRequestRequestTags extends $tea.Model {
+export class ListServiceInstanceResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -1229,48 +1544,44 @@ export class CreateServiceInstanceRequestRequestTags extends $tea.Model {
   }
 }
 
-export class CreateServiceInstanceShrinkRequestOperationMetadata extends $tea.Model {
-  startTime?: string;
-  endTime?: string;
-  resources?: string;
-  serviceInstanceId?: string;
+export class ListServiceInstanceResourcesResponseBodyResources extends $tea.Model {
+  createTime?: string;
+  expireTime?: string;
+  payType?: string;
+  productCode?: string;
+  productType?: string;
+  renewStatus?: string;
+  renewalPeriod?: number;
+  renewalPeriodUnit?: string;
+  resourceARN?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      resources: 'Resources',
-      serviceInstanceId: 'ServiceInstanceId',
+      createTime: 'CreateTime',
+      expireTime: 'ExpireTime',
+      payType: 'PayType',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
+      renewStatus: 'RenewStatus',
+      renewalPeriod: 'RenewalPeriod',
+      renewalPeriodUnit: 'RenewalPeriodUnit',
+      resourceARN: 'ResourceARN',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startTime: 'string',
-      endTime: 'string',
-      resources: 'string',
-      serviceInstanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceInstanceShrinkRequestRequestTags extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
+      createTime: 'string',
+      expireTime: 'string',
+      payType: 'string',
+      productCode: 'string',
+      productType: 'string',
+      renewStatus: 'string',
+      renewalPeriod: 'number',
+      renewalPeriodUnit: 'string',
+      resourceARN: 'string',
+      status: 'string',
     };
   }
 
@@ -1280,19 +1591,19 @@ export class CreateServiceInstanceShrinkRequestRequestTags extends $tea.Model {
 }
 
 export class ListServiceInstancesRequestFilter extends $tea.Model {
-  value?: string[];
   name?: string;
+  value?: string[];
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       name: 'Name',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1301,7 +1612,7 @@ export class ListServiceInstancesRequestFilter extends $tea.Model {
   }
 }
 
-export class ListServiceInstancesRequestRequestTags extends $tea.Model {
+export class ListServiceInstancesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -1324,14 +1635,14 @@ export class ListServiceInstancesRequestRequestTags extends $tea.Model {
 }
 
 export class ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos extends $tea.Model {
-  locale?: string;
   image?: string;
+  locale?: string;
   name?: string;
   shortDescription?: string;
   static names(): { [key: string]: string } {
     return {
-      locale: 'Locale',
       image: 'Image',
+      locale: 'Locale',
       name: 'Name',
       shortDescription: 'ShortDescription',
     };
@@ -1339,8 +1650,8 @@ export class ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos
 
   static types(): { [key: string]: any } {
     return {
-      locale: 'string',
       image: 'string',
+      locale: 'string',
       name: 'string',
       shortDescription: 'string',
     };
@@ -1352,40 +1663,65 @@ export class ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos
 }
 
 export class ListServiceInstancesResponseBodyServiceInstancesService extends $tea.Model {
-  status?: string;
-  publishTime?: string;
-  version?: string;
   deployType?: string;
+  publishTime?: string;
   serviceId?: string;
-  supplierUrl?: string;
-  serviceType?: string;
-  supplierName?: string;
   serviceInfos?: ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos[];
+  serviceType?: string;
+  status?: string;
+  supplierName?: string;
+  supplierUrl?: string;
+  version?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      publishTime: 'PublishTime',
-      version: 'Version',
       deployType: 'DeployType',
+      publishTime: 'PublishTime',
       serviceId: 'ServiceId',
-      supplierUrl: 'SupplierUrl',
-      serviceType: 'ServiceType',
-      supplierName: 'SupplierName',
       serviceInfos: 'ServiceInfos',
+      serviceType: 'ServiceType',
+      status: 'Status',
+      supplierName: 'SupplierName',
+      supplierUrl: 'SupplierUrl',
+      version: 'Version',
+      versionName: 'VersionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      publishTime: 'string',
-      version: 'string',
       deployType: 'string',
+      publishTime: 'string',
       serviceId: 'string',
-      supplierUrl: 'string',
-      serviceType: 'string',
-      supplierName: 'string',
       serviceInfos: { 'type': 'array', 'itemType': ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos },
+      serviceType: 'string',
+      status: 'string',
+      supplierName: 'string',
+      supplierUrl: 'string',
+      version: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstancesResponseBodyServiceInstancesTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -1395,232 +1731,85 @@ export class ListServiceInstancesResponseBodyServiceInstancesService extends $te
 }
 
 export class ListServiceInstancesResponseBodyServiceInstances extends $tea.Model {
-  status?: string;
-  outputs?: string;
-  updateTime?: string;
-  parameters?: string;
-  serviceInstanceId?: string;
+  bizStatus?: string;
   createTime?: string;
-  statusDetail?: string;
-  progress?: number;
-  resources?: string;
-  templateName?: string;
-  operatedServiceInstanceId?: string;
-  service?: ListServiceInstancesResponseBodyServiceInstancesService;
-  operationStartTime?: string;
-  operationEndTime?: string;
   enableInstanceOps?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      outputs: 'Outputs',
-      updateTime: 'UpdateTime',
-      parameters: 'Parameters',
-      serviceInstanceId: 'ServiceInstanceId',
-      createTime: 'CreateTime',
-      statusDetail: 'StatusDetail',
-      progress: 'Progress',
-      resources: 'Resources',
-      templateName: 'TemplateName',
-      operatedServiceInstanceId: 'OperatedServiceInstanceId',
-      service: 'Service',
-      operationStartTime: 'OperationStartTime',
-      operationEndTime: 'OperationEndTime',
-      enableInstanceOps: 'EnableInstanceOps',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      outputs: 'string',
-      updateTime: 'string',
-      parameters: 'string',
-      serviceInstanceId: 'string',
-      createTime: 'string',
-      statusDetail: 'string',
-      progress: 'number',
-      resources: 'string',
-      templateName: 'string',
-      operatedServiceInstanceId: 'string',
-      service: ListServiceInstancesResponseBodyServiceInstancesService,
-      operationStartTime: 'string',
-      operationEndTime: 'string',
-      enableInstanceOps: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPoliciesResponseBodyPolicies extends $tea.Model {
-  description?: string;
-  policyName?: string;
-  policyType?: string;
-  policyDocument?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      policyName: 'PolicyName',
-      policyType: 'PolicyType',
-      policyDocument: 'PolicyDocument',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      policyName: 'string',
-      policyType: 'string',
-      policyDocument: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInuseServicesRequestFilter extends $tea.Model {
-  value?: string[];
+  endTime?: string;
+  marketInstanceId?: string;
   name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      value: 'Value',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      value: { 'type': 'array', 'itemType': 'string' },
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInuseServicesResponseBodyServicesServiceInfos extends $tea.Model {
-  locale?: string;
-  image?: string;
-  name?: string;
-  shortDescription?: string;
-  static names(): { [key: string]: string } {
-    return {
-      locale: 'Locale',
-      image: 'Image',
-      name: 'Name',
-      shortDescription: 'ShortDescription',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      locale: 'string',
-      image: 'string',
-      name: 'string',
-      shortDescription: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInuseServicesResponseBodyServices extends $tea.Model {
-  status?: string;
-  publishTime?: string;
-  version?: string;
-  deployType?: string;
-  serviceId?: string;
-  supplierUrl?: string;
+  operatedServiceInstanceId?: string;
+  operationEndTime?: string;
+  operationStartTime?: string;
+  outputs?: string;
+  parameters?: string;
+  payType?: string;
+  progress?: number;
+  resourceGroupId?: string;
+  resources?: string;
+  service?: ListServiceInstancesResponseBodyServiceInstancesService;
+  serviceInstanceId?: string;
   serviceType?: string;
-  supplierName?: string;
-  serviceInfos?: ListInuseServicesResponseBodyServicesServiceInfos[];
-  commodityCode?: string;
+  source?: string;
+  status?: string;
+  statusDetail?: string;
+  tags?: ListServiceInstancesResponseBodyServiceInstancesTags[];
+  templateName?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      publishTime: 'PublishTime',
-      version: 'Version',
-      deployType: 'DeployType',
-      serviceId: 'ServiceId',
-      supplierUrl: 'SupplierUrl',
-      serviceType: 'ServiceType',
-      supplierName: 'SupplierName',
-      serviceInfos: 'ServiceInfos',
-      commodityCode: 'CommodityCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      publishTime: 'string',
-      version: 'string',
-      deployType: 'string',
-      serviceId: 'string',
-      supplierUrl: 'string',
-      serviceType: 'string',
-      supplierName: 'string',
-      serviceInfos: { 'type': 'array', 'itemType': ListInuseServicesResponseBodyServicesServiceInfos },
-      commodityCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
-  regionEndpoint?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionEndpoint: 'RegionEndpoint',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionEndpoint: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyServiceInfos extends $tea.Model {
-  locale?: string;
-  image?: string;
-  name?: string;
-  shortDescription?: string;
-  static names(): { [key: string]: string } {
-    return {
-      locale: 'Locale',
-      image: 'Image',
+      bizStatus: 'BizStatus',
+      createTime: 'CreateTime',
+      enableInstanceOps: 'EnableInstanceOps',
+      endTime: 'EndTime',
+      marketInstanceId: 'MarketInstanceId',
       name: 'Name',
-      shortDescription: 'ShortDescription',
+      operatedServiceInstanceId: 'OperatedServiceInstanceId',
+      operationEndTime: 'OperationEndTime',
+      operationStartTime: 'OperationStartTime',
+      outputs: 'Outputs',
+      parameters: 'Parameters',
+      payType: 'PayType',
+      progress: 'Progress',
+      resourceGroupId: 'ResourceGroupId',
+      resources: 'Resources',
+      service: 'Service',
+      serviceInstanceId: 'ServiceInstanceId',
+      serviceType: 'ServiceType',
+      source: 'Source',
+      status: 'Status',
+      statusDetail: 'StatusDetail',
+      tags: 'Tags',
+      templateName: 'TemplateName',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      locale: 'string',
-      image: 'string',
+      bizStatus: 'string',
+      createTime: 'string',
+      enableInstanceOps: 'boolean',
+      endTime: 'string',
+      marketInstanceId: 'string',
       name: 'string',
-      shortDescription: 'string',
+      operatedServiceInstanceId: 'string',
+      operationEndTime: 'string',
+      operationStartTime: 'string',
+      outputs: 'string',
+      parameters: 'string',
+      payType: 'string',
+      progress: 'number',
+      resourceGroupId: 'string',
+      resources: 'string',
+      service: ListServiceInstancesResponseBodyServiceInstancesService,
+      serviceInstanceId: 'string',
+      serviceType: 'string',
+      source: 'string',
+      status: 'string',
+      statusDetail: 'string',
+      tags: { 'type': 'array', 'itemType': ListServiceInstancesResponseBodyServiceInstancesTags },
+      templateName: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -1652,12 +1841,237 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  async continueDeployServiceInstanceWithOptions(request: ContinueDeployServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ContinueDeployServiceInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.option)) {
+      query["Option"] = request.option;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ContinueDeployServiceInstance",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ContinueDeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new ContinueDeployServiceInstanceResponse({}));
+  }
+
+  async continueDeployServiceInstance(request: ContinueDeployServiceInstanceRequest): Promise<ContinueDeployServiceInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.continueDeployServiceInstanceWithOptions(request, runtime);
+  }
+
+  async createServiceInstanceWithOptions(tmpReq: CreateServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateServiceInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.businessInfo)) {
+      request.businessInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.businessInfo, "BusinessInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.businessInfoShrink)) {
+      query["BusinessInfo"] = request.businessInfoShrink;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.commodity)) {
+      query["Commodity"] = request.commodity;
+    }
+
+    if (!Util.isUnset(request.contactGroup)) {
+      query["ContactGroup"] = request.contactGroup;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.enableInstanceOps)) {
+      query["EnableInstanceOps"] = request.enableInstanceOps;
+    }
+
+    if (!Util.isUnset(request.enableUserPrometheus)) {
+      query["EnableUserPrometheus"] = request.enableUserPrometheus;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.operationMetadata)) {
+      query["OperationMetadata"] = request.operationMetadata;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    if (!Util.isUnset(request.specificationCode)) {
+      query["SpecificationCode"] = request.specificationCode;
+    }
+
+    if (!Util.isUnset(request.specificationName)) {
+      query["SpecificationName"] = request.specificationName;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.trialType)) {
+      query["TrialType"] = request.trialType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateServiceInstance",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceInstanceResponse>(await this.callApi(params, req, runtime), new CreateServiceInstanceResponse({}));
+  }
+
+  async createServiceInstance(request: CreateServiceInstanceRequest): Promise<CreateServiceInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createServiceInstanceWithOptions(request, runtime);
+  }
+
   async deleteServiceInstancesWithOptions(request: DeleteServiceInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteServiceInstancesResponse>(await this.doRPCRequest("DeleteServiceInstances", "2021-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteServiceInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteServiceInstances",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteServiceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteServiceInstancesResponse({}));
   }
 
   async deleteServiceInstances(request: DeleteServiceInstancesRequest): Promise<DeleteServiceInstancesResponse> {
@@ -1667,10 +2081,34 @@ export default class Client extends OpenApi {
 
   async getServiceInstanceWithOptions(request: GetServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.marketInstanceId)) {
+      query["MarketInstanceId"] = request.marketInstanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetServiceInstanceResponse>(await this.doRPCRequest("GetServiceInstance", "2021-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetServiceInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetServiceInstance",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceInstanceResponse>(await this.callApi(params, req, runtime), new GetServiceInstanceResponse({}));
   }
 
   async getServiceInstance(request: GetServiceInstanceRequest): Promise<GetServiceInstanceResponse> {
@@ -1678,12 +2116,117 @@ export default class Client extends OpenApi {
     return await this.getServiceInstanceWithOptions(request, runtime);
   }
 
+  async getServiceTemplateParameterConstraintsWithOptions(request: GetServiceTemplateParameterConstraintsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceTemplateParameterConstraintsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deployRegionId)) {
+      query["DeployRegionId"] = request.deployRegionId;
+    }
+
+    if (!Util.isUnset(request.enablePrivateVpcConnection)) {
+      query["EnablePrivateVpcConnection"] = request.enablePrivateVpcConnection;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    if (!Util.isUnset(request.specificationName)) {
+      query["SpecificationName"] = request.specificationName;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.trialType)) {
+      query["TrialType"] = request.trialType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetServiceTemplateParameterConstraints",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetServiceTemplateParameterConstraintsResponse({}));
+  }
+
+  async getServiceTemplateParameterConstraints(request: GetServiceTemplateParameterConstraintsRequest): Promise<GetServiceTemplateParameterConstraintsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getServiceTemplateParameterConstraintsWithOptions(request, runtime);
+  }
+
   async listServiceInstanceLogsWithOptions(request: ListServiceInstanceLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceInstanceLogsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.logSource)) {
+      query["LogSource"] = request.logSource;
+    }
+
+    if (!Util.isUnset(request.logstore)) {
+      query["Logstore"] = request.logstore;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListServiceInstanceLogsResponse>(await this.doRPCRequest("ListServiceInstanceLogs", "2021-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListServiceInstanceLogsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListServiceInstanceLogs",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceInstanceLogsResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceLogsResponse({}));
   }
 
   async listServiceInstanceLogs(request: ListServiceInstanceLogsRequest): Promise<ListServiceInstanceLogsResponse> {
@@ -1691,140 +2234,118 @@ export default class Client extends OpenApi {
     return await this.listServiceInstanceLogsWithOptions(request, runtime);
   }
 
-  async createServiceInstanceWithOptions(tmpReq: CreateServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceInstanceResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateServiceInstanceShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.parameters)) {
-      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+  async listServiceInstanceResourcesWithOptions(request: ListServiceInstanceResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceInstanceResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.expireTimeEnd)) {
+      query["ExpireTimeEnd"] = request.expireTimeEnd;
+    }
+
+    if (!Util.isUnset(request.expireTimeStart)) {
+      query["ExpireTimeStart"] = request.expireTimeStart;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceARN)) {
+      query["ResourceARN"] = request.resourceARN;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceResourceType)) {
+      query["ServiceInstanceResourceType"] = request.serviceInstanceResourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateServiceInstanceResponse>(await this.doRPCRequest("CreateServiceInstance", "2021-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateServiceInstanceResponse({}));
-  }
-
-  async createServiceInstance(request: CreateServiceInstanceRequest): Promise<CreateServiceInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createServiceInstanceWithOptions(request, runtime);
-  }
-
-  async continueDeployServiceInstanceWithOptions(request: ContinueDeployServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ContinueDeployServiceInstanceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApi.Params({
+      action: "ListServiceInstanceResources",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<ContinueDeployServiceInstanceResponse>(await this.doRPCRequest("ContinueDeployServiceInstance", "2021-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ContinueDeployServiceInstanceResponse({}));
+    return $tea.cast<ListServiceInstanceResourcesResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceResourcesResponse({}));
   }
 
-  async continueDeployServiceInstance(request: ContinueDeployServiceInstanceRequest): Promise<ContinueDeployServiceInstanceResponse> {
+  async listServiceInstanceResources(request: ListServiceInstanceResourcesRequest): Promise<ListServiceInstanceResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.continueDeployServiceInstanceWithOptions(request, runtime);
-  }
-
-  async disableOperationServiceInstanceWithOptions(request: DisableOperationServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DisableOperationServiceInstanceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DisableOperationServiceInstanceResponse>(await this.doRPCRequest("DisableOperationServiceInstance", "2021-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DisableOperationServiceInstanceResponse({}));
-  }
-
-  async disableOperationServiceInstance(request: DisableOperationServiceInstanceRequest): Promise<DisableOperationServiceInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.disableOperationServiceInstanceWithOptions(request, runtime);
-  }
-
-  async deployServiceInstanceWithOptions(request: DeployServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeployServiceInstanceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeployServiceInstanceResponse>(await this.doRPCRequest("DeployServiceInstance", "2021-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeployServiceInstanceResponse({}));
-  }
-
-  async deployServiceInstance(request: DeployServiceInstanceRequest): Promise<DeployServiceInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deployServiceInstanceWithOptions(request, runtime);
+    return await this.listServiceInstanceResourcesWithOptions(request, runtime);
   }
 
   async listServiceInstancesWithOptions(request: ListServiceInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListServiceInstancesResponse>(await this.doRPCRequest("ListServiceInstances", "2021-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListServiceInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListServiceInstances",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceInstancesResponse>(await this.callApi(params, req, runtime), new ListServiceInstancesResponse({}));
   }
 
   async listServiceInstances(request: ListServiceInstancesRequest): Promise<ListServiceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceInstancesWithOptions(request, runtime);
-  }
-
-  async listPoliciesWithOptions(request: ListPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListPoliciesResponse>(await this.doRPCRequest("ListPolicies", "2021-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListPoliciesResponse({}));
-  }
-
-  async listPolicies(request: ListPoliciesRequest): Promise<ListPoliciesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listPoliciesWithOptions(request, runtime);
-  }
-
-  async listInuseServicesWithOptions(request: ListInuseServicesRequest, runtime: $Util.RuntimeOptions): Promise<ListInuseServicesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListInuseServicesResponse>(await this.doRPCRequest("ListInuseServices", "2021-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListInuseServicesResponse({}));
-  }
-
-  async listInuseServices(request: ListInuseServicesRequest): Promise<ListInuseServicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listInuseServicesWithOptions(request, runtime);
-  }
-
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2021-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
-  }
-
-  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRegionsWithOptions(request, runtime);
-  }
-
-  async enableOperationServiceInstanceWithOptions(request: EnableOperationServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<EnableOperationServiceInstanceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<EnableOperationServiceInstanceResponse>(await this.doRPCRequest("EnableOperationServiceInstance", "2021-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new EnableOperationServiceInstanceResponse({}));
-  }
-
-  async enableOperationServiceInstance(request: EnableOperationServiceInstanceRequest): Promise<EnableOperationServiceInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.enableOperationServiceInstanceWithOptions(request, runtime);
-  }
-
-  async getServiceWithOptions(request: GetServiceRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetServiceResponse>(await this.doRPCRequest("GetService", "2021-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetServiceResponse({}));
-  }
-
-  async getService(request: GetServiceRequest): Promise<GetServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getServiceWithOptions(request, runtime);
   }
 
 }
