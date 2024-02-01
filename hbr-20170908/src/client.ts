@@ -11127,6 +11127,7 @@ export class DescribeVaultsResponseBodyVaultsVault extends $tea.Model {
   replicationSourceRegionId?: string;
   replicationSourceVault?: boolean;
   replicationSourceVaultId?: string;
+  replicationTargetRegionId?: string;
   resourceGroupId?: string;
   retention?: number;
   searchEnabled?: boolean;
@@ -11169,6 +11170,7 @@ export class DescribeVaultsResponseBodyVaultsVault extends $tea.Model {
       replicationSourceRegionId: 'ReplicationSourceRegionId',
       replicationSourceVault: 'ReplicationSourceVault',
       replicationSourceVaultId: 'ReplicationSourceVaultId',
+      replicationTargetRegionId: 'ReplicationTargetRegionId',
       resourceGroupId: 'ResourceGroupId',
       retention: 'Retention',
       searchEnabled: 'SearchEnabled',
@@ -11214,6 +11216,7 @@ export class DescribeVaultsResponseBodyVaultsVault extends $tea.Model {
       replicationSourceRegionId: 'string',
       replicationSourceVault: 'boolean',
       replicationSourceVaultId: 'string',
+      replicationTargetRegionId: 'string',
       resourceGroupId: 'string',
       retention: 'number',
       searchEnabled: 'boolean',
