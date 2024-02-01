@@ -1679,6 +1679,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
   groupDeletionProtection?: boolean;
   groupType?: string;
   healthCheckType?: string;
+  healthCheckTypes?: string[];
   instanceId?: string;
   launchTemplateId?: string;
   launchTemplateOverrides?: CreateScalingGroupRequestLaunchTemplateOverrides[];
@@ -1724,6 +1725,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
       groupDeletionProtection: 'GroupDeletionProtection',
       groupType: 'GroupType',
       healthCheckType: 'HealthCheckType',
+      healthCheckTypes: 'HealthCheckTypes',
       instanceId: 'InstanceId',
       launchTemplateId: 'LaunchTemplateId',
       launchTemplateOverrides: 'LaunchTemplateOverrides',
@@ -1772,6 +1774,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
       groupDeletionProtection: 'boolean',
       groupType: 'string',
       healthCheckType: 'string',
+      healthCheckTypes: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
       launchTemplateId: 'string',
       launchTemplateOverrides: { 'type': 'array', 'itemType': CreateScalingGroupRequestLaunchTemplateOverrides },
@@ -6489,6 +6492,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
   disableDesiredCapacity?: boolean;
   groupDeletionProtection?: boolean;
   healthCheckType?: string;
+  healthCheckTypes?: string[];
   launchTemplateId?: string;
   launchTemplateOverrides?: ModifyScalingGroupRequestLaunchTemplateOverrides[];
   launchTemplateVersion?: string;
@@ -6521,6 +6525,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
       disableDesiredCapacity: 'DisableDesiredCapacity',
       groupDeletionProtection: 'GroupDeletionProtection',
       healthCheckType: 'HealthCheckType',
+      healthCheckTypes: 'HealthCheckTypes',
       launchTemplateId: 'LaunchTemplateId',
       launchTemplateOverrides: 'LaunchTemplateOverrides',
       launchTemplateVersion: 'LaunchTemplateVersion',
@@ -6556,6 +6561,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
       disableDesiredCapacity: 'boolean',
       groupDeletionProtection: 'boolean',
       healthCheckType: 'string',
+      healthCheckTypes: { 'type': 'array', 'itemType': 'string' },
       launchTemplateId: 'string',
       launchTemplateOverrides: { 'type': 'array', 'itemType': ModifyScalingGroupRequestLaunchTemplateOverrides },
       launchTemplateVersion: 'string',
@@ -11558,6 +11564,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
   groupDeletionProtection?: boolean;
   groupType?: string;
   healthCheckType?: string;
+  healthCheckTypes?: string[];
   initCapacity?: number;
   isElasticStrengthInAlarm?: boolean;
   launchTemplateId?: string;
@@ -11618,6 +11625,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
       groupDeletionProtection: 'GroupDeletionProtection',
       groupType: 'GroupType',
       healthCheckType: 'HealthCheckType',
+      healthCheckTypes: 'HealthCheckTypes',
       initCapacity: 'InitCapacity',
       isElasticStrengthInAlarm: 'IsElasticStrengthInAlarm',
       launchTemplateId: 'LaunchTemplateId',
@@ -11681,6 +11689,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
       groupDeletionProtection: 'boolean',
       groupType: 'string',
       healthCheckType: 'string',
+      healthCheckTypes: { 'type': 'array', 'itemType': 'string' },
       initCapacity: 'number',
       isElasticStrengthInAlarm: 'boolean',
       launchTemplateId: 'string',
@@ -15499,6 +15508,10 @@ export default class Client extends OpenApi {
       query["HealthCheckType"] = request.healthCheckType;
     }
 
+    if (!Util.isUnset(request.healthCheckTypes)) {
+      query["HealthCheckTypes"] = request.healthCheckTypes;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -19010,6 +19023,24 @@ export default class Client extends OpenApi {
     return await this.modifyScalingConfigurationWithOptions(request, runtime);
   }
 
+  /**
+    * *   You cannot call this operation to modify the settings of the following parameters:
+    *     *   RegionId
+    *     *   LoadBalancerId
+    * > If you want to change the CLB instances that are associated with your scaling group, call the AttachLoadBalancers and DetachLoadBalancers operations.
+    *     *   DBInstanceId
+    *     **
+    *     **Note**If you want to change the ApsaraDB RDS instances that are associated with your scaling group, call the AttachDBInstances and DetachDBInstances operations.
+    * *   You can modify only scaling groups that are in the Active or Inactive state.
+    * *   If you enable a new scaling configuration, Elastic Compute Service (ECS) instances that are created based on the previous scaling configuration still run as expected in the scaling group.
+    * *   If the total number of instances in the scaling group is greater than the allowed maximum number after you change the value of the MaxSize parameter, Auto Scaling automatically removes instances from the scaling group to ensure that the number of instances is within the new range.
+    * *   If the total number of instances in the scaling group is less than the allowed minimum number after you change the value of the MinSize parameter, Auto Scaling automatically adds instances to the scaling group to ensure that the number of instances is within the new range.
+    * *   If the total number of instances in the scaling group does not match the expected number of instances after you change the value of the DesiredCapacity parameter, Auto Scaling automatically adds instances to or removes instances from the scaling group to ensure that the number of instances matches the value of the DesiredCapacity parameter.
+    *
+    * @param request ModifyScalingGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyScalingGroupResponse
+   */
   async modifyScalingGroupWithOptions(request: ModifyScalingGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyScalingGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19051,6 +19082,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.healthCheckType)) {
       query["HealthCheckType"] = request.healthCheckType;
+    }
+
+    if (!Util.isUnset(request.healthCheckTypes)) {
+      query["HealthCheckTypes"] = request.healthCheckTypes;
     }
 
     if (!Util.isUnset(request.launchTemplateId)) {
@@ -19150,6 +19185,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyScalingGroupResponse>(await this.callApi(params, req, runtime), new ModifyScalingGroupResponse({}));
   }
 
+  /**
+    * *   You cannot call this operation to modify the settings of the following parameters:
+    *     *   RegionId
+    *     *   LoadBalancerId
+    * > If you want to change the CLB instances that are associated with your scaling group, call the AttachLoadBalancers and DetachLoadBalancers operations.
+    *     *   DBInstanceId
+    *     **
+    *     **Note**If you want to change the ApsaraDB RDS instances that are associated with your scaling group, call the AttachDBInstances and DetachDBInstances operations.
+    * *   You can modify only scaling groups that are in the Active or Inactive state.
+    * *   If you enable a new scaling configuration, Elastic Compute Service (ECS) instances that are created based on the previous scaling configuration still run as expected in the scaling group.
+    * *   If the total number of instances in the scaling group is greater than the allowed maximum number after you change the value of the MaxSize parameter, Auto Scaling automatically removes instances from the scaling group to ensure that the number of instances is within the new range.
+    * *   If the total number of instances in the scaling group is less than the allowed minimum number after you change the value of the MinSize parameter, Auto Scaling automatically adds instances to the scaling group to ensure that the number of instances is within the new range.
+    * *   If the total number of instances in the scaling group does not match the expected number of instances after you change the value of the DesiredCapacity parameter, Auto Scaling automatically adds instances to or removes instances from the scaling group to ensure that the number of instances matches the value of the DesiredCapacity parameter.
+    *
+    * @param request ModifyScalingGroupRequest
+    * @return ModifyScalingGroupResponse
+   */
   async modifyScalingGroup(request: ModifyScalingGroupRequest): Promise<ModifyScalingGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyScalingGroupWithOptions(request, runtime);
