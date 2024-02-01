@@ -28012,7 +28012,7 @@ export class ListUserKeysResponseBodyResult extends $tea.Model {
   keyScope?: string;
   lastUsedTime?: string;
   publicKey?: string;
-  tittle?: string;
+  title?: string;
   static names(): { [key: string]: string } {
     return {
       createdAt: 'createdAt',
@@ -28022,7 +28022,7 @@ export class ListUserKeysResponseBodyResult extends $tea.Model {
       keyScope: 'keyScope',
       lastUsedTime: 'lastUsedTime',
       publicKey: 'publicKey',
-      tittle: 'tittle',
+      title: 'title',
     };
   }
 
@@ -28035,7 +28035,7 @@ export class ListUserKeysResponseBodyResult extends $tea.Model {
       keyScope: 'string',
       lastUsedTime: 'string',
       publicKey: 'string',
-      tittle: 'string',
+      title: 'string',
     };
   }
 
