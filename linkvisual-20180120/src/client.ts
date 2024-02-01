@@ -71,9 +71,9 @@ export class AddEventRecordPlanDeviceResponseBody extends $tea.Model {
 }
 
 export class AddEventRecordPlanDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddEventRecordPlanDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddEventRecordPlanDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -149,9 +149,9 @@ export class AddFaceDeviceGroupResponseBody extends $tea.Model {
 }
 
 export class AddFaceDeviceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddFaceDeviceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddFaceDeviceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -233,9 +233,9 @@ export class AddFaceDeviceToDeviceGroupResponseBody extends $tea.Model {
 }
 
 export class AddFaceDeviceToDeviceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddFaceDeviceToDeviceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddFaceDeviceToDeviceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -320,9 +320,9 @@ export class AddFaceUserResponseBody extends $tea.Model {
 }
 
 export class AddFaceUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddFaceUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddFaceUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -398,9 +398,9 @@ export class AddFaceUserGroupResponseBody extends $tea.Model {
 }
 
 export class AddFaceUserGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddFaceUserGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddFaceUserGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -485,9 +485,9 @@ export class AddFaceUserGroupAndDeviceGroupRelationResponseBody extends $tea.Mod
 }
 
 export class AddFaceUserGroupAndDeviceGroupRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddFaceUserGroupAndDeviceGroupRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddFaceUserGroupAndDeviceGroupRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -566,9 +566,9 @@ export class AddFaceUserPictureResponseBody extends $tea.Model {
 }
 
 export class AddFaceUserPictureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddFaceUserPictureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddFaceUserPictureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -644,9 +644,9 @@ export class AddFaceUserToUserGroupResponseBody extends $tea.Model {
 }
 
 export class AddFaceUserToUserGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddFaceUserToUserGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddFaceUserToUserGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -731,9 +731,9 @@ export class AddRecordPlanDeviceResponseBody extends $tea.Model {
 }
 
 export class AddRecordPlanDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddRecordPlanDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddRecordPlanDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -815,9 +815,9 @@ export class BatchQueryVisionDeviceInfoResponseBody extends $tea.Model {
 }
 
 export class BatchQueryVisionDeviceInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchQueryVisionDeviceInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchQueryVisionDeviceInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -893,9 +893,9 @@ export class BindPictureSearchAppWithDevicesResponseBody extends $tea.Model {
 }
 
 export class BindPictureSearchAppWithDevicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BindPictureSearchAppWithDevicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindPictureSearchAppWithDevicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -980,9 +980,9 @@ export class CheckFaceUserDoExistOnDeviceResponseBody extends $tea.Model {
 }
 
 export class CheckFaceUserDoExistOnDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckFaceUserDoExistOnDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckFaceUserDoExistOnDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1064,9 +1064,9 @@ export class ClearFaceDeviceDBResponseBody extends $tea.Model {
 }
 
 export class ClearFaceDeviceDBResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ClearFaceDeviceDBResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ClearFaceDeviceDBResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1151,9 +1151,9 @@ export class CreateEventRecordPlanResponseBody extends $tea.Model {
 }
 
 export class CreateEventRecordPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEventRecordPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEventRecordPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1250,9 +1250,9 @@ export class CreateGbDeviceResponseBody extends $tea.Model {
 }
 
 export class CreateGbDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateGbDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateGbDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1328,9 +1328,9 @@ export class CreateLocalFileUploadJobResponseBody extends $tea.Model {
 }
 
 export class CreateLocalFileUploadJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLocalFileUploadJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLocalFileUploadJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1421,9 +1421,9 @@ export class CreateLocalRecordDownloadByTimeJobResponseBody extends $tea.Model {
 }
 
 export class CreateLocalRecordDownloadByTimeJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLocalRecordDownloadByTimeJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLocalRecordDownloadByTimeJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1502,9 +1502,9 @@ export class CreatePictureSearchAppResponseBody extends $tea.Model {
 }
 
 export class CreatePictureSearchAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePictureSearchAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePictureSearchAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1595,9 +1595,9 @@ export class CreatePictureSearchJobResponseBody extends $tea.Model {
 }
 
 export class CreatePictureSearchJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePictureSearchJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePictureSearchJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1691,9 +1691,9 @@ export class CreateRecordDownloadByTimeJobResponseBody extends $tea.Model {
 }
 
 export class CreateRecordDownloadByTimeJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRecordDownloadByTimeJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRecordDownloadByTimeJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1769,9 +1769,9 @@ export class CreateRecordPlanResponseBody extends $tea.Model {
 }
 
 export class CreateRecordPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRecordPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRecordPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1868,9 +1868,9 @@ export class CreateRtmpDeviceResponseBody extends $tea.Model {
 }
 
 export class CreateRtmpDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRtmpDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRtmpDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1884,6 +1884,186 @@ export class CreateRtmpDeviceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateRtmpDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStreamPushJobRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  jobType?: number;
+  productKey?: string;
+  pushUrl?: string;
+  streamType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      jobType: 'JobType',
+      productKey: 'ProductKey',
+      pushUrl: 'PushUrl',
+      streamType: 'StreamType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      jobType: 'number',
+      productKey: 'string',
+      pushUrl: 'string',
+      streamType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStreamPushJobResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateStreamPushJobResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateStreamPushJobResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStreamPushJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateStreamPushJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateStreamPushJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStreamSnapshotJobRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  snapshotInterval?: number;
+  streamType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      snapshotInterval: 'SnapshotInterval',
+      streamType: 'StreamType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+      snapshotInterval: 'number',
+      streamType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStreamSnapshotJobResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStreamSnapshotJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateStreamSnapshotJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateStreamSnapshotJobResponseBody,
     };
   }
 
@@ -1949,9 +2129,9 @@ export class CreateTimeTemplateResponseBody extends $tea.Model {
 }
 
 export class CreateTimeTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTimeTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTimeTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2021,9 +2201,9 @@ export class DeleteEventRecordPlanResponseBody extends $tea.Model {
 }
 
 export class DeleteEventRecordPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEventRecordPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEventRecordPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2105,9 +2285,9 @@ export class DeleteEventRecordPlanDeviceResponseBody extends $tea.Model {
 }
 
 export class DeleteEventRecordPlanDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEventRecordPlanDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEventRecordPlanDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2180,9 +2360,9 @@ export class DeleteFaceDeviceGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteFaceDeviceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFaceDeviceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFaceDeviceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2255,9 +2435,9 @@ export class DeleteFaceUserResponseBody extends $tea.Model {
 }
 
 export class DeleteFaceUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFaceUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFaceUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2330,9 +2510,9 @@ export class DeleteFaceUserGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteFaceUserGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFaceUserGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFaceUserGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2405,9 +2585,9 @@ export class DeleteFaceUserGroupAndDeviceGroupRelationResponseBody extends $tea.
 }
 
 export class DeleteFaceUserGroupAndDeviceGroupRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFaceUserGroupAndDeviceGroupRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFaceUserGroupAndDeviceGroupRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2483,9 +2663,9 @@ export class DeleteFaceUserPictureResponseBody extends $tea.Model {
 }
 
 export class DeleteFaceUserPictureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFaceUserPictureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFaceUserPictureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2564,9 +2744,9 @@ export class DeleteGbDeviceResponseBody extends $tea.Model {
 }
 
 export class DeleteGbDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteGbDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteGbDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2642,9 +2822,9 @@ export class DeleteLocalFileUploadJobResponseBody extends $tea.Model {
 }
 
 export class DeleteLocalFileUploadJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteLocalFileUploadJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLocalFileUploadJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2729,9 +2909,9 @@ export class DeletePictureResponseBody extends $tea.Model {
 }
 
 export class DeletePictureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePictureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePictureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2816,9 +2996,9 @@ export class DeleteRecordResponseBody extends $tea.Model {
 }
 
 export class DeleteRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2888,9 +3068,9 @@ export class DeleteRecordPlanResponseBody extends $tea.Model {
 }
 
 export class DeleteRecordPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRecordPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRecordPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2972,9 +3152,9 @@ export class DeleteRecordPlanDeviceResponseBody extends $tea.Model {
 }
 
 export class DeleteRecordPlanDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRecordPlanDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRecordPlanDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3053,9 +3233,9 @@ export class DeleteRtmpDeviceResponseBody extends $tea.Model {
 }
 
 export class DeleteRtmpDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRtmpDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRtmpDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3137,9 +3317,9 @@ export class DeleteRtmpKeyResponseBody extends $tea.Model {
 }
 
 export class DeleteRtmpKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRtmpKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRtmpKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3153,6 +3333,174 @@ export class DeleteRtmpKeyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteRtmpKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStreamPushJobRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  jobId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      jobId: 'JobId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      jobId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStreamPushJobResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStreamPushJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteStreamPushJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteStreamPushJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStreamSnapshotJobRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  streamType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      streamType: 'StreamType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+      streamType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStreamSnapshotJobResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStreamSnapshotJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteStreamSnapshotJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteStreamSnapshotJobResponseBody,
     };
   }
 
@@ -3209,9 +3557,9 @@ export class DeleteTimeTemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteTimeTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTimeTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTimeTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3284,9 +3632,9 @@ export class DetectUserFaceByUrlResponseBody extends $tea.Model {
 }
 
 export class DetectUserFaceByUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetectUserFaceByUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetectUserFaceByUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3371,9 +3719,9 @@ export class EnableGbSubDeviceResponseBody extends $tea.Model {
 }
 
 export class EnableGbSubDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableGbSubDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableGbSubDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3449,9 +3797,9 @@ export class GetPictureSearchJobStatusResponseBody extends $tea.Model {
 }
 
 export class GetPictureSearchJobStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPictureSearchJobStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPictureSearchJobStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3548,9 +3896,9 @@ export class PictureSearchPictureResponseBody extends $tea.Model {
 }
 
 export class PictureSearchPictureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PictureSearchPictureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PictureSearchPictureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3653,9 +4001,9 @@ export class QueryCarProcessEventsResponseBody extends $tea.Model {
 }
 
 export class QueryCarProcessEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCarProcessEventsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCarProcessEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3752,9 +4100,9 @@ export class QueryDeviceEventResponseBody extends $tea.Model {
 }
 
 export class QueryDeviceEventResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDeviceEventResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDeviceEventResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3839,9 +4187,9 @@ export class QueryDeviceEventPictureResponseBody extends $tea.Model {
 }
 
 export class QueryDeviceEventPictureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDeviceEventPictureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDeviceEventPictureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3926,9 +4274,9 @@ export class QueryDeviceEventRecordResponseBody extends $tea.Model {
 }
 
 export class QueryDeviceEventRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDeviceEventRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDeviceEventRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4022,9 +4370,9 @@ export class QueryDevicePictureByListResponseBody extends $tea.Model {
 }
 
 export class QueryDevicePictureByListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDevicePictureByListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDevicePictureByListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4118,9 +4466,9 @@ export class QueryDevicePictureFileResponseBody extends $tea.Model {
 }
 
 export class QueryDevicePictureFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDevicePictureFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDevicePictureFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4193,9 +4541,9 @@ export class QueryDevicePictureLifeCycleResponseBody extends $tea.Model {
 }
 
 export class QueryDevicePictureLifeCycleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDevicePictureLifeCycleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDevicePictureLifeCycleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4268,9 +4616,9 @@ export class QueryDeviceRecordLifeCycleResponseBody extends $tea.Model {
 }
 
 export class QueryDeviceRecordLifeCycleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDeviceRecordLifeCycleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDeviceRecordLifeCycleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4376,9 +4724,9 @@ export class QueryDeviceVodUrlResponseBody extends $tea.Model {
 }
 
 export class QueryDeviceVodUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDeviceVodUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDeviceVodUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4487,9 +4835,9 @@ export class QueryDeviceVodUrlByTimeResponseBody extends $tea.Model {
 }
 
 export class QueryDeviceVodUrlByTimeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDeviceVodUrlByTimeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDeviceVodUrlByTimeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4562,9 +4910,9 @@ export class QueryEventRecordPlanDetailResponseBody extends $tea.Model {
 }
 
 export class QueryEventRecordPlanDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryEventRecordPlanDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryEventRecordPlanDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4649,9 +4997,9 @@ export class QueryEventRecordPlanDeviceByDeviceResponseBody extends $tea.Model {
 }
 
 export class QueryEventRecordPlanDeviceByDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryEventRecordPlanDeviceByDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryEventRecordPlanDeviceByDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4730,9 +5078,9 @@ export class QueryEventRecordPlanDeviceByPlanResponseBody extends $tea.Model {
 }
 
 export class QueryEventRecordPlanDeviceByPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryEventRecordPlanDeviceByPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryEventRecordPlanDeviceByPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4808,9 +5156,9 @@ export class QueryEventRecordPlansResponseBody extends $tea.Model {
 }
 
 export class QueryEventRecordPlansResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryEventRecordPlansResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryEventRecordPlansResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4892,9 +5240,9 @@ export class QueryFaceAllDeviceGroupResponseBody extends $tea.Model {
 }
 
 export class QueryFaceAllDeviceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFaceAllDeviceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFaceAllDeviceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4973,9 +5321,9 @@ export class QueryFaceAllUserGroupResponseBody extends $tea.Model {
 }
 
 export class QueryFaceAllUserGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFaceAllUserGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFaceAllUserGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5054,9 +5402,9 @@ export class QueryFaceAllUserGroupAndDeviceGroupRelationResponseBody extends $te
 }
 
 export class QueryFaceAllUserGroupAndDeviceGroupRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFaceAllUserGroupAndDeviceGroupRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFaceAllUserGroupAndDeviceGroupRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5138,9 +5486,9 @@ export class QueryFaceAllUserIdsByGroupIdResponseBody extends $tea.Model {
 }
 
 export class QueryFaceAllUserIdsByGroupIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFaceAllUserIdsByGroupIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFaceAllUserIdsByGroupIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5216,9 +5564,9 @@ export class QueryFaceCustomUserIdByUserIdResponseBody extends $tea.Model {
 }
 
 export class QueryFaceCustomUserIdByUserIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFaceCustomUserIdByUserIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFaceCustomUserIdByUserIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5306,9 +5654,9 @@ export class QueryFaceDeviceGroupsByDeviceResponseBody extends $tea.Model {
 }
 
 export class QueryFaceDeviceGroupsByDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFaceDeviceGroupsByDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFaceDeviceGroupsByDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5384,9 +5732,9 @@ export class QueryFaceUserResponseBody extends $tea.Model {
 }
 
 export class QueryFaceUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFaceUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFaceUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5462,9 +5810,9 @@ export class QueryFaceUserBatchResponseBody extends $tea.Model {
 }
 
 export class QueryFaceUserBatchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFaceUserBatchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFaceUserBatchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5549,9 +5897,9 @@ export class QueryFaceUserByNameResponseBody extends $tea.Model {
 }
 
 export class QueryFaceUserByNameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFaceUserByNameResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFaceUserByNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5633,9 +5981,9 @@ export class QueryFaceUserGroupResponseBody extends $tea.Model {
 }
 
 export class QueryFaceUserGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFaceUserGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFaceUserGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5711,9 +6059,9 @@ export class QueryFaceUserGroupAndDeviceGroupRelationResponseBody extends $tea.M
 }
 
 export class QueryFaceUserGroupAndDeviceGroupRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFaceUserGroupAndDeviceGroupRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFaceUserGroupAndDeviceGroupRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5789,9 +6137,9 @@ export class QueryFaceUserIdByCustomUserIdResponseBody extends $tea.Model {
 }
 
 export class QueryFaceUserIdByCustomUserIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFaceUserIdByCustomUserIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFaceUserIdByCustomUserIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5879,9 +6227,9 @@ export class QueryGbSubDeviceListResponseBody extends $tea.Model {
 }
 
 export class QueryGbSubDeviceListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryGbSubDeviceListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryGbSubDeviceListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5990,9 +6338,9 @@ export class QueryLiveStreamingResponseBody extends $tea.Model {
 }
 
 export class QueryLiveStreamingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryLiveStreamingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryLiveStreamingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6068,9 +6416,9 @@ export class QueryLocalFileUploadJobResponseBody extends $tea.Model {
 }
 
 export class QueryLocalFileUploadJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryLocalFileUploadJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryLocalFileUploadJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6155,9 +6503,9 @@ export class QueryMonthRecordResponseBody extends $tea.Model {
 }
 
 export class QueryMonthRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMonthRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMonthRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6257,9 +6605,9 @@ export class QueryPictureFilesResponseBody extends $tea.Model {
 }
 
 export class QueryPictureFilesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPictureFilesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPictureFilesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6341,9 +6689,9 @@ export class QueryPictureSearchAiboxesResponseBody extends $tea.Model {
 }
 
 export class QueryPictureSearchAiboxesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPictureSearchAiboxesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPictureSearchAiboxesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6422,9 +6770,9 @@ export class QueryPictureSearchAppsResponseBody extends $tea.Model {
 }
 
 export class QueryPictureSearchAppsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPictureSearchAppsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPictureSearchAppsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6503,9 +6851,9 @@ export class QueryPictureSearchDevicesResponseBody extends $tea.Model {
 }
 
 export class QueryPictureSearchDevicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPictureSearchDevicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPictureSearchDevicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6587,9 +6935,9 @@ export class QueryPictureSearchJobResponseBody extends $tea.Model {
 }
 
 export class QueryPictureSearchJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPictureSearchJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPictureSearchJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6671,9 +7019,9 @@ export class QueryPictureSearchJobResultResponseBody extends $tea.Model {
 }
 
 export class QueryPictureSearchJobResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPictureSearchJobResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPictureSearchJobResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6776,9 +7124,9 @@ export class QueryRecordResponseBody extends $tea.Model {
 }
 
 export class QueryRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6863,9 +7211,9 @@ export class QueryRecordByRecordIdResponseBody extends $tea.Model {
 }
 
 export class QueryRecordByRecordIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRecordByRecordIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecordByRecordIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6941,9 +7289,9 @@ export class QueryRecordDownloadJobByIdResponseBody extends $tea.Model {
 }
 
 export class QueryRecordDownloadJobByIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRecordDownloadJobByIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecordDownloadJobByIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7031,9 +7379,9 @@ export class QueryRecordDownloadJobListResponseBody extends $tea.Model {
 }
 
 export class QueryRecordDownloadJobListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRecordDownloadJobListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecordDownloadJobListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7118,9 +7466,9 @@ export class QueryRecordDownloadUrlResponseBody extends $tea.Model {
 }
 
 export class QueryRecordDownloadUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRecordDownloadUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecordDownloadUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7193,9 +7541,9 @@ export class QueryRecordPlanDetailResponseBody extends $tea.Model {
 }
 
 export class QueryRecordPlanDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRecordPlanDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecordPlanDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7280,9 +7628,9 @@ export class QueryRecordPlanDeviceByDeviceResponseBody extends $tea.Model {
 }
 
 export class QueryRecordPlanDeviceByDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRecordPlanDeviceByDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecordPlanDeviceByDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7361,9 +7709,9 @@ export class QueryRecordPlanDeviceByPlanResponseBody extends $tea.Model {
 }
 
 export class QueryRecordPlanDeviceByPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRecordPlanDeviceByPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecordPlanDeviceByPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7439,9 +7787,9 @@ export class QueryRecordPlansResponseBody extends $tea.Model {
 }
 
 export class QueryRecordPlansResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRecordPlansResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecordPlansResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7532,9 +7880,9 @@ export class QueryRecordUrlResponseBody extends $tea.Model {
 }
 
 export class QueryRecordUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRecordUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecordUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7628,9 +7976,9 @@ export class QueryRecordUrlByTimeResponseBody extends $tea.Model {
 }
 
 export class QueryRecordUrlByTimeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRecordUrlByTimeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecordUrlByTimeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7712,9 +8060,9 @@ export class QueryRtmpKeyResponseBody extends $tea.Model {
 }
 
 export class QueryRtmpKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRtmpKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRtmpKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7728,6 +8076,270 @@ export class QueryRtmpKeyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryRtmpKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStreamPushJobRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  jobId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      jobId: 'JobId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      jobId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStreamPushJobResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryStreamPushJobResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryStreamPushJobResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStreamPushJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryStreamPushJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryStreamPushJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStreamPushJobListRequest extends $tea.Model {
+  currentPage?: number;
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  jobType?: number;
+  pageSize?: number;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      jobType: 'JobType',
+      pageSize: 'PageSize',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      jobType: 'number',
+      pageSize: 'number',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStreamPushJobListResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryStreamPushJobListResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryStreamPushJobListResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStreamPushJobListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryStreamPushJobListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryStreamPushJobListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStreamSnapshotJobRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStreamSnapshotJobResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryStreamSnapshotJobResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryStreamSnapshotJobResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStreamSnapshotJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryStreamSnapshotJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryStreamSnapshotJobResponseBody,
     };
   }
 
@@ -7790,9 +8402,9 @@ export class QueryTimeTemplateResponseBody extends $tea.Model {
 }
 
 export class QueryTimeTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTimeTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTimeTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7865,9 +8477,9 @@ export class QueryTimeTemplateDetailResponseBody extends $tea.Model {
 }
 
 export class QueryTimeTemplateDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTimeTemplateDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTimeTemplateDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7949,9 +8561,9 @@ export class QueryVisionDeviceInfoResponseBody extends $tea.Model {
 }
 
 export class QueryVisionDeviceInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryVisionDeviceInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryVisionDeviceInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8036,9 +8648,9 @@ export class QueryVoiceIntercomResponseBody extends $tea.Model {
 }
 
 export class QueryVoiceIntercomResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryVoiceIntercomResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryVoiceIntercomResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8117,9 +8729,9 @@ export class RefreshGbSubDeviceListResponseBody extends $tea.Model {
 }
 
 export class RefreshGbSubDeviceListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefreshGbSubDeviceListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefreshGbSubDeviceListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8201,9 +8813,9 @@ export class RemoveFaceDeviceFromDeviceGroupResponseBody extends $tea.Model {
 }
 
 export class RemoveFaceDeviceFromDeviceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveFaceDeviceFromDeviceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveFaceDeviceFromDeviceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8279,9 +8891,9 @@ export class RemoveFaceUserFromUserGroupResponseBody extends $tea.Model {
 }
 
 export class RemoveFaceUserFromUserGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveFaceUserFromUserGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveFaceUserFromUserGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8363,9 +8975,9 @@ export class SetDevicePictureLifeCycleResponseBody extends $tea.Model {
 }
 
 export class SetDevicePictureLifeCycleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetDevicePictureLifeCycleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetDevicePictureLifeCycleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8447,9 +9059,9 @@ export class SetDeviceRecordLifeCycleResponseBody extends $tea.Model {
 }
 
 export class SetDeviceRecordLifeCycleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetDeviceRecordLifeCycleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetDeviceRecordLifeCycleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8531,9 +9143,9 @@ export class StopLiveStreamingResponseBody extends $tea.Model {
 }
 
 export class StopLiveStreamingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopLiveStreamingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopLiveStreamingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8615,9 +9227,9 @@ export class StopTriggeredRecordResponseBody extends $tea.Model {
 }
 
 export class StopTriggeredRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopTriggeredRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopTriggeredRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8699,9 +9311,9 @@ export class TransferDeviceInstanceResponseBody extends $tea.Model {
 }
 
 export class TransferDeviceInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TransferDeviceInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransferDeviceInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8783,9 +9395,9 @@ export class TriggerCapturePictureResponseBody extends $tea.Model {
 }
 
 export class TriggerCapturePictureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TriggerCapturePictureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TriggerCapturePictureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8876,9 +9488,9 @@ export class TriggerRecordResponseBody extends $tea.Model {
 }
 
 export class TriggerRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TriggerRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TriggerRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8954,9 +9566,9 @@ export class UnbindPictureSearchAppWithDevicesResponseBody extends $tea.Model {
 }
 
 export class UnbindPictureSearchAppWithDevicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnbindPictureSearchAppWithDevicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindPictureSearchAppWithDevicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9041,9 +9653,9 @@ export class UpdateEventRecordPlanResponseBody extends $tea.Model {
 }
 
 export class UpdateEventRecordPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateEventRecordPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEventRecordPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9128,9 +9740,9 @@ export class UpdateFaceUserResponseBody extends $tea.Model {
 }
 
 export class UpdateFaceUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateFaceUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateFaceUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9209,9 +9821,9 @@ export class UpdateFaceUserGroupAndDeviceGroupRelationResponseBody extends $tea.
 }
 
 export class UpdateFaceUserGroupAndDeviceGroupRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateFaceUserGroupAndDeviceGroupRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateFaceUserGroupAndDeviceGroupRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9299,9 +9911,9 @@ export class UpdateGbDeviceResponseBody extends $tea.Model {
 }
 
 export class UpdateGbDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateGbDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateGbDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9377,9 +9989,9 @@ export class UpdateInstanceInternetProtocolResponseBody extends $tea.Model {
 }
 
 export class UpdateInstanceInternetProtocolResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateInstanceInternetProtocolResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceInternetProtocolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9455,9 +10067,9 @@ export class UpdatePictureSearchAppResponseBody extends $tea.Model {
 }
 
 export class UpdatePictureSearchAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePictureSearchAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePictureSearchAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9533,9 +10145,9 @@ export class UpdateRecordPlanResponseBody extends $tea.Model {
 }
 
 export class UpdateRecordPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateRecordPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRecordPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9626,9 +10238,9 @@ export class UpdateRtmpKeyResponseBody extends $tea.Model {
 }
 
 export class UpdateRtmpKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateRtmpKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRtmpKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9707,9 +10319,9 @@ export class UpdateTimeTemplateResponseBody extends $tea.Model {
 }
 
 export class UpdateTimeTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTimeTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTimeTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10098,6 +10710,25 @@ export class CreateRtmpDeviceResponseBodyData extends $tea.Model {
       deviceName: 'string',
       iotId: 'string',
       streamName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStreamPushJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
     };
   }
 
@@ -12836,6 +13467,134 @@ export class QueryRtmpKeyResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryStreamPushJobResponseBodyData extends $tea.Model {
+  createTime?: number;
+  jobType?: number;
+  pushStatus?: number;
+  pushUrl?: string;
+  streamType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      jobType: 'JobType',
+      pushStatus: 'PushStatus',
+      pushUrl: 'PushUrl',
+      streamType: 'StreamType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      jobType: 'number',
+      pushStatus: 'number',
+      pushUrl: 'string',
+      streamType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStreamPushJobListResponseBodyDataJobList extends $tea.Model {
+  createTime?: number;
+  jobId?: string;
+  jobType?: number;
+  pushStatus?: number;
+  pushUrl?: string;
+  streamType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      jobId: 'JobId',
+      jobType: 'JobType',
+      pushStatus: 'PushStatus',
+      pushUrl: 'PushUrl',
+      streamType: 'StreamType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      jobId: 'string',
+      jobType: 'number',
+      pushStatus: 'number',
+      pushUrl: 'string',
+      streamType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStreamPushJobListResponseBodyData extends $tea.Model {
+  jobList?: QueryStreamPushJobListResponseBodyDataJobList[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobList: 'JobList',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobList: { 'type': 'array', 'itemType': QueryStreamPushJobListResponseBodyDataJobList },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStreamSnapshotJobResponseBodyDataJobList extends $tea.Model {
+  snapshotInterval?: number;
+  streamType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      snapshotInterval: 'SnapshotInterval',
+      streamType: 'StreamType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      snapshotInterval: 'number',
+      streamType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStreamSnapshotJobResponseBodyData extends $tea.Model {
+  jobList?: QueryStreamSnapshotJobResponseBodyDataJobList[];
+  static names(): { [key: string]: string } {
+    return {
+      jobList: 'JobList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobList: { 'type': 'array', 'itemType': QueryStreamSnapshotJobResponseBodyDataJobList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryTimeTemplateResponseBodyDataListTimeSectionList extends $tea.Model {
   begin?: number;
   dayOfWeek?: number;
@@ -14282,6 +15041,108 @@ export default class Client extends OpenApi {
     return await this.createRtmpDeviceWithOptions(request, runtime);
   }
 
+  async createStreamPushJobWithOptions(request: CreateStreamPushJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateStreamPushJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.pushUrl)) {
+      query["PushUrl"] = request.pushUrl;
+    }
+
+    if (!Util.isUnset(request.streamType)) {
+      query["StreamType"] = request.streamType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateStreamPushJob",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateStreamPushJobResponse>(await this.callApi(params, req, runtime), new CreateStreamPushJobResponse({}));
+  }
+
+  async createStreamPushJob(request: CreateStreamPushJobRequest): Promise<CreateStreamPushJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createStreamPushJobWithOptions(request, runtime);
+  }
+
+  async createStreamSnapshotJobWithOptions(request: CreateStreamSnapshotJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateStreamSnapshotJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.snapshotInterval)) {
+      query["SnapshotInterval"] = request.snapshotInterval;
+    }
+
+    if (!Util.isUnset(request.streamType)) {
+      query["StreamType"] = request.streamType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateStreamSnapshotJob",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateStreamSnapshotJobResponse>(await this.callApi(params, req, runtime), new CreateStreamSnapshotJobResponse({}));
+  }
+
+  async createStreamSnapshotJob(request: CreateStreamSnapshotJobRequest): Promise<CreateStreamSnapshotJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createStreamSnapshotJobWithOptions(request, runtime);
+  }
+
   async createTimeTemplateWithOptions(request: CreateTimeTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateTimeTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14884,6 +15745,96 @@ export default class Client extends OpenApi {
   async deleteRtmpKey(request: DeleteRtmpKeyRequest): Promise<DeleteRtmpKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRtmpKeyWithOptions(request, runtime);
+  }
+
+  async deleteStreamPushJobWithOptions(request: DeleteStreamPushJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStreamPushJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteStreamPushJob",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteStreamPushJobResponse>(await this.callApi(params, req, runtime), new DeleteStreamPushJobResponse({}));
+  }
+
+  async deleteStreamPushJob(request: DeleteStreamPushJobRequest): Promise<DeleteStreamPushJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteStreamPushJobWithOptions(request, runtime);
+  }
+
+  async deleteStreamSnapshotJobWithOptions(request: DeleteStreamSnapshotJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStreamSnapshotJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.streamType)) {
+      query["StreamType"] = request.streamType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteStreamSnapshotJob",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteStreamSnapshotJobResponse>(await this.callApi(params, req, runtime), new DeleteStreamSnapshotJobResponse({}));
+  }
+
+  async deleteStreamSnapshotJob(request: DeleteStreamSnapshotJobRequest): Promise<DeleteStreamSnapshotJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteStreamSnapshotJobWithOptions(request, runtime);
   }
 
   async deleteTimeTemplateWithOptions(request: DeleteTimeTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTimeTemplateResponse> {
@@ -17225,6 +18176,145 @@ export default class Client extends OpenApi {
   async queryRtmpKey(request: QueryRtmpKeyRequest): Promise<QueryRtmpKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRtmpKeyWithOptions(request, runtime);
+  }
+
+  async queryStreamPushJobWithOptions(request: QueryStreamPushJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryStreamPushJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryStreamPushJob",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryStreamPushJobResponse>(await this.callApi(params, req, runtime), new QueryStreamPushJobResponse({}));
+  }
+
+  async queryStreamPushJob(request: QueryStreamPushJobRequest): Promise<QueryStreamPushJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryStreamPushJobWithOptions(request, runtime);
+  }
+
+  async queryStreamPushJobListWithOptions(request: QueryStreamPushJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryStreamPushJobListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryStreamPushJobList",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryStreamPushJobListResponse>(await this.callApi(params, req, runtime), new QueryStreamPushJobListResponse({}));
+  }
+
+  async queryStreamPushJobList(request: QueryStreamPushJobListRequest): Promise<QueryStreamPushJobListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryStreamPushJobListWithOptions(request, runtime);
+  }
+
+  async queryStreamSnapshotJobWithOptions(request: QueryStreamSnapshotJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryStreamSnapshotJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryStreamSnapshotJob",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryStreamSnapshotJobResponse>(await this.callApi(params, req, runtime), new QueryStreamSnapshotJobResponse({}));
+  }
+
+  async queryStreamSnapshotJob(request: QueryStreamSnapshotJobRequest): Promise<QueryStreamSnapshotJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryStreamSnapshotJobWithOptions(request, runtime);
   }
 
   async queryTimeTemplateWithOptions(request: QueryTimeTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QueryTimeTemplateResponse> {
