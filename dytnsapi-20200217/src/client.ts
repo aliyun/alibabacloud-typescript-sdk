@@ -74,9 +74,9 @@ export class CertNoTwoElementVerificationResponseBody extends $tea.Model {
 }
 
 export class CertNoTwoElementVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CertNoTwoElementVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CertNoTwoElementVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -170,9 +170,9 @@ export class CompanyFourElementsVerificationResponseBody extends $tea.Model {
 }
 
 export class CompanyFourElementsVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CompanyFourElementsVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CompanyFourElementsVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -263,9 +263,9 @@ export class CompanyThreeElementsVerificationResponseBody extends $tea.Model {
 }
 
 export class CompanyThreeElementsVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CompanyThreeElementsVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CompanyThreeElementsVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -353,9 +353,9 @@ export class CompanyTwoElementsVerificationResponseBody extends $tea.Model {
 }
 
 export class CompanyTwoElementsVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CompanyTwoElementsVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CompanyTwoElementsVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -440,9 +440,9 @@ export class DescribeEmptyNumberResponseBody extends $tea.Model {
 }
 
 export class DescribeEmptyNumberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeEmptyNumberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEmptyNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -533,9 +533,9 @@ export class DescribePhoneNumberAnalysisResponseBody extends $tea.Model {
 }
 
 export class DescribePhoneNumberAnalysisResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePhoneNumberAnalysisResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePhoneNumberAnalysisResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -623,9 +623,9 @@ export class DescribePhoneNumberAnalysisAIResponseBody extends $tea.Model {
 }
 
 export class DescribePhoneNumberAnalysisAIResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePhoneNumberAnalysisAIResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePhoneNumberAnalysisAIResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -716,9 +716,9 @@ export class DescribePhoneNumberAnalysisTransparentResponseBody extends $tea.Mod
 }
 
 export class DescribePhoneNumberAnalysisTransparentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePhoneNumberAnalysisTransparentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePhoneNumberAnalysisTransparentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -797,9 +797,9 @@ export class DescribePhoneNumberAttributeResponseBody extends $tea.Model {
 }
 
 export class DescribePhoneNumberAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePhoneNumberAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePhoneNumberAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -887,9 +887,9 @@ export class DescribePhoneNumberOnlineTimeResponseBody extends $tea.Model {
 }
 
 export class DescribePhoneNumberOnlineTimeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePhoneNumberOnlineTimeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePhoneNumberOnlineTimeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -974,9 +974,9 @@ export class DescribePhoneNumberOperatorAttributeResponseBody extends $tea.Model
 }
 
 export class DescribePhoneNumberOperatorAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePhoneNumberOperatorAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePhoneNumberOperatorAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1064,9 +1064,9 @@ export class DescribePhoneNumberRiskResponseBody extends $tea.Model {
 }
 
 export class DescribePhoneNumberRiskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePhoneNumberRiskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePhoneNumberRiskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1154,9 +1154,9 @@ export class DescribePhoneTwiceTelVerifyResponseBody extends $tea.Model {
 }
 
 export class DescribePhoneTwiceTelVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePhoneTwiceTelVerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePhoneTwiceTelVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1259,9 +1259,9 @@ export class GetUAIDApplyTokenSignResponseBody extends $tea.Model {
 }
 
 export class GetUAIDApplyTokenSignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUAIDApplyTokenSignResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUAIDApplyTokenSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1346,9 +1346,9 @@ export class InvalidPhoneNumberFilterResponseBody extends $tea.Model {
 }
 
 export class InvalidPhoneNumberFilterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InvalidPhoneNumberFilterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InvalidPhoneNumberFilterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1433,9 +1433,9 @@ export class PhoneNumberConvertServiceResponseBody extends $tea.Model {
 }
 
 export class PhoneNumberConvertServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PhoneNumberConvertServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PhoneNumberConvertServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1520,9 +1520,9 @@ export class PhoneNumberEncryptResponseBody extends $tea.Model {
 }
 
 export class PhoneNumberEncryptResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PhoneNumberEncryptResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PhoneNumberEncryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1607,9 +1607,9 @@ export class PhoneNumberStatusForAccountResponseBody extends $tea.Model {
 }
 
 export class PhoneNumberStatusForAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PhoneNumberStatusForAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PhoneNumberStatusForAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1694,9 +1694,9 @@ export class PhoneNumberStatusForPublicResponseBody extends $tea.Model {
 }
 
 export class PhoneNumberStatusForPublicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PhoneNumberStatusForPublicResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PhoneNumberStatusForPublicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1781,9 +1781,9 @@ export class PhoneNumberStatusForRealResponseBody extends $tea.Model {
 }
 
 export class PhoneNumberStatusForRealResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PhoneNumberStatusForRealResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PhoneNumberStatusForRealResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1868,9 +1868,9 @@ export class PhoneNumberStatusForSmsResponseBody extends $tea.Model {
 }
 
 export class PhoneNumberStatusForSmsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PhoneNumberStatusForSmsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PhoneNumberStatusForSmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1955,9 +1955,9 @@ export class PhoneNumberStatusForVirtualResponseBody extends $tea.Model {
 }
 
 export class PhoneNumberStatusForVirtualResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PhoneNumberStatusForVirtualResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PhoneNumberStatusForVirtualResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2042,9 +2042,9 @@ export class PhoneNumberStatusForVoiceResponseBody extends $tea.Model {
 }
 
 export class PhoneNumberStatusForVoiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PhoneNumberStatusForVoiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PhoneNumberStatusForVoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2126,9 +2126,9 @@ export class QueryAvailableAuthCodeResponseBody extends $tea.Model {
 }
 
 export class QueryAvailableAuthCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryAvailableAuthCodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAvailableAuthCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2142,6 +2142,96 @@ export class QueryAvailableAuthCodeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryAvailableAuthCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPhoneNumberOnlineTimeRequest extends $tea.Model {
+  authCode?: string;
+  inputNumber?: string;
+  mask?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      inputNumber: 'InputNumber',
+      mask: 'Mask',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      inputNumber: 'string',
+      mask: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPhoneNumberOnlineTimeResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: QueryPhoneNumberOnlineTimeResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: QueryPhoneNumberOnlineTimeResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPhoneNumberOnlineTimeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPhoneNumberOnlineTimeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryPhoneNumberOnlineTimeResponseBody,
     };
   }
 
@@ -2210,9 +2300,9 @@ export class QueryTagApplyRuleResponseBody extends $tea.Model {
 }
 
 export class QueryTagApplyRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTagApplyRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTagApplyRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2300,9 +2390,9 @@ export class QueryTagInfoBySelectionResponseBody extends $tea.Model {
 }
 
 export class QueryTagInfoBySelectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTagInfoBySelectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTagInfoBySelectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2387,9 +2477,9 @@ export class QueryTagListPageResponseBody extends $tea.Model {
 }
 
 export class QueryTagListPageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTagListPageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTagListPageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2483,9 +2573,9 @@ export class QueryUsageStatisticsByTagIdResponseBody extends $tea.Model {
 }
 
 export class QueryUsageStatisticsByTagIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryUsageStatisticsByTagIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryUsageStatisticsByTagIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2576,9 +2666,9 @@ export class ThreeElementsVerificationResponseBody extends $tea.Model {
 }
 
 export class ThreeElementsVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ThreeElementsVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ThreeElementsVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2666,9 +2756,9 @@ export class TwoElementsVerificationResponseBody extends $tea.Model {
 }
 
 export class TwoElementsVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TwoElementsVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TwoElementsVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2768,9 +2858,9 @@ export class UAIDVerificationResponseBody extends $tea.Model {
 }
 
 export class UAIDVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UAIDVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UAIDVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3435,6 +3525,28 @@ export class PhoneNumberStatusForVoiceResponseBodyData extends $tea.Model {
     return {
       carrier: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPhoneNumberOnlineTimeResponseBodyData extends $tea.Model {
+  carrierCode?: string;
+  verifyResult?: number;
+  static names(): { [key: string]: string } {
+    return {
+      carrierCode: 'CarrierCode',
+      verifyResult: 'VerifyResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      carrierCode: 'string',
+      verifyResult: 'number',
     };
   }
 
@@ -5362,6 +5474,55 @@ export default class Client extends OpenApi {
   async queryAvailableAuthCode(request: QueryAvailableAuthCodeRequest): Promise<QueryAvailableAuthCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAvailableAuthCodeWithOptions(request, runtime);
+  }
+
+  async queryPhoneNumberOnlineTimeWithOptions(request: QueryPhoneNumberOnlineTimeRequest, runtime: $Util.RuntimeOptions): Promise<QueryPhoneNumberOnlineTimeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.inputNumber)) {
+      query["InputNumber"] = request.inputNumber;
+    }
+
+    if (!Util.isUnset(request.mask)) {
+      query["Mask"] = request.mask;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryPhoneNumberOnlineTime",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryPhoneNumberOnlineTimeResponse>(await this.callApi(params, req, runtime), new QueryPhoneNumberOnlineTimeResponse({}));
+  }
+
+  async queryPhoneNumberOnlineTime(request: QueryPhoneNumberOnlineTimeRequest): Promise<QueryPhoneNumberOnlineTimeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryPhoneNumberOnlineTimeWithOptions(request, runtime);
   }
 
   async queryTagApplyRuleWithOptions(request: QueryTagApplyRuleRequest, runtime: $Util.RuntimeOptions): Promise<QueryTagApplyRuleResponse> {
