@@ -65,9 +65,9 @@ export class AcceptInquiredSystemEventResponseBody extends $tea.Model {
 }
 
 export class AcceptInquiredSystemEventResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AcceptInquiredSystemEventResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AcceptInquiredSystemEventResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -140,9 +140,9 @@ export class ActivateRouterInterfaceResponseBody extends $tea.Model {
 }
 
 export class ActivateRouterInterfaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ActivateRouterInterfaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ActivateRouterInterfaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -224,9 +224,9 @@ export class AddBandwidthPackageIpsResponseBody extends $tea.Model {
 }
 
 export class AddBandwidthPackageIpsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddBandwidthPackageIpsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddBandwidthPackageIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -305,9 +305,9 @@ export class AddTagsResponseBody extends $tea.Model {
 }
 
 export class AddTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -443,9 +443,9 @@ export class AllocateDedicatedHostsResponseBody extends $tea.Model {
 }
 
 export class AllocateDedicatedHostsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AllocateDedicatedHostsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AllocateDedicatedHostsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -539,9 +539,9 @@ export class AllocateEipAddressResponseBody extends $tea.Model {
 }
 
 export class AllocateEipAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AllocateEipAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AllocateEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -623,9 +623,9 @@ export class AllocatePublicIpAddressResponseBody extends $tea.Model {
 }
 
 export class AllocatePublicIpAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AllocatePublicIpAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AllocatePublicIpAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -701,9 +701,9 @@ export class ApplyAutoSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class ApplyAutoSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ApplyAutoSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -803,9 +803,9 @@ export class AssignIpv6AddressesResponseBody extends $tea.Model {
 }
 
 export class AssignIpv6AddressesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssignIpv6AddressesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssignIpv6AddressesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -899,9 +899,9 @@ export class AssignPrivateIpAddressesResponseBody extends $tea.Model {
 }
 
 export class AssignPrivateIpAddressesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssignPrivateIpAddressesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssignPrivateIpAddressesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -983,9 +983,9 @@ export class AssociateEipAddressResponseBody extends $tea.Model {
 }
 
 export class AssociateEipAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssociateEipAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1067,9 +1067,9 @@ export class AssociateHaVipResponseBody extends $tea.Model {
 }
 
 export class AssociateHaVipResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssociateHaVipResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateHaVipResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1145,9 +1145,9 @@ export class AttachClassicLinkVpcResponseBody extends $tea.Model {
 }
 
 export class AttachClassicLinkVpcResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachClassicLinkVpcResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachClassicLinkVpcResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1238,9 +1238,9 @@ export class AttachDiskResponseBody extends $tea.Model {
 }
 
 export class AttachDiskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachDiskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachDiskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1331,9 +1331,9 @@ export class AttachInstanceRamRoleResponseBody extends $tea.Model {
 }
 
 export class AttachInstanceRamRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachInstanceRamRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachInstanceRamRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1421,9 +1421,9 @@ export class AttachKeyPairResponseBody extends $tea.Model {
 }
 
 export class AttachKeyPairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachKeyPairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachKeyPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1511,9 +1511,9 @@ export class AttachNetworkInterfaceResponseBody extends $tea.Model {
 }
 
 export class AttachNetworkInterfaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachNetworkInterfaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachNetworkInterfaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1640,9 +1640,9 @@ export class AuthorizeSecurityGroupResponseBody extends $tea.Model {
 }
 
 export class AuthorizeSecurityGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AuthorizeSecurityGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AuthorizeSecurityGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1769,9 +1769,9 @@ export class AuthorizeSecurityGroupEgressResponseBody extends $tea.Model {
 }
 
 export class AuthorizeSecurityGroupEgressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AuthorizeSecurityGroupEgressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AuthorizeSecurityGroupEgressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1844,9 +1844,9 @@ export class CancelAutoSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class CancelAutoSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelAutoSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1922,9 +1922,9 @@ export class CancelCopyImageResponseBody extends $tea.Model {
 }
 
 export class CancelCopyImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelCopyImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelCopyImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2003,9 +2003,9 @@ export class CancelImagePipelineExecutionResponseBody extends $tea.Model {
 }
 
 export class CancelImagePipelineExecutionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelImagePipelineExecutionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelImagePipelineExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2087,9 +2087,9 @@ export class CancelPhysicalConnectionResponseBody extends $tea.Model {
 }
 
 export class CancelPhysicalConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelPhysicalConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelPhysicalConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2165,9 +2165,9 @@ export class CancelSimulatedSystemEventsResponseBody extends $tea.Model {
 }
 
 export class CancelSimulatedSystemEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelSimulatedSystemEventsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelSimulatedSystemEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2240,9 +2240,9 @@ export class CancelTaskResponseBody extends $tea.Model {
 }
 
 export class CancelTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2315,9 +2315,9 @@ export class ConnectRouterInterfaceResponseBody extends $tea.Model {
 }
 
 export class ConnectRouterInterfaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConnectRouterInterfaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConnectRouterInterfaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2390,9 +2390,9 @@ export class ConvertNatPublicIpToEipResponseBody extends $tea.Model {
 }
 
 export class ConvertNatPublicIpToEipResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConvertNatPublicIpToEipResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConvertNatPublicIpToEipResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2495,9 +2495,9 @@ export class CopyImageResponseBody extends $tea.Model {
 }
 
 export class CopyImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CopyImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CopyImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2603,9 +2603,9 @@ export class CopySnapshotResponseBody extends $tea.Model {
 }
 
 export class CopySnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CopySnapshotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CopySnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2705,9 +2705,9 @@ export class CreateActivationResponseBody extends $tea.Model {
 }
 
 export class CreateActivationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateActivationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateActivationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2867,9 +2867,9 @@ export class CreateAutoProvisioningGroupResponseBody extends $tea.Model {
 }
 
 export class CreateAutoProvisioningGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAutoProvisioningGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAutoProvisioningGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2972,9 +2972,9 @@ export class CreateAutoSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class CreateAutoSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAutoSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3086,9 +3086,9 @@ export class CreateCapacityReservationResponseBody extends $tea.Model {
 }
 
 export class CreateCapacityReservationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCapacityReservationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCapacityReservationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3194,9 +3194,9 @@ export class CreateCommandResponseBody extends $tea.Model {
 }
 
 export class CreateCommandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCommandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCommandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3290,9 +3290,9 @@ export class CreateDedicatedHostClusterResponseBody extends $tea.Model {
 }
 
 export class CreateDedicatedHostClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDedicatedHostClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDedicatedHostClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3401,9 +3401,9 @@ export class CreateDemandResponseBody extends $tea.Model {
 }
 
 export class CreateDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3503,9 +3503,9 @@ export class CreateDeploymentSetResponseBody extends $tea.Model {
 }
 
 export class CreateDeploymentSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDeploymentSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDeploymentSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3581,9 +3581,9 @@ export class CreateDiagnosticMetricSetResponseBody extends $tea.Model {
 }
 
 export class CreateDiagnosticMetricSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDiagnosticMetricSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDiagnosticMetricSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3659,9 +3659,9 @@ export class CreateDiagnosticReportResponseBody extends $tea.Model {
 }
 
 export class CreateDiagnosticReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDiagnosticReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDiagnosticReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3806,9 +3806,9 @@ export class CreateDiskResponseBody extends $tea.Model {
 }
 
 export class CreateDiskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDiskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDiskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3926,9 +3926,9 @@ export class CreateElasticityAssuranceResponseBody extends $tea.Model {
 }
 
 export class CreateElasticityAssuranceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateElasticityAssuranceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateElasticityAssuranceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4022,9 +4022,9 @@ export class CreateForwardEntryResponseBody extends $tea.Model {
 }
 
 export class CreateForwardEntryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateForwardEntryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateForwardEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4112,9 +4112,9 @@ export class CreateHaVipResponseBody extends $tea.Model {
 }
 
 export class CreateHaVipResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateHaVipResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateHaVipResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4199,9 +4199,9 @@ export class CreateHpcClusterResponseBody extends $tea.Model {
 }
 
 export class CreateHpcClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateHpcClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateHpcClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4319,9 +4319,9 @@ export class CreateImageResponseBody extends $tea.Model {
 }
 
 export class CreateImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4421,9 +4421,9 @@ export class CreateImageComponentResponseBody extends $tea.Model {
 }
 
 export class CreateImageComponentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateImageComponentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateImageComponentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4547,9 +4547,9 @@ export class CreateImagePipelineResponseBody extends $tea.Model {
 }
 
 export class CreateImagePipelineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateImagePipelineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateImagePipelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4799,9 +4799,9 @@ export class CreateInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4892,9 +4892,9 @@ export class CreateKeyPairResponseBody extends $tea.Model {
 }
 
 export class CreateKeyPairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateKeyPairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateKeyPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5099,9 +5099,9 @@ export class CreateLaunchTemplateResponseBody extends $tea.Model {
 }
 
 export class CreateLaunchTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLaunchTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLaunchTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5303,9 +5303,9 @@ export class CreateLaunchTemplateVersionResponseBody extends $tea.Model {
 }
 
 export class CreateLaunchTemplateVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLaunchTemplateVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLaunchTemplateVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5402,9 +5402,9 @@ export class CreateNatGatewayResponseBody extends $tea.Model {
 }
 
 export class CreateNatGatewayResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateNatGatewayResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNatGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5450,10 +5450,12 @@ export class CreateNetworkInterfaceRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  rxQueueSize?: number;
   secondaryPrivateIpAddressCount?: number;
   securityGroupId?: string;
   securityGroupIds?: string[];
   tag?: CreateNetworkInterfaceRequestTag[];
+  txQueueSize?: number;
   vSwitchId?: string;
   visible?: boolean;
   static names(): { [key: string]: string } {
@@ -5481,10 +5483,12 @@ export class CreateNetworkInterfaceRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      rxQueueSize: 'RxQueueSize',
       secondaryPrivateIpAddressCount: 'SecondaryPrivateIpAddressCount',
       securityGroupId: 'SecurityGroupId',
       securityGroupIds: 'SecurityGroupIds',
       tag: 'Tag',
+      txQueueSize: 'TxQueueSize',
       vSwitchId: 'VSwitchId',
       visible: 'Visible',
     };
@@ -5515,10 +5519,12 @@ export class CreateNetworkInterfaceRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      rxQueueSize: 'number',
       secondaryPrivateIpAddressCount: 'number',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
       tag: { 'type': 'array', 'itemType': CreateNetworkInterfaceRequestTag },
+      txQueueSize: 'number',
       vSwitchId: 'string',
       visible: 'boolean',
     };
@@ -5609,9 +5615,9 @@ export class CreateNetworkInterfaceResponseBody extends $tea.Model {
 }
 
 export class CreateNetworkInterfaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateNetworkInterfaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNetworkInterfaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5696,9 +5702,9 @@ export class CreateNetworkInterfacePermissionResponseBody extends $tea.Model {
 }
 
 export class CreateNetworkInterfacePermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateNetworkInterfacePermissionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNetworkInterfacePermissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5810,9 +5816,9 @@ export class CreatePhysicalConnectionResponseBody extends $tea.Model {
 }
 
 export class CreatePhysicalConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePhysicalConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePhysicalConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5906,9 +5912,9 @@ export class CreatePrefixListResponseBody extends $tea.Model {
 }
 
 export class CreatePrefixListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePrefixListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePrefixListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5999,9 +6005,9 @@ export class CreateRouteEntryResponseBody extends $tea.Model {
 }
 
 export class CreateRouteEntryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRouteEntryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRouteEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6143,9 +6149,9 @@ export class CreateRouterInterfaceResponseBody extends $tea.Model {
 }
 
 export class CreateRouterInterfaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRouterInterfaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRouterInterfaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6159,6 +6165,99 @@ export class CreateRouterInterfaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateRouterInterfaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSavingsPlanRequest extends $tea.Model {
+  chargeType?: string;
+  committedAmount?: string;
+  instanceTypeFamily?: string;
+  offeringType?: string;
+  period?: string;
+  periodUnit?: string;
+  planType?: string;
+  regionId?: string;
+  resourceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      committedAmount: 'CommittedAmount',
+      instanceTypeFamily: 'InstanceTypeFamily',
+      offeringType: 'OfferingType',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      planType: 'PlanType',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      committedAmount: 'string',
+      instanceTypeFamily: 'string',
+      offeringType: 'string',
+      period: 'string',
+      periodUnit: 'string',
+      planType: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSavingsPlanResponseBody extends $tea.Model {
+  orderId?: string;
+  requestId?: string;
+  savingsPlanId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      savingsPlanId: 'SavingsPlanId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+      savingsPlanId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSavingsPlanResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSavingsPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSavingsPlanResponseBody,
     };
   }
 
@@ -6245,9 +6344,9 @@ export class CreateSecurityGroupResponseBody extends $tea.Model {
 }
 
 export class CreateSecurityGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSecurityGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSecurityGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6332,9 +6431,9 @@ export class CreateSimulatedSystemEventsResponseBody extends $tea.Model {
 }
 
 export class CreateSimulatedSystemEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSimulatedSystemEventsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSimulatedSystemEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6440,9 +6539,9 @@ export class CreateSnapshotResponseBody extends $tea.Model {
 }
 
 export class CreateSnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSnapshotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6548,9 +6647,9 @@ export class CreateSnapshotGroupResponseBody extends $tea.Model {
 }
 
 export class CreateSnapshotGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSnapshotGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSnapshotGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6641,9 +6740,9 @@ export class CreateStorageSetResponseBody extends $tea.Model {
 }
 
 export class CreateStorageSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateStorageSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateStorageSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6737,9 +6836,9 @@ export class CreateVSwitchResponseBody extends $tea.Model {
 }
 
 export class CreateVSwitchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVSwitchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6848,9 +6947,9 @@ export class CreateVirtualBorderRouterResponseBody extends $tea.Model {
 }
 
 export class CreateVirtualBorderRouterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVirtualBorderRouterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVirtualBorderRouterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6947,9 +7046,9 @@ export class CreateVpcResponseBody extends $tea.Model {
 }
 
 export class CreateVpcResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVpcResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVpcResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7022,9 +7121,9 @@ export class DeactivateRouterInterfaceResponseBody extends $tea.Model {
 }
 
 export class DeactivateRouterInterfaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeactivateRouterInterfaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeactivateRouterInterfaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7103,9 +7202,9 @@ export class DeleteActivationResponseBody extends $tea.Model {
 }
 
 export class DeleteActivationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteActivationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteActivationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7184,9 +7283,9 @@ export class DeleteAutoProvisioningGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteAutoProvisioningGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAutoProvisioningGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAutoProvisioningGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7259,9 +7358,9 @@ export class DeleteAutoSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class DeleteAutoSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAutoSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7337,9 +7436,9 @@ export class DeleteBandwidthPackageResponseBody extends $tea.Model {
 }
 
 export class DeleteBandwidthPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteBandwidthPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBandwidthPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7415,9 +7514,9 @@ export class DeleteCommandResponseBody extends $tea.Model {
 }
 
 export class DeleteCommandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCommandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCommandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7493,9 +7592,9 @@ export class DeleteDedicatedHostClusterResponseBody extends $tea.Model {
 }
 
 export class DeleteDedicatedHostClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDedicatedHostClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDedicatedHostClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7577,9 +7676,9 @@ export class DeleteDemandResponseBody extends $tea.Model {
 }
 
 export class DeleteDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7655,9 +7754,9 @@ export class DeleteDeploymentSetResponseBody extends $tea.Model {
 }
 
 export class DeleteDeploymentSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDeploymentSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDeploymentSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7721,9 +7820,9 @@ export class DeleteDiagnosticMetricSetsResponseBody extends $tea.Model {
 }
 
 export class DeleteDiagnosticMetricSetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDiagnosticMetricSetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDiagnosticMetricSetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7787,9 +7886,9 @@ export class DeleteDiagnosticReportsResponseBody extends $tea.Model {
 }
 
 export class DeleteDiagnosticReportsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDiagnosticReportsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDiagnosticReportsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7862,9 +7961,9 @@ export class DeleteDiskResponseBody extends $tea.Model {
 }
 
 export class DeleteDiskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDiskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDiskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7943,9 +8042,9 @@ export class DeleteForwardEntryResponseBody extends $tea.Model {
 }
 
 export class DeleteForwardEntryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteForwardEntryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteForwardEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8024,9 +8123,9 @@ export class DeleteHaVipResponseBody extends $tea.Model {
 }
 
 export class DeleteHaVipResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteHaVipResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteHaVipResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8105,9 +8204,9 @@ export class DeleteHpcClusterResponseBody extends $tea.Model {
 }
 
 export class DeleteHpcClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteHpcClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteHpcClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8186,9 +8285,9 @@ export class DeleteImageResponseBody extends $tea.Model {
 }
 
 export class DeleteImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8264,9 +8363,9 @@ export class DeleteImageComponentResponseBody extends $tea.Model {
 }
 
 export class DeleteImageComponentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteImageComponentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteImageComponentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8342,9 +8441,9 @@ export class DeleteImagePipelineResponseBody extends $tea.Model {
 }
 
 export class DeleteImagePipelineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteImagePipelineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteImagePipelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8367,6 +8466,7 @@ export class DeleteImagePipelineResponse extends $tea.Model {
 }
 
 export class DeleteInstanceRequest extends $tea.Model {
+  dryRun?: boolean;
   force?: boolean;
   instanceId?: string;
   ownerAccount?: string;
@@ -8376,6 +8476,7 @@ export class DeleteInstanceRequest extends $tea.Model {
   terminateSubscription?: boolean;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       force: 'Force',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
@@ -8388,6 +8489,7 @@ export class DeleteInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       force: 'boolean',
       instanceId: 'string',
       ownerAccount: 'string',
@@ -8423,9 +8525,9 @@ export class DeleteInstanceResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8513,9 +8615,9 @@ export class DeleteInstancesResponseBody extends $tea.Model {
 }
 
 export class DeleteInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8588,9 +8690,9 @@ export class DeleteKeyPairsResponseBody extends $tea.Model {
 }
 
 export class DeleteKeyPairsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteKeyPairsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteKeyPairsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8651,10 +8753,12 @@ export class DeleteLaunchTemplateRequest extends $tea.Model {
 
 export class DeleteLaunchTemplateResponseBody extends $tea.Model {
   launchTemplateId?: string;
+  launchTemplateVersionNumbers?: DeleteLaunchTemplateResponseBodyLaunchTemplateVersionNumbers;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       launchTemplateId: 'LaunchTemplateId',
+      launchTemplateVersionNumbers: 'LaunchTemplateVersionNumbers',
       requestId: 'RequestId',
     };
   }
@@ -8662,6 +8766,7 @@ export class DeleteLaunchTemplateResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       launchTemplateId: 'string',
+      launchTemplateVersionNumbers: DeleteLaunchTemplateResponseBodyLaunchTemplateVersionNumbers,
       requestId: 'string',
     };
   }
@@ -8672,9 +8777,9 @@ export class DeleteLaunchTemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteLaunchTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteLaunchTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLaunchTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8759,9 +8864,9 @@ export class DeleteLaunchTemplateVersionResponseBody extends $tea.Model {
 }
 
 export class DeleteLaunchTemplateVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteLaunchTemplateVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLaunchTemplateVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8837,9 +8942,9 @@ export class DeleteNatGatewayResponseBody extends $tea.Model {
 }
 
 export class DeleteNatGatewayResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteNatGatewayResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNatGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8915,9 +9020,9 @@ export class DeleteNetworkInterfaceResponseBody extends $tea.Model {
 }
 
 export class DeleteNetworkInterfaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteNetworkInterfaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNetworkInterfaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8996,9 +9101,9 @@ export class DeleteNetworkInterfacePermissionResponseBody extends $tea.Model {
 }
 
 export class DeleteNetworkInterfacePermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteNetworkInterfacePermissionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNetworkInterfacePermissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9077,9 +9182,9 @@ export class DeletePhysicalConnectionResponseBody extends $tea.Model {
 }
 
 export class DeletePhysicalConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePhysicalConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePhysicalConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9155,9 +9260,9 @@ export class DeletePrefixListResponseBody extends $tea.Model {
 }
 
 export class DeletePrefixListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePrefixListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePrefixListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9242,9 +9347,9 @@ export class DeleteRouteEntryResponseBody extends $tea.Model {
 }
 
 export class DeleteRouteEntryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRouteEntryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRouteEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9326,9 +9431,9 @@ export class DeleteRouterInterfaceResponseBody extends $tea.Model {
 }
 
 export class DeleteRouterInterfaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRouterInterfaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRouterInterfaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9404,9 +9509,9 @@ export class DeleteSecurityGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteSecurityGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSecurityGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSecurityGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9482,9 +9587,9 @@ export class DeleteSnapshotResponseBody extends $tea.Model {
 }
 
 export class DeleteSnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSnapshotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9563,9 +9668,9 @@ export class DeleteSnapshotGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteSnapshotGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSnapshotGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSnapshotGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9644,9 +9749,9 @@ export class DeleteStorageSetResponseBody extends $tea.Model {
 }
 
 export class DeleteStorageSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteStorageSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteStorageSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9722,9 +9827,9 @@ export class DeleteVSwitchResponseBody extends $tea.Model {
 }
 
 export class DeleteVSwitchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVSwitchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9806,9 +9911,9 @@ export class DeleteVirtualBorderRouterResponseBody extends $tea.Model {
 }
 
 export class DeleteVirtualBorderRouterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVirtualBorderRouterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVirtualBorderRouterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9884,9 +9989,9 @@ export class DeleteVpcResponseBody extends $tea.Model {
 }
 
 export class DeleteVpcResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVpcResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVpcResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9965,9 +10070,9 @@ export class DeregisterManagedInstanceResponseBody extends $tea.Model {
 }
 
 export class DeregisterManagedInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeregisterManagedInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeregisterManagedInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10061,9 +10166,9 @@ export class DescribeAccessPointsResponseBody extends $tea.Model {
 }
 
 export class DescribeAccessPointsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAccessPointsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAccessPointsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10142,9 +10247,9 @@ export class DescribeAccountAttributesResponseBody extends $tea.Model {
 }
 
 export class DescribeAccountAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAccountAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAccountAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10169,6 +10274,8 @@ export class DescribeAccountAttributesResponse extends $tea.Model {
 export class DescribeActivationsRequest extends $tea.Model {
   activationId?: string;
   instanceName?: string;
+  maxResults?: number;
+  nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -10182,6 +10289,8 @@ export class DescribeActivationsRequest extends $tea.Model {
     return {
       activationId: 'ActivationId',
       instanceName: 'InstanceName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -10198,6 +10307,8 @@ export class DescribeActivationsRequest extends $tea.Model {
     return {
       activationId: 'string',
       instanceName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -10217,6 +10328,7 @@ export class DescribeActivationsRequest extends $tea.Model {
 
 export class DescribeActivationsResponseBody extends $tea.Model {
   activationList?: DescribeActivationsResponseBodyActivationList[];
+  nextToken?: string;
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
@@ -10224,6 +10336,7 @@ export class DescribeActivationsResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       activationList: 'ActivationList',
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -10234,6 +10347,7 @@ export class DescribeActivationsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       activationList: { 'type': 'array', 'itemType': DescribeActivationsResponseBodyActivationList },
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
@@ -10247,9 +10361,9 @@ export class DescribeActivationsResponseBody extends $tea.Model {
 }
 
 export class DescribeActivationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeActivationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeActivationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10349,9 +10463,9 @@ export class DescribeAutoProvisioningGroupHistoryResponseBody extends $tea.Model
 }
 
 export class DescribeAutoProvisioningGroupHistoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAutoProvisioningGroupHistoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAutoProvisioningGroupHistoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10445,9 +10559,9 @@ export class DescribeAutoProvisioningGroupInstancesResponseBody extends $tea.Mod
 }
 
 export class DescribeAutoProvisioningGroupInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAutoProvisioningGroupInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAutoProvisioningGroupInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10478,6 +10592,7 @@ export class DescribeAutoProvisioningGroupsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -10490,6 +10605,7 @@ export class DescribeAutoProvisioningGroupsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -10505,6 +10621,7 @@ export class DescribeAutoProvisioningGroupsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -10547,9 +10664,9 @@ export class DescribeAutoProvisioningGroupsResponseBody extends $tea.Model {
 }
 
 export class DescribeAutoProvisioningGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAutoProvisioningGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAutoProvisioningGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10652,9 +10769,9 @@ export class DescribeAutoSnapshotPolicyExResponseBody extends $tea.Model {
 }
 
 export class DescribeAutoSnapshotPolicyExResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAutoSnapshotPolicyExResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAutoSnapshotPolicyExResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10775,9 +10892,9 @@ export class DescribeAvailableResourceResponseBody extends $tea.Model {
 }
 
 export class DescribeAvailableResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAvailableResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAvailableResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10868,9 +10985,9 @@ export class DescribeBandwidthLimitationResponseBody extends $tea.Model {
 }
 
 export class DescribeBandwidthLimitationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeBandwidthLimitationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBandwidthLimitationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10967,9 +11084,9 @@ export class DescribeBandwidthPackagesResponseBody extends $tea.Model {
 }
 
 export class DescribeBandwidthPackagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeBandwidthPackagesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBandwidthPackagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11063,9 +11180,9 @@ export class DescribeCapacityReservationInstancesResponseBody extends $tea.Model
 }
 
 export class DescribeCapacityReservationInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCapacityReservationInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCapacityReservationInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11180,9 +11297,9 @@ export class DescribeCapacityReservationsResponseBody extends $tea.Model {
 }
 
 export class DescribeCapacityReservationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCapacityReservationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCapacityReservationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11276,9 +11393,9 @@ export class DescribeClassicLinkInstancesResponseBody extends $tea.Model {
 }
 
 export class DescribeClassicLinkInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeClassicLinkInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeClassicLinkInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11302,6 +11419,8 @@ export class DescribeClassicLinkInstancesResponse extends $tea.Model {
 
 export class DescribeCloudAssistantStatusRequest extends $tea.Model {
   instanceId?: string[];
+  maxResults?: number;
+  nextToken?: string;
   OSType?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -11313,6 +11432,8 @@ export class DescribeCloudAssistantStatusRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       OSType: 'OSType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -11327,6 +11448,8 @@ export class DescribeCloudAssistantStatusRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
       OSType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -11345,6 +11468,7 @@ export class DescribeCloudAssistantStatusRequest extends $tea.Model {
 
 export class DescribeCloudAssistantStatusResponseBody extends $tea.Model {
   instanceCloudAssistantStatusSet?: DescribeCloudAssistantStatusResponseBodyInstanceCloudAssistantStatusSet;
+  nextToken?: string;
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
@@ -11352,6 +11476,7 @@ export class DescribeCloudAssistantStatusResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceCloudAssistantStatusSet: 'InstanceCloudAssistantStatusSet',
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -11362,6 +11487,7 @@ export class DescribeCloudAssistantStatusResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceCloudAssistantStatusSet: DescribeCloudAssistantStatusResponseBodyInstanceCloudAssistantStatusSet,
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
@@ -11375,9 +11501,9 @@ export class DescribeCloudAssistantStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeCloudAssistantStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCloudAssistantStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudAssistantStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11453,9 +11579,9 @@ export class DescribeClustersResponseBody extends $tea.Model {
 }
 
 export class DescribeClustersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeClustersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeClustersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11482,7 +11608,9 @@ export class DescribeCommandsRequest extends $tea.Model {
   contentEncoding?: string;
   description?: string;
   latest?: boolean;
+  maxResults?: number;
   name?: string;
+  nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -11500,7 +11628,9 @@ export class DescribeCommandsRequest extends $tea.Model {
       contentEncoding: 'ContentEncoding',
       description: 'Description',
       latest: 'Latest',
+      maxResults: 'MaxResults',
       name: 'Name',
+      nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -11521,7 +11651,9 @@ export class DescribeCommandsRequest extends $tea.Model {
       contentEncoding: 'string',
       description: 'string',
       latest: 'boolean',
+      maxResults: 'number',
       name: 'string',
+      nextToken: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -11543,6 +11675,7 @@ export class DescribeCommandsRequest extends $tea.Model {
 
 export class DescribeCommandsResponseBody extends $tea.Model {
   commands?: DescribeCommandsResponseBodyCommands;
+  nextToken?: string;
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
@@ -11550,6 +11683,7 @@ export class DescribeCommandsResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       commands: 'Commands',
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -11560,6 +11694,7 @@ export class DescribeCommandsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       commands: DescribeCommandsResponseBodyCommands,
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
@@ -11573,9 +11708,9 @@ export class DescribeCommandsResponseBody extends $tea.Model {
 }
 
 export class DescribeCommandsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCommandsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCommandsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11654,9 +11789,9 @@ export class DescribeDedicatedHostAutoRenewResponseBody extends $tea.Model {
 }
 
 export class DescribeDedicatedHostAutoRenewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDedicatedHostAutoRenewResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedHostAutoRenewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11768,9 +11903,9 @@ export class DescribeDedicatedHostClustersResponseBody extends $tea.Model {
 }
 
 export class DescribeDedicatedHostClustersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDedicatedHostClustersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedHostClustersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11852,9 +11987,9 @@ export class DescribeDedicatedHostTypesResponseBody extends $tea.Model {
 }
 
 export class DescribeDedicatedHostTypesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDedicatedHostTypesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedHostTypesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11975,9 +12110,9 @@ export class DescribeDedicatedHostsResponseBody extends $tea.Model {
 }
 
 export class DescribeDedicatedHostsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDedicatedHostsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedHostsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12098,9 +12233,9 @@ export class DescribeDemandsResponseBody extends $tea.Model {
 }
 
 export class DescribeDemandsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDemandsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDemandsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12179,9 +12314,9 @@ export class DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody extend
 }
 
 export class DescribeDeploymentSetSupportedInstanceTypeFamilyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12293,9 +12428,9 @@ export class DescribeDeploymentSetsResponseBody extends $tea.Model {
 }
 
 export class DescribeDeploymentSetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDeploymentSetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDeploymentSetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12377,9 +12512,9 @@ export class DescribeDiagnosticMetricSetsResponseBody extends $tea.Model {
 }
 
 export class DescribeDiagnosticMetricSetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDiagnosticMetricSetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiagnosticMetricSetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12458,9 +12593,9 @@ export class DescribeDiagnosticMetricsResponseBody extends $tea.Model {
 }
 
 export class DescribeDiagnosticMetricsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDiagnosticMetricsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiagnosticMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12560,9 +12695,9 @@ export class DescribeDiagnosticReportAttributesResponseBody extends $tea.Model {
 }
 
 export class DescribeDiagnosticReportAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDiagnosticReportAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiagnosticReportAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12647,9 +12782,9 @@ export class DescribeDiagnosticReportsResponseBody extends $tea.Model {
 }
 
 export class DescribeDiagnosticReportsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDiagnosticReportsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiagnosticReportsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12737,9 +12872,9 @@ export class DescribeDiskMonitorDataResponseBody extends $tea.Model {
 }
 
 export class DescribeDiskMonitorDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDiskMonitorDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskMonitorDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12914,9 +13049,9 @@ export class DescribeDisksResponseBody extends $tea.Model {
 }
 
 export class DescribeDisksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDisksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDisksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13031,9 +13166,9 @@ export class DescribeDisksFullStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeDisksFullStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDisksFullStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDisksFullStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13151,9 +13286,9 @@ export class DescribeEipAddressesResponseBody extends $tea.Model {
 }
 
 export class DescribeEipAddressesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeEipAddressesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEipAddressesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13241,9 +13376,9 @@ export class DescribeEipMonitorDataResponseBody extends $tea.Model {
 }
 
 export class DescribeEipMonitorDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeEipMonitorDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEipMonitorDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13337,9 +13472,9 @@ export class DescribeElasticityAssuranceInstancesResponseBody extends $tea.Model
 }
 
 export class DescribeElasticityAssuranceInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeElasticityAssuranceInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeElasticityAssuranceInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13454,9 +13589,9 @@ export class DescribeElasticityAssurancesResponseBody extends $tea.Model {
 }
 
 export class DescribeElasticityAssurancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeElasticityAssurancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeElasticityAssurancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13550,9 +13685,9 @@ export class DescribeEniMonitorDataResponseBody extends $tea.Model {
 }
 
 export class DescribeEniMonitorDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeEniMonitorDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEniMonitorDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13649,9 +13784,9 @@ export class DescribeForwardTableEntriesResponseBody extends $tea.Model {
 }
 
 export class DescribeForwardTableEntriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeForwardTableEntriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeForwardTableEntriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13745,9 +13880,9 @@ export class DescribeHaVipsResponseBody extends $tea.Model {
 }
 
 export class DescribeHaVipsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeHaVipsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeHaVipsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13844,9 +13979,9 @@ export class DescribeHpcClustersResponseBody extends $tea.Model {
 }
 
 export class DescribeHpcClustersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeHpcClustersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeHpcClustersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13952,9 +14087,9 @@ export class DescribeImageComponentsResponseBody extends $tea.Model {
 }
 
 export class DescribeImageComponentsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeImageComponentsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImageComponentsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14033,9 +14168,9 @@ export class DescribeImageFromFamilyResponseBody extends $tea.Model {
 }
 
 export class DescribeImageFromFamilyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeImageFromFamilyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImageFromFamilyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14138,9 +14273,9 @@ export class DescribeImagePipelineExecutionsResponseBody extends $tea.Model {
 }
 
 export class DescribeImagePipelineExecutionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeImagePipelineExecutionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImagePipelineExecutionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14243,9 +14378,9 @@ export class DescribeImagePipelinesResponseBody extends $tea.Model {
 }
 
 export class DescribeImagePipelinesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeImagePipelinesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImagePipelinesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14348,9 +14483,9 @@ export class DescribeImageSharePermissionResponseBody extends $tea.Model {
 }
 
 export class DescribeImageSharePermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeImageSharePermissionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImageSharePermissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14438,9 +14573,9 @@ export class DescribeImageSupportInstanceTypesResponseBody extends $tea.Model {
 }
 
 export class DescribeImageSupportInstanceTypesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeImageSupportInstanceTypesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImageSupportInstanceTypesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14594,9 +14729,9 @@ export class DescribeImagesResponseBody extends $tea.Model {
 }
 
 export class DescribeImagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeImagesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14690,9 +14825,9 @@ export class DescribeInstanceAttachmentAttributesResponseBody extends $tea.Model
 }
 
 export class DescribeInstanceAttachmentAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceAttachmentAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceAttachmentAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14861,9 +14996,9 @@ export class DescribeInstanceAttributeResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14960,9 +15095,9 @@ export class DescribeInstanceAutoRenewAttributeResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceAutoRenewAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceAutoRenewAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceAutoRenewAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -15092,9 +15227,9 @@ export class DescribeInstanceHistoryEventsResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceHistoryEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceHistoryEventsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceHistoryEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -15188,9 +15323,9 @@ export class DescribeInstanceMaintenanceAttributesResponseBody extends $tea.Mode
 }
 
 export class DescribeInstanceMaintenanceAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceMaintenanceAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceMaintenanceAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -15278,9 +15413,9 @@ export class DescribeInstanceModificationPriceResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceModificationPriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceModificationPriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceModificationPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -15365,9 +15500,9 @@ export class DescribeInstanceMonitorDataResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceMonitorDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceMonitorDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceMonitorDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -15458,9 +15593,9 @@ export class DescribeInstanceRamRoleResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceRamRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceRamRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceRamRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -15560,9 +15695,9 @@ export class DescribeInstanceStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -15638,9 +15773,9 @@ export class DescribeInstanceTopologyResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceTopologyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceTopologyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceTopologyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -15719,9 +15854,9 @@ export class DescribeInstanceTypeFamiliesResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceTypeFamiliesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceTypeFamiliesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceTypeFamiliesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -15908,9 +16043,9 @@ export class DescribeInstanceTypesResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceTypesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceTypesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceTypesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -15924,87 +16059,6 @@ export class DescribeInstanceTypesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeInstanceTypesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceVncPasswdRequest extends $tea.Model {
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceVncPasswdResponseBody extends $tea.Model {
-  requestId?: string;
-  vncPasswd?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      vncPasswd: 'VncPasswd',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      vncPasswd: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceVncPasswdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceVncPasswdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeInstanceVncPasswdResponseBody,
     };
   }
 
@@ -16070,9 +16124,9 @@ export class DescribeInstanceVncUrlResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceVncUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceVncUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceVncUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -16271,9 +16325,9 @@ export class DescribeInstancesResponseBody extends $tea.Model {
 }
 
 export class DescribeInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -16388,9 +16442,9 @@ export class DescribeInstancesFullStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeInstancesFullStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstancesFullStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstancesFullStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -16419,6 +16473,8 @@ export class DescribeInvocationResultsRequest extends $tea.Model {
   instanceId?: string;
   invokeId?: string;
   invokeRecordStatus?: string;
+  maxResults?: number;
+  nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -16436,6 +16492,8 @@ export class DescribeInvocationResultsRequest extends $tea.Model {
       instanceId: 'InstanceId',
       invokeId: 'InvokeId',
       invokeRecordStatus: 'InvokeRecordStatus',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -16456,6 +16514,8 @@ export class DescribeInvocationResultsRequest extends $tea.Model {
       instanceId: 'string',
       invokeId: 'string',
       invokeRecordStatus: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -16496,9 +16556,9 @@ export class DescribeInvocationResultsResponseBody extends $tea.Model {
 }
 
 export class DescribeInvocationResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInvocationResultsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInvocationResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -16529,6 +16589,8 @@ export class DescribeInvocationsRequest extends $tea.Model {
   instanceId?: string;
   invokeId?: string;
   invokeStatus?: string;
+  maxResults?: number;
+  nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -16550,6 +16612,8 @@ export class DescribeInvocationsRequest extends $tea.Model {
       instanceId: 'InstanceId',
       invokeId: 'InvokeId',
       invokeStatus: 'InvokeStatus',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -16574,6 +16638,8 @@ export class DescribeInvocationsRequest extends $tea.Model {
       instanceId: 'string',
       invokeId: 'string',
       invokeStatus: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -16595,6 +16661,7 @@ export class DescribeInvocationsRequest extends $tea.Model {
 
 export class DescribeInvocationsResponseBody extends $tea.Model {
   invocations?: DescribeInvocationsResponseBodyInvocations;
+  nextToken?: string;
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
@@ -16602,6 +16669,7 @@ export class DescribeInvocationsResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       invocations: 'Invocations',
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -16612,6 +16680,7 @@ export class DescribeInvocationsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       invocations: DescribeInvocationsResponseBodyInvocations,
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
@@ -16625,9 +16694,9 @@ export class DescribeInvocationsResponseBody extends $tea.Model {
 }
 
 export class DescribeInvocationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInvocationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInvocationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -16650,6 +16719,7 @@ export class DescribeInvocationsResponse extends $tea.Model {
 }
 
 export class DescribeKeyPairsRequest extends $tea.Model {
+  includePublicKey?: boolean;
   keyPairFingerPrint?: string;
   keyPairName?: string;
   ownerId?: number;
@@ -16662,6 +16732,7 @@ export class DescribeKeyPairsRequest extends $tea.Model {
   tag?: DescribeKeyPairsRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      includePublicKey: 'IncludePublicKey',
       keyPairFingerPrint: 'KeyPairFingerPrint',
       keyPairName: 'KeyPairName',
       ownerId: 'OwnerId',
@@ -16677,6 +16748,7 @@ export class DescribeKeyPairsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      includePublicKey: 'boolean',
       keyPairFingerPrint: 'string',
       keyPairName: 'string',
       ownerId: 'number',
@@ -16727,9 +16799,9 @@ export class DescribeKeyPairsResponseBody extends $tea.Model {
 }
 
 export class DescribeKeyPairsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeKeyPairsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeKeyPairsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -16841,9 +16913,9 @@ export class DescribeLaunchTemplateVersionsResponseBody extends $tea.Model {
 }
 
 export class DescribeLaunchTemplateVersionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLaunchTemplateVersionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLaunchTemplateVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -16946,9 +17018,9 @@ export class DescribeLaunchTemplatesResponseBody extends $tea.Model {
 }
 
 export class DescribeLaunchTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLaunchTemplatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLaunchTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -17027,9 +17099,9 @@ export class DescribeLimitationResponseBody extends $tea.Model {
 }
 
 export class DescribeLimitationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLimitationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLimitationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -17056,12 +17128,15 @@ export class DescribeManagedInstancesRequest extends $tea.Model {
   instanceId?: string[];
   instanceIp?: string;
   instanceName?: string;
+  maxResults?: number;
+  nextToken?: string;
   osType?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tag?: DescribeManagedInstancesRequestTag[];
@@ -17071,12 +17146,15 @@ export class DescribeManagedInstancesRequest extends $tea.Model {
       instanceId: 'InstanceId',
       instanceIp: 'InstanceIp',
       instanceName: 'InstanceName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       osType: 'OsType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
@@ -17089,12 +17167,15 @@ export class DescribeManagedInstancesRequest extends $tea.Model {
       instanceId: { 'type': 'array', 'itemType': 'string' },
       instanceIp: 'string',
       instanceName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       osType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': DescribeManagedInstancesRequestTag },
@@ -17108,6 +17189,7 @@ export class DescribeManagedInstancesRequest extends $tea.Model {
 
 export class DescribeManagedInstancesResponseBody extends $tea.Model {
   instances?: DescribeManagedInstancesResponseBodyInstances[];
+  nextToken?: string;
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
@@ -17115,6 +17197,7 @@ export class DescribeManagedInstancesResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instances: 'Instances',
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -17125,6 +17208,7 @@ export class DescribeManagedInstancesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instances: { 'type': 'array', 'itemType': DescribeManagedInstancesResponseBodyInstances },
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
@@ -17138,9 +17222,9 @@ export class DescribeManagedInstancesResponseBody extends $tea.Model {
 }
 
 export class DescribeManagedInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeManagedInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeManagedInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -17237,9 +17321,9 @@ export class DescribeNatGatewaysResponseBody extends $tea.Model {
 }
 
 export class DescribeNatGatewaysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeNatGatewaysResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNatGatewaysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -17329,6 +17413,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
   slaveInterfaceSpecification?: DescribeNetworkInterfaceAttributeResponseBodySlaveInterfaceSpecification;
   status?: string;
   tags?: DescribeNetworkInterfaceAttributeResponseBodyTags;
+  tcpOptionAddressEnabled?: string;
   type?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -17362,6 +17447,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
       slaveInterfaceSpecification: 'SlaveInterfaceSpecification',
       status: 'Status',
       tags: 'Tags',
+      tcpOptionAddressEnabled: 'TcpOptionAddressEnabled',
       type: 'Type',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -17398,6 +17484,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
       slaveInterfaceSpecification: DescribeNetworkInterfaceAttributeResponseBodySlaveInterfaceSpecification,
       status: 'string',
       tags: DescribeNetworkInterfaceAttributeResponseBodyTags,
+      tcpOptionAddressEnabled: 'string',
       type: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -17411,9 +17498,9 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
 }
 
 export class DescribeNetworkInterfaceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeNetworkInterfaceAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNetworkInterfaceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -17510,9 +17597,9 @@ export class DescribeNetworkInterfacePermissionsResponseBody extends $tea.Model 
 }
 
 export class DescribeNetworkInterfacePermissionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeNetworkInterfacePermissionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNetworkInterfacePermissionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -17654,9 +17741,9 @@ export class DescribeNetworkInterfacesResponseBody extends $tea.Model {
 }
 
 export class DescribeNetworkInterfacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeNetworkInterfacesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNetworkInterfacesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -17744,9 +17831,9 @@ export class DescribeNewProjectEipMonitorDataResponseBody extends $tea.Model {
 }
 
 export class DescribeNewProjectEipMonitorDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeNewProjectEipMonitorDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNewProjectEipMonitorDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -17846,9 +17933,9 @@ export class DescribePhysicalConnectionsResponseBody extends $tea.Model {
 }
 
 export class DescribePhysicalConnectionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePhysicalConnectionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePhysicalConnectionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -17936,9 +18023,9 @@ export class DescribePrefixListAssociationsResponseBody extends $tea.Model {
 }
 
 export class DescribePrefixListAssociationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePrefixListAssociationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePrefixListAssociationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -18035,9 +18122,9 @@ export class DescribePrefixListAttributesResponseBody extends $tea.Model {
 }
 
 export class DescribePrefixListAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePrefixListAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePrefixListAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -18131,9 +18218,9 @@ export class DescribePrefixListsResponseBody extends $tea.Model {
 }
 
 export class DescribePrefixListsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePrefixListsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePrefixListsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -18287,9 +18374,9 @@ export class DescribePriceResponseBody extends $tea.Model {
 }
 
 export class DescribePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -18410,9 +18497,9 @@ export class DescribeRecommendInstanceTypeResponseBody extends $tea.Model {
 }
 
 export class DescribeRecommendInstanceTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRecommendInstanceTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRecommendInstanceTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -18494,9 +18581,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -18587,9 +18674,9 @@ export class DescribeRenewalPriceResponseBody extends $tea.Model {
 }
 
 export class DescribeRenewalPriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRenewalPriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRenewalPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -18668,9 +18755,9 @@ export class DescribeReservedInstanceAutoRenewAttributeResponseBody extends $tea
 }
 
 export class DescribeReservedInstanceAutoRenewAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeReservedInstanceAutoRenewAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeReservedInstanceAutoRenewAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -18794,9 +18881,9 @@ export class DescribeReservedInstancesResponseBody extends $tea.Model {
 }
 
 export class DescribeReservedInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeReservedInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeReservedInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -18890,9 +18977,9 @@ export class DescribeResourceByTagsResponseBody extends $tea.Model {
 }
 
 export class DescribeResourceByTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeResourceByTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeResourceByTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -18995,9 +19082,9 @@ export class DescribeResourcesModificationResponseBody extends $tea.Model {
 }
 
 export class DescribeResourcesModificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeResourcesModificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeResourcesModificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19103,9 +19190,9 @@ export class DescribeRouteTablesResponseBody extends $tea.Model {
 }
 
 export class DescribeRouteTablesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRouteTablesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRouteTablesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19196,9 +19283,9 @@ export class DescribeRouterInterfacesResponseBody extends $tea.Model {
 }
 
 export class DescribeRouterInterfacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRouterInterfacesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRouterInterfacesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19212,6 +19299,195 @@ export class DescribeRouterInterfacesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRouterInterfacesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSavingsPlanEstimationRequest extends $tea.Model {
+  offeringType?: string;
+  period?: string;
+  periodUnit?: string;
+  planType?: string;
+  regionId?: string;
+  resourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      offeringType: 'OfferingType',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      planType: 'PlanType',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offeringType: 'string',
+      period: 'string',
+      periodUnit: 'string',
+      planType: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSavingsPlanEstimationResponseBody extends $tea.Model {
+  committedAmount?: string;
+  currency?: string;
+  instanceTypeFamily?: string;
+  offeringType?: string;
+  period?: number;
+  periodUnit?: string;
+  planType?: string;
+  requestId?: string;
+  resourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      committedAmount: 'CommittedAmount',
+      currency: 'Currency',
+      instanceTypeFamily: 'InstanceTypeFamily',
+      offeringType: 'OfferingType',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      planType: 'PlanType',
+      requestId: 'RequestId',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      committedAmount: 'string',
+      currency: 'string',
+      instanceTypeFamily: 'string',
+      offeringType: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      planType: 'string',
+      requestId: 'string',
+      resourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSavingsPlanEstimationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSavingsPlanEstimationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSavingsPlanEstimationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSavingsPlanPriceRequest extends $tea.Model {
+  committedAmount?: string;
+  instanceTypeFamily?: string;
+  offeringType?: string;
+  period?: number;
+  periodUnit?: string;
+  planType?: string;
+  regionId?: string;
+  resourceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      committedAmount: 'CommittedAmount',
+      instanceTypeFamily: 'InstanceTypeFamily',
+      offeringType: 'OfferingType',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      planType: 'PlanType',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      committedAmount: 'string',
+      instanceTypeFamily: 'string',
+      offeringType: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      planType: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSavingsPlanPriceResponseBody extends $tea.Model {
+  priceInfo?: DescribeSavingsPlanPriceResponseBodyPriceInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      priceInfo: 'PriceInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      priceInfo: DescribeSavingsPlanPriceResponseBodyPriceInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSavingsPlanPriceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSavingsPlanPriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSavingsPlanPriceResponseBody,
     };
   }
 
@@ -19301,9 +19577,9 @@ export class DescribeSecurityGroupAttributeResponseBody extends $tea.Model {
 }
 
 export class DescribeSecurityGroupAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSecurityGroupAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSecurityGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19382,9 +19658,9 @@ export class DescribeSecurityGroupReferencesResponseBody extends $tea.Model {
 }
 
 export class DescribeSecurityGroupReferencesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSecurityGroupReferencesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSecurityGroupReferencesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19425,6 +19701,7 @@ export class DescribeSecurityGroupsRequest extends $tea.Model {
   securityGroupIds?: string;
   securityGroupName?: string;
   securityGroupType?: string;
+  serviceManaged?: boolean;
   tag?: DescribeSecurityGroupsRequestTag[];
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -19447,6 +19724,7 @@ export class DescribeSecurityGroupsRequest extends $tea.Model {
       securityGroupIds: 'SecurityGroupIds',
       securityGroupName: 'SecurityGroupName',
       securityGroupType: 'SecurityGroupType',
+      serviceManaged: 'ServiceManaged',
       tag: 'Tag',
       vpcId: 'VpcId',
     };
@@ -19472,6 +19750,7 @@ export class DescribeSecurityGroupsRequest extends $tea.Model {
       securityGroupIds: 'string',
       securityGroupName: 'string',
       securityGroupType: 'string',
+      serviceManaged: 'boolean',
       tag: { 'type': 'array', 'itemType': DescribeSecurityGroupsRequestTag },
       vpcId: 'string',
     };
@@ -19520,9 +19799,9 @@ export class DescribeSecurityGroupsResponseBody extends $tea.Model {
 }
 
 export class DescribeSecurityGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSecurityGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSecurityGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19548,7 +19827,9 @@ export class DescribeSendFileResultsRequest extends $tea.Model {
   instanceId?: string;
   invocationStatus?: string;
   invokeId?: string;
+  maxResults?: number;
   name?: string;
+  nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -19563,7 +19844,9 @@ export class DescribeSendFileResultsRequest extends $tea.Model {
       instanceId: 'InstanceId',
       invocationStatus: 'InvocationStatus',
       invokeId: 'InvokeId',
+      maxResults: 'MaxResults',
       name: 'Name',
+      nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -19581,7 +19864,9 @@ export class DescribeSendFileResultsRequest extends $tea.Model {
       instanceId: 'string',
       invocationStatus: 'string',
       invokeId: 'string',
+      maxResults: 'number',
       name: 'string',
+      nextToken: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -19601,6 +19886,7 @@ export class DescribeSendFileResultsRequest extends $tea.Model {
 
 export class DescribeSendFileResultsResponseBody extends $tea.Model {
   invocations?: DescribeSendFileResultsResponseBodyInvocations;
+  nextToken?: string;
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
@@ -19608,6 +19894,7 @@ export class DescribeSendFileResultsResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       invocations: 'Invocations',
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -19618,6 +19905,7 @@ export class DescribeSendFileResultsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       invocations: DescribeSendFileResultsResponseBodyInvocations,
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
@@ -19631,9 +19919,9 @@ export class DescribeSendFileResultsResponseBody extends $tea.Model {
 }
 
 export class DescribeSendFileResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSendFileResultsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSendFileResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19739,9 +20027,9 @@ export class DescribeSnapshotGroupsResponseBody extends $tea.Model {
 }
 
 export class DescribeSnapshotGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSnapshotGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSnapshotGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19841,9 +20129,9 @@ export class DescribeSnapshotLinksResponseBody extends $tea.Model {
 }
 
 export class DescribeSnapshotLinksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSnapshotLinksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSnapshotLinksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19931,9 +20219,9 @@ export class DescribeSnapshotMonitorDataResponseBody extends $tea.Model {
 }
 
 export class DescribeSnapshotMonitorDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSnapshotMonitorDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSnapshotMonitorDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -20024,9 +20312,9 @@ export class DescribeSnapshotPackageResponseBody extends $tea.Model {
 }
 
 export class DescribeSnapshotPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSnapshotPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSnapshotPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -20174,9 +20462,9 @@ export class DescribeSnapshotsResponseBody extends $tea.Model {
 }
 
 export class DescribeSnapshotsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSnapshotsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSnapshotsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -20255,9 +20543,9 @@ export class DescribeSnapshotsUsageResponseBody extends $tea.Model {
 }
 
 export class DescribeSnapshotsUsageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSnapshotsUsageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSnapshotsUsageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -20366,9 +20654,9 @@ export class DescribeSpotAdviceResponseBody extends $tea.Model {
 }
 
 export class DescribeSpotAdviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSpotAdviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSpotAdviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -20477,9 +20765,9 @@ export class DescribeSpotPriceHistoryResponseBody extends $tea.Model {
 }
 
 export class DescribeSpotPriceHistoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSpotPriceHistoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSpotPriceHistoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -20588,9 +20876,9 @@ export class DescribeStorageCapacityUnitsResponseBody extends $tea.Model {
 }
 
 export class DescribeStorageCapacityUnitsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeStorageCapacityUnitsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeStorageCapacityUnitsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -20693,9 +20981,9 @@ export class DescribeStorageSetDetailsResponseBody extends $tea.Model {
 }
 
 export class DescribeStorageSetDetailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeStorageSetDetailsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeStorageSetDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -20798,9 +21086,9 @@ export class DescribeStorageSetsResponseBody extends $tea.Model {
 }
 
 export class DescribeStorageSetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeStorageSetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeStorageSetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -20900,9 +21188,9 @@ export class DescribeTagsResponseBody extends $tea.Model {
 }
 
 export class DescribeTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -21011,9 +21299,9 @@ export class DescribeTaskAttributeResponseBody extends $tea.Model {
 }
 
 export class DescribeTaskAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTaskAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTaskAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -21125,9 +21413,9 @@ export class DescribeTasksResponseBody extends $tea.Model {
 }
 
 export class DescribeTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -21206,9 +21494,9 @@ export class DescribeUserBusinessBehaviorResponseBody extends $tea.Model {
 }
 
 export class DescribeUserBusinessBehaviorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeUserBusinessBehaviorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserBusinessBehaviorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -21290,9 +21578,9 @@ export class DescribeUserDataResponseBody extends $tea.Model {
 }
 
 export class DescribeUserDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeUserDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -21386,9 +21674,9 @@ export class DescribeVRoutersResponseBody extends $tea.Model {
 }
 
 export class DescribeVRoutersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVRoutersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVRoutersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -21491,9 +21779,9 @@ export class DescribeVSwitchesResponseBody extends $tea.Model {
 }
 
 export class DescribeVSwitchesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVSwitchesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVSwitchesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -21584,9 +21872,9 @@ export class DescribeVirtualBorderRoutersResponseBody extends $tea.Model {
 }
 
 export class DescribeVirtualBorderRoutersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVirtualBorderRoutersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVirtualBorderRoutersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -21680,9 +21968,9 @@ export class DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody exten
 }
 
 export class DescribeVirtualBorderRoutersForPhysicalConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -21779,9 +22067,9 @@ export class DescribeVpcsResponseBody extends $tea.Model {
 }
 
 export class DescribeVpcsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVpcsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVpcsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -21869,9 +22157,9 @@ export class DescribeZonesResponseBody extends $tea.Model {
 }
 
 export class DescribeZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -21947,9 +22235,9 @@ export class DetachClassicLinkVpcResponseBody extends $tea.Model {
 }
 
 export class DetachClassicLinkVpcResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachClassicLinkVpcResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachClassicLinkVpcResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -22028,9 +22316,9 @@ export class DetachDiskResponseBody extends $tea.Model {
 }
 
 export class DetachDiskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachDiskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachDiskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -22118,9 +22406,9 @@ export class DetachInstanceRamRoleResponseBody extends $tea.Model {
 }
 
 export class DetachInstanceRamRoleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachInstanceRamRoleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachInstanceRamRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -22208,9 +22496,9 @@ export class DetachKeyPairResponseBody extends $tea.Model {
 }
 
 export class DetachKeyPairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachKeyPairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachKeyPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -22292,9 +22580,9 @@ export class DetachNetworkInterfaceResponseBody extends $tea.Model {
 }
 
 export class DetachNetworkInterfaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachNetworkInterfaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachNetworkInterfaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -22373,9 +22661,9 @@ export class DisableActivationResponseBody extends $tea.Model {
 }
 
 export class DisableActivationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableActivationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableActivationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -22466,9 +22754,9 @@ export class EipFillParamsResponseBody extends $tea.Model {
 }
 
 export class EipFillParamsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EipFillParamsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EipFillParamsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -22559,9 +22847,9 @@ export class EipFillProductResponseBody extends $tea.Model {
 }
 
 export class EipFillProductResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EipFillProductResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EipFillProductResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -22652,9 +22940,9 @@ export class EipNotifyPaidResponseBody extends $tea.Model {
 }
 
 export class EipNotifyPaidResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EipNotifyPaidResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EipNotifyPaidResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -22736,9 +23024,9 @@ export class EnablePhysicalConnectionResponseBody extends $tea.Model {
 }
 
 export class EnablePhysicalConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnablePhysicalConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnablePhysicalConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -22829,9 +23117,9 @@ export class ExportImageResponseBody extends $tea.Model {
 }
 
 export class ExportImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ExportImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -22913,9 +23201,9 @@ export class ExportSnapshotResponseBody extends $tea.Model {
 }
 
 export class ExportSnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ExportSnapshotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportSnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -23003,9 +23291,9 @@ export class GetInstanceConsoleOutputResponseBody extends $tea.Model {
 }
 
 export class GetInstanceConsoleOutputResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceConsoleOutputResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceConsoleOutputResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -23090,9 +23378,9 @@ export class GetInstanceScreenshotResponseBody extends $tea.Model {
 }
 
 export class GetInstanceScreenshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceScreenshotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceScreenshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -23207,9 +23495,9 @@ export class ImportImageResponseBody extends $tea.Model {
 }
 
 export class ImportImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ImportImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -23297,9 +23585,9 @@ export class ImportKeyPairResponseBody extends $tea.Model {
 }
 
 export class ImportKeyPairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ImportKeyPairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportKeyPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -23313,96 +23601,6 @@ export class ImportKeyPairResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ImportKeyPairResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportSnapshotRequest extends $tea.Model {
-  ossBucket?: string;
-  ossObject?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  roleName?: string;
-  snapshotName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ossBucket: 'OssBucket',
-      ossObject: 'OssObject',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      roleName: 'RoleName',
-      snapshotName: 'SnapshotName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ossBucket: 'string',
-      ossObject: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      roleName: 'string',
-      snapshotName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportSnapshotResponseBody extends $tea.Model {
-  requestId?: string;
-  snapshotId?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      snapshotId: 'SnapshotId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      snapshotId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportSnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ImportSnapshotResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ImportSnapshotResponseBody,
     };
   }
 
@@ -23465,9 +23663,9 @@ export class InstallCloudAssistantResponseBody extends $tea.Model {
 }
 
 export class InstallCloudAssistantResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InstallCloudAssistantResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InstallCloudAssistantResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -23504,6 +23702,7 @@ export class InvokeCommandRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  resourceTag?: InvokeCommandRequestResourceTag[];
   tag?: InvokeCommandRequestTag[];
   timed?: boolean;
   timeout?: number;
@@ -23525,6 +23724,7 @@ export class InvokeCommandRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      resourceTag: 'ResourceTag',
       tag: 'Tag',
       timed: 'Timed',
       timeout: 'Timeout',
@@ -23549,6 +23749,7 @@ export class InvokeCommandRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      resourceTag: { 'type': 'array', 'itemType': InvokeCommandRequestResourceTag },
       tag: { 'type': 'array', 'itemType': InvokeCommandRequestTag },
       timed: 'boolean',
       timeout: 'number',
@@ -23577,6 +23778,7 @@ export class InvokeCommandShrinkRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  resourceTag?: InvokeCommandShrinkRequestResourceTag[];
   tag?: InvokeCommandShrinkRequestTag[];
   timed?: boolean;
   timeout?: number;
@@ -23598,6 +23800,7 @@ export class InvokeCommandShrinkRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      resourceTag: 'ResourceTag',
       tag: 'Tag',
       timed: 'Timed',
       timeout: 'Timeout',
@@ -23622,6 +23825,7 @@ export class InvokeCommandShrinkRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      resourceTag: { 'type': 'array', 'itemType': InvokeCommandShrinkRequestResourceTag },
       tag: { 'type': 'array', 'itemType': InvokeCommandShrinkRequestTag },
       timed: 'boolean',
       timeout: 'number',
@@ -23658,9 +23862,9 @@ export class InvokeCommandResponseBody extends $tea.Model {
 }
 
 export class InvokeCommandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InvokeCommandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InvokeCommandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -23742,9 +23946,9 @@ export class JoinResourceGroupResponseBody extends $tea.Model {
 }
 
 export class JoinResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: JoinResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: JoinResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -23826,9 +24030,9 @@ export class JoinSecurityGroupResponseBody extends $tea.Model {
 }
 
 export class JoinSecurityGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: JoinSecurityGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: JoinSecurityGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -23910,9 +24114,9 @@ export class LeaveSecurityGroupResponseBody extends $tea.Model {
 }
 
 export class LeaveSecurityGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LeaveSecurityGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LeaveSecurityGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -23936,7 +24140,9 @@ export class LeaveSecurityGroupResponse extends $tea.Model {
 
 export class ListPluginStatusRequest extends $tea.Model {
   instanceId?: string[];
+  maxResults?: number;
   name?: string;
+  nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -23947,7 +24153,9 @@ export class ListPluginStatusRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      maxResults: 'MaxResults',
       name: 'Name',
+      nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -23961,7 +24169,9 @@ export class ListPluginStatusRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
       name: 'string',
+      nextToken: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -23979,6 +24189,7 @@ export class ListPluginStatusRequest extends $tea.Model {
 
 export class ListPluginStatusResponseBody extends $tea.Model {
   instancePluginStatusSet?: ListPluginStatusResponseBodyInstancePluginStatusSet;
+  nextToken?: string;
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
@@ -23986,6 +24197,7 @@ export class ListPluginStatusResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instancePluginStatusSet: 'InstancePluginStatusSet',
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -23996,6 +24208,7 @@ export class ListPluginStatusResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instancePluginStatusSet: ListPluginStatusResponseBodyInstancePluginStatusSet,
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
@@ -24009,9 +24222,9 @@ export class ListPluginStatusResponseBody extends $tea.Model {
 }
 
 export class ListPluginStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPluginStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPluginStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -24105,9 +24318,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -24210,9 +24423,9 @@ export class ModifyAutoProvisioningGroupResponseBody extends $tea.Model {
 }
 
 export class ModifyAutoProvisioningGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAutoProvisioningGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAutoProvisioningGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -24306,9 +24519,9 @@ export class ModifyAutoSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class ModifyAutoSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAutoSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAutoSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -24402,9 +24615,9 @@ export class ModifyAutoSnapshotPolicyExResponseBody extends $tea.Model {
 }
 
 export class ModifyAutoSnapshotPolicyExResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAutoSnapshotPolicyExResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAutoSnapshotPolicyExResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -24483,9 +24696,9 @@ export class ModifyBandwidthPackageSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyBandwidthPackageSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyBandwidthPackageSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyBandwidthPackageSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -24579,9 +24792,9 @@ export class ModifyCapacityReservationResponseBody extends $tea.Model {
 }
 
 export class ModifyCapacityReservationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyCapacityReservationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCapacityReservationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -24672,9 +24885,9 @@ export class ModifyCommandResponseBody extends $tea.Model {
 }
 
 export class ModifyCommandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyCommandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCommandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -24771,9 +24984,9 @@ export class ModifyDedicatedHostAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyDedicatedHostAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDedicatedHostAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDedicatedHostAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -24852,9 +25065,9 @@ export class ModifyDedicatedHostAutoReleaseTimeResponseBody extends $tea.Model {
 }
 
 export class ModifyDedicatedHostAutoReleaseTimeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDedicatedHostAutoReleaseTimeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDedicatedHostAutoReleaseTimeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -24945,9 +25158,9 @@ export class ModifyDedicatedHostAutoRenewAttributeResponseBody extends $tea.Mode
 }
 
 export class ModifyDedicatedHostAutoRenewAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDedicatedHostAutoRenewAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDedicatedHostAutoRenewAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25029,9 +25242,9 @@ export class ModifyDedicatedHostClusterAttributeResponseBody extends $tea.Model 
 }
 
 export class ModifyDedicatedHostClusterAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDedicatedHostClusterAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDedicatedHostClusterAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25134,9 +25347,9 @@ export class ModifyDedicatedHostsChargeTypeResponseBody extends $tea.Model {
 }
 
 export class ModifyDedicatedHostsChargeTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDedicatedHostsChargeTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDedicatedHostsChargeTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25245,9 +25458,9 @@ export class ModifyDemandResponseBody extends $tea.Model {
 }
 
 export class ModifyDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25329,9 +25542,9 @@ export class ModifyDeploymentSetAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyDeploymentSetAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDeploymentSetAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDeploymentSetAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25407,9 +25620,9 @@ export class ModifyDiagnosticMetricSetResponseBody extends $tea.Model {
 }
 
 export class ModifyDiagnosticMetricSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDiagnosticMetricSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDiagnosticMetricSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25506,9 +25719,9 @@ export class ModifyDiskAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyDiskAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDiskAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDiskAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25599,9 +25812,9 @@ export class ModifyDiskChargeTypeResponseBody extends $tea.Model {
 }
 
 export class ModifyDiskChargeTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDiskChargeTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDiskChargeTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25689,9 +25902,9 @@ export class ModifyDiskDeploymentResponseBody extends $tea.Model {
 }
 
 export class ModifyDiskDeploymentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDiskDeploymentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDiskDeploymentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25785,9 +25998,9 @@ export class ModifyDiskSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyDiskSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDiskSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDiskSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25866,9 +26079,9 @@ export class ModifyEipAddressAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyEipAddressAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyEipAddressAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyEipAddressAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25947,9 +26160,9 @@ export class ModifyElasticityAssuranceResponseBody extends $tea.Model {
 }
 
 export class ModifyElasticityAssuranceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyElasticityAssuranceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyElasticityAssuranceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -26043,9 +26256,9 @@ export class ModifyForwardEntryResponseBody extends $tea.Model {
 }
 
 export class ModifyForwardEntryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyForwardEntryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyForwardEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -26127,9 +26340,9 @@ export class ModifyHaVipAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyHaVipAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyHaVipAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyHaVipAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -26214,9 +26427,9 @@ export class ModifyHpcClusterAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyHpcClusterAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyHpcClusterAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyHpcClusterAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -26313,9 +26526,9 @@ export class ModifyImageAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyImageAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyImageAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyImageAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -26397,9 +26610,9 @@ export class ModifyImageShareGroupPermissionResponseBody extends $tea.Model {
 }
 
 export class ModifyImageShareGroupPermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyImageShareGroupPermissionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyImageShareGroupPermissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -26487,9 +26700,9 @@ export class ModifyImageSharePermissionResponseBody extends $tea.Model {
 }
 
 export class ModifyImageSharePermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyImageSharePermissionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyImageSharePermissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -26568,9 +26781,9 @@ export class ModifyInstanceAttachmentAttributesResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceAttachmentAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceAttachmentAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceAttachmentAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -26593,6 +26806,7 @@ export class ModifyInstanceAttachmentAttributesResponse extends $tea.Model {
 }
 
 export class ModifyInstanceAttributeRequest extends $tea.Model {
+  cpuOptions?: ModifyInstanceAttributeRequestCpuOptions;
   creditSpecification?: string;
   deletionProtection?: boolean;
   description?: string;
@@ -26612,6 +26826,7 @@ export class ModifyInstanceAttributeRequest extends $tea.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      cpuOptions: 'CpuOptions',
       creditSpecification: 'CreditSpecification',
       deletionProtection: 'DeletionProtection',
       description: 'Description',
@@ -26634,6 +26849,7 @@ export class ModifyInstanceAttributeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cpuOptions: ModifyInstanceAttributeRequestCpuOptions,
       creditSpecification: 'string',
       deletionProtection: 'boolean',
       description: 'string',
@@ -26679,9 +26895,9 @@ export class ModifyInstanceAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -26760,9 +26976,9 @@ export class ModifyInstanceAutoReleaseTimeResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceAutoReleaseTimeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceAutoReleaseTimeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceAutoReleaseTimeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -26850,9 +27066,9 @@ export class ModifyInstanceAutoRenewAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceAutoRenewAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceAutoRenewAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceAutoRenewAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -26958,9 +27174,9 @@ export class ModifyInstanceChargeTypeResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceChargeTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceChargeTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceChargeTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -27066,9 +27282,9 @@ export class ModifyInstanceDeploymentResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceDeploymentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceDeploymentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceDeploymentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -27153,9 +27369,9 @@ export class ModifyInstanceMaintenanceAttributesResponseBody extends $tea.Model 
 }
 
 export class ModifyInstanceMaintenanceAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceMaintenanceAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceMaintenanceAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -27240,9 +27456,9 @@ export class ModifyInstanceMetadataOptionsResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceMetadataOptionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceMetadataOptionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceMetadataOptionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -27345,9 +27561,9 @@ export class ModifyInstanceNetworkSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceNetworkSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceNetworkSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceNetworkSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -27376,6 +27592,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
   async?: boolean;
   clientToken?: string;
   disk?: ModifyInstanceSpecRequestDisk[];
+  dryRun?: boolean;
   instanceId?: string;
   instanceType?: string;
   internetMaxBandwidthIn?: number;
@@ -27393,6 +27610,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       async: 'Async',
       clientToken: 'ClientToken',
       disk: 'Disk',
+      dryRun: 'DryRun',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
       internetMaxBandwidthIn: 'InternetMaxBandwidthIn',
@@ -27413,6 +27631,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       async: 'boolean',
       clientToken: 'string',
       disk: { 'type': 'array', 'itemType': ModifyInstanceSpecRequestDisk },
+      dryRun: 'boolean',
       instanceId: 'string',
       instanceType: 'string',
       internetMaxBandwidthIn: 'number',
@@ -27450,9 +27669,9 @@ export class ModifyInstanceSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -27531,9 +27750,9 @@ export class ModifyInstanceVncPasswdResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceVncPasswdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceVncPasswdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceVncPasswdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -27618,9 +27837,9 @@ export class ModifyInstanceVpcAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceVpcAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceVpcAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceVpcAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -27634,6 +27853,157 @@ export class ModifyInstanceVpcAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyInstanceVpcAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInvocationAttributeRequest extends $tea.Model {
+  commandContent?: string;
+  contentEncoding?: string;
+  enableParameter?: boolean;
+  frequency?: string;
+  instanceId?: string[];
+  invokeId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  parameters?: { [key: string]: any };
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commandContent: 'CommandContent',
+      contentEncoding: 'ContentEncoding',
+      enableParameter: 'EnableParameter',
+      frequency: 'Frequency',
+      instanceId: 'InstanceId',
+      invokeId: 'InvokeId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandContent: 'string',
+      contentEncoding: 'string',
+      enableParameter: 'boolean',
+      frequency: 'string',
+      instanceId: { 'type': 'array', 'itemType': 'string' },
+      invokeId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInvocationAttributeShrinkRequest extends $tea.Model {
+  commandContent?: string;
+  contentEncoding?: string;
+  enableParameter?: boolean;
+  frequency?: string;
+  instanceId?: string[];
+  invokeId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  parametersShrink?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commandContent: 'CommandContent',
+      contentEncoding: 'ContentEncoding',
+      enableParameter: 'EnableParameter',
+      frequency: 'Frequency',
+      instanceId: 'InstanceId',
+      invokeId: 'InvokeId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      parametersShrink: 'Parameters',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandContent: 'string',
+      contentEncoding: 'string',
+      enableParameter: 'boolean',
+      frequency: 'string',
+      instanceId: { 'type': 'array', 'itemType': 'string' },
+      invokeId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      parametersShrink: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInvocationAttributeResponseBody extends $tea.Model {
+  commandId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commandId: 'CommandId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInvocationAttributeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInvocationAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyInvocationAttributeResponseBody,
     };
   }
 
@@ -27705,9 +28075,9 @@ export class ModifyLaunchTemplateDefaultVersionResponseBody extends $tea.Model {
 }
 
 export class ModifyLaunchTemplateDefaultVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyLaunchTemplateDefaultVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyLaunchTemplateDefaultVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -27789,9 +28159,9 @@ export class ModifyManagedInstanceResponseBody extends $tea.Model {
 }
 
 export class ModifyManagedInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyManagedInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyManagedInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -27824,7 +28194,9 @@ export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  rxQueueSize?: number;
   securityGroupId?: string[];
+  txQueueSize?: number;
   static names(): { [key: string]: string } {
     return {
       deleteOnRelease: 'DeleteOnRelease',
@@ -27837,7 +28209,9 @@ export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      rxQueueSize: 'RxQueueSize',
       securityGroupId: 'SecurityGroupId',
+      txQueueSize: 'TxQueueSize',
     };
   }
 
@@ -27853,7 +28227,9 @@ export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      rxQueueSize: 'number',
       securityGroupId: { 'type': 'array', 'itemType': 'string' },
+      txQueueSize: 'number',
     };
   }
 
@@ -27882,9 +28258,9 @@ export class ModifyNetworkInterfaceAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyNetworkInterfaceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyNetworkInterfaceAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyNetworkInterfaceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -27990,9 +28366,9 @@ export class ModifyPhysicalConnectionAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyPhysicalConnectionAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPhysicalConnectionAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPhysicalConnectionAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -28080,9 +28456,9 @@ export class ModifyPrefixListResponseBody extends $tea.Model {
 }
 
 export class ModifyPrefixListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPrefixListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPrefixListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -28194,9 +28570,9 @@ export class ModifyPrepayInstanceSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyPrepayInstanceSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPrepayInstanceSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPrepayInstanceSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -28287,9 +28663,9 @@ export class ModifyReservedInstanceAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyReservedInstanceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyReservedInstanceAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyReservedInstanceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -28374,9 +28750,9 @@ export class ModifyReservedInstanceAutoRenewAttributeResponseBody extends $tea.M
 }
 
 export class ModifyReservedInstanceAutoRenewAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyReservedInstanceAutoRenewAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyReservedInstanceAutoRenewAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -28458,9 +28834,9 @@ export class ModifyReservedInstancesResponseBody extends $tea.Model {
 }
 
 export class ModifyReservedInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyReservedInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyReservedInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -28557,9 +28933,9 @@ export class ModifyRouterInterfaceAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyRouterInterfaceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyRouterInterfaceAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRouterInterfaceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -28647,9 +29023,9 @@ export class ModifyRouterInterfaceSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyRouterInterfaceSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyRouterInterfaceSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRouterInterfaceSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -28731,9 +29107,9 @@ export class ModifySecurityGroupAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifySecurityGroupAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifySecurityGroupAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySecurityGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -28860,9 +29236,9 @@ export class ModifySecurityGroupEgressRuleResponseBody extends $tea.Model {
 }
 
 export class ModifySecurityGroupEgressRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifySecurityGroupEgressRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySecurityGroupEgressRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -28944,9 +29320,9 @@ export class ModifySecurityGroupPolicyResponseBody extends $tea.Model {
 }
 
 export class ModifySecurityGroupPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifySecurityGroupPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySecurityGroupPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -29073,9 +29449,9 @@ export class ModifySecurityGroupRuleResponseBody extends $tea.Model {
 }
 
 export class ModifySecurityGroupRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifySecurityGroupRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySecurityGroupRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -29160,9 +29536,9 @@ export class ModifySnapshotAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifySnapshotAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifySnapshotAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySnapshotAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -29244,9 +29620,9 @@ export class ModifySnapshotGroupResponseBody extends $tea.Model {
 }
 
 export class ModifySnapshotGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifySnapshotGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySnapshotGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -29328,9 +29704,9 @@ export class ModifyStorageCapacityUnitAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyStorageCapacityUnitAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyStorageCapacityUnitAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyStorageCapacityUnitAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -29415,9 +29791,9 @@ export class ModifyStorageSetAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyStorageSetAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyStorageSetAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyStorageSetAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -29496,9 +29872,9 @@ export class ModifyUserBusinessBehaviorResponseBody extends $tea.Model {
 }
 
 export class ModifyUserBusinessBehaviorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyUserBusinessBehaviorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyUserBusinessBehaviorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -29580,9 +29956,9 @@ export class ModifyVRouterAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyVRouterAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyVRouterAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVRouterAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -29664,9 +30040,9 @@ export class ModifyVSwitchAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyVSwitchAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyVSwitchAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVSwitchAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -29769,9 +30145,9 @@ export class ModifyVirtualBorderRouterAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyVirtualBorderRouterAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyVirtualBorderRouterAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVirtualBorderRouterAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -29859,9 +30235,9 @@ export class ModifyVpcAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyVpcAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyVpcAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVpcAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -29982,9 +30358,9 @@ export class PurchaseReservedInstancesOfferingResponseBody extends $tea.Model {
 }
 
 export class PurchaseReservedInstancesOfferingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PurchaseReservedInstancesOfferingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PurchaseReservedInstancesOfferingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -30093,9 +30469,9 @@ export class PurchaseStorageCapacityUnitResponseBody extends $tea.Model {
 }
 
 export class PurchaseStorageCapacityUnitResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PurchaseStorageCapacityUnitResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PurchaseStorageCapacityUnitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -30171,9 +30547,9 @@ export class ReActivateInstancesResponseBody extends $tea.Model {
 }
 
 export class ReActivateInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReActivateInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReActivateInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -30258,9 +30634,9 @@ export class ReInitDiskResponseBody extends $tea.Model {
 }
 
 export class ReInitDiskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReInitDiskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReInitDiskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -30339,9 +30715,9 @@ export class RebootInstanceResponseBody extends $tea.Model {
 }
 
 export class RebootInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RebootInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RebootInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -30429,9 +30805,9 @@ export class RebootInstancesResponseBody extends $tea.Model {
 }
 
 export class RebootInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RebootInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RebootInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -30513,9 +30889,9 @@ export class RecoverVirtualBorderRouterResponseBody extends $tea.Model {
 }
 
 export class RecoverVirtualBorderRouterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RecoverVirtualBorderRouterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RecoverVirtualBorderRouterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -30591,9 +30967,9 @@ export class RedeployDedicatedHostResponseBody extends $tea.Model {
 }
 
 export class RedeployDedicatedHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RedeployDedicatedHostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RedeployDedicatedHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -30672,9 +31048,9 @@ export class RedeployInstanceResponseBody extends $tea.Model {
 }
 
 export class RedeployInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RedeployInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RedeployInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -30753,9 +31129,9 @@ export class ReleaseCapacityReservationResponseBody extends $tea.Model {
 }
 
 export class ReleaseCapacityReservationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleaseCapacityReservationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseCapacityReservationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -30831,9 +31207,9 @@ export class ReleaseDedicatedHostResponseBody extends $tea.Model {
 }
 
 export class ReleaseDedicatedHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleaseDedicatedHostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseDedicatedHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -30909,9 +31285,9 @@ export class ReleaseEipAddressResponseBody extends $tea.Model {
 }
 
 export class ReleaseEipAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleaseEipAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -30984,9 +31360,9 @@ export class ReleasePublicIpAddressResponseBody extends $tea.Model {
 }
 
 export class ReleasePublicIpAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleasePublicIpAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleasePublicIpAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -31068,9 +31444,9 @@ export class RemoveBandwidthPackageIpsResponseBody extends $tea.Model {
 }
 
 export class RemoveBandwidthPackageIpsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveBandwidthPackageIpsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveBandwidthPackageIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -31149,9 +31525,9 @@ export class RemoveTagsResponseBody extends $tea.Model {
 }
 
 export class RemoveTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -31236,9 +31612,9 @@ export class RenewDedicatedHostsResponseBody extends $tea.Model {
 }
 
 export class RenewDedicatedHostsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewDedicatedHostsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewDedicatedHostsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -31326,9 +31702,9 @@ export class RenewInstanceResponseBody extends $tea.Model {
 }
 
 export class RenewInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -31425,9 +31801,9 @@ export class RenewReservedInstancesResponseBody extends $tea.Model {
 }
 
 export class RenewReservedInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewReservedInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewReservedInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -31548,9 +31924,9 @@ export class ReplaceSystemDiskResponseBody extends $tea.Model {
 }
 
 export class ReplaceSystemDiskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReplaceSystemDiskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReplaceSystemDiskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -31647,9 +32023,9 @@ export class ReportInstancesStatusResponseBody extends $tea.Model {
 }
 
 export class ReportInstancesStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReportInstancesStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReportInstancesStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -31728,9 +32104,9 @@ export class ResetDiskResponseBody extends $tea.Model {
 }
 
 export class ResetDiskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetDiskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetDiskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -31812,9 +32188,9 @@ export class ResetDisksResponseBody extends $tea.Model {
 }
 
 export class ResetDisksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetDisksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetDisksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -31899,9 +32275,9 @@ export class ResizeDiskResponseBody extends $tea.Model {
 }
 
 export class ResizeDiskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResizeDiskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResizeDiskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -32031,9 +32407,9 @@ export class RevokeSecurityGroupResponseBody extends $tea.Model {
 }
 
 export class RevokeSecurityGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RevokeSecurityGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RevokeSecurityGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -32163,9 +32539,9 @@ export class RevokeSecurityGroupEgressResponseBody extends $tea.Model {
 }
 
 export class RevokeSecurityGroupEgressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RevokeSecurityGroupEgressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RevokeSecurityGroupEgressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -32207,6 +32583,7 @@ export class RunCommandRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  resourceTag?: RunCommandRequestResourceTag[];
   tag?: RunCommandRequestTag[];
   timed?: boolean;
   timeout?: number;
@@ -32235,6 +32612,7 @@ export class RunCommandRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      resourceTag: 'ResourceTag',
       tag: 'Tag',
       timed: 'Timed',
       timeout: 'Timeout',
@@ -32266,6 +32644,7 @@ export class RunCommandRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      resourceTag: { 'type': 'array', 'itemType': RunCommandRequestResourceTag },
       tag: { 'type': 'array', 'itemType': RunCommandRequestTag },
       timed: 'boolean',
       timeout: 'number',
@@ -32301,6 +32680,7 @@ export class RunCommandShrinkRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  resourceTag?: RunCommandShrinkRequestResourceTag[];
   tag?: RunCommandShrinkRequestTag[];
   timed?: boolean;
   timeout?: number;
@@ -32329,6 +32709,7 @@ export class RunCommandShrinkRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      resourceTag: 'ResourceTag',
       tag: 'Tag',
       timed: 'Timed',
       timeout: 'Timeout',
@@ -32360,6 +32741,7 @@ export class RunCommandShrinkRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      resourceTag: { 'type': 'array', 'itemType': RunCommandShrinkRequestResourceTag },
       tag: { 'type': 'array', 'itemType': RunCommandShrinkRequestTag },
       timed: 'boolean',
       timeout: 'number',
@@ -32401,9 +32783,9 @@ export class RunCommandResponseBody extends $tea.Model {
 }
 
 export class RunCommandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RunCommandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunCommandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -32698,9 +33080,9 @@ export class RunInstancesResponseBody extends $tea.Model {
 }
 
 export class RunInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RunInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -32815,9 +33197,9 @@ export class SendFileResponseBody extends $tea.Model {
 }
 
 export class SendFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -32893,9 +33275,9 @@ export class StartElasticityAssuranceResponseBody extends $tea.Model {
 }
 
 export class StartElasticityAssuranceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartElasticityAssuranceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartElasticityAssuranceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -32980,9 +33362,9 @@ export class StartImagePipelineExecutionResponseBody extends $tea.Model {
 }
 
 export class StartImagePipelineExecutionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartImagePipelineExecutionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartImagePipelineExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -33061,9 +33443,9 @@ export class StartInstanceResponseBody extends $tea.Model {
 }
 
 export class StartInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -33148,9 +33530,9 @@ export class StartInstancesResponseBody extends $tea.Model {
 }
 
 export class StartInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -33244,9 +33626,9 @@ export class StartTerminalSessionResponseBody extends $tea.Model {
 }
 
 export class StartTerminalSessionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartTerminalSessionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartTerminalSessionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -33334,9 +33716,9 @@ export class StopInstanceResponseBody extends $tea.Model {
 }
 
 export class StopInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -33427,9 +33809,9 @@ export class StopInstancesResponseBody extends $tea.Model {
 }
 
 export class StopInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -33508,9 +33890,9 @@ export class StopInvocationResponseBody extends $tea.Model {
 }
 
 export class StopInvocationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopInvocationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopInvocationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -33589,9 +33971,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -33673,9 +34055,9 @@ export class TerminatePhysicalConnectionResponseBody extends $tea.Model {
 }
 
 export class TerminatePhysicalConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TerminatePhysicalConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TerminatePhysicalConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -33757,9 +34139,9 @@ export class TerminateVirtualBorderRouterResponseBody extends $tea.Model {
 }
 
 export class TerminateVirtualBorderRouterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TerminateVirtualBorderRouterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TerminateVirtualBorderRouterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -33841,9 +34223,9 @@ export class UnassignIpv6AddressesResponseBody extends $tea.Model {
 }
 
 export class UnassignIpv6AddressesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnassignIpv6AddressesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnassignIpv6AddressesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -33925,9 +34307,9 @@ export class UnassignPrivateIpAddressesResponseBody extends $tea.Model {
 }
 
 export class UnassignPrivateIpAddressesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnassignPrivateIpAddressesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnassignPrivateIpAddressesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -34009,9 +34391,9 @@ export class UnassociateEipAddressResponseBody extends $tea.Model {
 }
 
 export class UnassociateEipAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnassociateEipAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnassociateEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -34096,9 +34478,9 @@ export class UnassociateHaVipResponseBody extends $tea.Model {
 }
 
 export class UnassociateHaVipResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnassociateHaVipResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnassociateHaVipResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -34183,9 +34565,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -34848,6 +35230,7 @@ export class CreateAutoProvisioningGroupRequestLaunchConfiguration extends $tea.
   deploymentSetId?: string;
   hostName?: string;
   hostNames?: string[];
+  imageFamily?: string;
   imageId?: string;
   instanceDescription?: string;
   instanceName?: string;
@@ -34880,6 +35263,7 @@ export class CreateAutoProvisioningGroupRequestLaunchConfiguration extends $tea.
       deploymentSetId: 'DeploymentSetId',
       hostName: 'HostName',
       hostNames: 'HostNames',
+      imageFamily: 'ImageFamily',
       imageId: 'ImageId',
       instanceDescription: 'InstanceDescription',
       instanceName: 'InstanceName',
@@ -34915,6 +35299,7 @@ export class CreateAutoProvisioningGroupRequestLaunchConfiguration extends $tea.
       deploymentSetId: 'string',
       hostName: 'string',
       hostNames: { 'type': 'array', 'itemType': 'string' },
+      imageFamily: 'string',
       imageId: 'string',
       instanceDescription: 'string',
       instanceName: 'string',
@@ -36456,6 +36841,25 @@ export class DeleteActivationResponseBodyActivation extends $tea.Model {
   }
 }
 
+export class DeleteLaunchTemplateResponseBodyLaunchTemplateVersionNumbers extends $tea.Model {
+  versionNumbers?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      versionNumbers: 'versionNumbers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      versionNumbers: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteLaunchTemplateVersionResponseBodyLaunchTemplateVersionsLaunchTemplateVersion extends $tea.Model {
   launchTemplateId?: string;
   launchTemplateVersionNumber?: number;
@@ -36621,6 +37025,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $tea.Model {
   osType?: string;
   osVersion?: string;
   registrationTime?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       activationId: 'ActivationId',
@@ -36636,6 +37041,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $tea.Model {
       osType: 'OsType',
       osVersion: 'OsVersion',
       registrationTime: 'RegistrationTime',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -36654,6 +37060,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $tea.Model {
       osType: 'string',
       osVersion: 'string',
       registrationTime: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -37232,6 +37639,7 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
   maxSpotPrice?: number;
   payAsYouGoOptions?: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupPayAsYouGoOptions;
   regionId?: string;
+  resourceGroupId?: string;
   spotOptions?: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupSpotOptions;
   state?: string;
   status?: string;
@@ -37253,6 +37661,7 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
       maxSpotPrice: 'MaxSpotPrice',
       payAsYouGoOptions: 'PayAsYouGoOptions',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       spotOptions: 'SpotOptions',
       state: 'State',
       status: 'Status',
@@ -37277,6 +37686,7 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
       maxSpotPrice: 'number',
       payAsYouGoOptions: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupPayAsYouGoOptions,
       regionId: 'string',
+      resourceGroupId: 'string',
       spotOptions: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupSpotOptions,
       state: 'string',
       status: 'string',
@@ -37390,6 +37800,7 @@ export class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSna
   tags?: DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTags;
   targetCopyRegions?: string;
   timePoints?: string;
+  type?: string;
   volumeNums?: number;
   static names(): { [key: string]: string } {
     return {
@@ -37407,6 +37818,7 @@ export class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSna
       tags: 'Tags',
       targetCopyRegions: 'TargetCopyRegions',
       timePoints: 'TimePoints',
+      type: 'Type',
       volumeNums: 'VolumeNums',
     };
   }
@@ -37427,6 +37839,7 @@ export class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSna
       tags: DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTags,
       targetCopyRegions: 'string',
       timePoints: 'string',
+      type: 'string',
       volumeNums: 'number',
     };
   }
@@ -37865,13 +38278,61 @@ export class DescribeCapacityReservationsRequestTag extends $tea.Model {
   }
 }
 
+export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResourcesAllocatedResourceCapacityReservationUsagesCapacityReservationUsage extends $tea.Model {
+  accountId?: string;
+  serviceName?: string;
+  usedAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      serviceName: 'ServiceName',
+      usedAmount: 'UsedAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      serviceName: 'string',
+      usedAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResourcesAllocatedResourceCapacityReservationUsages extends $tea.Model {
+  capacityReservationUsage?: DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResourcesAllocatedResourceCapacityReservationUsagesCapacityReservationUsage[];
+  static names(): { [key: string]: string } {
+    return {
+      capacityReservationUsage: 'CapacityReservationUsage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacityReservationUsage: { 'type': 'array', 'itemType': DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResourcesAllocatedResourceCapacityReservationUsagesCapacityReservationUsage },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResourcesAllocatedResource extends $tea.Model {
+  availableAmount?: number;
+  capacityReservationUsages?: DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResourcesAllocatedResourceCapacityReservationUsages;
   instanceType?: string;
   totalAmount?: number;
   usedAmount?: number;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      availableAmount: 'AvailableAmount',
+      capacityReservationUsages: 'CapacityReservationUsages',
       instanceType: 'InstanceType',
       totalAmount: 'TotalAmount',
       usedAmount: 'UsedAmount',
@@ -37881,6 +38342,8 @@ export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapac
 
   static types(): { [key: string]: any } {
     return {
+      availableAmount: 'number',
+      capacityReservationUsages: DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResourcesAllocatedResourceCapacityReservationUsages,
       instanceType: 'string',
       totalAmount: 'number',
       usedAmount: 'number',
@@ -37955,6 +38418,7 @@ export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapac
 
 export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItem extends $tea.Model {
   allocatedResources?: DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResources;
+  capacityReservationOwnerId?: string;
   description?: string;
   endTime?: string;
   endTimeType?: string;
@@ -37975,6 +38439,7 @@ export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapac
   static names(): { [key: string]: string } {
     return {
       allocatedResources: 'AllocatedResources',
+      capacityReservationOwnerId: 'CapacityReservationOwnerId',
       description: 'Description',
       endTime: 'EndTime',
       endTimeType: 'EndTimeType',
@@ -37998,6 +38463,7 @@ export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapac
   static types(): { [key: string]: any } {
     return {
       allocatedResources: DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResources,
+      capacityReservationOwnerId: 'string',
       description: 'string',
       endTime: 'string',
       endTimeType: 'string',
@@ -40254,6 +40720,8 @@ export class DescribeDisksResponseBodyDisksDisk extends $tea.Model {
   storageSetPartitionNumber?: number;
   tags?: DescribeDisksResponseBodyDisksDiskTags;
   throughput?: number;
+  throughputRead?: number;
+  throughputWrite?: number;
   type?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -40302,6 +40770,8 @@ export class DescribeDisksResponseBodyDisksDisk extends $tea.Model {
       storageSetPartitionNumber: 'StorageSetPartitionNumber',
       tags: 'Tags',
       throughput: 'Throughput',
+      throughputRead: 'ThroughputRead',
+      throughputWrite: 'ThroughputWrite',
       type: 'Type',
       zoneId: 'ZoneId',
     };
@@ -40353,6 +40823,8 @@ export class DescribeDisksResponseBodyDisksDisk extends $tea.Model {
       storageSetPartitionNumber: 'number',
       tags: DescribeDisksResponseBodyDisksDiskTags,
       throughput: 'number',
+      throughputRead: 'number',
+      throughputWrite: 'number',
       type: 'string',
       zoneId: 'string',
     };
@@ -43820,11 +44292,13 @@ export class DescribeInstancesResponseBodyInstancesInstanceCpuOptions extends $t
   coreCount?: number;
   numa?: string;
   threadsPerCore?: number;
+  topologyType?: string;
   static names(): { [key: string]: string } {
     return {
       coreCount: 'CoreCount',
       numa: 'Numa',
       threadsPerCore: 'ThreadsPerCore',
+      topologyType: 'TopologyType',
     };
   }
 
@@ -43833,6 +44307,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceCpuOptions extends $t
       coreCount: 'number',
       numa: 'string',
       threadsPerCore: 'number',
+      topologyType: 'string',
     };
   }
 
@@ -44478,6 +44953,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
   securityGroupIds?: DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds;
   serialNumber?: string;
   spotDuration?: number;
+  spotInterruptionBehavior?: string;
   spotPriceLimit?: number;
   spotStrategy?: string;
   startTime?: string;
@@ -44543,6 +45019,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
       securityGroupIds: 'SecurityGroupIds',
       serialNumber: 'SerialNumber',
       spotDuration: 'SpotDuration',
+      spotInterruptionBehavior: 'SpotInterruptionBehavior',
       spotPriceLimit: 'SpotPriceLimit',
       spotStrategy: 'SpotStrategy',
       startTime: 'StartTime',
@@ -44611,6 +45088,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
       securityGroupIds: DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds,
       serialNumber: 'string',
       spotDuration: 'number',
+      spotInterruptionBehavior: 'string',
       spotPriceLimit: 'number',
       spotStrategy: 'string',
       startTime: 'string',
@@ -45114,12 +45592,14 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResults ex
 
 export class DescribeInvocationResultsResponseBodyInvocation extends $tea.Model {
   invocationResults?: DescribeInvocationResultsResponseBodyInvocationInvocationResults;
+  nextToken?: string;
   pageNumber?: number;
   pageSize?: number;
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       invocationResults: 'InvocationResults',
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
@@ -45129,6 +45609,7 @@ export class DescribeInvocationResultsResponseBodyInvocation extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       invocationResults: DescribeInvocationResultsResponseBodyInvocationInvocationResults,
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       totalCount: 'number',
@@ -45445,6 +45926,7 @@ export class DescribeKeyPairsResponseBodyKeyPairsKeyPair extends $tea.Model {
   creationTime?: string;
   keyPairFingerPrint?: string;
   keyPairName?: string;
+  publicKey?: string;
   resourceGroupId?: string;
   tags?: DescribeKeyPairsResponseBodyKeyPairsKeyPairTags;
   static names(): { [key: string]: string } {
@@ -45452,6 +45934,7 @@ export class DescribeKeyPairsResponseBodyKeyPairsKeyPair extends $tea.Model {
       creationTime: 'CreationTime',
       keyPairFingerPrint: 'KeyPairFingerPrint',
       keyPairName: 'KeyPairName',
+      publicKey: 'PublicKey',
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
     };
@@ -45462,6 +45945,7 @@ export class DescribeKeyPairsResponseBodyKeyPairsKeyPair extends $tea.Model {
       creationTime: 'string',
       keyPairFingerPrint: 'string',
       keyPairName: 'string',
+      publicKey: 'string',
       resourceGroupId: 'string',
       tags: DescribeKeyPairsResponseBodyKeyPairsKeyPairTags,
     };
@@ -46125,6 +46609,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $tea.Model {
   osType?: string;
   osVersion?: string;
   registrationTime?: string;
+  resourceGroupId?: string;
   tags?: DescribeManagedInstancesResponseBodyInstancesTags[];
   static names(): { [key: string]: string } {
     return {
@@ -46142,6 +46627,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $tea.Model {
       osType: 'OsType',
       osVersion: 'OsVersion',
       registrationTime: 'RegistrationTime',
+      resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
     };
   }
@@ -46162,6 +46648,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $tea.Model {
       osType: 'string',
       osVersion: 'string',
       registrationTime: 'string',
+      resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': DescribeManagedInstancesResponseBodyInstancesTags },
     };
   }
@@ -48971,6 +49458,78 @@ export class DescribeRouterInterfacesResponseBodyRouterInterfaceSet extends $tea
   }
 }
 
+export class DescribeSavingsPlanPriceResponseBodyPriceInfoPrice extends $tea.Model {
+  currency?: string;
+  discountPrice?: number;
+  originalPrice?: number;
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      discountPrice: 'DiscountPrice',
+      originalPrice: 'OriginalPrice',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      discountPrice: 'number',
+      originalPrice: 'number',
+      tradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSavingsPlanPriceResponseBodyPriceInfoRules extends $tea.Model {
+  description?: string;
+  ruleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      ruleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSavingsPlanPriceResponseBodyPriceInfo extends $tea.Model {
+  price?: DescribeSavingsPlanPriceResponseBodyPriceInfoPrice;
+  rules?: DescribeSavingsPlanPriceResponseBodyPriceInfoRules[];
+  static names(): { [key: string]: string } {
+    return {
+      price: 'Price',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      price: DescribeSavingsPlanPriceResponseBodyPriceInfoPrice,
+      rules: { 'type': 'array', 'itemType': DescribeSavingsPlanPriceResponseBodyPriceInfoRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSecurityGroupAttributeResponseBodyPermissionsPermission extends $tea.Model {
   createTime?: string;
   description?: string;
@@ -49980,6 +50539,7 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
   lastModifiedTime?: string;
   productCode?: string;
   progress?: string;
+  regionId?: string;
   remainTime?: number;
   resourceGroupId?: string;
   retentionDays?: number;
@@ -50009,6 +50569,7 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
       lastModifiedTime: 'LastModifiedTime',
       productCode: 'ProductCode',
       progress: 'Progress',
+      regionId: 'RegionId',
       remainTime: 'RemainTime',
       resourceGroupId: 'ResourceGroupId',
       retentionDays: 'RetentionDays',
@@ -50041,6 +50602,7 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
       lastModifiedTime: 'string',
       productCode: 'string',
       progress: 'string',
+      regionId: 'string',
       remainTime: 'number',
       resourceGroupId: 'string',
       retentionDays: 'number',
@@ -51794,7 +52356,51 @@ export class ImportKeyPairRequestTag extends $tea.Model {
   }
 }
 
+export class InvokeCommandRequestResourceTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvokeCommandRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeCommandShrinkRequestResourceTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -52219,6 +52825,25 @@ export class ModifyInstanceAttachmentAttributesRequestPrivatePoolOptions extends
     return {
       id: 'string',
       matchCriteria: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceAttributeRequestCpuOptions extends $tea.Model {
+  topologyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      topologyType: 'TopologyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      topologyType: 'string',
     };
   }
 
@@ -53009,7 +53634,51 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   }
 }
 
+export class RunCommandRequestResourceTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunCommandRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommandShrinkRequestResourceTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -53057,11 +53726,13 @@ export class RunInstancesRequestCpuOptions extends $tea.Model {
   core?: number;
   numa?: string;
   threadsPerCore?: number;
+  topologyType?: string;
   static names(): { [key: string]: string } {
     return {
       core: 'Core',
       numa: 'Numa',
       threadsPerCore: 'ThreadsPerCore',
+      topologyType: 'TopologyType',
     };
   }
 
@@ -53070,6 +53741,7 @@ export class RunInstancesRequestCpuOptions extends $tea.Model {
       core: 'number',
       numa: 'string',
       threadsPerCore: 'number',
+      topologyType: 'string',
     };
   }
 
@@ -53330,8 +54002,10 @@ export class RunInstancesRequestNetworkInterface extends $tea.Model {
   primaryIpAddress?: string;
   queueNumber?: number;
   queuePairNumber?: number;
+  rxQueueSize?: number;
   securityGroupId?: string;
   securityGroupIds?: string[];
+  txQueueSize?: number;
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53347,8 +54021,10 @@ export class RunInstancesRequestNetworkInterface extends $tea.Model {
       primaryIpAddress: 'PrimaryIpAddress',
       queueNumber: 'QueueNumber',
       queuePairNumber: 'QueuePairNumber',
+      rxQueueSize: 'RxQueueSize',
       securityGroupId: 'SecurityGroupId',
       securityGroupIds: 'SecurityGroupIds',
+      txQueueSize: 'TxQueueSize',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -53367,8 +54043,10 @@ export class RunInstancesRequestNetworkInterface extends $tea.Model {
       primaryIpAddress: 'string',
       queueNumber: 'number',
       queuePairNumber: 'number',
+      rxQueueSize: 'number',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      txQueueSize: 'number',
       vSwitchId: 'string',
     };
   }
@@ -55050,18 +55728,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In security group-related API documents, outbound traffic refers to the traffic that is sent by the source device and received at the destination device.
-    * When you call this operation, take note of the following items:
-    * *   The total number of inbound and outbound security group rules in each security group cannot exceed 200. For more information, see the "Security group limits" section of the [Limits](~~25412#SecurityGroupQuota1~~) topic.
-    * *   The valid value of Priority ranges from 1 to 100. A smaller value specifies a higher priority.
-    * *   If several security group rules have the same priority, drop rules take precedence.
+    * Take note of the following items:
+    * *   The total number of outbound and inbound rules in each security group cannot exceed 200. For more information, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+    * *   The valid values of Priority range from 1 to 100. A smaller value indicates a higher priority.
+    * *   When multiple security group rules have the same priority, drop rules take precedence.
     * *   The source can be a CIDR block that is specified by SourceCidrIp, Ipv6SourceCidrIp, or SourcePrefixListId. The source can also be Elastic Compute Service (ECS) instances in a security group that is specified by SourceGroupId.
     * *   You cannot reference security groups as sources or destinations in the rules of advanced security groups.
     * *   You can reference up to 20 security groups as sources or destinations in the rules of each basic security group.
     * *   If the specified security group rule already exists in the security group, the call is successful but no security group rule is created.
-    * *   The `Permissions.N` prefix is added to specific parameters to generate new parameters. Original parameters and corresponding parameters prefixed with Permissions.N cannot be specified together. We recommend that you use parameters prefixed with `Permissions.N`.
+    * *   Parameters and their `Permissions.N`-prefixed counterparts cannot be specified at the same time. We recommend that you use the `Permissions.N`-prefixed parameters.
     * *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-    *     *   Parameters used to determine an inbound security group rule that controls access from a specific CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourceCidrIp. For a security group of the Virtual Private Cloud (VPC) type, you must set the NicType parameter to intranet. For a security group of the classic network type, you can set the NicType parameter to either internet or intranet. Sample request:
+    *     *   Parameters used to specify an inbound security group rule that controls access from a specific CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourceCidrIp. For a security group of the Virtual Private Cloud (VPC) type, you must set NicType to intranet. For a security group of the classic network type, you can set NicType to either internet or intranet. Sample request:
     *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
     *             &SecurityGroupId=sg-bp67acfmxazb4p****
     *             &Permissions.1.SourceCidrIp=10.0.0.0/8
@@ -55070,7 +55747,7 @@ export default class Client extends OpenApi {
     *             &Permissions.1.NicType=intranet
     *             &Permissions.1.Policy=Accept
     *             &<Common request parameters>
-    *     *   Parameters used to determine an inbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceGroupOwnerAccount, and SourceGroupId. In this case, you must set the NicType parameter to intranet. To manage access between security groups in the classic network, you can allow or deny access from another security group within the same region to your security group. The security group that is allowed to access your security group can belong to your Alibaba Cloud account or another Alibaba Cloud account that is specified by SourceGroupOwnerAccount. To manage access between security groups in VPCs, you can allow or deny access from another security group within the same VPC to your security group. Sample request:
+    *     *   Parameters used to determine an inbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceGroupOwnerAccount, and SourceGroupId. In this case, you must set NicType to intranet. For mutual access between security groups in the classic network, you can allow or deny another security group within the same region access to your security group. The security group that is allowed access to your security group can belong to your own Alibaba Cloud account or another Alibaba Cloud account specified by SourceGroupOwnerAccount. For mutual access between security groups in VPCs, you can allow or deny another security group within the same VPC access to your security group. Sample request:
     *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
     *             &SecurityGroupId=sg-bp67acfmxazb4p****
     *             &Permissions.1.SourceGroupId=sg-1651FBB**
@@ -55080,7 +55757,7 @@ export default class Client extends OpenApi {
     *             &Permissions.1.NicType=intranet
     *             &Permissions.1.Policy=Drop
     *             &<Common request parameters>
-    *     *   Parameters used to determine an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourcePrefixListId. If you specify this group of parameters, prefix lists support only security groups in VPCs. You must set NicType to intranet. Sample request:
+    *     *   Parameters used to determine an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourcePrefixListId. In this case, prefix lists support only security groups in VPCs. NicType must be set to intranet. Sample request:
     *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
     *             &SecurityGroupId=sg-bp67acfmxazb4p****
     *             &Permissions.1.SourcePrefixListId=pl-x1j1k5ykzqlixdcy****
@@ -55090,7 +55767,7 @@ export default class Client extends OpenApi {
     *             &Permissions.1.NicType=intranet
     *             &Permissions.1.Policy=Drop
     *             &<Common request parameters>
-    * *   For examples on how to configure security group rules, see [Security groups for different use cases](~~25475~~) and [Security group quintuple rules](~~97439~~).
+    * *   For information about examples on security group rule settings, see [Security groups for different use cases](~~25475~~) and [Security group quintuple rules](~~97439~~).
     *
     * @param request AuthorizeSecurityGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -55225,18 +55902,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In security group-related API documents, outbound traffic refers to the traffic that is sent by the source device and received at the destination device.
-    * When you call this operation, take note of the following items:
-    * *   The total number of inbound and outbound security group rules in each security group cannot exceed 200. For more information, see the "Security group limits" section of the [Limits](~~25412#SecurityGroupQuota1~~) topic.
-    * *   The valid value of Priority ranges from 1 to 100. A smaller value specifies a higher priority.
-    * *   If several security group rules have the same priority, drop rules take precedence.
+    * Take note of the following items:
+    * *   The total number of outbound and inbound rules in each security group cannot exceed 200. For more information, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+    * *   The valid values of Priority range from 1 to 100. A smaller value indicates a higher priority.
+    * *   When multiple security group rules have the same priority, drop rules take precedence.
     * *   The source can be a CIDR block that is specified by SourceCidrIp, Ipv6SourceCidrIp, or SourcePrefixListId. The source can also be Elastic Compute Service (ECS) instances in a security group that is specified by SourceGroupId.
     * *   You cannot reference security groups as sources or destinations in the rules of advanced security groups.
     * *   You can reference up to 20 security groups as sources or destinations in the rules of each basic security group.
     * *   If the specified security group rule already exists in the security group, the call is successful but no security group rule is created.
-    * *   The `Permissions.N` prefix is added to specific parameters to generate new parameters. Original parameters and corresponding parameters prefixed with Permissions.N cannot be specified together. We recommend that you use parameters prefixed with `Permissions.N`.
+    * *   Parameters and their `Permissions.N`-prefixed counterparts cannot be specified at the same time. We recommend that you use the `Permissions.N`-prefixed parameters.
     * *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-    *     *   Parameters used to determine an inbound security group rule that controls access from a specific CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourceCidrIp. For a security group of the Virtual Private Cloud (VPC) type, you must set the NicType parameter to intranet. For a security group of the classic network type, you can set the NicType parameter to either internet or intranet. Sample request:
+    *     *   Parameters used to specify an inbound security group rule that controls access from a specific CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourceCidrIp. For a security group of the Virtual Private Cloud (VPC) type, you must set NicType to intranet. For a security group of the classic network type, you can set NicType to either internet or intranet. Sample request:
     *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
     *             &SecurityGroupId=sg-bp67acfmxazb4p****
     *             &Permissions.1.SourceCidrIp=10.0.0.0/8
@@ -55245,7 +55921,7 @@ export default class Client extends OpenApi {
     *             &Permissions.1.NicType=intranet
     *             &Permissions.1.Policy=Accept
     *             &<Common request parameters>
-    *     *   Parameters used to determine an inbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceGroupOwnerAccount, and SourceGroupId. In this case, you must set the NicType parameter to intranet. To manage access between security groups in the classic network, you can allow or deny access from another security group within the same region to your security group. The security group that is allowed to access your security group can belong to your Alibaba Cloud account or another Alibaba Cloud account that is specified by SourceGroupOwnerAccount. To manage access between security groups in VPCs, you can allow or deny access from another security group within the same VPC to your security group. Sample request:
+    *     *   Parameters used to determine an inbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceGroupOwnerAccount, and SourceGroupId. In this case, you must set NicType to intranet. For mutual access between security groups in the classic network, you can allow or deny another security group within the same region access to your security group. The security group that is allowed access to your security group can belong to your own Alibaba Cloud account or another Alibaba Cloud account specified by SourceGroupOwnerAccount. For mutual access between security groups in VPCs, you can allow or deny another security group within the same VPC access to your security group. Sample request:
     *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
     *             &SecurityGroupId=sg-bp67acfmxazb4p****
     *             &Permissions.1.SourceGroupId=sg-1651FBB**
@@ -55255,7 +55931,7 @@ export default class Client extends OpenApi {
     *             &Permissions.1.NicType=intranet
     *             &Permissions.1.Policy=Drop
     *             &<Common request parameters>
-    *     *   Parameters used to determine an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourcePrefixListId. If you specify this group of parameters, prefix lists support only security groups in VPCs. You must set NicType to intranet. Sample request:
+    *     *   Parameters used to determine an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourcePrefixListId. In this case, prefix lists support only security groups in VPCs. NicType must be set to intranet. Sample request:
     *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
     *             &SecurityGroupId=sg-bp67acfmxazb4p****
     *             &Permissions.1.SourcePrefixListId=pl-x1j1k5ykzqlixdcy****
@@ -55265,7 +55941,7 @@ export default class Client extends OpenApi {
     *             &Permissions.1.NicType=intranet
     *             &Permissions.1.Policy=Drop
     *             &<Common request parameters>
-    * *   For examples on how to configure security group rules, see [Security groups for different use cases](~~25475~~) and [Security group quintuple rules](~~97439~~).
+    * *   For information about examples on security group rule settings, see [Security groups for different use cases](~~25475~~) and [Security group quintuple rules](~~97439~~).
     *
     * @param request AuthorizeSecurityGroupRequest
     * @return AuthorizeSecurityGroupResponse
@@ -56195,19 +56871,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use a variety of online services provided by Alibaba Cloud in the managed instance, such as Cloud Assistant, Operation Orchestration Service (OOS), and Apsara Devops.
-    * A server that is not provided by Alibaba Cloud can be registered as an Alibaba Cloud managed instance only when the server can access the Internet and runs an operating system of one of the following versions:
-    * *   Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
-    * *   CentOS 6, CentOS 7, CentOS 8, and later
-    * *   Debian 8, Debian 9, Debian 10, and later
-    * *   Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
-    * *   CoreOS
-    * *   OpenSUSE
-    * *   Red Hat 5, Red Hat 6, Red Hat 7, and later
-    * *   SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
-    * *   Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
-    * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can proceed to create more activation codes.
-    * > To view the usage of activation codes, click **Activation Code** on the **Manage Instances** tab of the **Cloud Assistant** page in the Elastic Compute Service (ECS) console.
+    * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use various online services of Alibaba Cloud, such as Cloud Assistant, CloudOps Orchestration Service (OOS), and Apsara Devops, on the managed instance. 
+    * If a server is not provided by Alibaba Cloud, you can register the server as an Alibaba Cloud managed instance only if the server has Internet connectivity and runs an operating system of one of the following versions: 
+    * - Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
+    * - CentOS 6, CentOS 7, CentOS 8, and later
+    * - Debian 8, Debian 9, Debian 10, and later
+    * - Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
+    * - CoreOS
+    * - OpenSUSE
+    * - Red Hat 5, Red Hat 6, Red Hat 7, and later
+    * - SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
+    * - Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
+    * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can proceed to create more activation codes. 
+    * >To query the usage of activation codes, go to the Cloud Assistant page in the Elastic Compute Service (ECS) console, click the Manage Instances tab, and then click Register Instance.
     *
     * @param request CreateActivationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -56286,19 +56962,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use a variety of online services provided by Alibaba Cloud in the managed instance, such as Cloud Assistant, Operation Orchestration Service (OOS), and Apsara Devops.
-    * A server that is not provided by Alibaba Cloud can be registered as an Alibaba Cloud managed instance only when the server can access the Internet and runs an operating system of one of the following versions:
-    * *   Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
-    * *   CentOS 6, CentOS 7, CentOS 8, and later
-    * *   Debian 8, Debian 9, Debian 10, and later
-    * *   Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
-    * *   CoreOS
-    * *   OpenSUSE
-    * *   Red Hat 5, Red Hat 6, Red Hat 7, and later
-    * *   SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
-    * *   Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
-    * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can proceed to create more activation codes.
-    * > To view the usage of activation codes, click **Activation Code** on the **Manage Instances** tab of the **Cloud Assistant** page in the Elastic Compute Service (ECS) console.
+    * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use various online services of Alibaba Cloud, such as Cloud Assistant, CloudOps Orchestration Service (OOS), and Apsara Devops, on the managed instance. 
+    * If a server is not provided by Alibaba Cloud, you can register the server as an Alibaba Cloud managed instance only if the server has Internet connectivity and runs an operating system of one of the following versions: 
+    * - Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
+    * - CentOS 6, CentOS 7, CentOS 8, and later
+    * - Debian 8, Debian 9, Debian 10, and later
+    * - Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
+    * - CoreOS
+    * - OpenSUSE
+    * - Red Hat 5, Red Hat 6, Red Hat 7, and later
+    * - SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
+    * - Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
+    * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can proceed to create more activation codes. 
+    * >To query the usage of activation codes, go to the Cloud Assistant page in the Elastic Compute Service (ECS) console, click the Manage Instances tab, and then click Register Instance.
     *
     * @param request CreateActivationRequest
     * @return CreateActivationResponse
@@ -56309,10 +56985,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Usage notes
     * *   Auto Provisioning is a service that allows quick deployment of an instance cluster that consists of preemptible and pay-as-you-go instances. Auto Provisioning supports push-button deployment of instance clusters across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
-    * *   Auto Provisioning uses auto provisioning groups to schedule and maintain computing resources. You can use auto provisioning groups to obtain a steady supply of computing resources. This helps reduce the impact on computing capacity when preemptible instances are reclaimed.
-    * *   Auto Provisioning is provided free-of-charge. However, you are charged for instance resources that are created in auto provisioning groups. For more information about the billing, see [Overview](~~52088~~) and [Pay-as-you-go](~~40653~~).
-    * *   If you specify both the `LaunchTemplate*` and `LaunchConfiguration.*` parameters, the LaunchTemplate\\* parameter takes precedence.
+    * *   Auto Provisioning uses auto provisioning groups to schedule and maintain computing resources. You can use auto provisioning groups to obtain a steady supply of computing resources. This helps reduce the impact on compute capacity when preemptible instances are reclaimed.
+    * *   Auto Provisioning is provided free-of-charge. However, you are charged for instance resources that are created in auto provisioning groups. For more information about the billing, see [Overview of preemptible instances](~~52088~~) and [Pay-as-you-go](~~40653~~).
+    * *   When you specify both a launch template (`LaunchTemplateId`) and extended configurations (`LaunchConfiguration.*` parameters), LaunchTemplateId takes precedence.
     *
     * @param request CreateAutoProvisioningGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -56467,10 +57144,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Usage notes
     * *   Auto Provisioning is a service that allows quick deployment of an instance cluster that consists of preemptible and pay-as-you-go instances. Auto Provisioning supports push-button deployment of instance clusters across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
-    * *   Auto Provisioning uses auto provisioning groups to schedule and maintain computing resources. You can use auto provisioning groups to obtain a steady supply of computing resources. This helps reduce the impact on computing capacity when preemptible instances are reclaimed.
-    * *   Auto Provisioning is provided free-of-charge. However, you are charged for instance resources that are created in auto provisioning groups. For more information about the billing, see [Overview](~~52088~~) and [Pay-as-you-go](~~40653~~).
-    * *   If you specify both the `LaunchTemplate*` and `LaunchConfiguration.*` parameters, the LaunchTemplate\\* parameter takes precedence.
+    * *   Auto Provisioning uses auto provisioning groups to schedule and maintain computing resources. You can use auto provisioning groups to obtain a steady supply of computing resources. This helps reduce the impact on compute capacity when preemptible instances are reclaimed.
+    * *   Auto Provisioning is provided free-of-charge. However, you are charged for instance resources that are created in auto provisioning groups. For more information about the billing, see [Overview of preemptible instances](~~52088~~) and [Pay-as-you-go](~~40653~~).
+    * *   When you specify both a launch template (`LaunchTemplateId`) and extended configurations (`LaunchConfiguration.*` parameters), LaunchTemplateId takes precedence.
     *
     * @param request CreateAutoProvisioningGroupRequest
     * @return CreateAutoProvisioningGroupResponse
@@ -56699,7 +57377,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the region in which to create the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+    * *   You can create commands of the following types:
+    *     *   RunBatScript: batch commands. These commands are applicable to Windows instances.
+    *     *   RunPowerShellScript: PowerShell commands. These commands are applicable to Windows instances.
+    *     *   RunShellScript: shell commands. These commands are applicable to Linux instances.
+    * *   You can specify the TimeOut parameter to set the maximum timeout period for executions of a command on Elastic Compute Service (ECS) instances. If an execution times out, the Cloud Assistant client forcefully terminates the command process by canceling the process ID (PID) of the command. For more information, see [Install the Cloud Assistant client](~~64921~~).
+    *     *   When the one-time execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *     *   For a scheduled task, take note of the following items:
+    *         *   The timeout period takes effect on each execution of the command.
+    *         *   When a scheduled execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *         *   The timeout of one execution does not affect the subsequent executions of the command.
+    * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region.
+    * *   You can use the WorkingDir parameter to specify the execution directory of a Cloud Assistant command. For Linux instances, the default execution directory of a command is the home directory of the root user, which is `/root`. For Windows instances, the default execution directory of a command is the directory where the Cloud Assistant client process resides, such as `C:\\Windows\\System32`.
+    * *   You can enable the custom parameter feature for a Cloud Assistant command by setting EnableParameter to true when you create the command. When you configure the CommandContent parameter, you can define custom parameters in the {{parameter}} format. Then, when the [InvokeCommand](~~64841~~) operation is called, the key-value pairs of custom parameters are passed in. For example, assume that the command content is `echo {{name}}`. You can use the Parameters parameter to pass in the `<name, Jack>` key-value pair when the InvokeCommand operation is called. The name key of the custom parameter is automatically replaced by the paired Jack value to generate a new command. Therefore, the `echo Jack` command is actually run.
     *
     * @param request CreateCommandRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -56790,7 +57480,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the region in which to create the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+    * *   You can create commands of the following types:
+    *     *   RunBatScript: batch commands. These commands are applicable to Windows instances.
+    *     *   RunPowerShellScript: PowerShell commands. These commands are applicable to Windows instances.
+    *     *   RunShellScript: shell commands. These commands are applicable to Linux instances.
+    * *   You can specify the TimeOut parameter to set the maximum timeout period for executions of a command on Elastic Compute Service (ECS) instances. If an execution times out, the Cloud Assistant client forcefully terminates the command process by canceling the process ID (PID) of the command. For more information, see [Install the Cloud Assistant client](~~64921~~).
+    *     *   When the one-time execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *     *   For a scheduled task, take note of the following items:
+    *         *   The timeout period takes effect on each execution of the command.
+    *         *   When a scheduled execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *         *   The timeout of one execution does not affect the subsequent executions of the command.
+    * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region.
+    * *   You can use the WorkingDir parameter to specify the execution directory of a Cloud Assistant command. For Linux instances, the default execution directory of a command is the home directory of the root user, which is `/root`. For Windows instances, the default execution directory of a command is the directory where the Cloud Assistant client process resides, such as `C:\\Windows\\System32`.
+    * *   You can enable the custom parameter feature for a Cloud Assistant command by setting EnableParameter to true when you create the command. When you configure the CommandContent parameter, you can define custom parameters in the {{parameter}} format. Then, when the [InvokeCommand](~~64841~~) operation is called, the key-value pairs of custom parameters are passed in. For example, assume that the command content is `echo {{name}}`. You can use the Parameters parameter to pass in the `<name, Jack>` key-value pair when the InvokeCommand operation is called. The name key of the custom parameter is automatically replaced by the paired Jack value to generate a new command. Therefore, the `echo Jack` command is actually run.
     *
     * @param request CreateCommandRequest
     * @return CreateCommandResponse
@@ -56870,6 +57572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : CreateDemand is deprecated, please use Ecs::2014-05-26::CreateCapacityReservation instead.
     * You can call this operation to file a demand for an ECS instance type. Alibaba Cloud provides the requested resources based on your demand.
     * You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type.
     * > This operation is in internal preview and has not been officially released. We recommend that you do not call this operation.
@@ -56878,6 +57581,7 @@ export default class Client extends OpenApi {
     * @param runtime runtime options for this request RuntimeOptions
     * @return CreateDemandResponse
    */
+  // Deprecated
   async createDemandWithOptions(request: CreateDemandRequest, runtime: $Util.RuntimeOptions): Promise<CreateDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56963,6 +57667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : CreateDemand is deprecated, please use Ecs::2014-05-26::CreateCapacityReservation instead.
     * You can call this operation to file a demand for an ECS instance type. Alibaba Cloud provides the requested resources based on your demand.
     * You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type.
     * > This operation is in internal preview and has not been officially released. We recommend that you do not call this operation.
@@ -56970,6 +57675,7 @@ export default class Client extends OpenApi {
     * @param request CreateDemandRequest
     * @return CreateDemandResponse
    */
+  // Deprecated
   async createDemand(request: CreateDemandRequest): Promise<CreateDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDemandWithOptions(request, runtime);
@@ -57143,10 +57849,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When you create a disk, you can enable the multi-attach (`MultiAttach`) feature for the disk. We recommend that you familiarize yourself with the multi-attach feature and its limits before you enable it. For more information, see [NVMe protocol](~~256487~~) and [Use the multi-attach feature](~~262105~~).
-    * *   The disk can be a basic disk, an ultra disk, a standard SSD, or an enhanced SSD (ESSD).
-    * *   When you create disks, you may be charged for the resources used. We recommend that you get familiar with the Elastic Compute Service (ECS) billing methods before you create a disk. For more information, see [Billing overview](~~25398~~).
-    * *   By default, `DeleteAutoSnapshot` is set to `true` when a disk is created. This indicates that when the disk is released, the automatic snapshots of the disk are also deleted. You can call the [ModifyDiskAttribute](~~25517~~) operation to modify the parameter.
+    * *   When you create a disk, you can enable the multi-attach (`MultiAttach`) feature for the disk. Before you enable the multi-attach feature, we recommend that you familiarize yourself with the multi-attach feature and its limits. For more information, see [NVMe protocol](~~256487~~) and [Use the multi-attach feature](~~262105~~).
+    * *   You can create a basic disk, an ultra disk, a standard SSD, or an enhanced SSD (ESSD).
+    * *   When you create disks, you may be charged for the resources used. We recommend that you familiarize yourself with the Elastic Compute Service (ECS) billing methods before you proceed. For more information, see [Billing overview](~~25398~~).
+    * *   By default, `DeleteAutoSnapshot` is set to `true` when a disk is created. This indicates that when the disk is released, the automatic snapshots of the disk are also deleted. You can call the [ModifyDiskAttribute](~~25517~~) operation to modify the parameter value.
     * *   If you do not configure the performance level when you create an ESSD, the performance level for the ESSD is PL1 by default. You can call the [ModifyDiskSpec](~~123780~~) operation to modify the performance level of the ESSD.
     * *   By default, for a disk that is created by calling this operation, the `Portable` attribute is set to `true` and the billing method is pay-as-you-go.
     *
@@ -57283,10 +57989,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When you create a disk, you can enable the multi-attach (`MultiAttach`) feature for the disk. We recommend that you familiarize yourself with the multi-attach feature and its limits before you enable it. For more information, see [NVMe protocol](~~256487~~) and [Use the multi-attach feature](~~262105~~).
-    * *   The disk can be a basic disk, an ultra disk, a standard SSD, or an enhanced SSD (ESSD).
-    * *   When you create disks, you may be charged for the resources used. We recommend that you get familiar with the Elastic Compute Service (ECS) billing methods before you create a disk. For more information, see [Billing overview](~~25398~~).
-    * *   By default, `DeleteAutoSnapshot` is set to `true` when a disk is created. This indicates that when the disk is released, the automatic snapshots of the disk are also deleted. You can call the [ModifyDiskAttribute](~~25517~~) operation to modify the parameter.
+    * *   When you create a disk, you can enable the multi-attach (`MultiAttach`) feature for the disk. Before you enable the multi-attach feature, we recommend that you familiarize yourself with the multi-attach feature and its limits. For more information, see [NVMe protocol](~~256487~~) and [Use the multi-attach feature](~~262105~~).
+    * *   You can create a basic disk, an ultra disk, a standard SSD, or an enhanced SSD (ESSD).
+    * *   When you create disks, you may be charged for the resources used. We recommend that you familiarize yourself with the Elastic Compute Service (ECS) billing methods before you proceed. For more information, see [Billing overview](~~25398~~).
+    * *   By default, `DeleteAutoSnapshot` is set to `true` when a disk is created. This indicates that when the disk is released, the automatic snapshots of the disk are also deleted. You can call the [ModifyDiskAttribute](~~25517~~) operation to modify the parameter value.
     * *   If you do not configure the performance level when you create an ESSD, the performance level for the ESSD is PL1 by default. You can call the [ModifyDiskSpec](~~123780~~) operation to modify the performance level of the ESSD.
     * *   By default, for a disk that is created by calling this operation, the `Portable` attribute is set to `true` and the billing method is pay-as-you-go.
     *
@@ -57302,7 +58008,7 @@ export default class Client extends OpenApi {
     * Elasticity Assurance provides a new way to purchase and use resources with flexibility and assurance. It offers assured resource reservations for pay-as-you-go Elastic Compute Service (ECS) instances. For more information, see [Overview of Elasticity Assurance](~~193630~~).
     * *   Elasticity assurances are not refundable after purchase.
     * *   Elasticity assurances are applicable to only pay-as-you-go ECS instances.
-    * *   Elasticity assurances only support unlimited mode. Therefore, you must set `AssuranceTimes` to `Unlimited`. Elasticity assurances in unlimited mode can be applied an unlimited number of times within their effective period and take effect immediately after they are purchased.
+    * *   Elasticity assurances support only the unlimited mode. Therefore, you can set `AssuranceTimes` only to `Unlimited`. Elasticity assurances in unlimited mode can be applied an unlimited number of times within their effective period and take effect immediately after they are purchased.
     *
     * @param request CreateElasticityAssuranceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -57404,7 +58110,7 @@ export default class Client extends OpenApi {
     * Elasticity Assurance provides a new way to purchase and use resources with flexibility and assurance. It offers assured resource reservations for pay-as-you-go Elastic Compute Service (ECS) instances. For more information, see [Overview of Elasticity Assurance](~~193630~~).
     * *   Elasticity assurances are not refundable after purchase.
     * *   Elasticity assurances are applicable to only pay-as-you-go ECS instances.
-    * *   Elasticity assurances only support unlimited mode. Therefore, you must set `AssuranceTimes` to `Unlimited`. Elasticity assurances in unlimited mode can be applied an unlimited number of times within their effective period and take effect immediately after they are purchased.
+    * *   Elasticity assurances support only the unlimited mode. Therefore, you can set `AssuranceTimes` only to `Unlimited`. Elasticity assurances in unlimited mode can be applied an unlimited number of times within their effective period and take effect immediately after they are purchased.
     *
     * @param request CreateElasticityAssuranceRequest
     * @return CreateElasticityAssuranceResponse
@@ -59002,6 +59708,7 @@ export default class Client extends OpenApi {
     * *   If NetworkInterfaceId is empty in the response, no ENI is created. Call the operation again to create an ENI.
     * *   An ENI can be attached only to a single instance that resides in a virtual private cloud (VPC).
     * *   When an ENI is detached from an instance and attached to another instance, the attributes of the ENI remain unchanged and network traffic is redirected to the new instance.
+    * *   When you call this operation to create an ENI, you can assign up to 49 secondary private IP addresses to the ENI.
     * *   If you want to assign IPv6 addresses when you create an ENI, make sure that IPv6 has been enabled for the vSwitch with which to associate the ENI. For more information, see [What is an IPv6 gateway?](~~98896~~)
     * *   A quota is imposed on the number of ENIs that can be created per Alibaba Cloud region per account. You can view the quota in the ECS console. For more information, see [View and increase resource quotas](~~184115~~).
     * **For information about examples on how to call this operation, see **[Create an ENI](~~471552~~).
@@ -59109,6 +59816,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.rxQueueSize)) {
+      query["RxQueueSize"] = request.rxQueueSize;
+    }
+
     if (!Util.isUnset(request.secondaryPrivateIpAddressCount)) {
       query["SecondaryPrivateIpAddressCount"] = request.secondaryPrivateIpAddressCount;
     }
@@ -59123,6 +59834,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.txQueueSize)) {
+      query["TxQueueSize"] = request.txQueueSize;
     }
 
     if (!Util.isUnset(request.vSwitchId)) {
@@ -59157,6 +59872,7 @@ export default class Client extends OpenApi {
     * *   If NetworkInterfaceId is empty in the response, no ENI is created. Call the operation again to create an ENI.
     * *   An ENI can be attached only to a single instance that resides in a virtual private cloud (VPC).
     * *   When an ENI is detached from an instance and attached to another instance, the attributes of the ENI remain unchanged and network traffic is redirected to the new instance.
+    * *   When you call this operation to create an ENI, you can assign up to 49 secondary private IP addresses to the ENI.
     * *   If you want to assign IPv6 addresses when you create an ENI, make sure that IPv6 has been enabled for the vSwitch with which to associate the ENI. For more information, see [What is an IPv6 gateway?](~~98896~~)
     * *   A quota is imposed on the number of ENIs that can be created per Alibaba Cloud region per account. You can view the quota in the ECS console. For more information, see [View and increase resource quotas](~~184115~~).
     * **For information about examples on how to call this operation, see **[Create an ENI](~~471552~~).
@@ -59660,6 +60376,67 @@ export default class Client extends OpenApi {
     return await this.createRouterInterfaceWithOptions(request, runtime);
   }
 
+  async createSavingsPlanWithOptions(request: CreateSavingsPlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateSavingsPlanResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.committedAmount)) {
+      query["CommittedAmount"] = request.committedAmount;
+    }
+
+    if (!Util.isUnset(request.instanceTypeFamily)) {
+      query["InstanceTypeFamily"] = request.instanceTypeFamily;
+    }
+
+    if (!Util.isUnset(request.offeringType)) {
+      query["OfferingType"] = request.offeringType;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.planType)) {
+      query["PlanType"] = request.planType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSavingsPlan",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSavingsPlanResponse>(await this.callApi(params, req, runtime), new CreateSavingsPlanResponse({}));
+  }
+
+  async createSavingsPlan(request: CreateSavingsPlanRequest): Promise<CreateSavingsPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSavingsPlanWithOptions(request, runtime);
+  }
+
   /**
     * When you call this operation, take note of the following items:
     * *   You can create up to 100 security groups in a single Alibaba Cloud region.
@@ -59940,8 +60717,8 @@ export default class Client extends OpenApi {
     * You can specify `InstanceId` to create a snapshot-consistent group for the specified cloud disks of an instance. You can also specify `DiskId.N` to create a snapshot-consistent group for multiple cloud disks that are attached to multiple instances within the same zone.
     * > You cannot specify both `DiskId.N` and `ExcludeDiskId.N` in the same request. If `InstanceId` is set, you can use `DiskId.N` to specify only cloud disks attached to the instance specified by InstanceId. You cannot use DiskId.N to specify cloud disks attached to multiple instances.
     * When you call this operation, take note of the following items:
-    * *   The cloud disk for which you want to create a snapshot must be in the **In Use**or **Unattached** (`Available`) state.``
-    *     *   If the cloud disk is in the **In Use** state, the instance to which the cloud disk is attached must be in the **Running**or **Stopped** state.``````
+    * *   The cloud disk for which you want to create a snapshot must be in the **In Use** or **Unattached** (`Available`) state.``
+    *     *   If the cloud disk is in the **In Use** state, the instance to which the cloud disk is attached must be in the **Running** or **Stopped** state.``````
     *     *   If the cloud disk is in the **Unattached** (`Available`) state, make sure that the cloud disk has been attached to an ECS instance. Snapshots cannot be created for cloud disks that have never been attached to an ECS instance.
     * *   The snapshot-consistent group feature can be used to create snapshots only for enhanced SSDs (ESSDs).
     * *   A snapshot-consistent group can contain snapshots of up to 16 cloud disks (including the system disk and data disks) whose total disk size does not exceed 32 TiB.
@@ -60037,8 +60814,8 @@ export default class Client extends OpenApi {
     * You can specify `InstanceId` to create a snapshot-consistent group for the specified cloud disks of an instance. You can also specify `DiskId.N` to create a snapshot-consistent group for multiple cloud disks that are attached to multiple instances within the same zone.
     * > You cannot specify both `DiskId.N` and `ExcludeDiskId.N` in the same request. If `InstanceId` is set, you can use `DiskId.N` to specify only cloud disks attached to the instance specified by InstanceId. You cannot use DiskId.N to specify cloud disks attached to multiple instances.
     * When you call this operation, take note of the following items:
-    * *   The cloud disk for which you want to create a snapshot must be in the **In Use**or **Unattached** (`Available`) state.``
-    *     *   If the cloud disk is in the **In Use** state, the instance to which the cloud disk is attached must be in the **Running**or **Stopped** state.``````
+    * *   The cloud disk for which you want to create a snapshot must be in the **In Use** or **Unattached** (`Available`) state.``
+    *     *   If the cloud disk is in the **In Use** state, the instance to which the cloud disk is attached must be in the **Running** or **Stopped** state.``````
     *     *   If the cloud disk is in the **Unattached** (`Available`) state, make sure that the cloud disk has been attached to an ECS instance. Snapshots cannot be created for cloud disks that have never been attached to an ECS instance.
     * *   The snapshot-consistent group feature can be used to create snapshots only for enhanced SSDs (ESSDs).
     * *   A snapshot-consistent group can contain snapshots of up to 16 cloud disks (including the system disk and data disks) whose total disk size does not exceed 32 TiB.
@@ -60801,12 +61578,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : DeleteDemand is deprecated, please use Ecs::2014-05-26::ReleaseCapacityReservation instead.
     * >  This operation is in internal preview and has not been officially released. We recommend that you avoid using this operation.
     *
     * @param request DeleteDemandRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return DeleteDemandResponse
    */
+  // Deprecated
   async deleteDemandWithOptions(request: DeleteDemandRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60860,11 +61639,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : DeleteDemand is deprecated, please use Ecs::2014-05-26::ReleaseCapacityReservation instead.
     * >  This operation is in internal preview and has not been officially released. We recommend that you avoid using this operation.
     *
     * @param request DeleteDemandRequest
     * @return DeleteDemandResponse
    */
+  // Deprecated
   async deleteDemand(request: DeleteDemandRequest): Promise<DeleteDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDemandWithOptions(request, runtime);
@@ -61461,6 +62242,10 @@ export default class Client extends OpenApi {
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.force)) {
       query["Force"] = request.force;
     }
@@ -62289,7 +63074,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete a security group, make sure that the security group does not contain instances and is not referenced by other security groups. Otherwise, the DeleteSecurityGroup request fails. You can call the [DescribeSecurityGroupReferences](~~57320~~) operation to query the reference details of the security group.
+    * - Before you delete a security group, make sure that the security group does not contain instances and is not referenced by other security groups. Otherwise, the DeleteSecurityGroup request fails. You can call the [DescribeSecurityGroupReferences](~~57320~~) operation to query the reference details of the security group.
+    * - If the error code InvalidOperation.DeletionProtection is returned when you call the DeleteSecurityGroup operation to delete a security group or if a deletion protection-related message appears when you delete a security group in the console, the deletion protection feature is enabled for the security group. When you create a Container Service for Kubernetes (ACK) cluster, the deletion protection feature is enabled for an associated security group to prevent accidental deletion. You cannot manually disable the deletion protection feature for the security group. The deletion protection feature can be automatically disabled only after the ACK cluster is deleted. For more information, see [Disable deletion protection for a security group](~~353191~~)
     *
     * @param request DeleteSecurityGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -62340,7 +63126,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete a security group, make sure that the security group does not contain instances and is not referenced by other security groups. Otherwise, the DeleteSecurityGroup request fails. You can call the [DescribeSecurityGroupReferences](~~57320~~) operation to query the reference details of the security group.
+    * - Before you delete a security group, make sure that the security group does not contain instances and is not referenced by other security groups. Otherwise, the DeleteSecurityGroup request fails. You can call the [DescribeSecurityGroupReferences](~~57320~~) operation to query the reference details of the security group.
+    * - If the error code InvalidOperation.DeletionProtection is returned when you call the DeleteSecurityGroup operation to delete a security group or if a deletion protection-related message appears when you delete a security group in the console, the deletion protection feature is enabled for the security group. When you create a Container Service for Kubernetes (ACK) cluster, the deletion protection feature is enabled for an associated security group to prevent accidental deletion. You cannot manually disable the deletion protection feature for the security group. The deletion protection feature can be automatically disabled only after the ACK cluster is deleted. For more information, see [Disable deletion protection for a security group](~~353191~~)
     *
     * @param request DeleteSecurityGroupRequest
     * @return DeleteSecurityGroupResponse
@@ -62670,7 +63457,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : DeleteVpc is deprecated, please use Vpc::2016-04-28::DeleteVpc instead.
     *
     * @param request DeleteVpcRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -62722,7 +63509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : DeleteVpc is deprecated, please use Vpc::2016-04-28::DeleteVpc instead.
     *
     * @param request DeleteVpcRequest
     * @return DeleteVpcResponse
@@ -62922,6 +63709,15 @@ export default class Client extends OpenApi {
     return await this.describeAccountAttributesWithOptions(request, runtime);
   }
 
+  /**
+    * You can use one of the following methods to check the responses:
+    * - Method 1: When you call the DescribeActivations operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeActivations operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in this call.
+    * - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+    *
+    * @param request DescribeActivationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeActivationsResponse
+   */
   async describeActivationsWithOptions(request: DescribeActivationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActivationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62931,6 +63727,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -62990,6 +63794,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeActivationsResponse>(await this.callApi(params, req, runtime), new DescribeActivationsResponse({}));
   }
 
+  /**
+    * You can use one of the following methods to check the responses:
+    * - Method 1: When you call the DescribeActivations operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeActivations operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in this call.
+    * - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+    *
+    * @param request DescribeActivationsRequest
+    * @return DescribeActivationsResponse
+   */
   async describeActivations(request: DescribeActivationsRequest): Promise<DescribeActivationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeActivationsWithOptions(request, runtime);
@@ -63150,6 +63962,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -63742,11 +64558,29 @@ export default class Client extends OpenApi {
     return await this.describeClassicLinkInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * - Before you run commands on or send files to instances, especially new instances, we recommend that you query the status of Cloud Assistant on the instances by calling this operation and checking the return value of CloudAssistantStatus. Run commands on or send files to the instances only when the return value is true.
+    * - You can use one of the following methods to check the responses:
+    *   - Method 1: When you call the DescribeCloudAssistantStatus operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeCloudAssistantStatus operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call. 
+    *   - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+    *
+    * @param request DescribeCloudAssistantStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCloudAssistantStatusResponse
+   */
   async describeCloudAssistantStatusWithOptions(request: DescribeCloudAssistantStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudAssistantStatusResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!Util.isUnset(request.OSType)) {
@@ -63802,6 +64636,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCloudAssistantStatusResponse>(await this.callApi(params, req, runtime), new DescribeCloudAssistantStatusResponse({}));
   }
 
+  /**
+    * - Before you run commands on or send files to instances, especially new instances, we recommend that you query the status of Cloud Assistant on the instances by calling this operation and checking the return value of CloudAssistantStatus. Run commands on or send files to the instances only when the return value is true.
+    * - You can use one of the following methods to check the responses:
+    *   - Method 1: When you call the DescribeCloudAssistantStatus operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeCloudAssistantStatus operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call. 
+    *   - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+    *
+    * @param request DescribeCloudAssistantStatusRequest
+    * @return DescribeCloudAssistantStatusResponse
+   */
   async describeCloudAssistantStatus(request: DescribeCloudAssistantStatusRequest): Promise<DescribeCloudAssistantStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudAssistantStatusWithOptions(request, runtime);
@@ -63868,7 +64711,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you specify only `Action` and `RegionId` to call this operation, all the available commands (`CommandId`) that you created in the specified region are queried by default.
+    * If you specify only the `Action` and `RegionId` parameters, all the available commands (`CommandId`) that you created in the specified region are queried by default. 
+    * You can use one of the following methods to check the responses:
+    * - Method 1: During a paged query, when you call the DescribeCommands operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCommands operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call. 
+    * - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
     *
     * @param request DescribeCommandsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -63893,8 +64739,16 @@ export default class Client extends OpenApi {
       query["Latest"] = request.latest;
     }
 
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -63963,7 +64817,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you specify only `Action` and `RegionId` to call this operation, all the available commands (`CommandId`) that you created in the specified region are queried by default.
+    * If you specify only the `Action` and `RegionId` parameters, all the available commands (`CommandId`) that you created in the specified region are queried by default. 
+    * You can use one of the following methods to check the responses:
+    * - Method 1: During a paged query, when you call the DescribeCommands operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCommands operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call. 
+    * - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
     *
     * @param request DescribeCommandsRequest
     * @return DescribeCommandsResponse
@@ -64170,9 +65027,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * You can use one of the following methods to query the details of dedicated hosts:
-    * *   Specify `DedicatedHostIds` to query the details of dedicated hosts.
+    * You can use one of the following methods to query the information about dedicated hosts:
+    * *   Specify `DedicatedHostIds` to query the details of specified dedicated hosts.
     * *   Specify `DedicatedHostClusterId` to query the details of the dedicated hosts in a dedicated host cluster.
     *
     * @param request DescribeDedicatedHostsRequest
@@ -64268,9 +65124,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * You can use one of the following methods to query the details of dedicated hosts:
-    * *   Specify `DedicatedHostIds` to query the details of dedicated hosts.
+    * You can use one of the following methods to query the information about dedicated hosts:
+    * *   Specify `DedicatedHostIds` to query the details of specified dedicated hosts.
     * *   Specify `DedicatedHostClusterId` to query the details of the dedicated hosts in a dedicated host cluster.
     *
     * @param request DescribeDedicatedHostsRequest
@@ -64282,14 +65137,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of resources you filed with Alibaba Cloud, including the types, delivery status, and consumption details of the resources.
-    * By default, the filing tickets of I/O optimized VPC-type instances are queried.
-    * For information about how to create (CreateDemand), modify (ModifyDemand), and delete (DeleteDemand) filing tickets on ECS resources, contact your account manager.
+    * @deprecated : DescribeDemands is deprecated, please use Ecs::2014-05-26::DescribeCapacityReservations instead.
+    * You can call this operation to query the details of resources that you filed with Alibaba Cloud, including the types, delivery status, and consumption details of the resources.
+    * By default, the demands for I/O optimized instances of the Virtual Private Cloud (VPC) type are queried.
+    * For information about how to create (CreateDemand), modify (ModifyDemand), and delete (DeleteDemand) demands for ECS resources, contact your account manager.
     *
     * @param request DescribeDemandsRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return DescribeDemandsResponse
    */
+  // Deprecated
   async describeDemandsWithOptions(request: DescribeDemandsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDemandsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64379,13 +65236,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of resources you filed with Alibaba Cloud, including the types, delivery status, and consumption details of the resources.
-    * By default, the filing tickets of I/O optimized VPC-type instances are queried.
-    * For information about how to create (CreateDemand), modify (ModifyDemand), and delete (DeleteDemand) filing tickets on ECS resources, contact your account manager.
+    * @deprecated : DescribeDemands is deprecated, please use Ecs::2014-05-26::DescribeCapacityReservations instead.
+    * You can call this operation to query the details of resources that you filed with Alibaba Cloud, including the types, delivery status, and consumption details of the resources.
+    * By default, the demands for I/O optimized instances of the Virtual Private Cloud (VPC) type are queried.
+    * For information about how to create (CreateDemand), modify (ModifyDemand), and delete (DeleteDemand) demands for ECS resources, contact your account manager.
     *
     * @param request DescribeDemandsRequest
     * @return DescribeDemandsResponse
    */
+  // Deprecated
   async describeDemands(request: DescribeDemandsRequest): Promise<DescribeDemandsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDemandsWithOptions(request, runtime);
@@ -65423,7 +66282,7 @@ export default class Client extends OpenApi {
 
   /**
     * The monitoring data includes traffic sent and received over the internal network, the number of packets sent and received by the secondary ENI, and the number of dropped packets sent and received by the secondary ENI. Specific information may be missing from the returned monitoring data. This is because the system cannot obtain the relevant information. For example, if the instance to which the secondary ENI is bound is in the Stopped state, or if the secondary ENI is not bound to an instance and is in the Available state, the monitoring data of the secondary ENI cannot be obtained. When you call this operation, take note of the following items:
-    * *   Up to 400 monitoring data entries can be returned at a time. If the value that is calculated by using the following formula is greater than 400: (EndTime − StartTime)/Period, an error is returned.
+    * *   Up to 400 monitoring data entries can be returned at a time. If the value that is calculated by using the following formula is greater than 400: (EndTime - StartTime)/Period, an error is returned.
     * *   Only the monitoring data within the last 30 days can be queried. If the value of StartTime is more than 30 days earlier than the time when you call this operation, an error is returned.
     *
     * @param request DescribeEniMonitorDataRequest
@@ -65492,7 +66351,7 @@ export default class Client extends OpenApi {
 
   /**
     * The monitoring data includes traffic sent and received over the internal network, the number of packets sent and received by the secondary ENI, and the number of dropped packets sent and received by the secondary ENI. Specific information may be missing from the returned monitoring data. This is because the system cannot obtain the relevant information. For example, if the instance to which the secondary ENI is bound is in the Stopped state, or if the secondary ENI is not bound to an instance and is in the Available state, the monitoring data of the secondary ENI cannot be obtained. When you call this operation, take note of the following items:
-    * *   Up to 400 monitoring data entries can be returned at a time. If the value that is calculated by using the following formula is greater than 400: (EndTime − StartTime)/Period, an error is returned.
+    * *   Up to 400 monitoring data entries can be returned at a time. If the value that is calculated by using the following formula is greater than 400: (EndTime - StartTime)/Period, an error is returned.
     * *   Only the monitoring data within the last 30 days can be queried. If the value of StartTime is more than 30 days earlier than the time when you call this operation, an error is returned.
     *
     * @param request DescribeEniMonitorDataRequest
@@ -66789,7 +67648,7 @@ export default class Client extends OpenApi {
 
   /**
     * Take note of the following items:
-    * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value that is calculated by using the following formula is greater than 400: `(EndTime − StartTime)/Period`.
+    * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value that is calculated by using the following formula is greater than 400: `(EndTime - StartTime)/Period`.
     * *   You can query the monitoring data of the last 30 days. If the value of the `StartTime` parameter is more than 30 days earlier than the current time, an error is returned.
     * *   In some scenarios, such as when the instance is in the Stopped state, the system cannot obtain the relevant information and a portion may be missing from the returned monitoring data.
     *
@@ -66851,7 +67710,7 @@ export default class Client extends OpenApi {
 
   /**
     * Take note of the following items:
-    * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value that is calculated by using the following formula is greater than 400: `(EndTime − StartTime)/Period`.
+    * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value that is calculated by using the following formula is greater than 400: `(EndTime - StartTime)/Period`.
     * *   You can query the monitoring data of the last 30 days. If the value of the `StartTime` parameter is more than 30 days earlier than the current time, an error is returned.
     * *   In some scenarios, such as when the instance is in the Stopped state, the system cannot obtain the relevant information and a portion may be missing from the returned monitoring data.
     *
@@ -67123,12 +67982,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
+    * ## Usage notes
     * Before you call this operation, take note of the following items:
-    * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results. For information about the best practices for using DescribeInstanceTypes, see [Compare the specifications of instance types](https://help.aliyun.com/practice_detail/461278) .
-    * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to the return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
-    * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specific region, call the [DescribeAvailableResource](~~66186~~) operation.
-    * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex.htm).
+    * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results.
+    * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to this return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
+    * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specified region, call the [DescribeAvailableResource](~~66186~~) operation.
+    * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
     *
     * @param request DescribeInstanceTypesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -67319,12 +68178,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
+    * ## Usage notes
     * Before you call this operation, take note of the following items:
-    * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results. For information about the best practices for using DescribeInstanceTypes, see [Compare the specifications of instance types](https://help.aliyun.com/practice_detail/461278) .
-    * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to the return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
-    * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specific region, call the [DescribeAvailableResource](~~66186~~) operation.
-    * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex.htm).
+    * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results.
+    * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to this return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
+    * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specified region, call the [DescribeAvailableResource](~~66186~~) operation.
+    * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
     *
     * @param request DescribeInstanceTypesRequest
     * @return DescribeInstanceTypesResponse
@@ -67332,70 +68191,6 @@ export default class Client extends OpenApi {
   async describeInstanceTypes(request: DescribeInstanceTypesRequest): Promise<DescribeInstanceTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceTypesWithOptions(request, runtime);
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request DescribeInstanceVncPasswdRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstanceVncPasswdResponse
-   */
-  // Deprecated
-  async describeInstanceVncPasswdWithOptions(request: DescribeInstanceVncPasswdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceVncPasswdResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeInstanceVncPasswd",
-      version: "2014-05-26",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeInstanceVncPasswdResponse>(await this.callApi(params, req, runtime), new DescribeInstanceVncPasswdResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request DescribeInstanceVncPasswdRequest
-    * @return DescribeInstanceVncPasswdResponse
-   */
-  // Deprecated
-  async describeInstanceVncPasswd(request: DescribeInstanceVncPasswdRequest): Promise<DescribeInstanceVncPasswdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeInstanceVncPasswdWithOptions(request, runtime);
   }
 
   /**
@@ -67718,7 +68513,7 @@ export default class Client extends OpenApi {
 
   /**
     * The response includes instance states and instance system events that are in the Scheduled state.
-    * If a period is specified, events are queried based on the specified period.
+    * You can specify a period of time to query events that occurred within the period of time.
     *
     * @param request DescribeInstancesFullStatusRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -67810,7 +68605,7 @@ export default class Client extends OpenApi {
 
   /**
     * The response includes instance states and instance system events that are in the Scheduled state.
-    * If a period is specified, events are queried based on the specified period.
+    * You can specify a period of time to query events that occurred within the period of time.
     *
     * @param request DescribeInstancesFullStatusRequest
     * @return DescribeInstancesFullStatusResponse
@@ -67821,9 +68616,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The number of times that the command is run on the instance.
-    * *   If the command is set to run only once on the instance, the value is 0 or 1.
-    * *   If the command is set to run on a schedule on the instance, the value is the number of times that the command is run.
+    * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the actual execution results.
+    * *   You can query information about command executions within the last four weeks. Up to 100,000 pieces of execution information can be retained.
+    *     - Method 1: During a paged query, when you call the DescribeInvocationResults operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInvocationResults operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call. 
+    *     - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
     *
     * @param request DescribeInvocationResultsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -67854,6 +68650,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.invokeRecordStatus)) {
       query["InvokeRecordStatus"] = request.invokeRecordStatus;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -67914,9 +68718,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The number of times that the command is run on the instance.
-    * *   If the command is set to run only once on the instance, the value is 0 or 1.
-    * *   If the command is set to run on a schedule on the instance, the value is the number of times that the command is run.
+    * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the actual execution results.
+    * *   You can query information about command executions within the last four weeks. Up to 100,000 pieces of execution information can be retained.
+    *     - Method 1: During a paged query, when you call the DescribeInvocationResults operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInvocationResults operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call. 
+    *     - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
     *
     * @param request DescribeInvocationResultsRequest
     * @return DescribeInvocationResultsResponse
@@ -67927,8 +68732,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   After you run a command, the command may not succeed or return the expected result. You can call this operation to query the execution result.
-    * *   You can query information about command executions within the last four weeks. A maximum of 100,000 entries of execution information can be retained.
+    * - After you run a command, the command may not succeed or return the expected result. You can call this operation to query the execution result.
+    * - You can query information about command executions within the last four weeks. A maximum of 100,000 entries of execution information can be retained.
+    *   - Method 1: During a paged query, when you call the DescribeInvocations operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInvocations operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call. 
+    *   - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
     *
     * @param request DescribeInvocationsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -67967,6 +68774,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.invokeStatus)) {
       query["InvokeStatus"] = request.invokeStatus;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -68035,8 +68850,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   After you run a command, the command may not succeed or return the expected result. You can call this operation to query the execution result.
-    * *   You can query information about command executions within the last four weeks. A maximum of 100,000 entries of execution information can be retained.
+    * - After you run a command, the command may not succeed or return the expected result. You can call this operation to query the execution result.
+    * - You can query information about command executions within the last four weeks. A maximum of 100,000 entries of execution information can be retained.
+    *   - Method 1: During a paged query, when you call the DescribeInvocations operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInvocations operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call. 
+    *   - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
     *
     * @param request DescribeInvocationsRequest
     * @return DescribeInvocationsResponse
@@ -68049,6 +68866,10 @@ export default class Client extends OpenApi {
   async describeKeyPairsWithOptions(request: DescribeKeyPairsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKeyPairsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.includePublicKey)) {
+      query["IncludePublicKey"] = request.includePublicKey;
+    }
+
     if (!Util.isUnset(request.keyPairFingerPrint)) {
       query["KeyPairFingerPrint"] = request.keyPairFingerPrint;
     }
@@ -68336,6 +69157,15 @@ export default class Client extends OpenApi {
     return await this.describeLimitationWithOptions(request, runtime);
   }
 
+  /**
+    * You can use one of the following methods to check the responses:
+    * - Method 1: When you call the DescribeInstances operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in the call.
+    * - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+    *
+    * @param request DescribeManagedInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeManagedInstancesResponse
+   */
   async describeManagedInstancesWithOptions(request: DescribeManagedInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeManagedInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68353,6 +69183,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!Util.isUnset(request.osType)) {
@@ -68381,6 +69219,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -68412,6 +69254,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeManagedInstancesResponse>(await this.callApi(params, req, runtime), new DescribeManagedInstancesResponse({}));
   }
 
+  /**
+    * You can use one of the following methods to check the responses:
+    * - Method 1: When you call the DescribeInstances operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in the call.
+    * - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+    *
+    * @param request DescribeManagedInstancesRequest
+    * @return DescribeManagedInstancesResponse
+   */
   async describeManagedInstances(request: DescribeManagedInstancesRequest): Promise<DescribeManagedInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeManagedInstancesWithOptions(request, runtime);
@@ -68493,6 +69343,14 @@ export default class Client extends OpenApi {
     return await this.describeNatGatewaysWithOptions(request, runtime);
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=DescribeNetworkInterfaceAttribute\\&type=RPC\\&version=2014-05-26)
+    *
+    * @param request DescribeNetworkInterfaceAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeNetworkInterfaceAttributeResponse
+   */
   async describeNetworkInterfaceAttributeWithOptions(request: DescribeNetworkInterfaceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkInterfaceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68549,6 +69407,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNetworkInterfaceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeNetworkInterfaceAttributeResponse({}));
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=DescribeNetworkInterfaceAttribute\\&type=RPC\\&version=2014-05-26)
+    *
+    * @param request DescribeNetworkInterfaceAttributeRequest
+    * @return DescribeNetworkInterfaceAttributeResponse
+   */
   async describeNetworkInterfaceAttribute(request: DescribeNetworkInterfaceAttributeRequest): Promise<DescribeNetworkInterfaceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNetworkInterfaceAttributeWithOptions(request, runtime);
@@ -68620,8 +69485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The `DescribeNetworkInterfaces` operation supports paged queries. During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to limit the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you perform the next request, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-    * > You must specify `MaxResults` or `NextToken` for the system to return results based on the preceding pagination mechanism. Otherwise, the system paginates the results based on the `PageNumber` and `PageSize` parameters.
+    * You can call the `DescribeNetworkInterfaces` operation for paged query by specifying the `MaxResults` or `NextToken` parameter. During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeNetworkInterfaces operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
     *
     * @param request DescribeNetworkInterfacesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -68748,8 +69612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The `DescribeNetworkInterfaces` operation supports paged queries. During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to limit the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you perform the next request, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-    * > You must specify `MaxResults` or `NextToken` for the system to return results based on the preceding pagination mechanism. Otherwise, the system paginates the results based on the `PageNumber` and `PageSize` parameters.
+    * You can call the `DescribeNetworkInterfaces` operation for paged query by specifying the `MaxResults` or `NextToken` parameter. During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeNetworkInterfaces operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
     *
     * @param request DescribeNetworkInterfacesRequest
     * @return DescribeNetworkInterfacesResponse
@@ -70005,6 +70868,112 @@ export default class Client extends OpenApi {
     return await this.describeRouterInterfacesWithOptions(request, runtime);
   }
 
+  async describeSavingsPlanEstimationWithOptions(request: DescribeSavingsPlanEstimationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSavingsPlanEstimationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.offeringType)) {
+      query["OfferingType"] = request.offeringType;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.planType)) {
+      query["PlanType"] = request.planType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSavingsPlanEstimation",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSavingsPlanEstimationResponse>(await this.callApi(params, req, runtime), new DescribeSavingsPlanEstimationResponse({}));
+  }
+
+  async describeSavingsPlanEstimation(request: DescribeSavingsPlanEstimationRequest): Promise<DescribeSavingsPlanEstimationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSavingsPlanEstimationWithOptions(request, runtime);
+  }
+
+  async describeSavingsPlanPriceWithOptions(request: DescribeSavingsPlanPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSavingsPlanPriceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.committedAmount)) {
+      query["CommittedAmount"] = request.committedAmount;
+    }
+
+    if (!Util.isUnset(request.instanceTypeFamily)) {
+      query["InstanceTypeFamily"] = request.instanceTypeFamily;
+    }
+
+    if (!Util.isUnset(request.offeringType)) {
+      query["OfferingType"] = request.offeringType;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.planType)) {
+      query["PlanType"] = request.planType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSavingsPlanPrice",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSavingsPlanPriceResponse>(await this.callApi(params, req, runtime), new DescribeSavingsPlanPriceResponse({}));
+  }
+
+  async describeSavingsPlanPrice(request: DescribeSavingsPlanPriceRequest): Promise<DescribeSavingsPlanPriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSavingsPlanPriceWithOptions(request, runtime);
+  }
+
   async describeSecurityGroupAttributeWithOptions(request: DescribeSecurityGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityGroupAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70215,6 +71184,10 @@ export default class Client extends OpenApi {
       query["SecurityGroupType"] = request.securityGroupType;
     }
 
+    if (!Util.isUnset(request.serviceManaged)) {
+      query["ServiceManaged"] = request.serviceManaged;
+    }
+
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -70258,6 +71231,9 @@ export default class Client extends OpenApi {
     * ## Usage notes
     * *   When you send a file, the file may fail to be sent to specified Elastic Compute Service (ECS) instances. You can call this operation to check the file sending results.
     * *   You can call this operation to query the file sending records within the last six weeks.
+    * - You can use one of the following methods to check the responses:
+    *   - Method 1: During a paged query, when you call the DescribeSendFileResults operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeSendFileResults operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call. 
+    *   - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
     *
     * @param request DescribeSendFileResultsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -70278,8 +71254,16 @@ export default class Client extends OpenApi {
       query["InvokeId"] = request.invokeId;
     }
 
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -70343,6 +71327,9 @@ export default class Client extends OpenApi {
     * ## Usage notes
     * *   When you send a file, the file may fail to be sent to specified Elastic Compute Service (ECS) instances. You can call this operation to check the file sending results.
     * *   You can call this operation to query the file sending records within the last six weeks.
+    * - You can use one of the following methods to check the responses:
+    *   - Method 1: During a paged query, when you call the DescribeSendFileResults operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeSendFileResults operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call. 
+    *   - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
     *
     * @param request DescribeSendFileResultsRequest
     * @return DescribeSendFileResultsResponse
@@ -70353,7 +71340,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can specify multiple request parameters such as `InstanceId`, `SnapshotGroupId.N`, and `Status.N` to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+    * ## [](#)Usage notes
+    * You can specify multiple request parameters to be queried, such as `InstanceId`, `SnapshotGroupId.N`, and `Status.N`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
     *
     * @param request DescribeSnapshotGroupsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -70436,7 +71424,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can specify multiple request parameters such as `InstanceId`, `SnapshotGroupId.N`, and `Status.N` to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+    * ## [](#)Usage notes
+    * You can specify multiple request parameters to be queried, such as `InstanceId`, `SnapshotGroupId.N`, and `Status.N`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
     *
     * @param request DescribeSnapshotGroupsRequest
     * @return DescribeSnapshotGroupsResponse
@@ -71913,7 +72902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : DescribeVpcs is deprecated, please use Vpc::2016-04-28::DescribeVpcs instead.
     *
     * @param request DescribeVpcsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -71977,7 +72966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : DescribeVpcs is deprecated, please use Vpc::2016-04-28::DescribeVpcs instead.
     *
     * @param request DescribeVpcsRequest
     * @return DescribeVpcsResponse
@@ -72723,6 +73712,7 @@ export default class Client extends OpenApi {
   /**
     * Before you export a custom image, complete the following operations:
     * *   Understand the prerequisites and precautions. For more information, see [Export images](~~58181~~).
+    * *   The Image Format parameter is available only for the following regions: India (Mumbai), Japan (Tokyo), Australia (Sydney), Indonesia (Jakarta), Germany (Frankfurt), UAE (Dubai), US (Virginia), UK (London), Singapore, US (Silicon Valley), and Malaysia (Kuala Lumpur). By default, custom images are exported in the RAW format in regions where the Image Format parameter is unavailable.
     * *   Use Resource Access Management (RAM) to grant Elastic Compute Service (ECS) the permissions to write data to OSS. To complete the authorization, perform the following operations:
     *     1.  Create a role named `AliyunECSImageExportDefaultRole`, and attach the following policy to the role:
     *         ```json
@@ -72829,6 +73819,7 @@ export default class Client extends OpenApi {
   /**
     * Before you export a custom image, complete the following operations:
     * *   Understand the prerequisites and precautions. For more information, see [Export images](~~58181~~).
+    * *   The Image Format parameter is available only for the following regions: India (Mumbai), Japan (Tokyo), Australia (Sydney), Indonesia (Jakarta), Germany (Frankfurt), UAE (Dubai), US (Virginia), UK (London), Singapore, US (Silicon Valley), and Malaysia (Kuala Lumpur). By default, custom images are exported in the RAW format in regions where the Image Format parameter is unavailable.
     * *   Use Resource Access Management (RAM) to grant Elastic Compute Service (ECS) the permissions to write data to OSS. To complete the authorization, perform the following operations:
     *     1.  Create a role named `AliyunECSImageExportDefaultRole`, and attach the following policy to the role:
     *         ```json
@@ -73131,7 +74122,7 @@ export default class Client extends OpenApi {
     *         *   The image supports the growpart command. To support this command, you must install the `cloud-utils-growpart` package. Package installation methods vary based on operating systems. For more information, see [Resize partitions and file systems of Linux system disks](~~111738~~).
     *         *   The image supports the resize2fs command. To support this command, you must install the `e2fsprogs` package. By default, the package is installed on the operating system. If the package is not installed, you must install it.
     *         *   The latest version of Alibaba Cloud cloud-init is installed on the operating system. If the installed version of cloud-init is 19.1, make sure that the minor version is 19.1.3 or later. If the installed version of cloud-init is 0.7.6a as in some early versions of operating systems, make sure that the minor version is 0.7.6a15 or later. For more information, see [Install cloud-init](~~57803~~).
-    * *   If the image that you want to import uses the ARM64 architecture, you must configure the real-time clock (RTC) to use the Coordinated Universal Time (UTC) time standard. For more information, see [Linux time and time zones](https://icms.alibaba-inc.com/content/ecs/image?l=1\\&m=4656\\&n=3385033).
+    * *   If the image that you want to import uses the ARM64 architecture, you must configure the real-time clock (RTC) to use the Coordinated Universal Time (UTC) time standard. For more information, see [Linux time and time zones](~~405080~~).
     *
     * @param request ImportImageRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -73271,7 +74262,7 @@ export default class Client extends OpenApi {
     *         *   The image supports the growpart command. To support this command, you must install the `cloud-utils-growpart` package. Package installation methods vary based on operating systems. For more information, see [Resize partitions and file systems of Linux system disks](~~111738~~).
     *         *   The image supports the resize2fs command. To support this command, you must install the `e2fsprogs` package. By default, the package is installed on the operating system. If the package is not installed, you must install it.
     *         *   The latest version of Alibaba Cloud cloud-init is installed on the operating system. If the installed version of cloud-init is 19.1, make sure that the minor version is 19.1.3 or later. If the installed version of cloud-init is 0.7.6a as in some early versions of operating systems, make sure that the minor version is 0.7.6a15 or later. For more information, see [Install cloud-init](~~57803~~).
-    * *   If the image that you want to import uses the ARM64 architecture, you must configure the real-time clock (RTC) to use the Coordinated Universal Time (UTC) time standard. For more information, see [Linux time and time zones](https://icms.alibaba-inc.com/content/ecs/image?l=1\\&m=4656\\&n=3385033).
+    * *   If the image that you want to import uses the ARM64 architecture, you must configure the real-time clock (RTC) to use the Coordinated Universal Time (UTC) time standard. For more information, see [Linux time and time zones](~~405080~~).
     *
     * @param request ImportImageRequest
     * @return ImportImageResponse
@@ -73380,78 +74371,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ImportSnapshotRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ImportSnapshotResponse
-   */
-  // Deprecated
-  async importSnapshotWithOptions(request: ImportSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<ImportSnapshotResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ossBucket)) {
-      query["OssBucket"] = request.ossBucket;
-    }
-
-    if (!Util.isUnset(request.ossObject)) {
-      query["OssObject"] = request.ossObject;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.roleName)) {
-      query["RoleName"] = request.roleName;
-    }
-
-    if (!Util.isUnset(request.snapshotName)) {
-      query["SnapshotName"] = request.snapshotName;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ImportSnapshot",
-      version: "2014-05-26",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ImportSnapshotResponse>(await this.callApi(params, req, runtime), new ImportSnapshotResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request ImportSnapshotRequest
-    * @return ImportSnapshotResponse
-   */
-  // Deprecated
-  async importSnapshot(request: ImportSnapshotRequest): Promise<ImportSnapshotResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.importSnapshotWithOptions(request, runtime);
-  }
-
-  /**
     * The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
     *
     * @param request InstallCloudAssistantRequest
@@ -73518,20 +74437,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If you specify multiple ECS instances and one of the instances does not meet the requirements for running the command, the call fails. Specify instances that meet the requirements and call the InvokeCommand operation again.
-    *     *   The network type is Virtual Private Cloud (VPC). For more information, see [What is a VPC?](~~34217~~)
-    *     *   The instances are in the `Running` state.
-    *     *   The Cloud Assistant client is installed on the instances. For more information, see [Install the Cloud Assistant client](~~64921~~).
-    *     *   Before you run PowerShell commands, make sure that the instances have the PowerShell module configured.
-    * *   If `Timed` is set to false, the command is run only once.
-    * *   If `Timed` is set to true, the command is run on a schedule.
-    *     *   The schedule is specified by the `Frequency` parameter. The results of each execution of a command do not affect the next execution of the command.
-    *     *   If you want to specify a schedule by using a cron expression, you can specify a time zone based on your requirements. If you do not specify a time zone, the schedule is based on the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For more information, see [Configure the NTP service and time zone for Linux instances](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
-    *     To ensure that scheduled tasks can run as expected, make sure that the version of the Cloud Assistant client is not earlier than the following ones. A scheduled task can run a command at a specified interval, only once at a specified point in time, or at designated points in time based on a cron expression with a specified year or time zone. If the `ClientNeedUpgrade` error code is returned, you must upgrade the Cloud Assistant client to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
-    *           - Linux: 2.2.3.282 
-    *           - Windows: 2.1.3.282 
-    * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on the Cloud Assistant client. If an execution fails, no execution information is generated.
-    * *   If you enable the custom parameter feature by setting EnableParameter to true when you create a command, you must configure custom parameters in the `Parameters` when you run the command.
+    * ## Usage notes
+    * *   ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If multiple ECS instances are specified and one of the instances does not meet the requirements for running the command, the call fails. You must specify instances that meet the requirements and call the InvokeCommand operation again.
+    *     *   The instances are in the Running (`Running`) state. You can call the [DescribeInstances](~~25506~~) operation to query instance states.
+    *     *   Cloud Assistant Agent is installed on the instances. For more information, see [Install Cloud Assistant Agent](~~64921~~).
+    *     *   Before you run PowerShell commands on the instances, make sure that the instances have the PowerShell module configured.
+    * *   The command can run only once on the instances.
+    * *   The command can run multiple times on the instances based on a schedule.
+    *     *   The schedule is specified by the Frequency parameter. The results of each execution of a command do not affect the next execution of the command.
+    *     *   If you want to specify a schedule by using a cron expression, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For more information about time zones, see [Configure the NTP service for ECS instances that run CentOS 6](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+    *         To ensure that scheduled tasks can run as expected, make sure that the version of Cloud Assistant Agent is not earlier than the following ones. You can configure a command to run at a fixed interval based on a rate expression, run only once at a specified time, or run at designated times based on a cron expression. If the ClientNeedUpgrade error code is returned, you must upgrade Cloud Assistant Agent to the latest version. For more information, see [Update or disable updates for Cloud Assistant Agent](~~134383~~).
+    *     *   Linux: 2.2.3.282
+    *     *   Windows: 2.1.3.282
+    * *   Commands may fail to run due to instance status exceptions, network exceptions, or exceptions on Cloud Assistant Agent. If a command fails to run, no execution information is generated. For more information, see [Check execution results and troubleshoot common issues](~~87029~~).
+    * *   If you enable the custom parameter feature when you create the command, you must specify custom parameters (`Parameters`) to run the command.
+    * *   Before you run a command on instances, especially new instances, we recommend that you call the [DescribeCloudAssistantStatus](~~87346~~) operation to query the state of Cloud Assistant Agent installed on the instances and make sure that the return value of CloudAssistantStatus is true.
     *
     * @param tmpReq InvokeCommandRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -73606,6 +74526,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.resourceTag)) {
+      query["ResourceTag"] = request.resourceTag;
+    }
+
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -73644,20 +74568,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If you specify multiple ECS instances and one of the instances does not meet the requirements for running the command, the call fails. Specify instances that meet the requirements and call the InvokeCommand operation again.
-    *     *   The network type is Virtual Private Cloud (VPC). For more information, see [What is a VPC?](~~34217~~)
-    *     *   The instances are in the `Running` state.
-    *     *   The Cloud Assistant client is installed on the instances. For more information, see [Install the Cloud Assistant client](~~64921~~).
-    *     *   Before you run PowerShell commands, make sure that the instances have the PowerShell module configured.
-    * *   If `Timed` is set to false, the command is run only once.
-    * *   If `Timed` is set to true, the command is run on a schedule.
-    *     *   The schedule is specified by the `Frequency` parameter. The results of each execution of a command do not affect the next execution of the command.
-    *     *   If you want to specify a schedule by using a cron expression, you can specify a time zone based on your requirements. If you do not specify a time zone, the schedule is based on the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For more information, see [Configure the NTP service and time zone for Linux instances](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
-    *     To ensure that scheduled tasks can run as expected, make sure that the version of the Cloud Assistant client is not earlier than the following ones. A scheduled task can run a command at a specified interval, only once at a specified point in time, or at designated points in time based on a cron expression with a specified year or time zone. If the `ClientNeedUpgrade` error code is returned, you must upgrade the Cloud Assistant client to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
-    *           - Linux: 2.2.3.282 
-    *           - Windows: 2.1.3.282 
-    * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on the Cloud Assistant client. If an execution fails, no execution information is generated.
-    * *   If you enable the custom parameter feature by setting EnableParameter to true when you create a command, you must configure custom parameters in the `Parameters` when you run the command.
+    * ## Usage notes
+    * *   ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If multiple ECS instances are specified and one of the instances does not meet the requirements for running the command, the call fails. You must specify instances that meet the requirements and call the InvokeCommand operation again.
+    *     *   The instances are in the Running (`Running`) state. You can call the [DescribeInstances](~~25506~~) operation to query instance states.
+    *     *   Cloud Assistant Agent is installed on the instances. For more information, see [Install Cloud Assistant Agent](~~64921~~).
+    *     *   Before you run PowerShell commands on the instances, make sure that the instances have the PowerShell module configured.
+    * *   The command can run only once on the instances.
+    * *   The command can run multiple times on the instances based on a schedule.
+    *     *   The schedule is specified by the Frequency parameter. The results of each execution of a command do not affect the next execution of the command.
+    *     *   If you want to specify a schedule by using a cron expression, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For more information about time zones, see [Configure the NTP service for ECS instances that run CentOS 6](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+    *         To ensure that scheduled tasks can run as expected, make sure that the version of Cloud Assistant Agent is not earlier than the following ones. You can configure a command to run at a fixed interval based on a rate expression, run only once at a specified time, or run at designated times based on a cron expression. If the ClientNeedUpgrade error code is returned, you must upgrade Cloud Assistant Agent to the latest version. For more information, see [Update or disable updates for Cloud Assistant Agent](~~134383~~).
+    *     *   Linux: 2.2.3.282
+    *     *   Windows: 2.1.3.282
+    * *   Commands may fail to run due to instance status exceptions, network exceptions, or exceptions on Cloud Assistant Agent. If a command fails to run, no execution information is generated. For more information, see [Check execution results and troubleshoot common issues](~~87029~~).
+    * *   If you enable the custom parameter feature when you create the command, you must specify custom parameters (`Parameters`) to run the command.
+    * *   Before you run a command on instances, especially new instances, we recommend that you call the [DescribeCloudAssistantStatus](~~87346~~) operation to query the state of Cloud Assistant Agent installed on the instances and make sure that the return value of CloudAssistantStatus is true.
     *
     * @param request InvokeCommandRequest
     * @return InvokeCommandResponse
@@ -73743,8 +74668,7 @@ export default class Client extends OpenApi {
     * Take note of the following items:
     * *   Before you add an instance to a security group, the instance must be in the **Stopped** or **Running** state.
     * *   An instance can be added to up to five security groups.
-    * *
-    * You can increase this number to 16 by [submitting a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    * *   You can increase this number to 16 by [submitting a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
     * *   A basic security group can contain up to 2,000 instances. An advanced security group can contain up to 65,536 instances.
     * *   The security group and the instance must reside in the same region.
     * *   The security group and the instance must be of the same network type. If the network type is virtual private cloud (VPC), the security group and the instance must be in the same VPC.
@@ -73812,8 +74736,7 @@ export default class Client extends OpenApi {
     * Take note of the following items:
     * *   Before you add an instance to a security group, the instance must be in the **Stopped** or **Running** state.
     * *   An instance can be added to up to five security groups.
-    * *
-    * You can increase this number to 16 by [submitting a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    * *   You can increase this number to 16 by [submitting a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
     * *   A basic security group can contain up to 2,000 instances. An advanced security group can contain up to 65,536 instances.
     * *   The security group and the instance must reside in the same region.
     * *   The security group and the instance must be of the same network type. If the network type is virtual private cloud (VPC), the security group and the instance must be in the same VPC.
@@ -73906,9 +74829,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation to query the states of Cloud Assistant plug-ins on ECS instances, make sure that the versions of the Cloud Assistant client installed on the instances are not earlier than the following ones:
-    * *   2.2.3.344 for Linux instances
-    * *   2.1.3.344 for Windows instances
+    * ## Usage notes
+    * - Before you call this operation to query the status of Cloud Assistant plug-ins on ECS instances, make sure that the versions of Cloud Assistant Agent on the instances are not earlier than the following ones:
+    *   *   2.2.3.344 for Linux instances
+    *   *   2.1.3.344 for Windows instances
+    * - You can use one of the following methods to check the responses:
+    *   - Method 1: When you call the ListPluginStatus operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the ListPluginStatus operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in this call. 
+    *   - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
     *
     * @param request ListPluginStatusRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -73921,8 +74848,16 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -73975,9 +74910,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation to query the states of Cloud Assistant plug-ins on ECS instances, make sure that the versions of the Cloud Assistant client installed on the instances are not earlier than the following ones:
-    * *   2.2.3.344 for Linux instances
-    * *   2.1.3.344 for Windows instances
+    * ## Usage notes
+    * - Before you call this operation to query the status of Cloud Assistant plug-ins on ECS instances, make sure that the versions of Cloud Assistant Agent on the instances are not earlier than the following ones:
+    *   *   2.2.3.344 for Linux instances
+    *   *   2.1.3.344 for Windows instances
+    * - You can use one of the following methods to check the responses:
+    *   - Method 1: When you call the ListPluginStatus operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the ListPluginStatus operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in this call. 
+    *   - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
     *
     * @param request ListPluginStatusRequest
     * @return ListPluginStatusResponse
@@ -74954,6 +75893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : ModifyDemand is deprecated, please use Ecs::2014-05-26::ModifyCapacityReservation instead.
     * You can call this operation to modify the demand information of instance types. Alibaba Cloud provides the requested resources based on your demand. You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type. Parameters except `DemandName` and `DemandDescription` can be modified only for demands that are in the Rejected state.
     * > This operation is in invitational preview and is not publicly available.
     *
@@ -74961,6 +75901,7 @@ export default class Client extends OpenApi {
     * @param runtime runtime options for this request RuntimeOptions
     * @return ModifyDemandResponse
    */
+  // Deprecated
   async modifyDemandWithOptions(request: ModifyDemandRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -75050,12 +75991,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : ModifyDemand is deprecated, please use Ecs::2014-05-26::ModifyCapacityReservation instead.
     * You can call this operation to modify the demand information of instance types. Alibaba Cloud provides the requested resources based on your demand. You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type. Parameters except `DemandName` and `DemandDescription` can be modified only for demands that are in the Rejected state.
     * > This operation is in invitational preview and is not publicly available.
     *
     * @param request ModifyDemandRequest
     * @return ModifyDemandResponse
    */
+  // Deprecated
   async modifyDemand(request: ModifyDemandRequest): Promise<ModifyDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDemandWithOptions(request, runtime);
@@ -76182,23 +77125,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If the response contains `{"OperationLocks": {"LockReason" : "security"}}`, the instance is locked for security reasons. No operations are allowed on the instance.
+    * If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons. No operations are allowed on the instance.
     * Take note of the following items:
-    * *   Modify the hostname (`HostName`): After you modify the hostname, you need to restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new hostname to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new hostname does not take effect if you restart the instance from within the operating system.
+    * *   Modify the hostname (`HostName`): After you modify the hostname, restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new hostname to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new hostname does not take effect if you restart the instance from within the operating system.
     * *   Reset the password (`Password`):
-    *     *   The instance must not be in the **Starting** state.``
-    *     *   After you reset the password, you need to restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new password to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new password does not take effect if you restart the instance from within the operating system.
+    *     *   The instance cannot be in the **Starting** (`Starting`) state.
+    *     *   After you reset the password, restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new password to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new password does not take effect if you restart the instance from within the operating system.
     * *   Modify user data (`UserData`):
-    *     *   The instance must be in the **Stopped** state.``
-    *     *   The instance must support user data. For more information, see [Prepare user data](~~49121~~).
-    * *   Change the security group (`SecurityGroupIds.N`):
-    *     *   You can move an instance to a security group of a different type. If you want to move an instance to a security group of a different type, you must be familiar with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
-    *     *   Security groups of instances that reside in the classic network cannot be changed. For more information, see the description of `SecurityGroupIds.N`.
+    *     *   The instance must be in the **Stopped** (`Stopped`) state.
+    *     *   The instance must meet the limits for user data. For more information, see [Prepare user data](~~49121~~).
+    * > After you restart the instance, the new user data is displayed but not run as scripts.
+    * *   Change the security groups (`SecurityGroupIds.N`):
+    *     *   You can move an instance to a security group of a different type.
+    *         If you want to move an instance to a security group of a different type, you must familiarize yourself with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
+    *     *   Security groups of instances in the classic network cannot be changed.
+    *         For more information, see the description of `SecurityGroupIds.N`.
     * *   Modify the number of queues supported by the primary elastic network interface (ENI) (`NetworkInterfaceQueueNumber`):
-    *     *   The instance must be in the `Stopped` state.
-    *     *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI. The maximum number of queues vary with the instance type.
-    *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To obtain the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation. The results are returned in the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` parameters.
-    *     *   If you set this parameter to -1, the value is reset to the default value for the instance type. To obtain the default number of queues supported by the primary ENI for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `PrimaryEniQueueNumber` parameter.
+    *     *   The instance must be in the Stopped (`Stopped`) state.
+    *     *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI. The maximum number of queues varies based on the instance type.
+    *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To obtain the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values.
+    *     *   If you set this parameter to -1, the value is reset to the default value for the instance type. To obtain the default number of queues supported by the primary ENI for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `PrimaryEniQueueNumber` value.
+    * *   Enable or disable the Jumbo Frame feature ([EnableJumboFrame](~~200512~~)):
+    *     *   The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
+    *     *   The instance must reside in a virtual private cloud (VPC).
+    *     *   After the Jumbo Frame feature is enabled, the MTU value of the instance is set to 8500. After the Jumbo Frame feature is disabled, the MTU value of the instance is set to 1500.
     *
     * @param request ModifyInstanceAttributeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -76275,6 +77225,10 @@ export default class Client extends OpenApi {
       query["UserData"] = request.userData;
     }
 
+    if (!Util.isUnset(request.cpuOptions)) {
+      query["CpuOptions"] = request.cpuOptions;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -76293,23 +77247,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If the response contains `{"OperationLocks": {"LockReason" : "security"}}`, the instance is locked for security reasons. No operations are allowed on the instance.
+    * If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons. No operations are allowed on the instance.
     * Take note of the following items:
-    * *   Modify the hostname (`HostName`): After you modify the hostname, you need to restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new hostname to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new hostname does not take effect if you restart the instance from within the operating system.
+    * *   Modify the hostname (`HostName`): After you modify the hostname, restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new hostname to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new hostname does not take effect if you restart the instance from within the operating system.
     * *   Reset the password (`Password`):
-    *     *   The instance must not be in the **Starting** state.``
-    *     *   After you reset the password, you need to restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new password to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new password does not take effect if you restart the instance from within the operating system.
+    *     *   The instance cannot be in the **Starting** (`Starting`) state.
+    *     *   After you reset the password, restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new password to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new password does not take effect if you restart the instance from within the operating system.
     * *   Modify user data (`UserData`):
-    *     *   The instance must be in the **Stopped** state.``
-    *     *   The instance must support user data. For more information, see [Prepare user data](~~49121~~).
-    * *   Change the security group (`SecurityGroupIds.N`):
-    *     *   You can move an instance to a security group of a different type. If you want to move an instance to a security group of a different type, you must be familiar with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
-    *     *   Security groups of instances that reside in the classic network cannot be changed. For more information, see the description of `SecurityGroupIds.N`.
+    *     *   The instance must be in the **Stopped** (`Stopped`) state.
+    *     *   The instance must meet the limits for user data. For more information, see [Prepare user data](~~49121~~).
+    * > After you restart the instance, the new user data is displayed but not run as scripts.
+    * *   Change the security groups (`SecurityGroupIds.N`):
+    *     *   You can move an instance to a security group of a different type.
+    *         If you want to move an instance to a security group of a different type, you must familiarize yourself with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
+    *     *   Security groups of instances in the classic network cannot be changed.
+    *         For more information, see the description of `SecurityGroupIds.N`.
     * *   Modify the number of queues supported by the primary elastic network interface (ENI) (`NetworkInterfaceQueueNumber`):
-    *     *   The instance must be in the `Stopped` state.
-    *     *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI. The maximum number of queues vary with the instance type.
-    *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To obtain the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation. The results are returned in the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` parameters.
-    *     *   If you set this parameter to -1, the value is reset to the default value for the instance type. To obtain the default number of queues supported by the primary ENI for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `PrimaryEniQueueNumber` parameter.
+    *     *   The instance must be in the Stopped (`Stopped`) state.
+    *     *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI. The maximum number of queues varies based on the instance type.
+    *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To obtain the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values.
+    *     *   If you set this parameter to -1, the value is reset to the default value for the instance type. To obtain the default number of queues supported by the primary ENI for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `PrimaryEniQueueNumber` value.
+    * *   Enable or disable the Jumbo Frame feature ([EnableJumboFrame](~~200512~~)):
+    *     *   The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
+    *     *   The instance must reside in a virtual private cloud (VPC).
+    *     *   After the Jumbo Frame feature is enabled, the MTU value of the instance is set to 8500. After the Jumbo Frame feature is disabled, the MTU value of the instance is set to 1500.
     *
     * @param request ModifyInstanceAttributeRequest
     * @return ModifyInstanceAttributeResponse
@@ -76455,14 +77416,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you are familiar with the billing methods and pricing of ECS. For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
-    * When you call this operation, take note of the following items:
-    * *   The instances must be in the `Running` or `Stopped` state, and you have no overdue payments for the instances.********
-    * *   After you change the billing method, outstanding payments, if any, are automatically completed. Make sure that you have sufficient balance in your account. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
+    * Before you call this operation, make sure that you are familiar with the billing methods and pricing of Elastic Compute Service (ECS). For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
+    * Take note of the following items:
+    * *   The instances must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state, and you cannot have overdue payments for them.
+    * *   After you change the billing method, outstanding payments are automatically completed. Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
     * *   **Change the billing method from subscription to pay-as-you-go**:
-    *     *   Your ECS usage determines whether you can change the billing method of your instance from subscription to pay-as-you-go.
+    *     *   Your ECS usage determines whether the billing method of an instance can be changed from subscription to pay-as-you-go.
     *     *   After you change the billing method of an instance from subscription to pay-as-you-go, the new billing method remains in effect for the remaining lifecycle of the instance. The price difference is refunded to the payment account that you used. Vouchers that have been redeemed are not refundable.
-    *     *   **Refund rule**: You have a quota for the total refund amount each month, and the unused balance of this quota is not carried over to the next month. If you use up the refund quota of the current month, you can change the billing method in the next month. The refund amount incurred after you change the billing method is calculated based on the following formula: **Number of vCPUs × (Number of remaining days × 24 ± Number of remaining or elapsed hours)**.
+    *     *   **Refund rule**: You have a quota for the total refund amount each month, and unused balance of this quota is not carried forward into the next month. After you use up the refund quota of the current month, you can change the billing method only in the next month. The refund amount incurred when you change the billing method is calculated based on the following formula: **Number of vCPUs × (Number of remaining days × 24 ± Number of remaining or elapsed hours)**.
     * *   **Change the billing method from pay-as-you-go to subscription**:
     *     *   You can change the billing method of all data disks that are attached to an instance from pay-as-you-go to subscription.
     *     *   This operation cannot be called for a pay-as-you-go instance that has an automatic release time set.
@@ -76548,14 +77509,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you are familiar with the billing methods and pricing of ECS. For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
-    * When you call this operation, take note of the following items:
-    * *   The instances must be in the `Running` or `Stopped` state, and you have no overdue payments for the instances.********
-    * *   After you change the billing method, outstanding payments, if any, are automatically completed. Make sure that you have sufficient balance in your account. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
+    * Before you call this operation, make sure that you are familiar with the billing methods and pricing of Elastic Compute Service (ECS). For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
+    * Take note of the following items:
+    * *   The instances must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state, and you cannot have overdue payments for them.
+    * *   After you change the billing method, outstanding payments are automatically completed. Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
     * *   **Change the billing method from subscription to pay-as-you-go**:
-    *     *   Your ECS usage determines whether you can change the billing method of your instance from subscription to pay-as-you-go.
+    *     *   Your ECS usage determines whether the billing method of an instance can be changed from subscription to pay-as-you-go.
     *     *   After you change the billing method of an instance from subscription to pay-as-you-go, the new billing method remains in effect for the remaining lifecycle of the instance. The price difference is refunded to the payment account that you used. Vouchers that have been redeemed are not refundable.
-    *     *   **Refund rule**: You have a quota for the total refund amount each month, and the unused balance of this quota is not carried over to the next month. If you use up the refund quota of the current month, you can change the billing method in the next month. The refund amount incurred after you change the billing method is calculated based on the following formula: **Number of vCPUs × (Number of remaining days × 24 ± Number of remaining or elapsed hours)**.
+    *     *   **Refund rule**: You have a quota for the total refund amount each month, and unused balance of this quota is not carried forward into the next month. After you use up the refund quota of the current month, you can change the billing method only in the next month. The refund amount incurred when you change the billing method is calculated based on the following formula: **Number of vCPUs × (Number of remaining days × 24 ± Number of remaining or elapsed hours)**.
     * *   **Change the billing method from pay-as-you-go to subscription**:
     *     *   You can change the billing method of all data disks that are attached to an instance from pay-as-you-go to subscription.
     *     *   This operation cannot be called for a pay-as-you-go instance that has an automatic release time set.
@@ -76569,12 +77530,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation for an ECS instance, take note of the following items:
-    * *   The ECS instance must be in the **Stopped** state. The instance is automatically restarted after it is migrated.
+    * Take note of the following items:
+    * *   The instance must be in the **Stopped** (Stopped) state. The instance is automatically restarted after it is migrated.
     * *   The network type of the instance must be Virtual Private Cloud (VPC).
     * *   The instance and the destination dedicated host to which to migrate the instance must belong to the same account and reside in the same region and zone.
     * *   A pay-as-you-go instance can be migrated to a subscription dedicated host. A subscription instance can be migrated only between subscription dedicated hosts. The expiration date of the subscription instance cannot be later than that of the destination dedicated host.
-    * *   You can migrate only pay-as-you-go instances from a shared host to a dedicated host. You cannot migrate subscription or preemptible instances from a shared host to a dedicated host.
+    * *   You can migrate only pay-as-you-go instances from a shared host to a dedicated host. You cannot migrate subscription instances or preemptible instances from a shared host to a dedicated host.
     * *   You can redeploy an instance to a specific dedicated host cluster.
     *
     * @param request ModifyInstanceDeploymentRequest
@@ -76666,12 +77627,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation for an ECS instance, take note of the following items:
-    * *   The ECS instance must be in the **Stopped** state. The instance is automatically restarted after it is migrated.
+    * Take note of the following items:
+    * *   The instance must be in the **Stopped** (Stopped) state. The instance is automatically restarted after it is migrated.
     * *   The network type of the instance must be Virtual Private Cloud (VPC).
     * *   The instance and the destination dedicated host to which to migrate the instance must belong to the same account and reside in the same region and zone.
     * *   A pay-as-you-go instance can be migrated to a subscription dedicated host. A subscription instance can be migrated only between subscription dedicated hosts. The expiration date of the subscription instance cannot be later than that of the destination dedicated host.
-    * *   You can migrate only pay-as-you-go instances from a shared host to a dedicated host. You cannot migrate subscription or preemptible instances from a shared host to a dedicated host.
+    * *   You can migrate only pay-as-you-go instances from a shared host to a dedicated host. You cannot migrate subscription instances or preemptible instances from a shared host to a dedicated host.
     * *   You can redeploy an instance to a specific dedicated host cluster.
     *
     * @param request ModifyInstanceDeploymentRequest
@@ -76827,7 +77788,7 @@ export default class Client extends OpenApi {
     *     *   Within a single region, the sum of actual peak bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
     *     *   Within a single region, the sum of actual peak bandwidths of all ECS instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
     * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a subscription (PrePaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, a public IP address is automatically assigned to the instance.
-    * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a pay-as-you-go (PostPaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, no public IP address is assigned to the instance. You must call the [AllocatePublicIpAddress](~~25544~~) operation to assign a public IP address to the instance.
+    * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a pay-as-you-go (PostPaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, no public IP address is assigned to the instance. You must set `AllocatePublicIp` to true or call the [AllocatePublicIpAddress](~~25544~~) operation to assign a public IP address to the instance.
     * *   An instance in the classic network must be in the Stopped state before you can upgrade its outbound public bandwidth (InternetMaxBandwidthOut) from 0 Mbit/s.
     * *   After the bandwidth is upgraded, AutoPay is set to true by default and the payment is automatically made. Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and must be canceled. If your account balance is insufficient, you can set AutoPay to false. In this case, when you call the ModifyInstanceNetworkSpec operation, an unpaid order is generated. Then, you can log on to the ECS console to pay for the order.
     * *   The price difference is refunded to the payment account that you used. Vouchers or coupons that have been redeemed cannot be returned.
@@ -76918,7 +77879,7 @@ export default class Client extends OpenApi {
     *     *   Within a single region, the sum of actual peak bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
     *     *   Within a single region, the sum of actual peak bandwidths of all ECS instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
     * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a subscription (PrePaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, a public IP address is automatically assigned to the instance.
-    * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a pay-as-you-go (PostPaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, no public IP address is assigned to the instance. You must call the [AllocatePublicIpAddress](~~25544~~) operation to assign a public IP address to the instance.
+    * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a pay-as-you-go (PostPaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, no public IP address is assigned to the instance. You must set `AllocatePublicIp` to true or call the [AllocatePublicIpAddress](~~25544~~) operation to assign a public IP address to the instance.
     * *   An instance in the classic network must be in the Stopped state before you can upgrade its outbound public bandwidth (InternetMaxBandwidthOut) from 0 Mbit/s.
     * *   After the bandwidth is upgraded, AutoPay is set to true by default and the payment is automatically made. Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and must be canceled. If your account balance is insufficient, you can set AutoPay to false. In this case, when you call the ModifyInstanceNetworkSpec operation, an unpaid order is generated. Then, you can log on to the ECS console to pay for the order.
     * *   The price difference is refunded to the payment account that you used. Vouchers or coupons that have been redeemed cannot be returned.
@@ -76932,15 +77893,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For information about how to use the SDK for Python to change resource configurations, see [Query available resources for configuration changes](~~109517~~).
-    * When you call this operation, take note of the following items:
+    * For information about how to use ECS SDK for Python to change resource configurations, see [Query available resources for configuration changes](~~109517~~).
+    * Take note of the following items:
     * *   Make sure that you have no overdue payments in your account.
-    * *   You can adjust the public bandwidth of an instance only when the instance is in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
+    * *   You can modify the public bandwidth of an instance only when the instance is in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
     * *   Before you change the instance type of a pay-as-you-go instance, you can call the [DescribeResourcesModification](~~66187~~) operation to query the instance types to which you can change.
     * *   You can change the instance type of an instance only when the instance is in the **Stopped** (`Stopped`) state.
-    * *   You can change only the instance type or only the public bandwidth of an instance at a time. The instance type and the public bandwidth of an instance cannot be changed together.
-    * *   From November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to the throttling policy of your account. To increase the maximum bandwidth value, submit a ticket. The following throttling policies apply:
-    *     *   Within a single region, the sum of actual peak bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
+    * *   The instance type and the public bandwidth of an instance cannot be changed together.
+    * *   As of November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to the throttling policy specified for your account. To increase the maximum bandwidth value, submit a ticket. The following throttling policies apply:
+    *     *   Within a single region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
     *     *   Within a single region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
     *
     * @param request ModifyInstanceSpecRequest
@@ -76964,6 +77925,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.disk)) {
       query["Disk"] = request.disk;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.instanceId)) {
@@ -77028,15 +77993,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For information about how to use the SDK for Python to change resource configurations, see [Query available resources for configuration changes](~~109517~~).
-    * When you call this operation, take note of the following items:
+    * For information about how to use ECS SDK for Python to change resource configurations, see [Query available resources for configuration changes](~~109517~~).
+    * Take note of the following items:
     * *   Make sure that you have no overdue payments in your account.
-    * *   You can adjust the public bandwidth of an instance only when the instance is in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
+    * *   You can modify the public bandwidth of an instance only when the instance is in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
     * *   Before you change the instance type of a pay-as-you-go instance, you can call the [DescribeResourcesModification](~~66187~~) operation to query the instance types to which you can change.
     * *   You can change the instance type of an instance only when the instance is in the **Stopped** (`Stopped`) state.
-    * *   You can change only the instance type or only the public bandwidth of an instance at a time. The instance type and the public bandwidth of an instance cannot be changed together.
-    * *   From November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to the throttling policy of your account. To increase the maximum bandwidth value, submit a ticket. The following throttling policies apply:
-    *     *   Within a single region, the sum of actual peak bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
+    * *   The instance type and the public bandwidth of an instance cannot be changed together.
+    * *   As of November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to the throttling policy specified for your account. To increase the maximum bandwidth value, submit a ticket. The following throttling policies apply:
+    *     *   Within a single region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
     *     *   Within a single region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
     *
     * @param request ModifyInstanceSpecRequest
@@ -77245,6 +78210,89 @@ export default class Client extends OpenApi {
     return await this.modifyInstanceVpcAttributeWithOptions(request, runtime);
   }
 
+  async modifyInvocationAttributeWithOptions(tmpReq: ModifyInvocationAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInvocationAttributeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyInvocationAttributeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.commandContent)) {
+      query["CommandContent"] = request.commandContent;
+    }
+
+    if (!Util.isUnset(request.contentEncoding)) {
+      query["ContentEncoding"] = request.contentEncoding;
+    }
+
+    if (!Util.isUnset(request.enableParameter)) {
+      query["EnableParameter"] = request.enableParameter;
+    }
+
+    if (!Util.isUnset(request.frequency)) {
+      query["Frequency"] = request.frequency;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.invokeId)) {
+      query["InvokeId"] = request.invokeId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyInvocationAttribute",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInvocationAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInvocationAttributeResponse({}));
+  }
+
+  async modifyInvocationAttribute(request: ModifyInvocationAttributeRequest): Promise<ModifyInvocationAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyInvocationAttributeWithOptions(request, runtime);
+  }
+
   /**
     * ## Debugging
     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=ModifyLaunchTemplateDefaultVersion\\&type=RPC\\&version=2014-05-26)
@@ -77436,8 +78484,16 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.rxQueueSize)) {
+      query["RxQueueSize"] = request.rxQueueSize;
+    }
+
     if (!Util.isUnset(request.securityGroupId)) {
       query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.txQueueSize)) {
+      query["TxQueueSize"] = request.txQueueSize;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -81185,27 +82241,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In the security group-related API documents, outbound traffic is sent by the source and received by the destination.
     * When you call this operation, you can use one of the following groups of parameters to specify the security group rules that you want to delete:
-    * *   The parameter used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules. - If the ID of a specified security group rule does not exist, an error is reported. - You cannot specify the parameters that are no longer available and the Permissions.N-prefixed counterparts of the parameters at the same time. - Sample request:
+    * *   Parameters used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules. - If the security group rule ID that you specify does not exist, an error is reported. - You cannot specify the parameters that are no longer available and the Permissions.N-prefixed counterparts of the parameters at the same time. - Sample request:
     *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
     *         &SecurityGroupId=sg-bp67acfmxazb4p****
     *         &SecurityGroupRuleId.1=sgr-bpdfmk****
     *         &SecurityGroupRuleId.2=sgr-bpdfmg****
     *         &<Common request parameters>
-    * *   Parameters prefixed with Permissions.N.
-    *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroupEgress is successful but no security group rule is deleted.
-    *     *   You cannot specify the SecurityGroupRuleId parameter or parameters that are not prefixed with Permissions.N.
-    *     *   You can delete a specific outbound security group rule by specifying one of the following groups of parameters. However, you cannot delete the security group rule if you specify only one of the parameters in a group.
-    *         *   Parameters used to delete an outbound security group rule that controls access from a specified CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestCidrIp.
+    * *   Parameters that are prefixed with Permissions.N.
+    *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroupEgress is successful but no security group rules are deleted.
+    *     *   The SecurityGroupRuleId.N parameter and parameters that are not prefixed with Permissions.N cannot be specified.
+    *     *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
+    *         *   Parameters used to determine an outbound security group rule that controls access to a specified CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, DestCidrIp, and SourceCidrIp (optional). Sample request:
     *             ```
     *             ```
     *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress \\&SecurityGroupId=sg-bp67acfmxazb4ph\\*\\*\\* \\&Permissions.1.IpProtocol=TCP \\&Permissions.1.DestCidrIp=10.0.0.0/8 \\&Permissions.1.PortRange=-22/22 \\&Permissions.1.NicType=intranet \\&Permissions.1.Policy=accept &\\<Common request parameters> \\`\\`\\`
-    *         *   Parameters used to delete an outbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestGroupId.
+    *         *   Parameters used to determine an outbound security group rule that controls access to another security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestGroupId. Sample request:
     *             ```
     *             ```
     *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress \\&SecurityGroupId=sg-bp67acfmxazb4ph\\*\\*\\* \\&Permissions.1.DestGroupId=sg-bp67acfmxa123b\\*\\*\\*\\* \\&Permissions.1.IpProtocol=TCP \\&Permissions.1.PortRange=22/22 \\&Permissions.1.NicType=intranet \\&Permissions.1.Policy=accept &\\<Common request parameters> \\`\\`\\`
-    *         *   Parameters used to delete an outbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestPrefixListId.
+    *         *   Parameters used to determine an outbound security group rule that controls access to a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestPrefixListId. Sample request:
     *             ```
     *             ```
     *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress \\&SecurityGroupId=sg-bp67acfmxazb4ph\\*\\*\\* \\&Permissions.1.IpProtocol=TCP \\&Permissions.1.DestPrefixListId=pl-x1j1k5ykzqlixdcy\\*\\*\\*\\* \\&Permissions.1.PortRange=-22/22 \\&Permissions.1.NicType=intranet \\&Permissions.1.Policy=accept &\\<Common request parameters> \\`\\`\\`
@@ -81347,27 +82402,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In the security group-related API documents, outbound traffic is sent by the source and received by the destination.
     * When you call this operation, you can use one of the following groups of parameters to specify the security group rules that you want to delete:
-    * *   The parameter used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules. - If the ID of a specified security group rule does not exist, an error is reported. - You cannot specify the parameters that are no longer available and the Permissions.N-prefixed counterparts of the parameters at the same time. - Sample request:
+    * *   Parameters used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules. - If the security group rule ID that you specify does not exist, an error is reported. - You cannot specify the parameters that are no longer available and the Permissions.N-prefixed counterparts of the parameters at the same time. - Sample request:
     *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
     *         &SecurityGroupId=sg-bp67acfmxazb4p****
     *         &SecurityGroupRuleId.1=sgr-bpdfmk****
     *         &SecurityGroupRuleId.2=sgr-bpdfmg****
     *         &<Common request parameters>
-    * *   Parameters prefixed with Permissions.N.
-    *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroupEgress is successful but no security group rule is deleted.
-    *     *   You cannot specify the SecurityGroupRuleId parameter or parameters that are not prefixed with Permissions.N.
-    *     *   You can delete a specific outbound security group rule by specifying one of the following groups of parameters. However, you cannot delete the security group rule if you specify only one of the parameters in a group.
-    *         *   Parameters used to delete an outbound security group rule that controls access from a specified CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestCidrIp.
+    * *   Parameters that are prefixed with Permissions.N.
+    *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroupEgress is successful but no security group rules are deleted.
+    *     *   The SecurityGroupRuleId.N parameter and parameters that are not prefixed with Permissions.N cannot be specified.
+    *     *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
+    *         *   Parameters used to determine an outbound security group rule that controls access to a specified CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, DestCidrIp, and SourceCidrIp (optional). Sample request:
     *             ```
     *             ```
     *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress \\&SecurityGroupId=sg-bp67acfmxazb4ph\\*\\*\\* \\&Permissions.1.IpProtocol=TCP \\&Permissions.1.DestCidrIp=10.0.0.0/8 \\&Permissions.1.PortRange=-22/22 \\&Permissions.1.NicType=intranet \\&Permissions.1.Policy=accept &\\<Common request parameters> \\`\\`\\`
-    *         *   Parameters used to delete an outbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestGroupId.
+    *         *   Parameters used to determine an outbound security group rule that controls access to another security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestGroupId. Sample request:
     *             ```
     *             ```
     *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress \\&SecurityGroupId=sg-bp67acfmxazb4ph\\*\\*\\* \\&Permissions.1.DestGroupId=sg-bp67acfmxa123b\\*\\*\\*\\* \\&Permissions.1.IpProtocol=TCP \\&Permissions.1.PortRange=22/22 \\&Permissions.1.NicType=intranet \\&Permissions.1.Policy=accept &\\<Common request parameters> \\`\\`\\`
-    *         *   Parameters used to delete an outbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestPrefixListId.
+    *         *   Parameters used to determine an outbound security group rule that controls access to a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestPrefixListId. Sample request:
     *             ```
     *             ```
     *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress \\&SecurityGroupId=sg-bp67acfmxazb4ph\\*\\*\\* \\&Permissions.1.IpProtocol=TCP \\&Permissions.1.DestPrefixListId=pl-x1j1k5ykzqlixdcy\\*\\*\\*\\* \\&Permissions.1.PortRange=-22/22 \\&Permissions.1.NicType=intranet \\&Permissions.1.Policy=accept &\\<Common request parameters> \\`\\`\\`
@@ -81381,7 +82435,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * /home/
+    * ## Usage notes
+    * Unlike the [CreateCommand](~~64844~~) and [InvokeCommand](~~64841~~) operations, RunCommand can be used to create and run a command in a single request.
+    * Take note of the following items:
+    * *   The instances on which you want to run a command must be in the Running (`Running`) state. You can call the [DescribeInstances](~~25506~~) operation to query the status of instances.
+    * *   [Cloud Assistant Agent](~~64921~~) is pre-installed on the instances.
+    * *   Before you run a PowerShell command on a Windows instance, make sure that the PowerShell module is installed on the instance.
+    * *   When you use a cron expression to specify a schedule, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For information about time zones, see [Configure the NTP service for ECS instances that run CentOS 6](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+    * *   You can set `Timeout` to specify the timeout period for executions of the command on ECS instances. If an execution times out, Cloud Assistant Agent forcefully terminates the command process.
+    *     *   When the one-time execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *     *   For a scheduled task, the timeout period takes effect on each execution of the command. The timeout of one execution does not affect the subsequent executions of the command. When a scheduled execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *         To ensure that scheduled tasks can run as expected, make sure that the version of Cloud Assistant Agent is not earlier than the following ones. A scheduled task can run a command at a specified interval, only once at a specified time, or at designated times based on a cron expression with a specified year or time zone. If the `ClientNeedUpgrade` error code is returned, you must upgrade Cloud Assistant Agent to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
+    *         *   Linux: 2.2.3.282.
+    *         *   Windows: 2.1.3.282.
+    * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on Cloud Assistant Agent. If a command execution fails, no execution information is generated. For more information, see [Check execution results and troubleshoot common issues](~~87029~~).
+    * *   When `EnableParameter` is set to true, the custom parameter feature is enabled. When you specify `CommandContent`, you can specify custom parameters in the `{{parameter}}` format. Then, when the command is run, the key-value pairs of the custom parameters are passed in.
+    * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region based on your ECS usage. You can perform operations that are described in the [View and increase resource quotas](~~184115~~) topic or call the [DescribeAccountAttribute](~~73772~~) operation to query resource quotas.
+    * *   Before you run a command on instances, especially new instances, we recommend that you call the [DescribeCloudAssistantStatus](~~87346~~) operation to query the status of Cloud Assistant Agent on the instances, and then run the command when the value of CloudAssistantStatus in the response is true for the instances.
     *
     * @param tmpReq RunCommandRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -81476,6 +82546,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.resourceTag)) {
+      query["ResourceTag"] = request.resourceTag;
+    }
+
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -81522,7 +82596,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * /home/
+    * ## Usage notes
+    * Unlike the [CreateCommand](~~64844~~) and [InvokeCommand](~~64841~~) operations, RunCommand can be used to create and run a command in a single request.
+    * Take note of the following items:
+    * *   The instances on which you want to run a command must be in the Running (`Running`) state. You can call the [DescribeInstances](~~25506~~) operation to query the status of instances.
+    * *   [Cloud Assistant Agent](~~64921~~) is pre-installed on the instances.
+    * *   Before you run a PowerShell command on a Windows instance, make sure that the PowerShell module is installed on the instance.
+    * *   When you use a cron expression to specify a schedule, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For information about time zones, see [Configure the NTP service for ECS instances that run CentOS 6](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+    * *   You can set `Timeout` to specify the timeout period for executions of the command on ECS instances. If an execution times out, Cloud Assistant Agent forcefully terminates the command process.
+    *     *   When the one-time execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *     *   For a scheduled task, the timeout period takes effect on each execution of the command. The timeout of one execution does not affect the subsequent executions of the command. When a scheduled execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *         To ensure that scheduled tasks can run as expected, make sure that the version of Cloud Assistant Agent is not earlier than the following ones. A scheduled task can run a command at a specified interval, only once at a specified time, or at designated times based on a cron expression with a specified year or time zone. If the `ClientNeedUpgrade` error code is returned, you must upgrade Cloud Assistant Agent to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
+    *         *   Linux: 2.2.3.282.
+    *         *   Windows: 2.1.3.282.
+    * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on Cloud Assistant Agent. If a command execution fails, no execution information is generated. For more information, see [Check execution results and troubleshoot common issues](~~87029~~).
+    * *   When `EnableParameter` is set to true, the custom parameter feature is enabled. When you specify `CommandContent`, you can specify custom parameters in the `{{parameter}}` format. Then, when the command is run, the key-value pairs of the custom parameters are passed in.
+    * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region based on your ECS usage. You can perform operations that are described in the [View and increase resource quotas](~~184115~~) topic or call the [DescribeAccountAttribute](~~73772~~) operation to query resource quotas.
+    * *   Before you run a command on instances, especially new instances, we recommend that you call the [DescribeCloudAssistantStatus](~~87346~~) operation to query the status of Cloud Assistant Agent on the instances, and then run the command when the value of CloudAssistantStatus in the response is true for the instances.
     *
     * @param request RunCommandRequest
     * @return RunCommandResponse
@@ -81534,7 +82624,7 @@ export default class Client extends OpenApi {
 
   /**
     * * **Preparations**:
-    *     * The real-name verification is complete. For more information, see [Real-name verification](~~48263~~).
+    *     * The real-name verification is complete.
     *     * Cost estimation: Learn about the billing methods of ECS resources. For more information, see [Billing overview](~~25398~~).
     *     * Instance type selection: Call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of instance types, or see [Best practices for instance type selection](~~58291~~) to learn about how to select instance types.
     *     * Query for available resources: Call the [DescribeAvailableResource](~~66186~~) operation to query available resources in a specific region or zone.
@@ -81553,7 +82643,7 @@ export default class Client extends OpenApi {
     *     * We recommend that you use auto provisioning groups in the following scenarios: Resources are insufficient to create more than 100 instances at a time, you want to quickly create instances regardless of resource configurations such as instance types or zones, or you want to create instances to consume a specific total number of vCPUs regardless of the number of the instances. You can call the [CreateAutoProvisioningGroup](~~122738~~) operation to create an auto provisioning group to deploy an instance cluster across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
     *     * You can call the `RunInstances` operation to batch create instances. To better manage and search for these instances, we recommend that you specify tags for the instances by using the `Tag.N.Key` and `Tag.N.Value` parameters. You can also append incremental suffixes (`UniqueSuffix`) to the hostname (`HostName`) and to the instance name (`InstanceName`).
     *     * A launch template contains parameters required to create an instance so that you do not have to specify these parameters every time you create instances. You can call the [CreateLaunchTemplate](~~74686~~) operation to create a launch template. Then, in your request to call the `RunInstances` operation, you can specify the `LaunchTemplateId` and `LaunchTemplateVersion` parameters to use the launch template.
-    *     * When you create an instance in the [ECS console](https://ecs.console.aliyun.com/), you can view the best practices for calling the `RunInstances` operation. In the Preview step, click View Open API in the Configurations Selected section. In the dialog box that appears, the left-side **API Workflow** section shows the operations and request parameters that are related to the `RunInstances` operation. The right-side section shows SDK examples for the **Java** and **Python** programming languages.
+    *     * When you create an instance in the [OpenAPI Explorer](https://api.alibabacloud.com/api/Ecs), you can view the best practices for calling the `RunInstances` operation. In the Preview step, click View OpenAPI in the Configurations Selected section. In the dialog box that appears, the left-side **API Workflow** section shows the operations and request parameters that are related to the `RunInstances` operation. The right-side section shows SDK examples for the **Java** and **Python** programming languages.
     *
     * @param request RunInstancesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -81889,7 +82979,7 @@ export default class Client extends OpenApi {
 
   /**
     * * **Preparations**:
-    *     * The real-name verification is complete. For more information, see [Real-name verification](~~48263~~).
+    *     * The real-name verification is complete.
     *     * Cost estimation: Learn about the billing methods of ECS resources. For more information, see [Billing overview](~~25398~~).
     *     * Instance type selection: Call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of instance types, or see [Best practices for instance type selection](~~58291~~) to learn about how to select instance types.
     *     * Query for available resources: Call the [DescribeAvailableResource](~~66186~~) operation to query available resources in a specific region or zone.
@@ -81908,7 +82998,7 @@ export default class Client extends OpenApi {
     *     * We recommend that you use auto provisioning groups in the following scenarios: Resources are insufficient to create more than 100 instances at a time, you want to quickly create instances regardless of resource configurations such as instance types or zones, or you want to create instances to consume a specific total number of vCPUs regardless of the number of the instances. You can call the [CreateAutoProvisioningGroup](~~122738~~) operation to create an auto provisioning group to deploy an instance cluster across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
     *     * You can call the `RunInstances` operation to batch create instances. To better manage and search for these instances, we recommend that you specify tags for the instances by using the `Tag.N.Key` and `Tag.N.Value` parameters. You can also append incremental suffixes (`UniqueSuffix`) to the hostname (`HostName`) and to the instance name (`InstanceName`).
     *     * A launch template contains parameters required to create an instance so that you do not have to specify these parameters every time you create instances. You can call the [CreateLaunchTemplate](~~74686~~) operation to create a launch template. Then, in your request to call the `RunInstances` operation, you can specify the `LaunchTemplateId` and `LaunchTemplateVersion` parameters to use the launch template.
-    *     * When you create an instance in the [ECS console](https://ecs.console.aliyun.com/), you can view the best practices for calling the `RunInstances` operation. In the Preview step, click View Open API in the Configurations Selected section. In the dialog box that appears, the left-side **API Workflow** section shows the operations and request parameters that are related to the `RunInstances` operation. The right-side section shows SDK examples for the **Java** and **Python** programming languages.
+    *     * When you create an instance in the [OpenAPI Explorer](https://api.alibabacloud.com/api/Ecs), you can view the best practices for calling the `RunInstances` operation. In the Preview step, click View OpenAPI in the Configurations Selected section. In the dialog box that appears, the left-side **API Workflow** section shows the operations and request parameters that are related to the `RunInstances` operation. The right-side section shows SDK examples for the **Java** and **Python** programming languages.
     *
     * @param request RunInstancesRequest
     * @return RunInstancesResponse
@@ -82507,11 +83597,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Specifies whether to perform only a dry run, without performing the actual request. Valid Values:
-    * *   true: performs a dry run, but the request is not made. The system checks the request for potential issues, including required parameters, request syntax, and instance status. If the request passes the dry run, `DRYRUN.SUCCESS` is returned. Otherwise, an error message is returned.
-    * > If you set `BatchOptimization` to `SuccessFirst` and `DryRun` to true, only `DRYRUN.SUCCESS` is returned regardless of whether the request passes the dry run.
-    * *   false: performs a dry run and sends the request. If the request passes the dry run, the operation is performed.
-    * Default value: false.
+    * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons. No operations are allowed on the instance.
+    * *   After you enable the economical mode for a pay-as-you-go instance that resided in a virtual private cloud (VPC), you can set `StoppedMode` to KeepCharging. Then, the pay-as-you-go instance continues to be billed after it is stopped. The instance type resources and public IP address are reserved for the instance.
+    * *   Batch operations are supported. You can use `BatchOptimization` to specify the batch operation mode.
     *
     * @param request StopInstancesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -82578,11 +83666,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Specifies whether to perform only a dry run, without performing the actual request. Valid Values:
-    * *   true: performs a dry run, but the request is not made. The system checks the request for potential issues, including required parameters, request syntax, and instance status. If the request passes the dry run, `DRYRUN.SUCCESS` is returned. Otherwise, an error message is returned.
-    * > If you set `BatchOptimization` to `SuccessFirst` and `DryRun` to true, only `DRYRUN.SUCCESS` is returned regardless of whether the request passes the dry run.
-    * *   false: performs a dry run and sends the request. If the request passes the dry run, the operation is performed.
-    * Default value: false.
+    * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons. No operations are allowed on the instance.
+    * *   After you enable the economical mode for a pay-as-you-go instance that resided in a virtual private cloud (VPC), you can set `StoppedMode` to KeepCharging. Then, the pay-as-you-go instance continues to be billed after it is stopped. The instance type resources and public IP address are reserved for the instance.
+    * *   Batch operations are supported. You can use `BatchOptimization` to specify the batch operation mode.
     *
     * @param request StopInstancesRequest
     * @return StopInstancesResponse
@@ -82955,7 +84041,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+    * ## Usage notes
+    * - The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **Bound** (InUse) state.
+    * - If the ENI is a primary ENI, the Elastic Compute Service (ECS) instance to which the ENI is attached must be in the **Running** (Running) or **Stopped** (Stopped) state.
     *
     * @param request UnassignPrivateIpAddressesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -83018,7 +84106,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+    * ## Usage notes
+    * - The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **Bound** (InUse) state.
+    * - If the ENI is a primary ENI, the Elastic Compute Service (ECS) instance to which the ENI is attached must be in the **Running** (Running) or **Stopped** (Stopped) state.
     *
     * @param request UnassignPrivateIpAddressesRequest
     * @return UnassignPrivateIpAddressesResponse
