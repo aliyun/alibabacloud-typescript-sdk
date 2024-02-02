@@ -5354,11 +5354,13 @@ export class ListProjectFeatureViewsResponseBodyFeatureViews extends $tea.Model 
   featureViewId?: string;
   features?: ListProjectFeatureViewsResponseBodyFeatureViewsFeatures[];
   name?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       featureViewId: 'FeatureViewId',
       features: 'Features',
       name: 'Name',
+      type: 'Type',
     };
   }
 
@@ -5367,6 +5369,7 @@ export class ListProjectFeatureViewsResponseBodyFeatureViews extends $tea.Model 
       featureViewId: 'string',
       features: { 'type': 'array', 'itemType': ListProjectFeatureViewsResponseBodyFeatureViewsFeatures },
       name: 'string',
+      type: 'string',
     };
   }
 
