@@ -56,9 +56,9 @@ export class AddDiskReplicaPairResponseBody extends $tea.Model {
 }
 
 export class AddDiskReplicaPairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddDiskReplicaPairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -100,9 +100,9 @@ export class ApplyLensServiceResponseBody extends $tea.Model {
 }
 
 export class ApplyLensServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ApplyLensServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyLensServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -172,9 +172,9 @@ export class BindEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class BindEnterpriseSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BindEnterpriseSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindEnterpriseSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -216,9 +216,9 @@ export class CancelLensServiceResponseBody extends $tea.Model {
 }
 
 export class CancelLensServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelLensServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelLensServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -291,9 +291,9 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -360,9 +360,9 @@ export class ClearPairDrillResponseBody extends $tea.Model {
 }
 
 export class ClearPairDrillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ClearPairDrillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ClearPairDrillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -429,9 +429,9 @@ export class ClearReplicaGroupDrillResponseBody extends $tea.Model {
 }
 
 export class ClearReplicaGroupDrillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ClearReplicaGroupDrillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ClearReplicaGroupDrillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -525,9 +525,9 @@ export class CreateDedicatedBlockStorageClusterResponseBody extends $tea.Model {
 }
 
 export class CreateDedicatedBlockStorageClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDedicatedBlockStorageClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDedicatedBlockStorageClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -621,9 +621,9 @@ export class CreateDiskReplicaGroupResponseBody extends $tea.Model {
 }
 
 export class CreateDiskReplicaGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDiskReplicaGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -735,9 +735,9 @@ export class CreateDiskReplicaPairResponseBody extends $tea.Model {
 }
 
 export class CreateDiskReplicaPairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDiskReplicaPairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -892,9 +892,9 @@ export class CreateEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class CreateEnterpriseSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEnterpriseSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEnterpriseSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -961,9 +961,9 @@ export class DeleteDiskReplicaGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteDiskReplicaGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDiskReplicaGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1030,9 +1030,9 @@ export class DeleteDiskReplicaPairResponseBody extends $tea.Model {
 }
 
 export class DeleteDiskReplicaPairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDiskReplicaPairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1099,9 +1099,9 @@ export class DeleteEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class DeleteEnterpriseSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEnterpriseSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEnterpriseSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1177,9 +1177,9 @@ export class DescribeDedicatedBlockStorageClusterDisksResponseBody extends $tea.
 }
 
 export class DescribeDedicatedBlockStorageClusterDisksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDedicatedBlockStorageClusterDisksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedBlockStorageClusterDisksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1288,9 +1288,9 @@ export class DescribeDedicatedBlockStorageClustersResponseBody extends $tea.Mode
 }
 
 export class DescribeDedicatedBlockStorageClustersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDedicatedBlockStorageClustersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedBlockStorageClustersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1381,9 +1381,9 @@ export class DescribeDiskEventsResponseBody extends $tea.Model {
 }
 
 export class DescribeDiskEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDiskEventsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1465,9 +1465,9 @@ export class DescribeDiskMonitorDataResponseBody extends $tea.Model {
 }
 
 export class DescribeDiskMonitorDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDiskMonitorDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskMonitorDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1555,9 +1555,9 @@ export class DescribeDiskMonitorDataListResponseBody extends $tea.Model {
 }
 
 export class DescribeDiskMonitorDataListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDiskMonitorDataListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskMonitorDataListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1657,9 +1657,9 @@ export class DescribeDiskReplicaGroupsResponseBody extends $tea.Model {
 }
 
 export class DescribeDiskReplicaGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDiskReplicaGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskReplicaGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1729,9 +1729,9 @@ export class DescribeDiskReplicaPairProgressResponseBody extends $tea.Model {
 }
 
 export class DescribeDiskReplicaPairProgressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDiskReplicaPairProgressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskReplicaPairProgressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1834,9 +1834,9 @@ export class DescribeDiskReplicaPairsResponseBody extends $tea.Model {
 }
 
 export class DescribeDiskReplicaPairsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDiskReplicaPairsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskReplicaPairsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1939,9 +1939,9 @@ export class DescribeEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class DescribeEnterpriseSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeEnterpriseSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEnterpriseSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1986,9 +1986,9 @@ export class DescribeLensServiceStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeLensServiceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLensServiceStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLensServiceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2070,9 +2070,9 @@ export class DescribeMetricDataResponseBody extends $tea.Model {
 }
 
 export class DescribeMetricDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMetricDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMetricDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2166,9 +2166,9 @@ export class DescribePairDrillsResponseBody extends $tea.Model {
 }
 
 export class DescribePairDrillsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePairDrillsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePairDrillsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2238,9 +2238,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2334,9 +2334,9 @@ export class DescribeReplicaGroupDrillsResponseBody extends $tea.Model {
 }
 
 export class DescribeReplicaGroupDrillsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeReplicaGroupDrillsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeReplicaGroupDrillsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2403,9 +2403,9 @@ export class FailoverDiskReplicaGroupResponseBody extends $tea.Model {
 }
 
 export class FailoverDiskReplicaGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FailoverDiskReplicaGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FailoverDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2472,9 +2472,9 @@ export class FailoverDiskReplicaPairResponseBody extends $tea.Model {
 }
 
 export class FailoverDiskReplicaPairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FailoverDiskReplicaPairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FailoverDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2556,9 +2556,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2631,9 +2631,9 @@ export class ModifyDedicatedBlockStorageClusterAttributeResponseBody extends $te
 }
 
 export class ModifyDedicatedBlockStorageClusterAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDedicatedBlockStorageClusterAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDedicatedBlockStorageClusterAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2712,9 +2712,9 @@ export class ModifyDiskReplicaGroupResponseBody extends $tea.Model {
 }
 
 export class ModifyDiskReplicaGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDiskReplicaGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2793,9 +2793,9 @@ export class ModifyDiskReplicaPairResponseBody extends $tea.Model {
 }
 
 export class ModifyDiskReplicaPairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDiskReplicaPairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2809,6 +2809,99 @@ export class ModifyDiskReplicaPairResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyDiskReplicaPairResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDedicatedBlockStorageClusterInventoryDataRequest extends $tea.Model {
+  clientToken?: string;
+  dbscId?: string;
+  endTime?: number;
+  period?: number;
+  regionId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dbscId: 'DbscId',
+      endTime: 'EndTime',
+      period: 'Period',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dbscId: 'string',
+      endTime: 'number',
+      period: 'number',
+      regionId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDedicatedBlockStorageClusterInventoryDataResponseBody extends $tea.Model {
+  data?: QueryDedicatedBlockStorageClusterInventoryDataResponseBodyData[];
+  dbscId?: string;
+  dbscName?: string;
+  diskCategory?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      dbscId: 'DbscId',
+      dbscName: 'DbscName',
+      diskCategory: 'DiskCategory',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryDedicatedBlockStorageClusterInventoryDataResponseBodyData },
+      dbscId: 'string',
+      dbscName: 'string',
+      diskCategory: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDedicatedBlockStorageClusterInventoryDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDedicatedBlockStorageClusterInventoryDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDedicatedBlockStorageClusterInventoryDataResponseBody,
     };
   }
 
@@ -2865,9 +2958,9 @@ export class RemoveDiskReplicaPairResponseBody extends $tea.Model {
 }
 
 export class RemoveDiskReplicaPairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveDiskReplicaPairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2937,9 +3030,9 @@ export class ReprotectDiskReplicaGroupResponseBody extends $tea.Model {
 }
 
 export class ReprotectDiskReplicaGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReprotectDiskReplicaGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReprotectDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3009,9 +3102,9 @@ export class ReprotectDiskReplicaPairResponseBody extends $tea.Model {
 }
 
 export class ReprotectDiskReplicaPairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReprotectDiskReplicaPairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReprotectDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3025,94 +3118,6 @@ export class ReprotectDiskReplicaPairResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReprotectDiskReplicaPairResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDiskMonitorRequest extends $tea.Model {
-  diskIds?: string[];
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskIds: 'DiskIds',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskIds: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDiskMonitorShrinkRequest extends $tea.Model {
-  diskIdsShrink?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskIdsShrink: 'DiskIds',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskIdsShrink: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDiskMonitorResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDiskMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartDiskMonitorResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartDiskMonitorResponseBody,
     };
   }
 
@@ -3169,9 +3174,9 @@ export class StartDiskReplicaGroupResponseBody extends $tea.Model {
 }
 
 export class StartDiskReplicaGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartDiskReplicaGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3241,9 +3246,9 @@ export class StartDiskReplicaPairResponseBody extends $tea.Model {
 }
 
 export class StartDiskReplicaPairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartDiskReplicaPairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3313,9 +3318,9 @@ export class StartPairDrillResponseBody extends $tea.Model {
 }
 
 export class StartPairDrillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartPairDrillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartPairDrillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3385,9 +3390,9 @@ export class StartReplicaGroupDrillResponseBody extends $tea.Model {
 }
 
 export class StartReplicaGroupDrillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartReplicaGroupDrillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartReplicaGroupDrillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3401,94 +3406,6 @@ export class StartReplicaGroupDrillResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartReplicaGroupDrillResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDiskMonitorRequest extends $tea.Model {
-  diskIds?: string[];
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskIds: 'DiskIds',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskIds: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDiskMonitorShrinkRequest extends $tea.Model {
-  diskIdsShrink?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskIdsShrink: 'DiskIds',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskIdsShrink: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDiskMonitorResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDiskMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopDiskMonitorResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopDiskMonitorResponseBody,
     };
   }
 
@@ -3542,9 +3459,9 @@ export class StopDiskReplicaGroupResponseBody extends $tea.Model {
 }
 
 export class StopDiskReplicaGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopDiskReplicaGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3611,9 +3528,9 @@ export class StopDiskReplicaPairResponseBody extends $tea.Model {
 }
 
 export class StopDiskReplicaPairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopDiskReplicaPairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3686,9 +3603,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3758,9 +3675,9 @@ export class UnbindEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class UnbindEnterpriseSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnbindEnterpriseSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindEnterpriseSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3836,9 +3753,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3978,9 +3895,9 @@ export class UpdateEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
 }
 
 export class UpdateEnterpriseSnapshotPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateEnterpriseSnapshotPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEnterpriseSnapshotPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4053,9 +3970,9 @@ export class UpdateSolutionInstanceAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateSolutionInstanceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSolutionInstanceAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSolutionInstanceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5518,6 +5435,53 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
+export class QueryDedicatedBlockStorageClusterInventoryDataResponseBodyDataMonitorItems extends $tea.Model {
+  availableSize?: number;
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableSize: 'AvailableSize',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableSize: 'number',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDedicatedBlockStorageClusterInventoryDataResponseBodyData extends $tea.Model {
+  monitorItems?: QueryDedicatedBlockStorageClusterInventoryDataResponseBodyDataMonitorItems;
+  resourceId?: string;
+  timestamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      monitorItems: 'MonitorItems',
+      resourceId: 'ResourceId',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItems: QueryDedicatedBlockStorageClusterInventoryDataResponseBodyDataMonitorItems,
+      resourceId: 'string',
+      timestamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -6012,10 +5976,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Dedicated block storage clusters are physically isolated from public block storage clusters. The owner of each dedicated block storage cluster has exclusive access to all resources in the cluster. For more information, see [Overview](~~208883~~).
+    * Dedicated block storage clusters are physically isolated from public block storage clusters. The owner of each dedicated block storage cluster has exclusive access to all resources in the cluster.
     * Disks created in a dedicated block storage cluster can be attached only to Elastic Compute Service (ECS) instances that reside in the same zone as the cluster. Before you create a dedicated block storage cluster, decide the regions and zones in which to deploy your cloud resources.
     * Dedicated block storage clusters are classified into basic and performance types. When you create a dedicated block storage cluster, select a cluster type based on your business requirements.
-    * You are charged for creating dedicated block storage clusters. For more information, see [~~208884~~](~~208884~~).
+    * You are charged for creating dedicated block storage clusters.
     *
     * @param request CreateDedicatedBlockStorageClusterRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -6082,10 +6046,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Dedicated block storage clusters are physically isolated from public block storage clusters. The owner of each dedicated block storage cluster has exclusive access to all resources in the cluster. For more information, see [Overview](~~208883~~).
+    * Dedicated block storage clusters are physically isolated from public block storage clusters. The owner of each dedicated block storage cluster has exclusive access to all resources in the cluster.
     * Disks created in a dedicated block storage cluster can be attached only to Elastic Compute Service (ECS) instances that reside in the same zone as the cluster. Before you create a dedicated block storage cluster, decide the regions and zones in which to deploy your cloud resources.
     * Dedicated block storage clusters are classified into basic and performance types. When you create a dedicated block storage cluster, select a cluster type based on your business requirements.
-    * You are charged for creating dedicated block storage clusters. For more information, see [~~208884~~](~~208884~~).
+    * You are charged for creating dedicated block storage clusters.
     *
     * @param request CreateDedicatedBlockStorageClusterRequest
     * @return CreateDedicatedBlockStorageClusterResponse
@@ -7781,6 +7745,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
+    *
+    * @param request QueryDedicatedBlockStorageClusterInventoryDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDedicatedBlockStorageClusterInventoryDataResponse
+   */
+  async queryDedicatedBlockStorageClusterInventoryDataWithOptions(request: QueryDedicatedBlockStorageClusterInventoryDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryDedicatedBlockStorageClusterInventoryDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbscId)) {
+      body["DbscId"] = request.dbscId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      body["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDedicatedBlockStorageClusterInventoryData",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDedicatedBlockStorageClusterInventoryDataResponse>(await this.callApi(params, req, runtime), new QueryDedicatedBlockStorageClusterInventoryDataResponse({}));
+  }
+
+  /**
+    * Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
+    *
+    * @param request QueryDedicatedBlockStorageClusterInventoryDataRequest
+    * @return QueryDedicatedBlockStorageClusterInventoryDataResponse
+   */
+  async queryDedicatedBlockStorageClusterInventoryData(request: QueryDedicatedBlockStorageClusterInventoryDataRequest): Promise<QueryDedicatedBlockStorageClusterInventoryDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDedicatedBlockStorageClusterInventoryDataWithOptions(request, runtime);
+  }
+
+  /**
     * ## [](#)Usage notes
     * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
     * *   The replication pair-consistent group from which you want to remove a replication pair must be in the **Created** (`created`), **Stopped** (`stopped`), or **Invalid** (`invalid`) state.
@@ -7964,62 +7992,6 @@ export default class Client extends OpenApi {
   async reprotectDiskReplicaPair(request: ReprotectDiskReplicaPairRequest): Promise<ReprotectDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reprotectDiskReplicaPairWithOptions(request, runtime);
-  }
-
-  /**
-    * ## Usage notes
-    * *   CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-    * *   CloudLens for EBS can be used to monitor the performance of enhanced SSDs (ESSDs), standard SSDs, and ultra disks. After you enable CloudLens for EBS, you can enable the data collection feature to obtain the near real-time monitoring data. For more information, see [Enable near real-time monitoring for disks](~~354196~~).
-    *
-    * @param tmpReq StartDiskMonitorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartDiskMonitorResponse
-   */
-  async startDiskMonitorWithOptions(tmpReq: StartDiskMonitorRequest, runtime: $Util.RuntimeOptions): Promise<StartDiskMonitorResponse> {
-    Util.validateModel(tmpReq);
-    let request = new StartDiskMonitorShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.diskIds)) {
-      request.diskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.diskIds, "DiskIds", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.diskIdsShrink)) {
-      query["DiskIds"] = request.diskIdsShrink;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "StartDiskMonitor",
-      version: "2021-07-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<StartDiskMonitorResponse>(await this.callApi(params, req, runtime), new StartDiskMonitorResponse({}));
-  }
-
-  /**
-    * ## Usage notes
-    * *   CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-    * *   CloudLens for EBS can be used to monitor the performance of enhanced SSDs (ESSDs), standard SSDs, and ultra disks. After you enable CloudLens for EBS, you can enable the data collection feature to obtain the near real-time monitoring data. For more information, see [Enable near real-time monitoring for disks](~~354196~~).
-    *
-    * @param request StartDiskMonitorRequest
-    * @return StartDiskMonitorResponse
-   */
-  async startDiskMonitor(request: StartDiskMonitorRequest): Promise<StartDiskMonitorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.startDiskMonitorWithOptions(request, runtime);
   }
 
   /**
@@ -8242,60 +8214,6 @@ export default class Client extends OpenApi {
   async startReplicaGroupDrill(request: StartReplicaGroupDrillRequest): Promise<StartReplicaGroupDrillResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startReplicaGroupDrillWithOptions(request, runtime);
-  }
-
-  /**
-    * ## Usage notes
-    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-    *
-    * @param tmpReq StopDiskMonitorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopDiskMonitorResponse
-   */
-  async stopDiskMonitorWithOptions(tmpReq: StopDiskMonitorRequest, runtime: $Util.RuntimeOptions): Promise<StopDiskMonitorResponse> {
-    Util.validateModel(tmpReq);
-    let request = new StopDiskMonitorShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.diskIds)) {
-      request.diskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.diskIds, "DiskIds", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.diskIdsShrink)) {
-      query["DiskIds"] = request.diskIdsShrink;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "StopDiskMonitor",
-      version: "2021-07-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<StopDiskMonitorResponse>(await this.callApi(params, req, runtime), new StopDiskMonitorResponse({}));
-  }
-
-  /**
-    * ## Usage notes
-    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-    *
-    * @param request StopDiskMonitorRequest
-    * @return StopDiskMonitorResponse
-   */
-  async stopDiskMonitor(request: StopDiskMonitorRequest): Promise<StopDiskMonitorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.stopDiskMonitorWithOptions(request, runtime);
   }
 
   /**
