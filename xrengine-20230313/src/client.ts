@@ -65,9 +65,9 @@ export class AuthUserResponseBody extends $tea.Model {
 }
 
 export class AuthUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AuthUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AuthUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -143,9 +143,9 @@ export class BatchQueryMotionShopTaskStatusResponseBody extends $tea.Model {
 }
 
 export class BatchQueryMotionShopTaskStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchQueryMotionShopTaskStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchQueryMotionShopTaskStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -230,9 +230,9 @@ export class CreateAvatarTalkProjectResponseBody extends $tea.Model {
 }
 
 export class CreateAvatarTalkProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAvatarTalkProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAvatarTalkProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -353,9 +353,9 @@ export class CreateDigitalHumanProjectResponseBody extends $tea.Model {
 }
 
 export class CreateDigitalHumanProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDigitalHumanProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDigitalHumanProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -467,9 +467,9 @@ export class CreateLivePortraitProjectResponseBody extends $tea.Model {
 }
 
 export class CreateLivePortraitProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLivePortraitProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLivePortraitProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -542,9 +542,9 @@ export class GenerateMotionShopVideoUploadUrlResponseBody extends $tea.Model {
 }
 
 export class GenerateMotionShopVideoUploadUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateMotionShopVideoUploadUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateMotionShopVideoUploadUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -626,9 +626,9 @@ export class GetMapDataResponseBody extends $tea.Model {
 }
 
 export class GetMapDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMapDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMapDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -710,9 +710,9 @@ export class GetMapPublishDataResponseBody extends $tea.Model {
 }
 
 export class GetMapPublishDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMapPublishDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMapPublishDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -794,9 +794,9 @@ export class InitLocateResponseBody extends $tea.Model {
 }
 
 export class InitLocateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InitLocateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InitLocateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -872,9 +872,9 @@ export class ListCommonMaterialsResponseBody extends $tea.Model {
 }
 
 export class ListCommonMaterialsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCommonMaterialsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCommonMaterialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -971,9 +971,9 @@ export class ListDigitalHumanMaterialsResponseBody extends $tea.Model {
 }
 
 export class ListDigitalHumanMaterialsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDigitalHumanMaterialsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDigitalHumanMaterialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1076,9 +1076,9 @@ export class ListLocationServiceResponseBody extends $tea.Model {
 }
 
 export class ListLocationServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListLocationServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLocationServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1169,9 +1169,9 @@ export class ListMotionShopTasksResponseBody extends $tea.Model {
 }
 
 export class ListMotionShopTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListMotionShopTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMotionShopTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1247,9 +1247,9 @@ export class LivePortraitFaceDetectResponseBody extends $tea.Model {
 }
 
 export class LivePortraitFaceDetectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LivePortraitFaceDetectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LivePortraitFaceDetectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1334,9 +1334,9 @@ export class LocateResponseBody extends $tea.Model {
 }
 
 export class LocateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LocateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LocateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1350,6 +1350,90 @@ export class LocateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: LocateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LoginHuggingFaceRequest extends $tea.Model {
+  token?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      token: 'Token',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      token: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LoginHuggingFaceResponseBody extends $tea.Model {
+  code?: string;
+  data?: LoginHuggingFaceResponseBodyData;
+  errorName?: string;
+  httpCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorName: 'ErrorName',
+      httpCode: 'HttpCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: LoginHuggingFaceResponseBodyData,
+      errorName: 'string',
+      httpCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LoginHuggingFaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LoginHuggingFaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LoginHuggingFaceResponseBody,
     };
   }
 
@@ -1424,9 +1508,9 @@ export class LoginModelScopeResponseBody extends $tea.Model {
 }
 
 export class LoginModelScopeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LoginModelScopeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LoginModelScopeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1502,9 +1586,9 @@ export class MotionShopVideoDetectResponseBody extends $tea.Model {
 }
 
 export class MotionShopVideoDetectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MotionShopVideoDetectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MotionShopVideoDetectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1580,9 +1664,9 @@ export class PopBatchQueryObjectGenerationProjectStatusResponseBody extends $tea
 }
 
 export class PopBatchQueryObjectGenerationProjectStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopBatchQueryObjectGenerationProjectStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopBatchQueryObjectGenerationProjectStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1664,9 +1748,9 @@ export class PopBatchQueryObjectProjectStatusResponseBody extends $tea.Model {
 }
 
 export class PopBatchQueryObjectProjectStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopBatchQueryObjectProjectStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopBatchQueryObjectProjectStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1736,9 +1820,9 @@ export class PopBuildFeatureToAvatarProjectResponseBody extends $tea.Model {
 }
 
 export class PopBuildFeatureToAvatarProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopBuildFeatureToAvatarProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopBuildFeatureToAvatarProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1808,9 +1892,9 @@ export class PopBuildLivePortraitModelScopeProjectResponseBody extends $tea.Mode
 }
 
 export class PopBuildLivePortraitModelScopeProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopBuildLivePortraitModelScopeProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopBuildLivePortraitModelScopeProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1883,9 +1967,9 @@ export class PopBuildObjectGenerationProjectResponseBody extends $tea.Model {
 }
 
 export class PopBuildObjectGenerationProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopBuildObjectGenerationProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopBuildObjectGenerationProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1964,9 +2048,9 @@ export class PopBuildObjectProjectResponseBody extends $tea.Model {
 }
 
 export class PopBuildObjectProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopBuildObjectProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopBuildObjectProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2036,9 +2120,9 @@ export class PopBuildPakRenderProjectResponseBody extends $tea.Model {
 }
 
 export class PopBuildPakRenderProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopBuildPakRenderProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopBuildPakRenderProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2111,9 +2195,9 @@ export class PopBuildTextToAvatarProjectResponseBody extends $tea.Model {
 }
 
 export class PopBuildTextToAvatarProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopBuildTextToAvatarProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopBuildTextToAvatarProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2192,9 +2276,9 @@ export class PopCreateFeatureToAvatarProjectResponseBody extends $tea.Model {
 }
 
 export class PopCreateFeatureToAvatarProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopCreateFeatureToAvatarProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopCreateFeatureToAvatarProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2273,9 +2357,9 @@ export class PopCreateLivePortraitModelScopeProjectResponseBody extends $tea.Mod
 }
 
 export class PopCreateLivePortraitModelScopeProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopCreateLivePortraitModelScopeProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopCreateLivePortraitModelScopeProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2369,9 +2453,9 @@ export class PopCreateMaterialResponseBody extends $tea.Model {
 }
 
 export class PopCreateMaterialResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopCreateMaterialResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopCreateMaterialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2456,9 +2540,9 @@ export class PopCreateObjectGenerationProjectResponseBody extends $tea.Model {
 }
 
 export class PopCreateObjectGenerationProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopCreateObjectGenerationProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopCreateObjectGenerationProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2564,9 +2648,9 @@ export class PopCreateObjectProjectResponseBody extends $tea.Model {
 }
 
 export class PopCreateObjectProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopCreateObjectProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopCreateObjectProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2645,9 +2729,9 @@ export class PopCreatePakRenderProjectResponseBody extends $tea.Model {
 }
 
 export class PopCreatePakRenderProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopCreatePakRenderProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopCreatePakRenderProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2729,9 +2813,9 @@ export class PopCreateTextToAvatarProjectResponseBody extends $tea.Model {
 }
 
 export class PopCreateTextToAvatarProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopCreateTextToAvatarProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopCreateTextToAvatarProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2804,9 +2888,9 @@ export class PopDeleteMaterialResponseBody extends $tea.Model {
 }
 
 export class PopDeleteMaterialResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopDeleteMaterialResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopDeleteMaterialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2888,9 +2972,9 @@ export class PopGetAITryOnJobResponseBody extends $tea.Model {
 }
 
 export class PopGetAITryOnJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopGetAITryOnJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopGetAITryOnJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2981,9 +3065,9 @@ export class PopListAITryOnJobsResponseBody extends $tea.Model {
 }
 
 export class PopListAITryOnJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopListAITryOnJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopListAITryOnJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3074,9 +3158,9 @@ export class PopListCommonMaterialsAllResponseBody extends $tea.Model {
 }
 
 export class PopListCommonMaterialsAllResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopListCommonMaterialsAllResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopListCommonMaterialsAllResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3170,9 +3254,9 @@ export class PopListFeatureToAvatarMaterialsResponseBody extends $tea.Model {
 }
 
 export class PopListFeatureToAvatarMaterialsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopListFeatureToAvatarMaterialsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopListFeatureToAvatarMaterialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3269,9 +3353,9 @@ export class PopListFeatureToAvatarProjectResponseBody extends $tea.Model {
 }
 
 export class PopListFeatureToAvatarProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopListFeatureToAvatarProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopListFeatureToAvatarProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3362,9 +3446,9 @@ export class PopListLivePortraitModelScopeMaterialsResponseBody extends $tea.Mod
 }
 
 export class PopListLivePortraitModelScopeMaterialsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopListLivePortraitModelScopeMaterialsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopListLivePortraitModelScopeMaterialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3461,9 +3545,9 @@ export class PopListObjectCaseResponseBody extends $tea.Model {
 }
 
 export class PopListObjectCaseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopListObjectCaseResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopListObjectCaseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3554,9 +3638,9 @@ export class PopListObjectGenerationProjectResponseBody extends $tea.Model {
 }
 
 export class PopListObjectGenerationProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopListObjectGenerationProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopListObjectGenerationProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3671,9 +3755,9 @@ export class PopListObjectProjectResponseBody extends $tea.Model {
 }
 
 export class PopListObjectProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopListObjectProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopListObjectProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3764,9 +3848,9 @@ export class PopListPakRenderExpressionResponseBody extends $tea.Model {
 }
 
 export class PopListPakRenderExpressionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopListPakRenderExpressionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopListPakRenderExpressionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3866,9 +3950,9 @@ export class PopListTextToAvatarProjectResponseBody extends $tea.Model {
 }
 
 export class PopListTextToAvatarProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopListTextToAvatarProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopListTextToAvatarProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3950,9 +4034,9 @@ export class PopObjectProjectDetailResponseBody extends $tea.Model {
 }
 
 export class PopObjectProjectDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopObjectProjectDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopObjectProjectDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4034,9 +4118,9 @@ export class PopObjectRetrievalResponseBody extends $tea.Model {
 }
 
 export class PopObjectRetrievalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopObjectRetrievalResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopObjectRetrievalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4109,9 +4193,9 @@ export class PopObjectRetrievalUploadDataResponseBody extends $tea.Model {
 }
 
 export class PopObjectRetrievalUploadDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopObjectRetrievalUploadDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopObjectRetrievalUploadDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4184,9 +4268,9 @@ export class PopQueryAvatarProjectDetailResponseBody extends $tea.Model {
 }
 
 export class PopQueryAvatarProjectDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopQueryAvatarProjectDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopQueryAvatarProjectDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4259,9 +4343,9 @@ export class PopQueryLatestAvatarProjectDetailByUserResponseBody extends $tea.Mo
 }
 
 export class PopQueryLatestAvatarProjectDetailByUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopQueryLatestAvatarProjectDetailByUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopQueryLatestAvatarProjectDetailByUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4334,9 +4418,9 @@ export class PopQueryLivePortraitModelScopeProjectDetailResponseBody extends $te
 }
 
 export class PopQueryLivePortraitModelScopeProjectDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopQueryLivePortraitModelScopeProjectDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopQueryLivePortraitModelScopeProjectDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4412,9 +4496,9 @@ export class PopQueryObjectGenerationProjectDetailResponseBody extends $tea.Mode
 }
 
 export class PopQueryObjectGenerationProjectDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopQueryObjectGenerationProjectDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopQueryObjectGenerationProjectDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4487,9 +4571,9 @@ export class PopRetryAITryOnTaskResponseBody extends $tea.Model {
 }
 
 export class PopRetryAITryOnTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopRetryAITryOnTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopRetryAITryOnTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4583,9 +4667,9 @@ export class PopSubmitAITryOnJobResponseBody extends $tea.Model {
 }
 
 export class PopSubmitAITryOnJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopSubmitAITryOnJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopSubmitAITryOnJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4658,9 +4742,9 @@ export class PopUploadMaterialResponseBody extends $tea.Model {
 }
 
 export class PopUploadMaterialResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopUploadMaterialResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopUploadMaterialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4742,9 +4826,9 @@ export class PopVideoSaveSourceResponseBody extends $tea.Model {
 }
 
 export class PopVideoSaveSourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PopVideoSaveSourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PopVideoSaveSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4820,9 +4904,9 @@ export class QueryDigitalHumanProjectResponseBody extends $tea.Model {
 }
 
 export class QueryDigitalHumanProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDigitalHumanProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDigitalHumanProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4898,9 +4982,9 @@ export class QueryLongTtsResultResponseBody extends $tea.Model {
 }
 
 export class QueryLongTtsResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryLongTtsResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryLongTtsResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4976,9 +5060,9 @@ export class QueryMotionShopVideoDetectResultResponseBody extends $tea.Model {
 }
 
 export class QueryMotionShopVideoDetectResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMotionShopVideoDetectResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMotionShopVideoDetectResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5057,9 +5141,9 @@ export class SubmitLongTtsTaskResponseBody extends $tea.Model {
 }
 
 export class SubmitLongTtsTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitLongTtsTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitLongTtsTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5141,9 +5225,9 @@ export class SubmitMotionShopTaskResponseBody extends $tea.Model {
 }
 
 export class SubmitMotionShopTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitMotionShopTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitMotionShopTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5222,9 +5306,9 @@ export class UpdateUserEmailResponseBody extends $tea.Model {
 }
 
 export class UpdateUserEmailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateUserEmailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserEmailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5671,6 +5755,31 @@ export class LivePortraitFaceDetectResponseBodyData extends $tea.Model {
     return {
       code: 'number',
       message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LoginHuggingFaceResponseBodyData extends $tea.Model {
+  jwtToken?: string;
+  nickname?: string;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jwtToken: 'JwtToken',
+      nickname: 'Nickname',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jwtToken: 'string',
+      nickname: 'string',
+      uid: 'string',
     };
   }
 
@@ -12425,6 +12534,39 @@ export default class Client extends OpenApi {
   async locate(request: LocateRequest): Promise<LocateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.locateWithOptions(request, runtime);
+  }
+
+  async loginHuggingFaceWithOptions(request: LoginHuggingFaceRequest, runtime: $Util.RuntimeOptions): Promise<LoginHuggingFaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.token)) {
+      body["Token"] = request.token;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "LoginHuggingFace",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<LoginHuggingFaceResponse>(await this.callApi(params, req, runtime), new LoginHuggingFaceResponse({}));
+  }
+
+  async loginHuggingFace(request: LoginHuggingFaceRequest): Promise<LoginHuggingFaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.loginHuggingFaceWithOptions(request, runtime);
   }
 
   async loginModelScopeWithOptions(request: LoginModelScopeRequest, runtime: $Util.RuntimeOptions): Promise<LoginModelScopeResponse> {
