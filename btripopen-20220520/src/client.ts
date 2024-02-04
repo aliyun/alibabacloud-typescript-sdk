@@ -38623,12 +38623,15 @@ export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
 }
 
 export class HotelOrderQueryResponseBodyModulePassengerList extends $tea.Model {
+  applyId?: string;
   costCenterId?: number;
   costCenterName?: string;
   costCenterNumber?: string;
+  itineraryId?: string;
   projectCode?: string;
   projectId?: number;
   projectTitle?: string;
+  thirdpartApplyId?: string;
   thirdpartCostCenterId?: string;
   thirdpartProjectId?: string;
   userId?: string;
@@ -38636,12 +38639,15 @@ export class HotelOrderQueryResponseBodyModulePassengerList extends $tea.Model {
   userType?: number;
   static names(): { [key: string]: string } {
     return {
+      applyId: 'apply_id',
       costCenterId: 'cost_center_id',
       costCenterName: 'cost_center_name',
       costCenterNumber: 'cost_center_number',
+      itineraryId: 'itinerary_id',
       projectCode: 'project_code',
       projectId: 'project_id',
       projectTitle: 'project_title',
+      thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartCostCenterId: 'thirdpart_cost_center_id',
       thirdpartProjectId: 'thirdpart_project_id',
       userId: 'user_id',
@@ -38652,12 +38658,15 @@ export class HotelOrderQueryResponseBodyModulePassengerList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applyId: 'string',
       costCenterId: 'number',
       costCenterName: 'string',
       costCenterNumber: 'string',
+      itineraryId: 'string',
       projectCode: 'string',
       projectId: 'number',
       projectTitle: 'string',
+      thirdpartApplyId: 'string',
       thirdpartCostCenterId: 'string',
       thirdpartProjectId: 'string',
       userId: 'string',
