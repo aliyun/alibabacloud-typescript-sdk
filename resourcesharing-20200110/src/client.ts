@@ -50,9 +50,9 @@ export class AcceptResourceShareInvitationResponseBody extends $tea.Model {
 }
 
 export class AcceptResourceShareInvitationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AcceptResourceShareInvitationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AcceptResourceShareInvitationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -128,9 +128,9 @@ export class AssociateResourceShareResponseBody extends $tea.Model {
 }
 
 export class AssociateResourceShareResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssociateResourceShareResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateResourceShareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -197,9 +197,9 @@ export class AssociateResourceSharePermissionResponseBody extends $tea.Model {
 }
 
 export class AssociateResourceSharePermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssociateResourceSharePermissionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateResourceSharePermissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -266,9 +266,9 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -313,9 +313,9 @@ export class CheckSharingWithResourceDirectoryStatusResponseBody extends $tea.Mo
 }
 
 export class CheckSharingWithResourceDirectoryStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckSharingWithResourceDirectoryStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckSharingWithResourceDirectoryStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -394,9 +394,9 @@ export class CreateResourceShareResponseBody extends $tea.Model {
 }
 
 export class CreateResourceShareResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateResourceShareResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateResourceShareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -457,9 +457,9 @@ export class DeleteResourceShareResponseBody extends $tea.Model {
 }
 
 export class DeleteResourceShareResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteResourceShareResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteResourceShareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -523,9 +523,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -598,9 +598,9 @@ export class DisassociateResourceShareResponseBody extends $tea.Model {
 }
 
 export class DisassociateResourceShareResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisassociateResourceShareResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisassociateResourceShareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -664,9 +664,9 @@ export class DisassociateResourceSharePermissionResponseBody extends $tea.Model 
 }
 
 export class DisassociateResourceSharePermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisassociateResourceSharePermissionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisassociateResourceSharePermissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -708,9 +708,9 @@ export class EnableSharingWithResourceDirectoryResponseBody extends $tea.Model {
 }
 
 export class EnableSharingWithResourceDirectoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableSharingWithResourceDirectoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableSharingWithResourceDirectoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -777,9 +777,9 @@ export class GetPermissionResponseBody extends $tea.Model {
 }
 
 export class GetPermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPermissionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPermissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -852,9 +852,9 @@ export class ListPermissionVersionsResponseBody extends $tea.Model {
 }
 
 export class ListPermissionVersionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPermissionVersionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPermissionVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -927,9 +927,9 @@ export class ListPermissionsResponseBody extends $tea.Model {
 }
 
 export class ListPermissionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPermissionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPermissionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1014,9 +1014,9 @@ export class ListResourceShareAssociationsResponseBody extends $tea.Model {
 }
 
 export class ListResourceShareAssociationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListResourceShareAssociationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResourceShareAssociationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1092,9 +1092,9 @@ export class ListResourceShareInvitationsResponseBody extends $tea.Model {
 }
 
 export class ListResourceShareInvitationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListResourceShareInvitationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResourceShareInvitationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1170,9 +1170,9 @@ export class ListResourceSharePermissionsResponseBody extends $tea.Model {
 }
 
 export class ListResourceSharePermissionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListResourceSharePermissionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResourceSharePermissionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1257,9 +1257,9 @@ export class ListResourceSharesResponseBody extends $tea.Model {
 }
 
 export class ListResourceSharesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListResourceSharesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResourceSharesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1344,9 +1344,9 @@ export class ListSharedResourcesResponseBody extends $tea.Model {
 }
 
 export class ListSharedResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSharedResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSharedResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1431,9 +1431,9 @@ export class ListSharedTargetsResponseBody extends $tea.Model {
 }
 
 export class ListSharedTargetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSharedTargetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSharedTargetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1497,9 +1497,9 @@ export class RejectResourceShareInvitationResponseBody extends $tea.Model {
 }
 
 export class RejectResourceShareInvitationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RejectResourceShareInvitationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RejectResourceShareInvitationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1569,9 +1569,9 @@ export class UpdateResourceShareResponseBody extends $tea.Model {
 }
 
 export class UpdateResourceShareResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateResourceShareResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateResourceShareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1595,6 +1595,9 @@ export class UpdateResourceShareResponse extends $tea.Model {
 
 export class AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails extends $tea.Model {
   associateType?: string;
+  failureDescription?: string;
+  failureReason?: string;
+  operationType?: string;
   resourceId?: string;
   resourceType?: string;
   status?: string;
@@ -1602,6 +1605,9 @@ export class AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcc
   static names(): { [key: string]: string } {
     return {
       associateType: 'AssociateType',
+      failureDescription: 'FailureDescription',
+      failureReason: 'FailureReason',
+      operationType: 'OperationType',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       status: 'Status',
@@ -1612,6 +1618,9 @@ export class AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcc
   static types(): { [key: string]: any } {
     return {
       associateType: 'string',
+      failureDescription: 'string',
+      failureReason: 'string',
+      operationType: 'string',
       resourceId: 'string',
       resourceType: 'string',
       status: 'string',
@@ -2046,6 +2055,9 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociationsA
   associateType?: string;
   entityId?: string;
   entityType?: string;
+  failureDescription?: string;
+  failureReason?: string;
+  operationType?: string;
   status?: string;
   statusMessage?: string;
   static names(): { [key: string]: string } {
@@ -2053,6 +2065,9 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociationsA
       associateType: 'AssociateType',
       entityId: 'EntityId',
       entityType: 'EntityType',
+      failureDescription: 'FailureDescription',
+      failureReason: 'FailureReason',
+      operationType: 'OperationType',
       status: 'Status',
       statusMessage: 'StatusMessage',
     };
@@ -2063,6 +2078,9 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociationsA
       associateType: 'string',
       entityId: 'string',
       entityType: 'string',
+      failureDescription: 'string',
+      failureReason: 'string',
+      operationType: 'string',
       status: 'string',
       statusMessage: 'string',
     };
@@ -2127,6 +2145,9 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociations 
 
 export class ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails extends $tea.Model {
   associateType?: string;
+  failureDescription?: string;
+  failureReason?: string;
+  operationType?: string;
   resourceId?: string;
   resourceType?: string;
   status?: string;
@@ -2134,6 +2155,9 @@ export class ListResourceShareInvitationsResponseBodyResourceShareInvitationsInv
   static names(): { [key: string]: string } {
     return {
       associateType: 'AssociateType',
+      failureDescription: 'FailureDescription',
+      failureReason: 'FailureReason',
+      operationType: 'OperationType',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       status: 'Status',
@@ -2144,6 +2168,9 @@ export class ListResourceShareInvitationsResponseBodyResourceShareInvitationsInv
   static types(): { [key: string]: any } {
     return {
       associateType: 'string',
+      failureDescription: 'string',
+      failureReason: 'string',
+      operationType: 'string',
       resourceId: 'string',
       resourceType: 'string',
       status: 'string',
