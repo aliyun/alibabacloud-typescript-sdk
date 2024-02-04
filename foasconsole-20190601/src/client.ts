@@ -53,9 +53,9 @@ export class ConvertInstanceResponseBody extends $tea.Model {
 }
 
 export class ConvertInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConvertInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConvertInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -122,9 +122,9 @@ export class ConvertPrepayInstanceResponseBody extends $tea.Model {
 }
 
 export class ConvertPrepayInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConvertPrepayInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConvertPrepayInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -191,9 +191,9 @@ export class CreateInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -257,9 +257,9 @@ export class CreateNamespaceResponseBody extends $tea.Model {
 }
 
 export class CreateNamespaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateNamespaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNamespaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -323,9 +323,9 @@ export class DeleteInstanceResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -389,9 +389,9 @@ export class DeleteNamespaceResponseBody extends $tea.Model {
 }
 
 export class DeleteNamespaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteNamespaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNamespaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -470,9 +470,9 @@ export class DescribeInstancesResponseBody extends $tea.Model {
 }
 
 export class DescribeInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -551,9 +551,9 @@ export class DescribeNamespacesResponseBody extends $tea.Model {
 }
 
 export class DescribeNamespacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeNamespacesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNamespacesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -601,9 +601,9 @@ export class DescribeSupportedRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeSupportedRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSupportedRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSupportedRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -673,9 +673,9 @@ export class DescribeSupportedZonesResponseBody extends $tea.Model {
 }
 
 export class DescribeSupportedZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSupportedZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSupportedZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -760,9 +760,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -829,9 +829,9 @@ export class ModifyPrepayInstanceSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyPrepayInstanceSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPrepayInstanceSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPrepayInstanceSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -895,9 +895,9 @@ export class ModifyPrepayNamespaceSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyPrepayNamespaceSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPrepayNamespaceSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPrepayNamespaceSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -964,9 +964,9 @@ export class QueryConvertInstancePriceResponseBody extends $tea.Model {
 }
 
 export class QueryConvertInstancePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryConvertInstancePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryConvertInstancePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1033,9 +1033,9 @@ export class QueryConvertPrepayInstancePriceResponseBody extends $tea.Model {
 }
 
 export class QueryConvertPrepayInstancePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryConvertPrepayInstancePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryConvertPrepayInstancePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1102,9 +1102,9 @@ export class QueryCreateInstancePriceResponseBody extends $tea.Model {
 }
 
 export class QueryCreateInstancePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCreateInstancePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCreateInstancePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1171,9 +1171,9 @@ export class QueryModifyInstancePriceResponseBody extends $tea.Model {
 }
 
 export class QueryModifyInstancePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryModifyInstancePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryModifyInstancePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1240,9 +1240,9 @@ export class QueryRenewInstancePriceResponseBody extends $tea.Model {
 }
 
 export class QueryRenewInstancePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRenewInstancePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRenewInstancePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1309,9 +1309,9 @@ export class RenewInstanceResponseBody extends $tea.Model {
 }
 
 export class RenewInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1393,9 +1393,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1480,9 +1480,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1604,6 +1604,28 @@ export class ConvertPrepayInstanceRequestConvertPrepayInstanceRequest extends $t
   }
 }
 
+export class CreateInstanceRequestCreateInstanceRequestHaResourceSpec extends $tea.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequestCreateInstanceRequestResourceSpec extends $tea.Model {
   cpu?: number;
   memoryGB?: number;
@@ -1670,7 +1692,12 @@ export class CreateInstanceRequestCreateInstanceRequest extends $tea.Model {
   chargeType?: string;
   duration?: number;
   extra?: string;
+  ha?: boolean;
+  haResourceSpec?: CreateInstanceRequestCreateInstanceRequestHaResourceSpec;
+  haVSwitchIds?: string[];
+  haZoneId?: string;
   instanceName?: string;
+  monitorType?: string;
   pricingCycle?: string;
   promotionCode?: string;
   region?: string;
@@ -1688,7 +1715,12 @@ export class CreateInstanceRequestCreateInstanceRequest extends $tea.Model {
       chargeType: 'ChargeType',
       duration: 'Duration',
       extra: 'Extra',
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
+      haVSwitchIds: 'HaVSwitchIds',
+      haZoneId: 'HaZoneId',
       instanceName: 'InstanceName',
+      monitorType: 'MonitorType',
       pricingCycle: 'PricingCycle',
       promotionCode: 'PromotionCode',
       region: 'Region',
@@ -1709,7 +1741,12 @@ export class CreateInstanceRequestCreateInstanceRequest extends $tea.Model {
       chargeType: 'string',
       duration: 'number',
       extra: 'string',
+      ha: 'boolean',
+      haResourceSpec: CreateInstanceRequestCreateInstanceRequestHaResourceSpec,
+      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      haZoneId: 'string',
       instanceName: 'string',
+      monitorType: 'string',
       pricingCycle: 'string',
       promotionCode: 'string',
       region: 'string',
@@ -1773,12 +1810,14 @@ export class CreateNamespaceRequestCreateNamespaceRequestResourceSpec extends $t
 }
 
 export class CreateNamespaceRequestCreateNamespaceRequest extends $tea.Model {
+  ha?: boolean;
   instanceId?: string;
   namespace?: string;
   region?: string;
   resourceSpec?: CreateNamespaceRequestCreateNamespaceRequestResourceSpec;
   static names(): { [key: string]: string } {
     return {
+      ha: 'Ha',
       instanceId: 'InstanceId',
       namespace: 'Namespace',
       region: 'Region',
@@ -1788,6 +1827,7 @@ export class CreateNamespaceRequestCreateNamespaceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ha: 'boolean',
       instanceId: 'string',
       namespace: 'string',
       region: 'string',
@@ -1909,6 +1949,28 @@ export class DescribeInstancesRequestDescribeInstancesRequest extends $tea.Model
   }
 }
 
+export class DescribeInstancesResponseBodyInstancesHaResourceSpec extends $tea.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstancesResponseBodyInstancesHostAliases extends $tea.Model {
   hostNames?: string[];
   ip?: string;
@@ -2018,9 +2080,14 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
   askClusterId?: string;
   chargeType?: string;
   clusterStatus?: string;
+  ha?: boolean;
+  haResourceSpec?: DescribeInstancesResponseBodyInstancesHaResourceSpec;
+  haVSwitchIds?: string[];
+  haZoneId?: string;
   hostAliases?: DescribeInstancesResponseBodyInstancesHostAliases[];
   instanceId?: string;
   instanceName?: string;
+  monitorType?: string;
   orderState?: string;
   region?: string;
   resourceCreateTime?: number;
@@ -2040,9 +2107,14 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       askClusterId: 'AskClusterId',
       chargeType: 'ChargeType',
       clusterStatus: 'ClusterStatus',
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
+      haVSwitchIds: 'HaVSwitchIds',
+      haZoneId: 'HaZoneId',
       hostAliases: 'HostAliases',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
+      monitorType: 'MonitorType',
       orderState: 'OrderState',
       region: 'Region',
       resourceCreateTime: 'ResourceCreateTime',
@@ -2065,9 +2137,14 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       askClusterId: 'string',
       chargeType: 'string',
       clusterStatus: 'string',
+      ha: 'boolean',
+      haResourceSpec: DescribeInstancesResponseBodyInstancesHaResourceSpec,
+      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      haZoneId: 'string',
       hostAliases: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesHostAliases },
       instanceId: 'string',
       instanceName: 'string',
+      monitorType: 'string',
       orderState: 'string',
       region: 'string',
       resourceCreateTime: 'number',
@@ -2112,6 +2189,7 @@ export class DescribeNamespacesRequestDescribeNamespacesRequestTags extends $tea
 }
 
 export class DescribeNamespacesRequestDescribeNamespacesRequest extends $tea.Model {
+  ha?: boolean;
   instanceId?: string;
   namespace?: string;
   pageIndex?: number;
@@ -2120,6 +2198,7 @@ export class DescribeNamespacesRequestDescribeNamespacesRequest extends $tea.Mod
   tags?: DescribeNamespacesRequestDescribeNamespacesRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      ha: 'Ha',
       instanceId: 'InstanceId',
       namespace: 'Namespace',
       pageIndex: 'PageIndex',
@@ -2131,6 +2210,7 @@ export class DescribeNamespacesRequestDescribeNamespacesRequest extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      ha: 'boolean',
       instanceId: 'string',
       namespace: 'string',
       pageIndex: 'number',
@@ -2217,6 +2297,7 @@ export class DescribeNamespacesResponseBodyNamespacesTags extends $tea.Model {
 export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
   gmtCreate?: number;
   gmtModified?: number;
+  ha?: boolean;
   namespace?: string;
   resourceSpec?: DescribeNamespacesResponseBodyNamespacesResourceSpec;
   resourceUsed?: DescribeNamespacesResponseBodyNamespacesResourceUsed;
@@ -2226,6 +2307,7 @@ export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
     return {
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      ha: 'Ha',
       namespace: 'Namespace',
       resourceSpec: 'ResourceSpec',
       resourceUsed: 'ResourceUsed',
@@ -2238,6 +2320,7 @@ export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
     return {
       gmtCreate: 'number',
       gmtModified: 'number',
+      ha: 'boolean',
       namespace: 'string',
       resourceSpec: DescribeNamespacesResponseBodyNamespacesResourceSpec,
       resourceUsed: DescribeNamespacesResponseBodyNamespacesResourceUsed,
@@ -2323,6 +2406,28 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
+export class ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestHaResourceSpec extends $tea.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestResourceSpec extends $tea.Model {
   cpu?: number;
   memoryGB?: number;
@@ -2346,11 +2451,19 @@ export class ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestResou
 }
 
 export class ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequest extends $tea.Model {
+  ha?: boolean;
+  haResourceSpec?: ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestHaResourceSpec;
+  haVSwitchIds?: string[];
+  haZoneId?: string;
   instanceId?: string;
   region?: string;
   resourceSpec?: ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestResourceSpec;
   static names(): { [key: string]: string } {
     return {
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
+      haVSwitchIds: 'HaVSwitchIds',
+      haZoneId: 'HaZoneId',
       instanceId: 'InstanceId',
       region: 'Region',
       resourceSpec: 'ResourceSpec',
@@ -2359,6 +2472,10 @@ export class ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequest exte
 
   static types(): { [key: string]: any } {
     return {
+      ha: 'boolean',
+      haResourceSpec: ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestHaResourceSpec,
+      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      haZoneId: 'string',
       instanceId: 'string',
       region: 'string',
       resourceSpec: ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestResourceSpec,
@@ -2700,6 +2817,28 @@ export class QueryConvertPrepayInstancePriceResponseBodyPriceInfo extends $tea.M
   }
 }
 
+export class QueryCreateInstancePriceRequestCreateInstanceRequestHaResourceSpec extends $tea.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryCreateInstancePriceRequestCreateInstanceRequestResourceSpec extends $tea.Model {
   cpu?: number;
   memoryGB?: number;
@@ -2766,6 +2905,8 @@ export class QueryCreateInstancePriceRequestCreateInstanceRequest extends $tea.M
   chargeType?: string;
   duration?: number;
   extra?: string;
+  ha?: boolean;
+  haResourceSpec?: QueryCreateInstancePriceRequestCreateInstanceRequestHaResourceSpec;
   instanceName?: string;
   pricingCycle?: string;
   promotionCode?: string;
@@ -2783,6 +2924,8 @@ export class QueryCreateInstancePriceRequestCreateInstanceRequest extends $tea.M
       chargeType: 'ChargeType',
       duration: 'Duration',
       extra: 'Extra',
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
       instanceName: 'InstanceName',
       pricingCycle: 'PricingCycle',
       promotionCode: 'PromotionCode',
@@ -2803,6 +2946,8 @@ export class QueryCreateInstancePriceRequestCreateInstanceRequest extends $tea.M
       chargeType: 'string',
       duration: 'number',
       extra: 'string',
+      ha: 'boolean',
+      haResourceSpec: QueryCreateInstancePriceRequestCreateInstanceRequestHaResourceSpec,
       instanceName: 'string',
       pricingCycle: 'string',
       promotionCode: 'string',
@@ -2911,6 +3056,28 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $tea.Model {
   }
 }
 
+export class QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestHaResourceSpec extends $tea.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestResourceSpec extends $tea.Model {
   cpu?: number;
   memoryGB?: number;
@@ -2934,11 +3101,19 @@ export class QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestResou
 }
 
 export class QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequest extends $tea.Model {
+  ha?: boolean;
+  haResourceSpec?: QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestHaResourceSpec;
+  haVSwitchIds?: string[];
+  haZoneId?: string;
   instanceId?: string;
   region?: string;
   resourceSpec?: QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestResourceSpec;
   static names(): { [key: string]: string } {
     return {
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
+      haVSwitchIds: 'HaVSwitchIds',
+      haZoneId: 'HaZoneId',
       instanceId: 'InstanceId',
       region: 'Region',
       resourceSpec: 'ResourceSpec',
@@ -2947,6 +3122,10 @@ export class QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequest exte
 
   static types(): { [key: string]: any } {
     return {
+      ha: 'boolean',
+      haResourceSpec: QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestHaResourceSpec,
+      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      haZoneId: 'string',
       instanceId: 'string',
       region: 'string',
       resourceSpec: QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestResourceSpec,
@@ -3584,6 +3763,14 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2019-06-01::ModifyInstanceSpec instead.
+    *
+    * @param request ModifyPrepayInstanceSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyPrepayInstanceSpecResponse
+   */
+  // Deprecated
   async modifyPrepayInstanceSpecWithOptions(request: ModifyPrepayInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPrepayInstanceSpecResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3613,11 +3800,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPrepayInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyPrepayInstanceSpecResponse({}));
   }
 
+  /**
+    * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2019-06-01::ModifyInstanceSpec instead.
+    *
+    * @param request ModifyPrepayInstanceSpecRequest
+    * @return ModifyPrepayInstanceSpecResponse
+   */
+  // Deprecated
   async modifyPrepayInstanceSpec(request: ModifyPrepayInstanceSpecRequest): Promise<ModifyPrepayInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPrepayInstanceSpecWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2019-06-01::ModifyNamespaceSpec instead.
+    *
+    * @param request ModifyPrepayNamespaceSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyPrepayNamespaceSpecResponse
+   */
+  // Deprecated
   async modifyPrepayNamespaceSpecWithOptions(request: ModifyPrepayNamespaceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPrepayNamespaceSpecResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3647,6 +3849,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPrepayNamespaceSpecResponse>(await this.callApi(params, req, runtime), new ModifyPrepayNamespaceSpecResponse({}));
   }
 
+  /**
+    * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2019-06-01::ModifyNamespaceSpec instead.
+    *
+    * @param request ModifyPrepayNamespaceSpecRequest
+    * @return ModifyPrepayNamespaceSpecResponse
+   */
+  // Deprecated
   async modifyPrepayNamespaceSpec(request: ModifyPrepayNamespaceSpecRequest): Promise<ModifyPrepayNamespaceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPrepayNamespaceSpecWithOptions(request, runtime);
