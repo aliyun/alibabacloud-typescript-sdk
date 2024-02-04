@@ -65,9 +65,9 @@ export class AddServersToServerGroupResponseBody extends $tea.Model {
 }
 
 export class AddServersToServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddServersToServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddServersToServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -143,9 +143,9 @@ export class AssociateAdditionalCertificatesWithListenerResponseBody extends $te
 }
 
 export class AssociateAdditionalCertificatesWithListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssociateAdditionalCertificatesWithListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateAdditionalCertificatesWithListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -221,9 +221,9 @@ export class AttachCommonBandwidthPackageToLoadBalancerResponseBody extends $tea
 }
 
 export class AttachCommonBandwidthPackageToLoadBalancerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachCommonBandwidthPackageToLoadBalancerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachCommonBandwidthPackageToLoadBalancerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -296,9 +296,9 @@ export class CancelShiftLoadBalancerZonesResponseBody extends $tea.Model {
 }
 
 export class CancelShiftLoadBalancerZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelShiftLoadBalancerZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelShiftLoadBalancerZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -516,9 +516,9 @@ export class CreateListenerResponseBody extends $tea.Model {
 }
 
 export class CreateListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -627,9 +627,9 @@ export class CreateLoadBalancerResponseBody extends $tea.Model {
 }
 
 export class CreateLoadBalancerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLoadBalancerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLoadBalancerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -717,9 +717,9 @@ export class CreateSecurityPolicyResponseBody extends $tea.Model {
 }
 
 export class CreateSecurityPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSecurityPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSecurityPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -831,9 +831,9 @@ export class CreateServerGroupResponseBody extends $tea.Model {
 }
 
 export class CreateServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -906,9 +906,9 @@ export class DeleteListenerResponseBody extends $tea.Model {
 }
 
 export class DeleteListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -981,9 +981,9 @@ export class DeleteLoadBalancerResponseBody extends $tea.Model {
 }
 
 export class DeleteLoadBalancerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteLoadBalancerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLoadBalancerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1053,9 +1053,9 @@ export class DeleteSecurityPolicyResponseBody extends $tea.Model {
 }
 
 export class DeleteSecurityPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSecurityPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSecurityPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1128,9 +1128,9 @@ export class DeleteServerGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1200,9 +1200,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1275,9 +1275,9 @@ export class DescribeZonesResponseBody extends $tea.Model {
 }
 
 export class DescribeZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1353,9 +1353,9 @@ export class DetachCommonBandwidthPackageFromLoadBalancerResponseBody extends $t
 }
 
 export class DetachCommonBandwidthPackageFromLoadBalancerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachCommonBandwidthPackageFromLoadBalancerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachCommonBandwidthPackageFromLoadBalancerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1425,9 +1425,9 @@ export class DisableLoadBalancerIpv6InternetResponseBody extends $tea.Model {
 }
 
 export class DisableLoadBalancerIpv6InternetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableLoadBalancerIpv6InternetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableLoadBalancerIpv6InternetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1503,9 +1503,9 @@ export class DisassociateAdditionalCertificatesWithListenerResponseBody extends 
 }
 
 export class DisassociateAdditionalCertificatesWithListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisassociateAdditionalCertificatesWithListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisassociateAdditionalCertificatesWithListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1575,9 +1575,9 @@ export class EnableLoadBalancerIpv6InternetResponseBody extends $tea.Model {
 }
 
 export class EnableLoadBalancerIpv6InternetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableLoadBalancerIpv6InternetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableLoadBalancerIpv6InternetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1644,9 +1644,9 @@ export class GetJobStatusResponseBody extends $tea.Model {
 }
 
 export class GetJobStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJobStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1785,9 +1785,9 @@ export class GetListenerAttributeResponseBody extends $tea.Model {
 }
 
 export class GetListenerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetListenerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1869,9 +1869,9 @@ export class GetListenerHealthStatusResponseBody extends $tea.Model {
 }
 
 export class GetListenerHealthStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetListenerHealthStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetListenerHealthStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2010,9 +2010,9 @@ export class GetLoadBalancerAttributeResponseBody extends $tea.Model {
 }
 
 export class GetLoadBalancerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLoadBalancerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLoadBalancerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2100,9 +2100,9 @@ export class ListListenerCertificatesResponseBody extends $tea.Model {
 }
 
 export class ListListenerCertificatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListListenerCertificatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListListenerCertificatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2193,9 +2193,9 @@ export class ListListenersResponseBody extends $tea.Model {
 }
 
 export class ListListenersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListListenersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListListenersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2313,9 +2313,9 @@ export class ListLoadBalancersResponseBody extends $tea.Model {
 }
 
 export class ListLoadBalancersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListLoadBalancersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLoadBalancersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2406,9 +2406,9 @@ export class ListSecurityPolicyResponseBody extends $tea.Model {
 }
 
 export class ListSecurityPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSecurityPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSecurityPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2496,9 +2496,9 @@ export class ListServerGroupServersResponseBody extends $tea.Model {
 }
 
 export class ListServerGroupServersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListServerGroupServersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServerGroupServersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2595,9 +2595,9 @@ export class ListServerGroupsResponseBody extends $tea.Model {
 }
 
 export class ListServerGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListServerGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServerGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2661,9 +2661,9 @@ export class ListSystemSecurityPolicyResponseBody extends $tea.Model {
 }
 
 export class ListSystemSecurityPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSystemSecurityPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSystemSecurityPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2751,9 +2751,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2829,9 +2829,9 @@ export class LoadBalancerJoinSecurityGroupResponseBody extends $tea.Model {
 }
 
 export class LoadBalancerJoinSecurityGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LoadBalancerJoinSecurityGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LoadBalancerJoinSecurityGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2907,9 +2907,9 @@ export class LoadBalancerLeaveSecurityGroupResponseBody extends $tea.Model {
 }
 
 export class LoadBalancerLeaveSecurityGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LoadBalancerLeaveSecurityGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LoadBalancerLeaveSecurityGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2988,9 +2988,9 @@ export class MoveResourceGroupResponseBody extends $tea.Model {
 }
 
 export class MoveResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MoveResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MoveResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3069,9 +3069,9 @@ export class RemoveServersFromServerGroupResponseBody extends $tea.Model {
 }
 
 export class RemoveServersFromServerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveServersFromServerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveServersFromServerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3144,9 +3144,9 @@ export class StartListenerResponseBody extends $tea.Model {
 }
 
 export class StartListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3219,9 +3219,9 @@ export class StartShiftLoadBalancerZonesResponseBody extends $tea.Model {
 }
 
 export class StartShiftLoadBalancerZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartShiftLoadBalancerZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartShiftLoadBalancerZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3294,9 +3294,9 @@ export class StopListenerResponseBody extends $tea.Model {
 }
 
 export class StopListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3375,9 +3375,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3459,9 +3459,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3646,9 +3646,9 @@ export class UpdateListenerAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateListenerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateListenerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateListenerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3727,9 +3727,9 @@ export class UpdateLoadBalancerAddressTypeConfigResponseBody extends $tea.Model 
 }
 
 export class UpdateLoadBalancerAddressTypeConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateLoadBalancerAddressTypeConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLoadBalancerAddressTypeConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3811,9 +3811,9 @@ export class UpdateLoadBalancerAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateLoadBalancerAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateLoadBalancerAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLoadBalancerAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3895,9 +3895,9 @@ export class UpdateLoadBalancerProtectionResponseBody extends $tea.Model {
 }
 
 export class UpdateLoadBalancerProtectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateLoadBalancerProtectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLoadBalancerProtectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3973,9 +3973,9 @@ export class UpdateLoadBalancerZonesResponseBody extends $tea.Model {
 }
 
 export class UpdateLoadBalancerZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateLoadBalancerZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLoadBalancerZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4060,9 +4060,9 @@ export class UpdateSecurityPolicyAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateSecurityPolicyAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSecurityPolicyAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSecurityPolicyAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4156,9 +4156,9 @@ export class UpdateServerGroupAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateServerGroupAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateServerGroupAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServerGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4237,9 +4237,9 @@ export class UpdateServerGroupServersAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateServerGroupServersAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateServerGroupServersAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServerGroupServersAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4473,12 +4473,18 @@ export class CreateLoadBalancerRequestTag extends $tea.Model {
 
 export class CreateLoadBalancerRequestZoneMappings extends $tea.Model {
   allocationId?: string;
+  ipv4LocalAddresses?: string[];
+  ipv6Address?: string;
+  ipv6LocalAddresses?: string[];
   privateIPv4Address?: string;
   vSwitchId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       allocationId: 'AllocationId',
+      ipv4LocalAddresses: 'Ipv4LocalAddresses',
+      ipv6Address: 'Ipv6Address',
+      ipv6LocalAddresses: 'Ipv6LocalAddresses',
       privateIPv4Address: 'PrivateIPv4Address',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
@@ -4488,6 +4494,9 @@ export class CreateLoadBalancerRequestZoneMappings extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       allocationId: 'string',
+      ipv4LocalAddresses: { 'type': 'array', 'itemType': 'string' },
+      ipv6Address: 'string',
+      ipv6LocalAddresses: { 'type': 'array', 'itemType': 'string' },
       privateIPv4Address: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
@@ -4905,7 +4914,9 @@ export class GetLoadBalancerAttributeResponseBodyTags extends $tea.Model {
 export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses extends $tea.Model {
   allocationId?: string;
   eniId?: string;
+  ipv4LocalAddresses?: string[];
   ipv6Address?: string;
+  ipv6LocalAddresses?: string[];
   privateIPv4Address?: string;
   privateIPv4HcStatus?: string;
   privateIPv6HcStatus?: string;
@@ -4914,7 +4925,9 @@ export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddress
     return {
       allocationId: 'AllocationId',
       eniId: 'EniId',
+      ipv4LocalAddresses: 'Ipv4LocalAddresses',
       ipv6Address: 'Ipv6Address',
+      ipv6LocalAddresses: 'Ipv6LocalAddresses',
       privateIPv4Address: 'PrivateIPv4Address',
       privateIPv4HcStatus: 'PrivateIPv4HcStatus',
       privateIPv6HcStatus: 'PrivateIPv6HcStatus',
@@ -4926,7 +4939,9 @@ export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddress
     return {
       allocationId: 'string',
       eniId: 'string',
+      ipv4LocalAddresses: { 'type': 'array', 'itemType': 'string' },
       ipv6Address: 'string',
+      ipv6LocalAddresses: { 'type': 'array', 'itemType': 'string' },
       privateIPv4Address: 'string',
       privateIPv4HcStatus: 'string',
       privateIPv6HcStatus: 'string',
