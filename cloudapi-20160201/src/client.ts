@@ -11,11 +11,13 @@ import * as $tea from '@alicloud/tea-typescript';
 export class AbolishApiRequest extends $tea.Model {
   apiId?: string;
   groupId?: string;
+  securityToken?: string;
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
       apiId: 'ApiId',
       groupId: 'GroupId',
+      securityToken: 'SecurityToken',
       stageName: 'StageName',
     };
   }
@@ -24,6 +26,7 @@ export class AbolishApiRequest extends $tea.Model {
     return {
       apiId: 'string',
       groupId: 'string',
+      securityToken: 'string',
       stageName: 'string',
     };
   }
@@ -81,12 +84,14 @@ export class AbolishApiForInnerRequest extends $tea.Model {
   aliUid?: number;
   apiId?: string;
   groupId?: string;
+  securityToken?: string;
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
       aliUid: 'AliUid',
       apiId: 'ApiId',
       groupId: 'GroupId',
+      securityToken: 'SecurityToken',
       stageName: 'StageName',
     };
   }
@@ -96,6 +101,7 @@ export class AbolishApiForInnerRequest extends $tea.Model {
       aliUid: 'number',
       apiId: 'string',
       groupId: 'string',
+      securityToken: 'string',
       stageName: 'string',
     };
   }
@@ -14684,6 +14690,10 @@ export default class Client extends OpenApi {
       query["GroupId"] = request.groupId;
     }
 
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     if (!Util.isUnset(request.stageName)) {
       query["StageName"] = request.stageName;
     }
@@ -14723,6 +14733,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
     }
 
     if (!Util.isUnset(request.stageName)) {
