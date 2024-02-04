@@ -1574,6 +1574,7 @@ export class InitializeRequest extends $tea.Model {
   productFlow?: string;
   returnUrl?: string;
   sceneCode?: string;
+  securityLevel?: string;
   serviceLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1600,6 +1601,7 @@ export class InitializeRequest extends $tea.Model {
       productFlow: 'ProductFlow',
       returnUrl: 'ReturnUrl',
       sceneCode: 'SceneCode',
+      securityLevel: 'SecurityLevel',
       serviceLevel: 'ServiceLevel',
     };
   }
@@ -1629,6 +1631,7 @@ export class InitializeRequest extends $tea.Model {
       productFlow: 'string',
       returnUrl: 'string',
       sceneCode: 'string',
+      securityLevel: 'string',
       serviceLevel: 'string',
     };
   }
@@ -3184,10 +3187,6 @@ export default class Client extends OpenApi {
       query["IdFaceQuality"] = request.idFaceQuality;
     }
 
-    if (!Util.isUnset(request.idOcrPictureBase64)) {
-      query["IdOcrPictureBase64"] = request.idOcrPictureBase64;
-    }
-
     if (!Util.isUnset(request.idOcrPictureUrl)) {
       query["IdOcrPictureUrl"] = request.idOcrPictureUrl;
     }
@@ -3212,8 +3211,14 @@ export default class Client extends OpenApi {
       query["Spoof"] = request.spoof;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.idOcrPictureBase64)) {
+      body["IdOcrPictureBase64"] = request.idOcrPictureBase64;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DocOcr",
@@ -3257,16 +3262,8 @@ export default class Client extends OpenApi {
       query["DocType"] = request.docType;
     }
 
-    if (!Util.isUnset(request.facePictureBase64)) {
-      query["FacePictureBase64"] = request.facePictureBase64;
-    }
-
     if (!Util.isUnset(request.facePictureUrl)) {
       query["FacePictureUrl"] = request.facePictureUrl;
-    }
-
-    if (!Util.isUnset(request.idOcrPictureBase64)) {
-      query["IdOcrPictureBase64"] = request.idOcrPictureBase64;
     }
 
     if (!Util.isUnset(request.idOcrPictureUrl)) {
@@ -3285,8 +3282,18 @@ export default class Client extends OpenApi {
       query["ProductCode"] = request.productCode;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.facePictureBase64)) {
+      body["FacePictureBase64"] = request.facePictureBase64;
+    }
+
+    if (!Util.isUnset(request.idOcrPictureBase64)) {
+      body["IdOcrPictureBase64"] = request.idOcrPictureBase64;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "EkycVerify",
@@ -3314,24 +3321,26 @@ export default class Client extends OpenApi {
       query["MerchantBizId"] = request.merchantBizId;
     }
 
-    if (!Util.isUnset(request.sourceFacePicture)) {
-      query["SourceFacePicture"] = request.sourceFacePicture;
-    }
-
     if (!Util.isUnset(request.sourceFacePictureUrl)) {
       query["SourceFacePictureUrl"] = request.sourceFacePictureUrl;
-    }
-
-    if (!Util.isUnset(request.targetFacePicture)) {
-      query["TargetFacePicture"] = request.targetFacePicture;
     }
 
     if (!Util.isUnset(request.targetFacePictureUrl)) {
       query["TargetFacePictureUrl"] = request.targetFacePictureUrl;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sourceFacePicture)) {
+      body["SourceFacePicture"] = request.sourceFacePicture;
+    }
+
+    if (!Util.isUnset(request.targetFacePicture)) {
+      body["TargetFacePicture"] = request.targetFacePicture;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "FaceCompare",
@@ -3520,10 +3529,6 @@ export default class Client extends OpenApi {
       query["DocType"] = request.docType;
     }
 
-    if (!Util.isUnset(request.facePictureBase64)) {
-      query["FacePictureBase64"] = request.facePictureBase64;
-    }
-
     if (!Util.isUnset(request.facePictureUrl)) {
       query["FacePictureUrl"] = request.facePictureUrl;
     }
@@ -3588,12 +3593,22 @@ export default class Client extends OpenApi {
       query["SceneCode"] = request.sceneCode;
     }
 
+    if (!Util.isUnset(request.securityLevel)) {
+      query["SecurityLevel"] = request.securityLevel;
+    }
+
     if (!Util.isUnset(request.serviceLevel)) {
       query["ServiceLevel"] = request.serviceLevel;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.facePictureBase64)) {
+      body["FacePictureBase64"] = request.facePictureBase64;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "Initialize",
