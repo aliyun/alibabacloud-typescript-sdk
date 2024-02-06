@@ -7711,12 +7711,14 @@ export class UpgradeClusterNodepoolRequest extends $tea.Model {
   kubernetesVersion?: string;
   runtimeType?: string;
   runtimeVersion?: string;
+  useReplace?: boolean;
   static names(): { [key: string]: string } {
     return {
       imageId: 'image_id',
       kubernetesVersion: 'kubernetes_version',
       runtimeType: 'runtime_type',
       runtimeVersion: 'runtime_version',
+      useReplace: 'use_replace',
     };
   }
 
@@ -7726,6 +7728,7 @@ export class UpgradeClusterNodepoolRequest extends $tea.Model {
       kubernetesVersion: 'string',
       runtimeType: 'string',
       runtimeVersion: 'string',
+      useReplace: 'boolean',
     };
   }
 
@@ -17973,6 +17976,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.runtimeVersion)) {
       body["runtime_version"] = request.runtimeVersion;
+    }
+
+    if (!Util.isUnset(request.useReplace)) {
+      body["use_replace"] = request.useReplace;
     }
 
     let req = new $OpenApi.OpenApiRequest({
