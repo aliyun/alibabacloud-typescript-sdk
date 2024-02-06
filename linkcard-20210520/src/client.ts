@@ -111,9 +111,9 @@ export class AddCardToDirectionalGroupResponseBody extends $tea.Model {
 }
 
 export class AddCardToDirectionalGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddCardToDirectionalGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddCardToDirectionalGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -207,9 +207,9 @@ export class AddDirectionalAddressResponseBody extends $tea.Model {
 }
 
 export class AddDirectionalAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddDirectionalAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddDirectionalAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -340,9 +340,9 @@ export class AddDirectionalCardResponseBody extends $tea.Model {
 }
 
 export class AddDirectionalCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddDirectionalCardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddDirectionalCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -418,9 +418,9 @@ export class AddDirectionalGroupResponseBody extends $tea.Model {
 }
 
 export class AddDirectionalGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddDirectionalGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddDirectionalGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -518,9 +518,9 @@ export class AddTagsToCardResponseBody extends $tea.Model {
 }
 
 export class AddTagsToCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddTagsToCardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddTagsToCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -605,9 +605,9 @@ export class BatchAddDirectionalAddressResponseBody extends $tea.Model {
 }
 
 export class BatchAddDirectionalAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchAddDirectionalAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchAddDirectionalAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -692,9 +692,9 @@ export class DeleteDirectionalAddressResponseBody extends $tea.Model {
 }
 
 export class DeleteDirectionalAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDirectionalAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDirectionalAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -770,9 +770,9 @@ export class DeleteDirectionalGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteDirectionalGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDirectionalGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDirectionalGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -851,9 +851,9 @@ export class ForceActivationResponseBody extends $tea.Model {
 }
 
 export class ForceActivationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ForceActivationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ForceActivationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -938,9 +938,9 @@ export class GetCardDetailResponseBody extends $tea.Model {
 }
 
 export class GetCardDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCardDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCardDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1019,9 +1019,9 @@ export class GetCardFlowInfoResponseBody extends $tea.Model {
 }
 
 export class GetCardFlowInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCardFlowInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCardFlowInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1097,9 +1097,9 @@ export class GetCardLatestFlowResponseBody extends $tea.Model {
 }
 
 export class GetCardLatestFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCardLatestFlowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCardLatestFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1206,9 +1206,9 @@ export class GetCardRealStatusResponseBody extends $tea.Model {
 }
 
 export class GetCardRealStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCardRealStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCardRealStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1265,9 +1265,9 @@ export class GetCardStatusStatisticsResponseBody extends $tea.Model {
 }
 
 export class GetCardStatusStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCardStatusStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCardStatusStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1343,9 +1343,9 @@ export class GetCredentialPoolStatisticsResponseBody extends $tea.Model {
 }
 
 export class GetCredentialPoolStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCredentialPoolStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCredentialPoolStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1427,9 +1427,9 @@ export class GetOperateResultResponseBody extends $tea.Model {
 }
 
 export class GetOperateResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetOperateResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOperateResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1530,9 +1530,9 @@ export class GetRealNameStatusResponseBody extends $tea.Model {
 }
 
 export class GetRealNameStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRealNameStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRealNameStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1608,9 +1608,9 @@ export class GetSimCardStateDistributionResponseBody extends $tea.Model {
 }
 
 export class GetSimCardStateDistributionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSimCardStateDistributionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSimCardStateDistributionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1773,9 +1773,9 @@ export class ListCardInfoResponseBody extends $tea.Model {
 }
 
 export class ListCardInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCardInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCardInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1857,9 +1857,9 @@ export class ListDirectionalAddressResponseBody extends $tea.Model {
 }
 
 export class ListDirectionalAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDirectionalAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDirectionalAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1941,9 +1941,9 @@ export class ListDirectionalDetailResponseBody extends $tea.Model {
 }
 
 export class ListDirectionalDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDirectionalDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDirectionalDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2040,9 +2040,9 @@ export class ListOrderResponseBody extends $tea.Model {
 }
 
 export class ListOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2143,9 +2143,9 @@ export class RebindResumeSingleCardResponseBody extends $tea.Model {
 }
 
 export class RebindResumeSingleCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RebindResumeSingleCardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RebindResumeSingleCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2239,9 +2239,9 @@ export class RenewResponseBody extends $tea.Model {
 }
 
 export class RenewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2342,9 +2342,9 @@ export class ResumeSingleCardResponseBody extends $tea.Model {
 }
 
 export class ResumeSingleCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResumeSingleCardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResumeSingleCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2475,9 +2475,9 @@ export class SendMessageResponseBody extends $tea.Model {
 }
 
 export class SendMessageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendMessageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendMessageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2559,9 +2559,9 @@ export class SetCardStopRuleResponseBody extends $tea.Model {
 }
 
 export class SetCardStopRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetCardStopRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetCardStopRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2662,9 +2662,9 @@ export class StopSingleCardResponseBody extends $tea.Model {
 }
 
 export class StopSingleCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopSingleCardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopSingleCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2743,9 +2743,9 @@ export class UpdateAutoRechargeSwitchResponseBody extends $tea.Model {
 }
 
 export class UpdateAutoRechargeSwitchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAutoRechargeSwitchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAutoRechargeSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2821,9 +2821,9 @@ export class VerifyIotCardResponseBody extends $tea.Model {
 }
 
 export class VerifyIotCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VerifyIotCardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VerifyIotCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
