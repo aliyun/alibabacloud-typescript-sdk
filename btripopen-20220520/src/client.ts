@@ -2429,6 +2429,137 @@ export class ApplyApproveResponse extends $tea.Model {
   }
 }
 
+export class ApplyExternalNodeStatusUpdateHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyExternalNodeStatusUpdateRequest extends $tea.Model {
+  nodeId?: string;
+  operationRecords?: ApplyExternalNodeStatusUpdateRequestOperationRecords[];
+  processActionResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'node_id',
+      operationRecords: 'operation_records',
+      processActionResult: 'process_action_result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      operationRecords: { 'type': 'array', 'itemType': ApplyExternalNodeStatusUpdateRequestOperationRecords },
+      processActionResult: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyExternalNodeStatusUpdateShrinkRequest extends $tea.Model {
+  nodeId?: string;
+  operationRecordsShrink?: string;
+  processActionResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'node_id',
+      operationRecordsShrink: 'operation_records',
+      processActionResult: 'process_action_result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      operationRecordsShrink: 'string',
+      processActionResult: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyExternalNodeStatusUpdateResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: boolean;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: 'boolean',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyExternalNodeStatusUpdateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyExternalNodeStatusUpdateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyExternalNodeStatusUpdateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyInvoiceTaskHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -20874,6 +21005,37 @@ export class ApplyAddResponseBodyModule extends $tea.Model {
       applyId: 'number',
       thirdpartApplyId: 'string',
       thirdpartBusinessId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyExternalNodeStatusUpdateRequestOperationRecords extends $tea.Model {
+  comment?: string;
+  operateTime?: string;
+  operatorName?: string;
+  result?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'comment',
+      operateTime: 'operate_time',
+      operatorName: 'operator_name',
+      result: 'result',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      operateTime: 'string',
+      operatorName: 'string',
+      result: 'string',
+      type: 'string',
     };
   }
 
@@ -47761,6 +47923,60 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ApplyApproveHeaders({ });
     return await this.applyApproveWithOptions(request, headers, runtime);
+  }
+
+  async applyExternalNodeStatusUpdateWithOptions(tmpReq: ApplyExternalNodeStatusUpdateRequest, headers: ApplyExternalNodeStatusUpdateHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyExternalNodeStatusUpdateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ApplyExternalNodeStatusUpdateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.operationRecords)) {
+      request.operationRecordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationRecords, "operation_records", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeId)) {
+      body["node_id"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.operationRecordsShrink)) {
+      body["operation_records"] = request.operationRecordsShrink;
+    }
+
+    if (!Util.isUnset(request.processActionResult)) {
+      body["process_action_result"] = request.processActionResult;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApplyExternalNodeStatusUpdate",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/apply/v1/external-nodes/action/status-update`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyExternalNodeStatusUpdateResponse>(await this.callApi(params, req, runtime), new ApplyExternalNodeStatusUpdateResponse({}));
+  }
+
+  async applyExternalNodeStatusUpdate(request: ApplyExternalNodeStatusUpdateRequest): Promise<ApplyExternalNodeStatusUpdateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ApplyExternalNodeStatusUpdateHeaders({ });
+    return await this.applyExternalNodeStatusUpdateWithOptions(request, headers, runtime);
   }
 
   async applyInvoiceTaskWithOptions(tmpReq: ApplyInvoiceTaskRequest, headers: ApplyInvoiceTaskHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyInvoiceTaskResponse> {
