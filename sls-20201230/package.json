@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/sls20201230",
-  "version": "4.4.1",
+  "version": "5.0.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "@alicloud/tea-util": "^1.4.7",
     "@alicloud/gateway-spi": "^0.0.8",
     "@alicloud/gateway-sls": "^0.0.6",
-    "@alicloud/openapi-client": "^0.4.7",
+    "@alicloud/openapi-client": "^0.4.8",
     "@alicloud/openapi-util": "^0.3.2"
   },
   "files": [
