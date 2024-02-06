@@ -3116,6 +3116,75 @@ export class DescribeAvailableZoneResponse extends $tea.Model {
   }
 }
 
+export class DescribeBackupSetDownloadLinkRequest extends $tea.Model {
+  downloadTaskId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadTaskId: 'DownloadTaskId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadTaskId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetDownloadLinkResponseBody extends $tea.Model {
+  data?: DescribeBackupSetDownloadLinkResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeBackupSetDownloadLinkResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetDownloadLinkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBackupSetDownloadLinkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeBackupSetDownloadLinkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCharsetRequest extends $tea.Model {
   instanceId?: string;
   series?: string;
@@ -14012,6 +14081,46 @@ export class DescribeAvailableZoneResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       availableZones: { 'type': 'array', 'itemType': DescribeAvailableZoneResponseBodyDataAvailableZones },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetDownloadLinkResponseBodyData extends $tea.Model {
+  backupRestorableTime?: string;
+  backupSetId?: string;
+  downloadTaskCreateTime?: string;
+  downloadTaskId?: number;
+  downloadTaskStatus?: string;
+  internalUrl?: string;
+  urlAliveTime?: number;
+  urlExpiredTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupRestorableTime: 'BackupRestorableTime',
+      backupSetId: 'BackupSetId',
+      downloadTaskCreateTime: 'DownloadTaskCreateTime',
+      downloadTaskId: 'DownloadTaskId',
+      downloadTaskStatus: 'DownloadTaskStatus',
+      internalUrl: 'InternalUrl',
+      urlAliveTime: 'UrlAliveTime',
+      urlExpiredTime: 'UrlExpiredTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupRestorableTime: 'string',
+      backupSetId: 'string',
+      downloadTaskCreateTime: 'string',
+      downloadTaskId: 'number',
+      downloadTaskStatus: 'string',
+      internalUrl: 'string',
+      urlAliveTime: 'number',
+      urlExpiredTime: 'string',
     };
   }
 
@@ -28396,6 +28505,39 @@ export default class Client extends OpenApi {
   async describeAvailableZone(request: DescribeAvailableZoneRequest): Promise<DescribeAvailableZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableZoneWithOptions(request, runtime);
+  }
+
+  async describeBackupSetDownloadLinkWithOptions(request: DescribeBackupSetDownloadLinkRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupSetDownloadLinkResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.downloadTaskId)) {
+      body["DownloadTaskId"] = request.downloadTaskId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupSetDownloadLink",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupSetDownloadLinkResponse>(await this.callApi(params, req, runtime), new DescribeBackupSetDownloadLinkResponse({}));
+  }
+
+  async describeBackupSetDownloadLink(request: DescribeBackupSetDownloadLinkRequest): Promise<DescribeBackupSetDownloadLinkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeBackupSetDownloadLinkWithOptions(request, runtime);
   }
 
   async describeCharsetWithOptions(request: DescribeCharsetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCharsetResponse> {
