@@ -6271,6 +6271,7 @@ export class DescribeTablePartitionDiagnoseResponse extends $tea.Model {
 
 export class DescribeTableStatisticsRequest extends $tea.Model {
   DBClusterId?: string;
+  keyword?: string;
   order?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -6282,6 +6283,7 @@ export class DescribeTableStatisticsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      keyword: 'Keyword',
       order: 'Order',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -6296,6 +6298,7 @@ export class DescribeTableStatisticsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      keyword: 'string',
       order: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -12507,22 +12510,30 @@ export class DescribeTablePartitionDiagnoseResponseBodyItems extends $tea.Model 
 export class DescribeTableStatisticsResponseBodyItemsTableStatisticRecords extends $tea.Model {
   coldDataSize?: number;
   dataSize?: number;
+  hotDataSize?: number;
   indexSize?: number;
+  otherSize?: number;
   partitionCount?: number;
   primaryKeyIndexSize?: number;
   rowCount?: number;
   schemaName?: string;
+  spaceRatio?: number;
   tableName?: string;
+  totalSize?: number;
   static names(): { [key: string]: string } {
     return {
       coldDataSize: 'ColdDataSize',
       dataSize: 'DataSize',
+      hotDataSize: 'HotDataSize',
       indexSize: 'IndexSize',
+      otherSize: 'OtherSize',
       partitionCount: 'PartitionCount',
       primaryKeyIndexSize: 'PrimaryKeyIndexSize',
       rowCount: 'RowCount',
       schemaName: 'SchemaName',
+      spaceRatio: 'SpaceRatio',
       tableName: 'TableName',
+      totalSize: 'TotalSize',
     };
   }
 
@@ -12530,12 +12541,16 @@ export class DescribeTableStatisticsResponseBodyItemsTableStatisticRecords exten
     return {
       coldDataSize: 'number',
       dataSize: 'number',
+      hotDataSize: 'number',
       indexSize: 'number',
+      otherSize: 'number',
       partitionCount: 'number',
       primaryKeyIndexSize: 'number',
       rowCount: 'number',
       schemaName: 'string',
+      spaceRatio: 'number',
       tableName: 'string',
+      totalSize: 'number',
     };
   }
 
@@ -17018,6 +17033,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
     }
 
     if (!Util.isUnset(request.order)) {
