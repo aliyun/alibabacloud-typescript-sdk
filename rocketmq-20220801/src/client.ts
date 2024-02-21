@@ -77,9 +77,9 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -167,9 +167,9 @@ export class CreateConsumerGroupResponseBody extends $tea.Model {
 }
 
 export class CreateConsumerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateConsumerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConsumerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -293,9 +293,9 @@ export class CreateInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -380,9 +380,9 @@ export class CreateTopicResponseBody extends $tea.Model {
 }
 
 export class CreateTopicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTopicResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTopicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -445,9 +445,9 @@ export class DeleteConsumerGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteConsumerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteConsumerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConsumerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -510,9 +510,9 @@ export class DeleteInstanceResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -575,9 +575,9 @@ export class DeleteTopicResponseBody extends $tea.Model {
 }
 
 export class DeleteTopicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTopicResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTopicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -640,9 +640,9 @@ export class GetConsumerGroupResponseBody extends $tea.Model {
 }
 
 export class GetConsumerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetConsumerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConsumerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -705,9 +705,9 @@ export class GetInstanceResponseBody extends $tea.Model {
 }
 
 export class GetInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -770,9 +770,9 @@ export class GetTopicResponseBody extends $tea.Model {
 }
 
 export class GetTopicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTopicResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTopicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -786,6 +786,71 @@ export class GetTopicResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetTopicResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableZonesResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListAvailableZonesResponseBodyData[];
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListAvailableZonesResponseBodyData },
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableZonesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAvailableZonesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAvailableZonesResponseBody,
     };
   }
 
@@ -835,9 +900,9 @@ export class ListConsumerGroupSubscriptionsResponseBody extends $tea.Model {
 }
 
 export class ListConsumerGroupSubscriptionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListConsumerGroupSubscriptionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConsumerGroupSubscriptionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -925,9 +990,9 @@ export class ListConsumerGroupsResponseBody extends $tea.Model {
 }
 
 export class ListConsumerGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListConsumerGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConsumerGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1021,9 +1086,9 @@ export class ListInstancesResponseBody extends $tea.Model {
 }
 
 export class ListInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1037,6 +1102,71 @@ export class ListInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegionsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListRegionsResponseBodyData[];
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListRegionsResponseBodyData },
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRegionsResponseBody,
     };
   }
 
@@ -1142,9 +1272,9 @@ export class ListTopicsResponseBody extends $tea.Model {
 }
 
 export class ListTopicsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTopicsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTopicsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1226,9 +1356,9 @@ export class ResetConsumeOffsetResponseBody extends $tea.Model {
 }
 
 export class ResetConsumeOffsetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetConsumeOffsetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetConsumeOffsetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1316,9 +1446,9 @@ export class UpdateConsumerGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateConsumerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateConsumerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateConsumerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1409,9 +1539,9 @@ export class UpdateInstanceResponseBody extends $tea.Model {
 }
 
 export class UpdateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1493,9 +1623,9 @@ export class UpdateTopicResponseBody extends $tea.Model {
 }
 
 export class UpdateTopicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTopicResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTopicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2152,6 +2282,34 @@ export class GetTopicResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListAvailableZonesResponseBodyData extends $tea.Model {
+  createTime?: string;
+  updateTime?: string;
+  zoneId?: string;
+  zoneName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      updateTime: 'updateTime',
+      zoneId: 'zoneId',
+      zoneName: 'zoneName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      updateTime: 'string',
+      zoneId: 'string',
+      zoneName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConsumerGroupSubscriptionsResponseBodyData extends $tea.Model {
   consumerGroupId?: string;
   filterExpression?: string;
@@ -2394,6 +2552,65 @@ export class ListInstancesResponseBodyData extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegionsResponseBodyDataTags extends $tea.Model {
+  tagCode?: string;
+  tagValue?: any;
+  static names(): { [key: string]: string } {
+    return {
+      tagCode: 'tagCode',
+      tagValue: 'tagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagCode: 'string',
+      tagValue: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegionsResponseBodyData extends $tea.Model {
+  createTime?: string;
+  regionId?: string;
+  regionName?: string;
+  supportRocketmqV4?: boolean;
+  supportRocketmqV5?: boolean;
+  tags?: ListRegionsResponseBodyDataTags[];
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      regionId: 'regionId',
+      regionName: 'regionName',
+      supportRocketmqV4: 'supportRocketmqV4',
+      supportRocketmqV5: 'supportRocketmqV5',
+      tags: 'tags',
+      updateTime: 'updateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      regionId: 'string',
+      regionName: 'string',
+      supportRocketmqV4: 'boolean',
+      supportRocketmqV5: 'boolean',
+      tags: { 'type': 'array', 'itemType': ListRegionsResponseBodyDataTags },
+      updateTime: 'string',
     };
   }
 
@@ -3028,6 +3245,30 @@ export default class Client extends OpenApi {
     return await this.getTopicWithOptions(instanceId, topicName, headers, runtime);
   }
 
+  async listAvailableZonesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAvailableZonesResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAvailableZones",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/zones`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAvailableZonesResponse>(await this.callApi(params, req, runtime), new ListAvailableZonesResponse({}));
+  }
+
+  async listAvailableZones(): Promise<ListAvailableZonesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAvailableZonesWithOptions(headers, runtime);
+  }
+
   async listConsumerGroupSubscriptionsWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerGroupSubscriptionsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3164,6 +3405,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(request, headers, runtime);
+  }
+
+  async listRegionsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRegions",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/regions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
+  }
+
+  async listRegions(): Promise<ListRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRegionsWithOptions(headers, runtime);
   }
 
   async listTopicsWithOptions(instanceId: string, tmpReq: ListTopicsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTopicsResponse> {
