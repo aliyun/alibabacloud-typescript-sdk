@@ -71,9 +71,9 @@ export class ActiveFlowLogResponseBody extends $tea.Model {
 }
 
 export class ActiveFlowLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ActiveFlowLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ActiveFlowLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -155,9 +155,9 @@ export class AddTrafficMatchRuleToTrafficMarkingPolicyResponseBody extends $tea.
 }
 
 export class AddTrafficMatchRuleToTrafficMarkingPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddTrafficMatchRuleToTrafficMarkingPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddTrafficMatchRuleToTrafficMarkingPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -239,9 +239,9 @@ export class AddTraficMatchRuleToTrafficMarkingPolicyResponseBody extends $tea.M
 }
 
 export class AddTraficMatchRuleToTrafficMarkingPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddTraficMatchRuleToTrafficMarkingPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddTraficMatchRuleToTrafficMarkingPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -317,9 +317,9 @@ export class AssociateCenBandwidthPackageResponseBody extends $tea.Model {
 }
 
 export class AssociateCenBandwidthPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssociateCenBandwidthPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateCenBandwidthPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -401,9 +401,9 @@ export class AssociateTransitRouterAttachmentWithRouteTableResponseBody extends 
 }
 
 export class AssociateTransitRouterAttachmentWithRouteTableResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssociateTransitRouterAttachmentWithRouteTableResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateTransitRouterAttachmentWithRouteTableResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -488,9 +488,9 @@ export class AssociateTransitRouterMulticastDomainResponseBody extends $tea.Mode
 }
 
 export class AssociateTransitRouterMulticastDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssociateTransitRouterMulticastDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateTransitRouterMulticastDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -575,9 +575,9 @@ export class AttachCenChildInstanceResponseBody extends $tea.Model {
 }
 
 export class AttachCenChildInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachCenChildInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachCenChildInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -653,9 +653,9 @@ export class CheckTransitRouterServiceResponseBody extends $tea.Model {
 }
 
 export class CheckTransitRouterServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckTransitRouterServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckTransitRouterServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -743,9 +743,9 @@ export class CreateCenResponseBody extends $tea.Model {
 }
 
 export class CreateCenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -860,9 +860,9 @@ export class CreateCenBandwidthPackageResponseBody extends $tea.Model {
 }
 
 export class CreateCenBandwidthPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCenBandwidthPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCenBandwidthPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -950,9 +950,9 @@ export class CreateCenChildInstanceRouteEntryToAttachmentResponseBody extends $t
 }
 
 export class CreateCenChildInstanceRouteEntryToAttachmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCenChildInstanceRouteEntryToAttachmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCenChildInstanceRouteEntryToAttachmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1043,9 +1043,9 @@ export class CreateCenChildInstanceRouteEntryToCenResponseBody extends $tea.Mode
 }
 
 export class CreateCenChildInstanceRouteEntryToCenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCenChildInstanceRouteEntryToCenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCenChildInstanceRouteEntryToCenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1139,9 +1139,9 @@ export class CreateCenInterRegionTrafficQosPolicyResponseBody extends $tea.Model
 }
 
 export class CreateCenInterRegionTrafficQosPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCenInterRegionTrafficQosPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCenInterRegionTrafficQosPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1235,9 +1235,9 @@ export class CreateCenInterRegionTrafficQosQueueResponseBody extends $tea.Model 
 }
 
 export class CreateCenInterRegionTrafficQosQueueResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCenInterRegionTrafficQosQueueResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCenInterRegionTrafficQosQueueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1397,9 +1397,9 @@ export class CreateCenRouteMapResponseBody extends $tea.Model {
 }
 
 export class CreateCenRouteMapResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCenRouteMapResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCenRouteMapResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1505,9 +1505,9 @@ export class CreateFlowlogResponseBody extends $tea.Model {
 }
 
 export class CreateFlowlogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFlowlogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFlowlogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1604,9 +1604,9 @@ export class CreateTrafficMarkingPolicyResponseBody extends $tea.Model {
 }
 
 export class CreateTrafficMarkingPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTrafficMarkingPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTrafficMarkingPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1697,9 +1697,9 @@ export class CreateTransitRouteTableAggregationResponseBody extends $tea.Model {
 }
 
 export class CreateTransitRouteTableAggregationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTransitRouteTableAggregationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTransitRouteTableAggregationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1854,9 +1854,9 @@ export class CreateTransitRouterResponseBody extends $tea.Model {
 }
 
 export class CreateTransitRouterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTransitRouterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTransitRouterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1953,9 +1953,9 @@ export class CreateTransitRouterCidrResponseBody extends $tea.Model {
 }
 
 export class CreateTransitRouterCidrResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTransitRouterCidrResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTransitRouterCidrResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2052,9 +2052,9 @@ export class CreateTransitRouterMulticastDomainResponseBody extends $tea.Model {
 }
 
 export class CreateTransitRouterMulticastDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTransitRouterMulticastDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTransitRouterMulticastDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2172,9 +2172,9 @@ export class CreateTransitRouterPeerAttachmentResponseBody extends $tea.Model {
 }
 
 export class CreateTransitRouterPeerAttachmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTransitRouterPeerAttachmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTransitRouterPeerAttachmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2271,9 +2271,9 @@ export class CreateTransitRouterPrefixListAssociationResponseBody extends $tea.M
 }
 
 export class CreateTransitRouterPrefixListAssociationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTransitRouterPrefixListAssociationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTransitRouterPrefixListAssociationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2370,9 +2370,9 @@ export class CreateTransitRouterRouteEntryResponseBody extends $tea.Model {
 }
 
 export class CreateTransitRouterRouteEntryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTransitRouterRouteEntryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTransitRouterRouteEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2466,9 +2466,9 @@ export class CreateTransitRouterRouteTableResponseBody extends $tea.Model {
 }
 
 export class CreateTransitRouterRouteTableResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTransitRouterRouteTableResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTransitRouterRouteTableResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2574,9 +2574,9 @@ export class CreateTransitRouterVbrAttachmentResponseBody extends $tea.Model {
 }
 
 export class CreateTransitRouterVbrAttachmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTransitRouterVbrAttachmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTransitRouterVbrAttachmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2688,9 +2688,9 @@ export class CreateTransitRouterVpcAttachmentResponseBody extends $tea.Model {
 }
 
 export class CreateTransitRouterVpcAttachmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTransitRouterVpcAttachmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTransitRouterVpcAttachmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2802,9 +2802,9 @@ export class CreateTransitRouterVpnAttachmentResponseBody extends $tea.Model {
 }
 
 export class CreateTransitRouterVpnAttachmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTransitRouterVpnAttachmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTransitRouterVpnAttachmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2889,9 +2889,9 @@ export class DeactiveFlowLogResponseBody extends $tea.Model {
 }
 
 export class DeactiveFlowLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeactiveFlowLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeactiveFlowLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2964,9 +2964,9 @@ export class DeleteCenResponseBody extends $tea.Model {
 }
 
 export class DeleteCenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3039,9 +3039,9 @@ export class DeleteCenBandwidthPackageResponseBody extends $tea.Model {
 }
 
 export class DeleteCenBandwidthPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCenBandwidthPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCenBandwidthPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3129,9 +3129,9 @@ export class DeleteCenChildInstanceRouteEntryToAttachmentResponseBody extends $t
 }
 
 export class DeleteCenChildInstanceRouteEntryToAttachmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCenChildInstanceRouteEntryToAttachmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCenChildInstanceRouteEntryToAttachmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3222,9 +3222,9 @@ export class DeleteCenChildInstanceRouteEntryToCenResponseBody extends $tea.Mode
 }
 
 export class DeleteCenChildInstanceRouteEntryToCenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCenChildInstanceRouteEntryToCenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCenChildInstanceRouteEntryToCenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3303,9 +3303,9 @@ export class DeleteCenInterRegionTrafficQosPolicyResponseBody extends $tea.Model
 }
 
 export class DeleteCenInterRegionTrafficQosPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCenInterRegionTrafficQosPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCenInterRegionTrafficQosPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3384,9 +3384,9 @@ export class DeleteCenInterRegionTrafficQosQueueResponseBody extends $tea.Model 
 }
 
 export class DeleteCenInterRegionTrafficQosQueueResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCenInterRegionTrafficQosQueueResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCenInterRegionTrafficQosQueueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3465,9 +3465,9 @@ export class DeleteCenRouteMapResponseBody extends $tea.Model {
 }
 
 export class DeleteCenRouteMapResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCenRouteMapResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCenRouteMapResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3552,9 +3552,9 @@ export class DeleteFlowlogResponseBody extends $tea.Model {
 }
 
 export class DeleteFlowlogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFlowlogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFlowlogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3639,9 +3639,9 @@ export class DeleteRouteServiceInCenResponseBody extends $tea.Model {
 }
 
 export class DeleteRouteServiceInCenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRouteServiceInCenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRouteServiceInCenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3720,9 +3720,9 @@ export class DeleteTrafficMarkingPolicyResponseBody extends $tea.Model {
 }
 
 export class DeleteTrafficMarkingPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTrafficMarkingPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTrafficMarkingPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3804,9 +3804,9 @@ export class DeleteTransitRouteTableAggregationResponseBody extends $tea.Model {
 }
 
 export class DeleteTransitRouteTableAggregationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTransitRouteTableAggregationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTransitRouteTableAggregationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3885,9 +3885,9 @@ export class DeleteTransitRouterResponseBody extends $tea.Model {
 }
 
 export class DeleteTransitRouterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTransitRouterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTransitRouterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3972,9 +3972,9 @@ export class DeleteTransitRouterCidrResponseBody extends $tea.Model {
 }
 
 export class DeleteTransitRouterCidrResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTransitRouterCidrResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTransitRouterCidrResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4053,9 +4053,9 @@ export class DeleteTransitRouterMulticastDomainResponseBody extends $tea.Model {
 }
 
 export class DeleteTransitRouterMulticastDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTransitRouterMulticastDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTransitRouterMulticastDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4137,9 +4137,9 @@ export class DeleteTransitRouterPeerAttachmentResponseBody extends $tea.Model {
 }
 
 export class DeleteTransitRouterPeerAttachmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTransitRouterPeerAttachmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTransitRouterPeerAttachmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4233,9 +4233,9 @@ export class DeleteTransitRouterPrefixListAssociationResponseBody extends $tea.M
 }
 
 export class DeleteTransitRouterPrefixListAssociationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTransitRouterPrefixListAssociationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTransitRouterPrefixListAssociationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4326,9 +4326,9 @@ export class DeleteTransitRouterRouteEntryResponseBody extends $tea.Model {
 }
 
 export class DeleteTransitRouterRouteEntryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTransitRouterRouteEntryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTransitRouterRouteEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4407,9 +4407,9 @@ export class DeleteTransitRouterRouteTableResponseBody extends $tea.Model {
 }
 
 export class DeleteTransitRouterRouteTableResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTransitRouterRouteTableResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTransitRouterRouteTableResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4491,9 +4491,9 @@ export class DeleteTransitRouterVbrAttachmentResponseBody extends $tea.Model {
 }
 
 export class DeleteTransitRouterVbrAttachmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTransitRouterVbrAttachmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTransitRouterVbrAttachmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4575,9 +4575,9 @@ export class DeleteTransitRouterVpcAttachmentResponseBody extends $tea.Model {
 }
 
 export class DeleteTransitRouterVpcAttachmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTransitRouterVpcAttachmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTransitRouterVpcAttachmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4659,9 +4659,9 @@ export class DeleteTransitRouterVpnAttachmentResponseBody extends $tea.Model {
 }
 
 export class DeleteTransitRouterVpnAttachmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTransitRouterVpnAttachmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTransitRouterVpnAttachmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4749,9 +4749,9 @@ export class DeregisterTransitRouterMulticastGroupMembersResponseBody extends $t
 }
 
 export class DeregisterTransitRouterMulticastGroupMembersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeregisterTransitRouterMulticastGroupMembersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeregisterTransitRouterMulticastGroupMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4836,9 +4836,9 @@ export class DeregisterTransitRouterMulticastGroupSourcesResponseBody extends $t
 }
 
 export class DeregisterTransitRouterMulticastGroupSourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeregisterTransitRouterMulticastGroupSourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeregisterTransitRouterMulticastGroupSourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4947,9 +4947,9 @@ export class DescribeCenAttachedChildInstanceAttributeResponseBody extends $tea.
 }
 
 export class DescribeCenAttachedChildInstanceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCenAttachedChildInstanceAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCenAttachedChildInstanceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5046,9 +5046,9 @@ export class DescribeCenAttachedChildInstancesResponseBody extends $tea.Model {
 }
 
 export class DescribeCenAttachedChildInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCenAttachedChildInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCenAttachedChildInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5151,9 +5151,9 @@ export class DescribeCenBandwidthPackagesResponseBody extends $tea.Model {
 }
 
 export class DescribeCenBandwidthPackagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCenBandwidthPackagesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCenBandwidthPackagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5259,9 +5259,9 @@ export class DescribeCenChildInstanceRouteEntriesResponseBody extends $tea.Model
 }
 
 export class DescribeCenChildInstanceRouteEntriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCenChildInstanceRouteEntriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCenChildInstanceRouteEntriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5349,9 +5349,9 @@ export class DescribeCenGeographicSpanRemainingBandwidthResponseBody extends $te
 }
 
 export class DescribeCenGeographicSpanRemainingBandwidthResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCenGeographicSpanRemainingBandwidthResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCenGeographicSpanRemainingBandwidthResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5442,9 +5442,9 @@ export class DescribeCenGeographicSpansResponseBody extends $tea.Model {
 }
 
 export class DescribeCenGeographicSpansResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCenGeographicSpansResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCenGeographicSpansResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5538,9 +5538,9 @@ export class DescribeCenInterRegionBandwidthLimitsResponseBody extends $tea.Mode
 }
 
 export class DescribeCenInterRegionBandwidthLimitsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCenInterRegionBandwidthLimitsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCenInterRegionBandwidthLimitsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5637,9 +5637,9 @@ export class DescribeCenPrivateZoneRoutesResponseBody extends $tea.Model {
 }
 
 export class DescribeCenPrivateZoneRoutesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCenPrivateZoneRoutesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCenPrivateZoneRoutesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5736,9 +5736,9 @@ export class DescribeCenRegionDomainRouteEntriesResponseBody extends $tea.Model 
 }
 
 export class DescribeCenRegionDomainRouteEntriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCenRegionDomainRouteEntriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCenRegionDomainRouteEntriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5841,9 +5841,9 @@ export class DescribeCenRouteMapsResponseBody extends $tea.Model {
 }
 
 export class DescribeCenRouteMapsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCenRouteMapsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCenRouteMapsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5943,9 +5943,9 @@ export class DescribeCenVbrHealthCheckResponseBody extends $tea.Model {
 }
 
 export class DescribeCenVbrHealthCheckResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCenVbrHealthCheckResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCenVbrHealthCheckResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6042,9 +6042,9 @@ export class DescribeCensResponseBody extends $tea.Model {
 }
 
 export class DescribeCensResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCensResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCensResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6123,9 +6123,9 @@ export class DescribeChildInstanceRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeChildInstanceRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeChildInstanceRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeChildInstanceRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6249,9 +6249,9 @@ export class DescribeFlowlogsResponseBody extends $tea.Model {
 }
 
 export class DescribeFlowlogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFlowlogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFlowlogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6342,9 +6342,9 @@ export class DescribeGeographicRegionMembershipResponseBody extends $tea.Model {
 }
 
 export class DescribeGeographicRegionMembershipResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeGeographicRegionMembershipResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeGeographicRegionMembershipResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6447,9 +6447,9 @@ export class DescribeGrantRulesToCenResponseBody extends $tea.Model {
 }
 
 export class DescribeGrantRulesToCenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeGrantRulesToCenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeGrantRulesToCenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6546,9 +6546,9 @@ export class DescribeGrantRulesToResourceResponseBody extends $tea.Model {
 }
 
 export class DescribeGrantRulesToResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeGrantRulesToResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeGrantRulesToResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6648,9 +6648,9 @@ export class DescribePublishedRouteEntriesResponseBody extends $tea.Model {
 }
 
 export class DescribePublishedRouteEntriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePublishedRouteEntriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePublishedRouteEntriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6753,9 +6753,9 @@ export class DescribeRouteConflictResponseBody extends $tea.Model {
 }
 
 export class DescribeRouteConflictResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRouteConflictResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRouteConflictResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6858,9 +6858,9 @@ export class DescribeRouteServicesInCenResponseBody extends $tea.Model {
 }
 
 export class DescribeRouteServicesInCenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRouteServicesInCenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRouteServicesInCenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6957,9 +6957,9 @@ export class DescribeTransitRouteTableAggregationResponseBody extends $tea.Model
 }
 
 export class DescribeTransitRouteTableAggregationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTransitRouteTableAggregationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTransitRouteTableAggregationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7047,9 +7047,9 @@ export class DescribeTransitRouteTableAggregationDetailResponseBody extends $tea
 }
 
 export class DescribeTransitRouteTableAggregationDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTransitRouteTableAggregationDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTransitRouteTableAggregationDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7137,9 +7137,9 @@ export class DetachCenChildInstanceResponseBody extends $tea.Model {
 }
 
 export class DetachCenChildInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachCenChildInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachCenChildInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7221,9 +7221,9 @@ export class DisableCenVbrHealthCheckResponseBody extends $tea.Model {
 }
 
 export class DisableCenVbrHealthCheckResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableCenVbrHealthCheckResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableCenVbrHealthCheckResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7305,9 +7305,9 @@ export class DisableTransitRouterRouteTablePropagationResponseBody extends $tea.
 }
 
 export class DisableTransitRouterRouteTablePropagationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableTransitRouterRouteTablePropagationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableTransitRouterRouteTablePropagationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7392,9 +7392,9 @@ export class DisassociateTransitRouterMulticastDomainResponseBody extends $tea.M
 }
 
 export class DisassociateTransitRouterMulticastDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisassociateTransitRouterMulticastDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisassociateTransitRouterMulticastDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7476,9 +7476,9 @@ export class DissociateTransitRouterAttachmentFromRouteTableResponseBody extends
 }
 
 export class DissociateTransitRouterAttachmentFromRouteTableResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DissociateTransitRouterAttachmentFromRouteTableResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DissociateTransitRouterAttachmentFromRouteTableResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7578,9 +7578,9 @@ export class EnableCenVbrHealthCheckResponseBody extends $tea.Model {
 }
 
 export class EnableCenVbrHealthCheckResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableCenVbrHealthCheckResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableCenVbrHealthCheckResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7662,9 +7662,9 @@ export class EnableTransitRouterRouteTablePropagationResponseBody extends $tea.M
 }
 
 export class EnableTransitRouterRouteTablePropagationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableTransitRouterRouteTablePropagationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableTransitRouterRouteTablePropagationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7752,9 +7752,9 @@ export class GrantInstanceToTransitRouterResponseBody extends $tea.Model {
 }
 
 export class GrantInstanceToTransitRouterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GrantInstanceToTransitRouterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GrantInstanceToTransitRouterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7851,9 +7851,9 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBody extends $t
 }
 
 export class ListCenChildInstanceRouteEntriesToAttachmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCenChildInstanceRouteEntriesToAttachmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCenChildInstanceRouteEntriesToAttachmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7956,9 +7956,9 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBody extends $tea.Model
 }
 
 export class ListCenInterRegionTrafficQosPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCenInterRegionTrafficQosPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCenInterRegionTrafficQosPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8058,9 +8058,9 @@ export class ListCenInterRegionTrafficQosQueuesResponseBody extends $tea.Model {
 }
 
 export class ListCenInterRegionTrafficQosQueuesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCenInterRegionTrafficQosQueuesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCenInterRegionTrafficQosQueuesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8166,9 +8166,9 @@ export class ListGrantVSwitchEnisResponseBody extends $tea.Model {
 }
 
 export class ListGrantVSwitchEnisResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListGrantVSwitchEnisResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGrantVSwitchEnisResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8268,9 +8268,9 @@ export class ListGrantVSwitchesToCenResponseBody extends $tea.Model {
 }
 
 export class ListGrantVSwitchesToCenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListGrantVSwitchesToCenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGrantVSwitchesToCenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8364,9 +8364,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8466,9 +8466,9 @@ export class ListTrafficMarkingPoliciesResponseBody extends $tea.Model {
 }
 
 export class ListTrafficMarkingPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTrafficMarkingPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTrafficMarkingPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8556,9 +8556,9 @@ export class ListTransitRouterAvailableResourceResponseBody extends $tea.Model {
 }
 
 export class ListTransitRouterAvailableResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterAvailableResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterAvailableResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8646,9 +8646,9 @@ export class ListTransitRouterCidrResponseBody extends $tea.Model {
 }
 
 export class ListTransitRouterCidrResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterCidrResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterCidrResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8766,9 +8766,9 @@ export class ListTransitRouterCidrAllocationResponseBody extends $tea.Model {
 }
 
 export class ListTransitRouterCidrAllocationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterCidrAllocationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterCidrAllocationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8874,9 +8874,9 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBody extends $t
 }
 
 export class ListTransitRouterMulticastDomainAssociationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterMulticastDomainAssociationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterMulticastDomainAssociationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8973,9 +8973,9 @@ export class ListTransitRouterMulticastDomainVSwitchesResponseBody extends $tea.
 }
 
 export class ListTransitRouterMulticastDomainVSwitchesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterMulticastDomainVSwitchesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterMulticastDomainVSwitchesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9081,9 +9081,9 @@ export class ListTransitRouterMulticastDomainsResponseBody extends $tea.Model {
 }
 
 export class ListTransitRouterMulticastDomainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterMulticastDomainsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterMulticastDomainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9204,9 +9204,9 @@ export class ListTransitRouterMulticastGroupsResponseBody extends $tea.Model {
 }
 
 export class ListTransitRouterMulticastGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterMulticastGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterMulticastGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9309,9 +9309,9 @@ export class ListTransitRouterPeerAttachmentsResponseBody extends $tea.Model {
 }
 
 export class ListTransitRouterPeerAttachmentsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterPeerAttachmentsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterPeerAttachmentsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9426,9 +9426,9 @@ export class ListTransitRouterPrefixListAssociationResponseBody extends $tea.Mod
 }
 
 export class ListTransitRouterPrefixListAssociationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterPrefixListAssociationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterPrefixListAssociationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9558,9 +9558,9 @@ export class ListTransitRouterRouteEntriesResponseBody extends $tea.Model {
 }
 
 export class ListTransitRouterRouteEntriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterRouteEntriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterRouteEntriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9663,9 +9663,9 @@ export class ListTransitRouterRouteTableAssociationsResponseBody extends $tea.Mo
 }
 
 export class ListTransitRouterRouteTableAssociationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterRouteTableAssociationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterRouteTableAssociationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9768,9 +9768,9 @@ export class ListTransitRouterRouteTablePropagationsResponseBody extends $tea.Mo
 }
 
 export class ListTransitRouterRouteTablePropagationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterRouteTablePropagationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterRouteTablePropagationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9879,9 +9879,9 @@ export class ListTransitRouterRouteTablesResponseBody extends $tea.Model {
 }
 
 export class ListTransitRouterRouteTablesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterRouteTablesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterRouteTablesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9984,9 +9984,9 @@ export class ListTransitRouterVbrAttachmentsResponseBody extends $tea.Model {
 }
 
 export class ListTransitRouterVbrAttachmentsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterVbrAttachmentsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterVbrAttachmentsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10098,9 +10098,9 @@ export class ListTransitRouterVpcAttachmentsResponseBody extends $tea.Model {
 }
 
 export class ListTransitRouterVpcAttachmentsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterVpcAttachmentsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterVpcAttachmentsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10203,9 +10203,9 @@ export class ListTransitRouterVpnAttachmentsResponseBody extends $tea.Model {
 }
 
 export class ListTransitRouterVpnAttachmentsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRouterVpnAttachmentsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRouterVpnAttachmentsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10317,9 +10317,9 @@ export class ListTransitRoutersResponseBody extends $tea.Model {
 }
 
 export class ListTransitRoutersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTransitRoutersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTransitRoutersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10401,9 +10401,9 @@ export class ModifyCenAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyCenAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyCenAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCenAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10482,9 +10482,9 @@ export class ModifyCenBandwidthPackageAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyCenBandwidthPackageAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyCenBandwidthPackageAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCenBandwidthPackageAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10560,9 +10560,9 @@ export class ModifyCenBandwidthPackageSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyCenBandwidthPackageSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyCenBandwidthPackageSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCenBandwidthPackageSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10716,9 +10716,9 @@ export class ModifyCenRouteMapResponseBody extends $tea.Model {
 }
 
 export class ModifyCenRouteMapResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyCenRouteMapResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCenRouteMapResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10809,9 +10809,9 @@ export class ModifyFlowLogAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyFlowLogAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyFlowLogAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyFlowLogAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10908,9 +10908,9 @@ export class ModifyTransitRouterCidrResponseBody extends $tea.Model {
 }
 
 export class ModifyTransitRouterCidrResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyTransitRouterCidrResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTransitRouterCidrResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10995,9 +10995,9 @@ export class ModifyTransitRouterMulticastDomainResponseBody extends $tea.Model {
 }
 
 export class ModifyTransitRouterMulticastDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyTransitRouterMulticastDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTransitRouterMulticastDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11082,9 +11082,9 @@ export class MoveResourceGroupResponseBody extends $tea.Model {
 }
 
 export class MoveResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MoveResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MoveResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11160,9 +11160,9 @@ export class OpenTransitRouterServiceResponseBody extends $tea.Model {
 }
 
 export class OpenTransitRouterServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OpenTransitRouterServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OpenTransitRouterServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11244,9 +11244,9 @@ export class PublishRouteEntriesResponseBody extends $tea.Model {
 }
 
 export class PublishRouteEntriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PublishRouteEntriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PublishRouteEntriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11325,9 +11325,9 @@ export class RefreshTransitRouteTableAggregationResponseBody extends $tea.Model 
 }
 
 export class RefreshTransitRouteTableAggregationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefreshTransitRouteTableAggregationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefreshTransitRouteTableAggregationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11418,9 +11418,9 @@ export class RegisterTransitRouterMulticastGroupMembersResponseBody extends $tea
 }
 
 export class RegisterTransitRouterMulticastGroupMembersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RegisterTransitRouterMulticastGroupMembersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RegisterTransitRouterMulticastGroupMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11508,9 +11508,9 @@ export class RegisterTransitRouterMulticastGroupSourcesResponseBody extends $tea
 }
 
 export class RegisterTransitRouterMulticastGroupSourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RegisterTransitRouterMulticastGroupSourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RegisterTransitRouterMulticastGroupSourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11592,9 +11592,9 @@ export class RemoveTrafficMatchRuleFromTrafficMarkingPolicyResponseBody extends 
 }
 
 export class RemoveTrafficMatchRuleFromTrafficMarkingPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveTrafficMatchRuleFromTrafficMarkingPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveTrafficMatchRuleFromTrafficMarkingPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11676,9 +11676,9 @@ export class RemoveTraficMatchRuleFromTrafficMarkingPolicyResponseBody extends $
 }
 
 export class RemoveTraficMatchRuleFromTrafficMarkingPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveTraficMatchRuleFromTrafficMarkingPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveTraficMatchRuleFromTrafficMarkingPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11760,9 +11760,9 @@ export class ReplaceTransitRouterRouteTableAssociationResponseBody extends $tea.
 }
 
 export class ReplaceTransitRouterRouteTableAssociationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReplaceTransitRouterRouteTableAssociationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReplaceTransitRouterRouteTableAssociationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11853,9 +11853,9 @@ export class ResolveAndRouteServiceInCenResponseBody extends $tea.Model {
 }
 
 export class ResolveAndRouteServiceInCenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResolveAndRouteServiceInCenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResolveAndRouteServiceInCenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11940,9 +11940,9 @@ export class RevokeInstanceFromTransitRouterResponseBody extends $tea.Model {
 }
 
 export class RevokeInstanceFromTransitRouterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RevokeInstanceFromTransitRouterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RevokeInstanceFromTransitRouterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12024,9 +12024,9 @@ export class RoutePrivateZoneInCenToVpcResponseBody extends $tea.Model {
 }
 
 export class RoutePrivateZoneInCenToVpcResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RoutePrivateZoneInCenToVpcResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RoutePrivateZoneInCenToVpcResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12108,9 +12108,9 @@ export class SetCenInterRegionBandwidthLimitResponseBody extends $tea.Model {
 }
 
 export class SetCenInterRegionBandwidthLimitResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetCenInterRegionBandwidthLimitResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetCenInterRegionBandwidthLimitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12192,9 +12192,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12273,9 +12273,9 @@ export class TempUpgradeCenBandwidthPackageSpecResponseBody extends $tea.Model {
 }
 
 export class TempUpgradeCenBandwidthPackageSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TempUpgradeCenBandwidthPackageSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TempUpgradeCenBandwidthPackageSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12351,9 +12351,9 @@ export class UnassociateCenBandwidthPackageResponseBody extends $tea.Model {
 }
 
 export class UnassociateCenBandwidthPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnassociateCenBandwidthPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnassociateCenBandwidthPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12429,9 +12429,9 @@ export class UnroutePrivateZoneInCenToVpcResponseBody extends $tea.Model {
 }
 
 export class UnroutePrivateZoneInCenToVpcResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnroutePrivateZoneInCenToVpcResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnroutePrivateZoneInCenToVpcResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12516,9 +12516,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12603,9 +12603,9 @@ export class UpdateCenInterRegionTrafficQosPolicyAttributeResponseBody extends $
 }
 
 export class UpdateCenInterRegionTrafficQosPolicyAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateCenInterRegionTrafficQosPolicyAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCenInterRegionTrafficQosPolicyAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12696,9 +12696,9 @@ export class UpdateCenInterRegionTrafficQosQueueAttributeResponseBody extends $t
 }
 
 export class UpdateCenInterRegionTrafficQosQueueAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateCenInterRegionTrafficQosQueueAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCenInterRegionTrafficQosQueueAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12789,9 +12789,9 @@ export class UpdateTrafficMarkingPolicyAttributeResponseBody extends $tea.Model 
 }
 
 export class UpdateTrafficMarkingPolicyAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTrafficMarkingPolicyAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTrafficMarkingPolicyAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12879,9 +12879,9 @@ export class UpdateTransitRouterResponseBody extends $tea.Model {
 }
 
 export class UpdateTransitRouterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTransitRouterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTransitRouterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12981,9 +12981,9 @@ export class UpdateTransitRouterPeerAttachmentAttributeResponseBody extends $tea
 }
 
 export class UpdateTransitRouterPeerAttachmentAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTransitRouterPeerAttachmentAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTransitRouterPeerAttachmentAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13068,9 +13068,9 @@ export class UpdateTransitRouterRouteEntryResponseBody extends $tea.Model {
 }
 
 export class UpdateTransitRouterRouteEntryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTransitRouterRouteEntryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTransitRouterRouteEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13158,9 +13158,9 @@ export class UpdateTransitRouterRouteTableResponseBody extends $tea.Model {
 }
 
 export class UpdateTransitRouterRouteTableResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTransitRouterRouteTableResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTransitRouterRouteTableResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13248,9 +13248,9 @@ export class UpdateTransitRouterVbrAttachmentAttributeResponseBody extends $tea.
 }
 
 export class UpdateTransitRouterVbrAttachmentAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTransitRouterVbrAttachmentAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTransitRouterVbrAttachmentAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13338,9 +13338,9 @@ export class UpdateTransitRouterVpcAttachmentAttributeResponseBody extends $tea.
 }
 
 export class UpdateTransitRouterVpcAttachmentAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTransitRouterVpcAttachmentAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTransitRouterVpcAttachmentAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13425,9 +13425,9 @@ export class UpdateTransitRouterVpcAttachmentZonesResponseBody extends $tea.Mode
 }
 
 export class UpdateTransitRouterVpcAttachmentZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTransitRouterVpcAttachmentZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTransitRouterVpcAttachmentZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13515,9 +13515,9 @@ export class UpdateTransitRouterVpnAttachmentAttributeResponseBody extends $tea.
 }
 
 export class UpdateTransitRouterVpnAttachmentAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTransitRouterVpnAttachmentAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTransitRouterVpnAttachmentAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13599,9 +13599,9 @@ export class WithdrawPublishedRouteEntriesResponseBody extends $tea.Model {
 }
 
 export class WithdrawPublishedRouteEntriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: WithdrawPublishedRouteEntriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WithdrawPublishedRouteEntriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19821,7 +19821,6 @@ export default class Client extends OpenApi {
 
   /**
     * Before you call this operation, read the following rules:
-    * *   Only Enterprise Edition transit routers in the Australia (Sydney) and UK (London) regions support the multicast feature. Multicast is unavailable by default. If you want to enable multicast, contact your sales manager or [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to apply for multicast resources.
     * *   Make sure that an Enterprise Edition transit router is deployed in the region where you want to create the multicast domain, and the multicast feature is enabled for the Enterprise Edition transit router. For more information, see [CreateTransitRouter](~~261169~~).
     *     If an Enterprise Edition transit router was created before you apply for multicast resources, the transit router does not support multicast. You can delete the transit router and create a new one. For more information about how to delete an Enterprise Edition transit router, see [DeleteTransitRouter](~~261218~~).
     * *   When you call **CreateTransitRouterMulticastDomain**, if you set **CenId** and **RegionId**, you do not need to set **TransitRouterId**. If you set **TransitRouterId**, you do not need to set **CenId** or **RegionId**.
@@ -19900,7 +19899,6 @@ export default class Client extends OpenApi {
 
   /**
     * Before you call this operation, read the following rules:
-    * *   Only Enterprise Edition transit routers in the Australia (Sydney) and UK (London) regions support the multicast feature. Multicast is unavailable by default. If you want to enable multicast, contact your sales manager or [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to apply for multicast resources.
     * *   Make sure that an Enterprise Edition transit router is deployed in the region where you want to create the multicast domain, and the multicast feature is enabled for the Enterprise Edition transit router. For more information, see [CreateTransitRouter](~~261169~~).
     *     If an Enterprise Edition transit router was created before you apply for multicast resources, the transit router does not support multicast. You can delete the transit router and create a new one. For more information about how to delete an Enterprise Edition transit router, see [DeleteTransitRouter](~~261218~~).
     * *   When you call **CreateTransitRouterMulticastDomain**, if you set **CenId** and **RegionId**, you do not need to set **TransitRouterId**. If you set **TransitRouterId**, you do not need to set **CenId** or **RegionId**.
@@ -19914,8 +19912,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must purchase a bandwidth plan before you can create an inter-region connection. For more information, see [CreateCenBandwidthPackage](~~468263~~).
-    * **CreateTransitRouterPeerAttachment** is an asynchronous operation. After you send a request, the system returns an inter-region connection ID and runs the task in the background. You can call the **ListTransitRouterPeerAttachments** operation to query the status of an inter-region connection.
+    * By default, 1 Kbit/s of bandwidth is provided for inter-region communication between transit routers. This allows you to test the connectivity of inter-region IPv4 networks. To allow services that are deployed in different regions to communicate with each other, you must create an inter-region connection and allocate bandwidth resources to the connection.
+    * Enterprise Edition transit routers allow you to allocate bandwidth resources to inter-region connections by using the following methods:
+    * *   **Allocate bandwidth resources from a bandwidth plan**:
+    * You must purchase a bandwidth plan, and then allocate bandwidth resources from the bandwidth plan to inter-region connections. For more information, see [CreateCenBandwidthPackage](~~65919~~).
+    * *   **Use pay-by-data-transfer bandwidth resources**:
+    * You can set a maximum bandwidth value for an inter-region connection. Then, you are charged for the amount of data transfer over the connection. For more information, see [Inter-region data transfer](~~337827~~).
+    * **CreateTransitRouterPeerAttachment** is an asynchronous operation. After you a request is set, the system returns an inter-region connection ID and runs the task in the background. You can call the **ListTransitRouterPeerAttachments** operation to query the status of an inter-region connection.
     * *   If an inter-region connection is in the **Attaching** state, the inter-region connection is being created. You can query the inter-region connection but cannot perform other regions.
     * *   If an inter-region connection is in the **Attached** state, the inter-region connection is created.
     *
@@ -20020,8 +20023,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must purchase a bandwidth plan before you can create an inter-region connection. For more information, see [CreateCenBandwidthPackage](~~468263~~).
-    * **CreateTransitRouterPeerAttachment** is an asynchronous operation. After you send a request, the system returns an inter-region connection ID and runs the task in the background. You can call the **ListTransitRouterPeerAttachments** operation to query the status of an inter-region connection.
+    * By default, 1 Kbit/s of bandwidth is provided for inter-region communication between transit routers. This allows you to test the connectivity of inter-region IPv4 networks. To allow services that are deployed in different regions to communicate with each other, you must create an inter-region connection and allocate bandwidth resources to the connection.
+    * Enterprise Edition transit routers allow you to allocate bandwidth resources to inter-region connections by using the following methods:
+    * *   **Allocate bandwidth resources from a bandwidth plan**:
+    * You must purchase a bandwidth plan, and then allocate bandwidth resources from the bandwidth plan to inter-region connections. For more information, see [CreateCenBandwidthPackage](~~65919~~).
+    * *   **Use pay-by-data-transfer bandwidth resources**:
+    * You can set a maximum bandwidth value for an inter-region connection. Then, you are charged for the amount of data transfer over the connection. For more information, see [Inter-region data transfer](~~337827~~).
+    * **CreateTransitRouterPeerAttachment** is an asynchronous operation. After you a request is set, the system returns an inter-region connection ID and runs the task in the background. You can call the **ListTransitRouterPeerAttachments** operation to query the status of an inter-region connection.
     * *   If an inter-region connection is in the **Attaching** state, the inter-region connection is being created. You can query the inter-region connection but cannot perform other regions.
     * *   If an inter-region connection is in the **Attached** state, the inter-region connection is created.
     *
@@ -21321,9 +21329,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteRouteServiceInCen** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **DescribeRouteServicesInCen** operation to query the status of the connection to a cloud service.
-    * - If a cloud service is in the **Deleting** state, the configuration of the cloud service is being deleted. You can query the configuration but cannot perform other operations. 
-    * - If no configuration of a cloud service can be found, the configuration of the cloud service is deleted.
+    * **DeleteRouteServiceInCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. If the request parameters are invalid, the system returns a request ID, but the cloud service configuration is not deleted. You can call **DescribeRouteServicesInCen** to query the status of the task.
+    * *   If a cloud service is in the **Deleting** state, the cloud service configuration is being deleted. In this case, you can only query the cloud service configuration and cannot perform other operations.
+    * *   If the specified cloud service configuration cannot be found, the cloud service configuration is deleted.
     *
     * @param request DeleteRouteServiceInCenRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21386,9 +21394,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteRouteServiceInCen** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **DescribeRouteServicesInCen** operation to query the status of the connection to a cloud service.
-    * - If a cloud service is in the **Deleting** state, the configuration of the cloud service is being deleted. You can query the configuration but cannot perform other operations. 
-    * - If no configuration of a cloud service can be found, the configuration of the cloud service is deleted.
+    * **DeleteRouteServiceInCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. If the request parameters are invalid, the system returns a request ID, but the cloud service configuration is not deleted. You can call **DescribeRouteServicesInCen** to query the status of the task.
+    * *   If a cloud service is in the **Deleting** state, the cloud service configuration is being deleted. In this case, you can only query the cloud service configuration and cannot perform other operations.
+    * *   If the specified cloud service configuration cannot be found, the cloud service configuration is deleted.
     *
     * @param request DeleteRouteServiceInCenRequest
     * @return DeleteRouteServiceInCenResponse
@@ -27828,17 +27836,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Cloud services refer to the Alibaba Cloud services that use the 100.64.0.0/10 CIDR block to provide services. These cloud services include Object Storage Service (OSS), Log Service, and Data Transmission Service (DTS). If your on-premises network needs to access a cloud service, you must attach the virtual border router (VBR) or Cloud Connect Network (CCN) instance that is connected to your on-premises network to a Cloud Enterprise Network (CEN) instance. In addition, you must attach a virtual private cloud (VPC) that is deployed in the same region as the cloud service to the CEN instance. This way, your on-premises network can connect to the VPC that is deployed in the same region as the cloud service and access the cloud service through the VPC.
-    * *   An on-premises network associated with a VBR can use CEN to access only a cloud service that is deployed in the same region.
+    * Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block to provide services. These cloud services include Object Storage Service (OSS), Simple Log Service, and Data Transmission Service (DTS). If your on-premises network needs to access a cloud service, you must attach the virtual border router (VBR) or Cloud Connect Network (CCN) instance that is connected to your on-premises network to a Cloud Enterprise Network (CEN) instance. In addition, you must attach a virtual private cloud (VPC) that is deployed in the same region as the cloud service to the CEN instance. This way, your on-premises network can connect to the VPC that is deployed in the same region as the cloud service and access the cloud service through the VPC.
+    * *   You can call this operation only for a Basic Edition transit router. An on-premises network associated with a VBR can use CEN to access only a cloud service that is deployed in the same region.
     *     For example, if cloud services are deployed in the China (Beijing) region, only on-premises networks connected to VBRs in the China (Beijing) region can access the cloud services.
-    * *   **ResolveAndRouteServiceInCen** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **DescribeRouteServicesInCen** operation to query the status of a cloud service.
+    * *   **ResolveAndRouteServiceInCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call **DescribeRouteServicesInCen** to query the status of a cloud service.
     *     *   If a cloud service is in the **Creating** state, the connection to the cloud service is being created. In this case, you can query the cloud service but cannot perform other operations.
     *     *   If a cloud service is in the **Active** state, the connection to the cloud service is created.
     *     *   If a cloud service is in the **Failed** state, the connection to the cloud service failed.
-    * # Prerequisites
+    * # [](#)Prerequisites
     * Before you call this operation, make sure that the following conditions are met:
     * *   The VBR or CCN instance to which your on-premises network is connected is attached to a CEN instance.
-    * *   A VPC that is deployed in the same region as the cloud service is also attached to the CEN instance. For more information, see [AttachCenChildInstance](~~65902~~).
+    * *   A VPC that is deployed in the same region as the cloud service is attached to the CEN instance. For more information, see [AttachCenChildInstance](~~65902~~).
     *
     * @param request ResolveAndRouteServiceInCenRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27909,17 +27917,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Cloud services refer to the Alibaba Cloud services that use the 100.64.0.0/10 CIDR block to provide services. These cloud services include Object Storage Service (OSS), Log Service, and Data Transmission Service (DTS). If your on-premises network needs to access a cloud service, you must attach the virtual border router (VBR) or Cloud Connect Network (CCN) instance that is connected to your on-premises network to a Cloud Enterprise Network (CEN) instance. In addition, you must attach a virtual private cloud (VPC) that is deployed in the same region as the cloud service to the CEN instance. This way, your on-premises network can connect to the VPC that is deployed in the same region as the cloud service and access the cloud service through the VPC.
-    * *   An on-premises network associated with a VBR can use CEN to access only a cloud service that is deployed in the same region.
+    * Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block to provide services. These cloud services include Object Storage Service (OSS), Simple Log Service, and Data Transmission Service (DTS). If your on-premises network needs to access a cloud service, you must attach the virtual border router (VBR) or Cloud Connect Network (CCN) instance that is connected to your on-premises network to a Cloud Enterprise Network (CEN) instance. In addition, you must attach a virtual private cloud (VPC) that is deployed in the same region as the cloud service to the CEN instance. This way, your on-premises network can connect to the VPC that is deployed in the same region as the cloud service and access the cloud service through the VPC.
+    * *   You can call this operation only for a Basic Edition transit router. An on-premises network associated with a VBR can use CEN to access only a cloud service that is deployed in the same region.
     *     For example, if cloud services are deployed in the China (Beijing) region, only on-premises networks connected to VBRs in the China (Beijing) region can access the cloud services.
-    * *   **ResolveAndRouteServiceInCen** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **DescribeRouteServicesInCen** operation to query the status of a cloud service.
+    * *   **ResolveAndRouteServiceInCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call **DescribeRouteServicesInCen** to query the status of a cloud service.
     *     *   If a cloud service is in the **Creating** state, the connection to the cloud service is being created. In this case, you can query the cloud service but cannot perform other operations.
     *     *   If a cloud service is in the **Active** state, the connection to the cloud service is created.
     *     *   If a cloud service is in the **Failed** state, the connection to the cloud service failed.
-    * # Prerequisites
+    * # [](#)Prerequisites
     * Before you call this operation, make sure that the following conditions are met:
     * *   The VBR or CCN instance to which your on-premises network is connected is attached to a CEN instance.
-    * *   A VPC that is deployed in the same region as the cloud service is also attached to the CEN instance. For more information, see [AttachCenChildInstance](~~65902~~).
+    * *   A VPC that is deployed in the same region as the cloud service is attached to the CEN instance. For more information, see [AttachCenChildInstance](~~65902~~).
     *
     * @param request ResolveAndRouteServiceInCenRequest
     * @return ResolveAndRouteServiceInCenResponse
