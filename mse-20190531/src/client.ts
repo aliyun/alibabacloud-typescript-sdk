@@ -793,6 +793,223 @@ export class AddGatewayResponse extends $tea.Model {
   }
 }
 
+export class AddGatewayAuthRequest extends $tea.Model {
+  acceptLanguage?: string;
+  authResourceList?: AddGatewayAuthRequestAuthResourceList[];
+  clientId?: string;
+  clientSecret?: string;
+  cookieDomain?: string;
+  externalAuthZJSON?: AddGatewayAuthRequestExternalAuthZJSON;
+  gatewayUniqueId?: string;
+  isWhite?: boolean;
+  issuer?: string;
+  jwks?: string;
+  loginUrl?: string;
+  name?: string;
+  redirectUrl?: string;
+  scopesList?: string[];
+  status?: boolean;
+  sub?: string;
+  tokenName?: string;
+  tokenNamePrefix?: string;
+  tokenPass?: boolean;
+  tokenPosition?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      authResourceList: 'AuthResourceList',
+      clientId: 'ClientId',
+      clientSecret: 'ClientSecret',
+      cookieDomain: 'CookieDomain',
+      externalAuthZJSON: 'ExternalAuthZJSON',
+      gatewayUniqueId: 'GatewayUniqueId',
+      isWhite: 'IsWhite',
+      issuer: 'Issuer',
+      jwks: 'Jwks',
+      loginUrl: 'LoginUrl',
+      name: 'Name',
+      redirectUrl: 'RedirectUrl',
+      scopesList: 'ScopesList',
+      status: 'Status',
+      sub: 'Sub',
+      tokenName: 'TokenName',
+      tokenNamePrefix: 'TokenNamePrefix',
+      tokenPass: 'TokenPass',
+      tokenPosition: 'TokenPosition',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      authResourceList: { 'type': 'array', 'itemType': AddGatewayAuthRequestAuthResourceList },
+      clientId: 'string',
+      clientSecret: 'string',
+      cookieDomain: 'string',
+      externalAuthZJSON: AddGatewayAuthRequestExternalAuthZJSON,
+      gatewayUniqueId: 'string',
+      isWhite: 'boolean',
+      issuer: 'string',
+      jwks: 'string',
+      loginUrl: 'string',
+      name: 'string',
+      redirectUrl: 'string',
+      scopesList: { 'type': 'array', 'itemType': 'string' },
+      status: 'boolean',
+      sub: 'string',
+      tokenName: 'string',
+      tokenNamePrefix: 'string',
+      tokenPass: 'boolean',
+      tokenPosition: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGatewayAuthShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  authResourceListShrink?: string;
+  clientId?: string;
+  clientSecret?: string;
+  cookieDomain?: string;
+  externalAuthZJSONShrink?: string;
+  gatewayUniqueId?: string;
+  isWhite?: boolean;
+  issuer?: string;
+  jwks?: string;
+  loginUrl?: string;
+  name?: string;
+  redirectUrl?: string;
+  scopesListShrink?: string;
+  status?: boolean;
+  sub?: string;
+  tokenName?: string;
+  tokenNamePrefix?: string;
+  tokenPass?: boolean;
+  tokenPosition?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      authResourceListShrink: 'AuthResourceList',
+      clientId: 'ClientId',
+      clientSecret: 'ClientSecret',
+      cookieDomain: 'CookieDomain',
+      externalAuthZJSONShrink: 'ExternalAuthZJSON',
+      gatewayUniqueId: 'GatewayUniqueId',
+      isWhite: 'IsWhite',
+      issuer: 'Issuer',
+      jwks: 'Jwks',
+      loginUrl: 'LoginUrl',
+      name: 'Name',
+      redirectUrl: 'RedirectUrl',
+      scopesListShrink: 'ScopesList',
+      status: 'Status',
+      sub: 'Sub',
+      tokenName: 'TokenName',
+      tokenNamePrefix: 'TokenNamePrefix',
+      tokenPass: 'TokenPass',
+      tokenPosition: 'TokenPosition',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      authResourceListShrink: 'string',
+      clientId: 'string',
+      clientSecret: 'string',
+      cookieDomain: 'string',
+      externalAuthZJSONShrink: 'string',
+      gatewayUniqueId: 'string',
+      isWhite: 'boolean',
+      issuer: 'string',
+      jwks: 'string',
+      loginUrl: 'string',
+      name: 'string',
+      redirectUrl: 'string',
+      scopesListShrink: 'string',
+      status: 'boolean',
+      sub: 'string',
+      tokenName: 'string',
+      tokenNamePrefix: 'string',
+      tokenPass: 'boolean',
+      tokenPosition: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGatewayAuthResponseBody extends $tea.Model {
+  code?: number;
+  data?: number;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGatewayAuthResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddGatewayAuthResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddGatewayAuthResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddGatewayAuthConsumerRequest extends $tea.Model {
   acceptLanguage?: string;
   description?: string;
@@ -6723,6 +6940,93 @@ export class GetGatewayAuthConsumerDetailResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetGatewayAuthConsumerDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayAuthDetailRequest extends $tea.Model {
+  acceptLanguage?: string;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayAuthDetailResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetGatewayAuthDetailResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetGatewayAuthDetailResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayAuthDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetGatewayAuthDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetGatewayAuthDetailResponseBody,
     };
   }
 
@@ -20612,6 +20916,105 @@ export class AddGatewayResponseBodyData extends $tea.Model {
   }
 }
 
+export class AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList extends $tea.Model {
+  headerKey?: string;
+  headerMethod?: string;
+  headerValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      headerKey: 'HeaderKey',
+      headerMethod: 'HeaderMethod',
+      headerValue: 'HeaderValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headerKey: 'string',
+      headerMethod: 'string',
+      headerValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGatewayAuthRequestAuthResourceList extends $tea.Model {
+  authResourceHeaderList?: AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList[];
+  domainId?: number;
+  ignoreCase?: boolean;
+  matchType?: string;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authResourceHeaderList: 'AuthResourceHeaderList',
+      domainId: 'DomainId',
+      ignoreCase: 'IgnoreCase',
+      matchType: 'MatchType',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authResourceHeaderList: { 'type': 'array', 'itemType': AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList },
+      domainId: 'number',
+      ignoreCase: 'boolean',
+      matchType: 'string',
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGatewayAuthRequestExternalAuthZJSON extends $tea.Model {
+  allowRequestHeaders?: string[];
+  allowUpstreamHeaders?: string[];
+  bodyMaxBytes?: number;
+  isRestrict?: boolean;
+  prefixPath?: string;
+  serviceId?: number;
+  timeout?: number;
+  tokenKey?: string;
+  withRequestBody?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowRequestHeaders: 'AllowRequestHeaders',
+      allowUpstreamHeaders: 'AllowUpstreamHeaders',
+      bodyMaxBytes: 'BodyMaxBytes',
+      isRestrict: 'IsRestrict',
+      prefixPath: 'PrefixPath',
+      serviceId: 'ServiceId',
+      timeout: 'Timeout',
+      tokenKey: 'TokenKey',
+      withRequestBody: 'WithRequestBody',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowRequestHeaders: { 'type': 'array', 'itemType': 'string' },
+      allowUpstreamHeaders: { 'type': 'array', 'itemType': 'string' },
+      bodyMaxBytes: 'number',
+      isRestrict: 'boolean',
+      prefixPath: 'string',
+      serviceId: 'number',
+      timeout: 'number',
+      tokenKey: 'string',
+      withRequestBody: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddGatewayRouteRequestDirectResponseJSON extends $tea.Model {
   body?: string;
   code?: number;
@@ -22900,6 +23303,248 @@ export class GetGatewayAuthConsumerDetailResponseBodyData extends $tea.Model {
       tokenPass: 'boolean',
       tokenPosition: 'string',
       tokenPrefix: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayAuthDetailResponseBodyDataExternalAuthZService extends $tea.Model {
+  groupName?: string;
+  name?: string;
+  namespace?: string;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      name: 'Name',
+      namespace: 'Namespace',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      name: 'string',
+      namespace: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayAuthDetailResponseBodyDataExternalAuthZ extends $tea.Model {
+  allowRequestHeaders?: string[];
+  allowUpstreamHeaders?: string[];
+  bodyMaxBytes?: number;
+  isRestrict?: boolean;
+  prefixPath?: string;
+  service?: GetGatewayAuthDetailResponseBodyDataExternalAuthZService;
+  serviceId?: number;
+  timeout?: number;
+  tokenKey?: string;
+  withRequestBody?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowRequestHeaders: 'AllowRequestHeaders',
+      allowUpstreamHeaders: 'AllowUpstreamHeaders',
+      bodyMaxBytes: 'BodyMaxBytes',
+      isRestrict: 'IsRestrict',
+      prefixPath: 'PrefixPath',
+      service: 'Service',
+      serviceId: 'ServiceId',
+      timeout: 'Timeout',
+      tokenKey: 'TokenKey',
+      withRequestBody: 'WithRequestBody',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowRequestHeaders: { 'type': 'array', 'itemType': 'string' },
+      allowUpstreamHeaders: { 'type': 'array', 'itemType': 'string' },
+      bodyMaxBytes: 'number',
+      isRestrict: 'boolean',
+      prefixPath: 'string',
+      service: GetGatewayAuthDetailResponseBodyDataExternalAuthZService,
+      serviceId: 'number',
+      timeout: 'number',
+      tokenKey: 'string',
+      withRequestBody: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayAuthDetailResponseBodyDataResourceListAuthResourceHeaderList extends $tea.Model {
+  headerKey?: string;
+  headerMethod?: string;
+  headerValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      headerKey: 'HeaderKey',
+      headerMethod: 'HeaderMethod',
+      headerValue: 'HeaderValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headerKey: 'string',
+      headerMethod: 'string',
+      headerValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayAuthDetailResponseBodyDataResourceList extends $tea.Model {
+  authId?: number;
+  authResourceHeaderList?: GetGatewayAuthDetailResponseBodyDataResourceListAuthResourceHeaderList[];
+  domainId?: number;
+  domainName?: string;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  ignoreCase?: boolean;
+  isWhite?: boolean;
+  matchType?: string;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authId: 'AuthId',
+      authResourceHeaderList: 'AuthResourceHeaderList',
+      domainId: 'DomainId',
+      domainName: 'DomainName',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      ignoreCase: 'IgnoreCase',
+      isWhite: 'IsWhite',
+      matchType: 'MatchType',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authId: 'number',
+      authResourceHeaderList: { 'type': 'array', 'itemType': GetGatewayAuthDetailResponseBodyDataResourceListAuthResourceHeaderList },
+      domainId: 'number',
+      domainName: 'string',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      ignoreCase: 'boolean',
+      isWhite: 'boolean',
+      matchType: 'string',
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayAuthDetailResponseBodyData extends $tea.Model {
+  clientId?: string;
+  clientSecret?: string;
+  cookieDomain?: string;
+  externalAuthZ?: GetGatewayAuthDetailResponseBodyDataExternalAuthZ;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  isWhite?: boolean;
+  issuer?: string;
+  jwks?: string;
+  loginUrl?: string;
+  name?: string;
+  redirectUrl?: string;
+  resourceList?: GetGatewayAuthDetailResponseBodyDataResourceList[];
+  scopesList?: string;
+  status?: boolean;
+  sub?: string;
+  tokenName?: string;
+  tokenNamePrefix?: string;
+  tokenPass?: boolean;
+  tokenPosition?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      clientSecret: 'ClientSecret',
+      cookieDomain: 'CookieDomain',
+      externalAuthZ: 'ExternalAuthZ',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      isWhite: 'IsWhite',
+      issuer: 'Issuer',
+      jwks: 'Jwks',
+      loginUrl: 'LoginUrl',
+      name: 'Name',
+      redirectUrl: 'RedirectUrl',
+      resourceList: 'ResourceList',
+      scopesList: 'ScopesList',
+      status: 'Status',
+      sub: 'Sub',
+      tokenName: 'TokenName',
+      tokenNamePrefix: 'TokenNamePrefix',
+      tokenPass: 'TokenPass',
+      tokenPosition: 'TokenPosition',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      clientSecret: 'string',
+      cookieDomain: 'string',
+      externalAuthZ: GetGatewayAuthDetailResponseBodyDataExternalAuthZ,
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      isWhite: 'boolean',
+      issuer: 'string',
+      jwks: 'string',
+      loginUrl: 'string',
+      name: 'string',
+      redirectUrl: 'string',
+      resourceList: { 'type': 'array', 'itemType': GetGatewayAuthDetailResponseBodyDataResourceList },
+      scopesList: 'string',
+      status: 'boolean',
+      sub: 'string',
+      tokenName: 'string',
+      tokenNamePrefix: 'string',
+      tokenPass: 'boolean',
+      tokenPosition: 'string',
       type: 'string',
     };
   }
@@ -31168,6 +31813,129 @@ export default class Client extends OpenApi {
     return await this.addGatewayWithOptions(request, runtime);
   }
 
+  async addGatewayAuthWithOptions(tmpReq: AddGatewayAuthRequest, runtime: $Util.RuntimeOptions): Promise<AddGatewayAuthResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddGatewayAuthShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.authResourceList)) {
+      request.authResourceListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.authResourceList, "AuthResourceList", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.externalAuthZJSON)) {
+      request.externalAuthZJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.externalAuthZJSON, "ExternalAuthZJSON", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.scopesList)) {
+      request.scopesListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scopesList, "ScopesList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.authResourceListShrink)) {
+      query["AuthResourceList"] = request.authResourceListShrink;
+    }
+
+    if (!Util.isUnset(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.clientSecret)) {
+      query["ClientSecret"] = request.clientSecret;
+    }
+
+    if (!Util.isUnset(request.cookieDomain)) {
+      query["CookieDomain"] = request.cookieDomain;
+    }
+
+    if (!Util.isUnset(request.externalAuthZJSONShrink)) {
+      query["ExternalAuthZJSON"] = request.externalAuthZJSONShrink;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.isWhite)) {
+      query["IsWhite"] = request.isWhite;
+    }
+
+    if (!Util.isUnset(request.issuer)) {
+      query["Issuer"] = request.issuer;
+    }
+
+    if (!Util.isUnset(request.jwks)) {
+      query["Jwks"] = request.jwks;
+    }
+
+    if (!Util.isUnset(request.loginUrl)) {
+      query["LoginUrl"] = request.loginUrl;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.redirectUrl)) {
+      query["RedirectUrl"] = request.redirectUrl;
+    }
+
+    if (!Util.isUnset(request.scopesListShrink)) {
+      query["ScopesList"] = request.scopesListShrink;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.sub)) {
+      query["Sub"] = request.sub;
+    }
+
+    if (!Util.isUnset(request.tokenName)) {
+      query["TokenName"] = request.tokenName;
+    }
+
+    if (!Util.isUnset(request.tokenNamePrefix)) {
+      query["TokenNamePrefix"] = request.tokenNamePrefix;
+    }
+
+    if (!Util.isUnset(request.tokenPass)) {
+      query["TokenPass"] = request.tokenPass;
+    }
+
+    if (!Util.isUnset(request.tokenPosition)) {
+      query["TokenPosition"] = request.tokenPosition;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddGatewayAuth",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddGatewayAuthResponse>(await this.callApi(params, req, runtime), new AddGatewayAuthResponse({}));
+  }
+
+  async addGatewayAuth(request: AddGatewayAuthRequest): Promise<AddGatewayAuthResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addGatewayAuthWithOptions(request, runtime);
+  }
+
   async addGatewayAuthConsumerWithOptions(request: AddGatewayAuthConsumerRequest, runtime: $Util.RuntimeOptions): Promise<AddGatewayAuthConsumerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34457,6 +35225,47 @@ export default class Client extends OpenApi {
   async getGatewayAuthConsumerDetail(request: GetGatewayAuthConsumerDetailRequest): Promise<GetGatewayAuthConsumerDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGatewayAuthConsumerDetailWithOptions(request, runtime);
+  }
+
+  async getGatewayAuthDetailWithOptions(request: GetGatewayAuthDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetGatewayAuthDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetGatewayAuthDetail",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetGatewayAuthDetailResponse>(await this.callApi(params, req, runtime), new GetGatewayAuthDetailResponse({}));
+  }
+
+  async getGatewayAuthDetail(request: GetGatewayAuthDetailRequest): Promise<GetGatewayAuthDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getGatewayAuthDetailWithOptions(request, runtime);
   }
 
   async getGatewayDomainDetailWithOptions(request: GetGatewayDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetGatewayDomainDetailResponse> {
