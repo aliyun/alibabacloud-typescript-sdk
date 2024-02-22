@@ -9773,6 +9773,78 @@ export class DisableDesktopsInGroupResponse extends $tea.Model {
   }
 }
 
+export class DisconnectDesktopSessionsRequest extends $tea.Model {
+  preCheck?: boolean;
+  regionId?: string;
+  sessions?: DisconnectDesktopSessionsRequestSessions[];
+  static names(): { [key: string]: string } {
+    return {
+      preCheck: 'PreCheck',
+      regionId: 'RegionId',
+      sessions: 'Sessions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      preCheck: 'boolean',
+      regionId: 'string',
+      sessions: { 'type': 'array', 'itemType': DisconnectDesktopSessionsRequestSessions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisconnectDesktopSessionsResponseBody extends $tea.Model {
+  invalidSessions?: DisconnectDesktopSessionsResponseBodyInvalidSessions[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      invalidSessions: 'InvalidSessions',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invalidSessions: { 'type': 'array', 'itemType': DisconnectDesktopSessionsResponseBodyInvalidSessions },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisconnectDesktopSessionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisconnectDesktopSessionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisconnectDesktopSessionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DissociateNetworkPackageRequest extends $tea.Model {
   networkPackageId?: string;
   regionId?: string;
@@ -20948,6 +21020,50 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
   }
 }
 
+export class DisconnectDesktopSessionsRequestSessions extends $tea.Model {
+  desktopId?: string;
+  endUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desktopId: 'DesktopId',
+      endUserId: 'EndUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desktopId: 'string',
+      endUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisconnectDesktopSessionsResponseBodyInvalidSessions extends $tea.Model {
+  desktopId?: string;
+  endUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desktopId: 'DesktopId',
+      endUserId: 'EndUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desktopId: 'string',
+      endUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExportDesktopListInfoRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -22117,6 +22233,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ecd", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -28570,6 +28687,43 @@ export default class Client extends OpenApi {
   async disableDesktopsInGroup(request: DisableDesktopsInGroupRequest): Promise<DisableDesktopsInGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableDesktopsInGroupWithOptions(request, runtime);
+  }
+
+  async disconnectDesktopSessionsWithOptions(request: DisconnectDesktopSessionsRequest, runtime: $Util.RuntimeOptions): Promise<DisconnectDesktopSessionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.preCheck)) {
+      query["PreCheck"] = request.preCheck;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sessions)) {
+      query["Sessions"] = request.sessions;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisconnectDesktopSessions",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisconnectDesktopSessionsResponse>(await this.callApi(params, req, runtime), new DisconnectDesktopSessionsResponse({}));
+  }
+
+  async disconnectDesktopSessions(request: DisconnectDesktopSessionsRequest): Promise<DisconnectDesktopSessionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disconnectDesktopSessionsWithOptions(request, runtime);
   }
 
   async dissociateNetworkPackageWithOptions(request: DissociateNetworkPackageRequest, runtime: $Util.RuntimeOptions): Promise<DissociateNetworkPackageResponse> {
