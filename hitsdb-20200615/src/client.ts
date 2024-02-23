@@ -1955,6 +1955,90 @@ export class OpenComputeEngineResponse extends $tea.Model {
   }
 }
 
+export class OpenComputePreCheckRequest extends $tea.Model {
+  cpuLimit?: string;
+  instanceId?: string;
+  memoryLimit?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpuLimit: 'CpuLimit',
+      instanceId: 'InstanceId',
+      memoryLimit: 'MemoryLimit',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuLimit: 'string',
+      instanceId: 'string',
+      memoryLimit: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenComputePreCheckResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenComputePreCheckResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OpenComputePreCheckResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OpenComputePreCheckResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReleaseLindormInstanceRequest extends $tea.Model {
   immediately?: boolean;
   instanceId?: string;
@@ -4539,6 +4623,63 @@ export default class Client extends OpenApi {
   async openComputeEngine(request: OpenComputeEngineRequest): Promise<OpenComputeEngineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openComputeEngineWithOptions(request, runtime);
+  }
+
+  async openComputePreCheckWithOptions(request: OpenComputePreCheckRequest, runtime: $Util.RuntimeOptions): Promise<OpenComputePreCheckResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cpuLimit)) {
+      query["CpuLimit"] = request.cpuLimit;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.memoryLimit)) {
+      query["MemoryLimit"] = request.memoryLimit;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OpenComputePreCheck",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenComputePreCheckResponse>(await this.callApi(params, req, runtime), new OpenComputePreCheckResponse({}));
+  }
+
+  async openComputePreCheck(request: OpenComputePreCheckRequest): Promise<OpenComputePreCheckResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.openComputePreCheckWithOptions(request, runtime);
   }
 
   async releaseLindormInstanceWithOptions(request: ReleaseLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseLindormInstanceResponse> {
