@@ -16460,6 +16460,84 @@ export class TagResourcesResponse extends $tea.Model {
   }
 }
 
+export class UnbindUserDesktopRequest extends $tea.Model {
+  desktopAgentIds?: string[];
+  desktopGroupId?: string;
+  desktopIds?: string[];
+  force?: boolean;
+  reason?: string;
+  userDesktopIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      desktopAgentIds: 'DesktopAgentIds',
+      desktopGroupId: 'DesktopGroupId',
+      desktopIds: 'DesktopIds',
+      force: 'Force',
+      reason: 'Reason',
+      userDesktopIds: 'UserDesktopIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desktopAgentIds: { 'type': 'array', 'itemType': 'string' },
+      desktopGroupId: 'string',
+      desktopIds: { 'type': 'array', 'itemType': 'string' },
+      force: 'boolean',
+      reason: 'string',
+      userDesktopIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindUserDesktopResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindUserDesktopResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindUserDesktopResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindUserDesktopResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnlockVirtualMFADeviceRequest extends $tea.Model {
   regionId?: string;
   serialNumber?: string;
@@ -33170,6 +33248,55 @@ export default class Client extends OpenApi {
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  async unbindUserDesktopWithOptions(request: UnbindUserDesktopRequest, runtime: $Util.RuntimeOptions): Promise<UnbindUserDesktopResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.desktopAgentIds)) {
+      query["DesktopAgentIds"] = request.desktopAgentIds;
+    }
+
+    if (!Util.isUnset(request.desktopGroupId)) {
+      query["DesktopGroupId"] = request.desktopGroupId;
+    }
+
+    if (!Util.isUnset(request.desktopIds)) {
+      query["DesktopIds"] = request.desktopIds;
+    }
+
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.reason)) {
+      query["Reason"] = request.reason;
+    }
+
+    if (!Util.isUnset(request.userDesktopIds)) {
+      query["UserDesktopIds"] = request.userDesktopIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnbindUserDesktop",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindUserDesktopResponse>(await this.callApi(params, req, runtime), new UnbindUserDesktopResponse({}));
+  }
+
+  async unbindUserDesktop(request: UnbindUserDesktopRequest): Promise<UnbindUserDesktopResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unbindUserDesktopWithOptions(request, runtime);
   }
 
   async unlockVirtualMFADeviceWithOptions(request: UnlockVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnlockVirtualMFADeviceResponse> {
