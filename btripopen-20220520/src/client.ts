@@ -4639,6 +4639,230 @@ export class CommonApplySyncResponse extends $tea.Model {
   }
 }
 
+export class CooperatorFlightBillSettlementQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorFlightBillSettlementQueryRequest extends $tea.Model {
+  cooperatorId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  periodEnd?: string;
+  periodStart?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cooperatorId: 'cooperator_id',
+      pageNo: 'page_no',
+      pageSize: 'page_size',
+      periodEnd: 'period_end',
+      periodStart: 'period_start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cooperatorId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      periodEnd: 'string',
+      periodStart: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorFlightBillSettlementQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: CooperatorFlightBillSettlementQueryResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: CooperatorFlightBillSettlementQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorFlightBillSettlementQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CooperatorFlightBillSettlementQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CooperatorFlightBillSettlementQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorHotelBillSettlementQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorHotelBillSettlementQueryRequest extends $tea.Model {
+  cooperatorId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  periodEnd?: string;
+  periodStart?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cooperatorId: 'cooperator_id',
+      pageNo: 'page_no',
+      pageSize: 'page_size',
+      periodEnd: 'period_end',
+      periodStart: 'period_start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cooperatorId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      periodEnd: 'string',
+      periodStart: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorHotelBillSettlementQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: CooperatorHotelBillSettlementQueryResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: CooperatorHotelBillSettlementQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorHotelBillSettlementQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CooperatorHotelBillSettlementQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CooperatorHotelBillSettlementQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CorpAuthLinkInfoQueryResponseBody extends $tea.Model {
   code?: string;
   message?: string;
@@ -20642,12 +20866,38 @@ export class ApplyAddRequestExternalTravelerStandardHotelCitys extends $tea.Mode
   }
 }
 
+export class ApplyAddRequestExternalTravelerStandardHotelIntlCitys extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  fee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      fee: 'fee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      fee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyAddRequestExternalTravelerStandard extends $tea.Model {
   businessDiscount?: number;
   economyDiscount?: number;
   firstDiscount?: number;
   flightCabins?: string;
   hotelCitys?: ApplyAddRequestExternalTravelerStandardHotelCitys[];
+  hotelIntlCitys?: ApplyAddRequestExternalTravelerStandardHotelIntlCitys[];
   internationalFlightCabins?: string;
   premiumEconomyDiscount?: number;
   reserveType?: number;
@@ -20659,6 +20909,7 @@ export class ApplyAddRequestExternalTravelerStandard extends $tea.Model {
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
       hotelCitys: 'hotel_citys',
+      hotelIntlCitys: 'hotel_intl_citys',
       internationalFlightCabins: 'international_flight_cabins',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
@@ -20673,6 +20924,7 @@ export class ApplyAddRequestExternalTravelerStandard extends $tea.Model {
       firstDiscount: 'number',
       flightCabins: 'string',
       hotelCitys: { 'type': 'array', 'itemType': ApplyAddRequestExternalTravelerStandardHotelCitys },
+      hotelIntlCitys: { 'type': 'array', 'itemType': ApplyAddRequestExternalTravelerStandardHotelIntlCitys },
       internationalFlightCabins: 'string',
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
@@ -20939,6 +21191,31 @@ export class ApplyAddRequestTravelerStandardHotelCitys extends $tea.Model {
   }
 }
 
+export class ApplyAddRequestTravelerStandardHotelIntlCitys extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  fee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      fee: 'fee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      fee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyAddRequestTravelerStandard extends $tea.Model {
   businessDiscount?: number;
   carCitySet?: ApplyAddRequestTravelerStandardCarCitySet[];
@@ -20946,6 +21223,7 @@ export class ApplyAddRequestTravelerStandard extends $tea.Model {
   firstDiscount?: number;
   flightCabins?: string;
   hotelCitys?: ApplyAddRequestTravelerStandardHotelCitys[];
+  hotelIntlCitys?: ApplyAddRequestTravelerStandardHotelIntlCitys[];
   internationalFlightCabins?: string;
   premiumEconomyDiscount?: number;
   reserveType?: number;
@@ -20959,6 +21237,7 @@ export class ApplyAddRequestTravelerStandard extends $tea.Model {
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
       hotelCitys: 'hotel_citys',
+      hotelIntlCitys: 'hotel_intl_citys',
       internationalFlightCabins: 'international_flight_cabins',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
@@ -20975,6 +21254,7 @@ export class ApplyAddRequestTravelerStandard extends $tea.Model {
       firstDiscount: 'number',
       flightCabins: 'string',
       hotelCitys: { 'type': 'array', 'itemType': ApplyAddRequestTravelerStandardHotelCitys },
+      hotelIntlCitys: { 'type': 'array', 'itemType': ApplyAddRequestTravelerStandardHotelIntlCitys },
       internationalFlightCabins: 'string',
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
@@ -21518,12 +21798,38 @@ export class ApplyModifyRequestExternalTravelerStandardHotelCitys extends $tea.M
   }
 }
 
+export class ApplyModifyRequestExternalTravelerStandardHotelIntlCitys extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  fee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      fee: 'fee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      fee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyModifyRequestExternalTravelerStandard extends $tea.Model {
   businessDiscount?: number;
   economyDiscount?: number;
   firstDiscount?: number;
   flightCabins?: string;
   hotelCitys?: ApplyModifyRequestExternalTravelerStandardHotelCitys[];
+  hotelIntlCitys?: ApplyModifyRequestExternalTravelerStandardHotelIntlCitys[];
   premiumEconomyDiscount?: number;
   reserveType?: number;
   trainSeats?: string;
@@ -21534,6 +21840,7 @@ export class ApplyModifyRequestExternalTravelerStandard extends $tea.Model {
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
       hotelCitys: 'hotel_citys',
+      hotelIntlCitys: 'hotel_intl_citys',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
       trainSeats: 'train_seats',
@@ -21547,6 +21854,7 @@ export class ApplyModifyRequestExternalTravelerStandard extends $tea.Model {
       firstDiscount: 'number',
       flightCabins: 'string',
       hotelCitys: { 'type': 'array', 'itemType': ApplyModifyRequestExternalTravelerStandardHotelCitys },
+      hotelIntlCitys: { 'type': 'array', 'itemType': ApplyModifyRequestExternalTravelerStandardHotelIntlCitys },
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
       trainSeats: 'string',
@@ -21812,6 +22120,31 @@ export class ApplyModifyRequestTravelerStandardHotelCitys extends $tea.Model {
   }
 }
 
+export class ApplyModifyRequestTravelerStandardHotelIntlCitys extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  fee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      fee: 'fee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      fee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyModifyRequestTravelerStandard extends $tea.Model {
   businessDiscount?: number;
   carCitySet?: ApplyModifyRequestTravelerStandardCarCitySet[];
@@ -21819,6 +22152,7 @@ export class ApplyModifyRequestTravelerStandard extends $tea.Model {
   firstDiscount?: number;
   flightCabins?: string;
   hotelCitys?: ApplyModifyRequestTravelerStandardHotelCitys[];
+  hotelIntlCitys?: ApplyModifyRequestTravelerStandardHotelIntlCitys[];
   premiumEconomyDiscount?: number;
   reserveType?: number;
   trainSeats?: string;
@@ -21831,6 +22165,7 @@ export class ApplyModifyRequestTravelerStandard extends $tea.Model {
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
       hotelCitys: 'hotel_citys',
+      hotelIntlCitys: 'hotel_intl_citys',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
       trainSeats: 'train_seats',
@@ -21846,6 +22181,7 @@ export class ApplyModifyRequestTravelerStandard extends $tea.Model {
       firstDiscount: 'number',
       flightCabins: 'string',
       hotelCitys: { 'type': 'array', 'itemType': ApplyModifyRequestTravelerStandardHotelCitys },
+      hotelIntlCitys: { 'type': 'array', 'itemType': ApplyModifyRequestTravelerStandardHotelIntlCitys },
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
       trainSeats: 'string',
@@ -21967,12 +22303,38 @@ export class ApplyQueryResponseBodyModuleExternalTravelerListHotelCitys extends 
   }
 }
 
+export class ApplyQueryResponseBodyModuleExternalTravelerListHotelIntlCitys extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  fee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      fee: 'fee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      fee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model {
   businessDiscount?: number;
   economyDiscount?: number;
   firstDiscount?: number;
   flightCabins?: string;
   hotelCitys?: ApplyQueryResponseBodyModuleExternalTravelerListHotelCitys[];
+  hotelIntlCitys?: ApplyQueryResponseBodyModuleExternalTravelerListHotelIntlCitys[];
   premiumEconomyDiscount?: number;
   reserveType?: number;
   trainSeats?: string;
@@ -21984,6 +22346,7 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
       hotelCitys: 'hotel_citys',
+      hotelIntlCitys: 'hotel_intl_citys',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
       trainSeats: 'train_seats',
@@ -21998,6 +22361,7 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
       firstDiscount: 'number',
       flightCabins: 'string',
       hotelCitys: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleExternalTravelerListHotelCitys },
+      hotelIntlCitys: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleExternalTravelerListHotelIntlCitys },
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
       trainSeats: 'string',
@@ -22230,6 +22594,31 @@ export class ApplyQueryResponseBodyModuleTravelerListHotelCitys extends $tea.Mod
   }
 }
 
+export class ApplyQueryResponseBodyModuleTravelerListHotelIntlCitys extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  fee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      fee: 'fee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      fee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
   businessDiscount?: number;
   carCitySet?: ApplyQueryResponseBodyModuleTravelerListCarCitySet[];
@@ -22237,6 +22626,7 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
   firstDiscount?: number;
   flightCabins?: string;
   hotelCitys?: ApplyQueryResponseBodyModuleTravelerListHotelCitys[];
+  hotelIntlCitys?: ApplyQueryResponseBodyModuleTravelerListHotelIntlCitys[];
   premiumEconomyDiscount?: number;
   reserveType?: number;
   trainSeats?: string;
@@ -22250,6 +22640,7 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
       hotelCitys: 'hotel_citys',
+      hotelIntlCitys: 'hotel_intl_citys',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
       trainSeats: 'train_seats',
@@ -22266,6 +22657,7 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
       firstDiscount: 'number',
       flightCabins: 'string',
       hotelCitys: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleTravelerListHotelCitys },
+      hotelIntlCitys: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleTravelerListHotelIntlCitys },
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
       trainSeats: 'string',
@@ -23634,6 +24026,673 @@ export class CommonApplyQueryResponseBodyModule extends $tea.Model {
       thirdpartId: 'string',
       tripCause: 'string',
       userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
+  advanceDay?: number;
+  airlineCorpCode?: string;
+  airlineCorpName?: string;
+  alipayId?: string;
+  alipayTradeNo?: string;
+  applyArrCityCode?: string;
+  applyArrCityName?: string;
+  applyDepCityCode?: string;
+  applyDepCityName?: string;
+  applyExtendField?: string;
+  applyId?: string;
+  arrAirportCode?: string;
+  arrCity?: string;
+  arrCityCode?: string;
+  arrDate?: string;
+  arrStation?: string;
+  arrTime?: string;
+  billRecordTime?: string;
+  bookMode?: string;
+  bookTime?: string;
+  bookerId?: string;
+  bookerJobNo?: string;
+  bookerName?: string;
+  btripCouponFee?: number;
+  buildFee?: number;
+  businessTripResult?: string;
+  cabin?: string;
+  cabinClass?: string;
+  capitalDirection?: string;
+  cascadeDepartment?: string;
+  changeFee?: number;
+  changeResult?: string;
+  cooperatorBillCode?: string;
+  cooperatorName?: string;
+  cooperatorOrderId?: string;
+  corpPayOrderFee?: number;
+  corpSettlePrice?: number;
+  costCenter?: string;
+  costCenterNumber?: string;
+  coupon?: number;
+  depAirportCode?: string;
+  depCityCode?: string;
+  department?: string;
+  departmentId?: string;
+  deptCity?: string;
+  deptDate?: string;
+  deptStation?: string;
+  deptTime?: string;
+  discount?: string;
+  exceedReason?: string;
+  feeType?: string;
+  flightNo?: string;
+  index?: string;
+  insOrderId?: string;
+  insuranceFee?: number;
+  insuranceNumber?: string;
+  invoiceTitle?: string;
+  itemType?: string;
+  itineraryNum?: string;
+  itineraryPrice?: number;
+  mileage?: number;
+  mostDifferenceDeptTime?: string;
+  mostDifferenceDiscount?: string;
+  mostDifferenceFlightNo?: string;
+  mostDifferencePrice?: number;
+  mostDifferenceReason?: string;
+  mostPrice?: number;
+  negotiationCouponFee?: number;
+  oilFee?: number;
+  orderId?: string;
+  orderStatusDesc?: string;
+  overApplyId?: string;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
+  personSettlePrice?: number;
+  preBookTip?: string;
+  primaryId?: number;
+  projectCode?: string;
+  projectName?: string;
+  refundFee?: number;
+  refundResult?: string;
+  refundUpgradeCost?: number;
+  remark?: string;
+  repeatRefund?: string;
+  sealPrice?: number;
+  serviceFee?: number;
+  settlementFee?: number;
+  settlementGrantFee?: number;
+  settlementTime?: string;
+  settlementType?: string;
+  status?: number;
+  subOrderId?: string;
+  taxRate?: string;
+  thirdInvoiceId?: string;
+  thirdItineraryId?: string;
+  ticketId?: string;
+  trade?: string;
+  travelerId?: string;
+  travelerJobNo?: string;
+  travelerMemberType?: string;
+  travelerMemberTypeName?: string;
+  travelerName?: string;
+  upgradeCost?: number;
+  voucherType?: number;
+  voyageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advanceDay: 'advance_day',
+      airlineCorpCode: 'airline_corp_code',
+      airlineCorpName: 'airline_corp_name',
+      alipayId: 'alipay_id',
+      alipayTradeNo: 'alipay_trade_no',
+      applyArrCityCode: 'apply_arr_city_code',
+      applyArrCityName: 'apply_arr_city_name',
+      applyDepCityCode: 'apply_dep_city_code',
+      applyDepCityName: 'apply_dep_city_name',
+      applyExtendField: 'apply_extend_field',
+      applyId: 'apply_id',
+      arrAirportCode: 'arr_airport_code',
+      arrCity: 'arr_city',
+      arrCityCode: 'arr_city_code',
+      arrDate: 'arr_date',
+      arrStation: 'arr_station',
+      arrTime: 'arr_time',
+      billRecordTime: 'bill_record_time',
+      bookMode: 'book_mode',
+      bookTime: 'book_time',
+      bookerId: 'booker_id',
+      bookerJobNo: 'booker_job_no',
+      bookerName: 'booker_name',
+      btripCouponFee: 'btrip_coupon_fee',
+      buildFee: 'build_fee',
+      businessTripResult: 'business_trip_result',
+      cabin: 'cabin',
+      cabinClass: 'cabin_class',
+      capitalDirection: 'capital_direction',
+      cascadeDepartment: 'cascade_department',
+      changeFee: 'change_fee',
+      changeResult: 'change_result',
+      cooperatorBillCode: 'cooperator_bill_code',
+      cooperatorName: 'cooperator_name',
+      cooperatorOrderId: 'cooperator_order_id',
+      corpPayOrderFee: 'corp_pay_order_fee',
+      corpSettlePrice: 'corp_settle_price',
+      costCenter: 'cost_center',
+      costCenterNumber: 'cost_center_number',
+      coupon: 'coupon',
+      depAirportCode: 'dep_airport_code',
+      depCityCode: 'dep_city_code',
+      department: 'department',
+      departmentId: 'department_id',
+      deptCity: 'dept_city',
+      deptDate: 'dept_date',
+      deptStation: 'dept_station',
+      deptTime: 'dept_time',
+      discount: 'discount',
+      exceedReason: 'exceed_reason',
+      feeType: 'fee_type',
+      flightNo: 'flight_no',
+      index: 'index',
+      insOrderId: 'ins_order_id',
+      insuranceFee: 'insurance_fee',
+      insuranceNumber: 'insurance_number',
+      invoiceTitle: 'invoice_title',
+      itemType: 'item_type',
+      itineraryNum: 'itinerary_num',
+      itineraryPrice: 'itinerary_price',
+      mileage: 'mileage',
+      mostDifferenceDeptTime: 'most_difference_dept_time',
+      mostDifferenceDiscount: 'most_difference_discount',
+      mostDifferenceFlightNo: 'most_difference_flight_no',
+      mostDifferencePrice: 'most_difference_price',
+      mostDifferenceReason: 'most_difference_reason',
+      mostPrice: 'most_price',
+      negotiationCouponFee: 'negotiation_coupon_fee',
+      oilFee: 'oil_fee',
+      orderId: 'order_id',
+      orderStatusDesc: 'order_status_desc',
+      overApplyId: 'over_apply_id',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
+      personSettlePrice: 'person_settle_price',
+      preBookTip: 'pre_book_tip',
+      primaryId: 'primary_id',
+      projectCode: 'project_code',
+      projectName: 'project_name',
+      refundFee: 'refund_fee',
+      refundResult: 'refund_result',
+      refundUpgradeCost: 'refund_upgrade_cost',
+      remark: 'remark',
+      repeatRefund: 'repeat_refund',
+      sealPrice: 'seal_price',
+      serviceFee: 'service_fee',
+      settlementFee: 'settlement_fee',
+      settlementGrantFee: 'settlement_grant_fee',
+      settlementTime: 'settlement_time',
+      settlementType: 'settlement_type',
+      status: 'status',
+      subOrderId: 'sub_order_id',
+      taxRate: 'tax_rate',
+      thirdInvoiceId: 'third_invoice_id',
+      thirdItineraryId: 'third_itinerary_id',
+      ticketId: 'ticket_id',
+      trade: 'trade',
+      travelerId: 'traveler_id',
+      travelerJobNo: 'traveler_job_no',
+      travelerMemberType: 'traveler_member_type',
+      travelerMemberTypeName: 'traveler_member_type_name',
+      travelerName: 'traveler_name',
+      upgradeCost: 'upgrade_cost',
+      voucherType: 'voucher_type',
+      voyageName: 'voyage_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advanceDay: 'number',
+      airlineCorpCode: 'string',
+      airlineCorpName: 'string',
+      alipayId: 'string',
+      alipayTradeNo: 'string',
+      applyArrCityCode: 'string',
+      applyArrCityName: 'string',
+      applyDepCityCode: 'string',
+      applyDepCityName: 'string',
+      applyExtendField: 'string',
+      applyId: 'string',
+      arrAirportCode: 'string',
+      arrCity: 'string',
+      arrCityCode: 'string',
+      arrDate: 'string',
+      arrStation: 'string',
+      arrTime: 'string',
+      billRecordTime: 'string',
+      bookMode: 'string',
+      bookTime: 'string',
+      bookerId: 'string',
+      bookerJobNo: 'string',
+      bookerName: 'string',
+      btripCouponFee: 'number',
+      buildFee: 'number',
+      businessTripResult: 'string',
+      cabin: 'string',
+      cabinClass: 'string',
+      capitalDirection: 'string',
+      cascadeDepartment: 'string',
+      changeFee: 'number',
+      changeResult: 'string',
+      cooperatorBillCode: 'string',
+      cooperatorName: 'string',
+      cooperatorOrderId: 'string',
+      corpPayOrderFee: 'number',
+      corpSettlePrice: 'number',
+      costCenter: 'string',
+      costCenterNumber: 'string',
+      coupon: 'number',
+      depAirportCode: 'string',
+      depCityCode: 'string',
+      department: 'string',
+      departmentId: 'string',
+      deptCity: 'string',
+      deptDate: 'string',
+      deptStation: 'string',
+      deptTime: 'string',
+      discount: 'string',
+      exceedReason: 'string',
+      feeType: 'string',
+      flightNo: 'string',
+      index: 'string',
+      insOrderId: 'string',
+      insuranceFee: 'number',
+      insuranceNumber: 'string',
+      invoiceTitle: 'string',
+      itemType: 'string',
+      itineraryNum: 'string',
+      itineraryPrice: 'number',
+      mileage: 'number',
+      mostDifferenceDeptTime: 'string',
+      mostDifferenceDiscount: 'string',
+      mostDifferenceFlightNo: 'string',
+      mostDifferencePrice: 'number',
+      mostDifferenceReason: 'string',
+      mostPrice: 'number',
+      negotiationCouponFee: 'number',
+      oilFee: 'number',
+      orderId: 'string',
+      orderStatusDesc: 'string',
+      overApplyId: 'string',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
+      personSettlePrice: 'number',
+      preBookTip: 'string',
+      primaryId: 'number',
+      projectCode: 'string',
+      projectName: 'string',
+      refundFee: 'number',
+      refundResult: 'string',
+      refundUpgradeCost: 'number',
+      remark: 'string',
+      repeatRefund: 'string',
+      sealPrice: 'number',
+      serviceFee: 'number',
+      settlementFee: 'number',
+      settlementGrantFee: 'number',
+      settlementTime: 'string',
+      settlementType: 'string',
+      status: 'number',
+      subOrderId: 'string',
+      taxRate: 'string',
+      thirdInvoiceId: 'string',
+      thirdItineraryId: 'string',
+      ticketId: 'string',
+      trade: 'string',
+      travelerId: 'string',
+      travelerJobNo: 'string',
+      travelerMemberType: 'string',
+      travelerMemberTypeName: 'string',
+      travelerName: 'string',
+      upgradeCost: 'number',
+      voucherType: 'number',
+      voyageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorFlightBillSettlementQueryResponseBodyModule extends $tea.Model {
+  category?: number;
+  corpId?: string;
+  items?: CooperatorFlightBillSettlementQueryResponseBodyModuleItems[];
+  periodEnd?: string;
+  periodStart?: string;
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      corpId: 'corp_id',
+      items: 'items',
+      periodEnd: 'period_end',
+      periodStart: 'period_start',
+      totalSize: 'total_size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'number',
+      corpId: 'string',
+      items: { 'type': 'array', 'itemType': CooperatorFlightBillSettlementQueryResponseBodyModuleItems },
+      periodEnd: 'string',
+      periodStart: 'string',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $tea.Model {
+  alipayTradeNo?: string;
+  applyArrCityCode?: string;
+  applyArrCityName?: string;
+  applyDepCityCode?: string;
+  applyDepCityName?: string;
+  applyExtendField?: string;
+  applyId?: string;
+  averageNights?: number;
+  billRecordTime?: string;
+  bookMode?: string;
+  bookReason?: string;
+  bookTime?: string;
+  bookerId?: string;
+  bookerJobNo?: string;
+  bookerName?: string;
+  brandGroup?: string;
+  brandName?: string;
+  businessTripResult?: string;
+  capitalDirection?: string;
+  cascadeDepartment?: string;
+  checkInDate?: string;
+  checkoutDate?: string;
+  city?: string;
+  cityCode?: string;
+  cityCounty?: string;
+  cityCountyCode?: number;
+  cooperatorBillCode?: string;
+  cooperatorName?: string;
+  cooperatorOrderId?: string;
+  corpRefundFee?: number;
+  corpTotalFee?: number;
+  costCenter?: string;
+  costCenterNumber?: string;
+  department?: string;
+  departmentId?: string;
+  exceedReason?: string;
+  feeType?: string;
+  fees?: number;
+  fines?: number;
+  fuPointFee?: number;
+  hotelName?: string;
+  index?: string;
+  invoiceTitle?: string;
+  isEarlyDeparture?: string;
+  isNegotiation?: string;
+  isShareStr?: string;
+  nights?: number;
+  orderId?: string;
+  orderPrice?: number;
+  orderStatusDesc?: string;
+  orderType?: string;
+  overApplyId?: string;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
+  personRefundFee?: number;
+  personSettlePrice?: number;
+  primaryId?: number;
+  projectCode?: string;
+  projectName?: string;
+  promotionFee?: number;
+  remark?: string;
+  reserveRule?: number;
+  roomNo?: string;
+  roomNumber?: number;
+  roomPrice?: number;
+  roomType?: string;
+  serviceFee?: number;
+  settlementFee?: number;
+  settlementGrantFee?: number;
+  settlementTime?: string;
+  settlementType?: string;
+  star?: string;
+  status?: number;
+  subOrderId?: string;
+  taxRate?: string;
+  thirdInvoiceId?: string;
+  thirdItineraryId?: string;
+  totalNights?: number;
+  travelerId?: string;
+  travelerJobNo?: string;
+  travelerMemberType?: string;
+  travelerMemberTypeName?: string;
+  travelerName?: string;
+  voucherType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alipayTradeNo: 'alipay_trade_no',
+      applyArrCityCode: 'apply_arr_city_code',
+      applyArrCityName: 'apply_arr_city_name',
+      applyDepCityCode: 'apply_dep_city_code',
+      applyDepCityName: 'apply_dep_city_name',
+      applyExtendField: 'apply_extend_field',
+      applyId: 'apply_id',
+      averageNights: 'average_nights',
+      billRecordTime: 'bill_record_time',
+      bookMode: 'book_mode',
+      bookReason: 'book_reason',
+      bookTime: 'book_time',
+      bookerId: 'booker_id',
+      bookerJobNo: 'booker_job_no',
+      bookerName: 'booker_name',
+      brandGroup: 'brand_group',
+      brandName: 'brand_name',
+      businessTripResult: 'business_trip_result',
+      capitalDirection: 'capital_direction',
+      cascadeDepartment: 'cascade_department',
+      checkInDate: 'check_in_date',
+      checkoutDate: 'checkout_date',
+      city: 'city',
+      cityCode: 'city_code',
+      cityCounty: 'city_county',
+      cityCountyCode: 'city_county_code',
+      cooperatorBillCode: 'cooperator_bill_code',
+      cooperatorName: 'cooperator_name',
+      cooperatorOrderId: 'cooperator_order_id',
+      corpRefundFee: 'corp_refund_fee',
+      corpTotalFee: 'corp_total_fee',
+      costCenter: 'cost_center',
+      costCenterNumber: 'cost_center_number',
+      department: 'department',
+      departmentId: 'department_id',
+      exceedReason: 'exceed_reason',
+      feeType: 'fee_type',
+      fees: 'fees',
+      fines: 'fines',
+      fuPointFee: 'fu_point_fee',
+      hotelName: 'hotel_name',
+      index: 'index',
+      invoiceTitle: 'invoice_title',
+      isEarlyDeparture: 'is_early_departure',
+      isNegotiation: 'is_negotiation',
+      isShareStr: 'is_share_str',
+      nights: 'nights',
+      orderId: 'order_id',
+      orderPrice: 'order_price',
+      orderStatusDesc: 'order_status_desc',
+      orderType: 'order_type',
+      overApplyId: 'over_apply_id',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
+      personRefundFee: 'person_refund_fee',
+      personSettlePrice: 'person_settle_price',
+      primaryId: 'primary_id',
+      projectCode: 'project_code',
+      projectName: 'project_name',
+      promotionFee: 'promotion_fee',
+      remark: 'remark',
+      reserveRule: 'reserve_rule',
+      roomNo: 'room_no',
+      roomNumber: 'room_number',
+      roomPrice: 'room_price',
+      roomType: 'room_type',
+      serviceFee: 'service_fee',
+      settlementFee: 'settlement_fee',
+      settlementGrantFee: 'settlement_grant_fee',
+      settlementTime: 'settlement_time',
+      settlementType: 'settlement_type',
+      star: 'star',
+      status: 'status',
+      subOrderId: 'sub_order_id',
+      taxRate: 'tax_rate',
+      thirdInvoiceId: 'third_invoice_id',
+      thirdItineraryId: 'third_itinerary_id',
+      totalNights: 'total_nights',
+      travelerId: 'traveler_id',
+      travelerJobNo: 'traveler_job_no',
+      travelerMemberType: 'traveler_member_type',
+      travelerMemberTypeName: 'traveler_member_type_name',
+      travelerName: 'traveler_name',
+      voucherType: 'voucher_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alipayTradeNo: 'string',
+      applyArrCityCode: 'string',
+      applyArrCityName: 'string',
+      applyDepCityCode: 'string',
+      applyDepCityName: 'string',
+      applyExtendField: 'string',
+      applyId: 'string',
+      averageNights: 'number',
+      billRecordTime: 'string',
+      bookMode: 'string',
+      bookReason: 'string',
+      bookTime: 'string',
+      bookerId: 'string',
+      bookerJobNo: 'string',
+      bookerName: 'string',
+      brandGroup: 'string',
+      brandName: 'string',
+      businessTripResult: 'string',
+      capitalDirection: 'string',
+      cascadeDepartment: 'string',
+      checkInDate: 'string',
+      checkoutDate: 'string',
+      city: 'string',
+      cityCode: 'string',
+      cityCounty: 'string',
+      cityCountyCode: 'number',
+      cooperatorBillCode: 'string',
+      cooperatorName: 'string',
+      cooperatorOrderId: 'string',
+      corpRefundFee: 'number',
+      corpTotalFee: 'number',
+      costCenter: 'string',
+      costCenterNumber: 'string',
+      department: 'string',
+      departmentId: 'string',
+      exceedReason: 'string',
+      feeType: 'string',
+      fees: 'number',
+      fines: 'number',
+      fuPointFee: 'number',
+      hotelName: 'string',
+      index: 'string',
+      invoiceTitle: 'string',
+      isEarlyDeparture: 'string',
+      isNegotiation: 'string',
+      isShareStr: 'string',
+      nights: 'number',
+      orderId: 'string',
+      orderPrice: 'number',
+      orderStatusDesc: 'string',
+      orderType: 'string',
+      overApplyId: 'string',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
+      personRefundFee: 'number',
+      personSettlePrice: 'number',
+      primaryId: 'number',
+      projectCode: 'string',
+      projectName: 'string',
+      promotionFee: 'number',
+      remark: 'string',
+      reserveRule: 'number',
+      roomNo: 'string',
+      roomNumber: 'number',
+      roomPrice: 'number',
+      roomType: 'string',
+      serviceFee: 'number',
+      settlementFee: 'number',
+      settlementGrantFee: 'number',
+      settlementTime: 'string',
+      settlementType: 'string',
+      star: 'string',
+      status: 'number',
+      subOrderId: 'string',
+      taxRate: 'string',
+      thirdInvoiceId: 'string',
+      thirdItineraryId: 'string',
+      totalNights: 'number',
+      travelerId: 'string',
+      travelerJobNo: 'string',
+      travelerMemberType: 'string',
+      travelerMemberTypeName: 'string',
+      travelerName: 'string',
+      voucherType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CooperatorHotelBillSettlementQueryResponseBodyModule extends $tea.Model {
+  category?: number;
+  corpId?: string;
+  items?: CooperatorHotelBillSettlementQueryResponseBodyModuleItems[];
+  periodEnd?: string;
+  periodStart?: string;
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      corpId: 'corp_id',
+      items: 'items',
+      periodEnd: 'period_end',
+      periodStart: 'period_start',
+      totalSize: 'total_size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'number',
+      corpId: 'string',
+      items: { 'type': 'array', 'itemType': CooperatorHotelBillSettlementQueryResponseBodyModuleItems },
+      periodEnd: 'string',
+      periodStart: 'string',
+      totalSize: 'number',
     };
   }
 
@@ -49052,6 +50111,118 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CommonApplySyncHeaders({ });
     return await this.commonApplySyncWithOptions(request, headers, runtime);
+  }
+
+  async cooperatorFlightBillSettlementQueryWithOptions(request: CooperatorFlightBillSettlementQueryRequest, headers: CooperatorFlightBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CooperatorFlightBillSettlementQueryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cooperatorId)) {
+      query["cooperator_id"] = request.cooperatorId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["page_no"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["page_size"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.periodEnd)) {
+      query["period_end"] = request.periodEnd;
+    }
+
+    if (!Util.isUnset(request.periodStart)) {
+      query["period_start"] = request.periodStart;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CooperatorFlightBillSettlementQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/cooperator-flight/v1/bill-settlement`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CooperatorFlightBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new CooperatorFlightBillSettlementQueryResponse({}));
+  }
+
+  async cooperatorFlightBillSettlementQuery(request: CooperatorFlightBillSettlementQueryRequest): Promise<CooperatorFlightBillSettlementQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CooperatorFlightBillSettlementQueryHeaders({ });
+    return await this.cooperatorFlightBillSettlementQueryWithOptions(request, headers, runtime);
+  }
+
+  async cooperatorHotelBillSettlementQueryWithOptions(request: CooperatorHotelBillSettlementQueryRequest, headers: CooperatorHotelBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CooperatorHotelBillSettlementQueryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cooperatorId)) {
+      query["cooperator_id"] = request.cooperatorId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["page_no"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["page_size"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.periodEnd)) {
+      query["period_end"] = request.periodEnd;
+    }
+
+    if (!Util.isUnset(request.periodStart)) {
+      query["period_start"] = request.periodStart;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CooperatorHotelBillSettlementQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/cooperator-hotel/v1/bill-settlement`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CooperatorHotelBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new CooperatorHotelBillSettlementQueryResponse({}));
+  }
+
+  async cooperatorHotelBillSettlementQuery(request: CooperatorHotelBillSettlementQueryRequest): Promise<CooperatorHotelBillSettlementQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CooperatorHotelBillSettlementQueryHeaders({ });
+    return await this.cooperatorHotelBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
   async corpAuthLinkInfoQueryWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CorpAuthLinkInfoQueryResponse> {
