@@ -440,10 +440,12 @@ export class DeleteApplicationResponse extends $tea.Model {
 
 export class DeployApplicationRequest extends $tea.Model {
   applicationId?: string;
+  clientToken?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
+      clientToken: 'ClientToken',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -451,6 +453,7 @@ export class DeployApplicationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
+      clientToken: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -516,6 +519,7 @@ export class DeployApplicationResponse extends $tea.Model {
 export class ExecuteOperationASyncRequest extends $tea.Model {
   applicationId?: string;
   attributes?: { [key: string]: any };
+  clientToken?: string;
   operation?: string;
   resourceGroupId?: string;
   serviceType?: string;
@@ -523,6 +527,7 @@ export class ExecuteOperationASyncRequest extends $tea.Model {
     return {
       applicationId: 'ApplicationId',
       attributes: 'Attributes',
+      clientToken: 'ClientToken',
       operation: 'Operation',
       resourceGroupId: 'ResourceGroupId',
       serviceType: 'ServiceType',
@@ -533,6 +538,7 @@ export class ExecuteOperationASyncRequest extends $tea.Model {
     return {
       applicationId: 'string',
       attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      clientToken: 'string',
       operation: 'string',
       resourceGroupId: 'string',
       serviceType: 'string',
@@ -547,6 +553,7 @@ export class ExecuteOperationASyncRequest extends $tea.Model {
 export class ExecuteOperationASyncShrinkRequest extends $tea.Model {
   applicationId?: string;
   attributesShrink?: string;
+  clientToken?: string;
   operation?: string;
   resourceGroupId?: string;
   serviceType?: string;
@@ -554,6 +561,7 @@ export class ExecuteOperationASyncShrinkRequest extends $tea.Model {
     return {
       applicationId: 'ApplicationId',
       attributesShrink: 'Attributes',
+      clientToken: 'ClientToken',
       operation: 'Operation',
       resourceGroupId: 'ResourceGroupId',
       serviceType: 'ServiceType',
@@ -564,6 +572,7 @@ export class ExecuteOperationASyncShrinkRequest extends $tea.Model {
     return {
       applicationId: 'string',
       attributesShrink: 'string',
+      clientToken: 'string',
       operation: 'string',
       resourceGroupId: 'string',
       serviceType: 'string',
@@ -620,6 +629,127 @@ export class ExecuteOperationASyncResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ExecuteOperationASyncResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteOperationSyncRequest extends $tea.Model {
+  applicationId?: string;
+  attributes?: { [key: string]: any };
+  clientToken?: string;
+  operation?: string;
+  resourceGroupId?: string;
+  serviceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      attributes: 'Attributes',
+      clientToken: 'ClientToken',
+      operation: 'Operation',
+      resourceGroupId: 'ResourceGroupId',
+      serviceType: 'ServiceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      clientToken: 'string',
+      operation: 'string',
+      resourceGroupId: 'string',
+      serviceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteOperationSyncShrinkRequest extends $tea.Model {
+  applicationId?: string;
+  attributesShrink?: string;
+  clientToken?: string;
+  operation?: string;
+  resourceGroupId?: string;
+  serviceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      attributesShrink: 'Attributes',
+      clientToken: 'ClientToken',
+      operation: 'Operation',
+      resourceGroupId: 'ResourceGroupId',
+      serviceType: 'ServiceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      attributesShrink: 'string',
+      clientToken: 'string',
+      operation: 'string',
+      resourceGroupId: 'string',
+      serviceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteOperationSyncResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteOperationSyncResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteOperationSyncResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteOperationSyncResponseBody,
     };
   }
 
@@ -1487,10 +1617,12 @@ export class ListTemplateResponse extends $tea.Model {
 
 export class ReleaseApplicationRequest extends $tea.Model {
   applicationId?: string;
+  clientToken?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
+      clientToken: 'ClientToken',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -1498,6 +1630,7 @@ export class ReleaseApplicationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
+      clientToken: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -1562,10 +1695,12 @@ export class ReleaseApplicationResponse extends $tea.Model {
 
 export class ValidateApplicationRequest extends $tea.Model {
   applicationId?: string;
+  clientToken?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
+      clientToken: 'ClientToken',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -1573,6 +1708,7 @@ export class ValidateApplicationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
+      clientToken: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -1637,10 +1773,12 @@ export class ValidateApplicationResponse extends $tea.Model {
 
 export class ValuateApplicationRequest extends $tea.Model {
   applicationId?: string;
+  clientToken?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
+      clientToken: 'ClientToken',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -1648,6 +1786,7 @@ export class ValuateApplicationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
+      clientToken: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -2693,6 +2832,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -2737,6 +2880,10 @@ export default class Client extends OpenApi {
       body["Attributes"] = request.attributesShrink;
     }
 
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.operation)) {
       body["Operation"] = request.operation;
     }
@@ -2769,6 +2916,61 @@ export default class Client extends OpenApi {
   async executeOperationASync(request: ExecuteOperationASyncRequest): Promise<ExecuteOperationASyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeOperationASyncWithOptions(request, runtime);
+  }
+
+  async executeOperationSyncWithOptions(tmpReq: ExecuteOperationSyncRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteOperationSyncResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ExecuteOperationSyncShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.attributes)) {
+      request.attributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attributes, "Attributes", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.attributesShrink)) {
+      body["Attributes"] = request.attributesShrink;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.operation)) {
+      body["Operation"] = request.operation;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      body["ServiceType"] = request.serviceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteOperationSync",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteOperationSyncResponse>(await this.callApi(params, req, runtime), new ExecuteOperationSyncResponse({}));
+  }
+
+  async executeOperationSync(request: ExecuteOperationSyncRequest): Promise<ExecuteOperationSyncResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.executeOperationSyncWithOptions(request, runtime);
   }
 
   async getApplicationWithOptions(request: GetApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
@@ -3203,6 +3405,10 @@ export default class Client extends OpenApi {
       body["ApplicationId"] = request.applicationId;
     }
 
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -3237,6 +3443,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -3269,6 +3479,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applicationId)) {
       body["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
