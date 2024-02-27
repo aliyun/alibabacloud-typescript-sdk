@@ -59,9 +59,9 @@ export class CancelSubscriptionBillResponseBody extends $tea.Model {
 }
 
 export class CancelSubscriptionBillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelSubscriptionBillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelSubscriptionBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -146,9 +146,9 @@ export class CreateCustomerResponseBody extends $tea.Model {
 }
 
 export class CreateCustomerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCustomerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCustomerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -162,6 +162,105 @@ export class CreateCustomerResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateCustomerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CustomerQuotaRecordListRequest extends $tea.Model {
+  endDate?: string;
+  endUserPk?: number;
+  language?: string;
+  operationType?: string;
+  pageNo?: number;
+  pageSize?: number;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      endUserPk: 'EndUserPk',
+      language: 'Language',
+      operationType: 'OperationType',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'string',
+      endUserPk: 'number',
+      language: 'string',
+      operationType: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CustomerQuotaRecordListResponseBody extends $tea.Model {
+  code?: string;
+  data?: CustomerQuotaRecordListResponseBodyData[];
+  msg?: string;
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': CustomerQuotaRecordListResponseBodyData },
+      msg: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CustomerQuotaRecordListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CustomerQuotaRecordListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CustomerQuotaRecordListResponseBody,
     };
   }
 
@@ -221,9 +320,9 @@ export class DeductOutstandingBalanceResponseBody extends $tea.Model {
 }
 
 export class DeductOutstandingBalanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeductOutstandingBalanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeductOutstandingBalanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -299,9 +398,9 @@ export class EditEndUserStatusResponseBody extends $tea.Model {
 }
 
 export class EditEndUserStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EditEndUserStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EditEndUserStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -377,9 +476,9 @@ export class EditNewBuyStatusResponseBody extends $tea.Model {
 }
 
 export class EditNewBuyStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EditNewBuyStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EditNewBuyStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -455,9 +554,9 @@ export class EditZeroCreditShutdownResponseBody extends $tea.Model {
 }
 
 export class EditZeroCreditShutdownResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EditZeroCreditShutdownResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EditZeroCreditShutdownResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -471,6 +570,90 @@ export class EditZeroCreditShutdownResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: EditZeroCreditShutdownResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportCustomerQuotaRecordRequest extends $tea.Model {
+  endDate?: string;
+  endUserPk?: number;
+  language?: string;
+  operationType?: string;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      endUserPk: 'EndUserPk',
+      language: 'Language',
+      operationType: 'OperationType',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'string',
+      endUserPk: 'number',
+      language: 'string',
+      operationType: 'string',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportCustomerQuotaRecordResponseBody extends $tea.Model {
+  code?: string;
+  data?: ExportCustomerQuotaRecordResponseBodyData;
+  msg?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ExportCustomerQuotaRecordResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportCustomerQuotaRecordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportCustomerQuotaRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExportCustomerQuotaRecordResponseBody,
     };
   }
 
@@ -542,9 +725,9 @@ export class GetAccountInfoResponseBody extends $tea.Model {
 }
 
 export class GetAccountInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAccountInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -617,9 +800,9 @@ export class GetCreditInfoResponseBody extends $tea.Model {
 }
 
 export class GetCreditInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCreditInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCreditInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -698,9 +881,9 @@ export class GetDailyBillResponseBody extends $tea.Model {
 }
 
 export class GetDailyBillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDailyBillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDailyBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -773,9 +956,9 @@ export class GetInviteStatusResponseBody extends $tea.Model {
 }
 
 export class GetInviteStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInviteStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInviteStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -854,9 +1037,9 @@ export class GetMonthlyBillResponseBody extends $tea.Model {
 }
 
 export class GetMonthlyBillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMonthlyBillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMonthlyBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -935,9 +1118,9 @@ export class GetUnassociatedCustomerResponseBody extends $tea.Model {
 }
 
 export class GetUnassociatedCustomerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUnassociatedCustomerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUnassociatedCustomerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1010,9 +1193,9 @@ export class InviteSubAccountResponseBody extends $tea.Model {
 }
 
 export class InviteSubAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InviteSubAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InviteSubAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1066,9 +1249,9 @@ export class ListCountriesResponseBody extends $tea.Model {
 }
 
 export class ListCountriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCountriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCountriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1082,6 +1265,93 @@ export class ListCountriesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCountriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuotaListExportPagedRequest extends $tea.Model {
+  currentPage?: number;
+  language?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      language: 'Language',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      language: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuotaListExportPagedResponseBody extends $tea.Model {
+  code?: string;
+  data?: QuotaListExportPagedResponseBodyData[];
+  msg?: string;
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': QuotaListExportPagedResponseBodyData },
+      msg: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuotaListExportPagedResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuotaListExportPagedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuotaListExportPagedResponseBody,
     };
   }
 
@@ -1138,9 +1408,9 @@ export class ResendEmailResponseBody extends $tea.Model {
 }
 
 export class ResendEmailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResendEmailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResendEmailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1216,9 +1486,9 @@ export class SetAccountInfoResponseBody extends $tea.Model {
 }
 
 export class SetAccountInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetAccountInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetAccountInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1291,9 +1561,9 @@ export class SetCreditLineResponseBody extends $tea.Model {
 }
 
 export class SetCreditLineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetCreditLineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetCreditLineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1366,9 +1636,9 @@ export class SetWarningThresholdResponseBody extends $tea.Model {
 }
 
 export class SetWarningThresholdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetWarningThresholdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetWarningThresholdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1456,9 +1726,9 @@ export class SubscriptionBillResponseBody extends $tea.Model {
 }
 
 export class SubscriptionBillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubscriptionBillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubscriptionBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1472,6 +1742,68 @@ export class SubscriptionBillResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubscriptionBillResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CustomerQuotaRecordListResponseBodyData extends $tea.Model {
+  operationSubmitType?: string;
+  operationTime?: string;
+  operationTypeCode?: string;
+  operationTypeDesc?: string;
+  operationUid?: string;
+  updateAfterAmount?: string;
+  updateAmount?: string;
+  updateBeforeAmount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationSubmitType: 'OperationSubmitType',
+      operationTime: 'OperationTime',
+      operationTypeCode: 'OperationTypeCode',
+      operationTypeDesc: 'OperationTypeDesc',
+      operationUid: 'OperationUid',
+      updateAfterAmount: 'UpdateAfterAmount',
+      updateAmount: 'UpdateAmount',
+      updateBeforeAmount: 'UpdateBeforeAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationSubmitType: 'string',
+      operationTime: 'string',
+      operationTypeCode: 'string',
+      operationTypeDesc: 'string',
+      operationUid: 'string',
+      updateAfterAmount: 'string',
+      updateAmount: 'string',
+      updateBeforeAmount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportCustomerQuotaRecordResponseBodyData extends $tea.Model {
+  cost?: number;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'Cost',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      id: 'number',
     };
   }
 
@@ -1968,6 +2300,40 @@ export class InviteSubAccountResponseBodyResults extends $tea.Model {
   }
 }
 
+export class QuotaListExportPagedResponseBodyData extends $tea.Model {
+  createTime?: string;
+  fileName?: string;
+  message?: string;
+  status?: string;
+  statusCode?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      fileName: 'FileName',
+      message: 'Message',
+      status: 'Status',
+      statusCode: 'StatusCode',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      fileName: 'string',
+      message: 'string',
+      status: 'string',
+      statusCode: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -2142,6 +2508,39 @@ export default class Client extends OpenApi {
     return await this.createCustomerWithOptions(request, runtime);
   }
 
+  async customerQuotaRecordListWithOptions(request: CustomerQuotaRecordListRequest, runtime: $Util.RuntimeOptions): Promise<CustomerQuotaRecordListResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CustomerQuotaRecordList",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CustomerQuotaRecordListResponse>(await this.callApi(params, req, runtime), new CustomerQuotaRecordListResponse({}));
+  }
+
+  async customerQuotaRecordList(request: CustomerQuotaRecordListRequest): Promise<CustomerQuotaRecordListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.customerQuotaRecordListWithOptions(request, runtime);
+  }
+
+  /**
+    * Note that sometimes you may find that the customer\\"s Used Credit is negative. This indicates that there is no need to restore the Used Credit, and its ready for customer\\"s usage. This phenomenon occurs because a refund is generated while the customer\\"s credit is full, thereby triggered additional increasing on the customer\\"s credit.
+    * For example, if the customer\\"s maximum Available Credit is 1000 with no usage, and a refund of 300 occurs, the Used Credit will become -300.
+    *
+    * @param request DeductOutstandingBalanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeductOutstandingBalanceResponse
+   */
   async deductOutstandingBalanceWithOptions(request: DeductOutstandingBalanceRequest, runtime: $Util.RuntimeOptions): Promise<DeductOutstandingBalanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2170,11 +2569,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeductOutstandingBalanceResponse>(await this.callApi(params, req, runtime), new DeductOutstandingBalanceResponse({}));
   }
 
+  /**
+    * Note that sometimes you may find that the customer\\"s Used Credit is negative. This indicates that there is no need to restore the Used Credit, and its ready for customer\\"s usage. This phenomenon occurs because a refund is generated while the customer\\"s credit is full, thereby triggered additional increasing on the customer\\"s credit.
+    * For example, if the customer\\"s maximum Available Credit is 1000 with no usage, and a refund of 300 occurs, the Used Credit will become -300.
+    *
+    * @param request DeductOutstandingBalanceRequest
+    * @return DeductOutstandingBalanceResponse
+   */
   async deductOutstandingBalance(request: DeductOutstandingBalanceRequest): Promise<DeductOutstandingBalanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deductOutstandingBalanceWithOptions(request, runtime);
   }
 
+  /**
+    * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+    * **This content is only published on the international site. **
+    *
+    * @param request EditEndUserStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EditEndUserStatusResponse
+   */
   async editEndUserStatusWithOptions(request: EditEndUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<EditEndUserStatusResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -2195,11 +2609,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EditEndUserStatusResponse>(await this.callApi(params, req, runtime), new EditEndUserStatusResponse({}));
   }
 
+  /**
+    * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+    * **This content is only published on the international site. **
+    *
+    * @param request EditEndUserStatusRequest
+    * @return EditEndUserStatusResponse
+   */
   async editEndUserStatus(request: EditEndUserStatusRequest): Promise<EditEndUserStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.editEndUserStatusWithOptions(request, runtime);
   }
 
+  /**
+    * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+    * **This content is only published on the international site. **
+    *
+    * @param request EditNewBuyStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EditNewBuyStatusResponse
+   */
   async editNewBuyStatusWithOptions(request: EditNewBuyStatusRequest, runtime: $Util.RuntimeOptions): Promise<EditNewBuyStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2228,11 +2657,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EditNewBuyStatusResponse>(await this.callApi(params, req, runtime), new EditNewBuyStatusResponse({}));
   }
 
+  /**
+    * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+    * **This content is only published on the international site. **
+    *
+    * @param request EditNewBuyStatusRequest
+    * @return EditNewBuyStatusResponse
+   */
   async editNewBuyStatus(request: EditNewBuyStatusRequest): Promise<EditNewBuyStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.editNewBuyStatusWithOptions(request, runtime);
   }
 
+  /**
+    * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+    * **This content is only published on the international site. **
+    *
+    * @param request EditZeroCreditShutdownRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EditZeroCreditShutdownResponse
+   */
   async editZeroCreditShutdownWithOptions(request: EditZeroCreditShutdownRequest, runtime: $Util.RuntimeOptions): Promise<EditZeroCreditShutdownResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2261,9 +2705,74 @@ export default class Client extends OpenApi {
     return $tea.cast<EditZeroCreditShutdownResponse>(await this.callApi(params, req, runtime), new EditZeroCreditShutdownResponse({}));
   }
 
+  /**
+    * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+    * **This content is only published on the international site. **
+    *
+    * @param request EditZeroCreditShutdownRequest
+    * @return EditZeroCreditShutdownResponse
+   */
   async editZeroCreditShutdown(request: EditZeroCreditShutdownRequest): Promise<EditZeroCreditShutdownResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.editZeroCreditShutdownWithOptions(request, runtime);
+  }
+
+  /**
+    * Caller must be a Partner from International Site, either Distribution or Reseller will do.
+    *
+    * @param request ExportCustomerQuotaRecordRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ExportCustomerQuotaRecordResponse
+   */
+  async exportCustomerQuotaRecordWithOptions(request: ExportCustomerQuotaRecordRequest, runtime: $Util.RuntimeOptions): Promise<ExportCustomerQuotaRecordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.endUserPk)) {
+      query["EndUserPk"] = request.endUserPk;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.operationType)) {
+      query["OperationType"] = request.operationType;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportCustomerQuotaRecord",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportCustomerQuotaRecordResponse>(await this.callApi(params, req, runtime), new ExportCustomerQuotaRecordResponse({}));
+  }
+
+  /**
+    * Caller must be a Partner from International Site, either Distribution or Reseller will do.
+    *
+    * @param request ExportCustomerQuotaRecordRequest
+    * @return ExportCustomerQuotaRecordResponse
+   */
+  async exportCustomerQuotaRecord(request: ExportCustomerQuotaRecordRequest): Promise<ExportCustomerQuotaRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportCustomerQuotaRecordWithOptions(request, runtime);
   }
 
   async getAccountInfoWithOptions(request: GetAccountInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountInfoResponse> {
@@ -2444,6 +2953,13 @@ export default class Client extends OpenApi {
     return await this.getUnassociatedCustomerWithOptions(request, runtime);
   }
 
+  /**
+    * The current API request rate for the Cloud Product has not been disclosed.
+    *
+    * @param request InviteSubAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return InviteSubAccountResponse
+   */
   async inviteSubAccountWithOptions(request: InviteSubAccountRequest, runtime: $Util.RuntimeOptions): Promise<InviteSubAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2468,11 +2984,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InviteSubAccountResponse>(await this.callApi(params, req, runtime), new InviteSubAccountResponse({}));
   }
 
+  /**
+    * The current API request rate for the Cloud Product has not been disclosed.
+    *
+    * @param request InviteSubAccountRequest
+    * @return InviteSubAccountResponse
+   */
   async inviteSubAccount(request: InviteSubAccountRequest): Promise<InviteSubAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.inviteSubAccountWithOptions(request, runtime);
   }
 
+  /**
+    * The current API request rate for cloud products has not been disclosed.
+    *
+    * @param request ListCountriesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListCountriesResponse
+   */
   async listCountriesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListCountriesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -2489,9 +3018,52 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCountriesResponse>(await this.callApi(params, req, runtime), new ListCountriesResponse({}));
   }
 
+  /**
+    * The current API request rate for cloud products has not been disclosed.
+    *
+    * @return ListCountriesResponse
+   */
   async listCountries(): Promise<ListCountriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCountriesWithOptions(runtime);
+  }
+
+  /**
+    * Caller must be a Partner from International Site, either Distribution or Reseller will do.
+    *
+    * @param request QuotaListExportPagedRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QuotaListExportPagedResponse
+   */
+  async quotaListExportPagedWithOptions(request: QuotaListExportPagedRequest, runtime: $Util.RuntimeOptions): Promise<QuotaListExportPagedResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuotaListExportPaged",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuotaListExportPagedResponse>(await this.callApi(params, req, runtime), new QuotaListExportPagedResponse({}));
+  }
+
+  /**
+    * Caller must be a Partner from International Site, either Distribution or Reseller will do.
+    *
+    * @param request QuotaListExportPagedRequest
+    * @return QuotaListExportPagedResponse
+   */
+  async quotaListExportPaged(request: QuotaListExportPagedRequest): Promise<QuotaListExportPagedResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.quotaListExportPagedWithOptions(request, runtime);
   }
 
   async resendEmailWithOptions(request: ResendEmailRequest, runtime: $Util.RuntimeOptions): Promise<ResendEmailResponse> {
