@@ -859,6 +859,71 @@ export class ListAvailableZonesResponse extends $tea.Model {
   }
 }
 
+export class ListConsumerConnectionsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListConsumerConnectionsResponseBodyData;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListConsumerConnectionsResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConsumerConnectionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConsumerConnectionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListConsumerConnectionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConsumerGroupSubscriptionsResponseBody extends $tea.Model {
   code?: string;
   data?: ListConsumerGroupSubscriptionsResponseBodyData[];
@@ -1167,6 +1232,71 @@ export class ListRegionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicSubscriptionsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListTopicSubscriptionsResponseBodyData[];
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListTopicSubscriptionsResponseBodyData },
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicSubscriptionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTopicSubscriptionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTopicSubscriptionsResponseBody,
     };
   }
 
@@ -2310,6 +2440,68 @@ export class ListAvailableZonesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListConsumerConnectionsResponseBodyDataConnections extends $tea.Model {
+  clientId?: string;
+  egressIp?: string;
+  hostname?: string;
+  language?: string;
+  messageModel?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'clientId',
+      egressIp: 'egressIp',
+      hostname: 'hostname',
+      language: 'language',
+      messageModel: 'messageModel',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      egressIp: 'string',
+      hostname: 'string',
+      language: 'string',
+      messageModel: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConsumerConnectionsResponseBodyData extends $tea.Model {
+  connections?: ListConsumerConnectionsResponseBodyDataConnections[];
+  consumerGroupId?: string;
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connections: 'connections',
+      consumerGroupId: 'consumerGroupId',
+      instanceId: 'instanceId',
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connections: { 'type': 'array', 'itemType': ListConsumerConnectionsResponseBodyDataConnections },
+      consumerGroupId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConsumerGroupSubscriptionsResponseBodyData extends $tea.Model {
   consumerGroupId?: string;
   filterExpression?: string;
@@ -2611,6 +2803,40 @@ export class ListRegionsResponseBodyData extends $tea.Model {
       supportRocketmqV5: 'boolean',
       tags: { 'type': 'array', 'itemType': ListRegionsResponseBodyDataTags },
       updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicSubscriptionsResponseBodyData extends $tea.Model {
+  consumerGroupId?: string;
+  filterExpression?: string;
+  filterExpressionType?: string;
+  messageModel?: string;
+  subscriptionStatus?: string;
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerGroupId: 'consumerGroupId',
+      filterExpression: 'filterExpression',
+      filterExpressionType: 'filterExpressionType',
+      messageModel: 'messageModel',
+      subscriptionStatus: 'subscriptionStatus',
+      topicName: 'topicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerGroupId: 'string',
+      filterExpression: 'string',
+      filterExpressionType: 'string',
+      messageModel: 'string',
+      subscriptionStatus: 'string',
+      topicName: 'string',
     };
   }
 
@@ -3269,6 +3495,30 @@ export default class Client extends OpenApi {
     return await this.listAvailableZonesWithOptions(headers, runtime);
   }
 
+  async listConsumerConnectionsWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerConnectionsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListConsumerConnections",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}/connections`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListConsumerConnectionsResponse>(await this.callApi(params, req, runtime), new ListConsumerConnectionsResponse({}));
+  }
+
+  async listConsumerConnections(instanceId: string, consumerGroupId: string): Promise<ListConsumerConnectionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConsumerConnectionsWithOptions(instanceId, consumerGroupId, headers, runtime);
+  }
+
   async listConsumerGroupSubscriptionsWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerGroupSubscriptionsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3429,6 +3679,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listRegionsWithOptions(headers, runtime);
+  }
+
+  async listTopicSubscriptionsWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTopicSubscriptionsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTopicSubscriptions",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}/subscriptions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTopicSubscriptionsResponse>(await this.callApi(params, req, runtime), new ListTopicSubscriptionsResponse({}));
+  }
+
+  async listTopicSubscriptions(instanceId: string, topicName: string): Promise<ListTopicSubscriptionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTopicSubscriptionsWithOptions(instanceId, topicName, headers, runtime);
   }
 
   async listTopicsWithOptions(instanceId: string, tmpReq: ListTopicsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTopicsResponse> {
