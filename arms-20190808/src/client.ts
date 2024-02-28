@@ -4501,6 +4501,7 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
   clusterId?: string;
   clusterName?: string;
   clusterType?: string;
+  duration?: number;
   grafanaInstanceId?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -4515,6 +4516,7 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
+      duration: 'Duration',
       grafanaInstanceId: 'GrafanaInstanceId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -4532,6 +4534,7 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
       clusterId: 'string',
       clusterName: 'string',
       clusterType: 'string',
+      duration: 'number',
       grafanaInstanceId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -23587,6 +23590,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
   bindResourceStoreDuration?: string;
   bindResourceType?: string;
   bindVpcCidr?: string;
+  dbInstanceStatus?: string;
   environmentId?: string;
   environmentName?: string;
   environmentSubType?: string;
@@ -23612,6 +23616,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
       bindResourceStoreDuration: 'BindResourceStoreDuration',
       bindResourceType: 'BindResourceType',
       bindVpcCidr: 'BindVpcCidr',
+      dbInstanceStatus: 'DbInstanceStatus',
       environmentId: 'EnvironmentId',
       environmentName: 'EnvironmentName',
       environmentSubType: 'EnvironmentSubType',
@@ -23640,6 +23645,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
       bindResourceStoreDuration: 'string',
       bindResourceType: 'string',
       bindVpcCidr: 'string',
+      dbInstanceStatus: 'string',
       environmentId: 'string',
       environmentName: 'string',
       environmentSubType: 'string',
@@ -34737,6 +34743,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clusterType)) {
       query["ClusterType"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
     }
 
     if (!Util.isUnset(request.grafanaInstanceId)) {
