@@ -13791,15 +13791,18 @@ export class DescribeExposedCheckWarningResponse extends $tea.Model {
 }
 
 export class DescribeExposedInstanceCriteriaRequest extends $tea.Model {
+  resourceDirectoryAccountId?: string;
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      resourceDirectoryAccountId: 'string',
       value: 'string',
     };
   }
@@ -13857,15 +13860,18 @@ export class DescribeExposedInstanceCriteriaResponse extends $tea.Model {
 }
 
 export class DescribeExposedInstanceDetailRequest extends $tea.Model {
+  resourceDirectoryAccountId?: number;
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       uuid: 'Uuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      resourceDirectoryAccountId: 'number',
       uuid: 'string',
     };
   }
@@ -13932,6 +13938,7 @@ export class DescribeExposedInstanceListRequest extends $tea.Model {
   instanceId?: string;
   instanceName?: string;
   pageSize?: number;
+  resourceDirectoryAccountId?: number;
   vulStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13944,6 +13951,7 @@ export class DescribeExposedInstanceListRequest extends $tea.Model {
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       pageSize: 'PageSize',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       vulStatus: 'VulStatus',
     };
   }
@@ -13959,6 +13967,7 @@ export class DescribeExposedInstanceListRequest extends $tea.Model {
       instanceId: 'string',
       instanceName: 'string',
       pageSize: 'number',
+      resourceDirectoryAccountId: 'number',
       vulStatus: 'boolean',
     };
   }
@@ -14092,6 +14101,7 @@ export class DescribeExposedStatisticsResponse extends $tea.Model {
 export class DescribeExposedStatisticsDetailRequest extends $tea.Model {
   currentPage?: number;
   pageSize?: number;
+  resourceDirectoryAccountId?: number;
   statisticsType?: string;
   statisticsTypeGatewayType?: string;
   statisticsTypeInstanceValue?: string;
@@ -14099,6 +14109,7 @@ export class DescribeExposedStatisticsDetailRequest extends $tea.Model {
     return {
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       statisticsType: 'StatisticsType',
       statisticsTypeGatewayType: 'StatisticsTypeGatewayType',
       statisticsTypeInstanceValue: 'StatisticsTypeInstanceValue',
@@ -14109,6 +14120,7 @@ export class DescribeExposedStatisticsDetailRequest extends $tea.Model {
     return {
       currentPage: 'number',
       pageSize: 'number',
+      resourceDirectoryAccountId: 'number',
       statisticsType: 'string',
       statisticsTypeGatewayType: 'string',
       statisticsTypeInstanceValue: 'string',
@@ -24707,6 +24719,7 @@ export class DescribeVersionConfigRequest extends $tea.Model {
 export class DescribeVersionConfigResponseBody extends $tea.Model {
   agentlessCapacity?: number;
   allowPartialBuy?: number;
+  antiRansomwareService?: number;
   appWhiteList?: number;
   appWhiteListAuthCount?: number;
   assetLevel?: number;
@@ -24746,6 +24759,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
     return {
       agentlessCapacity: 'AgentlessCapacity',
       allowPartialBuy: 'AllowPartialBuy',
+      antiRansomwareService: 'AntiRansomwareService',
       appWhiteList: 'AppWhiteList',
       appWhiteListAuthCount: 'AppWhiteListAuthCount',
       assetLevel: 'AssetLevel',
@@ -24788,6 +24802,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
     return {
       agentlessCapacity: 'number',
       allowPartialBuy: 'number',
+      antiRansomwareService: 'number',
       appWhiteList: 'number',
       appWhiteListAuthCount: 'number',
       assetLevel: 'number',
@@ -86119,6 +86134,10 @@ export default class Client extends OpenApi {
   async describeExposedInstanceCriteriaWithOptions(request: DescribeExposedInstanceCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExposedInstanceCriteriaResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!Util.isUnset(request.value)) {
       query["Value"] = request.value;
     }
@@ -86148,6 +86167,10 @@ export default class Client extends OpenApi {
   async describeExposedInstanceDetailWithOptions(request: DescribeExposedInstanceDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExposedInstanceDetailResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!Util.isUnset(request.uuid)) {
       query["Uuid"] = request.uuid;
     }
@@ -86213,6 +86236,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!Util.isUnset(request.vulStatus)) {
       query["VulStatus"] = request.vulStatus;
     }
@@ -86269,6 +86296,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!Util.isUnset(request.statisticsType)) {
