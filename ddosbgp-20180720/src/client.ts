@@ -56,9 +56,9 @@ export class AddIpResponseBody extends $tea.Model {
 }
 
 export class AddIpResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddIpResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddIpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -72,6 +72,106 @@ export class AddIpResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AddIpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachAssetGroupToInstanceRequest extends $tea.Model {
+  assetGroupList?: AttachAssetGroupToInstanceRequestAssetGroupList[];
+  instanceId?: string;
+  regionId?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetGroupList: 'AssetGroupList',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetGroupList: { 'type': 'array', 'itemType': AttachAssetGroupToInstanceRequestAssetGroupList },
+      instanceId: 'string',
+      regionId: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachAssetGroupToInstanceShrinkRequest extends $tea.Model {
+  assetGroupListShrink?: string;
+  instanceId?: string;
+  regionId?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetGroupListShrink: 'AssetGroupList',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetGroupListShrink: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachAssetGroupToInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachAssetGroupToInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachAssetGroupToInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachAssetGroupToInstanceResponseBody,
     };
   }
 
@@ -125,9 +225,9 @@ export class CheckAccessLogAuthResponseBody extends $tea.Model {
 }
 
 export class CheckAccessLogAuthResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckAccessLogAuthResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckAccessLogAuthResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -197,9 +297,9 @@ export class CheckGrantResponseBody extends $tea.Model {
 }
 
 export class CheckGrantResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckGrantResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckGrantResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -293,9 +393,9 @@ export class ConfigSchedruleOnDemandResponseBody extends $tea.Model {
 }
 
 export class ConfigSchedruleOnDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfigSchedruleOnDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigSchedruleOnDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -389,9 +489,9 @@ export class CreateSchedruleOnDemandResponseBody extends $tea.Model {
 }
 
 export class CreateSchedruleOnDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSchedruleOnDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSchedruleOnDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -461,9 +561,9 @@ export class DeleteBlackholeResponseBody extends $tea.Model {
 }
 
 export class DeleteBlackholeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteBlackholeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBlackholeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -533,9 +633,9 @@ export class DeleteIpResponseBody extends $tea.Model {
 }
 
 export class DeleteIpResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteIpResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -602,9 +702,9 @@ export class DeleteSchedruleOnDemandResponseBody extends $tea.Model {
 }
 
 export class DeleteSchedruleOnDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSchedruleOnDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSchedruleOnDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -618,6 +718,174 @@ export class DeleteSchedruleOnDemandResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSchedruleOnDemandResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetGroupRequest extends $tea.Model {
+  name?: string;
+  region?: string;
+  regionId?: string;
+  sourceIp?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      region: 'Region',
+      regionId: 'RegionId',
+      sourceIp: 'SourceIp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      region: 'string',
+      regionId: 'string',
+      sourceIp: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetGroupResponseBody extends $tea.Model {
+  assetGroupList?: DescribeAssetGroupResponseBodyAssetGroupList[];
+  requestId?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      assetGroupList: 'AssetGroupList',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetGroupList: { 'type': 'array', 'itemType': DescribeAssetGroupResponseBodyAssetGroupList },
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAssetGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAssetGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetGroupToInstanceRequest extends $tea.Model {
+  instanceId?: string;
+  memberUid?: string;
+  name?: string;
+  region?: string;
+  regionId?: string;
+  sourceIp?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      memberUid: 'MemberUid',
+      name: 'Name',
+      region: 'Region',
+      regionId: 'RegionId',
+      sourceIp: 'SourceIp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      memberUid: 'string',
+      name: 'string',
+      region: 'string',
+      regionId: 'string',
+      sourceIp: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetGroupToInstanceResponseBody extends $tea.Model {
+  dataList?: DescribeAssetGroupToInstanceResponseBodyDataList[];
+  requestId?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataList: 'DataList',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataList: { 'type': 'array', 'itemType': DescribeAssetGroupToInstanceResponseBodyDataList },
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetGroupToInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAssetGroupToInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAssetGroupToInstanceResponseBody,
     };
   }
 
@@ -692,9 +960,9 @@ export class DescribeDdosEventResponseBody extends $tea.Model {
 }
 
 export class DescribeDdosEventResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDdosEventResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDdosEventResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -764,9 +1032,9 @@ export class DescribeExcpetionCountResponseBody extends $tea.Model {
 }
 
 export class DescribeExcpetionCountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeExcpetionCountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeExcpetionCountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -869,9 +1137,9 @@ export class DescribeInstanceListResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -941,9 +1209,9 @@ export class DescribeInstanceSpecsResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceSpecsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceSpecsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceSpecsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1031,9 +1299,9 @@ export class DescribeOnDemandDdosEventResponseBody extends $tea.Model {
 }
 
 export class DescribeOnDemandDdosEventResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeOnDemandDdosEventResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOnDemandDdosEventResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1100,9 +1368,9 @@ export class DescribeOnDemandInstanceStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeOnDemandInstanceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeOnDemandInstanceStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOnDemandInstanceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1193,9 +1461,9 @@ export class DescribeOpEntitiesResponseBody extends $tea.Model {
 }
 
 export class DescribeOpEntitiesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeOpEntitiesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOpEntitiesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1289,9 +1557,9 @@ export class DescribePackIpListResponseBody extends $tea.Model {
 }
 
 export class DescribePackIpListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePackIpListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePackIpListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1364,9 +1632,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1454,9 +1722,9 @@ export class DescribeTrafficResponseBody extends $tea.Model {
 }
 
 export class DescribeTrafficResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTrafficResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTrafficResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1470,6 +1738,106 @@ export class DescribeTrafficResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeTrafficResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DettachAssetGroupToInstanceRequest extends $tea.Model {
+  assetGroupList?: DettachAssetGroupToInstanceRequestAssetGroupList[];
+  instanceId?: string;
+  regionId?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetGroupList: 'AssetGroupList',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetGroupList: { 'type': 'array', 'itemType': DettachAssetGroupToInstanceRequestAssetGroupList },
+      instanceId: 'string',
+      regionId: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DettachAssetGroupToInstanceShrinkRequest extends $tea.Model {
+  assetGroupListShrink?: string;
+  instanceId?: string;
+  regionId?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetGroupListShrink: 'AssetGroupList',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetGroupListShrink: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DettachAssetGroupToInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DettachAssetGroupToInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DettachAssetGroupToInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DettachAssetGroupToInstanceResponseBody,
     };
   }
 
@@ -1523,9 +1891,9 @@ export class GetSlsOpenStatusResponseBody extends $tea.Model {
 }
 
 export class GetSlsOpenStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSlsOpenStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSlsOpenStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1598,9 +1966,9 @@ export class ListOpenedAccessLogInstancesResponseBody extends $tea.Model {
 }
 
 export class ListOpenedAccessLogInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListOpenedAccessLogInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOpenedAccessLogInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1685,9 +2053,9 @@ export class ListTagKeysResponseBody extends $tea.Model {
 }
 
 export class ListTagKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagKeysResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1769,9 +2137,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1841,9 +2209,9 @@ export class ModifyRemarkResponseBody extends $tea.Model {
 }
 
 export class ModifyRemarkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyRemarkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRemarkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1919,9 +2287,9 @@ export class QuerySchedruleOnDemandResponseBody extends $tea.Model {
 }
 
 export class QuerySchedruleOnDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySchedruleOnDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySchedruleOnDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1988,9 +2356,9 @@ export class SetInstanceModeOnDemandResponseBody extends $tea.Model {
 }
 
 export class SetInstanceModeOnDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetInstanceModeOnDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetInstanceModeOnDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2063,9 +2431,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2141,9 +2509,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2157,6 +2525,90 @@ export class UntagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachAssetGroupToInstanceRequestAssetGroupList extends $tea.Model {
+  memberUid?: string;
+  name?: string;
+  region?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memberUid: 'MemberUid',
+      name: 'Name',
+      region: 'Region',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberUid: 'string',
+      name: 'string',
+      region: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetGroupResponseBodyAssetGroupList extends $tea.Model {
+  name?: string;
+  region?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      region: 'Region',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      region: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetGroupToInstanceResponseBodyDataList extends $tea.Model {
+  instanceId?: string;
+  memberUid?: string;
+  name?: string;
+  region?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      memberUid: 'MemberUid',
+      name: 'Name',
+      region: 'Region',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      memberUid: 'string',
+      name: 'string',
+      region: 'string',
+      type: 'string',
     };
   }
 
@@ -2221,9 +2673,30 @@ export class DescribeInstanceListRequestTag extends $tea.Model {
   }
 }
 
+export class DescribeInstanceListResponseBodyInstanceListAutoProtectCondition extends $tea.Model {
+  events?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      events: 'Events',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      events: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceListResponseBodyInstanceList extends $tea.Model {
+  autoProtectCondition?: DescribeInstanceListResponseBodyInstanceListAutoProtectCondition;
   autoRenewal?: boolean;
   blackholdingCount?: string;
+  commodityType?: string;
   coverageType?: number;
   expireTime?: number;
   gmtCreate?: number;
@@ -2235,8 +2708,10 @@ export class DescribeInstanceListResponseBodyInstanceList extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      autoProtectCondition: 'AutoProtectCondition',
       autoRenewal: 'AutoRenewal',
       blackholdingCount: 'BlackholdingCount',
+      commodityType: 'CommodityType',
       coverageType: 'CoverageType',
       expireTime: 'ExpireTime',
       gmtCreate: 'GmtCreate',
@@ -2251,8 +2726,10 @@ export class DescribeInstanceListResponseBodyInstanceList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoProtectCondition: DescribeInstanceListResponseBodyInstanceListAutoProtectCondition,
       autoRenewal: 'boolean',
       blackholdingCount: 'string',
+      commodityType: 'string',
       coverageType: 'number',
       expireTime: 'number',
       gmtCreate: 'number',
@@ -2313,6 +2790,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $t
 export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $tea.Model {
   availableDefenseTimes?: number;
   availableDeleteBlackholeCount?: string;
+  defenseTimesPercent?: number;
   instanceId?: string;
   isFullDefenseMode?: number;
   packConfig?: DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig;
@@ -2322,6 +2800,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $tea.Model {
     return {
       availableDefenseTimes: 'AvailableDefenseTimes',
       availableDeleteBlackholeCount: 'AvailableDeleteBlackholeCount',
+      defenseTimesPercent: 'DefenseTimesPercent',
       instanceId: 'InstanceId',
       isFullDefenseMode: 'IsFullDefenseMode',
       packConfig: 'PackConfig',
@@ -2334,6 +2813,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $tea.Model {
     return {
       availableDefenseTimes: 'number',
       availableDeleteBlackholeCount: 'string',
+      defenseTimesPercent: 'number',
       instanceId: 'string',
       isFullDefenseMode: 'number',
       packConfig: DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig,
@@ -2455,6 +2935,7 @@ export class DescribeOpEntitiesResponseBodyOpEntities extends $tea.Model {
 export class DescribePackIpListResponseBodyIpList extends $tea.Model {
   ip?: string;
   memberUid?: string;
+  nsmStatus?: number;
   product?: string;
   region?: string;
   remark?: string;
@@ -2463,6 +2944,7 @@ export class DescribePackIpListResponseBodyIpList extends $tea.Model {
     return {
       ip: 'Ip',
       memberUid: 'MemberUid',
+      nsmStatus: 'NsmStatus',
       product: 'Product',
       region: 'Region',
       remark: 'Remark',
@@ -2474,6 +2956,7 @@ export class DescribePackIpListResponseBodyIpList extends $tea.Model {
     return {
       ip: 'string',
       memberUid: 'string',
+      nsmStatus: 'number',
       product: 'string',
       region: 'string',
       remark: 'string',
@@ -2540,6 +3023,31 @@ export class DescribeTrafficResponseBodyFlowList extends $tea.Model {
       name: 'string',
       pps: 'number',
       time: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DettachAssetGroupToInstanceRequestAssetGroupList extends $tea.Model {
+  name?: string;
+  region?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      region: 'Region',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      region: 'string',
+      type: 'string',
     };
   }
 
@@ -2837,6 +3345,53 @@ export default class Client extends OpenApi {
     return await this.addIpWithOptions(request, runtime);
   }
 
+  async attachAssetGroupToInstanceWithOptions(tmpReq: AttachAssetGroupToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AttachAssetGroupToInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AttachAssetGroupToInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.assetGroupList)) {
+      request.assetGroupListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assetGroupList, "AssetGroupList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.assetGroupListShrink)) {
+      query["AssetGroupList"] = request.assetGroupListShrink;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachAssetGroupToInstance",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachAssetGroupToInstanceResponse>(await this.callApi(params, req, runtime), new AttachAssetGroupToInstanceResponse({}));
+  }
+
+  async attachAssetGroupToInstance(request: AttachAssetGroupToInstanceRequest): Promise<AttachAssetGroupToInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachAssetGroupToInstanceWithOptions(request, runtime);
+  }
+
   async checkAccessLogAuthWithOptions(request: CheckAccessLogAuthRequest, runtime: $Util.RuntimeOptions): Promise<CheckAccessLogAuthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2871,9 +3426,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account. Valid values:
-    * *   **1**: Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
-    * *   **0**: Anti-DDoS Origin is not authorized to obtain information about the assets within the current Alibaba Cloud account.
+    * You can call the CheckGrant operation to query whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request CheckGrantRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2900,9 +3455,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account. Valid values:
-    * *   **1**: Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
-    * *   **0**: Anti-DDoS Origin is not authorized to obtain information about the assets within the current Alibaba Cloud account.
+    * You can call the CheckGrant operation to query whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request CheckGrantRequest
     * @return CheckGrantResponse
@@ -3119,8 +3674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the Anti-DDoS Origin Enterprise instance.
-    * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin Enterprise instances.
+    * The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
     *
     * @param request DeleteIpRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3163,8 +3717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the Anti-DDoS Origin Enterprise instance.
-    * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin Enterprise instances.
+    * The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
     *
     * @param request DeleteIpRequest
     * @return DeleteIpResponse
@@ -3211,8 +3764,108 @@ export default class Client extends OpenApi {
     return await this.deleteSchedruleOnDemandWithOptions(request, runtime);
   }
 
+  async describeAssetGroupWithOptions(request: DescribeAssetGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAssetGroup",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAssetGroupResponse>(await this.callApi(params, req, runtime), new DescribeAssetGroupResponse({}));
+  }
+
+  async describeAssetGroup(request: DescribeAssetGroupRequest): Promise<DescribeAssetGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAssetGroupWithOptions(request, runtime);
+  }
+
+  async describeAssetGroupToInstanceWithOptions(request: DescribeAssetGroupToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetGroupToInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAssetGroupToInstance",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAssetGroupToInstanceResponse>(await this.callApi(params, req, runtime), new DescribeAssetGroupToInstanceResponse({}));
+  }
+
+  async describeAssetGroupToInstance(request: DescribeAssetGroupToInstanceRequest): Promise<DescribeAssetGroupToInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAssetGroupToInstanceWithOptions(request, runtime);
+  }
+
   /**
-    * The number of entries to return on each page.
+    * You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on a specific Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeDdosEventRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3271,7 +3924,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The number of entries to return on each page.
+    * You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on a specific Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeDdosEventRequest
     * @return DescribeDdosEventResponse
@@ -3282,7 +3937,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **DescribeExcpetionCount**.
+    * ## Usage notes
+    * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
     *
     * @param request DescribeExcpetionCountRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3317,7 +3973,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **DescribeExcpetionCount**.
+    * ## Usage notes
+    * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
     *
     * @param request DescribeExcpetionCountRequest
     * @return DescribeExcpetionCountResponse
@@ -3328,10 +3985,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The status of the instance. Valid values:
-    * *   **1**: normal
-    * *   **2**: expired
-    * *   **3**: released
+    * You can call the DescribeInstanceList operation to query the details of all Anti-DDoS Origin instances within your Alibaba Cloud account by page. The details include the ID, validity period, and status of each instance.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeInstanceListRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3410,10 +4066,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The status of the instance. Valid values:
-    * *   **1**: normal
-    * *   **2**: expired
-    * *   **3**: released
+    * You can call the DescribeInstanceList operation to query the details of all Anti-DDoS Origin instances within your Alibaba Cloud account by page. The details include the ID, validity period, and status of each instance.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeInstanceListRequest
     * @return DescribeInstanceListResponse
@@ -3461,7 +4116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the resource group.
+    * >  Anti-DDoS Origin API operations are available for only Anti-DDoS Origin Enterprise users.
     *
     * @param request DescribeOnDemandDdosEventRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3520,7 +4175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the resource group.
+    * >  Anti-DDoS Origin API operations are available for only Anti-DDoS Origin Enterprise users.
     *
     * @param request DescribeOnDemandDdosEventRequest
     * @return DescribeOnDemandDdosEventResponse
@@ -3638,7 +4293,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The number of entries to return on each page.
+    * You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribePackIpListRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3697,7 +4354,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The number of entries to return on each page.
+    * You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribePackIpListRequest
     * @return DescribePackIpListResponse
@@ -3741,8 +4400,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The bandwidth of attack traffic. Unit: bit/s.
-    * >  This parameter is returned only if attack traffic exists.
+    * You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.  
+    * >  When you call this operation, you must configure the **InstanceId** parameter to specify the Anti-DDoS Origin instance whose traffic statistics you want to query.  
+    * ## Limits
+    * You can call this operation once per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeTrafficRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3805,8 +4466,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The bandwidth of attack traffic. Unit: bit/s.
-    * >  This parameter is returned only if attack traffic exists.
+    * You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.  
+    * >  When you call this operation, you must configure the **InstanceId** parameter to specify the Anti-DDoS Origin instance whose traffic statistics you want to query.  
+    * ## Limits
+    * You can call this operation once per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeTrafficRequest
     * @return DescribeTrafficResponse
@@ -3814,6 +4477,53 @@ export default class Client extends OpenApi {
   async describeTraffic(request: DescribeTrafficRequest): Promise<DescribeTrafficResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTrafficWithOptions(request, runtime);
+  }
+
+  async dettachAssetGroupToInstanceWithOptions(tmpReq: DettachAssetGroupToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DettachAssetGroupToInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DettachAssetGroupToInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.assetGroupList)) {
+      request.assetGroupListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assetGroupList, "AssetGroupList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.assetGroupListShrink)) {
+      query["AssetGroupList"] = request.assetGroupListShrink;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DettachAssetGroupToInstance",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DettachAssetGroupToInstanceResponse>(await this.callApi(params, req, runtime), new DettachAssetGroupToInstanceResponse({}));
+  }
+
+  async dettachAssetGroupToInstance(request: DettachAssetGroupToInstanceRequest): Promise<DettachAssetGroupToInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dettachAssetGroupToInstanceWithOptions(request, runtime);
   }
 
   async getSlsOpenStatusWithOptions(request: GetSlsOpenStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSlsOpenStatusResponse> {
@@ -3932,8 +4642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the region where the Anti-DDoS Origin instance resides.
-    * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+    * You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
     *
     * @param request ListTagResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3984,8 +4693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the region where the Anti-DDoS Origin instance resides.
-    * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+    * You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
     *
     * @param request ListTagResourcesRequest
     * @return ListTagResourcesResponse
@@ -3996,7 +4704,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **ModifyRemark**.
+    * You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request ModifyRemarkRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4039,7 +4749,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **ModifyRemark**.
+    * You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request ModifyRemarkRequest
     * @return ModifyRemarkResponse
@@ -4120,8 +4832,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of Anti-DDoS Origin Instance N to which you want to add tags.
-    * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
+    * You can call the TagResources operation to add tags to Anti-DDoS Origin instances. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request TagResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4168,8 +4881,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of Anti-DDoS Origin Instance N to which you want to add tags.
-    * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
+    * You can call the TagResources operation to add tags to Anti-DDoS Origin instances. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request TagResourcesRequest
     * @return TagResourcesResponse
