@@ -3961,6 +3961,7 @@ export class DescribeDBClusterAttributeRequest extends $tea.Model {
 }
 
 export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
+  aiCreatingTime?: string;
   aiType?: string;
   architecture?: string;
   blktagTotal?: number;
@@ -4017,6 +4018,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   zoneIds?: string;
   static names(): { [key: string]: string } {
     return {
+      aiCreatingTime: 'AiCreatingTime',
       aiType: 'AiType',
       architecture: 'Architecture',
       blktagTotal: 'BlktagTotal',
@@ -4076,6 +4078,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aiCreatingTime: 'string',
       aiType: 'string',
       architecture: 'string',
       blktagTotal: 'number',
@@ -4808,12 +4811,14 @@ export class DescribeDBClusterParametersResponse extends $tea.Model {
 export class DescribeDBClusterPerformanceRequest extends $tea.Model {
   DBClusterId?: string;
   endTime?: string;
+  interval?: string;
   key?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       endTime: 'EndTime',
+      interval: 'Interval',
       key: 'Key',
       startTime: 'StartTime',
     };
@@ -4823,6 +4828,7 @@ export class DescribeDBClusterPerformanceRequest extends $tea.Model {
     return {
       DBClusterId: 'string',
       endTime: 'string',
+      interval: 'string',
       key: 'string',
       startTime: 'string',
     };
@@ -10242,6 +10248,7 @@ export class ModifyDBClusterPrimaryZoneRequest extends $tea.Model {
   VPCId?: string;
   vSwitchId?: string;
   zoneId?: string;
+  zoneType?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
@@ -10256,6 +10263,7 @@ export class ModifyDBClusterPrimaryZoneRequest extends $tea.Model {
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
+      zoneType: 'ZoneType',
     };
   }
 
@@ -10273,6 +10281,7 @@ export class ModifyDBClusterPrimaryZoneRequest extends $tea.Model {
       VPCId: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
+      zoneType: 'string',
     };
   }
 
@@ -13803,6 +13812,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   maxConnections?: number;
   maxIOPS?: number;
   memorySize?: string;
+  remoteMemorySize?: string;
   sccMode?: string;
   serverWeight?: string;
   serverlessType?: string;
@@ -13824,6 +13834,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       maxConnections: 'MaxConnections',
       maxIOPS: 'MaxIOPS',
       memorySize: 'MemorySize',
+      remoteMemorySize: 'RemoteMemorySize',
       sccMode: 'SccMode',
       serverWeight: 'ServerWeight',
       serverlessType: 'ServerlessType',
@@ -13848,6 +13859,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       maxConnections: 'number',
       maxIOPS: 'number',
       memorySize: 'string',
+      remoteMemorySize: 'string',
       sccMode: 'string',
       serverWeight: 'string',
       serverlessType: 'string',
@@ -14170,6 +14182,10 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointList extends $tea.
 
 export class DescribeDBClusterParametersResponseBodyParametersParameters extends $tea.Model {
   isEqual?: string;
+  isInstancePolarDBKey?: string;
+  isInstanceRdsKey?: string;
+  isPolarDBKey?: string;
+  isRdsKey?: string;
   distParameterDescription?: string;
   distParameterName?: string;
   distParameterOptional?: string;
@@ -14181,6 +14197,10 @@ export class DescribeDBClusterParametersResponseBodyParametersParameters extends
   static names(): { [key: string]: string } {
     return {
       isEqual: 'IsEqual',
+      isInstancePolarDBKey: 'IsInstancePolarDBKey',
+      isInstanceRdsKey: 'IsInstanceRdsKey',
+      isPolarDBKey: 'IsPolarDBKey',
+      isRdsKey: 'IsRdsKey',
       distParameterDescription: 'distParameterDescription',
       distParameterName: 'distParameterName',
       distParameterOptional: 'distParameterOptional',
@@ -14195,6 +14215,10 @@ export class DescribeDBClusterParametersResponseBodyParametersParameters extends
   static types(): { [key: string]: any } {
     return {
       isEqual: 'string',
+      isInstancePolarDBKey: 'string',
+      isInstanceRdsKey: 'string',
+      isPolarDBKey: 'string',
+      isRdsKey: 'string',
       distParameterDescription: 'string',
       distParameterName: 'string',
       distParameterOptional: 'string',
@@ -19781,6 +19805,10 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
     if (!Util.isUnset(request.key)) {
       query["Key"] = request.key;
     }
@@ -19964,7 +19992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > For more information, see [Engine versions](~~471239~~) and [PolarDB for MySQL](~~172561~~).
+    * The release note of the kernel version.
     *
     * @param request DescribeDBClusterVersionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20015,7 +20043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > For more information, see [Engine versions](~~471239~~) and [PolarDB for MySQL](~~172561~~).
+    * The release note of the kernel version.
     *
     * @param request DescribeDBClusterVersionRequest
     * @return DescribeDBClusterVersionResponse
@@ -23492,6 +23520,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.zoneId)) {
       query["ZoneId"] = request.zoneId;
+    }
+
+    if (!Util.isUnset(request.zoneType)) {
+      query["ZoneType"] = request.zoneType;
     }
 
     let req = new $OpenApi.OpenApiRequest({

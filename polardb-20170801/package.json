@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/polardb20170801",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
