@@ -22523,6 +22523,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody exten
 }
 
 export class CreateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Model {
+  checkCert?: boolean;
   connectTimeout?: number;
   method?: string;
   requestBody?: CreateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody;
@@ -22531,6 +22532,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Mod
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
+      checkCert: 'CheckCert',
       connectTimeout: 'ConnectTimeout',
       method: 'Method',
       requestBody: 'RequestBody',
@@ -22542,6 +22544,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      checkCert: 'boolean',
       connectTimeout: 'number',
       method: 'string',
       requestBody: CreateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody,
@@ -26388,6 +26391,7 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTPRequestBody
 }
 
 export class GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTP extends $tea.Model {
+  checkCert?: boolean;
   connectTimeout?: number;
   method?: string;
   requestBody?: GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTPRequestBody;
@@ -26396,6 +26400,7 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTP extends $t
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
+      checkCert: 'CheckCert',
       connectTimeout: 'ConnectTimeout',
       method: 'Method',
       requestBody: 'RequestBody',
@@ -26407,6 +26412,7 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTP extends $t
 
   static types(): { [key: string]: any } {
     return {
+      checkCert: 'boolean',
       connectTimeout: 'number',
       method: 'string',
       requestBody: GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTPRequestBody,
@@ -32247,6 +32253,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody exten
 }
 
 export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Model {
+  checkCert?: boolean;
   connectTimeout?: number;
   method?: string;
   requestBody?: UpdateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody;
@@ -32255,6 +32262,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Mod
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
+      checkCert: 'CheckCert',
       connectTimeout: 'ConnectTimeout',
       method: 'Method',
       requestBody: 'RequestBody',
@@ -32266,6 +32274,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      checkCert: 'boolean',
       connectTimeout: 'number',
       method: 'string',
       requestBody: UpdateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody,
