@@ -65,9 +65,9 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -146,9 +146,9 @@ export class ConvertPostPayOrderResponseBody extends $tea.Model {
 }
 
 export class ConvertPostPayOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConvertPostPayOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConvertPostPayOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -236,9 +236,9 @@ export class CreateAclResponseBody extends $tea.Model {
 }
 
 export class CreateAclResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAclResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAclResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -320,9 +320,9 @@ export class CreateConsumerGroupResponseBody extends $tea.Model {
 }
 
 export class CreateConsumerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateConsumerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConsumerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -428,9 +428,9 @@ export class CreatePostPayOrderResponseBody extends $tea.Model {
 }
 
 export class CreatePostPayOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePostPayOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePostPayOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -453,6 +453,7 @@ export class CreatePostPayOrderResponse extends $tea.Model {
 }
 
 export class CreatePrePayOrderRequest extends $tea.Model {
+  confluentConfig?: CreatePrePayOrderRequestConfluentConfig;
   deployType?: number;
   diskSize?: number;
   diskType?: string;
@@ -467,6 +468,7 @@ export class CreatePrePayOrderRequest extends $tea.Model {
   topicQuota?: number;
   static names(): { [key: string]: string } {
     return {
+      confluentConfig: 'ConfluentConfig',
       deployType: 'DeployType',
       diskSize: 'DiskSize',
       diskType: 'DiskType',
@@ -484,6 +486,7 @@ export class CreatePrePayOrderRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      confluentConfig: CreatePrePayOrderRequestConfluentConfig,
       deployType: 'number',
       diskSize: 'number',
       diskType: 'string',
@@ -495,6 +498,61 @@ export class CreatePrePayOrderRequest extends $tea.Model {
       resourceGroupId: 'string',
       specType: 'string',
       tag: { 'type': 'array', 'itemType': CreatePrePayOrderRequestTag },
+      topicQuota: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrePayOrderShrinkRequest extends $tea.Model {
+  confluentConfigShrink?: string;
+  deployType?: number;
+  diskSize?: number;
+  diskType?: string;
+  eipMax?: number;
+  ioMax?: number;
+  ioMaxSpec?: string;
+  partitionNum?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  specType?: string;
+  tag?: CreatePrePayOrderShrinkRequestTag[];
+  topicQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      confluentConfigShrink: 'ConfluentConfig',
+      deployType: 'DeployType',
+      diskSize: 'DiskSize',
+      diskType: 'DiskType',
+      eipMax: 'EipMax',
+      ioMax: 'IoMax',
+      ioMaxSpec: 'IoMaxSpec',
+      partitionNum: 'PartitionNum',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      specType: 'SpecType',
+      tag: 'Tag',
+      topicQuota: 'TopicQuota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confluentConfigShrink: 'string',
+      deployType: 'number',
+      diskSize: 'number',
+      diskType: 'string',
+      eipMax: 'number',
+      ioMax: 'number',
+      ioMaxSpec: 'string',
+      partitionNum: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      specType: 'string',
+      tag: { 'type': 'array', 'itemType': CreatePrePayOrderShrinkRequestTag },
       topicQuota: 'number',
     };
   }
@@ -536,9 +594,9 @@ export class CreatePrePayOrderResponseBody extends $tea.Model {
 }
 
 export class CreatePrePayOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePrePayOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePrePayOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -620,9 +678,9 @@ export class CreateSaslUserResponseBody extends $tea.Model {
 }
 
 export class CreateSaslUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSaslUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSaslUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -722,9 +780,9 @@ export class CreateTopicResponseBody extends $tea.Model {
 }
 
 export class CreateTopicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTopicResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTopicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -812,9 +870,9 @@ export class DeleteAclResponseBody extends $tea.Model {
 }
 
 export class DeleteAclResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAclResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAclResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -890,9 +948,9 @@ export class DeleteConsumerGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteConsumerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteConsumerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConsumerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -965,9 +1023,9 @@ export class DeleteInstanceResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1046,9 +1104,9 @@ export class DeleteSaslUserResponseBody extends $tea.Model {
 }
 
 export class DeleteSaslUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSaslUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSaslUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1124,9 +1182,9 @@ export class DeleteTopicResponseBody extends $tea.Model {
 }
 
 export class DeleteTopicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTopicResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTopicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1214,9 +1272,9 @@ export class DescribeAclsResponseBody extends $tea.Model {
 }
 
 export class DescribeAclsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAclsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAclsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1292,9 +1350,9 @@ export class DescribeSaslUsersResponseBody extends $tea.Model {
 }
 
 export class DescribeSaslUsersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSaslUsersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSaslUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1308,6 +1366,165 @@ export class DescribeSaslUsersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeSaslUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAutoGroupCreationRequest extends $tea.Model {
+  enable?: boolean;
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAutoGroupCreationResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAutoGroupCreationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableAutoGroupCreationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableAutoGroupCreationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAutoTopicCreationRequest extends $tea.Model {
+  instanceId?: string;
+  operate?: string;
+  partitionNum?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      operate: 'Operate',
+      partitionNum: 'PartitionNum',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      operate: 'string',
+      partitionNum: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAutoTopicCreationResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAutoTopicCreationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableAutoTopicCreationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableAutoTopicCreationResponseBody,
     };
   }
 
@@ -1367,9 +1584,9 @@ export class GetAllInstanceIdListResponseBody extends $tea.Model {
 }
 
 export class GetAllInstanceIdListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAllInstanceIdListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAllInstanceIdListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1445,9 +1662,9 @@ export class GetAllowedIpListResponseBody extends $tea.Model {
 }
 
 export class GetAllowedIpListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAllowedIpListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAllowedIpListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1526,9 +1743,9 @@ export class GetConsumerListResponseBody extends $tea.Model {
 }
 
 export class GetConsumerListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetConsumerListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConsumerListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1607,9 +1824,9 @@ export class GetConsumerProgressResponseBody extends $tea.Model {
 }
 
 export class GetConsumerProgressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetConsumerProgressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConsumerProgressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1694,9 +1911,9 @@ export class GetInstanceListResponseBody extends $tea.Model {
 }
 
 export class GetInstanceListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1772,9 +1989,9 @@ export class GetQuotaTipResponseBody extends $tea.Model {
 }
 
 export class GetQuotaTipResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQuotaTipResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQuotaTipResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1868,9 +2085,9 @@ export class GetTopicListResponseBody extends $tea.Model {
 }
 
 export class GetTopicListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTopicListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTopicListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1949,9 +2166,9 @@ export class GetTopicStatusResponseBody extends $tea.Model {
 }
 
 export class GetTopicStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTopicStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTopicStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1965,6 +2182,87 @@ export class GetTopicStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetTopicStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSubscribeStatusRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSubscribeStatusResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  topicSubscribeStatus?: GetTopicSubscribeStatusResponseBodyTopicSubscribeStatus;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      topicSubscribeStatus: 'TopicSubscribeStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      topicSubscribeStatus: GetTopicSubscribeStatusResponseBodyTopicSubscribeStatus,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSubscribeStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTopicSubscribeStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTopicSubscribeStatusResponseBody,
     };
   }
 
@@ -2030,9 +2328,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2108,9 +2406,9 @@ export class ModifyInstanceNameResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceNameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceNameResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2189,9 +2487,9 @@ export class ModifyPartitionNumResponseBody extends $tea.Model {
 }
 
 export class ModifyPartitionNumResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPartitionNumResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPartitionNumResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2270,9 +2568,9 @@ export class ModifyTopicRemarkResponseBody extends $tea.Model {
 }
 
 export class ModifyTopicRemarkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyTopicRemarkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTopicRemarkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2363,9 +2661,9 @@ export class QueryMessageResponseBody extends $tea.Model {
 }
 
 export class QueryMessageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMessageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMessageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2441,9 +2739,9 @@ export class ReleaseInstanceResponseBody extends $tea.Model {
 }
 
 export class ReleaseInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleaseInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2484,6 +2782,7 @@ export class StartInstanceRequest extends $tea.Model {
   userPhoneNum?: string;
   username?: string;
   vSwitchId?: string;
+  vSwitchIds?: string[];
   vpcId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -2506,6 +2805,7 @@ export class StartInstanceRequest extends $tea.Model {
       userPhoneNum: 'UserPhoneNum',
       username: 'Username',
       vSwitchId: 'VSwitchId',
+      vSwitchIds: 'VSwitchIds',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
@@ -2531,6 +2831,7 @@ export class StartInstanceRequest extends $tea.Model {
       userPhoneNum: 'string',
       username: 'string',
       vSwitchId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
       zoneId: 'string',
     };
@@ -2570,9 +2871,9 @@ export class StartInstanceResponseBody extends $tea.Model {
 }
 
 export class StartInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2645,9 +2946,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2720,9 +3021,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2810,9 +3111,9 @@ export class UpdateAllowedIpResponseBody extends $tea.Model {
 }
 
 export class UpdateAllowedIpResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAllowedIpResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAllowedIpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2937,9 +3238,9 @@ export class UpdateConsumerOffsetResponseBody extends $tea.Model {
 }
 
 export class UpdateConsumerOffsetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateConsumerOffsetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateConsumerOffsetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3015,9 +3316,9 @@ export class UpdateInstanceConfigResponseBody extends $tea.Model {
 }
 
 export class UpdateInstanceConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateInstanceConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3102,9 +3403,9 @@ export class UpdateTopicConfigResponseBody extends $tea.Model {
 }
 
 export class UpdateTopicConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTopicConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTopicConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3180,9 +3481,9 @@ export class UpgradeInstanceVersionResponseBody extends $tea.Model {
 }
 
 export class UpgradeInstanceVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpgradeInstanceVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradeInstanceVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3213,6 +3514,7 @@ export class UpgradePostPayOrderRequest extends $tea.Model {
   ioMaxSpec?: string;
   partitionNum?: number;
   regionId?: string;
+  serverlessConfig?: UpgradePostPayOrderRequestServerlessConfig;
   specType?: string;
   topicQuota?: number;
   static names(): { [key: string]: string } {
@@ -3225,6 +3527,7 @@ export class UpgradePostPayOrderRequest extends $tea.Model {
       ioMaxSpec: 'IoMaxSpec',
       partitionNum: 'PartitionNum',
       regionId: 'RegionId',
+      serverlessConfig: 'ServerlessConfig',
       specType: 'SpecType',
       topicQuota: 'TopicQuota',
     };
@@ -3240,6 +3543,56 @@ export class UpgradePostPayOrderRequest extends $tea.Model {
       ioMaxSpec: 'string',
       partitionNum: 'number',
       regionId: 'string',
+      serverlessConfig: UpgradePostPayOrderRequestServerlessConfig,
+      specType: 'string',
+      topicQuota: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradePostPayOrderShrinkRequest extends $tea.Model {
+  diskSize?: number;
+  eipMax?: number;
+  eipModel?: boolean;
+  instanceId?: string;
+  ioMax?: number;
+  ioMaxSpec?: string;
+  partitionNum?: number;
+  regionId?: string;
+  serverlessConfigShrink?: string;
+  specType?: string;
+  topicQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      diskSize: 'DiskSize',
+      eipMax: 'EipMax',
+      eipModel: 'EipModel',
+      instanceId: 'InstanceId',
+      ioMax: 'IoMax',
+      ioMaxSpec: 'IoMaxSpec',
+      partitionNum: 'PartitionNum',
+      regionId: 'RegionId',
+      serverlessConfigShrink: 'ServerlessConfig',
+      specType: 'SpecType',
+      topicQuota: 'TopicQuota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskSize: 'number',
+      eipMax: 'number',
+      eipModel: 'boolean',
+      instanceId: 'string',
+      ioMax: 'number',
+      ioMaxSpec: 'string',
+      partitionNum: 'number',
+      regionId: 'string',
+      serverlessConfigShrink: 'string',
       specType: 'string',
       topicQuota: 'number',
     };
@@ -3279,9 +3632,9 @@ export class UpgradePostPayOrderResponseBody extends $tea.Model {
 }
 
 export class UpgradePostPayOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpgradePostPayOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradePostPayOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3304,24 +3657,28 @@ export class UpgradePostPayOrderResponse extends $tea.Model {
 }
 
 export class UpgradePrePayOrderRequest extends $tea.Model {
+  confluentConfig?: UpgradePrePayOrderRequestConfluentConfig;
   diskSize?: number;
   eipMax?: number;
   eipModel?: boolean;
   instanceId?: string;
   ioMax?: number;
   ioMaxSpec?: string;
+  paidType?: number;
   partitionNum?: number;
   regionId?: string;
   specType?: string;
   topicQuota?: number;
   static names(): { [key: string]: string } {
     return {
+      confluentConfig: 'ConfluentConfig',
       diskSize: 'DiskSize',
       eipMax: 'EipMax',
       eipModel: 'EipModel',
       instanceId: 'InstanceId',
       ioMax: 'IoMax',
       ioMaxSpec: 'IoMaxSpec',
+      paidType: 'PaidType',
       partitionNum: 'PartitionNum',
       regionId: 'RegionId',
       specType: 'SpecType',
@@ -3331,12 +3688,66 @@ export class UpgradePrePayOrderRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      confluentConfig: UpgradePrePayOrderRequestConfluentConfig,
       diskSize: 'number',
       eipMax: 'number',
       eipModel: 'boolean',
       instanceId: 'string',
       ioMax: 'number',
       ioMaxSpec: 'string',
+      paidType: 'number',
+      partitionNum: 'number',
+      regionId: 'string',
+      specType: 'string',
+      topicQuota: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradePrePayOrderShrinkRequest extends $tea.Model {
+  confluentConfigShrink?: string;
+  diskSize?: number;
+  eipMax?: number;
+  eipModel?: boolean;
+  instanceId?: string;
+  ioMax?: number;
+  ioMaxSpec?: string;
+  paidType?: number;
+  partitionNum?: number;
+  regionId?: string;
+  specType?: string;
+  topicQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      confluentConfigShrink: 'ConfluentConfig',
+      diskSize: 'DiskSize',
+      eipMax: 'EipMax',
+      eipModel: 'EipModel',
+      instanceId: 'InstanceId',
+      ioMax: 'IoMax',
+      ioMaxSpec: 'IoMaxSpec',
+      paidType: 'PaidType',
+      partitionNum: 'PartitionNum',
+      regionId: 'RegionId',
+      specType: 'SpecType',
+      topicQuota: 'TopicQuota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confluentConfigShrink: 'string',
+      diskSize: 'number',
+      eipMax: 'number',
+      eipModel: 'boolean',
+      instanceId: 'string',
+      ioMax: 'number',
+      ioMaxSpec: 'string',
+      paidType: 'number',
       partitionNum: 'number',
       regionId: 'string',
       specType: 'string',
@@ -3378,9 +3789,9 @@ export class UpgradePrePayOrderResponseBody extends $tea.Model {
 }
 
 export class UpgradePrePayOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpgradePrePayOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradePrePayOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3446,7 +3857,99 @@ export class CreatePostPayOrderRequestTag extends $tea.Model {
   }
 }
 
+export class CreatePrePayOrderRequestConfluentConfig extends $tea.Model {
+  connectCU?: number;
+  connectReplica?: number;
+  controlCenterCU?: number;
+  controlCenterReplica?: number;
+  controlCenterStorage?: number;
+  kafkaCU?: number;
+  kafkaReplica?: number;
+  kafkaRestProxyCU?: number;
+  kafkaRestProxyReplica?: number;
+  kafkaStorage?: number;
+  ksqlCU?: number;
+  ksqlReplica?: number;
+  ksqlStorage?: number;
+  schemaRegistryCU?: number;
+  schemaRegistryReplica?: number;
+  zooKeeperCU?: number;
+  zooKeeperReplica?: number;
+  zooKeeperStorage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectCU: 'ConnectCU',
+      connectReplica: 'ConnectReplica',
+      controlCenterCU: 'ControlCenterCU',
+      controlCenterReplica: 'ControlCenterReplica',
+      controlCenterStorage: 'ControlCenterStorage',
+      kafkaCU: 'KafkaCU',
+      kafkaReplica: 'KafkaReplica',
+      kafkaRestProxyCU: 'KafkaRestProxyCU',
+      kafkaRestProxyReplica: 'KafkaRestProxyReplica',
+      kafkaStorage: 'KafkaStorage',
+      ksqlCU: 'KsqlCU',
+      ksqlReplica: 'KsqlReplica',
+      ksqlStorage: 'KsqlStorage',
+      schemaRegistryCU: 'SchemaRegistryCU',
+      schemaRegistryReplica: 'SchemaRegistryReplica',
+      zooKeeperCU: 'ZooKeeperCU',
+      zooKeeperReplica: 'ZooKeeperReplica',
+      zooKeeperStorage: 'ZooKeeperStorage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectCU: 'number',
+      connectReplica: 'number',
+      controlCenterCU: 'number',
+      controlCenterReplica: 'number',
+      controlCenterStorage: 'number',
+      kafkaCU: 'number',
+      kafkaReplica: 'number',
+      kafkaRestProxyCU: 'number',
+      kafkaRestProxyReplica: 'number',
+      kafkaStorage: 'number',
+      ksqlCU: 'number',
+      ksqlReplica: 'number',
+      ksqlStorage: 'number',
+      schemaRegistryCU: 'number',
+      schemaRegistryReplica: 'number',
+      zooKeeperCU: 'number',
+      zooKeeperReplica: 'number',
+      zooKeeperStorage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePrePayOrderRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrePayOrderShrinkRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -3897,6 +4400,76 @@ export class GetInstanceListRequestTag extends $tea.Model {
   }
 }
 
+export class GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig extends $tea.Model {
+  connectCU?: number;
+  connectReplica?: number;
+  controlCenterCU?: number;
+  controlCenterReplica?: number;
+  controlCenterStorage?: number;
+  kafkaCU?: number;
+  kafkaReplica?: number;
+  kafkaRestProxyCU?: number;
+  kafkaRestProxyReplica?: number;
+  kafkaStorage?: number;
+  ksqlCU?: number;
+  ksqlReplica?: number;
+  ksqlStorage?: number;
+  schemaRegistryCU?: number;
+  schemaRegistryReplica?: number;
+  zooKeeperCU?: number;
+  zooKeeperReplica?: number;
+  zooKeeperStorage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectCU: 'ConnectCU',
+      connectReplica: 'ConnectReplica',
+      controlCenterCU: 'ControlCenterCU',
+      controlCenterReplica: 'ControlCenterReplica',
+      controlCenterStorage: 'ControlCenterStorage',
+      kafkaCU: 'KafkaCU',
+      kafkaReplica: 'KafkaReplica',
+      kafkaRestProxyCU: 'KafkaRestProxyCU',
+      kafkaRestProxyReplica: 'KafkaRestProxyReplica',
+      kafkaStorage: 'KafkaStorage',
+      ksqlCU: 'KsqlCU',
+      ksqlReplica: 'KsqlReplica',
+      ksqlStorage: 'KsqlStorage',
+      schemaRegistryCU: 'SchemaRegistryCU',
+      schemaRegistryReplica: 'SchemaRegistryReplica',
+      zooKeeperCU: 'ZooKeeperCU',
+      zooKeeperReplica: 'ZooKeeperReplica',
+      zooKeeperStorage: 'ZooKeeperStorage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectCU: 'number',
+      connectReplica: 'number',
+      controlCenterCU: 'number',
+      controlCenterReplica: 'number',
+      controlCenterStorage: 'number',
+      kafkaCU: 'number',
+      kafkaReplica: 'number',
+      kafkaRestProxyCU: 'number',
+      kafkaRestProxyReplica: 'number',
+      kafkaStorage: 'number',
+      ksqlCU: 'number',
+      ksqlReplica: 'number',
+      ksqlStorage: 'number',
+      schemaRegistryCU: 'number',
+      schemaRegistryReplica: 'number',
+      zooKeeperCU: 'number',
+      zooKeeperReplica: 'number',
+      zooKeeperStorage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceListResponseBodyInstanceListInstanceVOTagsTagVO extends $tea.Model {
   key?: string;
   value?: string;
@@ -3959,6 +4532,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVOUpgradeServiceDeta
 
 export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Model {
   allConfig?: string;
+  confluentConfig?: GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig;
   createTime?: number;
   deployType?: number;
   diskSize?: number;
@@ -3995,6 +4569,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   static names(): { [key: string]: string } {
     return {
       allConfig: 'AllConfig',
+      confluentConfig: 'ConfluentConfig',
       createTime: 'CreateTime',
       deployType: 'DeployType',
       diskSize: 'DiskSize',
@@ -4034,6 +4609,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       allConfig: 'string',
+      confluentConfig: GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig,
       createTime: 'number',
       deployType: 'number',
       diskSize: 'number',
@@ -4330,6 +4906,28 @@ export class GetTopicStatusResponseBodyTopicStatus extends $tea.Model {
   }
 }
 
+export class GetTopicSubscribeStatusResponseBodyTopicSubscribeStatus extends $tea.Model {
+  consumerGroups?: string[];
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerGroups: 'ConsumerGroups',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerGroups: { 'type': 'array', 'itemType': 'string' },
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -4493,6 +5091,98 @@ export class UpdateConsumerOffsetRequestOffsets extends $tea.Model {
     return {
       offset: 'number',
       partition: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradePostPayOrderRequestServerlessConfig extends $tea.Model {
+  reservedPublishCapacity?: number;
+  reservedSubscribeCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      reservedPublishCapacity: 'ReservedPublishCapacity',
+      reservedSubscribeCapacity: 'ReservedSubscribeCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reservedPublishCapacity: 'number',
+      reservedSubscribeCapacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradePrePayOrderRequestConfluentConfig extends $tea.Model {
+  connectCU?: number;
+  connectReplica?: number;
+  controlCenterCU?: number;
+  controlCenterReplica?: number;
+  controlCenterStorage?: number;
+  kafkaCU?: number;
+  kafkaReplica?: number;
+  kafkaRestProxyCU?: number;
+  kafkaRestProxyReplica?: number;
+  kafkaStorage?: number;
+  ksqlCU?: number;
+  ksqlReplica?: number;
+  ksqlStorage?: number;
+  schemaRegistryCU?: number;
+  schemaRegistryReplica?: number;
+  zooKeeperCU?: number;
+  zooKeeperReplica?: number;
+  zooKeeperStorage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectCU: 'ConnectCU',
+      connectReplica: 'ConnectReplica',
+      controlCenterCU: 'ControlCenterCU',
+      controlCenterReplica: 'ControlCenterReplica',
+      controlCenterStorage: 'ControlCenterStorage',
+      kafkaCU: 'KafkaCU',
+      kafkaReplica: 'KafkaReplica',
+      kafkaRestProxyCU: 'KafkaRestProxyCU',
+      kafkaRestProxyReplica: 'KafkaRestProxyReplica',
+      kafkaStorage: 'KafkaStorage',
+      ksqlCU: 'KsqlCU',
+      ksqlReplica: 'KsqlReplica',
+      ksqlStorage: 'KsqlStorage',
+      schemaRegistryCU: 'SchemaRegistryCU',
+      schemaRegistryReplica: 'SchemaRegistryReplica',
+      zooKeeperCU: 'ZooKeeperCU',
+      zooKeeperReplica: 'ZooKeeperReplica',
+      zooKeeperStorage: 'ZooKeeperStorage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectCU: 'number',
+      connectReplica: 'number',
+      controlCenterCU: 'number',
+      controlCenterReplica: 'number',
+      controlCenterStorage: 'number',
+      kafkaCU: 'number',
+      kafkaReplica: 'number',
+      kafkaRestProxyCU: 'number',
+      kafkaRestProxyReplica: 'number',
+      kafkaStorage: 'number',
+      ksqlCU: 'number',
+      ksqlReplica: 'number',
+      ksqlStorage: 'number',
+      schemaRegistryCU: 'number',
+      schemaRegistryReplica: 'number',
+      zooKeeperCU: 'number',
+      zooKeeperReplica: 'number',
+      zooKeeperStorage: 'number',
     };
   }
 
@@ -4786,13 +5476,23 @@ export default class Client extends OpenApi {
     * *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](~~84737~~).
     * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
     *
-    * @param request CreatePrePayOrderRequest
+    * @param tmpReq CreatePrePayOrderRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return CreatePrePayOrderResponse
    */
-  async createPrePayOrderWithOptions(request: CreatePrePayOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrePayOrderResponse> {
-    Util.validateModel(request);
+  async createPrePayOrderWithOptions(tmpReq: CreatePrePayOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrePayOrderResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreatePrePayOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.confluentConfig)) {
+      request.confluentConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.confluentConfig, "ConfluentConfig", "json");
+    }
+
     let query = { };
+    if (!Util.isUnset(request.confluentConfigShrink)) {
+      query["ConfluentConfig"] = request.confluentConfigShrink;
+    }
+
     if (!Util.isUnset(request.deployType)) {
       query["DeployType"] = request.deployType;
     }
@@ -5282,6 +5982,84 @@ export default class Client extends OpenApi {
     return await this.describeSaslUsersWithOptions(request, runtime);
   }
 
+  async enableAutoGroupCreationWithOptions(request: EnableAutoGroupCreationRequest, runtime: $Util.RuntimeOptions): Promise<EnableAutoGroupCreationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableAutoGroupCreation",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableAutoGroupCreationResponse>(await this.callApi(params, req, runtime), new EnableAutoGroupCreationResponse({}));
+  }
+
+  async enableAutoGroupCreation(request: EnableAutoGroupCreationRequest): Promise<EnableAutoGroupCreationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableAutoGroupCreationWithOptions(request, runtime);
+  }
+
+  async enableAutoTopicCreationWithOptions(request: EnableAutoTopicCreationRequest, runtime: $Util.RuntimeOptions): Promise<EnableAutoTopicCreationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.operate)) {
+      query["Operate"] = request.operate;
+    }
+
+    if (!Util.isUnset(request.partitionNum)) {
+      query["PartitionNum"] = request.partitionNum;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableAutoTopicCreation",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableAutoTopicCreationResponse>(await this.callApi(params, req, runtime), new EnableAutoTopicCreationResponse({}));
+  }
+
+  async enableAutoTopicCreation(request: EnableAutoTopicCreationRequest): Promise<EnableAutoTopicCreationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableAutoTopicCreationWithOptions(request, runtime);
+  }
+
   async getAllInstanceIdListWithOptions(request: GetAllInstanceIdListRequest, runtime: $Util.RuntimeOptions): Promise<GetAllInstanceIdListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5576,6 +6354,43 @@ export default class Client extends OpenApi {
   async getTopicStatus(request: GetTopicStatusRequest): Promise<GetTopicStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTopicStatusWithOptions(request, runtime);
+  }
+
+  async getTopicSubscribeStatusWithOptions(request: GetTopicSubscribeStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicSubscribeStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTopicSubscribeStatus",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTopicSubscribeStatusResponse>(await this.callApi(params, req, runtime), new GetTopicSubscribeStatusResponse({}));
+  }
+
+  async getTopicSubscribeStatus(request: GetTopicSubscribeStatusRequest): Promise<GetTopicSubscribeStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTopicSubscribeStatusWithOptions(request, runtime);
   }
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
@@ -5897,6 +6712,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vSwitchIds)) {
+      query["VSwitchIds"] = request.vSwitchIds;
     }
 
     if (!Util.isUnset(request.vpcId)) {
@@ -6324,12 +7143,18 @@ export default class Client extends OpenApi {
   /**
     * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
     *
-    * @param request UpgradePostPayOrderRequest
+    * @param tmpReq UpgradePostPayOrderRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return UpgradePostPayOrderResponse
    */
-  async upgradePostPayOrderWithOptions(request: UpgradePostPayOrderRequest, runtime: $Util.RuntimeOptions): Promise<UpgradePostPayOrderResponse> {
-    Util.validateModel(request);
+  async upgradePostPayOrderWithOptions(tmpReq: UpgradePostPayOrderRequest, runtime: $Util.RuntimeOptions): Promise<UpgradePostPayOrderResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpgradePostPayOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.serverlessConfig)) {
+      request.serverlessConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serverlessConfig, "ServerlessConfig", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.diskSize)) {
       query["DiskSize"] = request.diskSize;
@@ -6361,6 +7186,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serverlessConfigShrink)) {
+      query["ServerlessConfig"] = request.serverlessConfigShrink;
     }
 
     if (!Util.isUnset(request.specType)) {
@@ -6402,13 +7231,23 @@ export default class Client extends OpenApi {
   /**
     * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](~~84737~~).
     *
-    * @param request UpgradePrePayOrderRequest
+    * @param tmpReq UpgradePrePayOrderRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return UpgradePrePayOrderResponse
    */
-  async upgradePrePayOrderWithOptions(request: UpgradePrePayOrderRequest, runtime: $Util.RuntimeOptions): Promise<UpgradePrePayOrderResponse> {
-    Util.validateModel(request);
+  async upgradePrePayOrderWithOptions(tmpReq: UpgradePrePayOrderRequest, runtime: $Util.RuntimeOptions): Promise<UpgradePrePayOrderResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpgradePrePayOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.confluentConfig)) {
+      request.confluentConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.confluentConfig, "ConfluentConfig", "json");
+    }
+
     let query = { };
+    if (!Util.isUnset(request.confluentConfigShrink)) {
+      query["ConfluentConfig"] = request.confluentConfigShrink;
+    }
+
     if (!Util.isUnset(request.diskSize)) {
       query["DiskSize"] = request.diskSize;
     }
@@ -6431,6 +7270,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ioMaxSpec)) {
       query["IoMaxSpec"] = request.ioMaxSpec;
+    }
+
+    if (!Util.isUnset(request.paidType)) {
+      query["PaidType"] = request.paidType;
     }
 
     if (!Util.isUnset(request.partitionNum)) {
