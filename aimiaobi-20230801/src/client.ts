@@ -65,9 +65,9 @@ export class CancelAsyncTaskResponseBody extends $tea.Model {
 }
 
 export class CancelAsyncTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelAsyncTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelAsyncTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -210,9 +210,9 @@ export class CreateGeneratedContentResponseBody extends $tea.Model {
 }
 
 export class CreateGeneratedContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateGeneratedContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateGeneratedContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -288,9 +288,9 @@ export class CreateTokenResponseBody extends $tea.Model {
 }
 
 export class CreateTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -369,9 +369,9 @@ export class DeleteGeneratedContentResponseBody extends $tea.Model {
 }
 
 export class DeleteGeneratedContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteGeneratedContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteGeneratedContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -450,9 +450,9 @@ export class DeleteMaterialByIdResponseBody extends $tea.Model {
 }
 
 export class DeleteMaterialByIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteMaterialByIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMaterialByIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -531,9 +531,9 @@ export class ExportGeneratedContentResponseBody extends $tea.Model {
 }
 
 export class ExportGeneratedContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ExportGeneratedContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportGeneratedContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -667,9 +667,9 @@ export class FeedbackDialogueResponseBody extends $tea.Model {
 }
 
 export class FeedbackDialogueResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FeedbackDialogueResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FeedbackDialogueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -776,9 +776,9 @@ export class FetchImageTaskResponseBody extends $tea.Model {
 }
 
 export class FetchImageTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FetchImageTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FetchImageTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -803,10 +803,12 @@ export class FetchImageTaskResponse extends $tea.Model {
 export class GenerateFileUrlByKeyRequest extends $tea.Model {
   agentKey?: string;
   fileKey?: string;
+  fileName?: string;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
       fileKey: 'FileKey',
+      fileName: 'FileName',
     };
   }
 
@@ -814,6 +816,7 @@ export class GenerateFileUrlByKeyRequest extends $tea.Model {
     return {
       agentKey: 'string',
       fileKey: 'string',
+      fileName: 'string',
     };
   }
 
@@ -857,9 +860,9 @@ export class GenerateFileUrlByKeyResponseBody extends $tea.Model {
 }
 
 export class GenerateFileUrlByKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateFileUrlByKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateFileUrlByKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -978,9 +981,9 @@ export class GenerateImageTaskResponseBody extends $tea.Model {
 }
 
 export class GenerateImageTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateImageTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateImageTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1062,9 +1065,9 @@ export class GenerateUploadConfigResponseBody extends $tea.Model {
 }
 
 export class GenerateUploadConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateUploadConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateUploadConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1165,9 +1168,9 @@ export class GenerateViewPointResponseBody extends $tea.Model {
 }
 
 export class GenerateViewPointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateViewPointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateViewPointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1246,9 +1249,9 @@ export class GetDataSourceOrderConfigResponseBody extends $tea.Model {
 }
 
 export class GetDataSourceOrderConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDataSourceOrderConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataSourceOrderConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1327,9 +1330,9 @@ export class GetGeneratedContentResponseBody extends $tea.Model {
 }
 
 export class GetGeneratedContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetGeneratedContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetGeneratedContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1408,9 +1411,9 @@ export class GetMaterialByIdResponseBody extends $tea.Model {
 }
 
 export class GetMaterialByIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMaterialByIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMaterialByIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1486,9 +1489,9 @@ export class GetPropertiesResponseBody extends $tea.Model {
 }
 
 export class GetPropertiesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPropertiesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPropertiesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1652,9 +1655,9 @@ export class ListAsyncTasksResponseBody extends $tea.Model {
 }
 
 export class ListAsyncTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAsyncTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAsyncTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1733,9 +1736,9 @@ export class ListBuildConfigsResponseBody extends $tea.Model {
 }
 
 export class ListBuildConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListBuildConfigsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBuildConfigsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1838,9 +1841,9 @@ export class ListDialoguesResponseBody extends $tea.Model {
 }
 
 export class ListDialoguesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDialoguesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDialoguesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1943,9 +1946,9 @@ export class ListGeneratedContentsResponseBody extends $tea.Model {
 }
 
 export class ListGeneratedContentsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListGeneratedContentsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGeneratedContentsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2064,9 +2067,9 @@ export class ListHotNewsWithTypeResponseBody extends $tea.Model {
 }
 
 export class ListHotNewsWithTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListHotNewsWithTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHotNewsWithTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2260,9 +2263,9 @@ export class ListMaterialDocumentsResponseBody extends $tea.Model {
 }
 
 export class ListMaterialDocumentsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListMaterialDocumentsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMaterialDocumentsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2338,9 +2341,9 @@ export class ListVersionsResponseBody extends $tea.Model {
 }
 
 export class ListVersionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVersionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2419,9 +2422,9 @@ export class QueryAsyncTaskResponseBody extends $tea.Model {
 }
 
 export class QueryAsyncTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryAsyncTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAsyncTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2528,9 +2531,9 @@ export class SaveDataSourceOrderConfigResponseBody extends $tea.Model {
 }
 
 export class SaveDataSourceOrderConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveDataSourceOrderConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveDataSourceOrderConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2703,9 +2706,9 @@ export class SaveMaterialDocumentResponseBody extends $tea.Model {
 }
 
 export class SaveMaterialDocumentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveMaterialDocumentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveMaterialDocumentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2845,9 +2848,9 @@ export class SearchNewsResponseBody extends $tea.Model {
 }
 
 export class SearchNewsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchNewsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchNewsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2935,9 +2938,9 @@ export class SubmitAsyncTaskResponseBody extends $tea.Model {
 }
 
 export class SubmitAsyncTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitAsyncTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitAsyncTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3068,9 +3071,9 @@ export class UpdateGeneratedContentResponseBody extends $tea.Model {
 }
 
 export class UpdateGeneratedContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateGeneratedContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateGeneratedContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3243,9 +3246,9 @@ export class UpdateMaterialDocumentResponseBody extends $tea.Model {
 }
 
 export class UpdateMaterialDocumentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateMaterialDocumentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMaterialDocumentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4948,6 +4951,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.fileKey)) {
       body["FileKey"] = request.fileKey;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      body["FileName"] = request.fileName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
