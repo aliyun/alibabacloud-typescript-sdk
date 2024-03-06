@@ -288,6 +288,136 @@ export class ActualDeductResourcesResponse extends $tea.Model {
   }
 }
 
+export class CopywritingQARequest extends $tea.Model {
+  accountId?: string;
+  histories?: CopywritingQARequestHistories[];
+  history?: CopywritingQARequestHistory;
+  question?: string;
+  sessionId?: string;
+  stream?: boolean;
+  subAccountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      histories: 'histories',
+      history: 'history',
+      question: 'question',
+      sessionId: 'sessionId',
+      stream: 'stream',
+      subAccountId: 'subAccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      histories: { 'type': 'array', 'itemType': CopywritingQARequestHistories },
+      history: CopywritingQARequestHistory,
+      question: 'string',
+      sessionId: 'string',
+      stream: 'boolean',
+      subAccountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopywritingQAShrinkRequest extends $tea.Model {
+  accountId?: string;
+  historiesShrink?: string;
+  historyShrink?: string;
+  question?: string;
+  sessionId?: string;
+  stream?: boolean;
+  subAccountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      historiesShrink: 'histories',
+      historyShrink: 'history',
+      question: 'question',
+      sessionId: 'sessionId',
+      stream: 'stream',
+      subAccountId: 'subAccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      historiesShrink: 'string',
+      historyShrink: 'string',
+      question: 'string',
+      sessionId: 'string',
+      stream: 'boolean',
+      subAccountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopywritingQAResponseBody extends $tea.Model {
+  content?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  sessionId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      sessionId: 'sessionId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      sessionId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopywritingQAResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CopywritingQAResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CopywritingQAResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DirectDeductResourceRequest extends $tea.Model {
   body?: DirectDeductResourceCmd;
   static names(): { [key: string]: string } {
@@ -545,6 +675,184 @@ export class GetRemainResourceResponse extends $tea.Model {
   }
 }
 
+export class SubmitBulletQuestionsRequest extends $tea.Model {
+  accountId?: string;
+  questions?: SubmitBulletQuestionsRequestQuestions[];
+  roomId?: string;
+  subAccountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      questions: 'questions',
+      roomId: 'roomId',
+      subAccountId: 'subAccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      questions: { 'type': 'array', 'itemType': SubmitBulletQuestionsRequestQuestions },
+      roomId: 'string',
+      subAccountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBulletQuestionsShrinkRequest extends $tea.Model {
+  accountId?: string;
+  questionsShrink?: string;
+  roomId?: string;
+  subAccountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      questionsShrink: 'questions',
+      roomId: 'roomId',
+      subAccountId: 'subAccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      questionsShrink: 'string',
+      roomId: 'string',
+      subAccountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBulletQuestionsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBulletQuestionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitBulletQuestionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitBulletQuestionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopywritingQARequestHistories extends $tea.Model {
+  bot?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bot: 'bot',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bot: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopywritingQARequestHistory extends $tea.Model {
+  bot?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bot: 'bot',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bot: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBulletQuestionsRequestQuestions extends $tea.Model {
+  content?: string;
+  id?: string;
+  time?: number;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      id: 'id',
+      time: 'time',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      id: 'string',
+      time: 'number',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -618,6 +926,71 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.actualDeductResourcesWithOptions(request, headers, runtime);
+  }
+
+  async copywritingQAWithOptions(tmpReq: CopywritingQARequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CopywritingQAResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CopywritingQAShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.histories)) {
+      request.historiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.histories, "histories", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.history)) {
+      request.historyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.history, "history", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["accountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.historiesShrink)) {
+      query["histories"] = request.historiesShrink;
+    }
+
+    if (!Util.isUnset(request.historyShrink)) {
+      query["history"] = request.historyShrink;
+    }
+
+    if (!Util.isUnset(request.question)) {
+      query["question"] = request.question;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.stream)) {
+      query["stream"] = request.stream;
+    }
+
+    if (!Util.isUnset(request.subAccountId)) {
+      query["subAccountId"] = request.subAccountId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CopywritingQA",
+      version: "2024-01-18",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/digitalHuman/commands/copywritingQA`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CopywritingQAResponse>(await this.callApi(params, req, runtime), new CopywritingQAResponse({}));
+  }
+
+  async copywritingQA(request: CopywritingQARequest): Promise<CopywritingQAResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.copywritingQAWithOptions(request, headers, runtime);
   }
 
   async directDeductResourceWithOptions(request: DirectDeductResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DirectDeductResourceResponse> {
@@ -761,6 +1134,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRemainResourceWithOptions(request, headers, runtime);
+  }
+
+  async submitBulletQuestionsWithOptions(tmpReq: SubmitBulletQuestionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitBulletQuestionsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitBulletQuestionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.questions)) {
+      request.questionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.questions, "questions", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["accountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.questionsShrink)) {
+      query["questions"] = request.questionsShrink;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      query["roomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.subAccountId)) {
+      query["subAccountId"] = request.subAccountId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitBulletQuestions",
+      version: "2024-01-18",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/digitalHuman/commands/submitBulletQuestions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitBulletQuestionsResponse>(await this.callApi(params, req, runtime), new SubmitBulletQuestionsResponse({}));
+  }
+
+  async submitBulletQuestions(request: SubmitBulletQuestionsRequest): Promise<SubmitBulletQuestionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitBulletQuestionsWithOptions(request, headers, runtime);
   }
 
 }
