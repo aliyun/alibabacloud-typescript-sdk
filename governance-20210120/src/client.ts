@@ -11,20 +11,24 @@ import * as $tea from '@alicloud/tea-typescript';
 export class EnrollAccountRequest extends $tea.Model {
   accountNamePrefix?: string;
   accountUid?: number;
+  baselineId?: string;
   baselineItems?: EnrollAccountRequestBaselineItems[];
   displayName?: string;
   folderId?: string;
   payerAccountUid?: number;
   regionId?: string;
+  resellAccountType?: string;
   static names(): { [key: string]: string } {
     return {
       accountNamePrefix: 'AccountNamePrefix',
       accountUid: 'AccountUid',
+      baselineId: 'BaselineId',
       baselineItems: 'BaselineItems',
       displayName: 'DisplayName',
       folderId: 'FolderId',
       payerAccountUid: 'PayerAccountUid',
       regionId: 'RegionId',
+      resellAccountType: 'ResellAccountType',
     };
   }
 
@@ -32,11 +36,13 @@ export class EnrollAccountRequest extends $tea.Model {
     return {
       accountNamePrefix: 'string',
       accountUid: 'number',
+      baselineId: 'string',
       baselineItems: { 'type': 'array', 'itemType': EnrollAccountRequestBaselineItems },
       displayName: 'string',
       folderId: 'string',
       payerAccountUid: 'number',
       regionId: 'string',
+      resellAccountType: 'string',
     };
   }
 
@@ -68,9 +74,9 @@ export class EnrollAccountResponseBody extends $tea.Model {
 }
 
 export class EnrollAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnrollAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnrollAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -84,6 +90,93 @@ export class EnrollAccountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: EnrollAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountFactoryBaselineRequest extends $tea.Model {
+  baselineId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountFactoryBaselineResponseBody extends $tea.Model {
+  baselineId?: string;
+  baselineItems?: GetAccountFactoryBaselineResponseBodyBaselineItems[];
+  baselineName?: string;
+  createTime?: string;
+  description?: string;
+  requestId?: string;
+  type?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      baselineItems: 'BaselineItems',
+      baselineName: 'BaselineName',
+      createTime: 'CreateTime',
+      description: 'Description',
+      requestId: 'RequestId',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'string',
+      baselineItems: { 'type': 'array', 'itemType': GetAccountFactoryBaselineResponseBodyBaselineItems },
+      baselineName: 'string',
+      createTime: 'string',
+      description: 'string',
+      requestId: 'string',
+      type: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountFactoryBaselineResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountFactoryBaselineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccountFactoryBaselineResponseBody,
     };
   }
 
@@ -116,6 +209,8 @@ export class GetEnrolledAccountRequest extends $tea.Model {
 
 export class GetEnrolledAccountResponseBody extends $tea.Model {
   accountUid?: number;
+  baselineId?: string;
+  baselineItems?: GetEnrolledAccountResponseBodyBaselineItems[];
   createTime?: string;
   displayName?: string;
   errorInfo?: GetEnrolledAccountResponseBodyErrorInfo;
@@ -131,6 +226,8 @@ export class GetEnrolledAccountResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accountUid: 'AccountUid',
+      baselineId: 'BaselineId',
+      baselineItems: 'BaselineItems',
       createTime: 'CreateTime',
       displayName: 'DisplayName',
       errorInfo: 'ErrorInfo',
@@ -149,6 +246,8 @@ export class GetEnrolledAccountResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accountUid: 'number',
+      baselineId: 'string',
+      baselineItems: { 'type': 'array', 'itemType': GetEnrolledAccountResponseBodyBaselineItems },
       createTime: 'string',
       displayName: 'string',
       errorInfo: GetEnrolledAccountResponseBodyErrorInfo,
@@ -170,9 +269,9 @@ export class GetEnrolledAccountResponseBody extends $tea.Model {
 }
 
 export class GetEnrolledAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetEnrolledAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEnrolledAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -186,6 +285,81 @@ export class GetEnrolledAccountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetEnrolledAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountFactoryBaselinesRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountFactoryBaselinesResponseBody extends $tea.Model {
+  baselines?: ListAccountFactoryBaselinesResponseBodyBaselines[];
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselines: 'Baselines',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselines: { 'type': 'array', 'itemType': ListAccountFactoryBaselinesResponseBodyBaselines },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountFactoryBaselinesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAccountFactoryBaselinesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAccountFactoryBaselinesResponseBody,
     };
   }
 
@@ -245,9 +419,9 @@ export class ListEnrolledAccountsResponseBody extends $tea.Model {
 }
 
 export class ListEnrolledAccountsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEnrolledAccountsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEnrolledAccountsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -270,6 +444,59 @@ export class ListEnrolledAccountsResponse extends $tea.Model {
 }
 
 export class EnrollAccountRequestBaselineItems extends $tea.Model {
+  config?: string;
+  name?: string;
+  skip?: boolean;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      skip: 'Skip',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      skip: 'boolean',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountFactoryBaselineResponseBodyBaselineItems extends $tea.Model {
+  config?: string;
+  name?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnrolledAccountResponseBodyBaselineItems extends $tea.Model {
   config?: string;
   name?: string;
   skip?: boolean;
@@ -409,8 +636,43 @@ export class GetEnrolledAccountResponseBodyProgress extends $tea.Model {
   }
 }
 
+export class ListAccountFactoryBaselinesResponseBodyBaselines extends $tea.Model {
+  baselineId?: string;
+  baselineName?: string;
+  createTime?: string;
+  description?: string;
+  type?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      baselineName: 'BaselineName',
+      createTime: 'CreateTime',
+      description: 'Description',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'string',
+      baselineName: 'string',
+      createTime: 'string',
+      description: 'string',
+      type: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEnrolledAccountsResponseBodyEnrolledAccounts extends $tea.Model {
   accountUid?: number;
+  baselineId?: string;
   createTime?: string;
   displayName?: string;
   folderId?: string;
@@ -420,6 +682,7 @@ export class ListEnrolledAccountsResponseBodyEnrolledAccounts extends $tea.Model
   static names(): { [key: string]: string } {
     return {
       accountUid: 'AccountUid',
+      baselineId: 'BaselineId',
       createTime: 'CreateTime',
       displayName: 'DisplayName',
       folderId: 'FolderId',
@@ -432,6 +695,7 @@ export class ListEnrolledAccountsResponseBodyEnrolledAccounts extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       accountUid: 'number',
+      baselineId: 'string',
       createTime: 'string',
       displayName: 'string',
       folderId: 'string',
@@ -469,6 +733,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
+    * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+    *
+    * @param request EnrollAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnrollAccountResponse
+   */
   async enrollAccountWithOptions(request: EnrollAccountRequest, runtime: $Util.RuntimeOptions): Promise<EnrollAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -478,6 +750,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.accountUid)) {
       query["AccountUid"] = request.accountUid;
+    }
+
+    if (!Util.isUnset(request.baselineId)) {
+      query["BaselineId"] = request.baselineId;
     }
 
     if (!Util.isUnset(request.baselineItems)) {
@@ -500,6 +776,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resellAccountType)) {
+      query["ResellAccountType"] = request.resellAccountType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -517,9 +797,49 @@ export default class Client extends OpenApi {
     return $tea.cast<EnrollAccountResponse>(await this.callApi(params, req, runtime), new EnrollAccountResponse({}));
   }
 
+  /**
+    * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
+    * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+    *
+    * @param request EnrollAccountRequest
+    * @return EnrollAccountResponse
+   */
   async enrollAccount(request: EnrollAccountRequest): Promise<EnrollAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enrollAccountWithOptions(request, runtime);
+  }
+
+  async getAccountFactoryBaselineWithOptions(request: GetAccountFactoryBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountFactoryBaselineResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baselineId)) {
+      query["BaselineId"] = request.baselineId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAccountFactoryBaseline",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new GetAccountFactoryBaselineResponse({}));
+  }
+
+  async getAccountFactoryBaseline(request: GetAccountFactoryBaselineRequest): Promise<GetAccountFactoryBaselineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAccountFactoryBaselineWithOptions(request, runtime);
   }
 
   async getEnrolledAccountWithOptions(request: GetEnrolledAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetEnrolledAccountResponse> {
@@ -553,6 +873,43 @@ export default class Client extends OpenApi {
   async getEnrolledAccount(request: GetEnrolledAccountRequest): Promise<GetEnrolledAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getEnrolledAccountWithOptions(request, runtime);
+  }
+
+  async listAccountFactoryBaselinesWithOptions(request: ListAccountFactoryBaselinesRequest, runtime: $Util.RuntimeOptions): Promise<ListAccountFactoryBaselinesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAccountFactoryBaselines",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAccountFactoryBaselinesResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselinesResponse({}));
+  }
+
+  async listAccountFactoryBaselines(request: ListAccountFactoryBaselinesRequest): Promise<ListAccountFactoryBaselinesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAccountFactoryBaselinesWithOptions(request, runtime);
   }
 
   async listEnrolledAccountsWithOptions(request: ListEnrolledAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnrolledAccountsResponse> {
