@@ -2500,6 +2500,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
   backupInterval?: number;
   backupRetentionPeriod?: string;
   enableBackupLog?: number;
+  highFrequencyBackupRetention?: string;
   logBackupRetentionPeriod?: number;
   preferredBackupPeriod?: string;
   preferredBackupTime?: string;
@@ -2510,6 +2511,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
       backupInterval: 'BackupInterval',
       backupRetentionPeriod: 'BackupRetentionPeriod',
       enableBackupLog: 'EnableBackupLog',
+      highFrequencyBackupRetention: 'HighFrequencyBackupRetention',
       logBackupRetentionPeriod: 'LogBackupRetentionPeriod',
       preferredBackupPeriod: 'PreferredBackupPeriod',
       preferredBackupTime: 'PreferredBackupTime',
@@ -2523,6 +2525,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
       backupInterval: 'number',
       backupRetentionPeriod: 'string',
       enableBackupLog: 'number',
+      highFrequencyBackupRetention: 'string',
       logBackupRetentionPeriod: 'number',
       preferredBackupPeriod: 'string',
       preferredBackupTime: 'string',
@@ -2553,6 +2556,180 @@ export class DescribeBackupPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeBackupPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupStorageRequest extends $tea.Model {
+  DBInstanceId?: string;
+  nodeId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      nodeId: 'NodeId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      nodeId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupStorageResponseBody extends $tea.Model {
+  freeSize?: number;
+  fullStorageSize?: number;
+  logStorageSize?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      freeSize: 'FreeSize',
+      fullStorageSize: 'FullStorageSize',
+      logStorageSize: 'LogStorageSize',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      freeSize: 'number',
+      fullStorageSize: 'number',
+      logStorageSize: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupStorageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBackupStorageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeBackupStorageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupTasksRequest extends $tea.Model {
+  backupJobId?: number;
+  DBInstanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupJobId: 'BackupJobId',
+      DBInstanceId: 'DBInstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupJobId: 'number',
+      DBInstanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupTasksResponseBody extends $tea.Model {
+  backupJobs?: DescribeBackupTasksResponseBodyBackupJobs[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupJobs: 'BackupJobs',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupJobs: { 'type': 'array', 'itemType': DescribeBackupTasksResponseBodyBackupJobs },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBackupTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeBackupTasksResponseBody,
     };
   }
 
@@ -4335,6 +4512,87 @@ export class DescribeInstanceAutoRenewalAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeInstanceAutoRenewalAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRecoverTimeRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRecoverTimeResponseBody extends $tea.Model {
+  requestId?: string;
+  restoreRanges?: DescribeInstanceRecoverTimeResponseBodyRestoreRanges[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      restoreRanges: 'RestoreRanges',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      restoreRanges: { 'type': 'array', 'itemType': DescribeInstanceRecoverTimeResponseBodyRestoreRanges },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRecoverTimeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceRecoverTimeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceRecoverTimeResponseBody,
     };
   }
 
@@ -6703,6 +6961,7 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
   backupRetentionPeriod?: number;
   DBInstanceId?: string;
   enableBackupLog?: number;
+  highFrequencyBackupRetention?: number;
   logBackupRetentionPeriod?: number;
   ownerAccount?: string;
   ownerId?: number;
@@ -6710,7 +6969,6 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
   preferredBackupTime?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  securityToken?: string;
   snapshotBackupType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6718,6 +6976,7 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
       backupRetentionPeriod: 'BackupRetentionPeriod',
       DBInstanceId: 'DBInstanceId',
       enableBackupLog: 'EnableBackupLog',
+      highFrequencyBackupRetention: 'HighFrequencyBackupRetention',
       logBackupRetentionPeriod: 'LogBackupRetentionPeriod',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -6725,7 +6984,6 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
       preferredBackupTime: 'PreferredBackupTime',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
       snapshotBackupType: 'SnapshotBackupType',
     };
   }
@@ -6736,6 +6994,7 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
       backupRetentionPeriod: 'number',
       DBInstanceId: 'string',
       enableBackupLog: 'number',
+      highFrequencyBackupRetention: 'number',
       logBackupRetentionPeriod: 'number',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -6743,7 +7002,6 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
       preferredBackupTime: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      securityToken: 'string',
       snapshotBackupType: 'string',
     };
   }
@@ -10537,12 +10795,44 @@ export class DescribeBackupDBsResponseBodyDatabases extends $tea.Model {
   }
 }
 
+export class DescribeBackupTasksResponseBodyBackupJobs extends $tea.Model {
+  backupSetStatus?: string;
+  backupStartTime?: string;
+  backupjobId?: number;
+  jobMode?: string;
+  progress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupSetStatus: 'BackupSetStatus',
+      backupStartTime: 'BackupStartTime',
+      backupjobId: 'BackupjobId',
+      jobMode: 'JobMode',
+      progress: 'Progress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupSetStatus: 'string',
+      backupStartTime: 'string',
+      backupjobId: 'number',
+      jobMode: 'string',
+      progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
   backupDBNames?: string;
   backupDownloadURL?: string;
   backupEndTime?: string;
   backupId?: number;
   backupIntranetDownloadURL?: string;
+  backupJobId?: number;
   backupMethod?: string;
   backupMode?: string;
   backupSize?: number;
@@ -10556,6 +10846,7 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
       backupEndTime: 'BackupEndTime',
       backupId: 'BackupId',
       backupIntranetDownloadURL: 'BackupIntranetDownloadURL',
+      backupJobId: 'BackupJobId',
       backupMethod: 'BackupMethod',
       backupMode: 'BackupMode',
       backupSize: 'BackupSize',
@@ -10572,6 +10863,7 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
       backupEndTime: 'string',
       backupId: 'number',
       backupIntranetDownloadURL: 'string',
+      backupJobId: 'number',
       backupMethod: 'string',
       backupMode: 'string',
       backupSize: 'number',
@@ -12045,6 +12337,31 @@ export class DescribeInstanceAutoRenewalAttributeResponseBodyItems extends $tea.
   }
 }
 
+export class DescribeInstanceRecoverTimeResponseBodyRestoreRanges extends $tea.Model {
+  restoreBeginTime?: string;
+  restoreEndTime?: string;
+  restoreType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      restoreBeginTime: 'RestoreBeginTime',
+      restoreEndTime: 'RestoreEndTime',
+      restoreType: 'RestoreType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      restoreBeginTime: 'string',
+      restoreEndTime: 'string',
+      restoreType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeKernelReleaseNotesResponseBodyReleaseNotesReleaseNote extends $tea.Model {
   kernelVersion?: string;
   releaseNote?: string;
@@ -12395,6 +12712,108 @@ export class DescribePriceResponseBodyOrderCoupons extends $tea.Model {
   }
 }
 
+export class DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds extends $tea.Model {
+  optionId?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      optionId: 'OptionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionId: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodyOrderDepreciateInfoContractActivity extends $tea.Model {
+  activityId?: number;
+  activityName?: string;
+  finalFee?: number;
+  finalPromFee?: number;
+  optionCode?: string;
+  optionIds?: DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds;
+  prodFee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      activityId: 'ActivityId',
+      activityName: 'ActivityName',
+      finalFee: 'FinalFee',
+      finalPromFee: 'FinalPromFee',
+      optionCode: 'OptionCode',
+      optionIds: 'OptionIds',
+      prodFee: 'ProdFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityId: 'number',
+      activityName: 'string',
+      finalFee: 'number',
+      finalPromFee: 'number',
+      optionCode: 'string',
+      optionIds: DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds,
+      prodFee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodyOrderDepreciateInfo extends $tea.Model {
+  cheapRate?: number;
+  cheapStandAmount?: number;
+  contractActivity?: DescribePriceResponseBodyOrderDepreciateInfoContractActivity;
+  differential?: number;
+  differentialName?: string;
+  isContractActivity?: boolean;
+  isShow?: string;
+  listPrice?: number;
+  monthPrice?: number;
+  originalStandAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      contractActivity: 'ContractActivity',
+      differential: 'Differential',
+      differentialName: 'DifferentialName',
+      isContractActivity: 'IsContractActivity',
+      isShow: 'IsShow',
+      listPrice: 'ListPrice',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'number',
+      cheapStandAmount: 'number',
+      contractActivity: DescribePriceResponseBodyOrderDepreciateInfoContractActivity,
+      differential: 'number',
+      differentialName: 'string',
+      isContractActivity: 'boolean',
+      isShow: 'string',
+      listPrice: 'number',
+      monthPrice: 'number',
+      originalStandAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePriceResponseBodyOrderRuleIds extends $tea.Model {
   ruleId?: string[];
   static names(): { [key: string]: string } {
@@ -12415,39 +12834,60 @@ export class DescribePriceResponseBodyOrderRuleIds extends $tea.Model {
 }
 
 export class DescribePriceResponseBodyOrder extends $tea.Model {
+  code?: string;
+  contractActivity?: boolean;
   coupons?: DescribePriceResponseBodyOrderCoupons;
   currency?: string;
+  depreciateInfo?: DescribePriceResponseBodyOrderDepreciateInfo;
   discountAmount?: string;
+  isContractActivity?: boolean;
+  message?: string;
   optionalPromotions?: string;
   originalAmount?: string;
   promDetailList?: string;
   ruleIds?: DescribePriceResponseBodyOrderRuleIds;
   showDiscountInfo?: boolean;
+  standDiscountPrice?: number;
+  standPrice?: number;
   tradeAmount?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      contractActivity: 'ContractActivity',
       coupons: 'Coupons',
       currency: 'Currency',
+      depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
+      isContractActivity: 'IsContractActivity',
+      message: 'Message',
       optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
       promDetailList: 'PromDetailList',
       ruleIds: 'RuleIds',
       showDiscountInfo: 'ShowDiscountInfo',
+      standDiscountPrice: 'StandDiscountPrice',
+      standPrice: 'StandPrice',
       tradeAmount: 'TradeAmount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      contractActivity: 'boolean',
       coupons: DescribePriceResponseBodyOrderCoupons,
       currency: 'string',
+      depreciateInfo: DescribePriceResponseBodyOrderDepreciateInfo,
       discountAmount: 'string',
+      isContractActivity: 'boolean',
+      message: 'string',
       optionalPromotions: 'string',
       originalAmount: 'string',
       promDetailList: 'string',
       ruleIds: DescribePriceResponseBodyOrderRuleIds,
       showDiscountInfo: 'boolean',
+      standDiscountPrice: 'number',
+      standPrice: 'number',
       tradeAmount: 'string',
     };
   }
@@ -12501,6 +12941,474 @@ export class DescribePriceResponseBodyRules extends $tea.Model {
   }
 }
 
+export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds extends $tea.Model {
+  optionId?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      optionId: 'OptionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionId: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity extends $tea.Model {
+  activityId?: number;
+  activityName?: string;
+  finalFee?: number;
+  finalPromFee?: number;
+  optionCode?: string;
+  optionIds?: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds;
+  prodFee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      activityId: 'ActivityId',
+      activityName: 'ActivityName',
+      finalFee: 'FinalFee',
+      finalPromFee: 'FinalPromFee',
+      optionCode: 'OptionCode',
+      optionIds: 'OptionIds',
+      prodFee: 'ProdFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityId: 'number',
+      activityName: 'string',
+      finalFee: 'number',
+      finalPromFee: 'number',
+      optionCode: 'string',
+      optionIds: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds,
+      prodFee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo extends $tea.Model {
+  cheapRate?: number;
+  cheapStandAmount?: number;
+  contractActivity?: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity;
+  differential?: number;
+  differentialName?: string;
+  isContractActivity?: boolean;
+  isShow?: string;
+  listPrice?: number;
+  monthPrice?: number;
+  originalStandAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      contractActivity: 'ContractActivity',
+      differential: 'Differential',
+      differentialName: 'DifferentialName',
+      isContractActivity: 'IsContractActivity',
+      isShow: 'IsShow',
+      listPrice: 'ListPrice',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'number',
+      cheapStandAmount: 'number',
+      contractActivity: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity,
+      differential: 'number',
+      differentialName: 'string',
+      isContractActivity: 'boolean',
+      isShow: 'string',
+      listPrice: 'number',
+      monthPrice: 'number',
+      originalStandAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceDepreciateInfo extends $tea.Model {
+  cheapRate?: number;
+  cheapStandAmount?: number;
+  differential?: number;
+  differentialName?: string;
+  isContractActivity?: boolean;
+  isShow?: string;
+  listPrice?: number;
+  monthPrice?: number;
+  originalStandAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      differential: 'Differential',
+      differentialName: 'DifferentialName',
+      isContractActivity: 'IsContractActivity',
+      isShow: 'IsShow',
+      listPrice: 'ListPrice',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'number',
+      cheapStandAmount: 'number',
+      differential: 'number',
+      differentialName: 'string',
+      isContractActivity: 'boolean',
+      isShow: 'string',
+      listPrice: 'number',
+      monthPrice: 'number',
+      originalStandAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrsModuleAttr extends $tea.Model {
+  code?: string;
+  name?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrs extends $tea.Model {
+  moduleAttr?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrsModuleAttr[];
+  static names(): { [key: string]: string } {
+    return {
+      moduleAttr: 'moduleAttr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleAttr: { 'type': 'array', 'itemType': DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrsModuleAttr },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstancePromDetailListPromDetal extends $tea.Model {
+  activityExtInfo?: { [key: string]: any };
+  derivedPromType?: string;
+  finalPromFee?: number;
+  optionCode?: string;
+  promType?: string;
+  promotionCode?: string;
+  promotionId?: number;
+  promotionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activityExtInfo: 'ActivityExtInfo',
+      derivedPromType: 'DerivedPromType',
+      finalPromFee: 'FinalPromFee',
+      optionCode: 'OptionCode',
+      promType: 'PromType',
+      promotionCode: 'PromotionCode',
+      promotionId: 'PromotionId',
+      promotionName: 'PromotionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityExtInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      derivedPromType: 'string',
+      finalPromFee: 'number',
+      optionCode: 'string',
+      promType: 'string',
+      promotionCode: 'string',
+      promotionId: 'number',
+      promotionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstancePromDetailList extends $tea.Model {
+  promDetal?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstancePromDetailListPromDetal[];
+  static names(): { [key: string]: string } {
+    return {
+      promDetal: 'PromDetal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      promDetal: { 'type': 'array', 'itemType': DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstancePromDetailListPromDetal },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstance extends $tea.Model {
+  contractActivity?: boolean;
+  cycleFee?: string;
+  depreciateInfo?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceDepreciateInfo;
+  discountFee?: string;
+  moduleAttrs?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrs;
+  moduleCode?: string;
+  moduleId?: number;
+  moduleName?: string;
+  needOrderPay?: boolean;
+  payFee?: number;
+  pricingModule?: boolean;
+  promDetailList?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstancePromDetailList;
+  standPrice?: number;
+  totalProductFee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contractActivity: 'ContractActivity',
+      cycleFee: 'CycleFee',
+      depreciateInfo: 'DepreciateInfo',
+      discountFee: 'DiscountFee',
+      moduleAttrs: 'ModuleAttrs',
+      moduleCode: 'ModuleCode',
+      moduleId: 'ModuleId',
+      moduleName: 'ModuleName',
+      needOrderPay: 'NeedOrderPay',
+      payFee: 'PayFee',
+      pricingModule: 'PricingModule',
+      promDetailList: 'PromDetailList',
+      standPrice: 'StandPrice',
+      totalProductFee: 'TotalProductFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contractActivity: 'boolean',
+      cycleFee: 'string',
+      depreciateInfo: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceDepreciateInfo,
+      discountFee: 'string',
+      moduleAttrs: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrs,
+      moduleCode: 'string',
+      moduleId: 'number',
+      moduleName: 'string',
+      needOrderPay: 'boolean',
+      payFee: 'number',
+      pricingModule: 'boolean',
+      promDetailList: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstancePromDetailList,
+      standPrice: 'number',
+      totalProductFee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderModuleInstance extends $tea.Model {
+  moduleInstance?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstance[];
+  static names(): { [key: string]: string } {
+    return {
+      moduleInstance: 'ModuleInstance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleInstance: { 'type': 'array', 'itemType': DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptionalPromotionTargetArticleItemCodes extends $tea.Model {
+  targetArticleItemCode?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      targetArticleItemCode: 'targetArticleItemCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetArticleItemCode: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptionalPromotion extends $tea.Model {
+  activityCategory?: string;
+  activityExtInfo?: { [key: string]: any };
+  canPromFee?: number;
+  optionCode?: string;
+  promotionName?: string;
+  promotionOptionNo?: string;
+  selected?: boolean;
+  show?: boolean;
+  targetArticleItemCodes?: DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptionalPromotionTargetArticleItemCodes;
+  static names(): { [key: string]: string } {
+    return {
+      activityCategory: 'ActivityCategory',
+      activityExtInfo: 'ActivityExtInfo',
+      canPromFee: 'CanPromFee',
+      optionCode: 'OptionCode',
+      promotionName: 'PromotionName',
+      promotionOptionNo: 'PromotionOptionNo',
+      selected: 'Selected',
+      show: 'Show',
+      targetArticleItemCodes: 'TargetArticleItemCodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityCategory: 'string',
+      activityExtInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      canPromFee: 'number',
+      optionCode: 'string',
+      promotionName: 'string',
+      promotionOptionNo: 'string',
+      selected: 'boolean',
+      show: 'boolean',
+      targetArticleItemCodes: DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptionalPromotionTargetArticleItemCodes,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderOptionalPromotions extends $tea.Model {
+  optionalPromotion?: DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptionalPromotion[];
+  static names(): { [key: string]: string } {
+    return {
+      optionalPromotion: 'OptionalPromotion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionalPromotion: { 'type': 'array', 'itemType': DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptionalPromotion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderPromDetailListPromDetal extends $tea.Model {
+  activityExtInfo?: { [key: string]: any };
+  derivedPromType?: string;
+  finalPromFee?: number;
+  optionCode?: string;
+  promType?: string;
+  promotionCode?: string;
+  promotionId?: number;
+  promotionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activityExtInfo: 'ActivityExtInfo',
+      derivedPromType: 'DerivedPromType',
+      finalPromFee: 'FinalPromFee',
+      optionCode: 'OptionCode',
+      promType: 'PromType',
+      promotionCode: 'PromotionCode',
+      promotionId: 'PromotionId',
+      promotionName: 'PromotionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityExtInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      derivedPromType: 'string',
+      finalPromFee: 'number',
+      optionCode: 'string',
+      promType: 'string',
+      promotionCode: 'string',
+      promotionId: 'number',
+      promotionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderPromDetailList extends $tea.Model {
+  promDetal?: DescribePriceResponseBodySubOrdersSubOrderPromDetailListPromDetal[];
+  static names(): { [key: string]: string } {
+    return {
+      promDetal: 'PromDetal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      promDetal: { 'type': 'array', 'itemType': DescribePriceResponseBodySubOrdersSubOrderPromDetailListPromDetal },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePriceResponseBodySubOrdersSubOrderRuleIds extends $tea.Model {
   ruleId?: string[];
   static names(): { [key: string]: string } {
@@ -12521,27 +13429,54 @@ export class DescribePriceResponseBodySubOrdersSubOrderRuleIds extends $tea.Mode
 }
 
 export class DescribePriceResponseBodySubOrdersSubOrder extends $tea.Model {
+  contractActivity?: boolean;
+  depreciateInfo?: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo;
   discountAmount?: string;
   instanceId?: string;
+  isContractActivity?: boolean;
+  isNewOfficialActivity?: string;
+  moduleInstance?: DescribePriceResponseBodySubOrdersSubOrderModuleInstance;
+  optionalPromotions?: DescribePriceResponseBodySubOrdersSubOrderOptionalPromotions;
   originalAmount?: string;
+  promDetailList?: DescribePriceResponseBodySubOrdersSubOrderPromDetailList;
   ruleIds?: DescribePriceResponseBodySubOrdersSubOrderRuleIds;
+  standDiscountPrice?: number;
+  standPrice?: number;
   tradeAmount?: string;
   static names(): { [key: string]: string } {
     return {
+      contractActivity: 'ContractActivity',
+      depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
       instanceId: 'InstanceId',
+      isContractActivity: 'IsContractActivity',
+      isNewOfficialActivity: 'IsNewOfficialActivity',
+      moduleInstance: 'ModuleInstance',
+      optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
+      promDetailList: 'PromDetailList',
       ruleIds: 'RuleIds',
+      standDiscountPrice: 'StandDiscountPrice',
+      standPrice: 'StandPrice',
       tradeAmount: 'TradeAmount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      contractActivity: 'boolean',
+      depreciateInfo: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo,
       discountAmount: 'string',
       instanceId: 'string',
+      isContractActivity: 'boolean',
+      isNewOfficialActivity: 'string',
+      moduleInstance: DescribePriceResponseBodySubOrdersSubOrderModuleInstance,
+      optionalPromotions: DescribePriceResponseBodySubOrdersSubOrderOptionalPromotions,
       originalAmount: 'string',
+      promDetailList: DescribePriceResponseBodySubOrdersSubOrderPromDetailList,
       ruleIds: DescribePriceResponseBodySubOrdersSubOrderRuleIds,
+      standDiscountPrice: 'number',
+      standPrice: 'number',
       tradeAmount: 'string',
     };
   }
@@ -13876,7 +14811,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage
     * When you call this operation, the instance must be in the Running state.
     *
     * @param request CreateBackupRequest
@@ -13928,7 +14862,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage
     * When you call this operation, the instance must be in the Running state.
     *
     * @param request CreateBackupRequest
@@ -13940,7 +14873,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Creates or clones an ApsaraDB for MongoDB replica set instance.
+    * Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail/mongodb_computeudr_dp_cn) of ApsaraDB for MongoDB before you call this operation.
+    * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
+    * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
     *
     * @param request CreateDBInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14123,7 +15058,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Creates or clones an ApsaraDB for MongoDB replica set instance.
+    * Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail/mongodb_computeudr_dp_cn) of ApsaraDB for MongoDB before you call this operation.
+    * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
+    * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
     *
     * @param request CreateDBInstanceRequest
     * @return CreateDBInstanceResponse
@@ -14295,7 +15232,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB. 
+    * This operation is applicable only to sharded cluster instances.
     *
     * @param request CreateNodeBatchRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14378,7 +15316,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB. 
+    * This operation is applicable only to sharded cluster instances.
     *
     * @param request CreateNodeBatchRequest
     * @return CreateNodeBatchResponse
@@ -14567,10 +15506,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that the instance meets the following requirements:
-    * *   The instance is in the running state.
-    * *   A pay-as-you-go instance is used.
-    * > After you release an ApsaraDB for MongoDB instance, data in the instance can no longer be recovered. Proceed with caution.
+    * Before you call this operation, make sure that the instance meets the following requirements
+    * *   The instance is in the Running state.
+    * *   The billing method of the instance is pay-as-you-go.
+    * > After an instance is released, all data in the instance is cleared and cannot be recovered. Proceed with caution.
     *
     * @param request DeleteDBInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14621,10 +15560,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that the instance meets the following requirements:
-    * *   The instance is in the running state.
-    * *   A pay-as-you-go instance is used.
-    * > After you release an ApsaraDB for MongoDB instance, data in the instance can no longer be recovered. Proceed with caution.
+    * Before you call this operation, make sure that the instance meets the following requirements
+    * *   The instance is in the Running state.
+    * *   The billing method of the instance is pay-as-you-go.
+    * > After an instance is released, all data in the instance is cleared and cannot be recovered. Proceed with caution.
     *
     * @param request DeleteDBInstanceRequest
     * @return DeleteDBInstanceResponse
@@ -14692,8 +15631,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The instance is in the running state.
+    * Before you call this operation, make sure that the instance meets the following requirements:
+    * *   The instance is in the Running state.
     * *   The instance is a sharded cluster instance.
     * *   The billing method of the instance is pay-as-you-go.
     * *   The number of the shard or mongos nodes in the instance is greater than two.
@@ -14751,8 +15690,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The instance is in the running state.
+    * Before you call this operation, make sure that the instance meets the following requirements:
+    * *   The instance is in the Running state.
     * *   The instance is a sharded cluster instance.
     * *   The billing method of the instance is pay-as-you-go.
     * *   The number of the shard or mongos nodes in the instance is greater than two.
@@ -14766,7 +15705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation to query only the information of the root account.
+    * >  This operation can be used to query only the information of the root account.
     *
     * @param request DescribeAccountsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14817,7 +15756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation to query only the information of the root account.
+    * >  This operation can be used to query only the information of the root account.
     *
     * @param request DescribeAccountsRequest
     * @return DescribeAccountsResponse
@@ -15486,13 +16425,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Precautions
-    * You can call the [CreateDBInstance](~~61763~~) operation to restore a database for an ApsaraDB for MongoDB instance. For more information, see [Restore one or more databases of an ApsaraDB for MongoDB instance](~~112274~~).
-    * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+    * You can call the [CreateDBInstance](~~61763~~) operation to restore a database for an ApsaraDB for MongoDB instance. For more information, see [Restore one database of an ApsaraDB for MongoDB instance](~~112274~~).
+    * Before you call this operation, make sure that the instance meets the following requirements:
     * *   The instance was created after March 26, 2019.
-    * *   The instance is located in the China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), or Singapore (Singapore) region. Other regions are not supported.
+    * *   The instance is located in the China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), or Singapore region. Other regions are not supported.
     * *   The instance is a replica set instance.
-    * *   The version of the database engine is 3.4, 4.0, or 4.2.
+    * *   The instance runs MongoDB 3.4, MongoDB 4.0, or MongoDB 4.2. In addition, the instance uses local disks to store data.
     * *   The storage engine of the instance is WiredTiger.
     *
     * @param request DescribeBackupDBsRequest
@@ -15564,13 +16502,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Precautions
-    * You can call the [CreateDBInstance](~~61763~~) operation to restore a database for an ApsaraDB for MongoDB instance. For more information, see [Restore one or more databases of an ApsaraDB for MongoDB instance](~~112274~~).
-    * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+    * You can call the [CreateDBInstance](~~61763~~) operation to restore a database for an ApsaraDB for MongoDB instance. For more information, see [Restore one database of an ApsaraDB for MongoDB instance](~~112274~~).
+    * Before you call this operation, make sure that the instance meets the following requirements:
     * *   The instance was created after March 26, 2019.
-    * *   The instance is located in the China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), or Singapore (Singapore) region. Other regions are not supported.
+    * *   The instance is located in the China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), or Singapore region. Other regions are not supported.
     * *   The instance is a replica set instance.
-    * *   The version of the database engine is 3.4, 4.0, or 4.2.
+    * *   The instance runs MongoDB 3.4, MongoDB 4.0, or MongoDB 4.2. In addition, the instance uses local disks to store data.
     * *   The storage engine of the instance is WiredTiger.
     *
     * @param request DescribeBackupDBsRequest
@@ -15628,6 +16565,56 @@ export default class Client extends OpenApi {
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
+  }
+
+  async describeBackupStorageWithOptions(request: DescribeBackupStorageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupStorageResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupStorage",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupStorageResponse>(await this.callApi(params, req, runtime), new DescribeBackupStorageResponse({}));
+  }
+
+  async describeBackupStorage(request: DescribeBackupStorageRequest): Promise<DescribeBackupStorageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeBackupStorageWithOptions(request, runtime);
+  }
+
+  async describeBackupTasksWithOptions(request: DescribeBackupTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupTasksResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupTasks",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupTasksResponse>(await this.callApi(params, req, runtime), new DescribeBackupTasksResponse({}));
+  }
+
+  async describeBackupTasks(request: DescribeBackupTasksRequest): Promise<DescribeBackupTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeBackupTasksWithOptions(request, runtime);
   }
 
   async describeBackupsWithOptions(request: DescribeBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupsResponse> {
@@ -15885,7 +16872,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage
     * When you call the DescribeDBInstanceEncryptionKey operation, the instance must have transparent data encryption (TDE) enabled in BYOK mode. You can call the [ModifyDBInstanceTDE](~~131267~~) operation to enable TDE.
     *
     * @param request DescribeDBInstanceEncryptionKeyRequest
@@ -15937,7 +16923,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage
     * When you call the DescribeDBInstanceEncryptionKey operation, the instance must have transparent data encryption (TDE) enabled in BYOK mode. You can call the [ModifyDBInstanceTDE](~~131267~~) operation to enable TDE.
     *
     * @param request DescribeDBInstanceEncryptionKeyRequest
@@ -16193,9 +17178,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  For more information about this function, see [Configure TDE](~~131048~~).
-    * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-    * *   A replica set or sharded cluster instance is used.
+    * >  For more information about TDE, see [TDE](~~131048~~).
+    * Before you call this operation, make sure that the instance meets the following requirements:
+    * *   The instance is a replica set or sharded cluster instance.
     * *   The storage engine of the instance is WiredTiger.
     * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine.
     *
@@ -16244,9 +17229,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  For more information about this function, see [Configure TDE](~~131048~~).
-    * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-    * *   A replica set or sharded cluster instance is used.
+    * >  For more information about TDE, see [TDE](~~131048~~).
+    * Before you call this operation, make sure that the instance meets the following requirements:
+    * *   The instance is a replica set or sharded cluster instance.
     * *   The storage engine of the instance is WiredTiger.
     * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine.
     *
@@ -16401,7 +17386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If you do not specify an instance when you call this operation, the overview information of all instances in the specified region within this account is returned.
+    * *   If you do not specify an instance when you call this operation, the overview information of all instances in a specific region within this account is returned.
     * *   Paged query is disabled for this operation.
     *
     * @param request DescribeDBInstancesOverviewRequest
@@ -16493,7 +17478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If you do not specify an instance when you call this operation, the overview information of all instances in the specified region within this account is returned.
+    * *   If you do not specify an instance when you call this operation, the overview information of all instances in a specific region within this account is returned.
     * *   Paged query is disabled for this operation.
     *
     * @param request DescribeDBInstancesOverviewRequest
@@ -16876,6 +17861,31 @@ export default class Client extends OpenApi {
   async describeInstanceAutoRenewalAttribute(request: DescribeInstanceAutoRenewalAttributeRequest): Promise<DescribeInstanceAutoRenewalAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceAutoRenewalAttributeWithOptions(request, runtime);
+  }
+
+  async describeInstanceRecoverTimeWithOptions(request: DescribeInstanceRecoverTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceRecoverTimeResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceRecoverTime",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceRecoverTimeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceRecoverTimeResponse({}));
+  }
+
+  async describeInstanceRecoverTime(request: DescribeInstanceRecoverTimeRequest): Promise<DescribeInstanceRecoverTimeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceRecoverTimeWithOptions(request, runtime);
   }
 
   async describeKernelReleaseNotesWithOptions(request: DescribeKernelReleaseNotesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKernelReleaseNotesResponse> {
@@ -18621,6 +19631,10 @@ export default class Client extends OpenApi {
       query["EnableBackupLog"] = request.enableBackupLog;
     }
 
+    if (!Util.isUnset(request.highFrequencyBackupRetention)) {
+      query["HighFrequencyBackupRetention"] = request.highFrequencyBackupRetention;
+    }
+
     if (!Util.isUnset(request.logBackupRetentionPeriod)) {
       query["LogBackupRetentionPeriod"] = request.logBackupRetentionPeriod;
     }
@@ -18647,10 +19661,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
     }
 
     if (!Util.isUnset(request.snapshotBackupType)) {
@@ -19746,8 +20756,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB before you call this operation.
-    * This operation is applicable to only sharded cluster instances.
+    * Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+    * This operation is applicable only to sharded cluster instances.
+    * When you upgrade or downgrade the configurations of multiple sharded cluster instances in batches, the specifications of the instances are limited. For example, if you want to expand the storage capacity of the instances, the storage capacity of the instances after expansion must be greater than the current capacity. When the specifications of multiple sharded cluster instances are different, limits are defined based on the specifications of a random sharded cluster instance. In this case, you may be unable to upgrade or downgrade the configurations of the instances. In this case, we recommend that you call the ModifyNodeSpec operation to individually change the configurations of each sharded cluster instance.
     *
     * @param request ModifyNodeSpecBatchRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19826,8 +20837,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB before you call this operation.
-    * This operation is applicable to only sharded cluster instances.
+    * Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+    * This operation is applicable only to sharded cluster instances.
+    * When you upgrade or downgrade the configurations of multiple sharded cluster instances in batches, the specifications of the instances are limited. For example, if you want to expand the storage capacity of the instances, the storage capacity of the instances after expansion must be greater than the current capacity. When the specifications of multiple sharded cluster instances are different, limits are defined based on the specifications of a random sharded cluster instance. In this case, you may be unable to upgrade or downgrade the configurations of the instances. In this case, we recommend that you call the ModifyNodeSpec operation to individually change the configurations of each sharded cluster instance.
     *
     * @param request ModifyNodeSpecBatchRequest
     * @return ModifyNodeSpecBatchResponse
@@ -20370,7 +21382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  This operation can reset only the password of the root account of an instance.
+    * >  This operation can be used to reset only the password of the root account of an instance.
     *
     * @param request ResetAccountPasswordRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20429,7 +21441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  This operation can reset only the password of the root account of an instance.
+    * >  This operation can be used to reset only the password of the root account of an instance.
     *
     * @param request ResetAccountPasswordRequest
     * @return ResetAccountPasswordResponse
@@ -20502,9 +21514,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is no longer maintained and will be unavailable.
-    * This operation is applicable only to replica set instances. You can clone a standalone instance by [creating an instance from a backup set](~~55013~~). You can clone a sharded cluster instance by calling the [CreateShardingDBInstance](~~61884~~) operation.
-    * >  This operation overwrites the data of the current instance, and the data cannot be recovered. Proceed with caution.
+    * This operation is applicable to replica set instances, but cannot be performed on standalone instances and sharded cluster instances. You can use the following methods to clone an instance: [Create an instance from a backup point](~~55013~~) to clone a standalone instance. Call the [CreateShardingDBInstance](~~61884~~) operation to clone a sharded cluster instance.
+    * > This operation overwrites the data of the current instance, and the data cannot be recovered. Proceed with caution.
     *
     * @param request RestoreDBInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20555,9 +21566,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is no longer maintained and will be unavailable.
-    * This operation is applicable only to replica set instances. You can clone a standalone instance by [creating an instance from a backup set](~~55013~~). You can clone a sharded cluster instance by calling the [CreateShardingDBInstance](~~61884~~) operation.
-    * >  This operation overwrites the data of the current instance, and the data cannot be recovered. Proceed with caution.
+    * This operation is applicable to replica set instances, but cannot be performed on standalone instances and sharded cluster instances. You can use the following methods to clone an instance: [Create an instance from a backup point](~~55013~~) to clone a standalone instance. Call the [CreateShardingDBInstance](~~61884~~) operation to clone a sharded cluster instance.
+    * > This operation overwrites the data of the current instance, and the data cannot be recovered. Proceed with caution.
     *
     * @param request RestoreDBInstanceRequest
     * @return RestoreDBInstanceResponse
@@ -20644,9 +21654,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create multiple tags and bind them to multiple instances. This allows you to classify and filter instances by tag.
-    * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can have the same value.
-    * *   If the tag you specify does not exist, this tag is automatically created and bound to the specified instance.
+    * If you have a large number of instances, you can create multiple tags, bind the tags to the instances, and filter the instances by tag.
+    * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+    * *   If the tag that you specify does not exist, this tag is automatically created and bound to the specified instance.
     * *   If a tag that has the same key is already bound to the instance, the new tag overwrites the existing tag.
     * *   You can bind up to 20 tags to each instance.
     * *   You can bind tags to up to 50 instances each time you call the operation.
@@ -20712,9 +21722,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create multiple tags and bind them to multiple instances. This allows you to classify and filter instances by tag.
-    * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can have the same value.
-    * *   If the tag you specify does not exist, this tag is automatically created and bound to the specified instance.
+    * If you have a large number of instances, you can create multiple tags, bind the tags to the instances, and filter the instances by tag.
+    * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+    * *   If the tag that you specify does not exist, this tag is automatically created and bound to the specified instance.
     * *   If a tag that has the same key is already bound to the instance, the new tag overwrites the existing tag.
     * *   You can bind up to 20 tags to each instance.
     * *   You can bind tags to up to 50 instances each time you call the operation.
