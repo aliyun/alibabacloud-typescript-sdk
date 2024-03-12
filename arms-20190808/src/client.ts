@@ -14961,6 +14961,169 @@ export class ListSilencePoliciesResponse extends $tea.Model {
   }
 }
 
+export class ListSyntheticDetailRequest extends $tea.Model {
+  advancedFilters?: ListSyntheticDetailRequestAdvancedFilters[];
+  category?: string;
+  detail?: string;
+  endTime?: number;
+  exactFilters?: ListSyntheticDetailRequestExactFilters[];
+  filters?: { [key: string]: string };
+  order?: string;
+  orderBy?: string;
+  page?: number;
+  pageSize?: number;
+  regionId?: string;
+  startTime?: number;
+  syntheticType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advancedFilters: 'AdvancedFilters',
+      category: 'Category',
+      detail: 'Detail',
+      endTime: 'EndTime',
+      exactFilters: 'ExactFilters',
+      filters: 'Filters',
+      order: 'Order',
+      orderBy: 'OrderBy',
+      page: 'Page',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+      syntheticType: 'SyntheticType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedFilters: { 'type': 'array', 'itemType': ListSyntheticDetailRequestAdvancedFilters },
+      category: 'string',
+      detail: 'string',
+      endTime: 'number',
+      exactFilters: { 'type': 'array', 'itemType': ListSyntheticDetailRequestExactFilters },
+      filters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      order: 'string',
+      orderBy: 'string',
+      page: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      startTime: 'number',
+      syntheticType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSyntheticDetailShrinkRequest extends $tea.Model {
+  advancedFiltersShrink?: string;
+  category?: string;
+  detail?: string;
+  endTime?: number;
+  exactFiltersShrink?: string;
+  filtersShrink?: string;
+  order?: string;
+  orderBy?: string;
+  page?: number;
+  pageSize?: number;
+  regionId?: string;
+  startTime?: number;
+  syntheticType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advancedFiltersShrink: 'AdvancedFilters',
+      category: 'Category',
+      detail: 'Detail',
+      endTime: 'EndTime',
+      exactFiltersShrink: 'ExactFilters',
+      filtersShrink: 'Filters',
+      order: 'Order',
+      orderBy: 'OrderBy',
+      page: 'Page',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+      syntheticType: 'SyntheticType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedFiltersShrink: 'string',
+      category: 'string',
+      detail: 'string',
+      endTime: 'number',
+      exactFiltersShrink: 'string',
+      filtersShrink: 'string',
+      order: 'string',
+      orderBy: 'string',
+      page: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      startTime: 'number',
+      syntheticType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSyntheticDetailResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListSyntheticDetailResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListSyntheticDetailResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSyntheticDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSyntheticDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSyntheticDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTimingSyntheticTasksRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
@@ -30118,6 +30281,87 @@ export class ListSilencePoliciesResponseBodyPageBean extends $tea.Model {
   }
 }
 
+export class ListSyntheticDetailRequestAdvancedFilters extends $tea.Model {
+  key?: string;
+  opType?: string;
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      opType: 'OpType',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      opType: 'string',
+      value: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSyntheticDetailRequestExactFilters extends $tea.Model {
+  key?: string;
+  opType?: string;
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      opType: 'OpType',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      opType: 'string',
+      value: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSyntheticDetailResponseBodyData extends $tea.Model {
+  items?: { [key: string]: any }[];
+  page?: number;
+  pageSize?: number;
+  taskCreateTime?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      page: 'Page',
+      pageSize: 'PageSize',
+      taskCreateTime: 'TaskCreateTime',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      page: 'number',
+      pageSize: 'number',
+      taskCreateTime: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTimingSyntheticTasksRequestSearch extends $tea.Model {
   name?: string;
   order?: number;
@@ -40086,6 +40330,45 @@ export default class Client extends OpenApi {
   async listSilencePolicies(request: ListSilencePoliciesRequest): Promise<ListSilencePoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSilencePoliciesWithOptions(request, runtime);
+  }
+
+  async listSyntheticDetailWithOptions(tmpReq: ListSyntheticDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListSyntheticDetailResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListSyntheticDetailShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.advancedFilters)) {
+      request.advancedFiltersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.advancedFilters, "AdvancedFilters", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.exactFilters)) {
+      request.exactFiltersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.exactFilters, "ExactFilters", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.filters)) {
+      request.filtersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filters, "Filters", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSyntheticDetail",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSyntheticDetailResponse>(await this.callApi(params, req, runtime), new ListSyntheticDetailResponse({}));
+  }
+
+  async listSyntheticDetail(request: ListSyntheticDetailRequest): Promise<ListSyntheticDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSyntheticDetailWithOptions(request, runtime);
   }
 
   async listTimingSyntheticTasksWithOptions(tmpReq: ListTimingSyntheticTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListTimingSyntheticTasksResponse> {
