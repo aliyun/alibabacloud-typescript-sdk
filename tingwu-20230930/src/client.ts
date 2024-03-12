@@ -68,9 +68,9 @@ export class CreateTaskResponseBody extends $tea.Model {
 }
 
 export class CreateTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -146,9 +146,9 @@ export class CreateTranscriptionPhrasesResponseBody extends $tea.Model {
 }
 
 export class CreateTranscriptionPhrasesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTranscriptionPhrasesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTranscriptionPhrasesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -196,9 +196,9 @@ export class DeleteTranscriptionPhrasesResponseBody extends $tea.Model {
 }
 
 export class DeleteTranscriptionPhrasesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTranscriptionPhrasesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTranscriptionPhrasesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -249,9 +249,9 @@ export class GetTaskInfoResponseBody extends $tea.Model {
 }
 
 export class GetTaskInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTaskInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -302,9 +302,9 @@ export class GetTranscriptionPhrasesResponseBody extends $tea.Model {
 }
 
 export class GetTranscriptionPhrasesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTranscriptionPhrasesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTranscriptionPhrasesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -355,9 +355,9 @@ export class ListTranscriptionPhrasesResponseBody extends $tea.Model {
 }
 
 export class ListTranscriptionPhrasesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTranscriptionPhrasesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTranscriptionPhrasesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -433,9 +433,9 @@ export class UpdateTranscriptionPhrasesResponseBody extends $tea.Model {
 }
 
 export class UpdateTranscriptionPhrasesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTranscriptionPhrasesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTranscriptionPhrasesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -682,10 +682,12 @@ export class CreateTaskRequestParameters extends $tea.Model {
 }
 
 export class CreateTaskResponseBodyData extends $tea.Model {
+  meetingJoinUrl?: string;
   taskId?: string;
   taskKey?: string;
   static names(): { [key: string]: string } {
     return {
+      meetingJoinUrl: 'MeetingJoinUrl',
       taskId: 'TaskId',
       taskKey: 'TaskKey',
     };
@@ -693,6 +695,7 @@ export class CreateTaskResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      meetingJoinUrl: 'string',
       taskId: 'string',
       taskKey: 'string',
     };
@@ -766,12 +769,16 @@ export class GetTaskInfoResponseBodyDataResult extends $tea.Model {
 }
 
 export class GetTaskInfoResponseBodyData extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
   result?: GetTaskInfoResponseBodyDataResult;
   taskId?: string;
   taskKey?: string;
   taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
       result: 'Result',
       taskId: 'TaskId',
       taskKey: 'TaskKey',
@@ -781,6 +788,8 @@ export class GetTaskInfoResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      errorCode: 'string',
+      errorMessage: 'string',
       result: GetTaskInfoResponseBodyDataResult,
       taskId: 'string',
       taskKey: 'string',
