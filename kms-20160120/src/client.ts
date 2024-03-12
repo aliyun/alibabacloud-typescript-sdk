@@ -3,6 +3,8 @@
  *
  */
 import Util, * as $Util from '@alicloud/tea-util';
+import SPI from '@alicloud/gateway-spi';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -65,9 +67,9 @@ export class AsymmetricDecryptResponseBody extends $tea.Model {
 }
 
 export class AsymmetricDecryptResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AsymmetricDecryptResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AsymmetricDecryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -146,9 +148,9 @@ export class AsymmetricEncryptResponseBody extends $tea.Model {
 }
 
 export class AsymmetricEncryptResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AsymmetricEncryptResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AsymmetricEncryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -227,9 +229,9 @@ export class AsymmetricSignResponseBody extends $tea.Model {
 }
 
 export class AsymmetricSignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AsymmetricSignResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AsymmetricSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -311,9 +313,9 @@ export class AsymmetricVerifyResponseBody extends $tea.Model {
 }
 
 export class AsymmetricVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AsymmetricVerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AsymmetricVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -374,9 +376,9 @@ export class CancelKeyDeletionResponseBody extends $tea.Model {
 }
 
 export class CancelKeyDeletionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelKeyDeletionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelKeyDeletionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -449,9 +451,9 @@ export class CertificatePrivateKeyDecryptResponseBody extends $tea.Model {
 }
 
 export class CertificatePrivateKeyDecryptResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CertificatePrivateKeyDecryptResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CertificatePrivateKeyDecryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -527,9 +529,9 @@ export class CertificatePrivateKeySignResponseBody extends $tea.Model {
 }
 
 export class CertificatePrivateKeySignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CertificatePrivateKeySignResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CertificatePrivateKeySignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -602,9 +604,9 @@ export class CertificatePublicKeyEncryptResponseBody extends $tea.Model {
 }
 
 export class CertificatePublicKeyEncryptResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CertificatePublicKeyEncryptResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CertificatePublicKeyEncryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -683,9 +685,9 @@ export class CertificatePublicKeyVerifyResponseBody extends $tea.Model {
 }
 
 export class CertificatePublicKeyVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CertificatePublicKeyVerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CertificatePublicKeyVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -758,9 +760,9 @@ export class ConnectKmsInstanceResponseBody extends $tea.Model {
 }
 
 export class ConnectKmsInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConnectKmsInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConnectKmsInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -824,9 +826,9 @@ export class CreateAliasResponseBody extends $tea.Model {
 }
 
 export class CreateAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAliasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -911,9 +913,9 @@ export class CreateApplicationAccessPointResponseBody extends $tea.Model {
 }
 
 export class CreateApplicationAccessPointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateApplicationAccessPointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateApplicationAccessPointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1020,9 +1022,9 @@ export class CreateCertificateResponseBody extends $tea.Model {
 }
 
 export class CreateCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1107,9 +1109,9 @@ export class CreateClientKeyResponseBody extends $tea.Model {
 }
 
 export class CreateClientKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateClientKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateClientKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1197,9 +1199,9 @@ export class CreateKeyResponseBody extends $tea.Model {
 }
 
 export class CreateKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1263,9 +1265,9 @@ export class CreateKeyVersionResponseBody extends $tea.Model {
 }
 
 export class CreateKeyVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateKeyVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateKeyVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1350,9 +1352,9 @@ export class CreateNetworkRuleResponseBody extends $tea.Model {
 }
 
 export class CreateNetworkRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateNetworkRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNetworkRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1449,9 +1451,9 @@ export class CreatePolicyResponseBody extends $tea.Model {
 }
 
 export class CreatePolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1624,9 +1626,9 @@ export class CreateSecretResponseBody extends $tea.Model {
 }
 
 export class CreateSecretResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSecretResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1721,9 +1723,9 @@ export class DecryptResponseBody extends $tea.Model {
 }
 
 export class DecryptResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DecryptResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DecryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1784,9 +1786,9 @@ export class DeleteAliasResponseBody extends $tea.Model {
 }
 
 export class DeleteAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAliasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1847,9 +1849,9 @@ export class DeleteApplicationAccessPointResponseBody extends $tea.Model {
 }
 
 export class DeleteApplicationAccessPointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteApplicationAccessPointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteApplicationAccessPointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1910,9 +1912,9 @@ export class DeleteCertificateResponseBody extends $tea.Model {
 }
 
 export class DeleteCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1973,9 +1975,9 @@ export class DeleteClientKeyResponseBody extends $tea.Model {
 }
 
 export class DeleteClientKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteClientKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteClientKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2036,9 +2038,9 @@ export class DeleteKeyMaterialResponseBody extends $tea.Model {
 }
 
 export class DeleteKeyMaterialResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteKeyMaterialResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteKeyMaterialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2099,9 +2101,9 @@ export class DeleteNetworkRuleResponseBody extends $tea.Model {
 }
 
 export class DeleteNetworkRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteNetworkRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNetworkRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2162,9 +2164,9 @@ export class DeletePolicyResponseBody extends $tea.Model {
 }
 
 export class DeletePolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2237,9 +2239,9 @@ export class DeleteSecretResponseBody extends $tea.Model {
 }
 
 export class DeleteSecretResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSecretResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2284,9 +2286,9 @@ export class DescribeAccountKmsStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeAccountKmsStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAccountKmsStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAccountKmsStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2362,9 +2364,9 @@ export class DescribeApplicationAccessPointResponseBody extends $tea.Model {
 }
 
 export class DescribeApplicationAccessPointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeApplicationAccessPointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApplicationAccessPointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2476,9 +2478,9 @@ export class DescribeCertificateResponseBody extends $tea.Model {
 }
 
 export class DescribeCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2542,9 +2544,9 @@ export class DescribeKeyResponseBody extends $tea.Model {
 }
 
 export class DescribeKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2611,9 +2613,9 @@ export class DescribeKeyVersionResponseBody extends $tea.Model {
 }
 
 export class DescribeKeyVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeKeyVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeKeyVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2686,9 +2688,9 @@ export class DescribeNetworkRuleResponseBody extends $tea.Model {
 }
 
 export class DescribeNetworkRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeNetworkRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNetworkRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2770,9 +2772,9 @@ export class DescribePolicyResponseBody extends $tea.Model {
 }
 
 export class DescribePolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2817,9 +2819,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2928,9 +2930,9 @@ export class DescribeSecretResponseBody extends $tea.Model {
 }
 
 export class DescribeSecretResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSecretResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2991,9 +2993,9 @@ export class DisableKeyResponseBody extends $tea.Model {
 }
 
 export class DisableKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3054,9 +3056,9 @@ export class EnableKeyResponseBody extends $tea.Model {
 }
 
 export class EnableKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3157,9 +3159,9 @@ export class EncryptResponseBody extends $tea.Model {
 }
 
 export class EncryptResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EncryptResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EncryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3272,9 +3274,9 @@ export class ExportDataKeyResponseBody extends $tea.Model {
 }
 
 export class ExportDataKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ExportDataKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportDataKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3402,9 +3404,9 @@ export class GenerateAndExportDataKeyResponseBody extends $tea.Model {
 }
 
 export class GenerateAndExportDataKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateAndExportDataKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateAndExportDataKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3514,9 +3516,9 @@ export class GenerateDataKeyResponseBody extends $tea.Model {
 }
 
 export class GenerateDataKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateDataKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateDataKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3623,9 +3625,9 @@ export class GenerateDataKeyWithoutPlaintextResponseBody extends $tea.Model {
 }
 
 export class GenerateDataKeyWithoutPlaintextResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateDataKeyWithoutPlaintextResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateDataKeyWithoutPlaintextResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3698,9 +3700,9 @@ export class GetCertificateResponseBody extends $tea.Model {
 }
 
 export class GetCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3785,9 +3787,9 @@ export class GetClientKeyResponseBody extends $tea.Model {
 }
 
 export class GetClientKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetClientKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClientKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3851,9 +3853,9 @@ export class GetKmsInstanceResponseBody extends $tea.Model {
 }
 
 export class GetKmsInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetKmsInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetKmsInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3932,9 +3934,9 @@ export class GetParametersForImportResponseBody extends $tea.Model {
 }
 
 export class GetParametersForImportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetParametersForImportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetParametersForImportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4007,9 +4009,9 @@ export class GetPublicKeyResponseBody extends $tea.Model {
 }
 
 export class GetPublicKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPublicKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPublicKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4091,9 +4093,9 @@ export class GetRandomPasswordResponseBody extends $tea.Model {
 }
 
 export class GetRandomPasswordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRandomPasswordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRandomPasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4199,9 +4201,9 @@ export class GetSecretValueResponseBody extends $tea.Model {
 }
 
 export class GetSecretValueResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSecretValueResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSecretValueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4271,9 +4273,9 @@ export class ImportKeyMaterialResponseBody extends $tea.Model {
 }
 
 export class ImportKeyMaterialResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ImportKeyMaterialResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportKeyMaterialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4349,9 +4351,9 @@ export class ListAliasesResponseBody extends $tea.Model {
 }
 
 export class ListAliasesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAliasesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAliasesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4430,9 +4432,9 @@ export class ListAliasesByKeyIdResponseBody extends $tea.Model {
 }
 
 export class ListAliasesByKeyIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAliasesByKeyIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAliasesByKeyIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4508,9 +4510,9 @@ export class ListApplicationAccessPointsResponseBody extends $tea.Model {
 }
 
 export class ListApplicationAccessPointsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListApplicationAccessPointsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApplicationAccessPointsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4574,9 +4576,9 @@ export class ListClientKeysResponseBody extends $tea.Model {
 }
 
 export class ListClientKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListClientKeysResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListClientKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4655,9 +4657,9 @@ export class ListKeyVersionsResponseBody extends $tea.Model {
 }
 
 export class ListKeyVersionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListKeyVersionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListKeyVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4736,9 +4738,9 @@ export class ListKeysResponseBody extends $tea.Model {
 }
 
 export class ListKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListKeysResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4814,9 +4816,9 @@ export class ListKmsInstancesResponseBody extends $tea.Model {
 }
 
 export class ListKmsInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListKmsInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListKmsInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4892,9 +4894,9 @@ export class ListNetworkRulesResponseBody extends $tea.Model {
 }
 
 export class ListNetworkRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListNetworkRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNetworkRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4970,9 +4972,9 @@ export class ListPoliciesResponseBody extends $tea.Model {
 }
 
 export class ListPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5036,9 +5038,9 @@ export class ListResourceTagsResponseBody extends $tea.Model {
 }
 
 export class ListResourceTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListResourceTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResourceTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5123,9 +5125,9 @@ export class ListSecretVersionIdsResponseBody extends $tea.Model {
 }
 
 export class ListSecretVersionIdsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSecretVersionIdsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSecretVersionIdsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5207,9 +5209,9 @@ export class ListSecretsResponseBody extends $tea.Model {
 }
 
 export class ListSecretsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSecretsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSecretsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5288,9 +5290,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5332,9 +5334,9 @@ export class OpenKmsServiceResponseBody extends $tea.Model {
 }
 
 export class OpenKmsServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OpenKmsServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OpenKmsServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5416,9 +5418,9 @@ export class PutSecretValueResponseBody extends $tea.Model {
 }
 
 export class PutSecretValueResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PutSecretValueResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PutSecretValueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5543,9 +5545,9 @@ export class ReEncryptResponseBody extends $tea.Model {
 }
 
 export class ReEncryptResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReEncryptResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReEncryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5609,9 +5611,9 @@ export class RestoreSecretResponseBody extends $tea.Model {
 }
 
 export class RestoreSecretResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RestoreSecretResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestoreSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5684,9 +5686,9 @@ export class RotateSecretResponseBody extends $tea.Model {
 }
 
 export class RotateSecretResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RotateSecretResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RotateSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5750,9 +5752,9 @@ export class ScheduleKeyDeletionResponseBody extends $tea.Model {
 }
 
 export class ScheduleKeyDeletionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ScheduleKeyDeletionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ScheduleKeyDeletionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5819,9 +5821,9 @@ export class SetDeletionProtectionResponseBody extends $tea.Model {
 }
 
 export class SetDeletionProtectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetDeletionProtectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetDeletionProtectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5891,9 +5893,9 @@ export class TagResourceResponseBody extends $tea.Model {
 }
 
 export class TagResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5963,9 +5965,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6035,9 +6037,9 @@ export class UntagResourceResponseBody extends $tea.Model {
 }
 
 export class UntagResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6110,9 +6112,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6176,9 +6178,9 @@ export class UpdateAliasResponseBody extends $tea.Model {
 }
 
 export class UpdateAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAliasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6245,9 +6247,9 @@ export class UpdateApplicationAccessPointResponseBody extends $tea.Model {
 }
 
 export class UpdateApplicationAccessPointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateApplicationAccessPointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateApplicationAccessPointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6311,9 +6313,9 @@ export class UpdateCertificateStatusResponseBody extends $tea.Model {
 }
 
 export class UpdateCertificateStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateCertificateStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCertificateStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6377,9 +6379,9 @@ export class UpdateKeyDescriptionResponseBody extends $tea.Model {
 }
 
 export class UpdateKeyDescriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateKeyDescriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateKeyDescriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6443,9 +6445,9 @@ export class UpdateKmsInstanceBindVpcResponseBody extends $tea.Model {
 }
 
 export class UpdateKmsInstanceBindVpcResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateKmsInstanceBindVpcResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateKmsInstanceBindVpcResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6512,9 +6514,9 @@ export class UpdateNetworkRuleResponseBody extends $tea.Model {
 }
 
 export class UpdateNetworkRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateNetworkRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateNetworkRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6587,9 +6589,9 @@ export class UpdatePolicyResponseBody extends $tea.Model {
 }
 
 export class UpdatePolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6656,9 +6658,9 @@ export class UpdateRotationPolicyResponseBody extends $tea.Model {
 }
 
 export class UpdateRotationPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateRotationPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRotationPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6753,9 +6755,9 @@ export class UpdateSecretResponseBody extends $tea.Model {
 }
 
 export class UpdateSecretResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSecretResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6825,9 +6827,9 @@ export class UpdateSecretRotationPolicyResponseBody extends $tea.Model {
 }
 
 export class UpdateSecretRotationPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSecretRotationPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSecretRotationPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6900,9 +6902,9 @@ export class UpdateSecretVersionStageResponseBody extends $tea.Model {
 }
 
 export class UpdateSecretVersionStageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSecretVersionStageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSecretVersionStageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6969,9 +6971,9 @@ export class UploadCertificateResponseBody extends $tea.Model {
 }
 
 export class UploadCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UploadCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8120,9 +8122,13 @@ export class UpdateSecretShrinkRequestExtendedConfig extends $tea.Model {
 
 
 export default class Client extends OpenApi {
+  _client: SPI;
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._productId = "Kms";
+    this._client = new GatewayClient();
+    this._spi = this._client;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("kms", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -8189,7 +8195,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AsymmetricDecryptResponse>(await this.callApi(params, req, runtime), new AsymmetricDecryptResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AsymmetricDecryptResponse>(await this.callApi(params, req, runtime), new AsymmetricDecryptResponse({}));
+    } else {
+      return $tea.cast<AsymmetricDecryptResponse>(await this.execute(params, req, runtime), new AsymmetricDecryptResponse({}));
+    }
+
   }
 
   /**
@@ -8259,7 +8270,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AsymmetricEncryptResponse>(await this.callApi(params, req, runtime), new AsymmetricEncryptResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AsymmetricEncryptResponse>(await this.callApi(params, req, runtime), new AsymmetricEncryptResponse({}));
+    } else {
+      return $tea.cast<AsymmetricEncryptResponse>(await this.execute(params, req, runtime), new AsymmetricEncryptResponse({}));
+    }
+
   }
 
   /**
@@ -8321,7 +8337,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AsymmetricSignResponse>(await this.callApi(params, req, runtime), new AsymmetricSignResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AsymmetricSignResponse>(await this.callApi(params, req, runtime), new AsymmetricSignResponse({}));
+    } else {
+      return $tea.cast<AsymmetricSignResponse>(await this.execute(params, req, runtime), new AsymmetricSignResponse({}));
+    }
+
   }
 
   /**
@@ -8389,7 +8410,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AsymmetricVerifyResponse>(await this.callApi(params, req, runtime), new AsymmetricVerifyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AsymmetricVerifyResponse>(await this.callApi(params, req, runtime), new AsymmetricVerifyResponse({}));
+    } else {
+      return $tea.cast<AsymmetricVerifyResponse>(await this.execute(params, req, runtime), new AsymmetricVerifyResponse({}));
+    }
+
   }
 
   /**
@@ -8441,7 +8467,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelKeyDeletionResponse>(await this.callApi(params, req, runtime), new CancelKeyDeletionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CancelKeyDeletionResponse>(await this.callApi(params, req, runtime), new CancelKeyDeletionResponse({}));
+    } else {
+      return $tea.cast<CancelKeyDeletionResponse>(await this.execute(params, req, runtime), new CancelKeyDeletionResponse({}));
+    }
+
   }
 
   /**
@@ -8498,7 +8529,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CertificatePrivateKeyDecryptResponse>(await this.callApi(params, req, runtime), new CertificatePrivateKeyDecryptResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CertificatePrivateKeyDecryptResponse>(await this.callApi(params, req, runtime), new CertificatePrivateKeyDecryptResponse({}));
+    } else {
+      return $tea.cast<CertificatePrivateKeyDecryptResponse>(await this.execute(params, req, runtime), new CertificatePrivateKeyDecryptResponse({}));
+    }
+
   }
 
   /**
@@ -8566,7 +8602,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CertificatePrivateKeySignResponse>(await this.callApi(params, req, runtime), new CertificatePrivateKeySignResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CertificatePrivateKeySignResponse>(await this.callApi(params, req, runtime), new CertificatePrivateKeySignResponse({}));
+    } else {
+      return $tea.cast<CertificatePrivateKeySignResponse>(await this.execute(params, req, runtime), new CertificatePrivateKeySignResponse({}));
+    }
+
   }
 
   /**
@@ -8630,7 +8671,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CertificatePublicKeyEncryptResponse>(await this.callApi(params, req, runtime), new CertificatePublicKeyEncryptResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CertificatePublicKeyEncryptResponse>(await this.callApi(params, req, runtime), new CertificatePublicKeyEncryptResponse({}));
+    } else {
+      return $tea.cast<CertificatePublicKeyEncryptResponse>(await this.execute(params, req, runtime), new CertificatePublicKeyEncryptResponse({}));
+    }
+
   }
 
   /**
@@ -8702,7 +8748,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CertificatePublicKeyVerifyResponse>(await this.callApi(params, req, runtime), new CertificatePublicKeyVerifyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CertificatePublicKeyVerifyResponse>(await this.callApi(params, req, runtime), new CertificatePublicKeyVerifyResponse({}));
+    } else {
+      return $tea.cast<CertificatePublicKeyVerifyResponse>(await this.execute(params, req, runtime), new CertificatePublicKeyVerifyResponse({}));
+    }
+
   }
 
   /**
@@ -8723,6 +8774,14 @@ export default class Client extends OpenApi {
     return await this.certificatePublicKeyVerifyWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Limits
+    * You can enable only instances of the software key management type. You cannot enable instances of the hardware key management type.
+    *
+    * @param request ConnectKmsInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ConnectKmsInstanceResponse
+   */
   async connectKmsInstanceWithOptions(request: ConnectKmsInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ConnectKmsInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8760,9 +8819,21 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ConnectKmsInstanceResponse>(await this.callApi(params, req, runtime), new ConnectKmsInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ConnectKmsInstanceResponse>(await this.callApi(params, req, runtime), new ConnectKmsInstanceResponse({}));
+    } else {
+      return $tea.cast<ConnectKmsInstanceResponse>(await this.execute(params, req, runtime), new ConnectKmsInstanceResponse({}));
+    }
+
   }
 
+  /**
+    * ### [](#)Limits
+    * You can enable only instances of the software key management type. You cannot enable instances of the hardware key management type.
+    *
+    * @param request ConnectKmsInstanceRequest
+    * @return ConnectKmsInstanceResponse
+   */
   async connectKmsInstance(request: ConnectKmsInstanceRequest): Promise<ConnectKmsInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.connectKmsInstanceWithOptions(request, runtime);
@@ -8802,7 +8873,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAliasResponse>(await this.callApi(params, req, runtime), new CreateAliasResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateAliasResponse>(await this.callApi(params, req, runtime), new CreateAliasResponse({}));
+    } else {
+      return $tea.cast<CreateAliasResponse>(await this.execute(params, req, runtime), new CreateAliasResponse({}));
+    }
+
   }
 
   /**
@@ -8818,6 +8894,17 @@ export default class Client extends OpenApi {
     return await this.createAliasWithOptions(request, runtime);
   }
 
+  /**
+    * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a Key Management Service (KMS) instance. The following process shows how to create a client key-based AAP:
+    * 1.Create a network access rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access KMS. For more information, see [CreateNetworkRule](~~2539407~~).
+    * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind network access rules to the keys and secrets. For more information, see [CreatePolicy](~~2539454~~).
+    * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. This topic describes how to create an AAP.
+    * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP. For more information, see [CreateClientKey](~~2539509~~).
+    *
+    * @param request CreateApplicationAccessPointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateApplicationAccessPointResponse
+   */
   async createApplicationAccessPointWithOptions(request: CreateApplicationAccessPointRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationAccessPointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8851,9 +8938,24 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateApplicationAccessPointResponse>(await this.callApi(params, req, runtime), new CreateApplicationAccessPointResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateApplicationAccessPointResponse>(await this.callApi(params, req, runtime), new CreateApplicationAccessPointResponse({}));
+    } else {
+      return $tea.cast<CreateApplicationAccessPointResponse>(await this.execute(params, req, runtime), new CreateApplicationAccessPointResponse({}));
+    }
+
   }
 
+  /**
+    * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a Key Management Service (KMS) instance. The following process shows how to create a client key-based AAP:
+    * 1.Create a network access rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access KMS. For more information, see [CreateNetworkRule](~~2539407~~).
+    * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind network access rules to the keys and secrets. For more information, see [CreatePolicy](~~2539454~~).
+    * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. This topic describes how to create an AAP.
+    * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP. For more information, see [CreateClientKey](~~2539509~~).
+    *
+    * @param request CreateApplicationAccessPointRequest
+    * @return CreateApplicationAccessPointResponse
+   */
   async createApplicationAccessPoint(request: CreateApplicationAccessPointRequest): Promise<CreateApplicationAccessPointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApplicationAccessPointWithOptions(request, runtime);
@@ -8906,7 +9008,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateCertificateResponse>(await this.callApi(params, req, runtime), new CreateCertificateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateCertificateResponse>(await this.callApi(params, req, runtime), new CreateCertificateResponse({}));
+    } else {
+      return $tea.cast<CreateCertificateResponse>(await this.execute(params, req, runtime), new CreateCertificateResponse({}));
+    }
+
   }
 
   /**
@@ -8921,6 +9028,19 @@ export default class Client extends OpenApi {
     return await this.createCertificateWithOptions(request, runtime);
   }
 
+  /**
+    * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a Key Management Service (KMS) instance. The following process shows how to create a client key-based application access point (AAP):
+    * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance. For more information, see [CreateNetworkRule](~~2539407~~).
+    * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind access control rules to the keys and secrets. For more information, see [CreatePolicy](~~2539454~~).
+    * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. For more information, see [CreateApplicationAccessPoint](~~2539467~~).
+    * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP.
+    * ### Precautions
+    * A client key has a validity period. After a client key expires, applications into which the client key is integrated cannot access the required KMS instance. You must replace the client key before the client key expires. We recommend that you delete the expired client key in KMS after the new client key is used.
+    *
+    * @param request CreateClientKeyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateClientKeyResponse
+   */
   async createClientKeyWithOptions(request: CreateClientKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateClientKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8954,16 +9074,33 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateClientKeyResponse>(await this.callApi(params, req, runtime), new CreateClientKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateClientKeyResponse>(await this.callApi(params, req, runtime), new CreateClientKeyResponse({}));
+    } else {
+      return $tea.cast<CreateClientKeyResponse>(await this.execute(params, req, runtime), new CreateClientKeyResponse({}));
+    }
+
   }
 
+  /**
+    * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a Key Management Service (KMS) instance. The following process shows how to create a client key-based application access point (AAP):
+    * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance. For more information, see [CreateNetworkRule](~~2539407~~).
+    * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind access control rules to the keys and secrets. For more information, see [CreatePolicy](~~2539454~~).
+    * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. For more information, see [CreateApplicationAccessPoint](~~2539467~~).
+    * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP.
+    * ### Precautions
+    * A client key has a validity period. After a client key expires, applications into which the client key is integrated cannot access the required KMS instance. You must replace the client key before the client key expires. We recommend that you delete the expired client key in KMS after the new client key is used.
+    *
+    * @param request CreateClientKeyRequest
+    * @return CreateClientKeyResponse
+   */
   async createClientKey(request: CreateClientKeyRequest): Promise<CreateClientKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createClientKeyWithOptions(request, runtime);
   }
 
   /**
-    * Creates a customer master key (CMK).
+    * KMS supports common symmetric keys and asymmetric keys. For more information, see [Key types and specifications](~~480161~~).
     *
     * @param request CreateKeyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -9022,11 +9159,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateKeyResponse>(await this.callApi(params, req, runtime), new CreateKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateKeyResponse>(await this.callApi(params, req, runtime), new CreateKeyResponse({}));
+    } else {
+      return $tea.cast<CreateKeyResponse>(await this.execute(params, req, runtime), new CreateKeyResponse({}));
+    }
+
   }
 
   /**
-    * Creates a customer master key (CMK).
+    * KMS supports common symmetric keys and asymmetric keys. For more information, see [Key types and specifications](~~480161~~).
     *
     * @param request CreateKeyRequest
     * @return CreateKeyResponse
@@ -9068,7 +9210,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateKeyVersionResponse>(await this.callApi(params, req, runtime), new CreateKeyVersionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateKeyVersionResponse>(await this.callApi(params, req, runtime), new CreateKeyVersionResponse({}));
+    } else {
+      return $tea.cast<CreateKeyVersionResponse>(await this.execute(params, req, runtime), new CreateKeyVersionResponse({}));
+    }
+
   }
 
   /**
@@ -9086,6 +9233,17 @@ export default class Client extends OpenApi {
     return await this.createKeyVersionWithOptions(request, runtime);
   }
 
+  /**
+    * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a KMS instance. The following process shows how to create a client key-based application access point (AAP):
+    * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance.
+    * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind access control rules to the keys and secrets. For more information, see [CreatePolicy](~~2539454~~).
+    * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. For more information, see [CreateApplicationAccessPoint](~~2539467~~).
+    * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP. For more information, see [CreateClientKey](~~2539509~~).
+    *
+    * @param request CreateNetworkRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateNetworkRuleResponse
+   */
   async createNetworkRuleWithOptions(request: CreateNetworkRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9119,14 +9277,40 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateNetworkRuleResponse>(await this.callApi(params, req, runtime), new CreateNetworkRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateNetworkRuleResponse>(await this.callApi(params, req, runtime), new CreateNetworkRuleResponse({}));
+    } else {
+      return $tea.cast<CreateNetworkRuleResponse>(await this.execute(params, req, runtime), new CreateNetworkRuleResponse({}));
+    }
+
   }
 
+  /**
+    * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a KMS instance. The following process shows how to create a client key-based application access point (AAP):
+    * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance.
+    * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind access control rules to the keys and secrets. For more information, see [CreatePolicy](~~2539454~~).
+    * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. For more information, see [CreateApplicationAccessPoint](~~2539467~~).
+    * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP. For more information, see [CreateClientKey](~~2539509~~).
+    *
+    * @param request CreateNetworkRuleRequest
+    * @return CreateNetworkRuleResponse
+   */
   async createNetworkRule(request: CreateNetworkRuleRequest): Promise<CreateNetworkRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNetworkRuleWithOptions(request, runtime);
   }
 
+  /**
+    * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a Key Management Service (KMS) instance. The following process shows how to create a client key-based application access point (AAP):
+    * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance. For more information, see [CreateNetworkRule](~~2539407~~).
+    * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind access control rules to the keys and secrets.
+    * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. For more information, see [CreateApplicationAccessPoint](~~2539467~~).
+    * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP. For more information, see [CreateClientKey](~~2539509~~).
+    *
+    * @param request CreatePolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreatePolicyResponse
+   */
   async createPolicyWithOptions(request: CreatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9168,9 +9352,24 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreatePolicyResponse>(await this.callApi(params, req, runtime), new CreatePolicyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreatePolicyResponse>(await this.callApi(params, req, runtime), new CreatePolicyResponse({}));
+    } else {
+      return $tea.cast<CreatePolicyResponse>(await this.execute(params, req, runtime), new CreatePolicyResponse({}));
+    }
+
   }
 
+  /**
+    * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a Key Management Service (KMS) instance. The following process shows how to create a client key-based application access point (AAP):
+    * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance. For more information, see [CreateNetworkRule](~~2539407~~).
+    * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind access control rules to the keys and secrets.
+    * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. For more information, see [CreateApplicationAccessPoint](~~2539467~~).
+    * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP. For more information, see [CreateClientKey](~~2539509~~).
+    *
+    * @param request CreatePolicyRequest
+    * @return CreatePolicyResponse
+   */
   async createPolicy(request: CreatePolicyRequest): Promise<CreatePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPolicyWithOptions(request, runtime);
@@ -9258,7 +9457,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateSecretResponse>(await this.callApi(params, req, runtime), new CreateSecretResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateSecretResponse>(await this.callApi(params, req, runtime), new CreateSecretResponse({}));
+    } else {
+      return $tea.cast<CreateSecretResponse>(await this.execute(params, req, runtime), new CreateSecretResponse({}));
+    }
+
   }
 
   /**
@@ -9307,7 +9511,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DecryptResponse>(await this.callApi(params, req, runtime), new DecryptResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DecryptResponse>(await this.callApi(params, req, runtime), new DecryptResponse({}));
+    } else {
+      return $tea.cast<DecryptResponse>(await this.execute(params, req, runtime), new DecryptResponse({}));
+    }
+
   }
 
   async decrypt(request: DecryptRequest): Promise<DecryptResponse> {
@@ -9336,7 +9545,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAliasResponse>(await this.callApi(params, req, runtime), new DeleteAliasResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteAliasResponse>(await this.callApi(params, req, runtime), new DeleteAliasResponse({}));
+    } else {
+      return $tea.cast<DeleteAliasResponse>(await this.execute(params, req, runtime), new DeleteAliasResponse({}));
+    }
+
   }
 
   async deleteAlias(request: DeleteAliasRequest): Promise<DeleteAliasResponse> {
@@ -9344,6 +9558,13 @@ export default class Client extends OpenApi {
     return await this.deleteAliasWithOptions(request, runtime);
   }
 
+  /**
+    * Before you delete an AAP, make sure that the AAP is no longer in use. If you delete an AAP that is in use, applications that use the AAP cannot access Key Management Service (KMS). Exercise caution when you delete an AAP.
+    *
+    * @param request DeleteApplicationAccessPointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteApplicationAccessPointResponse
+   */
   async deleteApplicationAccessPointWithOptions(request: DeleteApplicationAccessPointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationAccessPointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9365,9 +9586,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteApplicationAccessPointResponse>(await this.callApi(params, req, runtime), new DeleteApplicationAccessPointResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteApplicationAccessPointResponse>(await this.callApi(params, req, runtime), new DeleteApplicationAccessPointResponse({}));
+    } else {
+      return $tea.cast<DeleteApplicationAccessPointResponse>(await this.execute(params, req, runtime), new DeleteApplicationAccessPointResponse({}));
+    }
+
   }
 
+  /**
+    * Before you delete an AAP, make sure that the AAP is no longer in use. If you delete an AAP that is in use, applications that use the AAP cannot access Key Management Service (KMS). Exercise caution when you delete an AAP.
+    *
+    * @param request DeleteApplicationAccessPointRequest
+    * @return DeleteApplicationAccessPointResponse
+   */
   async deleteApplicationAccessPoint(request: DeleteApplicationAccessPointRequest): Promise<DeleteApplicationAccessPointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApplicationAccessPointWithOptions(request, runtime);
@@ -9402,7 +9634,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCertificateResponse>(await this.callApi(params, req, runtime), new DeleteCertificateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteCertificateResponse>(await this.callApi(params, req, runtime), new DeleteCertificateResponse({}));
+    } else {
+      return $tea.cast<DeleteCertificateResponse>(await this.execute(params, req, runtime), new DeleteCertificateResponse({}));
+    }
+
   }
 
   /**
@@ -9417,6 +9654,13 @@ export default class Client extends OpenApi {
     return await this.deleteCertificateWithOptions(request, runtime);
   }
 
+  /**
+    * Before you delete a client key, make sure that the client key is no longer in use. If you delete a client key that is in use, applications that use the client key cannot access Key Management Service (KMS). Exercise caution when you delete a client key.
+    *
+    * @param request DeleteClientKeyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteClientKeyResponse
+   */
   async deleteClientKeyWithOptions(request: DeleteClientKeyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9438,9 +9682,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteClientKeyResponse>(await this.callApi(params, req, runtime), new DeleteClientKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteClientKeyResponse>(await this.callApi(params, req, runtime), new DeleteClientKeyResponse({}));
+    } else {
+      return $tea.cast<DeleteClientKeyResponse>(await this.execute(params, req, runtime), new DeleteClientKeyResponse({}));
+    }
+
   }
 
+  /**
+    * Before you delete a client key, make sure that the client key is no longer in use. If you delete a client key that is in use, applications that use the client key cannot access Key Management Service (KMS). Exercise caution when you delete a client key.
+    *
+    * @param request DeleteClientKeyRequest
+    * @return DeleteClientKeyResponse
+   */
   async deleteClientKey(request: DeleteClientKeyRequest): Promise<DeleteClientKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteClientKeyWithOptions(request, runtime);
@@ -9476,7 +9731,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteKeyMaterialResponse>(await this.callApi(params, req, runtime), new DeleteKeyMaterialResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteKeyMaterialResponse>(await this.callApi(params, req, runtime), new DeleteKeyMaterialResponse({}));
+    } else {
+      return $tea.cast<DeleteKeyMaterialResponse>(await this.execute(params, req, runtime), new DeleteKeyMaterialResponse({}));
+    }
+
   }
 
   /**
@@ -9492,6 +9752,13 @@ export default class Client extends OpenApi {
     return await this.deleteKeyMaterialWithOptions(request, runtime);
   }
 
+  /**
+    * Before you delete a network access rule, make sure that the network access rule is not bound to permission policies. Otherwise, related applications cannot access Key Management Service (KMS).
+    *
+    * @param request DeleteNetworkRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNetworkRuleResponse
+   */
   async deleteNetworkRuleWithOptions(request: DeleteNetworkRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9513,14 +9780,32 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteNetworkRuleResponse>(await this.callApi(params, req, runtime), new DeleteNetworkRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteNetworkRuleResponse>(await this.callApi(params, req, runtime), new DeleteNetworkRuleResponse({}));
+    } else {
+      return $tea.cast<DeleteNetworkRuleResponse>(await this.execute(params, req, runtime), new DeleteNetworkRuleResponse({}));
+    }
+
   }
 
+  /**
+    * Before you delete a network access rule, make sure that the network access rule is not bound to permission policies. Otherwise, related applications cannot access Key Management Service (KMS).
+    *
+    * @param request DeleteNetworkRuleRequest
+    * @return DeleteNetworkRuleResponse
+   */
   async deleteNetworkRule(request: DeleteNetworkRuleRequest): Promise<DeleteNetworkRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkRuleWithOptions(request, runtime);
   }
 
+  /**
+    * Before you delete a permission policy, make sure that the permission policy is not associated with application access points (AAPs). Otherwise, related applications cannot access Key Management Service (KMS).
+    *
+    * @param request DeletePolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeletePolicyResponse
+   */
   async deletePolicyWithOptions(request: DeletePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9542,9 +9827,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeletePolicyResponse>(await this.callApi(params, req, runtime), new DeletePolicyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeletePolicyResponse>(await this.callApi(params, req, runtime), new DeletePolicyResponse({}));
+    } else {
+      return $tea.cast<DeletePolicyResponse>(await this.execute(params, req, runtime), new DeletePolicyResponse({}));
+    }
+
   }
 
+  /**
+    * Before you delete a permission policy, make sure that the permission policy is not associated with application access points (AAPs). Otherwise, related applications cannot access Key Management Service (KMS).
+    *
+    * @param request DeletePolicyRequest
+    * @return DeletePolicyResponse
+   */
   async deletePolicy(request: DeletePolicyRequest): Promise<DeletePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePolicyWithOptions(request, runtime);
@@ -9587,7 +9883,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteSecretResponse>(await this.callApi(params, req, runtime), new DeleteSecretResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteSecretResponse>(await this.callApi(params, req, runtime), new DeleteSecretResponse({}));
+    } else {
+      return $tea.cast<DeleteSecretResponse>(await this.execute(params, req, runtime), new DeleteSecretResponse({}));
+    }
+
   }
 
   /**
@@ -9615,7 +9916,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeAccountKmsStatusResponse>(await this.callApi(params, req, runtime), new DescribeAccountKmsStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeAccountKmsStatusResponse>(await this.callApi(params, req, runtime), new DescribeAccountKmsStatusResponse({}));
+    } else {
+      return $tea.cast<DescribeAccountKmsStatusResponse>(await this.execute(params, req, runtime), new DescribeAccountKmsStatusResponse({}));
+    }
+
   }
 
   async describeAccountKmsStatus(): Promise<DescribeAccountKmsStatusResponse> {
@@ -9644,7 +9950,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeApplicationAccessPointResponse>(await this.callApi(params, req, runtime), new DescribeApplicationAccessPointResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeApplicationAccessPointResponse>(await this.callApi(params, req, runtime), new DescribeApplicationAccessPointResponse({}));
+    } else {
+      return $tea.cast<DescribeApplicationAccessPointResponse>(await this.execute(params, req, runtime), new DescribeApplicationAccessPointResponse({}));
+    }
+
   }
 
   async describeApplicationAccessPoint(request: DescribeApplicationAccessPointRequest): Promise<DescribeApplicationAccessPointResponse> {
@@ -9680,7 +9991,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCertificateResponse>(await this.callApi(params, req, runtime), new DescribeCertificateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeCertificateResponse>(await this.callApi(params, req, runtime), new DescribeCertificateResponse({}));
+    } else {
+      return $tea.cast<DescribeCertificateResponse>(await this.execute(params, req, runtime), new DescribeCertificateResponse({}));
+    }
+
   }
 
   /**
@@ -9722,7 +10038,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeKeyResponse>(await this.callApi(params, req, runtime), new DescribeKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeKeyResponse>(await this.callApi(params, req, runtime), new DescribeKeyResponse({}));
+    } else {
+      return $tea.cast<DescribeKeyResponse>(await this.execute(params, req, runtime), new DescribeKeyResponse({}));
+    }
+
   }
 
   /**
@@ -9768,7 +10089,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeKeyVersionResponse>(await this.callApi(params, req, runtime), new DescribeKeyVersionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeKeyVersionResponse>(await this.callApi(params, req, runtime), new DescribeKeyVersionResponse({}));
+    } else {
+      return $tea.cast<DescribeKeyVersionResponse>(await this.execute(params, req, runtime), new DescribeKeyVersionResponse({}));
+    }
+
   }
 
   /**
@@ -9803,7 +10129,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNetworkRuleResponse>(await this.callApi(params, req, runtime), new DescribeNetworkRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeNetworkRuleResponse>(await this.callApi(params, req, runtime), new DescribeNetworkRuleResponse({}));
+    } else {
+      return $tea.cast<DescribeNetworkRuleResponse>(await this.execute(params, req, runtime), new DescribeNetworkRuleResponse({}));
+    }
+
   }
 
   async describeNetworkRule(request: DescribeNetworkRuleRequest): Promise<DescribeNetworkRuleResponse> {
@@ -9832,7 +10163,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePolicyResponse>(await this.callApi(params, req, runtime), new DescribePolicyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePolicyResponse>(await this.callApi(params, req, runtime), new DescribePolicyResponse({}));
+    } else {
+      return $tea.cast<DescribePolicyResponse>(await this.execute(params, req, runtime), new DescribePolicyResponse({}));
+    }
+
   }
 
   async describePolicy(request: DescribePolicyRequest): Promise<DescribePolicyResponse> {
@@ -9840,6 +10176,14 @@ export default class Client extends OpenApi {
     return await this.describePolicyWithOptions(request, runtime);
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Kms\\&api=DescribeRegions\\&type=RPC\\&version=2016-01-20)
+    *
+    * @param request DescribeRegionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -9853,9 +10197,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    } else {
+      return $tea.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
+    }
+
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Kms\\&api=DescribeRegions\\&type=RPC\\&version=2016-01-20)
+    *
+    * @return DescribeRegionsResponse
+   */
   async describeRegions(): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(runtime);
@@ -9894,7 +10249,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSecretResponse>(await this.callApi(params, req, runtime), new DescribeSecretResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeSecretResponse>(await this.callApi(params, req, runtime), new DescribeSecretResponse({}));
+    } else {
+      return $tea.cast<DescribeSecretResponse>(await this.execute(params, req, runtime), new DescribeSecretResponse({}));
+    }
+
   }
 
   /**
@@ -9938,7 +10298,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DisableKeyResponse>(await this.callApi(params, req, runtime), new DisableKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DisableKeyResponse>(await this.callApi(params, req, runtime), new DisableKeyResponse({}));
+    } else {
+      return $tea.cast<DisableKeyResponse>(await this.execute(params, req, runtime), new DisableKeyResponse({}));
+    }
+
   }
 
   /**
@@ -9974,7 +10339,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EnableKeyResponse>(await this.callApi(params, req, runtime), new EnableKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<EnableKeyResponse>(await this.callApi(params, req, runtime), new EnableKeyResponse({}));
+    } else {
+      return $tea.cast<EnableKeyResponse>(await this.execute(params, req, runtime), new EnableKeyResponse({}));
+    }
+
   }
 
   async enableKey(request: EnableKeyRequest): Promise<EnableKeyResponse> {
@@ -10026,7 +10396,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EncryptResponse>(await this.callApi(params, req, runtime), new EncryptResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<EncryptResponse>(await this.callApi(params, req, runtime), new EncryptResponse({}));
+    } else {
+      return $tea.cast<EncryptResponse>(await this.execute(params, req, runtime), new EncryptResponse({}));
+    }
+
   }
 
   /**
@@ -10093,7 +10468,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExportDataKeyResponse>(await this.callApi(params, req, runtime), new ExportDataKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ExportDataKeyResponse>(await this.callApi(params, req, runtime), new ExportDataKeyResponse({}));
+    } else {
+      return $tea.cast<ExportDataKeyResponse>(await this.execute(params, req, runtime), new ExportDataKeyResponse({}));
+    }
+
   }
 
   /**
@@ -10170,7 +10550,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateAndExportDataKeyResponse>(await this.callApi(params, req, runtime), new GenerateAndExportDataKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GenerateAndExportDataKeyResponse>(await this.callApi(params, req, runtime), new GenerateAndExportDataKeyResponse({}));
+    } else {
+      return $tea.cast<GenerateAndExportDataKeyResponse>(await this.execute(params, req, runtime), new GenerateAndExportDataKeyResponse({}));
+    }
+
   }
 
   /**
@@ -10243,7 +10628,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateDataKeyResponse>(await this.callApi(params, req, runtime), new GenerateDataKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GenerateDataKeyResponse>(await this.callApi(params, req, runtime), new GenerateDataKeyResponse({}));
+    } else {
+      return $tea.cast<GenerateDataKeyResponse>(await this.execute(params, req, runtime), new GenerateDataKeyResponse({}));
+    }
+
   }
 
   /**
@@ -10315,7 +10705,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateDataKeyWithoutPlaintextResponse>(await this.callApi(params, req, runtime), new GenerateDataKeyWithoutPlaintextResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GenerateDataKeyWithoutPlaintextResponse>(await this.callApi(params, req, runtime), new GenerateDataKeyWithoutPlaintextResponse({}));
+    } else {
+      return $tea.cast<GenerateDataKeyWithoutPlaintextResponse>(await this.execute(params, req, runtime), new GenerateDataKeyWithoutPlaintextResponse({}));
+    }
+
   }
 
   /**
@@ -10360,7 +10755,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCertificateResponse>(await this.callApi(params, req, runtime), new GetCertificateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetCertificateResponse>(await this.callApi(params, req, runtime), new GetCertificateResponse({}));
+    } else {
+      return $tea.cast<GetCertificateResponse>(await this.execute(params, req, runtime), new GetCertificateResponse({}));
+    }
+
   }
 
   /**
@@ -10391,7 +10791,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetClientKeyResponse>(await this.callApi(params, req, runtime), new GetClientKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetClientKeyResponse>(await this.callApi(params, req, runtime), new GetClientKeyResponse({}));
+    } else {
+      return $tea.cast<GetClientKeyResponse>(await this.execute(params, req, runtime), new GetClientKeyResponse({}));
+    }
+
   }
 
   async getClientKey(request: GetClientKeyRequest): Promise<GetClientKeyResponse> {
@@ -10420,7 +10825,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetKmsInstanceResponse>(await this.callApi(params, req, runtime), new GetKmsInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetKmsInstanceResponse>(await this.callApi(params, req, runtime), new GetKmsInstanceResponse({}));
+    } else {
+      return $tea.cast<GetKmsInstanceResponse>(await this.execute(params, req, runtime), new GetKmsInstanceResponse({}));
+    }
+
   }
 
   async getKmsInstance(request: GetKmsInstanceRequest): Promise<GetKmsInstanceResponse> {
@@ -10476,7 +10886,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetParametersForImportResponse>(await this.callApi(params, req, runtime), new GetParametersForImportResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetParametersForImportResponse>(await this.callApi(params, req, runtime), new GetParametersForImportResponse({}));
+    } else {
+      return $tea.cast<GetParametersForImportResponse>(await this.execute(params, req, runtime), new GetParametersForImportResponse({}));
+    }
+
   }
 
   /**
@@ -10527,7 +10942,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetPublicKeyResponse>(await this.callApi(params, req, runtime), new GetPublicKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetPublicKeyResponse>(await this.callApi(params, req, runtime), new GetPublicKeyResponse({}));
+    } else {
+      return $tea.cast<GetPublicKeyResponse>(await this.execute(params, req, runtime), new GetPublicKeyResponse({}));
+    }
+
   }
 
   async getPublicKey(request: GetPublicKeyRequest): Promise<GetPublicKeyResponse> {
@@ -10580,7 +11000,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetRandomPasswordResponse>(await this.callApi(params, req, runtime), new GetRandomPasswordResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetRandomPasswordResponse>(await this.callApi(params, req, runtime), new GetRandomPasswordResponse({}));
+    } else {
+      return $tea.cast<GetRandomPasswordResponse>(await this.execute(params, req, runtime), new GetRandomPasswordResponse({}));
+    }
+
   }
 
   async getRandomPassword(request: GetRandomPasswordRequest): Promise<GetRandomPasswordResponse> {
@@ -10630,7 +11055,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSecretValueResponse>(await this.callApi(params, req, runtime), new GetSecretValueResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetSecretValueResponse>(await this.callApi(params, req, runtime), new GetSecretValueResponse({}));
+    } else {
+      return $tea.cast<GetSecretValueResponse>(await this.execute(params, req, runtime), new GetSecretValueResponse({}));
+    }
+
   }
 
   /**
@@ -10693,7 +11123,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ImportKeyMaterialResponse>(await this.callApi(params, req, runtime), new ImportKeyMaterialResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ImportKeyMaterialResponse>(await this.callApi(params, req, runtime), new ImportKeyMaterialResponse({}));
+    } else {
+      return $tea.cast<ImportKeyMaterialResponse>(await this.execute(params, req, runtime), new ImportKeyMaterialResponse({}));
+    }
+
   }
 
   /**
@@ -10739,7 +11174,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAliasesResponse>(await this.callApi(params, req, runtime), new ListAliasesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAliasesResponse>(await this.callApi(params, req, runtime), new ListAliasesResponse({}));
+    } else {
+      return $tea.cast<ListAliasesResponse>(await this.execute(params, req, runtime), new ListAliasesResponse({}));
+    }
+
   }
 
   async listAliases(request: ListAliasesRequest): Promise<ListAliasesResponse> {
@@ -10776,7 +11216,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAliasesByKeyIdResponse>(await this.callApi(params, req, runtime), new ListAliasesByKeyIdResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAliasesByKeyIdResponse>(await this.callApi(params, req, runtime), new ListAliasesByKeyIdResponse({}));
+    } else {
+      return $tea.cast<ListAliasesByKeyIdResponse>(await this.execute(params, req, runtime), new ListAliasesByKeyIdResponse({}));
+    }
+
   }
 
   async listAliasesByKeyId(request: ListAliasesByKeyIdRequest): Promise<ListAliasesByKeyIdResponse> {
@@ -10809,7 +11254,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListApplicationAccessPointsResponse>(await this.callApi(params, req, runtime), new ListApplicationAccessPointsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListApplicationAccessPointsResponse>(await this.callApi(params, req, runtime), new ListApplicationAccessPointsResponse({}));
+    } else {
+      return $tea.cast<ListApplicationAccessPointsResponse>(await this.execute(params, req, runtime), new ListApplicationAccessPointsResponse({}));
+    }
+
   }
 
   async listApplicationAccessPoints(request: ListApplicationAccessPointsRequest): Promise<ListApplicationAccessPointsResponse> {
@@ -10834,7 +11284,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListClientKeysResponse>(await this.callApi(params, req, runtime), new ListClientKeysResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListClientKeysResponse>(await this.callApi(params, req, runtime), new ListClientKeysResponse({}));
+    } else {
+      return $tea.cast<ListClientKeysResponse>(await this.execute(params, req, runtime), new ListClientKeysResponse({}));
+    }
+
   }
 
   async listClientKeys(request: ListClientKeysRequest): Promise<ListClientKeysResponse> {
@@ -10871,7 +11326,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListKeyVersionsResponse>(await this.callApi(params, req, runtime), new ListKeyVersionsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListKeyVersionsResponse>(await this.callApi(params, req, runtime), new ListKeyVersionsResponse({}));
+    } else {
+      return $tea.cast<ListKeyVersionsResponse>(await this.execute(params, req, runtime), new ListKeyVersionsResponse({}));
+    }
+
   }
 
   async listKeyVersions(request: ListKeyVersionsRequest): Promise<ListKeyVersionsResponse> {
@@ -10908,7 +11368,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListKeysResponse>(await this.callApi(params, req, runtime), new ListKeysResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListKeysResponse>(await this.callApi(params, req, runtime), new ListKeysResponse({}));
+    } else {
+      return $tea.cast<ListKeysResponse>(await this.execute(params, req, runtime), new ListKeysResponse({}));
+    }
+
   }
 
   async listKeys(request: ListKeysRequest): Promise<ListKeysResponse> {
@@ -10941,7 +11406,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListKmsInstancesResponse>(await this.callApi(params, req, runtime), new ListKmsInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListKmsInstancesResponse>(await this.callApi(params, req, runtime), new ListKmsInstancesResponse({}));
+    } else {
+      return $tea.cast<ListKmsInstancesResponse>(await this.execute(params, req, runtime), new ListKmsInstancesResponse({}));
+    }
+
   }
 
   async listKmsInstances(request: ListKmsInstancesRequest): Promise<ListKmsInstancesResponse> {
@@ -10974,7 +11444,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListNetworkRulesResponse>(await this.callApi(params, req, runtime), new ListNetworkRulesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListNetworkRulesResponse>(await this.callApi(params, req, runtime), new ListNetworkRulesResponse({}));
+    } else {
+      return $tea.cast<ListNetworkRulesResponse>(await this.execute(params, req, runtime), new ListNetworkRulesResponse({}));
+    }
+
   }
 
   async listNetworkRules(request: ListNetworkRulesRequest): Promise<ListNetworkRulesResponse> {
@@ -11007,7 +11482,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPoliciesResponse>(await this.callApi(params, req, runtime), new ListPoliciesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListPoliciesResponse>(await this.callApi(params, req, runtime), new ListPoliciesResponse({}));
+    } else {
+      return $tea.cast<ListPoliciesResponse>(await this.execute(params, req, runtime), new ListPoliciesResponse({}));
+    }
+
   }
 
   async listPolicies(request: ListPoliciesRequest): Promise<ListPoliciesResponse> {
@@ -11043,7 +11523,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListResourceTagsResponse>(await this.callApi(params, req, runtime), new ListResourceTagsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListResourceTagsResponse>(await this.callApi(params, req, runtime), new ListResourceTagsResponse({}));
+    } else {
+      return $tea.cast<ListResourceTagsResponse>(await this.execute(params, req, runtime), new ListResourceTagsResponse({}));
+    }
+
   }
 
   /**
@@ -11097,7 +11582,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListSecretVersionIdsResponse>(await this.callApi(params, req, runtime), new ListSecretVersionIdsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListSecretVersionIdsResponse>(await this.callApi(params, req, runtime), new ListSecretVersionIdsResponse({}));
+    } else {
+      return $tea.cast<ListSecretVersionIdsResponse>(await this.execute(params, req, runtime), new ListSecretVersionIdsResponse({}));
+    }
+
   }
 
   /**
@@ -11153,7 +11643,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListSecretsResponse>(await this.callApi(params, req, runtime), new ListSecretsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListSecretsResponse>(await this.callApi(params, req, runtime), new ListSecretsResponse({}));
+    } else {
+      return $tea.cast<ListSecretsResponse>(await this.execute(params, req, runtime), new ListSecretsResponse({}));
+    }
+
   }
 
   /**
@@ -11206,7 +11701,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $tea.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
@@ -11237,7 +11737,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OpenKmsServiceResponse>(await this.callApi(params, req, runtime), new OpenKmsServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<OpenKmsServiceResponse>(await this.callApi(params, req, runtime), new OpenKmsServiceResponse({}));
+    } else {
+      return $tea.cast<OpenKmsServiceResponse>(await this.execute(params, req, runtime), new OpenKmsServiceResponse({}));
+    }
+
   }
 
   /**
@@ -11304,7 +11809,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PutSecretValueResponse>(await this.callApi(params, req, runtime), new PutSecretValueResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<PutSecretValueResponse>(await this.callApi(params, req, runtime), new PutSecretValueResponse({}));
+    } else {
+      return $tea.cast<PutSecretValueResponse>(await this.execute(params, req, runtime), new PutSecretValueResponse({}));
+    }
+
   }
 
   /**
@@ -11394,7 +11904,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReEncryptResponse>(await this.callApi(params, req, runtime), new ReEncryptResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ReEncryptResponse>(await this.callApi(params, req, runtime), new ReEncryptResponse({}));
+    } else {
+      return $tea.cast<ReEncryptResponse>(await this.execute(params, req, runtime), new ReEncryptResponse({}));
+    }
+
   }
 
   /**
@@ -11443,7 +11958,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RestoreSecretResponse>(await this.callApi(params, req, runtime), new RestoreSecretResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RestoreSecretResponse>(await this.callApi(params, req, runtime), new RestoreSecretResponse({}));
+    } else {
+      return $tea.cast<RestoreSecretResponse>(await this.execute(params, req, runtime), new RestoreSecretResponse({}));
+    }
+
   }
 
   /**
@@ -11492,7 +12012,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RotateSecretResponse>(await this.callApi(params, req, runtime), new RotateSecretResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RotateSecretResponse>(await this.callApi(params, req, runtime), new RotateSecretResponse({}));
+    } else {
+      return $tea.cast<RotateSecretResponse>(await this.execute(params, req, runtime), new RotateSecretResponse({}));
+    }
+
   }
 
   /**
@@ -11543,7 +12068,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ScheduleKeyDeletionResponse>(await this.callApi(params, req, runtime), new ScheduleKeyDeletionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ScheduleKeyDeletionResponse>(await this.callApi(params, req, runtime), new ScheduleKeyDeletionResponse({}));
+    } else {
+      return $tea.cast<ScheduleKeyDeletionResponse>(await this.execute(params, req, runtime), new ScheduleKeyDeletionResponse({}));
+    }
+
   }
 
   /**
@@ -11597,7 +12127,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetDeletionProtectionResponse>(await this.callApi(params, req, runtime), new SetDeletionProtectionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SetDeletionProtectionResponse>(await this.callApi(params, req, runtime), new SetDeletionProtectionResponse({}));
+    } else {
+      return $tea.cast<SetDeletionProtectionResponse>(await this.execute(params, req, runtime), new SetDeletionProtectionResponse({}));
+    }
+
   }
 
   /**
@@ -11654,7 +12189,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourceResponse>(await this.callApi(params, req, runtime), new TagResourceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<TagResourceResponse>(await this.callApi(params, req, runtime), new TagResourceResponse({}));
+    } else {
+      return $tea.cast<TagResourceResponse>(await this.execute(params, req, runtime), new TagResourceResponse({}));
+    }
+
   }
 
   /**
@@ -11669,6 +12209,13 @@ export default class Client extends OpenApi {
     return await this.tagResourceWithOptions(request, runtime);
   }
 
+  /**
+    * You can add multiple tags to multiple keys or multiple secrets at a time.
+    *
+    * @param request TagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11702,9 +12249,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $tea.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
+  /**
+    * You can add multiple tags to multiple keys or multiple secrets at a time.
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
@@ -11752,7 +12310,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourceResponse>(await this.callApi(params, req, runtime), new UntagResourceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UntagResourceResponse>(await this.callApi(params, req, runtime), new UntagResourceResponse({}));
+    } else {
+      return $tea.cast<UntagResourceResponse>(await this.execute(params, req, runtime), new UntagResourceResponse({}));
+    }
+
   }
 
   /**
@@ -11768,6 +12331,14 @@ export default class Client extends OpenApi {
     return await this.untagResourceWithOptions(request, runtime);
   }
 
+  /**
+    * You can remove multiple tags from multiple keys or multiple secrets at a time. You cannot remove tags that start with aliyun or acs:.
+    * If you enter multiple tag keys in the request parameters and only some of the tag keys are associated with resources, the operation can be called and the tags whose keys are associated with resources are removed from the resources.
+    *
+    * @param request UntagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11805,9 +12376,21 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $tea.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
+  /**
+    * You can remove multiple tags from multiple keys or multiple secrets at a time. You cannot remove tags that start with aliyun or acs:.
+    * If you enter multiple tag keys in the request parameters and only some of the tag keys are associated with resources, the operation can be called and the tags whose keys are associated with resources are removed from the resources.
+    *
+    * @param request UntagResourcesRequest
+    * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
@@ -11838,7 +12421,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAliasResponse>(await this.callApi(params, req, runtime), new UpdateAliasResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateAliasResponse>(await this.callApi(params, req, runtime), new UpdateAliasResponse({}));
+    } else {
+      return $tea.cast<UpdateAliasResponse>(await this.execute(params, req, runtime), new UpdateAliasResponse({}));
+    }
+
   }
 
   async updateAlias(request: UpdateAliasRequest): Promise<UpdateAliasResponse> {
@@ -11846,6 +12434,13 @@ export default class Client extends OpenApi {
     return await this.updateAliasWithOptions(request, runtime);
   }
 
+  /**
+    * The update takes effect immediately after an AAP information is updated. Exercise caution when you perform this operation. You can update the description of an AAP and the permission policies that are associated with the AAP. You cannot update the name of the AAP.
+    *
+    * @param request UpdateApplicationAccessPointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateApplicationAccessPointResponse
+   */
   async updateApplicationAccessPointWithOptions(request: UpdateApplicationAccessPointRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationAccessPointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11875,9 +12470,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateApplicationAccessPointResponse>(await this.callApi(params, req, runtime), new UpdateApplicationAccessPointResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateApplicationAccessPointResponse>(await this.callApi(params, req, runtime), new UpdateApplicationAccessPointResponse({}));
+    } else {
+      return $tea.cast<UpdateApplicationAccessPointResponse>(await this.execute(params, req, runtime), new UpdateApplicationAccessPointResponse({}));
+    }
+
   }
 
+  /**
+    * The update takes effect immediately after an AAP information is updated. Exercise caution when you perform this operation. You can update the description of an AAP and the permission policies that are associated with the AAP. You cannot update the name of the AAP.
+    *
+    * @param request UpdateApplicationAccessPointRequest
+    * @return UpdateApplicationAccessPointResponse
+   */
   async updateApplicationAccessPoint(request: UpdateApplicationAccessPointRequest): Promise<UpdateApplicationAccessPointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateApplicationAccessPointWithOptions(request, runtime);
@@ -11915,7 +12521,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCertificateStatusResponse>(await this.callApi(params, req, runtime), new UpdateCertificateStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCertificateStatusResponse>(await this.callApi(params, req, runtime), new UpdateCertificateStatusResponse({}));
+    } else {
+      return $tea.cast<UpdateCertificateStatusResponse>(await this.execute(params, req, runtime), new UpdateCertificateStatusResponse({}));
+    }
+
   }
 
   /**
@@ -11961,7 +12572,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateKeyDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateKeyDescriptionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateKeyDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateKeyDescriptionResponse({}));
+    } else {
+      return $tea.cast<UpdateKeyDescriptionResponse>(await this.execute(params, req, runtime), new UpdateKeyDescriptionResponse({}));
+    }
+
   }
 
   /**
@@ -11975,6 +12591,15 @@ export default class Client extends OpenApi {
     return await this.updateKeyDescriptionWithOptions(request, runtime);
   }
 
+  /**
+    * If your own applications are deployed in multiple VPCs in the same region, you can associate the VPCs except the VPC in which the KMS instance resides with the KMS instance. This topic describes how to configure the VPCs.
+    * The VPCs can belong to the same Alibaba Cloud account or different Alibaba Cloud accounts. After the configuration is complete, the applications in these VPCs can access the KMS instance.
+    * > If the VPCs belong to different Alibaba Cloud accounts, you must first configure resource sharing to share the vSwitches of other Alibaba Cloud accounts with the Alibaba Cloud account to which the KMS instance belongs. For more information, see [Access a KMS instance from multiple VPCs in the same region](~~2393236~~).
+    *
+    * @param request UpdateKmsInstanceBindVpcRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateKmsInstanceBindVpcResponse
+   */
   async updateKmsInstanceBindVpcWithOptions(request: UpdateKmsInstanceBindVpcRequest, runtime: $Util.RuntimeOptions): Promise<UpdateKmsInstanceBindVpcResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -11992,14 +12617,35 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateKmsInstanceBindVpcResponse>(await this.callApi(params, req, runtime), new UpdateKmsInstanceBindVpcResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateKmsInstanceBindVpcResponse>(await this.callApi(params, req, runtime), new UpdateKmsInstanceBindVpcResponse({}));
+    } else {
+      return $tea.cast<UpdateKmsInstanceBindVpcResponse>(await this.execute(params, req, runtime), new UpdateKmsInstanceBindVpcResponse({}));
+    }
+
   }
 
+  /**
+    * If your own applications are deployed in multiple VPCs in the same region, you can associate the VPCs except the VPC in which the KMS instance resides with the KMS instance. This topic describes how to configure the VPCs.
+    * The VPCs can belong to the same Alibaba Cloud account or different Alibaba Cloud accounts. After the configuration is complete, the applications in these VPCs can access the KMS instance.
+    * > If the VPCs belong to different Alibaba Cloud accounts, you must first configure resource sharing to share the vSwitches of other Alibaba Cloud accounts with the Alibaba Cloud account to which the KMS instance belongs. For more information, see [Access a KMS instance from multiple VPCs in the same region](~~2393236~~).
+    *
+    * @param request UpdateKmsInstanceBindVpcRequest
+    * @return UpdateKmsInstanceBindVpcResponse
+   */
   async updateKmsInstanceBindVpc(request: UpdateKmsInstanceBindVpcRequest): Promise<UpdateKmsInstanceBindVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateKmsInstanceBindVpcWithOptions(request, runtime);
   }
 
+  /**
+    * - You can update only private IP addresses and description of an access control rule. You cannot update the name and network type of an access control rule.
+    * - Updating an access control rule affects all permission policies that are bound to the access control rule. Exercise caution when you perform this operation.
+    *
+    * @param request UpdateNetworkRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateNetworkRuleResponse
+   */
   async updateNetworkRuleWithOptions(request: UpdateNetworkRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNetworkRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12029,14 +12675,34 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateNetworkRuleResponse>(await this.callApi(params, req, runtime), new UpdateNetworkRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateNetworkRuleResponse>(await this.callApi(params, req, runtime), new UpdateNetworkRuleResponse({}));
+    } else {
+      return $tea.cast<UpdateNetworkRuleResponse>(await this.execute(params, req, runtime), new UpdateNetworkRuleResponse({}));
+    }
+
   }
 
+  /**
+    * - You can update only private IP addresses and description of an access control rule. You cannot update the name and network type of an access control rule.
+    * - Updating an access control rule affects all permission policies that are bound to the access control rule. Exercise caution when you perform this operation.
+    *
+    * @param request UpdateNetworkRuleRequest
+    * @return UpdateNetworkRuleResponse
+   */
   async updateNetworkRule(request: UpdateNetworkRuleRequest): Promise<UpdateNetworkRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNetworkRuleWithOptions(request, runtime);
   }
 
+  /**
+    * - You can update the role-based access control (RBAC) permissions, accessible resources, access control rules, and description of a permission policy. You cannot update the name or scope of a permission policy.
+    * - Updating a permission policy affects all application access points (AAPs) that are bound to the permission policy. Exercise caution when you perform this operation.
+    *
+    * @param request UpdatePolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdatePolicyResponse
+   */
   async updatePolicyWithOptions(request: UpdatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12074,9 +12740,21 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdatePolicyResponse>(await this.callApi(params, req, runtime), new UpdatePolicyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdatePolicyResponse>(await this.callApi(params, req, runtime), new UpdatePolicyResponse({}));
+    } else {
+      return $tea.cast<UpdatePolicyResponse>(await this.execute(params, req, runtime), new UpdatePolicyResponse({}));
+    }
+
   }
 
+  /**
+    * - You can update the role-based access control (RBAC) permissions, accessible resources, access control rules, and description of a permission policy. You cannot update the name or scope of a permission policy.
+    * - Updating a permission policy affects all application access points (AAPs) that are bound to the permission policy. Exercise caution when you perform this operation.
+    *
+    * @param request UpdatePolicyRequest
+    * @return UpdatePolicyResponse
+   */
   async updatePolicy(request: UpdatePolicyRequest): Promise<UpdatePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePolicyWithOptions(request, runtime);
@@ -12124,7 +12802,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateRotationPolicyResponse>(await this.callApi(params, req, runtime), new UpdateRotationPolicyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateRotationPolicyResponse>(await this.callApi(params, req, runtime), new UpdateRotationPolicyResponse({}));
+    } else {
+      return $tea.cast<UpdateRotationPolicyResponse>(await this.execute(params, req, runtime), new UpdateRotationPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -12180,7 +12863,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateSecretResponse>(await this.callApi(params, req, runtime), new UpdateSecretResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateSecretResponse>(await this.callApi(params, req, runtime), new UpdateSecretResponse({}));
+    } else {
+      return $tea.cast<UpdateSecretResponse>(await this.execute(params, req, runtime), new UpdateSecretResponse({}));
+    }
+
   }
 
   /**
@@ -12234,7 +12922,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateSecretRotationPolicyResponse>(await this.callApi(params, req, runtime), new UpdateSecretRotationPolicyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateSecretRotationPolicyResponse>(await this.callApi(params, req, runtime), new UpdateSecretRotationPolicyResponse({}));
+    } else {
+      return $tea.cast<UpdateSecretRotationPolicyResponse>(await this.execute(params, req, runtime), new UpdateSecretRotationPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -12292,7 +12985,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateSecretVersionStageResponse>(await this.callApi(params, req, runtime), new UpdateSecretVersionStageResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateSecretVersionStageResponse>(await this.callApi(params, req, runtime), new UpdateSecretVersionStageResponse({}));
+    } else {
+      return $tea.cast<UpdateSecretVersionStageResponse>(await this.execute(params, req, runtime), new UpdateSecretVersionStageResponse({}));
+    }
+
   }
 
   /**
@@ -12342,7 +13040,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UploadCertificateResponse>(await this.callApi(params, req, runtime), new UploadCertificateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UploadCertificateResponse>(await this.callApi(params, req, runtime), new UploadCertificateResponse({}));
+    } else {
+      return $tea.cast<UploadCertificateResponse>(await this.execute(params, req, runtime), new UploadCertificateResponse({}));
+    }
+
   }
 
   /**
