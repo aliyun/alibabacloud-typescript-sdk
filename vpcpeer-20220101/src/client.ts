@@ -59,9 +59,9 @@ export class AcceptVpcPeerConnectionResponseBody extends $tea.Model {
 }
 
 export class AcceptVpcPeerConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AcceptVpcPeerConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AcceptVpcPeerConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -155,9 +155,9 @@ export class CreateVpcPeerConnectionResponseBody extends $tea.Model {
 }
 
 export class CreateVpcPeerConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVpcPeerConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVpcPeerConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -227,9 +227,9 @@ export class DeleteVpcPeerConnectionResponseBody extends $tea.Model {
 }
 
 export class DeleteVpcPeerConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVpcPeerConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVpcPeerConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -344,9 +344,9 @@ export class GetVpcPeerConnectionAttributeResponseBody extends $tea.Model {
 }
 
 export class GetVpcPeerConnectionAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVpcPeerConnectionAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVpcPeerConnectionAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -431,9 +431,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -567,9 +567,9 @@ export class ListVpcPeerConnectionsResponseBody extends $tea.Model {
 }
 
 export class ListVpcPeerConnectionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVpcPeerConnectionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpcPeerConnectionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -645,9 +645,9 @@ export class ModifyVpcPeerConnectionResponseBody extends $tea.Model {
 }
 
 export class ModifyVpcPeerConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyVpcPeerConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVpcPeerConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -720,9 +720,9 @@ export class MoveResourceGroupResponseBody extends $tea.Model {
 }
 
 export class MoveResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MoveResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MoveResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -792,9 +792,9 @@ export class RejectVpcPeerConnectionResponseBody extends $tea.Model {
 }
 
 export class RejectVpcPeerConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RejectVpcPeerConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RejectVpcPeerConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -870,9 +870,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -951,9 +951,9 @@ export class UnTagResourcesResponseBody extends $tea.Model {
 }
 
 export class UnTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
