@@ -77,9 +77,9 @@ export class GetPhoneNumberIdentificationResultResponseBody extends $tea.Model {
 }
 
 export class GetPhoneNumberIdentificationResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPhoneNumberIdentificationResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPhoneNumberIdentificationResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -170,9 +170,9 @@ export class GetPhoneNumberIdentificationUrlResponseBody extends $tea.Model {
 }
 
 export class GetPhoneNumberIdentificationUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPhoneNumberIdentificationUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPhoneNumberIdentificationUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
