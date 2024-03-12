@@ -89,6 +89,84 @@ export class CancelAsyncTaskResponse extends $tea.Model {
   }
 }
 
+export class ClearIntervenesRequest extends $tea.Model {
+  agentKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearIntervenesResponseBody extends $tea.Model {
+  code?: string;
+  data?: ClearIntervenesResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ClearIntervenesResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearIntervenesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ClearIntervenesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ClearIntervenesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateGeneratedContentRequest extends $tea.Model {
   agentKey?: string;
   content?: string;
@@ -393,6 +471,87 @@ export class DeleteGeneratedContentResponse extends $tea.Model {
   }
 }
 
+export class DeleteInterveneRuleRequest extends $tea.Model {
+  agentKey?: string;
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInterveneRuleResponseBody extends $tea.Model {
+  code?: string;
+  data?: DeleteInterveneRuleResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DeleteInterveneRuleResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInterveneRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInterveneRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteInterveneRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteMaterialByIdRequest extends $tea.Model {
   agentKey?: string;
   id?: number;
@@ -547,6 +706,84 @@ export class ExportGeneratedContentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ExportGeneratedContentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportIntervenesRequest extends $tea.Model {
+  agentKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportIntervenesResponseBody extends $tea.Model {
+  code?: string;
+  data?: ExportIntervenesResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ExportIntervenesResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportIntervenesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportIntervenesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExportIntervenesResponseBody,
     };
   }
 
@@ -1354,6 +1591,324 @@ export class GetGeneratedContentResponse extends $tea.Model {
   }
 }
 
+export class GetInterveneGlobalReplyRequest extends $tea.Model {
+  agentKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneGlobalReplyResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetInterveneGlobalReplyResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetInterveneGlobalReplyResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneGlobalReplyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInterveneGlobalReplyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInterveneGlobalReplyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneImportTaskInfoRequest extends $tea.Model {
+  agentKey?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneImportTaskInfoResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetInterveneImportTaskInfoResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetInterveneImportTaskInfoResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneImportTaskInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInterveneImportTaskInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInterveneImportTaskInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneRuleDetailRequest extends $tea.Model {
+  agentKey?: string;
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneRuleDetailResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetInterveneRuleDetailResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetInterveneRuleDetailResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneRuleDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInterveneRuleDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInterveneRuleDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneTemplateFileUrlRequest extends $tea.Model {
+  agentKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneTemplateFileUrlResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetInterveneTemplateFileUrlResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetInterveneTemplateFileUrlResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneTemplateFileUrlResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInterveneTemplateFileUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInterveneTemplateFileUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMaterialByIdRequest extends $tea.Model {
   agentKey?: string;
   id?: number;
@@ -1505,6 +2060,386 @@ export class GetPropertiesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetPropertiesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportInterveneFileRequest extends $tea.Model {
+  agentKey?: string;
+  docName?: string;
+  fileKey?: string;
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      docName: 'DocName',
+      fileKey: 'FileKey',
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      docName: 'string',
+      fileKey: 'string',
+      fileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportInterveneFileResponseBody extends $tea.Model {
+  code?: string;
+  data?: ImportInterveneFileResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ImportInterveneFileResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportInterveneFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportInterveneFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportInterveneFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportInterveneFileAsyncRequest extends $tea.Model {
+  agentKey?: string;
+  docName?: string;
+  fileKey?: string;
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      docName: 'DocName',
+      fileKey: 'FileKey',
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      docName: 'string',
+      fileKey: 'string',
+      fileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportInterveneFileAsyncResponseBody extends $tea.Model {
+  code?: string;
+  data?: ImportInterveneFileAsyncResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ImportInterveneFileAsyncResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportInterveneFileAsyncResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportInterveneFileAsyncResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportInterveneFileAsyncResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneGlobalReplyRequest extends $tea.Model {
+  agentKey?: string;
+  replyMessagList?: InsertInterveneGlobalReplyRequestReplyMessagList[];
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      replyMessagList: 'ReplyMessagList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      replyMessagList: { 'type': 'array', 'itemType': InsertInterveneGlobalReplyRequestReplyMessagList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneGlobalReplyShrinkRequest extends $tea.Model {
+  agentKey?: string;
+  replyMessagListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      replyMessagListShrink: 'ReplyMessagList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      replyMessagListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneGlobalReplyResponseBody extends $tea.Model {
+  code?: string;
+  data?: InsertInterveneGlobalReplyResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: InsertInterveneGlobalReplyResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneGlobalReplyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertInterveneGlobalReplyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InsertInterveneGlobalReplyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneRuleRequest extends $tea.Model {
+  agentKey?: string;
+  interveneRuleConfig?: InsertInterveneRuleRequestInterveneRuleConfig;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      interveneRuleConfig: 'InterveneRuleConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      interveneRuleConfig: InsertInterveneRuleRequestInterveneRuleConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneRuleShrinkRequest extends $tea.Model {
+  agentKey?: string;
+  interveneRuleConfigShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      interveneRuleConfigShrink: 'InterveneRuleConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      interveneRuleConfigShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneRuleResponseBody extends $tea.Model {
+  code?: string;
+  data?: InsertInterveneRuleResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: InsertInterveneRuleResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertInterveneRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InsertInterveneRuleResponseBody,
     };
   }
 
@@ -2083,6 +3018,351 @@ export class ListHotNewsWithTypeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListHotNewsWithTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneCntRequest extends $tea.Model {
+  agentKey?: string;
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneCntResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListInterveneCntResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListInterveneCntResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneCntResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInterveneCntResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInterveneCntResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneImportTasksRequest extends $tea.Model {
+  agentKey?: string;
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneImportTasksResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListInterveneImportTasksResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListInterveneImportTasksResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneImportTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInterveneImportTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInterveneImportTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneRulesRequest extends $tea.Model {
+  agentKey?: string;
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneRulesResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListInterveneRulesResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListInterveneRulesResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInterveneRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInterveneRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervenesRequest extends $tea.Model {
+  agentKey?: string;
+  interveneType?: number;
+  pageIndex?: number;
+  pageSize?: number;
+  query?: string;
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      interveneType: 'InterveneType',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      query: 'Query',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      interveneType: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
+      query: 'string',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervenesResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListIntervenesResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListIntervenesResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervenesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIntervenesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIntervenesResponseBody,
     };
   }
 
@@ -3270,6 +4550,28 @@ export class UpdateMaterialDocumentResponse extends $tea.Model {
   }
 }
 
+export class ClearIntervenesResponseBodyData extends $tea.Model {
+  failIdList?: string[];
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failIdList: 'FailIdList',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failIdList: { 'type': 'array', 'itemType': 'string' },
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTokenResponseBodyData extends $tea.Model {
   expiredTime?: number;
   token?: string;
@@ -3284,6 +4586,47 @@ export class CreateTokenResponseBodyData extends $tea.Model {
     return {
       expiredTime: 'number',
       token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInterveneRuleResponseBodyData extends $tea.Model {
+  failIdList?: string[];
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failIdList: 'FailIdList',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failIdList: { 'type': 'array', 'itemType': 'string' },
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportIntervenesResponseBodyData extends $tea.Model {
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
     };
   }
 
@@ -3602,6 +4945,219 @@ export class GetGeneratedContentResponseBodyData extends $tea.Model {
       updateTime: 'string',
       updateUser: 'string',
       uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneGlobalReplyResponseBodyDataReplyMessagList extends $tea.Model {
+  message?: string;
+  replyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      replyType: 'ReplyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      replyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneGlobalReplyResponseBodyData extends $tea.Model {
+  replyMessagList?: GetInterveneGlobalReplyResponseBodyDataReplyMessagList[];
+  static names(): { [key: string]: string } {
+    return {
+      replyMessagList: 'ReplyMessagList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      replyMessagList: { 'type': 'array', 'itemType': GetInterveneGlobalReplyResponseBodyDataReplyMessagList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneImportTaskInfoResponseBodyDataStatus extends $tea.Model {
+  msg?: string;
+  percentage?: number;
+  status?: number;
+  taskId?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      msg: 'Msg',
+      percentage: 'Percentage',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      msg: 'string',
+      percentage: 'number',
+      status: 'number',
+      taskId: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneImportTaskInfoResponseBodyData extends $tea.Model {
+  status?: GetInterveneImportTaskInfoResponseBodyDataStatus;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: GetInterveneImportTaskInfoResponseBodyDataStatus,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig extends $tea.Model {
+  answerType?: number;
+  message?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerType: 'AnswerType',
+      message: 'Message',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerType: 'number',
+      message: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig extends $tea.Model {
+  effectType?: number;
+  endTime?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effectType: 'EffectType',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effectType: 'number',
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail extends $tea.Model {
+  answerConfig?: GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig[];
+  effectConfig?: GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig;
+  interveneType?: number;
+  namespaceList?: string[];
+  ruleId?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerConfig: 'AnswerConfig',
+      effectConfig: 'EffectConfig',
+      interveneType: 'InterveneType',
+      namespaceList: 'NamespaceList',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerConfig: { 'type': 'array', 'itemType': GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig },
+      effectConfig: GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig,
+      interveneType: 'number',
+      namespaceList: { 'type': 'array', 'itemType': 'string' },
+      ruleId: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneRuleDetailResponseBodyData extends $tea.Model {
+  interveneRuleDetail?: GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail;
+  static names(): { [key: string]: string } {
+    return {
+      interveneRuleDetail: 'InterveneRuleDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interveneRuleDetail: GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInterveneTemplateFileUrlResponseBodyData extends $tea.Model {
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
     };
   }
 
@@ -3948,6 +5504,225 @@ export class GetPropertiesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ImportInterveneFileResponseBodyData extends $tea.Model {
+  failIdList?: string[];
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failIdList: 'FailIdList',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failIdList: { 'type': 'array', 'itemType': 'string' },
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportInterveneFileAsyncResponseBodyData extends $tea.Model {
+  failIdList?: string[];
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failIdList: 'FailIdList',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failIdList: { 'type': 'array', 'itemType': 'string' },
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneGlobalReplyRequestReplyMessagList extends $tea.Model {
+  message?: string;
+  replyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      replyType: 'ReplyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      replyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneGlobalReplyResponseBodyData extends $tea.Model {
+  failIdList?: string[];
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failIdList: 'FailIdList',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failIdList: { 'type': 'array', 'itemType': 'string' },
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig extends $tea.Model {
+  answerType?: number;
+  message?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerType: 'AnswerType',
+      message: 'Message',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerType: 'number',
+      message: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneRuleRequestInterveneRuleConfigEffectConfig extends $tea.Model {
+  effectType?: number;
+  endTime?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effectType: 'EffectType',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effectType: 'number',
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneRuleRequestInterveneRuleConfigInterveneConfigList extends $tea.Model {
+  id?: string;
+  operationType?: number;
+  query?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      operationType: 'OperationType',
+      query: 'Query',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      operationType: 'number',
+      query: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneRuleRequestInterveneRuleConfig extends $tea.Model {
+  answerConfig?: InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig[];
+  effectConfig?: InsertInterveneRuleRequestInterveneRuleConfigEffectConfig;
+  interveneConfigList?: InsertInterveneRuleRequestInterveneRuleConfigInterveneConfigList[];
+  interveneType?: number;
+  namespaceList?: string[];
+  ruleId?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerConfig: 'AnswerConfig',
+      effectConfig: 'EffectConfig',
+      interveneConfigList: 'InterveneConfigList',
+      interveneType: 'InterveneType',
+      namespaceList: 'NamespaceList',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerConfig: { 'type': 'array', 'itemType': InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig },
+      effectConfig: InsertInterveneRuleRequestInterveneRuleConfigEffectConfig,
+      interveneConfigList: { 'type': 'array', 'itemType': InsertInterveneRuleRequestInterveneRuleConfigInterveneConfigList },
+      interveneType: 'number',
+      namespaceList: { 'type': 'array', 'itemType': 'string' },
+      ruleId: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertInterveneRuleResponseBodyData extends $tea.Model {
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAsyncTasksResponseBodyData extends $tea.Model {
   createTime?: string;
   createUser?: string;
@@ -4265,6 +6040,233 @@ export class ListHotNewsWithTypeResponseBodyData extends $tea.Model {
       newsType: 'string',
       newsTypeName: 'string',
       totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneCntResponseBodyData extends $tea.Model {
+  cntList?: any[];
+  pageCnt?: number;
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cntList: 'CntList',
+      pageCnt: 'PageCnt',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cntList: { 'type': 'array', 'itemType': 'any' },
+      pageCnt: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneImportTasksResponseBodyDataStatusList extends $tea.Model {
+  msg?: string;
+  percentage?: number;
+  status?: number;
+  taskId?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      msg: 'Msg',
+      percentage: 'Percentage',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      msg: 'string',
+      percentage: 'number',
+      status: 'number',
+      taskId: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneImportTasksResponseBodyData extends $tea.Model {
+  pageIndex?: number;
+  pageSize?: number;
+  statusList?: ListInterveneImportTasksResponseBodyDataStatusList[];
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      statusList: 'StatusList',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageIndex: 'number',
+      pageSize: 'number',
+      statusList: { 'type': 'array', 'itemType': ListInterveneImportTasksResponseBodyDataStatusList },
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig extends $tea.Model {
+  answerType?: number;
+  message?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerType: 'AnswerType',
+      message: 'Message',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerType: 'number',
+      message: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneRulesResponseBodyDataInterveneRuleList extends $tea.Model {
+  answerConfig?: ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig[];
+  createTime?: string;
+  effectTime?: string;
+  interveneType?: number;
+  namespaceList?: string[];
+  ruleId?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerConfig: 'AnswerConfig',
+      createTime: 'CreateTime',
+      effectTime: 'EffectTime',
+      interveneType: 'InterveneType',
+      namespaceList: 'NamespaceList',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerConfig: { 'type': 'array', 'itemType': ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig },
+      createTime: 'string',
+      effectTime: 'string',
+      interveneType: 'number',
+      namespaceList: { 'type': 'array', 'itemType': 'string' },
+      ruleId: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneRulesResponseBodyData extends $tea.Model {
+  count?: number;
+  interveneRuleList?: ListInterveneRulesResponseBodyDataInterveneRuleList[];
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      interveneRuleList: 'InterveneRuleList',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      interveneRuleList: { 'type': 'array', 'itemType': ListInterveneRulesResponseBodyDataInterveneRuleList },
+      pageIndex: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervenesResponseBodyDataInterveneList extends $tea.Model {
+  id?: string;
+  query?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      query: 'Query',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      query: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntervenesResponseBodyData extends $tea.Model {
+  interveneList?: ListIntervenesResponseBodyDataInterveneList[];
+  pageIndex?: number;
+  pageSize?: number;
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interveneList: 'InterveneList',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interveneList: { 'type': 'array', 'itemType': ListIntervenesResponseBodyDataInterveneList },
+      pageIndex: 'number',
+      pageSize: 'number',
+      totalSize: 'number',
     };
   }
 
@@ -4628,6 +6630,35 @@ export default class Client extends OpenApi {
     return await this.cancelAsyncTaskWithOptions(request, runtime);
   }
 
+  async clearIntervenesWithOptions(request: ClearIntervenesRequest, runtime: $Util.RuntimeOptions): Promise<ClearIntervenesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ClearIntervenes",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ClearIntervenesResponse>(await this.callApi(params, req, runtime), new ClearIntervenesResponse({}));
+  }
+
+  async clearIntervenes(request: ClearIntervenesRequest): Promise<ClearIntervenesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.clearIntervenesWithOptions(request, runtime);
+  }
+
   async createGeneratedContentWithOptions(tmpReq: CreateGeneratedContentRequest, runtime: $Util.RuntimeOptions): Promise<CreateGeneratedContentResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateGeneratedContentShrinkRequest({ });
@@ -4761,6 +6792,41 @@ export default class Client extends OpenApi {
     return await this.deleteGeneratedContentWithOptions(request, runtime);
   }
 
+  async deleteInterveneRuleWithOptions(request: DeleteInterveneRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInterveneRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ruleId)) {
+      body["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteInterveneRule",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInterveneRuleResponse>(await this.callApi(params, req, runtime), new DeleteInterveneRuleResponse({}));
+  }
+
+  async deleteInterveneRule(request: DeleteInterveneRuleRequest): Promise<DeleteInterveneRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteInterveneRuleWithOptions(request, runtime);
+  }
+
   async deleteMaterialByIdWithOptions(request: DeleteMaterialByIdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMaterialByIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4829,6 +6895,35 @@ export default class Client extends OpenApi {
   async exportGeneratedContent(request: ExportGeneratedContentRequest): Promise<ExportGeneratedContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportGeneratedContentWithOptions(request, runtime);
+  }
+
+  async exportIntervenesWithOptions(request: ExportIntervenesRequest, runtime: $Util.RuntimeOptions): Promise<ExportIntervenesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportIntervenes",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportIntervenesResponse>(await this.callApi(params, req, runtime), new ExportIntervenesResponse({}));
+  }
+
+  async exportIntervenes(request: ExportIntervenesRequest): Promise<ExportIntervenesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportIntervenesWithOptions(request, runtime);
   }
 
   async feedbackDialogueWithOptions(tmpReq: FeedbackDialogueRequest, runtime: $Util.RuntimeOptions): Promise<FeedbackDialogueResponse> {
@@ -5183,6 +7278,134 @@ export default class Client extends OpenApi {
     return await this.getGeneratedContentWithOptions(request, runtime);
   }
 
+  async getInterveneGlobalReplyWithOptions(request: GetInterveneGlobalReplyRequest, runtime: $Util.RuntimeOptions): Promise<GetInterveneGlobalReplyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInterveneGlobalReply",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInterveneGlobalReplyResponse>(await this.callApi(params, req, runtime), new GetInterveneGlobalReplyResponse({}));
+  }
+
+  async getInterveneGlobalReply(request: GetInterveneGlobalReplyRequest): Promise<GetInterveneGlobalReplyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getInterveneGlobalReplyWithOptions(request, runtime);
+  }
+
+  async getInterveneImportTaskInfoWithOptions(request: GetInterveneImportTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetInterveneImportTaskInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInterveneImportTaskInfo",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInterveneImportTaskInfoResponse>(await this.callApi(params, req, runtime), new GetInterveneImportTaskInfoResponse({}));
+  }
+
+  async getInterveneImportTaskInfo(request: GetInterveneImportTaskInfoRequest): Promise<GetInterveneImportTaskInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getInterveneImportTaskInfoWithOptions(request, runtime);
+  }
+
+  async getInterveneRuleDetailWithOptions(request: GetInterveneRuleDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetInterveneRuleDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ruleId)) {
+      body["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInterveneRuleDetail",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInterveneRuleDetailResponse>(await this.callApi(params, req, runtime), new GetInterveneRuleDetailResponse({}));
+  }
+
+  async getInterveneRuleDetail(request: GetInterveneRuleDetailRequest): Promise<GetInterveneRuleDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getInterveneRuleDetailWithOptions(request, runtime);
+  }
+
+  async getInterveneTemplateFileUrlWithOptions(request: GetInterveneTemplateFileUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetInterveneTemplateFileUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInterveneTemplateFileUrl",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInterveneTemplateFileUrlResponse>(await this.callApi(params, req, runtime), new GetInterveneTemplateFileUrlResponse({}));
+  }
+
+  async getInterveneTemplateFileUrl(request: GetInterveneTemplateFileUrlRequest): Promise<GetInterveneTemplateFileUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getInterveneTemplateFileUrlWithOptions(request, runtime);
+  }
+
   async getMaterialByIdWithOptions(request: GetMaterialByIdRequest, runtime: $Util.RuntimeOptions): Promise<GetMaterialByIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5245,6 +7468,174 @@ export default class Client extends OpenApi {
   async getProperties(request: GetPropertiesRequest): Promise<GetPropertiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPropertiesWithOptions(request, runtime);
+  }
+
+  async importInterveneFileWithOptions(request: ImportInterveneFileRequest, runtime: $Util.RuntimeOptions): Promise<ImportInterveneFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.docName)) {
+      body["DocName"] = request.docName;
+    }
+
+    if (!Util.isUnset(request.fileKey)) {
+      body["FileKey"] = request.fileKey;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportInterveneFile",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportInterveneFileResponse>(await this.callApi(params, req, runtime), new ImportInterveneFileResponse({}));
+  }
+
+  async importInterveneFile(request: ImportInterveneFileRequest): Promise<ImportInterveneFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importInterveneFileWithOptions(request, runtime);
+  }
+
+  async importInterveneFileAsyncWithOptions(request: ImportInterveneFileAsyncRequest, runtime: $Util.RuntimeOptions): Promise<ImportInterveneFileAsyncResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.docName)) {
+      body["DocName"] = request.docName;
+    }
+
+    if (!Util.isUnset(request.fileKey)) {
+      body["FileKey"] = request.fileKey;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportInterveneFileAsync",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportInterveneFileAsyncResponse>(await this.callApi(params, req, runtime), new ImportInterveneFileAsyncResponse({}));
+  }
+
+  async importInterveneFileAsync(request: ImportInterveneFileAsyncRequest): Promise<ImportInterveneFileAsyncResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importInterveneFileAsyncWithOptions(request, runtime);
+  }
+
+  async insertInterveneGlobalReplyWithOptions(tmpReq: InsertInterveneGlobalReplyRequest, runtime: $Util.RuntimeOptions): Promise<InsertInterveneGlobalReplyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new InsertInterveneGlobalReplyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.replyMessagList)) {
+      request.replyMessagListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.replyMessagList, "ReplyMessagList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.replyMessagListShrink)) {
+      body["ReplyMessagList"] = request.replyMessagListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "InsertInterveneGlobalReply",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InsertInterveneGlobalReplyResponse>(await this.callApi(params, req, runtime), new InsertInterveneGlobalReplyResponse({}));
+  }
+
+  async insertInterveneGlobalReply(request: InsertInterveneGlobalReplyRequest): Promise<InsertInterveneGlobalReplyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.insertInterveneGlobalReplyWithOptions(request, runtime);
+  }
+
+  async insertInterveneRuleWithOptions(tmpReq: InsertInterveneRuleRequest, runtime: $Util.RuntimeOptions): Promise<InsertInterveneRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new InsertInterveneRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.interveneRuleConfig)) {
+      request.interveneRuleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.interveneRuleConfig, "InterveneRuleConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.interveneRuleConfigShrink)) {
+      body["InterveneRuleConfig"] = request.interveneRuleConfigShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "InsertInterveneRule",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InsertInterveneRuleResponse>(await this.callApi(params, req, runtime), new InsertInterveneRuleResponse({}));
+  }
+
+  async insertInterveneRule(request: InsertInterveneRuleRequest): Promise<InsertInterveneRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.insertInterveneRuleWithOptions(request, runtime);
   }
 
   async listAsyncTasksWithOptions(tmpReq: ListAsyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListAsyncTasksResponse> {
@@ -5524,6 +7915,174 @@ export default class Client extends OpenApi {
   async listHotNewsWithType(request: ListHotNewsWithTypeRequest): Promise<ListHotNewsWithTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHotNewsWithTypeWithOptions(request, runtime);
+  }
+
+  async listInterveneCntWithOptions(request: ListInterveneCntRequest, runtime: $Util.RuntimeOptions): Promise<ListInterveneCntResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInterveneCnt",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInterveneCntResponse>(await this.callApi(params, req, runtime), new ListInterveneCntResponse({}));
+  }
+
+  async listInterveneCnt(request: ListInterveneCntRequest): Promise<ListInterveneCntResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInterveneCntWithOptions(request, runtime);
+  }
+
+  async listInterveneImportTasksWithOptions(request: ListInterveneImportTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListInterveneImportTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInterveneImportTasks",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInterveneImportTasksResponse>(await this.callApi(params, req, runtime), new ListInterveneImportTasksResponse({}));
+  }
+
+  async listInterveneImportTasks(request: ListInterveneImportTasksRequest): Promise<ListInterveneImportTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInterveneImportTasksWithOptions(request, runtime);
+  }
+
+  async listInterveneRulesWithOptions(request: ListInterveneRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListInterveneRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInterveneRules",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInterveneRulesResponse>(await this.callApi(params, req, runtime), new ListInterveneRulesResponse({}));
+  }
+
+  async listInterveneRules(request: ListInterveneRulesRequest): Promise<ListInterveneRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInterveneRulesWithOptions(request, runtime);
+  }
+
+  async listIntervenesWithOptions(request: ListIntervenesRequest, runtime: $Util.RuntimeOptions): Promise<ListIntervenesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.interveneType)) {
+      body["InterveneType"] = request.interveneType;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      body["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIntervenes",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIntervenesResponse>(await this.callApi(params, req, runtime), new ListIntervenesResponse({}));
+  }
+
+  async listIntervenes(request: ListIntervenesRequest): Promise<ListIntervenesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIntervenesWithOptions(request, runtime);
   }
 
   async listMaterialDocumentsWithOptions(tmpReq: ListMaterialDocumentsRequest, runtime: $Util.RuntimeOptions): Promise<ListMaterialDocumentsResponse> {
