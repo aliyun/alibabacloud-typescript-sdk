@@ -64,6 +64,71 @@ export class ActualDeductResourceResult extends $tea.Model {
   }
 }
 
+export class DigitalHumanLiveBroadcastQACmd extends $tea.Model {
+  accountId?: string;
+  history?: DigitalHumanLiveBroadcastQACmdHistory[];
+  question?: string;
+  sessionId?: string;
+  stream?: boolean;
+  subAccountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      history: 'history',
+      question: 'question',
+      sessionId: 'sessionId',
+      stream: 'stream',
+      subAccountId: 'subAccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      history: { 'type': 'array', 'itemType': DigitalHumanLiveBroadcastQACmdHistory },
+      question: 'string',
+      sessionId: 'string',
+      stream: 'boolean',
+      subAccountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DigitalHumanLiveBroadcastQAResult extends $tea.Model {
+  content?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  sessionId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      sessionId: 'sessionId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      sessionId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DirectDeductResourceCmd extends $tea.Model {
   accountId?: string;
   cost?: number;
@@ -192,6 +257,59 @@ export class ExpectDeductResourceResult extends $tea.Model {
       requestId: 'string',
       success: 'boolean',
       taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBulletQuestionsCmd extends $tea.Model {
+  accountId?: string;
+  questions?: SubmitBulletQuestionsCmdQuestions[];
+  roomId?: string;
+  subAccountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      questions: 'questions',
+      roomId: 'roomId',
+      subAccountId: 'subAccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      questions: { 'type': 'array', 'itemType': SubmitBulletQuestionsCmdQuestions },
+      roomId: 'string',
+      subAccountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBulletQuestionsQAResult extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      success: 'boolean',
     };
   }
 
@@ -410,6 +528,50 @@ export class CopywritingQAResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CopywritingQAResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopywritingQAV1Request extends $tea.Model {
+  body?: DigitalHumanLiveBroadcastQACmd;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: DigitalHumanLiveBroadcastQACmd,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopywritingQAV1Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DigitalHumanLiveBroadcastQAResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DigitalHumanLiveBroadcastQAResult,
     };
   }
 
@@ -781,6 +943,100 @@ export class SubmitBulletQuestionsResponse extends $tea.Model {
   }
 }
 
+export class SubmitBulletQuestionsV1Request extends $tea.Model {
+  body?: SubmitBulletQuestionsCmd;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: SubmitBulletQuestionsCmd,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBulletQuestionsV1Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitBulletQuestionsQAResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitBulletQuestionsQAResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DigitalHumanLiveBroadcastQACmdHistory extends $tea.Model {
+  bot?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bot: 'bot',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bot: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBulletQuestionsCmdQuestions extends $tea.Model {
+  content?: string;
+  id?: string;
+  time?: number;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      id: 'id',
+      time: 'time',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      id: 'string',
+      time: 'number',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CopywritingQARequestHistories extends $tea.Model {
   bot?: string;
   user?: string;
@@ -993,6 +1249,32 @@ export default class Client extends OpenApi {
     return await this.copywritingQAWithOptions(request, headers, runtime);
   }
 
+  async copywritingQAV1WithOptions(request: CopywritingQAV1Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CopywritingQAV1Response> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CopywritingQAV1",
+      version: "2024-01-18",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/digitalHuman/commands/copywritingQAV1`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CopywritingQAV1Response>(await this.callApi(params, req, runtime), new CopywritingQAV1Response({}));
+  }
+
+  async copywritingQAV1(request: CopywritingQAV1Request): Promise<CopywritingQAV1Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.copywritingQAV1WithOptions(request, headers, runtime);
+  }
+
   async directDeductResourceWithOptions(request: DirectDeductResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DirectDeductResourceResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -1183,6 +1465,32 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.submitBulletQuestionsWithOptions(request, headers, runtime);
+  }
+
+  async submitBulletQuestionsV1WithOptions(request: SubmitBulletQuestionsV1Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitBulletQuestionsV1Response> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitBulletQuestionsV1",
+      version: "2024-01-18",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/digitalHuman/commands/submitBulletQuestionsV1`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitBulletQuestionsV1Response>(await this.callApi(params, req, runtime), new SubmitBulletQuestionsV1Response({}));
+  }
+
+  async submitBulletQuestionsV1(request: SubmitBulletQuestionsV1Request): Promise<SubmitBulletQuestionsV1Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitBulletQuestionsV1WithOptions(request, headers, runtime);
   }
 
 }
