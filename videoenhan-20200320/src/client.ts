@@ -96,9 +96,9 @@ export class AbstractEcommerceVideoResponseBody extends $tea.Model {
 }
 
 export class AbstractEcommerceVideoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AbstractEcommerceVideoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AbstractEcommerceVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -190,9 +190,9 @@ export class AbstractFilmVideoResponseBody extends $tea.Model {
 }
 
 export class AbstractFilmVideoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AbstractFilmVideoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AbstractFilmVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -284,9 +284,9 @@ export class AddFaceVideoTemplateResponseBody extends $tea.Model {
 }
 
 export class AddFaceVideoTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddFaceVideoTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddFaceVideoTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -396,9 +396,9 @@ export class AdjustVideoColorResponseBody extends $tea.Model {
 }
 
 export class AdjustVideoColorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AdjustVideoColorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AdjustVideoColorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -532,9 +532,9 @@ export class ChangeVideoSizeResponseBody extends $tea.Model {
 }
 
 export class ChangeVideoSizeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeVideoSizeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeVideoSizeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -638,9 +638,9 @@ export class ConvertHdrVideoResponseBody extends $tea.Model {
 }
 
 export class ConvertHdrVideoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConvertHdrVideoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConvertHdrVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -701,9 +701,9 @@ export class DeleteFaceVideoTemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteFaceVideoTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFaceVideoTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFaceVideoTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -789,9 +789,9 @@ export class EnhancePortraitVideoResponseBody extends $tea.Model {
 }
 
 export class EnhancePortraitVideoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnhancePortraitVideoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnhancePortraitVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -913,9 +913,9 @@ export class EnhanceVideoQualityResponseBody extends $tea.Model {
 }
 
 export class EnhanceVideoQualityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnhanceVideoQualityResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnhanceVideoQualityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1007,9 +1007,9 @@ export class EraseVideoLogoResponseBody extends $tea.Model {
 }
 
 export class EraseVideoLogoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EraseVideoLogoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EraseVideoLogoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1119,9 +1119,9 @@ export class EraseVideoSubtitlesResponseBody extends $tea.Model {
 }
 
 export class EraseVideoSubtitlesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EraseVideoSubtitlesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EraseVideoSubtitlesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1213,9 +1213,9 @@ export class GenerateHumanAnimeStyleVideoResponseBody extends $tea.Model {
 }
 
 export class GenerateHumanAnimeStyleVideoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateHumanAnimeStyleVideoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateHumanAnimeStyleVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1361,9 +1361,9 @@ export class GenerateVideoResponseBody extends $tea.Model {
 }
 
 export class GenerateVideoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateVideoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1427,9 +1427,9 @@ export class GetAsyncJobResultResponseBody extends $tea.Model {
 }
 
 export class GetAsyncJobResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAsyncJobResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAsyncJobResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1527,9 +1527,9 @@ export class InterpolateVideoFrameResponseBody extends $tea.Model {
 }
 
 export class InterpolateVideoFrameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InterpolateVideoFrameResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InterpolateVideoFrameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1639,9 +1639,9 @@ export class MergeVideoFaceResponseBody extends $tea.Model {
 }
 
 export class MergeVideoFaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MergeVideoFaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MergeVideoFaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1757,9 +1757,9 @@ export class MergeVideoModelFaceResponseBody extends $tea.Model {
 }
 
 export class MergeVideoModelFaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MergeVideoModelFaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MergeVideoModelFaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1782,15 +1782,21 @@ export class MergeVideoModelFaceResponse extends $tea.Model {
 }
 
 export class QueryFaceVideoTemplateRequest extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
       templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNo: 'number',
+      pageSize: 'number',
       templateId: 'string',
     };
   }
@@ -1823,9 +1829,9 @@ export class QueryFaceVideoTemplateResponseBody extends $tea.Model {
 }
 
 export class QueryFaceVideoTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFaceVideoTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFaceVideoTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1911,9 +1917,9 @@ export class ReduceVideoNoiseResponseBody extends $tea.Model {
 }
 
 export class ReduceVideoNoiseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReduceVideoNoiseResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReduceVideoNoiseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2005,9 +2011,9 @@ export class SuperResolveVideoResponseBody extends $tea.Model {
 }
 
 export class SuperResolveVideoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SuperResolveVideoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SuperResolveVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2105,9 +2111,9 @@ export class ToneSdrVideoResponseBody extends $tea.Model {
 }
 
 export class ToneSdrVideoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ToneSdrVideoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ToneSdrVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2693,15 +2699,18 @@ export class QueryFaceVideoTemplateResponseBodyDataElements extends $tea.Model {
 
 export class QueryFaceVideoTemplateResponseBodyData extends $tea.Model {
   elements?: QueryFaceVideoTemplateResponseBodyDataElements[];
+  total?: number;
   static names(): { [key: string]: string } {
     return {
       elements: 'Elements',
+      total: 'Total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       elements: { 'type': 'array', 'itemType': QueryFaceVideoTemplateResponseBodyDataElements },
+      total: 'number',
     };
   }
 
@@ -4643,6 +4652,14 @@ export default class Client extends OpenApi {
   async queryFaceVideoTemplateWithOptions(request: QueryFaceVideoTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QueryFaceVideoTemplateResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
