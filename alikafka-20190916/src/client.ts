@@ -4549,6 +4549,8 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   name?: string;
   paidType?: number;
   regionId?: string;
+  reservedPublishCapacity?: number;
+  reservedSubscribeCapacity?: number;
   resourceGroupId?: string;
   saslDomainEndpoint?: string;
   securityGroup?: string;
@@ -4586,6 +4588,8 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       name: 'Name',
       paidType: 'PaidType',
       regionId: 'RegionId',
+      reservedPublishCapacity: 'ReservedPublishCapacity',
+      reservedSubscribeCapacity: 'ReservedSubscribeCapacity',
       resourceGroupId: 'ResourceGroupId',
       saslDomainEndpoint: 'SaslDomainEndpoint',
       securityGroup: 'SecurityGroup',
@@ -4626,6 +4630,8 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       name: 'string',
       paidType: 'number',
       regionId: 'string',
+      reservedPublishCapacity: 'number',
+      reservedSubscribeCapacity: 'number',
       resourceGroupId: 'string',
       saslDomainEndpoint: 'string',
       securityGroup: 'string',
@@ -6898,7 +6904,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to reset the consumer offsets of the subscribed topics of a consumer group. You can specify a timestamp or an offset to reset a consumer offset. You can implement the following features by configuring a combination of different parameters:
+    * You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
     * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
     * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
     * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
@@ -6962,7 +6968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to reset the consumer offsets of the subscribed topics of a consumer group. You can specify a timestamp or an offset to reset a consumer offset. You can implement the following features by configuring a combination of different parameters:
+    * You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
     * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
     * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
     * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
