@@ -200,6 +200,7 @@ export class DirectDeductResourceResult extends $tea.Model {
 export class ExpectDeductResourceCmd extends $tea.Model {
   accountId?: string;
   cost?: number;
+  deductScene?: string;
   extraInfo?: string;
   idempotentId?: string;
   resourceType?: number;
@@ -209,6 +210,7 @@ export class ExpectDeductResourceCmd extends $tea.Model {
     return {
       accountId: 'accountId',
       cost: 'cost',
+      deductScene: 'deductScene',
       extraInfo: 'extraInfo',
       idempotentId: 'idempotentId',
       resourceType: 'resourceType',
@@ -221,6 +223,7 @@ export class ExpectDeductResourceCmd extends $tea.Model {
     return {
       accountId: 'string',
       cost: 'number',
+      deductScene: 'string',
       extraInfo: 'string',
       idempotentId: 'string',
       resourceType: 'number',
@@ -572,6 +575,81 @@ export class CopywritingQAV1Response extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DigitalHumanLiveBroadcastQAResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDigitalVideoRequest extends $tea.Model {
+  accountId?: string;
+  videoId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      videoId: 'videoId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      videoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDigitalVideoResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDigitalVideoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDigitalVideoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDigitalVideoResponseBody,
     };
   }
 
@@ -1273,6 +1351,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.copywritingQAV1WithOptions(request, headers, runtime);
+  }
+
+  async deleteDigitalVideoWithOptions(request: DeleteDigitalVideoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDigitalVideoResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accountId)) {
+      body["accountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.videoId)) {
+      body["videoId"] = request.videoId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDigitalVideo",
+      version: "2024-01-18",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/digitalHuman/videos`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDigitalVideoResponse>(await this.callApi(params, req, runtime), new DeleteDigitalVideoResponse({}));
+  }
+
+  async deleteDigitalVideo(request: DeleteDigitalVideoRequest): Promise<DeleteDigitalVideoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDigitalVideoWithOptions(request, headers, runtime);
   }
 
   async directDeductResourceWithOptions(request: DirectDeductResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DirectDeductResourceResponse> {
