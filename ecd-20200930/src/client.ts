@@ -15240,18 +15240,22 @@ export class RenewNetworkPackagesResponse extends $tea.Model {
 
 export class ResetDesktopsRequest extends $tea.Model {
   desktopGroupId?: string;
+  desktopGroupIds?: string[];
   desktopId?: string[];
   imageId?: string;
   payType?: string;
   regionId?: string;
+  resetScope?: string;
   resetType?: string;
   static names(): { [key: string]: string } {
     return {
       desktopGroupId: 'DesktopGroupId',
+      desktopGroupIds: 'DesktopGroupIds',
       desktopId: 'DesktopId',
       imageId: 'ImageId',
       payType: 'PayType',
       regionId: 'RegionId',
+      resetScope: 'ResetScope',
       resetType: 'ResetType',
     };
   }
@@ -15259,10 +15263,12 @@ export class ResetDesktopsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       desktopGroupId: 'string',
+      desktopGroupIds: { 'type': 'array', 'itemType': 'string' },
       desktopId: { 'type': 'array', 'itemType': 'string' },
       imageId: 'string',
       payType: 'string',
       regionId: 'string',
+      resetScope: 'string',
       resetType: 'string',
     };
   }
@@ -32474,6 +32480,10 @@ export default class Client extends OpenApi {
       query["DesktopGroupId"] = request.desktopGroupId;
     }
 
+    if (!Util.isUnset(request.desktopGroupIds)) {
+      query["DesktopGroupIds"] = request.desktopGroupIds;
+    }
+
     if (!Util.isUnset(request.desktopId)) {
       query["DesktopId"] = request.desktopId;
     }
@@ -32488,6 +32498,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resetScope)) {
+      query["ResetScope"] = request.resetScope;
     }
 
     if (!Util.isUnset(request.resetType)) {
