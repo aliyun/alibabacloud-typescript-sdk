@@ -7562,6 +7562,108 @@ export class DescribeInstanceDomainsResponse extends $tea.Model {
   }
 }
 
+export class DescribeInternetDnsLogsRequest extends $tea.Model {
+  domainName?: string;
+  endTimestamp?: number;
+  lang?: string;
+  module?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  queryCondition?: string;
+  startTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTimestamp: 'EndTimestamp',
+      lang: 'Lang',
+      module: 'Module',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryCondition: 'QueryCondition',
+      startTimestamp: 'StartTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTimestamp: 'number',
+      lang: 'string',
+      module: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryCondition: 'string',
+      startTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInternetDnsLogsResponseBody extends $tea.Model {
+  complete?: boolean;
+  curPage?: number;
+  logs?: DescribeInternetDnsLogsResponseBodyLogs;
+  pageSize?: number;
+  requestId?: string;
+  totalPage?: number;
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      complete: 'Complete',
+      curPage: 'CurPage',
+      logs: 'Logs',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalPage: 'TotalPage',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complete: 'boolean',
+      curPage: 'number',
+      logs: DescribeInternetDnsLogsResponseBodyLogs,
+      pageSize: 'number',
+      requestId: 'string',
+      totalPage: 'number',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInternetDnsLogsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInternetDnsLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInternetDnsLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeIspFlushCacheInstancesRequest extends $tea.Model {
   direction?: string;
   isp?: string;
@@ -7993,10 +8095,12 @@ export class DescribePdnsAccountSummaryResponse extends $tea.Model {
 
 export class DescribePdnsAppKeyRequest extends $tea.Model {
   appKeyId?: string;
+  authCode?: string;
   lang?: string;
   static names(): { [key: string]: string } {
     return {
       appKeyId: 'AppKeyId',
+      authCode: 'AuthCode',
       lang: 'Lang',
     };
   }
@@ -8004,6 +8108,7 @@ export class DescribePdnsAppKeyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appKeyId: 'string',
+      authCode: 'string',
       lang: 'string',
     };
   }
@@ -17140,6 +17245,90 @@ export class DescribeInstanceDomainsResponseBodyInstanceDomains extends $tea.Mod
   }
 }
 
+export class DescribeInternetDnsLogsResponseBodyLogsLogValue extends $tea.Model {
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInternetDnsLogsResponseBodyLogsLog extends $tea.Model {
+  dnsMsgId?: string;
+  logTime?: number;
+  queryName?: string;
+  queryType?: string;
+  rt?: number;
+  serverIp?: string;
+  sourceIp?: string;
+  status?: string;
+  subnetIp?: string;
+  value?: DescribeInternetDnsLogsResponseBodyLogsLogValue;
+  static names(): { [key: string]: string } {
+    return {
+      dnsMsgId: 'DnsMsgId',
+      logTime: 'LogTime',
+      queryName: 'QueryName',
+      queryType: 'QueryType',
+      rt: 'Rt',
+      serverIp: 'ServerIp',
+      sourceIp: 'SourceIp',
+      status: 'Status',
+      subnetIp: 'SubnetIp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsMsgId: 'string',
+      logTime: 'number',
+      queryName: 'string',
+      queryType: 'string',
+      rt: 'number',
+      serverIp: 'string',
+      sourceIp: 'string',
+      status: 'string',
+      subnetIp: 'string',
+      value: DescribeInternetDnsLogsResponseBodyLogsLogValue,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInternetDnsLogsResponseBodyLogs extends $tea.Model {
+  log?: DescribeInternetDnsLogsResponseBodyLogsLog[];
+  static names(): { [key: string]: string } {
+    return {
+      log: 'Log',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      log: { 'type': 'array', 'itemType': DescribeInternetDnsLogsResponseBodyLogsLog },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeIspFlushCacheInstancesResponseBodyIspFlushCacheInstancesQuotaInfo extends $tea.Model {
   instanceQuota?: number;
   instanceQuotaUsed?: number;
@@ -17361,12 +17550,14 @@ export class DescribePdnsAppKeyResponseBodyAppKey extends $tea.Model {
   appKeyId?: string;
   appKeySecret?: string;
   createDate?: string;
+  createTimestamp?: number;
   state?: string;
   static names(): { [key: string]: string } {
     return {
       appKeyId: 'AppKeyId',
       appKeySecret: 'AppKeySecret',
       createDate: 'CreateDate',
+      createTimestamp: 'CreateTimestamp',
       state: 'State',
     };
   }
@@ -17376,6 +17567,7 @@ export class DescribePdnsAppKeyResponseBodyAppKey extends $tea.Model {
       appKeyId: 'string',
       appKeySecret: 'string',
       createDate: 'string',
+      createTimestamp: 'number',
       state: 'string',
     };
   }
@@ -17388,11 +17580,13 @@ export class DescribePdnsAppKeyResponseBodyAppKey extends $tea.Model {
 export class DescribePdnsAppKeysResponseBodyAppKeys extends $tea.Model {
   appKeyId?: string;
   createDate?: string;
+  createTimestamp?: number;
   state?: string;
   static names(): { [key: string]: string } {
     return {
       appKeyId: 'AppKeyId',
       createDate: 'CreateDate',
+      createTimestamp: 'CreateTimestamp',
       state: 'State',
     };
   }
@@ -17401,6 +17595,7 @@ export class DescribePdnsAppKeysResponseBodyAppKeys extends $tea.Model {
     return {
       appKeyId: 'string',
       createDate: 'string',
+      createTimestamp: 'number',
       state: 'string',
     };
   }
@@ -18955,8 +19150,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can check whether a domain name is valid based on the following topic:
-    * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm)
+    * For more information about how to check whether a domain name is valid, see
+    * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
     *
     * @param request AddDomainRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18999,8 +19194,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can check whether a domain name is valid based on the following topic:
-    * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm)
+    * For more information about how to check whether a domain name is valid, see
+    * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
     *
     * @param request AddDomainRequest
     * @return AddDomainResponse
@@ -19365,6 +19560,14 @@ export default class Client extends OpenApi {
     return await this.addGtmRecoveryPlanWithOptions(request, runtime);
   }
 
+  /**
+    * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+    * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+    *
+    * @param request BindInstanceDomainsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BindInstanceDomainsResponse
+   */
   async bindInstanceDomainsWithOptions(request: BindInstanceDomainsRequest, runtime: $Util.RuntimeOptions): Promise<BindInstanceDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19397,11 +19600,25 @@ export default class Client extends OpenApi {
     return $tea.cast<BindInstanceDomainsResponse>(await this.callApi(params, req, runtime), new BindInstanceDomainsResponse({}));
   }
 
+  /**
+    * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+    * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+    *
+    * @param request BindInstanceDomainsRequest
+    * @return BindInstanceDomainsResponse
+   */
   async bindInstanceDomains(request: BindInstanceDomainsRequest): Promise<BindInstanceDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindInstanceDomainsWithOptions(request, runtime);
   }
 
+  /**
+    * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+    *
+    * @param request ChangeDomainGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ChangeDomainGroupResponse
+   */
   async changeDomainGroupWithOptions(request: ChangeDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeDomainGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19434,6 +19651,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeDomainGroupResponse>(await this.callApi(params, req, runtime), new ChangeDomainGroupResponse({}));
   }
 
+  /**
+    * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+    *
+    * @param request ChangeDomainGroupRequest
+    * @return ChangeDomainGroupResponse
+   */
   async changeDomainGroup(request: ChangeDomainGroupRequest): Promise<ChangeDomainGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeDomainGroupWithOptions(request, runtime);
@@ -19736,14 +19959,6 @@ export default class Client extends OpenApi {
     return await this.deleteDnsGtmAddressPoolWithOptions(request, runtime);
   }
 
-  /**
-    * *   Given the unique nature of a HiChina domain name, you are not allowed to delete the HiChina domain name by calling the Alibaba Cloud DNS API.
-    * *   If the system prompts that a domain name does not exist, it is an unregistered domain name, it does not exist under the account, or its format in the request parameters is incorrect.
-    *
-    * @param request DeleteDomainRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDomainResponse
-   */
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19772,20 +19987,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainResponse>(await this.callApi(params, req, runtime), new DeleteDomainResponse({}));
   }
 
-  /**
-    * *   Given the unique nature of a HiChina domain name, you are not allowed to delete the HiChina domain name by calling the Alibaba Cloud DNS API.
-    * *   If the system prompts that a domain name does not exist, it is an unregistered domain name, it does not exist under the account, or its format in the request parameters is incorrect.
-    *
-    * @param request DeleteDomainRequest
-    * @return DeleteDomainResponse
-   */
   async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDomainWithOptions(request, runtime);
   }
 
   /**
-    * >  A domain name group can be deleted only when it contains no domain names. The default group cannot be deleted.
+    * >  The default group cannot be deleted.
     *
     * @param request DeleteDomainGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19820,7 +20028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  A domain name group can be deleted only when it contains no domain names. The default group cannot be deleted.
+    * >  The default group cannot be deleted.
     *
     * @param request DeleteDomainGroupRequest
     * @return DeleteDomainGroupResponse
@@ -20062,7 +20270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Before you call this operation, make sure that the batch operation task is complete.
+    * Before you call this operation, make sure that the batch operation task is complete.
     *
     * @param request DescribeBatchResultDetailRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20113,7 +20321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Before you call this operation, make sure that the batch operation task is complete.
+    * Before you call this operation, make sure that the batch operation task is complete.
     *
     * @param request DescribeBatchResultDetailRequest
     * @return DescribeBatchResultDetailResponse
@@ -22455,6 +22663,63 @@ export default class Client extends OpenApi {
     return await this.describeInstanceDomainsWithOptions(request, runtime);
   }
 
+  async describeInternetDnsLogsWithOptions(request: DescribeInternetDnsLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInternetDnsLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.module)) {
+      query["Module"] = request.module;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryCondition)) {
+      query["QueryCondition"] = request.queryCondition;
+    }
+
+    if (!Util.isUnset(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInternetDnsLogs",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInternetDnsLogsResponse>(await this.callApi(params, req, runtime), new DescribeInternetDnsLogsResponse({}));
+  }
+
+  async describeInternetDnsLogs(request: DescribeInternetDnsLogsRequest): Promise<DescribeInternetDnsLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInternetDnsLogsWithOptions(request, runtime);
+  }
+
   async describeIspFlushCacheInstancesWithOptions(request: DescribeIspFlushCacheInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIspFlushCacheInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22673,6 +22938,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.appKeyId)) {
       query["AppKeyId"] = request.appKeyId;
+    }
+
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
     }
 
     if (!Util.isUnset(request.lang)) {
@@ -23604,6 +23873,14 @@ export default class Client extends OpenApi {
     return await this.executeGtmRecoveryPlanWithOptions(request, runtime);
   }
 
+  /**
+    * For more information about the difference between primary domain names and subdomain names, see
+    * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+    *
+    * @param request GetMainDomainNameRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMainDomainNameResponse
+   */
   async getMainDomainNameWithOptions(request: GetMainDomainNameRequest, runtime: $Util.RuntimeOptions): Promise<GetMainDomainNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23632,6 +23909,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMainDomainNameResponse>(await this.callApi(params, req, runtime), new GetMainDomainNameResponse({}));
   }
 
+  /**
+    * For more information about the difference between primary domain names and subdomain names, see
+    * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+    *
+    * @param request GetMainDomainNameRequest
+    * @return GetMainDomainNameResponse
+   */
   async getMainDomainName(request: GetMainDomainNameRequest): Promise<GetMainDomainNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMainDomainNameWithOptions(request, runtime);
@@ -23864,6 +24148,13 @@ export default class Client extends OpenApi {
     return await this.moveGtmResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+    *
+    * @param request OperateBatchDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OperateBatchDomainResponse
+   */
   async operateBatchDomainWithOptions(request: OperateBatchDomainRequest, runtime: $Util.RuntimeOptions): Promise<OperateBatchDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23896,6 +24187,12 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateBatchDomainResponse>(await this.callApi(params, req, runtime), new OperateBatchDomainResponse({}));
   }
 
+  /**
+    * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+    *
+    * @param request OperateBatchDomainRequest
+    * @return OperateBatchDomainResponse
+   */
   async operateBatchDomain(request: OperateBatchDomainRequest): Promise<OperateBatchDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateBatchDomainWithOptions(request, runtime);
@@ -24074,6 +24371,13 @@ export default class Client extends OpenApi {
     return await this.resumePdnsServiceWithOptions(request, runtime);
   }
 
+  /**
+    * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+    *
+    * @param request RetrieveDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RetrieveDomainResponse
+   */
   async retrieveDomainWithOptions(request: RetrieveDomainRequest, runtime: $Util.RuntimeOptions): Promise<RetrieveDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24102,6 +24406,12 @@ export default class Client extends OpenApi {
     return $tea.cast<RetrieveDomainResponse>(await this.callApi(params, req, runtime), new RetrieveDomainResponse({}));
   }
 
+  /**
+    * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+    *
+    * @param request RetrieveDomainRequest
+    * @return RetrieveDomainResponse
+   */
   async retrieveDomain(request: RetrieveDomainRequest): Promise<RetrieveDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.retrieveDomainWithOptions(request, runtime);
@@ -24592,6 +24902,14 @@ export default class Client extends OpenApi {
     return await this.transferDomainWithOptions(request, runtime);
   }
 
+  /**
+    * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+    * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+    *
+    * @param request UnbindInstanceDomainsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UnbindInstanceDomainsResponse
+   */
   async unbindInstanceDomainsWithOptions(request: UnbindInstanceDomainsRequest, runtime: $Util.RuntimeOptions): Promise<UnbindInstanceDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24624,6 +24942,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindInstanceDomainsResponse>(await this.callApi(params, req, runtime), new UnbindInstanceDomainsResponse({}));
   }
 
+  /**
+    * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+    * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+    *
+    * @param request UnbindInstanceDomainsRequest
+    * @return UnbindInstanceDomainsResponse
+   */
   async unbindInstanceDomains(request: UnbindInstanceDomainsRequest): Promise<UnbindInstanceDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindInstanceDomainsWithOptions(request, runtime);
@@ -24712,8 +25037,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In each CIDR block, the end IP address must be greater than or equal to the start IP address.
-    * The CIDR blocks that are specified for all custom lines of a domain name cannot intersect.
+    * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+    * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
     *
     * @param request UpdateCustomLineRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24756,8 +25081,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In each CIDR block, the end IP address must be greater than or equal to the start IP address.
-    * The CIDR blocks that are specified for all custom lines of a domain name cannot intersect.
+    * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+    * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
     *
     * @param request UpdateCustomLineRequest
     * @return UpdateCustomLineResponse
