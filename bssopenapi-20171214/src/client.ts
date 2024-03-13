@@ -77,9 +77,9 @@ export class AddAccountRelationResponseBody extends $tea.Model {
 }
 
 export class AddAccountRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddAccountRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddAccountRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -164,9 +164,9 @@ export class AllocateCostUnitResourceResponseBody extends $tea.Model {
 }
 
 export class AllocateCostUnitResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AllocateCostUnitResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AllocateCostUnitResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -266,9 +266,9 @@ export class ApplyInvoiceResponseBody extends $tea.Model {
 }
 
 export class ApplyInvoiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ApplyInvoiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -344,9 +344,9 @@ export class CancelOrderResponseBody extends $tea.Model {
 }
 
 export class CancelOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -440,9 +440,9 @@ export class ChangeResellerConsumeAmountResponseBody extends $tea.Model {
 }
 
 export class ChangeResellerConsumeAmountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeResellerConsumeAmountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResellerConsumeAmountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -533,9 +533,9 @@ export class ConfirmRelationResponseBody extends $tea.Model {
 }
 
 export class ConfirmRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfirmRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfirmRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -623,9 +623,9 @@ export class ConvertChargeTypeResponseBody extends $tea.Model {
 }
 
 export class ConvertChargeTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConvertChargeTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConvertChargeTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -722,9 +722,9 @@ export class CreateAgAccountResponseBody extends $tea.Model {
 }
 
 export class CreateAgAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAgAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAgAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -797,9 +797,9 @@ export class CreateCostUnitResponseBody extends $tea.Model {
 }
 
 export class CreateCostUnitResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCostUnitResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCostUnitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -899,9 +899,9 @@ export class CreateInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -983,9 +983,9 @@ export class CreateResellerUserQuotaResponseBody extends $tea.Model {
 }
 
 export class CreateResellerUserQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateResellerUserQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateResellerUserQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1079,9 +1079,9 @@ export class CreateResourcePackageResponseBody extends $tea.Model {
 }
 
 export class CreateResourcePackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateResourcePackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateResourcePackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1233,9 +1233,9 @@ export class CreateSavingsPlansInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateSavingsPlansInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSavingsPlansInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSavingsPlansInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1311,9 +1311,9 @@ export class DeleteCostUnitResponseBody extends $tea.Model {
 }
 
 export class DeleteCostUnitResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCostUnitResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCostUnitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1398,9 +1398,9 @@ export class DescribeCostBudgetsSummaryResponseBody extends $tea.Model {
 }
 
 export class DescribeCostBudgetsSummaryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCostBudgetsSummaryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCostBudgetsSummaryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1503,9 +1503,9 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBody exten
 }
 
 export class DescribeInstanceAmortizedCostByAmortizationPeriodResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceAmortizedCostByAmortizationPeriodResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceAmortizedCostByAmortizationPeriodResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1611,9 +1611,9 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodDateResponseBody e
 }
 
 export class DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceAmortizedCostByAmortizationPeriodDateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceAmortizedCostByAmortizationPeriodDateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1716,9 +1716,9 @@ export class DescribeInstanceAmortizedCostByConsumePeriodResponseBody extends $t
 }
 
 export class DescribeInstanceAmortizedCostByConsumePeriodResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceAmortizedCostByConsumePeriodResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceAmortizedCostByConsumePeriodResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1751,6 +1751,7 @@ export class DescribeInstanceBillRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   ownerId?: number;
+  pipCode?: string;
   productCode?: string;
   productType?: string;
   subscriptionType?: string;
@@ -1766,6 +1767,7 @@ export class DescribeInstanceBillRequest extends $tea.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       ownerId: 'OwnerId',
+      pipCode: 'PipCode',
       productCode: 'ProductCode',
       productType: 'ProductType',
       subscriptionType: 'SubscriptionType',
@@ -1784,6 +1786,7 @@ export class DescribeInstanceBillRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       ownerId: 'number',
+      pipCode: 'string',
       productCode: 'string',
       productType: 'string',
       subscriptionType: 'string',
@@ -1827,9 +1830,9 @@ export class DescribeInstanceBillResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceBillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceBillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1929,9 +1932,9 @@ export class DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponseBody
 }
 
 export class DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2013,9 +2016,9 @@ export class DescribePricingModuleResponseBody extends $tea.Model {
 }
 
 export class DescribePricingModuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePricingModuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePricingModuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2115,9 +2118,9 @@ export class DescribeProductAmortizedCostByAmortizationPeriodResponseBody extend
 }
 
 export class DescribeProductAmortizedCostByAmortizationPeriodResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeProductAmortizedCostByAmortizationPeriodResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProductAmortizedCostByAmortizationPeriodResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2217,9 +2220,9 @@ export class DescribeProductAmortizedCostByConsumePeriodResponseBody extends $te
 }
 
 export class DescribeProductAmortizedCostByConsumePeriodResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeProductAmortizedCostByConsumePeriodResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProductAmortizedCostByConsumePeriodResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2310,9 +2313,9 @@ export class DescribeResourceCoverageDetailResponseBody extends $tea.Model {
 }
 
 export class DescribeResourceCoverageDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeResourceCoverageDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeResourceCoverageDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2397,9 +2400,9 @@ export class DescribeResourceCoverageTotalResponseBody extends $tea.Model {
 }
 
 export class DescribeResourceCoverageTotalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeResourceCoverageTotalResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeResourceCoverageTotalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2475,9 +2478,9 @@ export class DescribeResourcePackageProductResponseBody extends $tea.Model {
 }
 
 export class DescribeResourcePackageProductResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeResourcePackageProductResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeResourcePackageProductResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2568,9 +2571,9 @@ export class DescribeResourceUsageDetailResponseBody extends $tea.Model {
 }
 
 export class DescribeResourceUsageDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeResourceUsageDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeResourceUsageDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2655,9 +2658,9 @@ export class DescribeResourceUsageTotalResponseBody extends $tea.Model {
 }
 
 export class DescribeResourceUsageTotalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeResourceUsageTotalResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeResourceUsageTotalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2745,9 +2748,9 @@ export class DescribeSavingsPlansCoverageDetailResponseBody extends $tea.Model {
 }
 
 export class DescribeSavingsPlansCoverageDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSavingsPlansCoverageDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSavingsPlansCoverageDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2829,9 +2832,9 @@ export class DescribeSavingsPlansCoverageTotalResponseBody extends $tea.Model {
 }
 
 export class DescribeSavingsPlansCoverageTotalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSavingsPlansCoverageTotalResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSavingsPlansCoverageTotalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2919,9 +2922,9 @@ export class DescribeSavingsPlansUsageDetailResponseBody extends $tea.Model {
 }
 
 export class DescribeSavingsPlansUsageDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSavingsPlansUsageDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSavingsPlansUsageDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3003,9 +3006,9 @@ export class DescribeSavingsPlansUsageTotalResponseBody extends $tea.Model {
 }
 
 export class DescribeSavingsPlansUsageTotalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSavingsPlansUsageTotalResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSavingsPlansUsageTotalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3117,9 +3120,9 @@ export class DescribeSplitItemBillResponseBody extends $tea.Model {
 }
 
 export class DescribeSplitItemBillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSplitItemBillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSplitItemBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3195,9 +3198,9 @@ export class EnableBillGenerationResponseBody extends $tea.Model {
 }
 
 export class EnableBillGenerationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableBillGenerationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableBillGenerationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3273,9 +3276,9 @@ export class GetAccountRelationResponseBody extends $tea.Model {
 }
 
 export class GetAccountRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAccountRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3348,9 +3351,9 @@ export class GetCustomerAccountInfoResponseBody extends $tea.Model {
 }
 
 export class GetCustomerAccountInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCustomerAccountInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCustomerAccountInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3404,9 +3407,9 @@ export class GetCustomerListResponseBody extends $tea.Model {
 }
 
 export class GetCustomerListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCustomerListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCustomerListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3482,9 +3485,9 @@ export class GetOrderDetailResponseBody extends $tea.Model {
 }
 
 export class GetOrderDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetOrderDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOrderDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3572,9 +3575,9 @@ export class GetPayAsYouGoPriceResponseBody extends $tea.Model {
 }
 
 export class GetPayAsYouGoPriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPayAsYouGoPriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPayAsYouGoPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3671,9 +3674,9 @@ export class GetResourcePackagePriceResponseBody extends $tea.Model {
 }
 
 export class GetResourcePackagePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetResourcePackagePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourcePackagePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3776,9 +3779,9 @@ export class GetSubscriptionPriceResponseBody extends $tea.Model {
 }
 
 export class GetSubscriptionPriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSubscriptionPriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSubscriptionPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3860,9 +3863,9 @@ export class InquiryPriceRefundInstanceResponseBody extends $tea.Model {
 }
 
 export class InquiryPriceRefundInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InquiryPriceRefundInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InquiryPriceRefundInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3959,9 +3962,9 @@ export class ModifyAccountRelationResponseBody extends $tea.Model {
 }
 
 export class ModifyAccountRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAccountRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAccountRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4034,9 +4037,9 @@ export class ModifyCostUnitResponseBody extends $tea.Model {
 }
 
 export class ModifyCostUnitResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyCostUnitResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCostUnitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4130,9 +4133,9 @@ export class ModifyInstanceResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4186,9 +4189,9 @@ export class QueryAccountBalanceResponseBody extends $tea.Model {
 }
 
 export class QueryAccountBalanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryAccountBalanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAccountBalanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4285,9 +4288,9 @@ export class QueryAccountBillResponseBody extends $tea.Model {
 }
 
 export class QueryAccountBillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryAccountBillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAccountBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4384,9 +4387,9 @@ export class QueryAccountTransactionDetailsResponseBody extends $tea.Model {
 }
 
 export class QueryAccountTransactionDetailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryAccountTransactionDetailsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAccountTransactionDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4486,9 +4489,9 @@ export class QueryAccountTransactionsResponseBody extends $tea.Model {
 }
 
 export class QueryAccountTransactionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryAccountTransactionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAccountTransactionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4597,9 +4600,9 @@ export class QueryAvailableInstancesResponseBody extends $tea.Model {
 }
 
 export class QueryAvailableInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryAvailableInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAvailableInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4702,9 +4705,9 @@ export class QueryBillResponseBody extends $tea.Model {
 }
 
 export class QueryBillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryBillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4789,9 +4792,9 @@ export class QueryBillOverviewResponseBody extends $tea.Model {
 }
 
 export class QueryBillOverviewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryBillOverviewResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryBillOverviewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4845,9 +4848,9 @@ export class QueryBillToOSSSubscriptionResponseBody extends $tea.Model {
 }
 
 export class QueryBillToOSSSubscriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryBillToOSSSubscriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryBillToOSSSubscriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4926,9 +4929,9 @@ export class QueryCashCouponsResponseBody extends $tea.Model {
 }
 
 export class QueryCashCouponsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCashCouponsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCashCouponsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5004,9 +5007,9 @@ export class QueryCommodityListResponseBody extends $tea.Model {
 }
 
 export class QueryCommodityListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCommodityListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCommodityListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5088,9 +5091,9 @@ export class QueryCostUnitResponseBody extends $tea.Model {
 }
 
 export class QueryCostUnitResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCostUnitResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCostUnitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5172,9 +5175,9 @@ export class QueryCostUnitResourceResponseBody extends $tea.Model {
 }
 
 export class QueryCostUnitResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCostUnitResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCostUnitResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5247,9 +5250,9 @@ export class QueryCustomerAddressListResponseBody extends $tea.Model {
 }
 
 export class QueryCustomerAddressListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCustomerAddressListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCustomerAddressListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5349,9 +5352,9 @@ export class QueryDPUtilizationDetailResponseBody extends $tea.Model {
 }
 
 export class QueryDPUtilizationDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDPUtilizationDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDPUtilizationDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5463,9 +5466,9 @@ export class QueryEvaluateListResponseBody extends $tea.Model {
 }
 
 export class QueryEvaluateListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryEvaluateListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryEvaluateListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5538,9 +5541,9 @@ export class QueryFinancialAccountInfoResponseBody extends $tea.Model {
 }
 
 export class QueryFinancialAccountInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryFinancialAccountInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryFinancialAccountInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5646,9 +5649,9 @@ export class QueryInstanceBillResponseBody extends $tea.Model {
 }
 
 export class QueryInstanceBillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryInstanceBillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryInstanceBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5730,9 +5733,9 @@ export class QueryInstanceByTagResponseBody extends $tea.Model {
 }
 
 export class QueryInstanceByTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryInstanceByTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryInstanceByTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5820,9 +5823,9 @@ export class QueryInstanceGaapCostResponseBody extends $tea.Model {
 }
 
 export class QueryInstanceGaapCostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryInstanceGaapCostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryInstanceGaapCostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5895,9 +5898,9 @@ export class QueryInvoicingCustomerListResponseBody extends $tea.Model {
 }
 
 export class QueryInvoicingCustomerListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryInvoicingCustomerListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryInvoicingCustomerListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5997,9 +6000,9 @@ export class QueryOrdersResponseBody extends $tea.Model {
 }
 
 export class QueryOrdersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryOrdersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryOrdersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6072,9 +6075,9 @@ export class QueryPermissionListResponseBody extends $tea.Model {
 }
 
 export class QueryPermissionListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPermissionListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPermissionListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6153,9 +6156,9 @@ export class QueryPrepaidCardsResponseBody extends $tea.Model {
 }
 
 export class QueryPrepaidCardsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPrepaidCardsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPrepaidCardsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6231,9 +6234,9 @@ export class QueryPriceEntityListResponseBody extends $tea.Model {
 }
 
 export class QueryPriceEntityListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPriceEntityListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPriceEntityListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6312,9 +6315,9 @@ export class QueryProductListResponseBody extends $tea.Model {
 }
 
 export class QueryProductListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryProductListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryProductListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6408,9 +6411,9 @@ export class QueryRIUtilizationDetailResponseBody extends $tea.Model {
 }
 
 export class QueryRIUtilizationDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRIUtilizationDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRIUtilizationDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6495,9 +6498,9 @@ export class QueryRedeemResponseBody extends $tea.Model {
 }
 
 export class QueryRedeemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRedeemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRedeemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6579,9 +6582,9 @@ export class QueryRelationListResponseBody extends $tea.Model {
 }
 
 export class QueryRelationListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRelationListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRelationListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6657,9 +6660,9 @@ export class QueryResellerAvailableQuotaResponseBody extends $tea.Model {
 }
 
 export class QueryResellerAvailableQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryResellerAvailableQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryResellerAvailableQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6738,9 +6741,9 @@ export class QueryResellerUserAlarmThresholdResponseBody extends $tea.Model {
 }
 
 export class QueryResellerUserAlarmThresholdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryResellerUserAlarmThresholdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryResellerUserAlarmThresholdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6840,9 +6843,9 @@ export class QueryResourcePackageInstancesResponseBody extends $tea.Model {
 }
 
 export class QueryResourcePackageInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryResourcePackageInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryResourcePackageInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6933,9 +6936,9 @@ export class QuerySavingsPlansDeductLogResponseBody extends $tea.Model {
 }
 
 export class QuerySavingsPlansDeductLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySavingsPlansDeductLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySavingsPlansDeductLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7035,9 +7038,9 @@ export class QuerySavingsPlansDiscountResponseBody extends $tea.Model {
 }
 
 export class QuerySavingsPlansDiscountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySavingsPlansDiscountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySavingsPlansDiscountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7131,9 +7134,9 @@ export class QuerySavingsPlansInstanceResponseBody extends $tea.Model {
 }
 
 export class QuerySavingsPlansInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySavingsPlansInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySavingsPlansInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7239,9 +7242,9 @@ export class QuerySettleBillResponseBody extends $tea.Model {
 }
 
 export class QuerySettleBillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySettleBillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySettleBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7363,9 +7366,9 @@ export class QuerySkuPriceListResponseBody extends $tea.Model {
 }
 
 export class QuerySkuPriceListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySkuPriceListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySkuPriceListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7459,9 +7462,9 @@ export class QuerySplitItemBillResponseBody extends $tea.Model {
 }
 
 export class QuerySplitItemBillResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySplitItemBillResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySplitItemBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7552,9 +7555,9 @@ export class QueryUserOmsDataResponseBody extends $tea.Model {
 }
 
 export class QueryUserOmsDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryUserOmsDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryUserOmsDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7639,9 +7642,9 @@ export class RefundInstanceResponseBody extends $tea.Model {
 }
 
 export class RefundInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefundInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefundInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7732,9 +7735,9 @@ export class ReleaseInstanceResponseBody extends $tea.Model {
 }
 
 export class ReleaseInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleaseInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7819,9 +7822,9 @@ export class RelieveAccountRelationResponseBody extends $tea.Model {
 }
 
 export class RelieveAccountRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RelieveAccountRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RelieveAccountRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7912,9 +7915,9 @@ export class RenewChangeInstanceResponseBody extends $tea.Model {
 }
 
 export class RenewChangeInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewChangeInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewChangeInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8002,9 +8005,9 @@ export class RenewInstanceResponseBody extends $tea.Model {
 }
 
 export class RenewInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8092,9 +8095,9 @@ export class RenewResourcePackageResponseBody extends $tea.Model {
 }
 
 export class RenewResourcePackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewResourcePackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewResourcePackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8108,99 +8111,6 @@ export class RenewResourcePackageResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RenewResourcePackageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveUserCreditRequest extends $tea.Model {
-  avoidExpiration?: boolean;
-  avoidNotification?: boolean;
-  avoidPrepaidExpiration?: boolean;
-  avoidPrepaidNotification?: boolean;
-  creditType?: string;
-  creditValue?: string;
-  description?: string;
-  operator?: string;
-  static names(): { [key: string]: string } {
-    return {
-      avoidExpiration: 'AvoidExpiration',
-      avoidNotification: 'AvoidNotification',
-      avoidPrepaidExpiration: 'AvoidPrepaidExpiration',
-      avoidPrepaidNotification: 'AvoidPrepaidNotification',
-      creditType: 'CreditType',
-      creditValue: 'CreditValue',
-      description: 'Description',
-      operator: 'Operator',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      avoidExpiration: 'boolean',
-      avoidNotification: 'boolean',
-      avoidPrepaidExpiration: 'boolean',
-      avoidPrepaidNotification: 'boolean',
-      creditType: 'string',
-      creditValue: 'string',
-      description: 'string',
-      operator: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveUserCreditResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveUserCreditResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveUserCreditResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveUserCreditResponseBody,
     };
   }
 
@@ -8260,9 +8170,9 @@ export class SetAllExpirationDayResponseBody extends $tea.Model {
 }
 
 export class SetAllExpirationDayResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetAllExpirationDayResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetAllExpirationDayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8276,129 +8186,6 @@ export class SetAllExpirationDayResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SetAllExpirationDayResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetCreditLabelActionRequest extends $tea.Model {
-  actionType?: string;
-  clearCycle?: string;
-  creditAmount?: string;
-  currencyCode?: string;
-  dailyCycle?: string;
-  description?: string;
-  isNeedAddSettleLabel?: string;
-  isNeedAdjustCreditAccount?: string;
-  isNeedSaveNotifyRule?: string;
-  isNeedSetCreditAmount?: string;
-  needNotice?: boolean;
-  newCreateMode?: boolean;
-  operator?: string;
-  requestId?: string;
-  siteCode?: string;
-  source?: string;
-  uid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionType: 'ActionType',
-      clearCycle: 'ClearCycle',
-      creditAmount: 'CreditAmount',
-      currencyCode: 'CurrencyCode',
-      dailyCycle: 'DailyCycle',
-      description: 'Description',
-      isNeedAddSettleLabel: 'IsNeedAddSettleLabel',
-      isNeedAdjustCreditAccount: 'IsNeedAdjustCreditAccount',
-      isNeedSaveNotifyRule: 'IsNeedSaveNotifyRule',
-      isNeedSetCreditAmount: 'IsNeedSetCreditAmount',
-      needNotice: 'NeedNotice',
-      newCreateMode: 'NewCreateMode',
-      operator: 'Operator',
-      requestId: 'RequestId',
-      siteCode: 'SiteCode',
-      source: 'Source',
-      uid: 'Uid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionType: 'string',
-      clearCycle: 'string',
-      creditAmount: 'string',
-      currencyCode: 'string',
-      dailyCycle: 'string',
-      description: 'string',
-      isNeedAddSettleLabel: 'string',
-      isNeedAdjustCreditAccount: 'string',
-      isNeedSaveNotifyRule: 'string',
-      isNeedSetCreditAmount: 'string',
-      needNotice: 'boolean',
-      newCreateMode: 'boolean',
-      operator: 'string',
-      requestId: 'string',
-      siteCode: 'string',
-      source: 'string',
-      uid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetCreditLabelActionResponseBody extends $tea.Model {
-  code?: string;
-  data?: boolean;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetCreditLabelActionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetCreditLabelActionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetCreditLabelActionResponseBody,
     };
   }
 
@@ -8476,9 +8263,9 @@ export class SetRenewalResponseBody extends $tea.Model {
 }
 
 export class SetRenewalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetRenewalResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetRenewalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8557,9 +8344,9 @@ export class SetResellerUserAlarmThresholdResponseBody extends $tea.Model {
 }
 
 export class SetResellerUserAlarmThresholdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetResellerUserAlarmThresholdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetResellerUserAlarmThresholdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8641,9 +8428,9 @@ export class SetResellerUserQuotaResponseBody extends $tea.Model {
 }
 
 export class SetResellerUserQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetResellerUserQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetResellerUserQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8725,9 +8512,9 @@ export class SetResellerUserStatusResponseBody extends $tea.Model {
 }
 
 export class SetResellerUserStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetResellerUserStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetResellerUserStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8815,9 +8602,9 @@ export class SubscribeBillToOSSResponseBody extends $tea.Model {
 }
 
 export class SubscribeBillToOSSResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubscribeBillToOSSResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubscribeBillToOSSResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8896,9 +8683,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8971,9 +8758,9 @@ export class UnsubscribeBillToOSSResponseBody extends $tea.Model {
 }
 
 export class UnsubscribeBillToOSSResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnsubscribeBillToOSSResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnsubscribeBillToOSSResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9055,9 +8842,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9142,9 +8929,9 @@ export class UpgradeResourcePackageResponseBody extends $tea.Model {
 }
 
 export class UpgradeResourcePackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpgradeResourcePackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradeResourcePackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13129,6 +12916,7 @@ export class QueryAccountBalanceResponseBodyData extends $tea.Model {
   creditAmount?: string;
   currency?: string;
   mybankCreditAmount?: string;
+  quotaLimit?: string;
   static names(): { [key: string]: string } {
     return {
       availableAmount: 'AvailableAmount',
@@ -13136,6 +12924,7 @@ export class QueryAccountBalanceResponseBodyData extends $tea.Model {
       creditAmount: 'CreditAmount',
       currency: 'Currency',
       mybankCreditAmount: 'MybankCreditAmount',
+      quotaLimit: 'QuotaLimit',
     };
   }
 
@@ -13146,6 +12935,7 @@ export class QueryAccountBalanceResponseBodyData extends $tea.Model {
       creditAmount: 'string',
       currency: 'string',
       mybankCreditAmount: 'string',
+      quotaLimit: 'string',
     };
   }
 
@@ -16087,28 +15877,40 @@ export class QueryResourcePackageInstancesResponseBodyData extends $tea.Model {
 
 export class QuerySavingsPlansDeductLogResponseBodyDataItems extends $tea.Model {
   billModule?: string;
+  billingCycle?: string;
+  billingOfficialPrice?: string;
   deductCommodity?: string;
   deductFee?: string;
   deductInstanceId?: string;
   deductRate?: string;
+  deductedOfficialPrice?: string;
   discountRate?: string;
   endTime?: string;
   instanceId?: string;
+  instanceSpec?: string;
+  instanceTypeFamily?: string;
   ownerId?: number;
+  region?: string;
   savingsType?: string;
   startTime?: string;
   userId?: number;
   static names(): { [key: string]: string } {
     return {
       billModule: 'BillModule',
+      billingCycle: 'BillingCycle',
+      billingOfficialPrice: 'BillingOfficialPrice',
       deductCommodity: 'DeductCommodity',
       deductFee: 'DeductFee',
       deductInstanceId: 'DeductInstanceId',
       deductRate: 'DeductRate',
+      deductedOfficialPrice: 'DeductedOfficialPrice',
       discountRate: 'DiscountRate',
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      instanceSpec: 'InstanceSpec',
+      instanceTypeFamily: 'InstanceTypeFamily',
       ownerId: 'OwnerId',
+      region: 'Region',
       savingsType: 'SavingsType',
       startTime: 'StartTime',
       userId: 'UserId',
@@ -16118,14 +15920,20 @@ export class QuerySavingsPlansDeductLogResponseBodyDataItems extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       billModule: 'string',
+      billingCycle: 'string',
+      billingOfficialPrice: 'string',
       deductCommodity: 'string',
       deductFee: 'string',
       deductInstanceId: 'string',
       deductRate: 'string',
+      deductedOfficialPrice: 'string',
       discountRate: 'string',
       endTime: 'string',
       instanceId: 'string',
+      instanceSpec: 'string',
+      instanceTypeFamily: 'string',
       ownerId: 'number',
+      region: 'string',
       savingsType: 'string',
       startTime: 'string',
       userId: 'number',
@@ -18308,6 +18116,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.pipCode)) {
+      query["PipCode"] = request.pipCode;
+    }
+
     if (!Util.isUnset(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
@@ -19505,7 +19317,7 @@ export default class Client extends OpenApi {
   /**
     * 1.  **Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.**
     * 2.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
-    * 3.  For more information, see [Rules for unsubscribing from resources](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM).
+    * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules).
     *
     * @param request InquiryPriceRefundInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19550,7 +19362,7 @@ export default class Client extends OpenApi {
   /**
     * 1.  **Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.**
     * 2.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
-    * 3.  For more information, see [Rules for unsubscribing from resources](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM).
+    * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules).
     *
     * @param request InquiryPriceRefundInstanceRequest
     * @return InquiryPriceRefundInstanceResponse
@@ -19729,7 +19541,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ##
     * Before you call this operation, take note of the following items:
     * *   Account bills are summarized based on instance bills. In most cases, the account bills do not include the data generated on the last day of the specified period.
     * *   You can query the data generated in June 2020 or later for Cloud Communications services. However, the query results do not include the data of Alibaba Cloud Domains.
@@ -19795,7 +19606,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ##
     * Before you call this operation, take note of the following items:
     * *   Account bills are summarized based on instance bills. In most cases, the account bills do not include the data generated on the last day of the specified period.
     * *   You can query the data generated in June 2020 or later for Cloud Communications services. However, the query results do not include the data of Alibaba Cloud Domains.
@@ -21571,7 +21381,7 @@ export default class Client extends OpenApi {
   /**
     * 1.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
     * 2.  Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.
-    * 3.  For more information, see [Rules for unsubscribing from resources](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM).
+    * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules).
     *
     * @param request RefundInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21620,7 +21430,7 @@ export default class Client extends OpenApi {
   /**
     * 1.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
     * 2.  Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.
-    * 3.  For more information, see [Rules for unsubscribing from resources](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM).
+    * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules).
     *
     * @param request RefundInstanceRequest
     * @return RefundInstanceResponse
@@ -21631,8 +21441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A value of true indicates that the execution is complete.
-    * A value of false indicates that an error occurs during the execution.
+    * This operation is provided for only VNOs to release instances. If a non-specific VNO calls this operation, the request is blocked.
     *
     * @param request ReleaseInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21687,8 +21496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A value of true indicates that the execution is complete.
-    * A value of false indicates that an error occurs during the execution.
+    * This operation is provided for only VNOs to release instances. If a non-specific VNO calls this operation, the request is blocked.
     *
     * @param request ReleaseInstanceRequest
     * @return ReleaseInstanceResponse
@@ -21890,63 +21698,6 @@ export default class Client extends OpenApi {
     return await this.renewResourcePackageWithOptions(request, runtime);
   }
 
-  async saveUserCreditWithOptions(request: SaveUserCreditRequest, runtime: $Util.RuntimeOptions): Promise<SaveUserCreditResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.avoidExpiration)) {
-      query["AvoidExpiration"] = request.avoidExpiration;
-    }
-
-    if (!Util.isUnset(request.avoidNotification)) {
-      query["AvoidNotification"] = request.avoidNotification;
-    }
-
-    if (!Util.isUnset(request.avoidPrepaidExpiration)) {
-      query["AvoidPrepaidExpiration"] = request.avoidPrepaidExpiration;
-    }
-
-    if (!Util.isUnset(request.avoidPrepaidNotification)) {
-      query["AvoidPrepaidNotification"] = request.avoidPrepaidNotification;
-    }
-
-    if (!Util.isUnset(request.creditType)) {
-      query["CreditType"] = request.creditType;
-    }
-
-    if (!Util.isUnset(request.creditValue)) {
-      query["CreditValue"] = request.creditValue;
-    }
-
-    if (!Util.isUnset(request.description)) {
-      query["Description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.operator)) {
-      query["Operator"] = request.operator;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SaveUserCredit",
-      version: "2017-12-14",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SaveUserCreditResponse>(await this.callApi(params, req, runtime), new SaveUserCreditResponse({}));
-  }
-
-  async saveUserCredit(request: SaveUserCreditRequest): Promise<SaveUserCreditResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.saveUserCreditWithOptions(request, runtime);
-  }
-
   async setAllExpirationDayWithOptions(request: SetAllExpirationDayRequest, runtime: $Util.RuntimeOptions): Promise<SetAllExpirationDayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21978,99 +21729,6 @@ export default class Client extends OpenApi {
   async setAllExpirationDay(request: SetAllExpirationDayRequest): Promise<SetAllExpirationDayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setAllExpirationDayWithOptions(request, runtime);
-  }
-
-  async setCreditLabelActionWithOptions(request: SetCreditLabelActionRequest, runtime: $Util.RuntimeOptions): Promise<SetCreditLabelActionResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.actionType)) {
-      query["ActionType"] = request.actionType;
-    }
-
-    if (!Util.isUnset(request.clearCycle)) {
-      query["ClearCycle"] = request.clearCycle;
-    }
-
-    if (!Util.isUnset(request.creditAmount)) {
-      query["CreditAmount"] = request.creditAmount;
-    }
-
-    if (!Util.isUnset(request.currencyCode)) {
-      query["CurrencyCode"] = request.currencyCode;
-    }
-
-    if (!Util.isUnset(request.dailyCycle)) {
-      query["DailyCycle"] = request.dailyCycle;
-    }
-
-    if (!Util.isUnset(request.description)) {
-      query["Description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.isNeedAddSettleLabel)) {
-      query["IsNeedAddSettleLabel"] = request.isNeedAddSettleLabel;
-    }
-
-    if (!Util.isUnset(request.isNeedAdjustCreditAccount)) {
-      query["IsNeedAdjustCreditAccount"] = request.isNeedAdjustCreditAccount;
-    }
-
-    if (!Util.isUnset(request.isNeedSaveNotifyRule)) {
-      query["IsNeedSaveNotifyRule"] = request.isNeedSaveNotifyRule;
-    }
-
-    if (!Util.isUnset(request.isNeedSetCreditAmount)) {
-      query["IsNeedSetCreditAmount"] = request.isNeedSetCreditAmount;
-    }
-
-    if (!Util.isUnset(request.needNotice)) {
-      query["NeedNotice"] = request.needNotice;
-    }
-
-    if (!Util.isUnset(request.newCreateMode)) {
-      query["NewCreateMode"] = request.newCreateMode;
-    }
-
-    if (!Util.isUnset(request.operator)) {
-      query["Operator"] = request.operator;
-    }
-
-    if (!Util.isUnset(request.requestId)) {
-      query["RequestId"] = request.requestId;
-    }
-
-    if (!Util.isUnset(request.siteCode)) {
-      query["SiteCode"] = request.siteCode;
-    }
-
-    if (!Util.isUnset(request.source)) {
-      query["Source"] = request.source;
-    }
-
-    if (!Util.isUnset(request.uid)) {
-      query["Uid"] = request.uid;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SetCreditLabelAction",
-      version: "2017-12-14",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SetCreditLabelActionResponse>(await this.callApi(params, req, runtime), new SetCreditLabelActionResponse({}));
-  }
-
-  async setCreditLabelAction(request: SetCreditLabelActionRequest): Promise<SetCreditLabelActionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setCreditLabelActionWithOptions(request, runtime);
   }
 
   async setRenewalWithOptions(request: SetRenewalRequest, runtime: $Util.RuntimeOptions): Promise<SetRenewalResponse> {
