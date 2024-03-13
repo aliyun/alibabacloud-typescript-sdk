@@ -74,9 +74,9 @@ export class AddAddressBookResponseBody extends $tea.Model {
 }
 
 export class AddAddressBookResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddAddressBookResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddAddressBookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -209,9 +209,9 @@ export class AddControlPolicyResponseBody extends $tea.Model {
 }
 
 export class AddControlPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddControlPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -272,9 +272,9 @@ export class AddInstanceMembersResponseBody extends $tea.Model {
 }
 
 export class AddInstanceMembersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddInstanceMembersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddInstanceMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -344,9 +344,9 @@ export class BatchCopyVpcFirewallControlPolicyResponseBody extends $tea.Model {
 }
 
 export class BatchCopyVpcFirewallControlPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchCopyVpcFirewallControlPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchCopyVpcFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -360,6 +360,81 @@ export class BatchCopyVpcFirewallControlPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchCopyVpcFirewallControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDownloadTaskRequest extends $tea.Model {
+  lang?: string;
+  taskData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      taskData: 'TaskData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      taskData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDownloadTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: string;
+  taskId?: number;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+      taskId: 'number',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDownloadTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDownloadTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDownloadTaskResponseBody,
     };
   }
 
@@ -479,9 +554,9 @@ export class CreateNatFirewallControlPolicyResponseBody extends $tea.Model {
 }
 
 export class CreateNatFirewallControlPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateNatFirewallControlPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNatFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -587,9 +662,9 @@ export class CreateTrFirewallV2ResponseBody extends $tea.Model {
 }
 
 export class CreateTrFirewallV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTrFirewallV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTrFirewallV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -708,9 +783,9 @@ export class CreateTrFirewallV2RoutePolicyResponseBody extends $tea.Model {
 }
 
 export class CreateTrFirewallV2RoutePolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTrFirewallV2RoutePolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTrFirewallV2RoutePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -804,9 +879,9 @@ export class CreateVpcFirewallCenConfigureResponseBody extends $tea.Model {
 }
 
 export class CreateVpcFirewallCenConfigureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVpcFirewallCenConfigureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVpcFirewallCenConfigureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -897,9 +972,9 @@ export class CreateVpcFirewallConfigureResponseBody extends $tea.Model {
 }
 
 export class CreateVpcFirewallConfigureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVpcFirewallConfigureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVpcFirewallConfigureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1029,9 +1104,9 @@ export class CreateVpcFirewallControlPolicyResponseBody extends $tea.Model {
 }
 
 export class CreateVpcFirewallControlPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVpcFirewallControlPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVpcFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1098,9 +1173,9 @@ export class DeleteAddressBookResponseBody extends $tea.Model {
 }
 
 export class DeleteAddressBookResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAddressBookResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAddressBookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1170,9 +1245,9 @@ export class DeleteControlPolicyResponseBody extends $tea.Model {
 }
 
 export class DeleteControlPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteControlPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1186,6 +1261,141 @@ export class DeleteControlPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteControlPolicyTemplateRequest extends $tea.Model {
+  lang?: string;
+  sourceIp?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      sourceIp: 'SourceIp',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      sourceIp: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteControlPolicyTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteControlPolicyTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteControlPolicyTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteControlPolicyTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDownloadTaskRequest extends $tea.Model {
+  lang?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDownloadTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDownloadTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDownloadTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDownloadTaskResponseBody,
     };
   }
 
@@ -1239,9 +1449,9 @@ export class DeleteFirewallV2RoutePoliciesResponseBody extends $tea.Model {
 }
 
 export class DeleteFirewallV2RoutePoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFirewallV2RoutePoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFirewallV2RoutePoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1302,9 +1512,9 @@ export class DeleteInstanceMembersResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceMembersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceMembersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1374,9 +1584,9 @@ export class DeleteNatFirewallControlPolicyResponseBody extends $tea.Model {
 }
 
 export class DeleteNatFirewallControlPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteNatFirewallControlPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNatFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1390,6 +1600,78 @@ export class DeleteNatFirewallControlPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteNatFirewallControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNatFirewallControlPolicyBatchRequest extends $tea.Model {
+  aclUuidList?: string[];
+  direction?: string;
+  lang?: string;
+  natGatewayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclUuidList: 'AclUuidList',
+      direction: 'Direction',
+      lang: 'Lang',
+      natGatewayId: 'NatGatewayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclUuidList: { 'type': 'array', 'itemType': 'string' },
+      direction: 'string',
+      lang: 'string',
+      natGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNatFirewallControlPolicyBatchResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNatFirewallControlPolicyBatchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNatFirewallControlPolicyBatchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteNatFirewallControlPolicyBatchResponseBody,
     };
   }
 
@@ -1440,9 +1722,9 @@ export class DeleteTrFirewallV2ResponseBody extends $tea.Model {
 }
 
 export class DeleteTrFirewallV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTrFirewallV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTrFirewallV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1509,9 +1791,9 @@ export class DeleteVpcFirewallCenConfigureResponseBody extends $tea.Model {
 }
 
 export class DeleteVpcFirewallCenConfigureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVpcFirewallCenConfigureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVpcFirewallCenConfigureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1578,9 +1860,9 @@ export class DeleteVpcFirewallConfigureResponseBody extends $tea.Model {
 }
 
 export class DeleteVpcFirewallConfigureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVpcFirewallConfigureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVpcFirewallConfigureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1647,9 +1929,9 @@ export class DeleteVpcFirewallControlPolicyResponseBody extends $tea.Model {
 }
 
 export class DeleteVpcFirewallControlPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVpcFirewallControlPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVpcFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1737,9 +2019,9 @@ export class DescribeACLProtectTrendResponseBody extends $tea.Model {
 }
 
 export class DescribeACLProtectTrendResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeACLProtectTrendResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeACLProtectTrendResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1827,9 +2109,9 @@ export class DescribeAddressBookResponseBody extends $tea.Model {
 }
 
 export class DescribeAddressBookResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAddressBookResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAddressBookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1932,9 +2214,9 @@ export class DescribeAssetListResponseBody extends $tea.Model {
 }
 
 export class DescribeAssetListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAssetListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAssetListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1948,6 +2230,156 @@ export class DescribeAssetListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAssetListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetRiskListRequest extends $tea.Model {
+  ipAddrList?: string[];
+  ipVersion?: number;
+  lang?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipAddrList: 'IpAddrList',
+      ipVersion: 'IpVersion',
+      lang: 'Lang',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddrList: { 'type': 'array', 'itemType': 'string' },
+      ipVersion: 'number',
+      lang: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetRiskListResponseBody extends $tea.Model {
+  assetList?: DescribeAssetRiskListResponseBodyAssetList[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      assetList: 'AssetList',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetList: { 'type': 'array', 'itemType': DescribeAssetRiskListResponseBodyAssetList },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetRiskListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAssetRiskListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAssetRiskListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCfwRiskLevelSummaryRequest extends $tea.Model {
+  instanceType?: string;
+  lang?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      lang: 'Lang',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      lang: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCfwRiskLevelSummaryResponseBody extends $tea.Model {
+  requestId?: string;
+  riskList?: DescribeCfwRiskLevelSummaryResponseBodyRiskList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      riskList: 'RiskList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      riskList: { 'type': 'array', 'itemType': DescribeCfwRiskLevelSummaryResponseBodyRiskList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCfwRiskLevelSummaryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCfwRiskLevelSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCfwRiskLevelSummaryResponseBody,
     };
   }
 
@@ -2043,9 +2475,9 @@ export class DescribeControlPolicyResponseBody extends $tea.Model {
 }
 
 export class DescribeControlPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeControlPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2133,9 +2565,9 @@ export class DescribeDefaultIPSConfigResponseBody extends $tea.Model {
 }
 
 export class DescribeDefaultIPSConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDefaultIPSConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDefaultIPSConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2208,9 +2640,9 @@ export class DescribeDomainResolveResponseBody extends $tea.Model {
 }
 
 export class DescribeDomainResolveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDomainResolveResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainResolveResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2224,6 +2656,162 @@ export class DescribeDomainResolveResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDomainResolveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDownloadTaskRequest extends $tea.Model {
+  currentPage?: string;
+  lang?: string;
+  pageSize?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'string',
+      lang: 'string',
+      pageSize: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDownloadTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  tasks?: DescribeDownloadTaskResponseBodyTasks[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tasks: 'Tasks',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tasks: { 'type': 'array', 'itemType': DescribeDownloadTaskResponseBodyTasks },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDownloadTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDownloadTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDownloadTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDownloadTaskTypeRequest extends $tea.Model {
+  currentPage?: string;
+  lang?: string;
+  pageSize?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'string',
+      lang: 'string',
+      pageSize: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDownloadTaskTypeResponseBody extends $tea.Model {
+  requestId?: string;
+  taskTypeArray?: DescribeDownloadTaskTypeResponseBodyTaskTypeArray[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskTypeArray: 'TaskTypeArray',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskTypeArray: { 'type': 'array', 'itemType': DescribeDownloadTaskTypeResponseBodyTaskTypeArray },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDownloadTaskTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDownloadTaskTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDownloadTaskTypeResponseBody,
     };
   }
 
@@ -2289,9 +2877,9 @@ export class DescribeInstanceMembersResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceMembersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceMembersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2305,6 +2893,75 @@ export class DescribeInstanceMembersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeInstanceMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRiskLevelsRequest extends $tea.Model {
+  instances?: DescribeInstanceRiskLevelsRequestInstances[];
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': DescribeInstanceRiskLevelsRequestInstances },
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRiskLevelsResponseBody extends $tea.Model {
+  instanceRisks?: DescribeInstanceRiskLevelsResponseBodyInstanceRisks[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceRisks: 'InstanceRisks',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceRisks: { 'type': 'array', 'itemType': DescribeInstanceRiskLevelsResponseBodyInstanceRisks },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRiskLevelsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceRiskLevelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceRiskLevelsResponseBody,
     };
   }
 
@@ -2394,9 +3051,9 @@ export class DescribeInternetOpenIpResponseBody extends $tea.Model {
 }
 
 export class DescribeInternetOpenIpResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInternetOpenIpResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInternetOpenIpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2523,9 +3180,9 @@ export class DescribeInternetTrafficTrendResponseBody extends $tea.Model {
 }
 
 export class DescribeInternetTrafficTrendResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInternetTrafficTrendResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInternetTrafficTrendResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2646,9 +3303,9 @@ export class DescribeInvadeEventListResponseBody extends $tea.Model {
 }
 
 export class DescribeInvadeEventListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInvadeEventListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInvadeEventListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2662,6 +3319,72 @@ export class DescribeInvadeEventListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeInvadeEventListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatAclPageStatusRequest extends $tea.Model {
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatAclPageStatusResponseBody extends $tea.Model {
+  natAclPageEnable?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      natAclPageEnable: 'NatAclPageEnable',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      natAclPageEnable: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatAclPageStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNatAclPageStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNatAclPageStatusResponseBody,
     };
   }
 
@@ -2751,9 +3474,9 @@ export class DescribeNatFirewallControlPolicyResponseBody extends $tea.Model {
 }
 
 export class DescribeNatFirewallControlPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeNatFirewallControlPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNatFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2829,9 +3552,9 @@ export class DescribeNatFirewallPolicyPriorUsedResponseBody extends $tea.Model {
 }
 
 export class DescribeNatFirewallPolicyPriorUsedResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeNatFirewallPolicyPriorUsedResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNatFirewallPolicyPriorUsedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2937,9 +3660,9 @@ export class DescribeOutgoingDestinationIPResponseBody extends $tea.Model {
 }
 
 export class DescribeOutgoingDestinationIPResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeOutgoingDestinationIPResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOutgoingDestinationIPResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3036,9 +3759,9 @@ export class DescribeOutgoingDomainResponseBody extends $tea.Model {
 }
 
 export class DescribeOutgoingDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeOutgoingDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOutgoingDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3105,9 +3828,9 @@ export class DescribePolicyAdvancedConfigResponseBody extends $tea.Model {
 }
 
 export class DescribePolicyAdvancedConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePolicyAdvancedConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePolicyAdvancedConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3183,9 +3906,9 @@ export class DescribePolicyPriorUsedResponseBody extends $tea.Model {
 }
 
 export class DescribePolicyPriorUsedResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePolicyPriorUsedResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePolicyPriorUsedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3199,6 +3922,240 @@ export class DescribePolicyPriorUsedResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribePolicyPriorUsedResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePostpayTrafficDetailRequest extends $tea.Model {
+  currentPage?: number;
+  endTime?: string;
+  lang?: string;
+  order?: string;
+  pageSize?: number;
+  searchItem?: string;
+  startTime?: string;
+  trafficType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      endTime: 'EndTime',
+      lang: 'Lang',
+      order: 'Order',
+      pageSize: 'PageSize',
+      searchItem: 'SearchItem',
+      startTime: 'StartTime',
+      trafficType: 'TrafficType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      endTime: 'string',
+      lang: 'string',
+      order: 'string',
+      pageSize: 'number',
+      searchItem: 'string',
+      startTime: 'string',
+      trafficType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePostpayTrafficDetailResponseBody extends $tea.Model {
+  requestId?: string;
+  totalCount?: number;
+  trafficList?: DescribePostpayTrafficDetailResponseBodyTrafficList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      trafficList: 'TrafficList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalCount: 'number',
+      trafficList: { 'type': 'array', 'itemType': DescribePostpayTrafficDetailResponseBodyTrafficList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePostpayTrafficDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePostpayTrafficDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePostpayTrafficDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePostpayTrafficTotalRequest extends $tea.Model {
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePostpayTrafficTotalResponseBody extends $tea.Model {
+  requestId?: string;
+  totalAssets?: number;
+  totalNatAssets?: number;
+  totalNatTraffic?: number;
+  totalTraffic?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalAssets: 'TotalAssets',
+      totalNatAssets: 'TotalNatAssets',
+      totalNatTraffic: 'TotalNatTraffic',
+      totalTraffic: 'TotalTraffic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalAssets: 'number',
+      totalNatAssets: 'number',
+      totalNatTraffic: 'number',
+      totalTraffic: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePostpayTrafficTotalResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePostpayTrafficTotalResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePostpayTrafficTotalResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePrefixListsRequest extends $tea.Model {
+  regionNo?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionNo: 'RegionNo',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionNo: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePrefixListsResponseBody extends $tea.Model {
+  prefixList?: DescribePrefixListsResponseBodyPrefixList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      prefixList: 'PrefixList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prefixList: { 'type': 'array', 'itemType': DescribePrefixListsResponseBodyPrefixList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePrefixListsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePrefixListsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePrefixListsResponseBody,
     };
   }
 
@@ -3315,9 +4272,9 @@ export class DescribeRiskEventGroupResponseBody extends $tea.Model {
 }
 
 export class DescribeRiskEventGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRiskEventGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRiskEventGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3435,9 +4392,9 @@ export class DescribeRiskEventPayloadResponseBody extends $tea.Model {
 }
 
 export class DescribeRiskEventPayloadResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRiskEventPayloadResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRiskEventPayloadResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3459,12 +4416,64 @@ export class DescribeRiskEventPayloadResponse extends $tea.Model {
   }
 }
 
+export class DescribeSignatureLibVersionResponseBody extends $tea.Model {
+  requestId?: string;
+  totalCount?: number;
+  version?: DescribeSignatureLibVersionResponseBodyVersion[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalCount: 'number',
+      version: { 'type': 'array', 'itemType': DescribeSignatureLibVersionResponseBodyVersion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSignatureLibVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSignatureLibVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSignatureLibVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTrFirewallPolicyBackUpAssociationListRequest extends $tea.Model {
+  candidateList?: DescribeTrFirewallPolicyBackUpAssociationListRequestCandidateList[];
   firewallId?: string;
   lang?: string;
   trFirewallRoutePolicyId?: string;
   static names(): { [key: string]: string } {
     return {
+      candidateList: 'CandidateList',
       firewallId: 'FirewallId',
       lang: 'Lang',
       trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
@@ -3473,6 +4482,35 @@ export class DescribeTrFirewallPolicyBackUpAssociationListRequest extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
+      candidateList: { 'type': 'array', 'itemType': DescribeTrFirewallPolicyBackUpAssociationListRequestCandidateList },
+      firewallId: 'string',
+      lang: 'string',
+      trFirewallRoutePolicyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallPolicyBackUpAssociationListShrinkRequest extends $tea.Model {
+  candidateListShrink?: string;
+  firewallId?: string;
+  lang?: string;
+  trFirewallRoutePolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      candidateListShrink: 'CandidateList',
+      firewallId: 'FirewallId',
+      lang: 'Lang',
+      trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      candidateListShrink: 'string',
       firewallId: 'string',
       lang: 'string',
       trFirewallRoutePolicyId: 'string',
@@ -3507,9 +4545,9 @@ export class DescribeTrFirewallPolicyBackUpAssociationListResponseBody extends $
 }
 
 export class DescribeTrFirewallPolicyBackUpAssociationListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTrFirewallPolicyBackUpAssociationListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTrFirewallPolicyBackUpAssociationListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3588,9 +4626,9 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBody extends $tea.Model 
 }
 
 export class DescribeTrFirewallV2RoutePolicyListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTrFirewallV2RoutePolicyListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTrFirewallV2RoutePolicyListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3702,9 +4740,9 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $tea.Model {
 }
 
 export class DescribeTrFirewallsV2DetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTrFirewallsV2DetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTrFirewallsV2DetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3801,9 +4839,9 @@ export class DescribeTrFirewallsV2ListResponseBody extends $tea.Model {
 }
 
 export class DescribeTrFirewallsV2ListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTrFirewallsV2ListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTrFirewallsV2ListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3879,9 +4917,9 @@ export class DescribeTrFirewallsV2RouteListResponseBody extends $tea.Model {
 }
 
 export class DescribeTrFirewallsV2RouteListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTrFirewallsV2RouteListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTrFirewallsV2RouteListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3972,9 +5010,9 @@ export class DescribeUserAssetIPTrafficInfoResponseBody extends $tea.Model {
 }
 
 export class DescribeUserAssetIPTrafficInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeUserAssetIPTrafficInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserAssetIPTrafficInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4044,9 +5082,9 @@ export class DescribeUserIPSWhitelistResponseBody extends $tea.Model {
 }
 
 export class DescribeUserIPSWhitelistResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeUserIPSWhitelistResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserIPSWhitelistResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4122,9 +5160,9 @@ export class DescribeVpcFirewallAclGroupListResponseBody extends $tea.Model {
 }
 
 export class DescribeVpcFirewallAclGroupListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVpcFirewallAclGroupListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVpcFirewallAclGroupListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4209,9 +5247,9 @@ export class DescribeVpcFirewallCenDetailResponseBody extends $tea.Model {
 }
 
 export class DescribeVpcFirewallCenDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVpcFirewallCenDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVpcFirewallCenDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4314,9 +5352,9 @@ export class DescribeVpcFirewallCenListResponseBody extends $tea.Model {
 }
 
 export class DescribeVpcFirewallCenListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVpcFirewallCenListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVpcFirewallCenListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4419,9 +5457,9 @@ export class DescribeVpcFirewallControlPolicyResponseBody extends $tea.Model {
 }
 
 export class DescribeVpcFirewallControlPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVpcFirewallControlPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVpcFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4494,9 +5532,9 @@ export class DescribeVpcFirewallDefaultIPSConfigResponseBody extends $tea.Model 
 }
 
 export class DescribeVpcFirewallDefaultIPSConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVpcFirewallDefaultIPSConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVpcFirewallDefaultIPSConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4590,9 +5628,9 @@ export class DescribeVpcFirewallDetailResponseBody extends $tea.Model {
 }
 
 export class DescribeVpcFirewallDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVpcFirewallDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVpcFirewallDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4606,6 +5644,78 @@ export class DescribeVpcFirewallDetailResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeVpcFirewallDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcFirewallIPSWhitelistRequest extends $tea.Model {
+  lang?: string;
+  memberUid?: number;
+  vpcFirewallId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      memberUid: 'MemberUid',
+      vpcFirewallId: 'VpcFirewallId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      memberUid: 'number',
+      vpcFirewallId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcFirewallIPSWhitelistResponseBody extends $tea.Model {
+  requestId?: string;
+  whitelists?: DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      whitelists: 'Whitelists',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      whitelists: { 'type': 'array', 'itemType': DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcFirewallIPSWhitelistResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVpcFirewallIPSWhitelistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVpcFirewallIPSWhitelistResponseBody,
     };
   }
 
@@ -4689,9 +5799,9 @@ export class DescribeVpcFirewallListResponseBody extends $tea.Model {
 }
 
 export class DescribeVpcFirewallListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVpcFirewallListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVpcFirewallListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4761,9 +5871,9 @@ export class DescribeVpcFirewallPolicyPriorUsedResponseBody extends $tea.Model {
 }
 
 export class DescribeVpcFirewallPolicyPriorUsedResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVpcFirewallPolicyPriorUsedResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVpcFirewallPolicyPriorUsedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4777,6 +5887,159 @@ export class DescribeVpcFirewallPolicyPriorUsedResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeVpcFirewallPolicyPriorUsedResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcListLiteRequest extends $tea.Model {
+  lang?: string;
+  regionNo?: string;
+  sourceIp?: string;
+  vpcId?: string;
+  vpcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      regionNo: 'RegionNo',
+      sourceIp: 'SourceIp',
+      vpcId: 'VpcId',
+      vpcName: 'VpcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      regionNo: 'string',
+      sourceIp: 'string',
+      vpcId: 'string',
+      vpcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcListLiteResponseBody extends $tea.Model {
+  requestId?: string;
+  vpcList?: DescribeVpcListLiteResponseBodyVpcList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      vpcList: 'VpcList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vpcList: { 'type': 'array', 'itemType': DescribeVpcListLiteResponseBodyVpcList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcListLiteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVpcListLiteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVpcListLiteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcZoneRequest extends $tea.Model {
+  environment?: string;
+  lang?: string;
+  memberUid?: string;
+  regionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environment: 'Environment',
+      lang: 'Lang',
+      memberUid: 'MemberUid',
+      regionNo: 'RegionNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environment: 'string',
+      lang: 'string',
+      memberUid: 'string',
+      regionNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcZoneResponseBody extends $tea.Model {
+  requestId?: string;
+  zoneList?: DescribeVpcZoneResponseBodyZoneList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      zoneList: 'ZoneList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      zoneList: { 'type': 'array', 'itemType': DescribeVpcZoneResponseBodyZoneList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcZoneResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVpcZoneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVpcZoneResponseBody,
     };
   }
 
@@ -4881,9 +6144,9 @@ export class DescribeVulnerabilityProtectedListResponseBody extends $tea.Model {
 }
 
 export class DescribeVulnerabilityProtectedListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVulnerabilityProtectedListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVulnerabilityProtectedListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4968,9 +6231,9 @@ export class ModifyAddressBookResponseBody extends $tea.Model {
 }
 
 export class ModifyAddressBookResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAddressBookResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAddressBookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5094,9 +6357,9 @@ export class ModifyControlPolicyResponseBody extends $tea.Model {
 }
 
 export class ModifyControlPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyControlPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5169,9 +6432,9 @@ export class ModifyControlPolicyPositionResponseBody extends $tea.Model {
 }
 
 export class ModifyControlPolicyPositionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyControlPolicyPositionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyControlPolicyPositionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5259,9 +6522,9 @@ export class ModifyDefaultIPSConfigResponseBody extends $tea.Model {
 }
 
 export class ModifyDefaultIPSConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDefaultIPSConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDefaultIPSConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5334,9 +6597,9 @@ export class ModifyFirewallV2RoutePolicySwitchResponseBody extends $tea.Model {
 }
 
 export class ModifyFirewallV2RoutePolicySwitchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyFirewallV2RoutePolicySwitchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyFirewallV2RoutePolicySwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5397,9 +6660,9 @@ export class ModifyInstanceMemberAttributesResponseBody extends $tea.Model {
 }
 
 export class ModifyInstanceMemberAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyInstanceMemberAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceMemberAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5526,9 +6789,9 @@ export class ModifyNatFirewallControlPolicyResponseBody extends $tea.Model {
 }
 
 export class ModifyNatFirewallControlPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyNatFirewallControlPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyNatFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5601,9 +6864,9 @@ export class ModifyNatFirewallControlPolicyPositionResponseBody extends $tea.Mod
 }
 
 export class ModifyNatFirewallControlPolicyPositionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyNatFirewallControlPolicyPositionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyNatFirewallControlPolicyPositionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5670,9 +6933,9 @@ export class ModifyPolicyAdvancedConfigResponseBody extends $tea.Model {
 }
 
 export class ModifyPolicyAdvancedConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPolicyAdvancedConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPolicyAdvancedConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5739,9 +7002,9 @@ export class ModifyTrFirewallV2ConfigurationResponseBody extends $tea.Model {
 }
 
 export class ModifyTrFirewallV2ConfigurationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyTrFirewallV2ConfigurationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTrFirewallV2ConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5767,6 +7030,7 @@ export class ModifyTrFirewallV2RoutePolicyScopeRequest extends $tea.Model {
   destCandidateList?: ModifyTrFirewallV2RoutePolicyScopeRequestDestCandidateList[];
   firewallId?: string;
   lang?: string;
+  shouldRecover?: string;
   srcCandidateList?: ModifyTrFirewallV2RoutePolicyScopeRequestSrcCandidateList[];
   trFirewallRoutePolicyId?: string;
   static names(): { [key: string]: string } {
@@ -5774,6 +7038,7 @@ export class ModifyTrFirewallV2RoutePolicyScopeRequest extends $tea.Model {
       destCandidateList: 'DestCandidateList',
       firewallId: 'FirewallId',
       lang: 'Lang',
+      shouldRecover: 'ShouldRecover',
       srcCandidateList: 'SrcCandidateList',
       trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
     };
@@ -5784,6 +7049,7 @@ export class ModifyTrFirewallV2RoutePolicyScopeRequest extends $tea.Model {
       destCandidateList: { 'type': 'array', 'itemType': ModifyTrFirewallV2RoutePolicyScopeRequestDestCandidateList },
       firewallId: 'string',
       lang: 'string',
+      shouldRecover: 'string',
       srcCandidateList: { 'type': 'array', 'itemType': ModifyTrFirewallV2RoutePolicyScopeRequestSrcCandidateList },
       trFirewallRoutePolicyId: 'string',
     };
@@ -5798,6 +7064,7 @@ export class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends $tea.Model 
   destCandidateListShrink?: string;
   firewallId?: string;
   lang?: string;
+  shouldRecover?: string;
   srcCandidateListShrink?: string;
   trFirewallRoutePolicyId?: string;
   static names(): { [key: string]: string } {
@@ -5805,6 +7072,7 @@ export class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends $tea.Model 
       destCandidateListShrink: 'DestCandidateList',
       firewallId: 'FirewallId',
       lang: 'Lang',
+      shouldRecover: 'ShouldRecover',
       srcCandidateListShrink: 'SrcCandidateList',
       trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
     };
@@ -5815,6 +7083,7 @@ export class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends $tea.Model 
       destCandidateListShrink: 'string',
       firewallId: 'string',
       lang: 'string',
+      shouldRecover: 'string',
       srcCandidateListShrink: 'string',
       trFirewallRoutePolicyId: 'string',
     };
@@ -5848,9 +7117,9 @@ export class ModifyTrFirewallV2RoutePolicyScopeResponseBody extends $tea.Model {
 }
 
 export class ModifyTrFirewallV2RoutePolicyScopeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyTrFirewallV2RoutePolicyScopeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTrFirewallV2RoutePolicyScopeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5929,9 +7198,9 @@ export class ModifyUserIPSWhitelistResponseBody extends $tea.Model {
 }
 
 export class ModifyUserIPSWhitelistResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyUserIPSWhitelistResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyUserIPSWhitelistResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6001,9 +7270,9 @@ export class ModifyVpcFirewallCenConfigureResponseBody extends $tea.Model {
 }
 
 export class ModifyVpcFirewallCenConfigureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyVpcFirewallCenConfigureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVpcFirewallCenConfigureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6073,9 +7342,9 @@ export class ModifyVpcFirewallCenSwitchStatusResponseBody extends $tea.Model {
 }
 
 export class ModifyVpcFirewallCenSwitchStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyVpcFirewallCenSwitchStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVpcFirewallCenSwitchStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6151,9 +7420,9 @@ export class ModifyVpcFirewallConfigureResponseBody extends $tea.Model {
 }
 
 export class ModifyVpcFirewallConfigureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyVpcFirewallConfigureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVpcFirewallConfigureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6277,9 +7546,9 @@ export class ModifyVpcFirewallControlPolicyResponseBody extends $tea.Model {
 }
 
 export class ModifyVpcFirewallControlPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyVpcFirewallControlPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVpcFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6352,9 +7621,9 @@ export class ModifyVpcFirewallControlPolicyPositionResponseBody extends $tea.Mod
 }
 
 export class ModifyVpcFirewallControlPolicyPositionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyVpcFirewallControlPolicyPositionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVpcFirewallControlPolicyPositionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6433,9 +7702,9 @@ export class ModifyVpcFirewallDefaultIPSConfigResponseBody extends $tea.Model {
 }
 
 export class ModifyVpcFirewallDefaultIPSConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyVpcFirewallDefaultIPSConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVpcFirewallDefaultIPSConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6449,6 +7718,84 @@ export class ModifyVpcFirewallDefaultIPSConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyVpcFirewallDefaultIPSConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpcFirewallIPSWhitelistRequest extends $tea.Model {
+  lang?: string;
+  listType?: number;
+  listValue?: string;
+  memberUid?: number;
+  vpcFirewallId?: string;
+  whiteType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      listType: 'ListType',
+      listValue: 'ListValue',
+      memberUid: 'MemberUid',
+      vpcFirewallId: 'VpcFirewallId',
+      whiteType: 'WhiteType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      listType: 'number',
+      listValue: 'string',
+      memberUid: 'number',
+      vpcFirewallId: 'string',
+      whiteType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpcFirewallIPSWhitelistResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpcFirewallIPSWhitelistResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVpcFirewallIPSWhitelistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyVpcFirewallIPSWhitelistResponseBody,
     };
   }
 
@@ -6505,9 +7852,9 @@ export class ModifyVpcFirewallSwitchStatusResponseBody extends $tea.Model {
 }
 
 export class ModifyVpcFirewallSwitchStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyVpcFirewallSwitchStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyVpcFirewallSwitchStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6574,9 +7921,9 @@ export class PutDisableAllFwSwitchResponseBody extends $tea.Model {
 }
 
 export class PutDisableAllFwSwitchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PutDisableAllFwSwitchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PutDisableAllFwSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6649,9 +7996,9 @@ export class PutDisableFwSwitchResponseBody extends $tea.Model {
 }
 
 export class PutDisableFwSwitchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PutDisableFwSwitchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PutDisableFwSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6718,9 +8065,9 @@ export class PutEnableAllFwSwitchResponseBody extends $tea.Model {
 }
 
 export class PutEnableAllFwSwitchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PutEnableAllFwSwitchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PutEnableAllFwSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6796,9 +8143,9 @@ export class PutEnableFwSwitchResponseBody extends $tea.Model {
 }
 
 export class PutEnableFwSwitchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PutEnableFwSwitchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PutEnableFwSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6868,9 +8215,9 @@ export class ReleasePostInstanceResponseBody extends $tea.Model {
 }
 
 export class ReleasePostInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleasePostInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleasePostInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6884,6 +8231,75 @@ export class ReleasePostInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReleasePostInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetNatFirewallRuleHitCountRequest extends $tea.Model {
+  aclUuid?: string;
+  lang?: string;
+  natGatewayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclUuid: 'AclUuid',
+      lang: 'Lang',
+      natGatewayId: 'NatGatewayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclUuid: 'string',
+      lang: 'string',
+      natGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetNatFirewallRuleHitCountResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetNatFirewallRuleHitCountResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetNatFirewallRuleHitCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResetNatFirewallRuleHitCountResponseBody,
     };
   }
 
@@ -6934,9 +8350,9 @@ export class ResetVpcFirewallRuleHitCountResponseBody extends $tea.Model {
 }
 
 export class ResetVpcFirewallRuleHitCountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetVpcFirewallRuleHitCountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetVpcFirewallRuleHitCountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7215,6 +8631,59 @@ export class DescribeAssetListResponseBodyAssets extends $tea.Model {
   }
 }
 
+export class DescribeAssetRiskListResponseBodyAssetList extends $tea.Model {
+  ip?: string;
+  ipVersion?: number;
+  reason?: string;
+  riskLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      ipVersion: 'IpVersion',
+      reason: 'Reason',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      ipVersion: 'number',
+      reason: 'string',
+      riskLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCfwRiskLevelSummaryResponseBodyRiskList extends $tea.Model {
+  level?: string;
+  num?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      level: 'Level',
+      num: 'Num',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      level: 'string',
+      num: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
   aclAction?: string;
   aclUuid?: string;
@@ -7361,6 +8830,68 @@ export class DescribeDomainResolveResponseBodyResolveResult extends $tea.Model {
   }
 }
 
+export class DescribeDownloadTaskResponseBodyTasks extends $tea.Model {
+  createTime?: number;
+  expireTime?: number;
+  fileSize?: string;
+  fileURL?: string;
+  status?: string;
+  taskId?: string;
+  taskName?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      expireTime: 'ExpireTime',
+      fileSize: 'FileSize',
+      fileURL: 'FileURL',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      expireTime: 'number',
+      fileSize: 'string',
+      fileURL: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskName: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDownloadTaskTypeResponseBodyTaskTypeArray extends $tea.Model {
+  taskName?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskName: 'TaskName',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskName: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceMembersResponseBodyMembers extends $tea.Model {
   createTime?: number;
   memberDesc?: string;
@@ -7412,6 +8943,84 @@ export class DescribeInstanceMembersResponseBodyPageInfo extends $tea.Model {
       currentPage: 'number',
       pageSize: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRiskLevelsRequestInstances extends $tea.Model {
+  instanceId?: string;
+  internetIp?: string[];
+  intranetIp?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      internetIp: { 'type': 'array', 'itemType': 'string' },
+      intranetIp: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRiskLevelsResponseBodyInstanceRisksDetails extends $tea.Model {
+  ip?: string;
+  level?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      level: 'Level',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      level: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRiskLevelsResponseBodyInstanceRisks extends $tea.Model {
+  details?: DescribeInstanceRiskLevelsResponseBodyInstanceRisksDetails[];
+  instanceId?: string;
+  level?: string;
+  static names(): { [key: string]: string } {
+    return {
+      details: 'Details',
+      instanceId: 'InstanceId',
+      level: 'Level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      details: { 'type': 'array', 'itemType': DescribeInstanceRiskLevelsResponseBodyInstanceRisksDetails },
+      instanceId: 'string',
+      level: 'string',
     };
   }
 
@@ -8035,6 +9644,83 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $tea.Model {
   }
 }
 
+export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $tea.Model {
+  inBytes?: number;
+  instanceId?: string;
+  instanceType?: string;
+  outBytes?: number;
+  resourceId?: string;
+  totalBytes?: number;
+  trafficDay?: string;
+  trafficType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inBytes: 'InBytes',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      outBytes: 'OutBytes',
+      resourceId: 'ResourceId',
+      totalBytes: 'TotalBytes',
+      trafficDay: 'TrafficDay',
+      trafficType: 'TrafficType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inBytes: 'number',
+      instanceId: 'string',
+      instanceType: 'string',
+      outBytes: 'number',
+      resourceId: 'string',
+      totalBytes: 'number',
+      trafficDay: 'string',
+      trafficType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePrefixListsResponseBodyPrefixList extends $tea.Model {
+  addressFamily?: string;
+  associationCount?: number;
+  creationTime?: string;
+  description?: string;
+  maxEntries?: number;
+  prefixListId?: string;
+  prefixListName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressFamily: 'AddressFamily',
+      associationCount: 'AssociationCount',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      maxEntries: 'MaxEntries',
+      prefixListId: 'PrefixListId',
+      prefixListName: 'PrefixListName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressFamily: 'string',
+      associationCount: 'number',
+      creationTime: 'string',
+      description: 'string',
+      maxEntries: 'number',
+      prefixListId: 'string',
+      prefixListName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRiskEventGroupResponseBodyDataListIPLocationInfo extends $tea.Model {
   cityId?: string;
   cityName?: string;
@@ -8230,6 +9916,50 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $tea.Model {
       vpcDstInfo: DescribeRiskEventGroupResponseBodyDataListVpcDstInfo,
       vpcSrcInfo: DescribeRiskEventGroupResponseBodyDataListVpcSrcInfo,
       vulLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSignatureLibVersionResponseBodyVersion extends $tea.Model {
+  type?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallPolicyBackUpAssociationListRequestCandidateList extends $tea.Model {
+  candidateId?: string;
+  candidateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      candidateId: 'CandidateId',
+      candidateType: 'CandidateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      candidateId: 'string',
+      candidateType: 'string',
     };
   }
 
@@ -9245,6 +10975,37 @@ export class DescribeVpcFirewallDetailResponseBodyPeerVpc extends $tea.Model {
   }
 }
 
+export class DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists extends $tea.Model {
+  listType?: number;
+  listValue?: string;
+  vpcFirewallId?: string;
+  whiteListValue?: string[];
+  whiteType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listType: 'ListType',
+      listValue: 'ListValue',
+      vpcFirewallId: 'VpcFirewallId',
+      whiteListValue: 'WhiteListValue',
+      whiteType: 'WhiteType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listType: 'number',
+      listValue: 'string',
+      vpcFirewallId: 'string',
+      whiteListValue: { 'type': 'array', 'itemType': 'string' },
+      whiteType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig extends $tea.Model {
   basicRules?: number;
   enableAllPatch?: number;
@@ -9470,6 +11231,56 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $tea.Model 
       resultCode: 'string',
       vpcFirewallId: 'string',
       vpcFirewallName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcListLiteResponseBodyVpcList extends $tea.Model {
+  regionNo?: string;
+  vpcId?: string;
+  vpcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionNo: 'RegionNo',
+      vpcId: 'VpcId',
+      vpcName: 'VpcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionNo: 'string',
+      vpcId: 'string',
+      vpcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcZoneResponseBodyZoneList extends $tea.Model {
+  localName?: string;
+  zoneId?: string;
+  zoneType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'LocalName',
+      zoneId: 'ZoneId',
+      zoneType: 'ZoneType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      zoneId: 'string',
+      zoneType: 'string',
     };
   }
 
@@ -9741,8 +11552,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.  
-    * ## Limits
+    * You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.
+    * ## [](#qps)Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request AddAddressBookRequest
@@ -9806,8 +11617,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.  
-    * ## Limits
+    * You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.
+    * ## [](#qps)Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request AddAddressBookRequest
@@ -10064,6 +11875,39 @@ export default class Client extends OpenApi {
   async batchCopyVpcFirewallControlPolicy(request: BatchCopyVpcFirewallControlPolicyRequest): Promise<BatchCopyVpcFirewallControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchCopyVpcFirewallControlPolicyWithOptions(request, runtime);
+  }
+
+  async createDownloadTaskWithOptions(request: CreateDownloadTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDownloadTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.taskData)) {
+      query["TaskData"] = request.taskData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDownloadTask",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDownloadTaskResponse>(await this.callApi(params, req, runtime), new CreateDownloadTaskResponse({}));
+  }
+
+  async createDownloadTask(request: CreateDownloadTaskRequest): Promise<CreateDownloadTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDownloadTaskWithOptions(request, runtime);
   }
 
   /**
@@ -10762,6 +12606,80 @@ export default class Client extends OpenApi {
     return await this.deleteControlPolicyWithOptions(request, runtime);
   }
 
+  async deleteControlPolicyTemplateWithOptions(request: DeleteControlPolicyTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteControlPolicyTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteControlPolicyTemplate",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteControlPolicyTemplateResponse>(await this.callApi(params, req, runtime), new DeleteControlPolicyTemplateResponse({}));
+  }
+
+  async deleteControlPolicyTemplate(request: DeleteControlPolicyTemplateRequest): Promise<DeleteControlPolicyTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteControlPolicyTemplateWithOptions(request, runtime);
+  }
+
+  async deleteDownloadTaskWithOptions(request: DeleteDownloadTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDownloadTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDownloadTask",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDownloadTaskResponse>(await this.callApi(params, req, runtime), new DeleteDownloadTaskResponse({}));
+  }
+
+  async deleteDownloadTask(request: DeleteDownloadTaskRequest): Promise<DeleteDownloadTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDownloadTaskWithOptions(request, runtime);
+  }
+
   async deleteFirewallV2RoutePoliciesWithOptions(request: DeleteFirewallV2RoutePoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFirewallV2RoutePoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10899,6 +12817,47 @@ export default class Client extends OpenApi {
     return await this.deleteNatFirewallControlPolicyWithOptions(request, runtime);
   }
 
+  async deleteNatFirewallControlPolicyBatchWithOptions(request: DeleteNatFirewallControlPolicyBatchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatFirewallControlPolicyBatchResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclUuidList)) {
+      query["AclUuidList"] = request.aclUuidList;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteNatFirewallControlPolicyBatch",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteNatFirewallControlPolicyBatchResponse>(await this.callApi(params, req, runtime), new DeleteNatFirewallControlPolicyBatchResponse({}));
+  }
+
+  async deleteNatFirewallControlPolicyBatch(request: DeleteNatFirewallControlPolicyBatchRequest): Promise<DeleteNatFirewallControlPolicyBatchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteNatFirewallControlPolicyBatchWithOptions(request, runtime);
+  }
+
   async deleteTrFirewallV2WithOptions(request: DeleteTrFirewallV2Request, runtime: $Util.RuntimeOptions): Promise<DeleteTrFirewallV2Response> {
     Util.validateModel(request);
     let query = { };
@@ -10987,7 +12946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
+    * You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -11028,7 +12987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
+    * You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -11140,8 +13099,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeAddressBook operation to query the details about an address book for an access control policy.  
-    * ## Limits
+    * You can call this operation to query the details about an address book for an access control policy.
+    * ## [](#qps)Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeAddressBookRequest
@@ -11193,8 +13152,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeAddressBook operation to query the details about an address book for an access control policy.  
-    * ## Limits
+    * You can call this operation to query the details about an address book for an access control policy.
+    * ## [](#qps)Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeAddressBookRequest
@@ -11297,6 +13256,84 @@ export default class Client extends OpenApi {
   async describeAssetList(request: DescribeAssetListRequest): Promise<DescribeAssetListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAssetListWithOptions(request, runtime);
+  }
+
+  async describeAssetRiskListWithOptions(request: DescribeAssetRiskListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetRiskListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ipAddrList)) {
+      query["IpAddrList"] = request.ipAddrList;
+    }
+
+    if (!Util.isUnset(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAssetRiskList",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAssetRiskListResponse>(await this.callApi(params, req, runtime), new DescribeAssetRiskListResponse({}));
+  }
+
+  async describeAssetRiskList(request: DescribeAssetRiskListRequest): Promise<DescribeAssetRiskListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAssetRiskListWithOptions(request, runtime);
+  }
+
+  async describeCfwRiskLevelSummaryWithOptions(request: DescribeCfwRiskLevelSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCfwRiskLevelSummaryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCfwRiskLevelSummary",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCfwRiskLevelSummaryResponse>(await this.callApi(params, req, runtime), new DescribeCfwRiskLevelSummaryResponse({}));
+  }
+
+  async describeCfwRiskLevelSummary(request: DescribeCfwRiskLevelSummaryRequest): Promise<DescribeCfwRiskLevelSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCfwRiskLevelSummaryWithOptions(request, runtime);
   }
 
   /**
@@ -11492,6 +13529,88 @@ export default class Client extends OpenApi {
     return await this.describeDomainResolveWithOptions(request, runtime);
   }
 
+  async describeDownloadTaskWithOptions(request: DescribeDownloadTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDownloadTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDownloadTask",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDownloadTaskResponse>(await this.callApi(params, req, runtime), new DescribeDownloadTaskResponse({}));
+  }
+
+  async describeDownloadTask(request: DescribeDownloadTaskRequest): Promise<DescribeDownloadTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDownloadTaskWithOptions(request, runtime);
+  }
+
+  async describeDownloadTaskTypeWithOptions(request: DescribeDownloadTaskTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDownloadTaskTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDownloadTaskType",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDownloadTaskTypeResponse>(await this.callApi(params, req, runtime), new DescribeDownloadTaskTypeResponse({}));
+  }
+
+  async describeDownloadTaskType(request: DescribeDownloadTaskTypeRequest): Promise<DescribeDownloadTaskTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDownloadTaskTypeWithOptions(request, runtime);
+  }
+
   /**
     * You can use this operation to query the information about members in Cloud Firewall.
     * ## Limits
@@ -11552,6 +13671,39 @@ export default class Client extends OpenApi {
   async describeInstanceMembers(request: DescribeInstanceMembersRequest): Promise<DescribeInstanceMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceMembersWithOptions(request, runtime);
+  }
+
+  async describeInstanceRiskLevelsWithOptions(request: DescribeInstanceRiskLevelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceRiskLevelsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instances)) {
+      query["Instances"] = request.instances;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceRiskLevels",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceRiskLevelsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceRiskLevelsResponse({}));
+  }
+
+  async describeInstanceRiskLevels(request: DescribeInstanceRiskLevelsRequest): Promise<DescribeInstanceRiskLevelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceRiskLevelsWithOptions(request, runtime);
   }
 
   async describeInternetOpenIpWithOptions(request: DescribeInternetOpenIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInternetOpenIpResponse> {
@@ -11783,6 +13935,35 @@ export default class Client extends OpenApi {
   async describeInvadeEventList(request: DescribeInvadeEventListRequest): Promise<DescribeInvadeEventListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInvadeEventListWithOptions(request, runtime);
+  }
+
+  async describeNatAclPageStatusWithOptions(request: DescribeNatAclPageStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNatAclPageStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeNatAclPageStatus",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNatAclPageStatusResponse>(await this.callApi(params, req, runtime), new DescribeNatAclPageStatusResponse({}));
+  }
+
+  async describeNatAclPageStatus(request: DescribeNatAclPageStatusRequest): Promise<DescribeNatAclPageStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeNatAclPageStatusWithOptions(request, runtime);
   }
 
   /**
@@ -12191,6 +14372,117 @@ export default class Client extends OpenApi {
     return await this.describePolicyPriorUsedWithOptions(request, runtime);
   }
 
+  async describePostpayTrafficDetailWithOptions(request: DescribePostpayTrafficDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePostpayTrafficDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchItem)) {
+      query["SearchItem"] = request.searchItem;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.trafficType)) {
+      query["TrafficType"] = request.trafficType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePostpayTrafficDetail",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePostpayTrafficDetailResponse>(await this.callApi(params, req, runtime), new DescribePostpayTrafficDetailResponse({}));
+  }
+
+  async describePostpayTrafficDetail(request: DescribePostpayTrafficDetailRequest): Promise<DescribePostpayTrafficDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePostpayTrafficDetailWithOptions(request, runtime);
+  }
+
+  async describePostpayTrafficTotalWithOptions(request: DescribePostpayTrafficTotalRequest, runtime: $Util.RuntimeOptions): Promise<DescribePostpayTrafficTotalResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePostpayTrafficTotal",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePostpayTrafficTotalResponse>(await this.callApi(params, req, runtime), new DescribePostpayTrafficTotalResponse({}));
+  }
+
+  async describePostpayTrafficTotal(request: DescribePostpayTrafficTotalRequest): Promise<DescribePostpayTrafficTotalResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePostpayTrafficTotalWithOptions(request, runtime);
+  }
+
+  async describePrefixListsWithOptions(request: DescribePrefixListsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePrefixListsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePrefixLists",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePrefixListsResponse>(await this.callApi(params, req, runtime), new DescribePrefixListsResponse({}));
+  }
+
+  async describePrefixLists(request: DescribePrefixListsRequest): Promise<DescribePrefixListsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePrefixListsWithOptions(request, runtime);
+  }
+
   /**
     * You can call the DescribeRiskEventGroup operation to query and download the details of intrusion events. We recommend that you query the details of 5 to 10 intrusion events at a time. If you do not need to query the geographical information about IP addresses, you can set the NoLocation parameter to true to prevent query timeout.
     * ## Limits
@@ -12386,9 +14678,40 @@ export default class Client extends OpenApi {
     return await this.describeRiskEventPayloadWithOptions(request, runtime);
   }
 
-  async describeTrFirewallPolicyBackUpAssociationListWithOptions(request: DescribeTrFirewallPolicyBackUpAssociationListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrFirewallPolicyBackUpAssociationListResponse> {
-    Util.validateModel(request);
+  async describeSignatureLibVersionWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeSignatureLibVersionResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeSignatureLibVersion",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSignatureLibVersionResponse>(await this.callApi(params, req, runtime), new DescribeSignatureLibVersionResponse({}));
+  }
+
+  async describeSignatureLibVersion(): Promise<DescribeSignatureLibVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSignatureLibVersionWithOptions(runtime);
+  }
+
+  async describeTrFirewallPolicyBackUpAssociationListWithOptions(tmpReq: DescribeTrFirewallPolicyBackUpAssociationListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrFirewallPolicyBackUpAssociationListResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeTrFirewallPolicyBackUpAssociationListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.candidateList)) {
+      request.candidateListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.candidateList, "CandidateList", "json");
+    }
+
     let query = { };
+    if (!Util.isUnset(request.candidateListShrink)) {
+      query["CandidateList"] = request.candidateListShrink;
+    }
+
     if (!Util.isUnset(request.firewallId)) {
       query["FirewallId"] = request.firewallId;
     }
@@ -13099,6 +15422,43 @@ export default class Client extends OpenApi {
     return await this.describeVpcFirewallDetailWithOptions(request, runtime);
   }
 
+  async describeVpcFirewallIPSWhitelistWithOptions(request: DescribeVpcFirewallIPSWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcFirewallIPSWhitelistResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
+    }
+
+    if (!Util.isUnset(request.vpcFirewallId)) {
+      query["VpcFirewallId"] = request.vpcFirewallId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVpcFirewallIPSWhitelist",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVpcFirewallIPSWhitelistResponse>(await this.callApi(params, req, runtime), new DescribeVpcFirewallIPSWhitelistResponse({}));
+  }
+
+  async describeVpcFirewallIPSWhitelist(request: DescribeVpcFirewallIPSWhitelistRequest): Promise<DescribeVpcFirewallIPSWhitelistResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVpcFirewallIPSWhitelistWithOptions(request, runtime);
+  }
+
   /**
     * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
     * ### Limits
@@ -13237,6 +15597,92 @@ export default class Client extends OpenApi {
   async describeVpcFirewallPolicyPriorUsed(request: DescribeVpcFirewallPolicyPriorUsedRequest): Promise<DescribeVpcFirewallPolicyPriorUsedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcFirewallPolicyPriorUsedWithOptions(request, runtime);
+  }
+
+  async describeVpcListLiteWithOptions(request: DescribeVpcListLiteRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcListLiteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.vpcName)) {
+      query["VpcName"] = request.vpcName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVpcListLite",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVpcListLiteResponse>(await this.callApi(params, req, runtime), new DescribeVpcListLiteResponse({}));
+  }
+
+  async describeVpcListLite(request: DescribeVpcListLiteRequest): Promise<DescribeVpcListLiteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVpcListLiteWithOptions(request, runtime);
+  }
+
+  async describeVpcZoneWithOptions(request: DescribeVpcZoneRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcZoneResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environment)) {
+      query["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
+    }
+
+    if (!Util.isUnset(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVpcZone",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVpcZoneResponse>(await this.callApi(params, req, runtime), new DescribeVpcZoneResponse({}));
+  }
+
+  async describeVpcZone(request: DescribeVpcZoneRequest): Promise<DescribeVpcZoneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVpcZoneWithOptions(request, runtime);
   }
 
   async describeVulnerabilityProtectedListWithOptions(request: DescribeVulnerabilityProtectedListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulnerabilityProtectedListResponse> {
@@ -13545,8 +15991,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyControlPolicyPosition operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall. 
-    * ## Limits
+    * You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
+    * ## [](#qps)Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request ModifyControlPolicyPositionRequest
@@ -13594,8 +16040,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyControlPolicyPosition operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall. 
-    * ## Limits
+    * You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
+    * ## [](#qps)Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request ModifyControlPolicyPositionRequest
@@ -14053,6 +16499,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!Util.isUnset(request.shouldRecover)) {
+      query["ShouldRecover"] = request.shouldRecover;
+    }
+
     if (!Util.isUnset(request.srcCandidateListShrink)) {
       query["SrcCandidateList"] = request.srcCandidateListShrink;
     }
@@ -14259,7 +16709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
+    * You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -14312,7 +16762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
+    * You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -14584,6 +17034,55 @@ export default class Client extends OpenApi {
   async modifyVpcFirewallDefaultIPSConfig(request: ModifyVpcFirewallDefaultIPSConfigRequest): Promise<ModifyVpcFirewallDefaultIPSConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpcFirewallDefaultIPSConfigWithOptions(request, runtime);
+  }
+
+  async modifyVpcFirewallIPSWhitelistWithOptions(request: ModifyVpcFirewallIPSWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcFirewallIPSWhitelistResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.listType)) {
+      query["ListType"] = request.listType;
+    }
+
+    if (!Util.isUnset(request.listValue)) {
+      query["ListValue"] = request.listValue;
+    }
+
+    if (!Util.isUnset(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
+    }
+
+    if (!Util.isUnset(request.vpcFirewallId)) {
+      query["VpcFirewallId"] = request.vpcFirewallId;
+    }
+
+    if (!Util.isUnset(request.whiteType)) {
+      query["WhiteType"] = request.whiteType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyVpcFirewallIPSWhitelist",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyVpcFirewallIPSWhitelistResponse>(await this.callApi(params, req, runtime), new ModifyVpcFirewallIPSWhitelistResponse({}));
+  }
+
+  async modifyVpcFirewallIPSWhitelist(request: ModifyVpcFirewallIPSWhitelistRequest): Promise<ModifyVpcFirewallIPSWhitelistResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyVpcFirewallIPSWhitelistWithOptions(request, runtime);
   }
 
   /**
@@ -14905,6 +17404,43 @@ export default class Client extends OpenApi {
   async releasePostInstance(request: ReleasePostInstanceRequest): Promise<ReleasePostInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releasePostInstanceWithOptions(request, runtime);
+  }
+
+  async resetNatFirewallRuleHitCountWithOptions(request: ResetNatFirewallRuleHitCountRequest, runtime: $Util.RuntimeOptions): Promise<ResetNatFirewallRuleHitCountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclUuid)) {
+      query["AclUuid"] = request.aclUuid;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResetNatFirewallRuleHitCount",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetNatFirewallRuleHitCountResponse>(await this.callApi(params, req, runtime), new ResetNatFirewallRuleHitCountResponse({}));
+  }
+
+  async resetNatFirewallRuleHitCount(request: ResetNatFirewallRuleHitCountRequest): Promise<ResetNatFirewallRuleHitCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resetNatFirewallRuleHitCountWithOptions(request, runtime);
   }
 
   /**
