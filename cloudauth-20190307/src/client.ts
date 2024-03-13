@@ -13,6 +13,96 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AIGCFaceVerifyRequest extends $tea.Model {
+  faceContrastPicture?: string;
+  faceContrastPictureUrl?: string;
+  ossBucketName?: string;
+  ossObjectName?: string;
+  outerOrderNo?: string;
+  productCode?: string;
+  sceneId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      faceContrastPicture: 'FaceContrastPicture',
+      faceContrastPictureUrl: 'FaceContrastPictureUrl',
+      ossBucketName: 'OssBucketName',
+      ossObjectName: 'OssObjectName',
+      outerOrderNo: 'OuterOrderNo',
+      productCode: 'ProductCode',
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceContrastPicture: 'string',
+      faceContrastPictureUrl: 'string',
+      ossBucketName: 'string',
+      ossObjectName: 'string',
+      outerOrderNo: 'string',
+      productCode: 'string',
+      sceneId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIGCFaceVerifyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: AIGCFaceVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: AIGCFaceVerifyResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIGCFaceVerifyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AIGCFaceVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AIGCFaceVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CompareFaceVerifyRequest extends $tea.Model {
   crop?: string;
   outerOrderNo?: string;
@@ -100,9 +190,9 @@ export class CompareFaceVerifyResponseBody extends $tea.Model {
 }
 
 export class CompareFaceVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CompareFaceVerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CompareFaceVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -184,9 +274,9 @@ export class CompareFacesResponseBody extends $tea.Model {
 }
 
 export class CompareFacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CompareFacesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CompareFacesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -383,9 +473,9 @@ export class ContrastFaceVerifyResponseBody extends $tea.Model {
 }
 
 export class ContrastFaceVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ContrastFaceVerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ContrastFaceVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -458,9 +548,9 @@ export class CreateAuthKeyResponseBody extends $tea.Model {
 }
 
 export class CreateAuthKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAuthKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAuthKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -548,9 +638,9 @@ export class CreateVerifySettingResponseBody extends $tea.Model {
 }
 
 export class CreateVerifySettingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVerifySettingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVerifySettingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -641,9 +731,9 @@ export class DescribeDeviceInfoResponseBody extends $tea.Model {
 }
 
 export class DescribeDeviceInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDeviceInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDeviceInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -719,9 +809,9 @@ export class DescribeFaceVerifyResponseBody extends $tea.Model {
 }
 
 export class DescribeFaceVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFaceVerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFaceVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -766,9 +856,9 @@ export class DescribeOssUploadTokenResponseBody extends $tea.Model {
 }
 
 export class DescribeOssUploadTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeOssUploadTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOssUploadTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -859,9 +949,9 @@ export class DescribeSmartStatisticsPageListResponseBody extends $tea.Model {
 }
 
 export class DescribeSmartStatisticsPageListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSmartStatisticsPageListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSmartStatisticsPageListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -940,9 +1030,9 @@ export class DescribeVerifyResultResponseBody extends $tea.Model {
 }
 
 export class DescribeVerifyResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVerifyResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVerifyResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1006,9 +1096,9 @@ export class DescribeVerifySDKResponseBody extends $tea.Model {
 }
 
 export class DescribeVerifySDKResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVerifySDKResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVerifySDKResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1120,9 +1210,9 @@ export class DescribeVerifyTokenResponseBody extends $tea.Model {
 }
 
 export class DescribeVerifyTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVerifyTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVerifyTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1198,9 +1288,9 @@ export class DetectFaceAttributesResponseBody extends $tea.Model {
 }
 
 export class DetectFaceAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetectFaceAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetectFaceAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1276,9 +1366,9 @@ export class Id2MetaVerifyResponseBody extends $tea.Model {
 }
 
 export class Id2MetaVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Id2MetaVerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Id2MetaVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1444,9 +1534,9 @@ export class InitFaceVerifyResponseBody extends $tea.Model {
 }
 
 export class InitFaceVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InitFaceVerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InitFaceVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1555,9 +1645,9 @@ export class LivenessFaceVerifyResponseBody extends $tea.Model {
 }
 
 export class LivenessFaceVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LivenessFaceVerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LivenessFaceVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1636,9 +1726,9 @@ export class Mobile3MetaDetailVerifyResponseBody extends $tea.Model {
 }
 
 export class Mobile3MetaDetailVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Mobile3MetaDetailVerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Mobile3MetaDetailVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1717,9 +1807,9 @@ export class Mobile3MetaSimpleVerifyResponseBody extends $tea.Model {
 }
 
 export class Mobile3MetaSimpleVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Mobile3MetaSimpleVerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Mobile3MetaSimpleVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1807,9 +1897,9 @@ export class ModifyDeviceInfoResponseBody extends $tea.Model {
 }
 
 export class ModifyDeviceInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDeviceInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDeviceInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1906,9 +1996,9 @@ export class VerifyMaterialResponseBody extends $tea.Model {
 }
 
 export class VerifyMaterialResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VerifyMaterialResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VerifyMaterialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1922,6 +2012,31 @@ export class VerifyMaterialResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: VerifyMaterialResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIGCFaceVerifyResponseBodyResultObject extends $tea.Model {
+  certifyId?: string;
+  result?: string;
+  score?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certifyId: 'CertifyId',
+      result: 'Result',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certifyId: 'string',
+      result: 'string',
+      score: 'string',
     };
   }
 
@@ -2696,6 +2811,61 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async aIGCFaceVerifyWithOptions(request: AIGCFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<AIGCFaceVerifyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.faceContrastPictureUrl)) {
+      query["FaceContrastPictureUrl"] = request.faceContrastPictureUrl;
+    }
+
+    if (!Util.isUnset(request.ossBucketName)) {
+      query["OssBucketName"] = request.ossBucketName;
+    }
+
+    if (!Util.isUnset(request.ossObjectName)) {
+      query["OssObjectName"] = request.ossObjectName;
+    }
+
+    if (!Util.isUnset(request.outerOrderNo)) {
+      query["OuterOrderNo"] = request.outerOrderNo;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.faceContrastPicture)) {
+      body["FaceContrastPicture"] = request.faceContrastPicture;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AIGCFaceVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AIGCFaceVerifyResponse>(await this.callApi(params, req, runtime), new AIGCFaceVerifyResponse({}));
+  }
+
+  async aIGCFaceVerify(request: AIGCFaceVerifyRequest): Promise<AIGCFaceVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.aIGCFaceVerifyWithOptions(request, runtime);
   }
 
   async compareFaceVerifyWithOptions(request: CompareFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<CompareFaceVerifyResponse> {
