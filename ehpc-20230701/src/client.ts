@@ -223,7 +223,6 @@ export class AddImageRequest extends $tea.Model {
   containerImageSpec?: AddImageRequestContainerImageSpec;
   description?: string;
   name?: string;
-  regionId?: string;
   VMImageSpec?: AddImageRequestVMImageSpec;
   version?: string;
   static names(): { [key: string]: string } {
@@ -231,7 +230,6 @@ export class AddImageRequest extends $tea.Model {
       containerImageSpec: 'ContainerImageSpec',
       description: 'Description',
       name: 'Name',
-      regionId: 'RegionId',
       VMImageSpec: 'VMImageSpec',
       version: 'Version',
     };
@@ -242,7 +240,6 @@ export class AddImageRequest extends $tea.Model {
       containerImageSpec: AddImageRequestContainerImageSpec,
       description: 'string',
       name: 'string',
-      regionId: 'string',
       VMImageSpec: AddImageRequestVMImageSpec,
       version: 'string',
     };
@@ -257,7 +254,6 @@ export class AddImageShrinkRequest extends $tea.Model {
   containerImageSpecShrink?: string;
   description?: string;
   name?: string;
-  regionId?: string;
   VMImageSpecShrink?: string;
   version?: string;
   static names(): { [key: string]: string } {
@@ -265,7 +261,6 @@ export class AddImageShrinkRequest extends $tea.Model {
       containerImageSpecShrink: 'ContainerImageSpec',
       description: 'Description',
       name: 'Name',
-      regionId: 'RegionId',
       VMImageSpecShrink: 'VMImageSpec',
       version: 'Version',
     };
@@ -276,7 +271,6 @@ export class AddImageShrinkRequest extends $tea.Model {
       containerImageSpecShrink: 'string',
       description: 'string',
       name: 'string',
-      regionId: 'string',
       VMImageSpecShrink: 'string',
       version: 'string',
     };
@@ -524,18 +518,15 @@ export class DeleteJobsResponse extends $tea.Model {
 
 export class GetImageRequest extends $tea.Model {
   imageId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       imageId: 'ImageId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -668,14 +659,12 @@ export class ListImagesRequest extends $tea.Model {
   imageNames?: string[];
   pageNumber?: number;
   pageSize?: number;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       imageIds: 'ImageIds',
       imageNames: 'ImageNames',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
     };
   }
 
@@ -685,7 +674,6 @@ export class ListImagesRequest extends $tea.Model {
       imageNames: { 'type': 'array', 'itemType': 'string' },
       pageNumber: 'number',
       pageSize: 'number',
-      regionId: 'string',
     };
   }
 
@@ -699,14 +687,12 @@ export class ListImagesShrinkRequest extends $tea.Model {
   imageNamesShrink?: string;
   pageNumber?: number;
   pageSize?: number;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       imageIdsShrink: 'ImageIds',
       imageNamesShrink: 'ImageNames',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
     };
   }
 
@@ -716,7 +702,6 @@ export class ListImagesShrinkRequest extends $tea.Model {
       imageNamesShrink: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      regionId: 'string',
     };
   }
 
@@ -776,6 +761,96 @@ export class ListImagesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListImagesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobExecutorsRequest extends $tea.Model {
+  jobId?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobExecutorsResponseBody extends $tea.Model {
+  executors?: ListJobExecutorsResponseBodyExecutors[];
+  jobId?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  requestId?: string;
+  taskName?: string;
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executors: 'Executors',
+      jobId: 'JobId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      taskName: 'TaskName',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executors: { 'type': 'array', 'itemType': ListJobExecutorsResponseBodyExecutors },
+      jobId: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      taskName: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobExecutorsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListJobExecutorsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListJobExecutorsResponseBody,
     };
   }
 
@@ -898,18 +973,15 @@ export class ListJobsResponse extends $tea.Model {
 
 export class RemoveImageRequest extends $tea.Model {
   imageId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       imageId: 'ImageId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1284,10 +1356,12 @@ export class CreateJobRequestTasksTaskSpecResource extends $tea.Model {
 export class CreateJobRequestTasksTaskSpecTaskExecutorVM extends $tea.Model {
   image?: string;
   prologScript?: string;
+  script?: string;
   static names(): { [key: string]: string } {
     return {
       image: 'Image',
       prologScript: 'PrologScript',
+      script: 'Script',
     };
   }
 
@@ -1295,6 +1369,7 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorVM extends $tea.Model {
     return {
       image: 'string',
       prologScript: 'string',
+      script: 'string',
     };
   }
 
@@ -1712,10 +1787,12 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $tea.Model {
 export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM extends $tea.Model {
   image?: string;
   prologScript?: string;
+  script?: string;
   static names(): { [key: string]: string } {
     return {
       image: 'Image',
       prologScript: 'PrologScript',
+      script: 'Script',
     };
   }
 
@@ -1723,6 +1800,7 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM extends $tea.M
     return {
       image: 'string',
       prologScript: 'string',
+      script: 'string',
     };
   }
 
@@ -1804,27 +1882,39 @@ export class GetJobResponseBodyJobInfoTasks extends $tea.Model {
 }
 
 export class GetJobResponseBodyJobInfo extends $tea.Model {
+  createTime?: string;
   deploymentPolicy?: GetJobResponseBodyJobInfoDeploymentPolicy;
+  endTime?: string;
   jobDescription?: string;
   jobId?: string;
   jobName?: string;
+  startTime?: string;
+  status?: string;
   tasks?: GetJobResponseBodyJobInfoTasks[];
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       deploymentPolicy: 'DeploymentPolicy',
+      endTime: 'EndTime',
       jobDescription: 'JobDescription',
       jobId: 'JobId',
       jobName: 'JobName',
+      startTime: 'StartTime',
+      status: 'Status',
       tasks: 'Tasks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
       deploymentPolicy: GetJobResponseBodyJobInfoDeploymentPolicy,
+      endTime: 'string',
       jobDescription: 'string',
       jobId: 'string',
       jobName: 'string',
+      startTime: 'string',
+      status: 'string',
       tasks: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoTasks },
     };
   }
@@ -1868,13 +1958,52 @@ export class ListImagesResponseBodyImages extends $tea.Model {
   }
 }
 
+export class ListJobExecutorsResponseBodyExecutors extends $tea.Model {
+  arrayIndex?: number;
+  createTime?: string;
+  endTime?: string;
+  hostName?: string[];
+  ipAddress?: string[];
+  status?: string;
+  statusReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrayIndex: 'ArrayIndex',
+      createTime: 'CreateTime',
+      endTime: 'EndTime',
+      hostName: 'HostName',
+      ipAddress: 'IpAddress',
+      status: 'Status',
+      statusReason: 'StatusReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrayIndex: 'number',
+      createTime: 'string',
+      endTime: 'string',
+      hostName: { 'type': 'array', 'itemType': 'string' },
+      ipAddress: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      statusReason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListJobsRequestFilter extends $tea.Model {
+  jobId?: string;
   jobName?: string;
   status?: string;
   timeCreatedAfter?: number;
   timeCreatedBefore?: number;
   static names(): { [key: string]: string } {
     return {
+      jobId: 'JobId',
       jobName: 'JobName',
       status: 'Status',
       timeCreatedAfter: 'TimeCreatedAfter',
@@ -1884,6 +2013,7 @@ export class ListJobsRequestFilter extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      jobId: 'string',
       jobName: 'string',
       status: 'string',
       timeCreatedAfter: 'number',
@@ -1920,36 +2050,45 @@ export class ListJobsRequestSortBy extends $tea.Model {
 
 export class ListJobsResponseBodyJobList extends $tea.Model {
   createTime?: string;
+  endTime?: string;
   executorCount?: number;
   jobDescription?: string;
   jobId?: string;
   jobName?: string;
   ownerUid?: string;
+  startTime?: string;
   status?: string;
   taskCount?: number;
+  taskSustainable?: boolean;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      endTime: 'EndTime',
       executorCount: 'ExecutorCount',
       jobDescription: 'JobDescription',
       jobId: 'JobId',
       jobName: 'JobName',
       ownerUid: 'OwnerUid',
+      startTime: 'StartTime',
       status: 'Status',
       taskCount: 'TaskCount',
+      taskSustainable: 'TaskSustainable',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      endTime: 'string',
       executorCount: 'number',
       jobDescription: 'string',
       jobId: 'string',
       jobName: 'string',
       ownerUid: 'string',
+      startTime: 'string',
       status: 'string',
       taskCount: 'number',
+      taskSustainable: 'boolean',
     };
   }
 
@@ -2004,10 +2143,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.VMImageSpecShrink)) {
@@ -2133,10 +2268,6 @@ export default class Client extends OpenApi {
       query["ImageId"] = request.imageId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2217,10 +2348,6 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2241,6 +2368,47 @@ export default class Client extends OpenApi {
   async listImages(request: ListImagesRequest): Promise<ListImagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listImagesWithOptions(request, runtime);
+  }
+
+  async listJobExecutorsWithOptions(request: ListJobExecutorsRequest, runtime: $Util.RuntimeOptions): Promise<ListJobExecutorsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListJobExecutors",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListJobExecutorsResponse>(await this.callApi(params, req, runtime), new ListJobExecutorsResponse({}));
+  }
+
+  async listJobExecutors(request: ListJobExecutorsRequest): Promise<ListJobExecutorsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listJobExecutorsWithOptions(request, runtime);
   }
 
   async listJobsWithOptions(tmpReq: ListJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
@@ -2299,10 +2467,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.imageId)) {
       query["ImageId"] = request.imageId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
