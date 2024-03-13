@@ -8,6 +8,84 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ApplyEciScalingConfigurationRequest extends $tea.Model {
+  content?: string;
+  format?: string;
+  regionId?: string;
+  scalingConfigurationId?: string;
+  scalingGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      format: 'Format',
+      regionId: 'RegionId',
+      scalingConfigurationId: 'ScalingConfigurationId',
+      scalingGroupId: 'ScalingGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      format: 'string',
+      regionId: 'string',
+      scalingConfigurationId: 'string',
+      scalingGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyEciScalingConfigurationResponseBody extends $tea.Model {
+  requestId?: string;
+  scalingConfigurationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      scalingConfigurationId: 'ScalingConfigurationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      scalingConfigurationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyEciScalingConfigurationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyEciScalingConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyEciScalingConfigurationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyScalingGroupRequest extends $tea.Model {
   content?: string;
   format?: string;
@@ -2895,6 +2973,84 @@ export class DescribeAlarmsResponse extends $tea.Model {
   }
 }
 
+export class DescribeEciScalingConfigurationDetailRequest extends $tea.Model {
+  outputFormat?: string;
+  regionId?: string;
+  scalingConfigurationId?: string;
+  scalingGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outputFormat: 'OutputFormat',
+      regionId: 'RegionId',
+      scalingConfigurationId: 'ScalingConfigurationId',
+      scalingGroupId: 'ScalingGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputFormat: 'string',
+      regionId: 'string',
+      scalingConfigurationId: 'string',
+      scalingGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBody extends $tea.Model {
+  output?: string;
+  requestId?: string;
+  scalingConfiguration?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfiguration;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      requestId: 'RequestId',
+      scalingConfiguration: 'ScalingConfiguration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+      requestId: 'string',
+      scalingConfiguration: DescribeEciScalingConfigurationDetailResponseBodyScalingConfiguration,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEciScalingConfigurationDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEciScalingConfigurationDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEciScalingConfigurationsRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -3790,6 +3946,84 @@ export class DescribeScalingConfigurationsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeScalingConfigurationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDetailRequest extends $tea.Model {
+  outputFormat?: string;
+  ownerId?: number;
+  regionId?: string;
+  scalingGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outputFormat: 'OutputFormat',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      scalingGroupId: 'ScalingGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputFormat: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      scalingGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDetailResponseBody extends $tea.Model {
+  output?: string;
+  requestId?: string;
+  scalingGroup?: DescribeScalingGroupDetailResponseBodyScalingGroup;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      requestId: 'RequestId',
+      scalingGroup: 'ScalingGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+      requestId: 'string',
+      scalingGroup: DescribeScalingGroupDetailResponseBodyScalingGroup,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeScalingGroupDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeScalingGroupDetailResponseBody,
     };
   }
 
@@ -5922,6 +6156,84 @@ export class ModifyEciScalingConfigurationResponse extends $tea.Model {
   }
 }
 
+export class ModifyInstanceAttributeRequest extends $tea.Model {
+  entrusted?: boolean;
+  instanceId?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  scalingGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entrusted: 'Entrusted',
+      instanceId: 'InstanceId',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      scalingGroupId: 'ScalingGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entrusted: 'boolean',
+      instanceId: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      scalingGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceAttributeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyInstanceAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyLifecycleHookRequest extends $tea.Model {
   defaultResult?: string;
   heartbeatTimeout?: number;
@@ -6509,6 +6821,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
   resourceOwnerId?: number;
   scalingGroupId?: string;
   scalingGroupName?: string;
+  scalingPolicy?: string;
   spotAllocationStrategy?: string;
   spotInstancePools?: number;
   spotInstanceRemedy?: boolean;
@@ -6542,6 +6855,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       scalingGroupId: 'ScalingGroupId',
       scalingGroupName: 'ScalingGroupName',
+      scalingPolicy: 'ScalingPolicy',
       spotAllocationStrategy: 'SpotAllocationStrategy',
       spotInstancePools: 'SpotInstancePools',
       spotInstanceRemedy: 'SpotInstanceRemedy',
@@ -6578,6 +6892,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
       resourceOwnerId: 'number',
       scalingGroupId: 'string',
       scalingGroupName: 'string',
+      scalingPolicy: 'string',
       spotAllocationStrategy: 'string',
       spotInstancePools: 'number',
       spotInstanceRemedy: 'boolean',
@@ -7211,9 +7526,11 @@ export class ResumeProcessesResponse extends $tea.Model {
 }
 
 export class ScaleWithAdjustmentRequest extends $tea.Model {
+  activityMetadata?: string;
   adjustmentType?: string;
   adjustmentValue?: number;
   clientToken?: string;
+  lifecycleHookContext?: ScaleWithAdjustmentRequestLifecycleHookContext;
   minAdjustmentMagnitude?: number;
   overrides?: ScaleWithAdjustmentRequestOverrides;
   ownerId?: number;
@@ -7222,9 +7539,11 @@ export class ScaleWithAdjustmentRequest extends $tea.Model {
   syncActivity?: boolean;
   static names(): { [key: string]: string } {
     return {
+      activityMetadata: 'ActivityMetadata',
       adjustmentType: 'AdjustmentType',
       adjustmentValue: 'AdjustmentValue',
       clientToken: 'ClientToken',
+      lifecycleHookContext: 'LifecycleHookContext',
       minAdjustmentMagnitude: 'MinAdjustmentMagnitude',
       overrides: 'Overrides',
       ownerId: 'OwnerId',
@@ -7236,9 +7555,11 @@ export class ScaleWithAdjustmentRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      activityMetadata: 'string',
       adjustmentType: 'string',
       adjustmentValue: 'number',
       clientToken: 'string',
+      lifecycleHookContext: ScaleWithAdjustmentRequestLifecycleHookContext,
       minAdjustmentMagnitude: 'number',
       overrides: ScaleWithAdjustmentRequestOverrides,
       ownerId: 'number',
@@ -7254,9 +7575,11 @@ export class ScaleWithAdjustmentRequest extends $tea.Model {
 }
 
 export class ScaleWithAdjustmentShrinkRequest extends $tea.Model {
+  activityMetadata?: string;
   adjustmentType?: string;
   adjustmentValue?: number;
   clientToken?: string;
+  lifecycleHookContextShrink?: string;
   minAdjustmentMagnitude?: number;
   overridesShrink?: string;
   ownerId?: number;
@@ -7265,9 +7588,11 @@ export class ScaleWithAdjustmentShrinkRequest extends $tea.Model {
   syncActivity?: boolean;
   static names(): { [key: string]: string } {
     return {
+      activityMetadata: 'ActivityMetadata',
       adjustmentType: 'AdjustmentType',
       adjustmentValue: 'AdjustmentValue',
       clientToken: 'ClientToken',
+      lifecycleHookContextShrink: 'LifecycleHookContext',
       minAdjustmentMagnitude: 'MinAdjustmentMagnitude',
       overridesShrink: 'Overrides',
       ownerId: 'OwnerId',
@@ -7279,9 +7604,11 @@ export class ScaleWithAdjustmentShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      activityMetadata: 'string',
       adjustmentType: 'string',
       adjustmentValue: 'number',
       clientToken: 'string',
+      lifecycleHookContextShrink: 'string',
       minAdjustmentMagnitude: 'number',
       overridesShrink: 'string',
       ownerId: 'number',
@@ -9950,6 +10277,809 @@ export class DescribeAlarmsResponseBodyAlarmList extends $tea.Model {
   }
 }
 
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationAcrRegistryInfos extends $tea.Model {
+  domains?: string[];
+  instanceId?: string;
+  instanceName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      instanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersEnvironmentVars extends $tea.Model {
+  fieldRefFieldPath?: string;
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldRefFieldPath: 'FieldRefFieldPath',
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldRefFieldPath: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersPorts extends $tea.Model {
+  port?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersVolumeMounts extends $tea.Model {
+  mountPath?: string;
+  mountPropagation?: string;
+  name?: string;
+  readOnly?: boolean;
+  subPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      mountPropagation: 'MountPropagation',
+      name: 'Name',
+      readOnly: 'ReadOnly',
+      subPath: 'SubPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      mountPropagation: 'string',
+      name: 'string',
+      readOnly: 'boolean',
+      subPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainers extends $tea.Model {
+  args?: string[];
+  commands?: string[];
+  cpu?: number;
+  environmentVars?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersEnvironmentVars[];
+  gpu?: number;
+  image?: string;
+  imagePullPolicy?: string;
+  lifecyclePostStartHandlerExecs?: string[];
+  lifecyclePostStartHandlerHttpGetHost?: string;
+  lifecyclePostStartHandlerHttpGetPath?: string;
+  lifecyclePostStartHandlerHttpGetPort?: number;
+  lifecyclePostStartHandlerHttpGetScheme?: string;
+  lifecyclePostStartHandlerTcpSocketHost?: string;
+  lifecyclePostStartHandlerTcpSocketPort?: number;
+  lifecyclePreStopHandlerExecs?: string[];
+  lifecyclePreStopHandlerHttpGetHost?: string;
+  lifecyclePreStopHandlerHttpGetPath?: string;
+  lifecyclePreStopHandlerHttpGetPort?: number;
+  lifecyclePreStopHandlerHttpGetScheme?: string;
+  lifecyclePreStopHandlerTcpSocketHost?: string;
+  lifecyclePreStopHandlerTcpSocketPort?: number;
+  livenessProbeExecCommands?: string[];
+  livenessProbeFailureThreshold?: number;
+  livenessProbeHttpGetPath?: string;
+  livenessProbeHttpGetPort?: number;
+  livenessProbeHttpGetScheme?: string;
+  livenessProbeInitialDelaySeconds?: number;
+  livenessProbePeriodSeconds?: number;
+  livenessProbeSuccessThreshold?: number;
+  livenessProbeTcpSocketPort?: number;
+  livenessProbeTimeoutSeconds?: number;
+  memory?: number;
+  name?: string;
+  ports?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersPorts[];
+  readinessProbeExecCommands?: string[];
+  readinessProbeFailureThreshold?: number;
+  readinessProbeHttpGetPath?: string;
+  readinessProbeHttpGetPort?: number;
+  readinessProbeHttpGetScheme?: string;
+  readinessProbeInitialDelaySeconds?: number;
+  readinessProbePeriodSeconds?: number;
+  readinessProbeSuccessThreshold?: number;
+  readinessProbeTcpSocketPort?: number;
+  readinessProbeTimeoutSeconds?: number;
+  securityContextCapabilityAdds?: string[];
+  securityContextReadOnlyRootFilesystem?: boolean;
+  securityContextRunAsUser?: number;
+  stdin?: boolean;
+  stdinOnce?: boolean;
+  tty?: boolean;
+  volumeMounts?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersVolumeMounts[];
+  workingDir?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      commands: 'Commands',
+      cpu: 'Cpu',
+      environmentVars: 'EnvironmentVars',
+      gpu: 'Gpu',
+      image: 'Image',
+      imagePullPolicy: 'ImagePullPolicy',
+      lifecyclePostStartHandlerExecs: 'LifecyclePostStartHandlerExecs',
+      lifecyclePostStartHandlerHttpGetHost: 'LifecyclePostStartHandlerHttpGetHost',
+      lifecyclePostStartHandlerHttpGetPath: 'LifecyclePostStartHandlerHttpGetPath',
+      lifecyclePostStartHandlerHttpGetPort: 'LifecyclePostStartHandlerHttpGetPort',
+      lifecyclePostStartHandlerHttpGetScheme: 'LifecyclePostStartHandlerHttpGetScheme',
+      lifecyclePostStartHandlerTcpSocketHost: 'LifecyclePostStartHandlerTcpSocketHost',
+      lifecyclePostStartHandlerTcpSocketPort: 'LifecyclePostStartHandlerTcpSocketPort',
+      lifecyclePreStopHandlerExecs: 'LifecyclePreStopHandlerExecs',
+      lifecyclePreStopHandlerHttpGetHost: 'LifecyclePreStopHandlerHttpGetHost',
+      lifecyclePreStopHandlerHttpGetPath: 'LifecyclePreStopHandlerHttpGetPath',
+      lifecyclePreStopHandlerHttpGetPort: 'LifecyclePreStopHandlerHttpGetPort',
+      lifecyclePreStopHandlerHttpGetScheme: 'LifecyclePreStopHandlerHttpGetScheme',
+      lifecyclePreStopHandlerTcpSocketHost: 'LifecyclePreStopHandlerTcpSocketHost',
+      lifecyclePreStopHandlerTcpSocketPort: 'LifecyclePreStopHandlerTcpSocketPort',
+      livenessProbeExecCommands: 'LivenessProbeExecCommands',
+      livenessProbeFailureThreshold: 'LivenessProbeFailureThreshold',
+      livenessProbeHttpGetPath: 'LivenessProbeHttpGetPath',
+      livenessProbeHttpGetPort: 'LivenessProbeHttpGetPort',
+      livenessProbeHttpGetScheme: 'LivenessProbeHttpGetScheme',
+      livenessProbeInitialDelaySeconds: 'LivenessProbeInitialDelaySeconds',
+      livenessProbePeriodSeconds: 'LivenessProbePeriodSeconds',
+      livenessProbeSuccessThreshold: 'LivenessProbeSuccessThreshold',
+      livenessProbeTcpSocketPort: 'LivenessProbeTcpSocketPort',
+      livenessProbeTimeoutSeconds: 'LivenessProbeTimeoutSeconds',
+      memory: 'Memory',
+      name: 'Name',
+      ports: 'Ports',
+      readinessProbeExecCommands: 'ReadinessProbeExecCommands',
+      readinessProbeFailureThreshold: 'ReadinessProbeFailureThreshold',
+      readinessProbeHttpGetPath: 'ReadinessProbeHttpGetPath',
+      readinessProbeHttpGetPort: 'ReadinessProbeHttpGetPort',
+      readinessProbeHttpGetScheme: 'ReadinessProbeHttpGetScheme',
+      readinessProbeInitialDelaySeconds: 'ReadinessProbeInitialDelaySeconds',
+      readinessProbePeriodSeconds: 'ReadinessProbePeriodSeconds',
+      readinessProbeSuccessThreshold: 'ReadinessProbeSuccessThreshold',
+      readinessProbeTcpSocketPort: 'ReadinessProbeTcpSocketPort',
+      readinessProbeTimeoutSeconds: 'ReadinessProbeTimeoutSeconds',
+      securityContextCapabilityAdds: 'SecurityContextCapabilityAdds',
+      securityContextReadOnlyRootFilesystem: 'SecurityContextReadOnlyRootFilesystem',
+      securityContextRunAsUser: 'SecurityContextRunAsUser',
+      stdin: 'Stdin',
+      stdinOnce: 'StdinOnce',
+      tty: 'Tty',
+      volumeMounts: 'VolumeMounts',
+      workingDir: 'WorkingDir',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'array', 'itemType': 'string' },
+      commands: { 'type': 'array', 'itemType': 'string' },
+      cpu: 'number',
+      environmentVars: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersEnvironmentVars },
+      gpu: 'number',
+      image: 'string',
+      imagePullPolicy: 'string',
+      lifecyclePostStartHandlerExecs: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePostStartHandlerHttpGetHost: 'string',
+      lifecyclePostStartHandlerHttpGetPath: 'string',
+      lifecyclePostStartHandlerHttpGetPort: 'number',
+      lifecyclePostStartHandlerHttpGetScheme: 'string',
+      lifecyclePostStartHandlerTcpSocketHost: 'string',
+      lifecyclePostStartHandlerTcpSocketPort: 'number',
+      lifecyclePreStopHandlerExecs: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePreStopHandlerHttpGetHost: 'string',
+      lifecyclePreStopHandlerHttpGetPath: 'string',
+      lifecyclePreStopHandlerHttpGetPort: 'number',
+      lifecyclePreStopHandlerHttpGetScheme: 'string',
+      lifecyclePreStopHandlerTcpSocketHost: 'string',
+      lifecyclePreStopHandlerTcpSocketPort: 'number',
+      livenessProbeExecCommands: { 'type': 'array', 'itemType': 'string' },
+      livenessProbeFailureThreshold: 'number',
+      livenessProbeHttpGetPath: 'string',
+      livenessProbeHttpGetPort: 'number',
+      livenessProbeHttpGetScheme: 'string',
+      livenessProbeInitialDelaySeconds: 'number',
+      livenessProbePeriodSeconds: 'number',
+      livenessProbeSuccessThreshold: 'number',
+      livenessProbeTcpSocketPort: 'number',
+      livenessProbeTimeoutSeconds: 'number',
+      memory: 'number',
+      name: 'string',
+      ports: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersPorts },
+      readinessProbeExecCommands: { 'type': 'array', 'itemType': 'string' },
+      readinessProbeFailureThreshold: 'number',
+      readinessProbeHttpGetPath: 'string',
+      readinessProbeHttpGetPort: 'number',
+      readinessProbeHttpGetScheme: 'string',
+      readinessProbeInitialDelaySeconds: 'number',
+      readinessProbePeriodSeconds: 'number',
+      readinessProbeSuccessThreshold: 'number',
+      readinessProbeTcpSocketPort: 'number',
+      readinessProbeTimeoutSeconds: 'number',
+      securityContextCapabilityAdds: { 'type': 'array', 'itemType': 'string' },
+      securityContextReadOnlyRootFilesystem: 'boolean',
+      securityContextRunAsUser: 'number',
+      stdin: 'boolean',
+      stdinOnce: 'boolean',
+      tty: 'boolean',
+      volumeMounts: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersVolumeMounts },
+      workingDir: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationDnsConfigOptions extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationHostAliases extends $tea.Model {
+  hostnames?: string[];
+  ip?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostnames: 'Hostnames',
+      ip: 'Ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostnames: { 'type': 'array', 'itemType': 'string' },
+      ip: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationImageRegistryCredentials extends $tea.Model {
+  password?: string;
+  server?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      password: 'Password',
+      server: 'Server',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      password: 'string',
+      server: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerEnvironmentVars extends $tea.Model {
+  fieldRefFieldPath?: string;
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldRefFieldPath: 'FieldRefFieldPath',
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldRefFieldPath: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerPorts extends $tea.Model {
+  port?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerVolumeMounts extends $tea.Model {
+  mountPath?: string;
+  mountPropagation?: string;
+  name?: string;
+  readOnly?: boolean;
+  subPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      mountPropagation: 'MountPropagation',
+      name: 'Name',
+      readOnly: 'ReadOnly',
+      subPath: 'SubPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      mountPropagation: 'string',
+      name: 'string',
+      readOnly: 'boolean',
+      subPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainers extends $tea.Model {
+  cpu?: number;
+  gpu?: number;
+  image?: string;
+  imagePullPolicy?: string;
+  initContainerArgs?: string[];
+  initContainerCommands?: string[];
+  initContainerEnvironmentVars?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerEnvironmentVars[];
+  initContainerPorts?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerPorts[];
+  initContainerVolumeMounts?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerVolumeMounts[];
+  memory?: number;
+  name?: string;
+  securityContextCapabilityAdds?: string[];
+  securityContextReadOnlyRootFilesystem?: boolean;
+  securityContextRunAsUser?: string;
+  workingDir?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      gpu: 'Gpu',
+      image: 'Image',
+      imagePullPolicy: 'ImagePullPolicy',
+      initContainerArgs: 'InitContainerArgs',
+      initContainerCommands: 'InitContainerCommands',
+      initContainerEnvironmentVars: 'InitContainerEnvironmentVars',
+      initContainerPorts: 'InitContainerPorts',
+      initContainerVolumeMounts: 'InitContainerVolumeMounts',
+      memory: 'Memory',
+      name: 'Name',
+      securityContextCapabilityAdds: 'SecurityContextCapabilityAdds',
+      securityContextReadOnlyRootFilesystem: 'SecurityContextReadOnlyRootFilesystem',
+      securityContextRunAsUser: 'SecurityContextRunAsUser',
+      workingDir: 'WorkingDir',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      gpu: 'number',
+      image: 'string',
+      imagePullPolicy: 'string',
+      initContainerArgs: { 'type': 'array', 'itemType': 'string' },
+      initContainerCommands: { 'type': 'array', 'itemType': 'string' },
+      initContainerEnvironmentVars: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerEnvironmentVars },
+      initContainerPorts: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerPorts },
+      initContainerVolumeMounts: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerVolumeMounts },
+      memory: 'number',
+      name: 'string',
+      securityContextCapabilityAdds: { 'type': 'array', 'itemType': 'string' },
+      securityContextReadOnlyRootFilesystem: 'boolean',
+      securityContextRunAsUser: 'string',
+      workingDir: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationSecurityContextSysCtls extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumesConfigFileVolumeConfigFileToPaths extends $tea.Model {
+  content?: string;
+  mode?: number;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      mode: 'Mode',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      mode: 'number',
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumes extends $tea.Model {
+  configFileVolumeConfigFileToPaths?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumesConfigFileVolumeConfigFileToPaths[];
+  configFileVolumeDefaultMode?: number;
+  diskVolumeDiskId?: string;
+  diskVolumeDiskSize?: number;
+  diskVolumeFsType?: string;
+  emptyDirVolumeMedium?: string;
+  emptyDirVolumeSizeLimit?: string;
+  flexVolumeDriver?: string;
+  flexVolumeFsType?: string;
+  flexVolumeOptions?: string;
+  hostPathVolumePath?: string;
+  hostPathVolumeType?: string;
+  NFSVolumePath?: string;
+  NFSVolumeReadOnly?: boolean;
+  NFSVolumeServer?: string;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configFileVolumeConfigFileToPaths: 'ConfigFileVolumeConfigFileToPaths',
+      configFileVolumeDefaultMode: 'ConfigFileVolumeDefaultMode',
+      diskVolumeDiskId: 'DiskVolumeDiskId',
+      diskVolumeDiskSize: 'DiskVolumeDiskSize',
+      diskVolumeFsType: 'DiskVolumeFsType',
+      emptyDirVolumeMedium: 'EmptyDirVolumeMedium',
+      emptyDirVolumeSizeLimit: 'EmptyDirVolumeSizeLimit',
+      flexVolumeDriver: 'FlexVolumeDriver',
+      flexVolumeFsType: 'FlexVolumeFsType',
+      flexVolumeOptions: 'FlexVolumeOptions',
+      hostPathVolumePath: 'HostPathVolumePath',
+      hostPathVolumeType: 'HostPathVolumeType',
+      NFSVolumePath: 'NFSVolumePath',
+      NFSVolumeReadOnly: 'NFSVolumeReadOnly',
+      NFSVolumeServer: 'NFSVolumeServer',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configFileVolumeConfigFileToPaths: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumesConfigFileVolumeConfigFileToPaths },
+      configFileVolumeDefaultMode: 'number',
+      diskVolumeDiskId: 'string',
+      diskVolumeDiskSize: 'number',
+      diskVolumeFsType: 'string',
+      emptyDirVolumeMedium: 'string',
+      emptyDirVolumeSizeLimit: 'string',
+      flexVolumeDriver: 'string',
+      flexVolumeFsType: 'string',
+      flexVolumeOptions: 'string',
+      hostPathVolumePath: 'string',
+      hostPathVolumeType: 'string',
+      NFSVolumePath: 'string',
+      NFSVolumeReadOnly: 'boolean',
+      NFSVolumeServer: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEciScalingConfigurationDetailResponseBodyScalingConfiguration extends $tea.Model {
+  acrRegistryInfos?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationAcrRegistryInfos[];
+  activeDeadlineSeconds?: number;
+  autoCreateEip?: boolean;
+  autoMatchImageCache?: boolean;
+  computeCategory?: string[];
+  containerGroupName?: string;
+  containers?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainers[];
+  costOptimization?: boolean;
+  cpu?: number;
+  cpuOptionsCore?: number;
+  cpuOptionsThreadsPerCore?: number;
+  creationTime?: string;
+  dataCacheBucket?: string;
+  dataCacheBurstingEnabled?: boolean;
+  dataCachePL?: string;
+  dataCacheProvisionedIops?: number;
+  description?: string;
+  dnsConfigNameServers?: string[];
+  dnsConfigOptions?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationDnsConfigOptions[];
+  dnsConfigSearches?: string[];
+  dnsPolicy?: string;
+  egressBandwidth?: number;
+  eipBandwidth?: number;
+  eipCommonBandwidthPackage?: string;
+  eipISP?: string;
+  eipPublicIpAddressPoolId?: string;
+  ephemeralStorage?: number;
+  hostAliases?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationHostAliases[];
+  hostName?: string;
+  imageRegistryCredentials?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationImageRegistryCredentials[];
+  imageSnapshotId?: string;
+  ingressBandwidth?: number;
+  initContainers?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainers[];
+  instanceFamilyLevel?: string;
+  instanceTypes?: string[];
+  ipv6AddressCount?: number;
+  lifecycleState?: string;
+  loadBalancerWeight?: number;
+  memory?: number;
+  ntpServers?: string[];
+  ramRoleName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  restartPolicy?: string;
+  scalingConfigurationId?: string;
+  scalingConfigurationName?: string;
+  scalingGroupId?: string;
+  securityContextSysCtls?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationSecurityContextSysCtls[];
+  securityGroupId?: string;
+  slsEnable?: boolean;
+  spotPriceLimit?: number;
+  spotStrategy?: string;
+  tags?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationTags[];
+  terminationGracePeriodSeconds?: number;
+  volumes?: DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumes[];
+  static names(): { [key: string]: string } {
+    return {
+      acrRegistryInfos: 'AcrRegistryInfos',
+      activeDeadlineSeconds: 'ActiveDeadlineSeconds',
+      autoCreateEip: 'AutoCreateEip',
+      autoMatchImageCache: 'AutoMatchImageCache',
+      computeCategory: 'ComputeCategory',
+      containerGroupName: 'ContainerGroupName',
+      containers: 'Containers',
+      costOptimization: 'CostOptimization',
+      cpu: 'Cpu',
+      cpuOptionsCore: 'CpuOptionsCore',
+      cpuOptionsThreadsPerCore: 'CpuOptionsThreadsPerCore',
+      creationTime: 'CreationTime',
+      dataCacheBucket: 'DataCacheBucket',
+      dataCacheBurstingEnabled: 'DataCacheBurstingEnabled',
+      dataCachePL: 'DataCachePL',
+      dataCacheProvisionedIops: 'DataCacheProvisionedIops',
+      description: 'Description',
+      dnsConfigNameServers: 'DnsConfigNameServers',
+      dnsConfigOptions: 'DnsConfigOptions',
+      dnsConfigSearches: 'DnsConfigSearches',
+      dnsPolicy: 'DnsPolicy',
+      egressBandwidth: 'EgressBandwidth',
+      eipBandwidth: 'EipBandwidth',
+      eipCommonBandwidthPackage: 'EipCommonBandwidthPackage',
+      eipISP: 'EipISP',
+      eipPublicIpAddressPoolId: 'EipPublicIpAddressPoolId',
+      ephemeralStorage: 'EphemeralStorage',
+      hostAliases: 'HostAliases',
+      hostName: 'HostName',
+      imageRegistryCredentials: 'ImageRegistryCredentials',
+      imageSnapshotId: 'ImageSnapshotId',
+      ingressBandwidth: 'IngressBandwidth',
+      initContainers: 'InitContainers',
+      instanceFamilyLevel: 'InstanceFamilyLevel',
+      instanceTypes: 'InstanceTypes',
+      ipv6AddressCount: 'Ipv6AddressCount',
+      lifecycleState: 'LifecycleState',
+      loadBalancerWeight: 'LoadBalancerWeight',
+      memory: 'Memory',
+      ntpServers: 'NtpServers',
+      ramRoleName: 'RamRoleName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      restartPolicy: 'RestartPolicy',
+      scalingConfigurationId: 'ScalingConfigurationId',
+      scalingConfigurationName: 'ScalingConfigurationName',
+      scalingGroupId: 'ScalingGroupId',
+      securityContextSysCtls: 'SecurityContextSysCtls',
+      securityGroupId: 'SecurityGroupId',
+      slsEnable: 'SlsEnable',
+      spotPriceLimit: 'SpotPriceLimit',
+      spotStrategy: 'SpotStrategy',
+      tags: 'Tags',
+      terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
+      volumes: 'Volumes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acrRegistryInfos: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationAcrRegistryInfos },
+      activeDeadlineSeconds: 'number',
+      autoCreateEip: 'boolean',
+      autoMatchImageCache: 'boolean',
+      computeCategory: { 'type': 'array', 'itemType': 'string' },
+      containerGroupName: 'string',
+      containers: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainers },
+      costOptimization: 'boolean',
+      cpu: 'number',
+      cpuOptionsCore: 'number',
+      cpuOptionsThreadsPerCore: 'number',
+      creationTime: 'string',
+      dataCacheBucket: 'string',
+      dataCacheBurstingEnabled: 'boolean',
+      dataCachePL: 'string',
+      dataCacheProvisionedIops: 'number',
+      description: 'string',
+      dnsConfigNameServers: { 'type': 'array', 'itemType': 'string' },
+      dnsConfigOptions: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationDnsConfigOptions },
+      dnsConfigSearches: { 'type': 'array', 'itemType': 'string' },
+      dnsPolicy: 'string',
+      egressBandwidth: 'number',
+      eipBandwidth: 'number',
+      eipCommonBandwidthPackage: 'string',
+      eipISP: 'string',
+      eipPublicIpAddressPoolId: 'string',
+      ephemeralStorage: 'number',
+      hostAliases: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationHostAliases },
+      hostName: 'string',
+      imageRegistryCredentials: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationImageRegistryCredentials },
+      imageSnapshotId: 'string',
+      ingressBandwidth: 'number',
+      initContainers: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainers },
+      instanceFamilyLevel: 'string',
+      instanceTypes: { 'type': 'array', 'itemType': 'string' },
+      ipv6AddressCount: 'number',
+      lifecycleState: 'string',
+      loadBalancerWeight: 'number',
+      memory: 'number',
+      ntpServers: { 'type': 'array', 'itemType': 'string' },
+      ramRoleName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      restartPolicy: 'string',
+      scalingConfigurationId: 'string',
+      scalingConfigurationName: 'string',
+      scalingGroupId: 'string',
+      securityContextSysCtls: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationSecurityContextSysCtls },
+      securityGroupId: 'string',
+      slsEnable: 'boolean',
+      spotPriceLimit: 'number',
+      spotStrategy: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationTags },
+      terminationGracePeriodSeconds: 'number',
+      volumes: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsAcrRegistryInfos extends $tea.Model {
   domains?: string[];
   instanceId?: string;
@@ -10871,7 +12001,30 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
+export class DescribeScalingActivitiesResponseBodyScalingActivitiesLifecycleHookContext extends $tea.Model {
+  disableLifecycleHook?: boolean;
+  ignoredLifecycleHookIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      disableLifecycleHook: 'DisableLifecycleHook',
+      ignoredLifecycleHookIds: 'IgnoredLifecycleHookIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disableLifecycleHook: 'boolean',
+      ignoredLifecycleHookIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScalingActivitiesResponseBodyScalingActivities extends $tea.Model {
+  activityMetadata?: string;
   attachedCapacity?: string;
   autoCreatedCapacity?: string;
   cause?: string;
@@ -10884,6 +12037,7 @@ export class DescribeScalingActivitiesResponseBodyScalingActivities extends $tea
   endTime?: string;
   errorCode?: string;
   errorMessage?: string;
+  lifecycleHookContext?: DescribeScalingActivitiesResponseBodyScalingActivitiesLifecycleHookContext;
   progress?: number;
   scalingActivityId?: string;
   scalingGroupId?: string;
@@ -10896,8 +12050,11 @@ export class DescribeScalingActivitiesResponseBodyScalingActivities extends $tea
   stoppedCapacity?: number;
   stoppedInstances?: string[];
   totalCapacity?: string;
+  triggerSourceId?: string;
+  triggerSourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      activityMetadata: 'ActivityMetadata',
       attachedCapacity: 'AttachedCapacity',
       autoCreatedCapacity: 'AutoCreatedCapacity',
       cause: 'Cause',
@@ -10910,6 +12067,7 @@ export class DescribeScalingActivitiesResponseBodyScalingActivities extends $tea
       endTime: 'EndTime',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      lifecycleHookContext: 'LifecycleHookContext',
       progress: 'Progress',
       scalingActivityId: 'ScalingActivityId',
       scalingGroupId: 'ScalingGroupId',
@@ -10922,11 +12080,14 @@ export class DescribeScalingActivitiesResponseBodyScalingActivities extends $tea
       stoppedCapacity: 'StoppedCapacity',
       stoppedInstances: 'StoppedInstances',
       totalCapacity: 'TotalCapacity',
+      triggerSourceId: 'TriggerSourceId',
+      triggerSourceType: 'TriggerSourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      activityMetadata: 'string',
       attachedCapacity: 'string',
       autoCreatedCapacity: 'string',
       cause: 'string',
@@ -10939,6 +12100,7 @@ export class DescribeScalingActivitiesResponseBodyScalingActivities extends $tea
       endTime: 'string',
       errorCode: 'string',
       errorMessage: 'string',
+      lifecycleHookContext: DescribeScalingActivitiesResponseBodyScalingActivitiesLifecycleHookContext,
       progress: 'number',
       scalingActivityId: 'string',
       scalingGroupId: 'string',
@@ -10951,6 +12113,8 @@ export class DescribeScalingActivitiesResponseBodyScalingActivities extends $tea
       stoppedCapacity: 'number',
       stoppedInstances: { 'type': 'array', 'itemType': 'string' },
       totalCapacity: 'string',
+      triggerSourceId: 'string',
+      triggerSourceType: 'string',
     };
   }
 
@@ -11345,6 +12509,371 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       userData: 'string',
       weightedCapacities: { 'type': 'array', 'itemType': 'number' },
       zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDetailResponseBodyScalingGroupAlbServerGroups extends $tea.Model {
+  albServerGroupId?: string;
+  port?: number;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      albServerGroupId: 'AlbServerGroupId',
+      port: 'Port',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      albServerGroupId: 'string',
+      port: 'number',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDetailResponseBodyScalingGroupLaunchTemplateOverrides extends $tea.Model {
+  instanceType?: string;
+  spotPriceLimit?: number;
+  weightedCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      spotPriceLimit: 'SpotPriceLimit',
+      weightedCapacity: 'WeightedCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      spotPriceLimit: 'number',
+      weightedCapacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDetailResponseBodyScalingGroupLoadBalancerConfigs extends $tea.Model {
+  loadBalancerId?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDetailResponseBodyScalingGroupServerGroups extends $tea.Model {
+  port?: number;
+  serverGroupId?: string;
+  type?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      serverGroupId: 'ServerGroupId',
+      type: 'Type',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      serverGroupId: 'string',
+      type: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDetailResponseBodyScalingGroupTags extends $tea.Model {
+  propagate?: boolean;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propagate: 'Propagate',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propagate: 'boolean',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroupsVServerGroupAttributes extends $tea.Model {
+  port?: number;
+  VServerGroupId?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      VServerGroupId: 'VServerGroupId',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      VServerGroupId: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroups extends $tea.Model {
+  loadBalancerId?: string;
+  VServerGroupAttributes?: DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroupsVServerGroupAttributes[];
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      VServerGroupAttributes: 'VServerGroupAttributes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      VServerGroupAttributes: { 'type': 'array', 'itemType': DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroupsVServerGroupAttributes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupDetailResponseBodyScalingGroup extends $tea.Model {
+  activeCapacity?: number;
+  activeScalingConfigurationId?: string;
+  albServerGroups?: DescribeScalingGroupDetailResponseBodyScalingGroupAlbServerGroups[];
+  allocationStrategy?: string;
+  azBalance?: boolean;
+  compensateWithOnDemand?: boolean;
+  creationTime?: string;
+  currentHostName?: string;
+  customPolicyARN?: string;
+  DBInstanceIds?: string[];
+  defaultCooldown?: number;
+  desiredCapacity?: number;
+  enableDesiredCapacity?: boolean;
+  groupDeletionProtection?: boolean;
+  groupType?: string;
+  healthCheckType?: string;
+  healthCheckTypes?: string[];
+  initCapacity?: number;
+  isElasticStrengthInAlarm?: boolean;
+  launchTemplateId?: string;
+  launchTemplateOverrides?: DescribeScalingGroupDetailResponseBodyScalingGroupLaunchTemplateOverrides[];
+  launchTemplateVersion?: string;
+  lifecycleState?: string;
+  loadBalancerConfigs?: DescribeScalingGroupDetailResponseBodyScalingGroupLoadBalancerConfigs[];
+  loadBalancerIds?: string[];
+  maxInstanceLifetime?: number;
+  maxSize?: number;
+  minSize?: number;
+  modificationTime?: string;
+  monitorGroupId?: string;
+  multiAZPolicy?: string;
+  onDemandBaseCapacity?: number;
+  onDemandPercentageAboveBaseCapacity?: number;
+  pendingCapacity?: number;
+  pendingWaitCapacity?: number;
+  protectedCapacity?: number;
+  regionId?: string;
+  removalPolicies?: string[];
+  removingCapacity?: number;
+  removingWaitCapacity?: number;
+  resourceGroupId?: string;
+  scalingGroupId?: string;
+  scalingGroupName?: string;
+  scalingPolicy?: string;
+  serverGroups?: DescribeScalingGroupDetailResponseBodyScalingGroupServerGroups[];
+  spotAllocationStrategy?: string;
+  spotInstancePools?: number;
+  spotInstanceRemedy?: boolean;
+  standbyCapacity?: number;
+  stoppedCapacity?: number;
+  suspendedProcesses?: string[];
+  systemSuspended?: boolean;
+  tags?: DescribeScalingGroupDetailResponseBodyScalingGroupTags[];
+  totalCapacity?: number;
+  totalInstanceCount?: number;
+  VServerGroups?: DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroups[];
+  vSwitchId?: string;
+  vSwitchIds?: string[];
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeCapacity: 'ActiveCapacity',
+      activeScalingConfigurationId: 'ActiveScalingConfigurationId',
+      albServerGroups: 'AlbServerGroups',
+      allocationStrategy: 'AllocationStrategy',
+      azBalance: 'AzBalance',
+      compensateWithOnDemand: 'CompensateWithOnDemand',
+      creationTime: 'CreationTime',
+      currentHostName: 'CurrentHostName',
+      customPolicyARN: 'CustomPolicyARN',
+      DBInstanceIds: 'DBInstanceIds',
+      defaultCooldown: 'DefaultCooldown',
+      desiredCapacity: 'DesiredCapacity',
+      enableDesiredCapacity: 'EnableDesiredCapacity',
+      groupDeletionProtection: 'GroupDeletionProtection',
+      groupType: 'GroupType',
+      healthCheckType: 'HealthCheckType',
+      healthCheckTypes: 'HealthCheckTypes',
+      initCapacity: 'InitCapacity',
+      isElasticStrengthInAlarm: 'IsElasticStrengthInAlarm',
+      launchTemplateId: 'LaunchTemplateId',
+      launchTemplateOverrides: 'LaunchTemplateOverrides',
+      launchTemplateVersion: 'LaunchTemplateVersion',
+      lifecycleState: 'LifecycleState',
+      loadBalancerConfigs: 'LoadBalancerConfigs',
+      loadBalancerIds: 'LoadBalancerIds',
+      maxInstanceLifetime: 'MaxInstanceLifetime',
+      maxSize: 'MaxSize',
+      minSize: 'MinSize',
+      modificationTime: 'ModificationTime',
+      monitorGroupId: 'MonitorGroupId',
+      multiAZPolicy: 'MultiAZPolicy',
+      onDemandBaseCapacity: 'OnDemandBaseCapacity',
+      onDemandPercentageAboveBaseCapacity: 'OnDemandPercentageAboveBaseCapacity',
+      pendingCapacity: 'PendingCapacity',
+      pendingWaitCapacity: 'PendingWaitCapacity',
+      protectedCapacity: 'ProtectedCapacity',
+      regionId: 'RegionId',
+      removalPolicies: 'RemovalPolicies',
+      removingCapacity: 'RemovingCapacity',
+      removingWaitCapacity: 'RemovingWaitCapacity',
+      resourceGroupId: 'ResourceGroupId',
+      scalingGroupId: 'ScalingGroupId',
+      scalingGroupName: 'ScalingGroupName',
+      scalingPolicy: 'ScalingPolicy',
+      serverGroups: 'ServerGroups',
+      spotAllocationStrategy: 'SpotAllocationStrategy',
+      spotInstancePools: 'SpotInstancePools',
+      spotInstanceRemedy: 'SpotInstanceRemedy',
+      standbyCapacity: 'StandbyCapacity',
+      stoppedCapacity: 'StoppedCapacity',
+      suspendedProcesses: 'SuspendedProcesses',
+      systemSuspended: 'SystemSuspended',
+      tags: 'Tags',
+      totalCapacity: 'TotalCapacity',
+      totalInstanceCount: 'TotalInstanceCount',
+      VServerGroups: 'VServerGroups',
+      vSwitchId: 'VSwitchId',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeCapacity: 'number',
+      activeScalingConfigurationId: 'string',
+      albServerGroups: { 'type': 'array', 'itemType': DescribeScalingGroupDetailResponseBodyScalingGroupAlbServerGroups },
+      allocationStrategy: 'string',
+      azBalance: 'boolean',
+      compensateWithOnDemand: 'boolean',
+      creationTime: 'string',
+      currentHostName: 'string',
+      customPolicyARN: 'string',
+      DBInstanceIds: { 'type': 'array', 'itemType': 'string' },
+      defaultCooldown: 'number',
+      desiredCapacity: 'number',
+      enableDesiredCapacity: 'boolean',
+      groupDeletionProtection: 'boolean',
+      groupType: 'string',
+      healthCheckType: 'string',
+      healthCheckTypes: { 'type': 'array', 'itemType': 'string' },
+      initCapacity: 'number',
+      isElasticStrengthInAlarm: 'boolean',
+      launchTemplateId: 'string',
+      launchTemplateOverrides: { 'type': 'array', 'itemType': DescribeScalingGroupDetailResponseBodyScalingGroupLaunchTemplateOverrides },
+      launchTemplateVersion: 'string',
+      lifecycleState: 'string',
+      loadBalancerConfigs: { 'type': 'array', 'itemType': DescribeScalingGroupDetailResponseBodyScalingGroupLoadBalancerConfigs },
+      loadBalancerIds: { 'type': 'array', 'itemType': 'string' },
+      maxInstanceLifetime: 'number',
+      maxSize: 'number',
+      minSize: 'number',
+      modificationTime: 'string',
+      monitorGroupId: 'string',
+      multiAZPolicy: 'string',
+      onDemandBaseCapacity: 'number',
+      onDemandPercentageAboveBaseCapacity: 'number',
+      pendingCapacity: 'number',
+      pendingWaitCapacity: 'number',
+      protectedCapacity: 'number',
+      regionId: 'string',
+      removalPolicies: { 'type': 'array', 'itemType': 'string' },
+      removingCapacity: 'number',
+      removingWaitCapacity: 'number',
+      resourceGroupId: 'string',
+      scalingGroupId: 'string',
+      scalingGroupName: 'string',
+      scalingPolicy: 'string',
+      serverGroups: { 'type': 'array', 'itemType': DescribeScalingGroupDetailResponseBodyScalingGroupServerGroups },
+      spotAllocationStrategy: 'string',
+      spotInstancePools: 'number',
+      spotInstanceRemedy: 'boolean',
+      standbyCapacity: 'number',
+      stoppedCapacity: 'number',
+      suspendedProcesses: { 'type': 'array', 'itemType': 'string' },
+      systemSuspended: 'boolean',
+      tags: { 'type': 'array', 'itemType': DescribeScalingGroupDetailResponseBodyScalingGroupTags },
+      totalCapacity: 'number',
+      totalInstanceCount: 'number',
+      VServerGroups: { 'type': 'array', 'itemType': DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroups },
+      vSwitchId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
     };
   }
 
@@ -13850,6 +15379,28 @@ export class ModifyScalingRuleRequestStepAdjustments extends $tea.Model {
   }
 }
 
+export class ScaleWithAdjustmentRequestLifecycleHookContext extends $tea.Model {
+  disableLifecycleHook?: boolean;
+  ignoredLifecycleHookIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      disableLifecycleHook: 'DisableLifecycleHook',
+      ignoredLifecycleHookIds: 'IgnoredLifecycleHookIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disableLifecycleHook: 'boolean',
+      ignoredLifecycleHookIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars extends $tea.Model {
   key?: string;
   value?: string;
@@ -14023,6 +15574,51 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async applyEciScalingConfigurationWithOptions(request: ApplyEciScalingConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ApplyEciScalingConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.format)) {
+      query["Format"] = request.format;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.scalingConfigurationId)) {
+      query["ScalingConfigurationId"] = request.scalingConfigurationId;
+    }
+
+    if (!Util.isUnset(request.scalingGroupId)) {
+      query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApplyEciScalingConfiguration",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new ApplyEciScalingConfigurationResponse({}));
+  }
+
+  async applyEciScalingConfiguration(request: ApplyEciScalingConfigurationRequest): Promise<ApplyEciScalingConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.applyEciScalingConfigurationWithOptions(request, runtime);
   }
 
   async applyScalingGroupWithOptions(request: ApplyScalingGroupRequest, runtime: $Util.RuntimeOptions): Promise<ApplyScalingGroupResponse> {
@@ -16463,6 +18059,47 @@ export default class Client extends OpenApi {
     return await this.describeAlarmsWithOptions(request, runtime);
   }
 
+  async describeEciScalingConfigurationDetailWithOptions(request: DescribeEciScalingConfigurationDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEciScalingConfigurationDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.outputFormat)) {
+      query["OutputFormat"] = request.outputFormat;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.scalingConfigurationId)) {
+      query["ScalingConfigurationId"] = request.scalingConfigurationId;
+    }
+
+    if (!Util.isUnset(request.scalingGroupId)) {
+      query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEciScalingConfigurationDetail",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEciScalingConfigurationDetailResponse>(await this.callApi(params, req, runtime), new DescribeEciScalingConfigurationDetailResponse({}));
+  }
+
+  async describeEciScalingConfigurationDetail(request: DescribeEciScalingConfigurationDetailRequest): Promise<DescribeEciScalingConfigurationDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEciScalingConfigurationDetailWithOptions(request, runtime);
+  }
+
   async describeEciScalingConfigurationsWithOptions(request: DescribeEciScalingConfigurationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEciScalingConfigurationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16997,6 +18634,47 @@ export default class Client extends OpenApi {
   async describeScalingConfigurations(request: DescribeScalingConfigurationsRequest): Promise<DescribeScalingConfigurationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeScalingConfigurationsWithOptions(request, runtime);
+  }
+
+  async describeScalingGroupDetailWithOptions(request: DescribeScalingGroupDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeScalingGroupDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.outputFormat)) {
+      query["OutputFormat"] = request.outputFormat;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.scalingGroupId)) {
+      query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeScalingGroupDetail",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeScalingGroupDetailResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupDetailResponse({}));
+  }
+
+  async describeScalingGroupDetail(request: DescribeScalingGroupDetailRequest): Promise<DescribeScalingGroupDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeScalingGroupDetailWithOptions(request, runtime);
   }
 
   async describeScalingGroupsWithOptions(request: DescribeScalingGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeScalingGroupsResponse> {
@@ -18632,6 +20310,55 @@ export default class Client extends OpenApi {
     return await this.modifyEciScalingConfigurationWithOptions(request, runtime);
   }
 
+  async modifyInstanceAttributeWithOptions(request: ModifyInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.entrusted)) {
+      query["Entrusted"] = request.entrusted;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.scalingGroupId)) {
+      query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyInstanceAttribute",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInstanceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAttributeResponse({}));
+  }
+
+  async modifyInstanceAttribute(request: ModifyInstanceAttributeRequest): Promise<ModifyInstanceAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyInstanceAttributeWithOptions(request, runtime);
+  }
+
   /**
     * You can use one of the following methods to specify the lifecycle hook that you want to modify:
     * *   Specify the lifecycle hook ID by using the LifecycleHookId parameter. When you use this method, the ScalingGroupId and LifecycleHookName parameters are ignored.
@@ -19150,6 +20877,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.scalingGroupName)) {
       query["ScalingGroupName"] = request.scalingGroupName;
+    }
+
+    if (!Util.isUnset(request.scalingPolicy)) {
+      query["ScalingPolicy"] = request.scalingPolicy;
     }
 
     if (!Util.isUnset(request.spotAllocationStrategy)) {
@@ -19687,11 +21418,19 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ScaleWithAdjustmentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.lifecycleHookContext)) {
+      request.lifecycleHookContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lifecycleHookContext, "LifecycleHookContext", "json");
+    }
+
     if (!Util.isUnset(tmpReq.overrides)) {
       request.overridesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.overrides, "Overrides", "json");
     }
 
     let query = { };
+    if (!Util.isUnset(request.activityMetadata)) {
+      query["ActivityMetadata"] = request.activityMetadata;
+    }
+
     if (!Util.isUnset(request.adjustmentType)) {
       query["AdjustmentType"] = request.adjustmentType;
     }
@@ -19702,6 +21441,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.lifecycleHookContextShrink)) {
+      query["LifecycleHookContext"] = request.lifecycleHookContextShrink;
     }
 
     if (!Util.isUnset(request.minAdjustmentMagnitude)) {
