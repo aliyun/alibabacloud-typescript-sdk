@@ -47,9 +47,9 @@ export class CancelCertificateForPackageRequestResponseBody extends $tea.Model {
 }
 
 export class CancelCertificateForPackageRequestResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelCertificateForPackageRequestResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelCertificateForPackageRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -110,9 +110,9 @@ export class CancelOrderRequestResponseBody extends $tea.Model {
 }
 
 export class CancelOrderRequestResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelOrderRequestResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelOrderRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -197,9 +197,9 @@ export class CreateCertificateForPackageRequestResponseBody extends $tea.Model {
 }
 
 export class CreateCertificateForPackageRequestResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCertificateForPackageRequestResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCertificateForPackageRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -278,9 +278,9 @@ export class CreateCertificateRequestResponseBody extends $tea.Model {
 }
 
 export class CreateCertificateRequestResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCertificateRequestResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCertificateRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -359,9 +359,9 @@ export class CreateCertificateWithCsrRequestResponseBody extends $tea.Model {
 }
 
 export class CreateCertificateWithCsrRequestResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCertificateWithCsrRequestResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCertificateWithCsrRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -375,6 +375,183 @@ export class CreateCertificateWithCsrRequestResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateCertificateWithCsrRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCsrRequest extends $tea.Model {
+  algorithm?: string;
+  commonName?: string;
+  corpName?: string;
+  countryCode?: string;
+  department?: string;
+  keySize?: number;
+  locality?: string;
+  name?: string;
+  province?: string;
+  sans?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      commonName: 'CommonName',
+      corpName: 'CorpName',
+      countryCode: 'CountryCode',
+      department: 'Department',
+      keySize: 'KeySize',
+      locality: 'Locality',
+      name: 'Name',
+      province: 'Province',
+      sans: 'Sans',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      commonName: 'string',
+      corpName: 'string',
+      countryCode: 'string',
+      department: 'string',
+      keySize: 'number',
+      locality: 'string',
+      name: 'string',
+      province: 'string',
+      sans: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCsrResponseBody extends $tea.Model {
+  csr?: string;
+  csrId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      csr: 'Csr',
+      csrId: 'CsrId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csr: 'string',
+      csrId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCsrResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCsrResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCsrResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeploymentJobRequest extends $tea.Model {
+  certIds?: string;
+  contactIds?: string;
+  jobType?: string;
+  name?: string;
+  resourceIds?: string;
+  scheduleTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certIds: 'CertIds',
+      contactIds: 'ContactIds',
+      jobType: 'JobType',
+      name: 'Name',
+      resourceIds: 'ResourceIds',
+      scheduleTime: 'ScheduleTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certIds: 'string',
+      contactIds: 'string',
+      jobType: 'string',
+      name: 'string',
+      resourceIds: 'string',
+      scheduleTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeploymentJobResponseBody extends $tea.Model {
+  jobId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeploymentJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDeploymentJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDeploymentJobResponseBody,
     };
   }
 
@@ -485,9 +662,9 @@ export class CreateWHClientCertificateResponseBody extends $tea.Model {
 }
 
 export class CreateWHClientCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateWHClientCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWHClientCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -563,9 +740,9 @@ export class DecryptResponseBody extends $tea.Model {
 }
 
 export class DecryptResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DecryptResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DecryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -626,9 +803,9 @@ export class DeleteCertificateRequestResponseBody extends $tea.Model {
 }
 
 export class DeleteCertificateRequestResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCertificateRequestResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCertificateRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -642,6 +819,132 @@ export class DeleteCertificateRequestResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteCertificateRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCsrRequest extends $tea.Model {
+  csrId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      csrId: 'CsrId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csrId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCsrResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCsrResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCsrResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCsrResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeploymentJobRequest extends $tea.Model {
+  jobId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeploymentJobResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeploymentJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDeploymentJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDeploymentJobResponseBody,
     };
   }
 
@@ -689,9 +992,9 @@ export class DeletePCACertResponseBody extends $tea.Model {
 }
 
 export class DeletePCACertResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePCACertResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePCACertResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -752,9 +1055,9 @@ export class DeleteUserCertificateResponseBody extends $tea.Model {
 }
 
 export class DeleteUserCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteUserCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteUserCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -768,6 +1071,72 @@ export class DeleteUserCertificateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteUserCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWorkerResourceRequest extends $tea.Model {
+  jobId?: number;
+  workerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      workerId: 'WorkerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+      workerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWorkerResourceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWorkerResourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteWorkerResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteWorkerResourceResponseBody,
     };
   }
 
@@ -845,9 +1214,9 @@ export class DescribeCertificateStateResponseBody extends $tea.Model {
 }
 
 export class DescribeCertificateStateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCertificateStateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCertificateStateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -861,6 +1230,108 @@ export class DescribeCertificateStateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCertificateStateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeploymentJobStatusRequest extends $tea.Model {
+  jobId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeploymentJobStatusResponseBody extends $tea.Model {
+  buyCount?: number;
+  certCount?: number;
+  costCount?: number;
+  failedCount?: number;
+  matchWorkerCount?: number;
+  productWorkerCount?: DescribeDeploymentJobStatusResponseBodyProductWorkerCount[];
+  requestId?: string;
+  resourceCount?: number;
+  rollbackCount?: number;
+  rollbackFailedCount?: number;
+  rollbackSuccessCount?: number;
+  successCount?: number;
+  useCount?: number;
+  workerCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      buyCount: 'BuyCount',
+      certCount: 'CertCount',
+      costCount: 'CostCount',
+      failedCount: 'FailedCount',
+      matchWorkerCount: 'MatchWorkerCount',
+      productWorkerCount: 'ProductWorkerCount',
+      requestId: 'RequestId',
+      resourceCount: 'ResourceCount',
+      rollbackCount: 'RollbackCount',
+      rollbackFailedCount: 'RollbackFailedCount',
+      rollbackSuccessCount: 'RollbackSuccessCount',
+      successCount: 'SuccessCount',
+      useCount: 'UseCount',
+      workerCount: 'WorkerCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buyCount: 'number',
+      certCount: 'number',
+      costCount: 'number',
+      failedCount: 'number',
+      matchWorkerCount: 'number',
+      productWorkerCount: { 'type': 'array', 'itemType': DescribeDeploymentJobStatusResponseBodyProductWorkerCount },
+      requestId: 'string',
+      resourceCount: 'number',
+      rollbackCount: 'number',
+      rollbackFailedCount: 'number',
+      rollbackSuccessCount: 'number',
+      successCount: 'number',
+      useCount: 'number',
+      workerCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeploymentJobStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDeploymentJobStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDeploymentJobStatusResponseBody,
     };
   }
 
@@ -920,9 +1391,9 @@ export class DescribePackageStateResponseBody extends $tea.Model {
 }
 
 export class DescribePackageStateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePackageStateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePackageStateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -998,9 +1469,9 @@ export class EncryptResponseBody extends $tea.Model {
 }
 
 export class EncryptResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EncryptResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EncryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1048,9 +1519,9 @@ export class GetCertWarehouseQuotaResponseBody extends $tea.Model {
 }
 
 export class GetCertWarehouseQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCertWarehouseQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCertWarehouseQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1064,6 +1535,72 @@ export class GetCertWarehouseQuotaResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCertWarehouseQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCsrDetailRequest extends $tea.Model {
+  csrId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      csrId: 'CsrId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csrId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCsrDetailResponseBody extends $tea.Model {
+  csr?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      csr: 'Csr',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csr: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCsrDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCsrDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCsrDetailResponseBody,
     };
   }
 
@@ -1183,9 +1720,9 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
 }
 
 export class GetUserCertificateDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserCertificateDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserCertificateDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1276,9 +1813,9 @@ export class ListCertResponseBody extends $tea.Model {
 }
 
 export class ListCertResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCertResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCertResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1363,9 +1900,9 @@ export class ListCertWarehouseResponseBody extends $tea.Model {
 }
 
 export class ListCertWarehouseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCertWarehouseResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCertWarehouseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1379,6 +1916,396 @@ export class ListCertWarehouseResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCertWarehouseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudResourcesRequest extends $tea.Model {
+  cloudName?: string;
+  cloudProduct?: string;
+  currentPage?: number;
+  keyword?: string;
+  secretId?: string;
+  showSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cloudName: 'CloudName',
+      cloudProduct: 'CloudProduct',
+      currentPage: 'CurrentPage',
+      keyword: 'Keyword',
+      secretId: 'SecretId',
+      showSize: 'ShowSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloudName: 'string',
+      cloudProduct: 'string',
+      currentPage: 'number',
+      keyword: 'string',
+      secretId: 'string',
+      showSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudResourcesResponseBody extends $tea.Model {
+  currentPage?: number;
+  data?: ListCloudResourcesResponseBodyData[];
+  requestId?: string;
+  showSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      data: 'Data',
+      requestId: 'RequestId',
+      showSize: 'ShowSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      data: { 'type': 'array', 'itemType': ListCloudResourcesResponseBodyData },
+      requestId: 'string',
+      showSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCloudResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCloudResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCsrRequest extends $tea.Model {
+  algorithm?: string;
+  currentPage?: number;
+  keyWord?: string;
+  showSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      currentPage: 'CurrentPage',
+      keyWord: 'KeyWord',
+      showSize: 'ShowSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      currentPage: 'number',
+      keyWord: 'string',
+      showSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCsrResponseBody extends $tea.Model {
+  csrList?: ListCsrResponseBodyCsrList[];
+  currentPage?: number;
+  requestId?: string;
+  showSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      csrList: 'CsrList',
+      currentPage: 'CurrentPage',
+      requestId: 'RequestId',
+      showSize: 'ShowSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csrList: { 'type': 'array', 'itemType': ListCsrResponseBodyCsrList },
+      currentPage: 'number',
+      requestId: 'string',
+      showSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCsrResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCsrResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCsrResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentJobRequest extends $tea.Model {
+  currentPage?: number;
+  jobType?: string;
+  showSize?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      jobType: 'JobType',
+      showSize: 'ShowSize',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      jobType: 'string',
+      showSize: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentJobResponseBody extends $tea.Model {
+  currentPage?: number;
+  data?: ListDeploymentJobResponseBodyData[];
+  requestId?: string;
+  showSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      data: 'Data',
+      requestId: 'RequestId',
+      showSize: 'ShowSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      data: { 'type': 'array', 'itemType': ListDeploymentJobResponseBodyData },
+      requestId: 'string',
+      showSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDeploymentJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDeploymentJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentJobCertRequest extends $tea.Model {
+  jobId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentJobCertResponseBody extends $tea.Model {
+  data?: ListDeploymentJobCertResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListDeploymentJobCertResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentJobCertResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDeploymentJobCertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDeploymentJobCertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentJobResourceRequest extends $tea.Model {
+  jobId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentJobResourceResponseBody extends $tea.Model {
+  data?: ListDeploymentJobResourceResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListDeploymentJobResourceResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentJobResourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDeploymentJobResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDeploymentJobResourceResponseBody,
     };
   }
 
@@ -1453,9 +2380,9 @@ export class ListUserCertificateOrderResponseBody extends $tea.Model {
 }
 
 export class ListUserCertificateOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserCertificateOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserCertificateOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1522,9 +2449,9 @@ export class RenewCertificateOrderForPackageRequestResponseBody extends $tea.Mod
 }
 
 export class RenewCertificateOrderForPackageRequestResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewCertificateOrderForPackageRequestResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewCertificateOrderForPackageRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1585,9 +2512,9 @@ export class RevokeWHClientCertificateResponseBody extends $tea.Model {
 }
 
 export class RevokeWHClientCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RevokeWHClientCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RevokeWHClientCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1660,9 +2587,9 @@ export class SignResponseBody extends $tea.Model {
 }
 
 export class SignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SignResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1676,6 +2603,363 @@ export class SignResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SignResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCsrRequest extends $tea.Model {
+  csrId?: number;
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      csrId: 'CsrId',
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csrId: 'number',
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCsrResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCsrResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCsrResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCsrResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDeploymentJobRequest extends $tea.Model {
+  certIds?: string;
+  contactIds?: string;
+  jobId?: number;
+  name?: string;
+  resourceIds?: string;
+  scheduleTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certIds: 'CertIds',
+      contactIds: 'ContactIds',
+      jobId: 'JobId',
+      name: 'Name',
+      resourceIds: 'ResourceIds',
+      scheduleTime: 'ScheduleTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certIds: 'string',
+      contactIds: 'string',
+      jobId: 'number',
+      name: 'string',
+      resourceIds: 'string',
+      scheduleTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDeploymentJobResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDeploymentJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDeploymentJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDeploymentJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDeploymentJobStatusRequest extends $tea.Model {
+  jobId?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDeploymentJobStatusResponseBody extends $tea.Model {
+  data?: any;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDeploymentJobStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDeploymentJobStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDeploymentJobStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkerResourceStatusRequest extends $tea.Model {
+  jobId?: number;
+  status?: string;
+  workerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      status: 'Status',
+      workerId: 'WorkerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+      status: 'string',
+      workerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkerResourceStatusResponseBody extends $tea.Model {
+  data?: any;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkerResourceStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateWorkerResourceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateWorkerResourceStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadCsrRequest extends $tea.Model {
+  csr?: string;
+  key?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      csr: 'Csr',
+      key: 'Key',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csr: 'string',
+      key: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadCsrResponseBody extends $tea.Model {
+  csrId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      csrId: 'CsrId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csrId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadCsrResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadCsrResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UploadCsrResponseBody,
     };
   }
 
@@ -1735,9 +3019,9 @@ export class UploadPCACertResponseBody extends $tea.Model {
 }
 
 export class UploadPCACertResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UploadPCACertResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadPCACertResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1822,9 +3106,9 @@ export class UploadUserCertificateResponseBody extends $tea.Model {
 }
 
 export class UploadUserCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UploadUserCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadUserCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1900,9 +3184,9 @@ export class VerifyResponseBody extends $tea.Model {
 }
 
 export class VerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1916,6 +3200,28 @@ export class VerifyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: VerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeploymentJobStatusResponseBodyProductWorkerCount extends $tea.Model {
+  count?: number;
+  productName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      productName: 'ProductName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      productName: 'string',
     };
   }
 
@@ -2008,6 +3314,344 @@ export class ListCertWarehouseResponseBodyCertWarehouseList extends $tea.Model {
       qps: 'number',
       type: 'string',
       whId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudResourcesResponseBodyData extends $tea.Model {
+  certEndTime?: string;
+  certId?: number;
+  certName?: string;
+  certStartTime?: string;
+  cloudAccessId?: string;
+  cloudName?: string;
+  cloudProduct?: string;
+  cloudRegion?: string;
+  defaultResource?: number;
+  domain?: string;
+  enableHttps?: number;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  instanceId?: string;
+  listenerId?: string;
+  listenerPort?: string;
+  regionId?: string;
+  status?: string;
+  useSsl?: number;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certEndTime: 'CertEndTime',
+      certId: 'CertId',
+      certName: 'CertName',
+      certStartTime: 'CertStartTime',
+      cloudAccessId: 'CloudAccessId',
+      cloudName: 'CloudName',
+      cloudProduct: 'CloudProduct',
+      cloudRegion: 'CloudRegion',
+      defaultResource: 'DefaultResource',
+      domain: 'Domain',
+      enableHttps: 'EnableHttps',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      instanceId: 'InstanceId',
+      listenerId: 'ListenerId',
+      listenerPort: 'ListenerPort',
+      regionId: 'RegionId',
+      status: 'Status',
+      useSsl: 'UseSsl',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certEndTime: 'string',
+      certId: 'number',
+      certName: 'string',
+      certStartTime: 'string',
+      cloudAccessId: 'string',
+      cloudName: 'string',
+      cloudProduct: 'string',
+      cloudRegion: 'string',
+      defaultResource: 'number',
+      domain: 'string',
+      enableHttps: 'number',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      instanceId: 'string',
+      listenerId: 'string',
+      listenerPort: 'string',
+      regionId: 'string',
+      status: 'string',
+      useSsl: 'number',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCsrResponseBodyCsrList extends $tea.Model {
+  algorithm?: string;
+  commonName?: string;
+  corpName?: string;
+  countryCode?: string;
+  csrId?: number;
+  department?: string;
+  hasPrivateKey?: boolean;
+  keySha2?: string;
+  keySize?: number;
+  locality?: string;
+  name?: string;
+  province?: string;
+  sans?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      commonName: 'CommonName',
+      corpName: 'CorpName',
+      countryCode: 'CountryCode',
+      csrId: 'CsrId',
+      department: 'Department',
+      hasPrivateKey: 'HasPrivateKey',
+      keySha2: 'KeySha2',
+      keySize: 'KeySize',
+      locality: 'Locality',
+      name: 'Name',
+      province: 'Province',
+      sans: 'Sans',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      commonName: 'string',
+      corpName: 'string',
+      countryCode: 'string',
+      csrId: 'number',
+      department: 'string',
+      hasPrivateKey: 'boolean',
+      keySha2: 'string',
+      keySize: 'number',
+      locality: 'string',
+      name: 'string',
+      province: 'string',
+      sans: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentJobResponseBodyData extends $tea.Model {
+  certDomain?: string;
+  certType?: string;
+  del?: number;
+  endTime?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  instanceId?: string;
+  jobType?: string;
+  name?: string;
+  productName?: string;
+  rollback?: number;
+  scheduleTime?: string;
+  startTime?: string;
+  status?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certDomain: 'CertDomain',
+      certType: 'CertType',
+      del: 'Del',
+      endTime: 'EndTime',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      instanceId: 'InstanceId',
+      jobType: 'JobType',
+      name: 'Name',
+      productName: 'ProductName',
+      rollback: 'Rollback',
+      scheduleTime: 'ScheduleTime',
+      startTime: 'StartTime',
+      status: 'Status',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certDomain: 'string',
+      certType: 'string',
+      del: 'number',
+      endTime: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      instanceId: 'string',
+      jobType: 'string',
+      name: 'string',
+      productName: 'string',
+      rollback: 'number',
+      scheduleTime: 'string',
+      startTime: 'string',
+      status: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentJobCertResponseBodyData extends $tea.Model {
+  algorithm?: string;
+  certId?: number;
+  certInstanceId?: string;
+  certName?: string;
+  certOrderType?: string;
+  certType?: string;
+  commonName?: string;
+  isTrustee?: boolean;
+  month?: number;
+  notAfterTime?: number;
+  notBeforeTime?: number;
+  orderId?: number;
+  sans?: string[];
+  statusCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      certId: 'CertId',
+      certInstanceId: 'CertInstanceId',
+      certName: 'CertName',
+      certOrderType: 'CertOrderType',
+      certType: 'CertType',
+      commonName: 'CommonName',
+      isTrustee: 'IsTrustee',
+      month: 'Month',
+      notAfterTime: 'NotAfterTime',
+      notBeforeTime: 'NotBeforeTime',
+      orderId: 'OrderId',
+      sans: 'Sans',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      certId: 'number',
+      certInstanceId: 'string',
+      certName: 'string',
+      certOrderType: 'string',
+      certType: 'string',
+      commonName: 'string',
+      isTrustee: 'boolean',
+      month: 'number',
+      notAfterTime: 'number',
+      notBeforeTime: 'number',
+      orderId: 'number',
+      sans: { 'type': 'array', 'itemType': 'string' },
+      statusCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentJobResourceResponseBodyData extends $tea.Model {
+  certEndTime?: string;
+  certId?: number;
+  certName?: string;
+  certStartTime?: string;
+  cloudAccessId?: string;
+  cloudName?: string;
+  cloudProduct?: string;
+  cloudRegion?: string;
+  defaultResource?: number;
+  domain?: string;
+  enableHttps?: number;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  instanceId?: string;
+  listenerId?: string;
+  listenerPort?: string;
+  regionId?: string;
+  remark?: string;
+  status?: string;
+  useSsl?: number;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certEndTime: 'CertEndTime',
+      certId: 'CertId',
+      certName: 'CertName',
+      certStartTime: 'CertStartTime',
+      cloudAccessId: 'CloudAccessId',
+      cloudName: 'CloudName',
+      cloudProduct: 'CloudProduct',
+      cloudRegion: 'CloudRegion',
+      defaultResource: 'DefaultResource',
+      domain: 'Domain',
+      enableHttps: 'EnableHttps',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      instanceId: 'InstanceId',
+      listenerId: 'ListenerId',
+      listenerPort: 'ListenerPort',
+      regionId: 'RegionId',
+      remark: 'Remark',
+      status: 'Status',
+      useSsl: 'UseSsl',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certEndTime: 'string',
+      certId: 'number',
+      certName: 'string',
+      certStartTime: 'string',
+      cloudAccessId: 'string',
+      cloudName: 'string',
+      cloudProduct: 'string',
+      cloudRegion: 'string',
+      defaultResource: 'number',
+      domain: 'string',
+      enableHttps: 'number',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      instanceId: 'string',
+      listenerId: 'string',
+      listenerPort: 'string',
+      regionId: 'string',
+      remark: 'string',
+      status: 'string',
+      useSsl: 'number',
+      userId: 'number',
     };
   }
 
@@ -2516,6 +4160,120 @@ export default class Client extends OpenApi {
     return await this.createCertificateWithCsrRequestWithOptions(request, runtime);
   }
 
+  async createCsrWithOptions(request: CreateCsrRequest, runtime: $Util.RuntimeOptions): Promise<CreateCsrResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.commonName)) {
+      query["CommonName"] = request.commonName;
+    }
+
+    if (!Util.isUnset(request.corpName)) {
+      query["CorpName"] = request.corpName;
+    }
+
+    if (!Util.isUnset(request.countryCode)) {
+      query["CountryCode"] = request.countryCode;
+    }
+
+    if (!Util.isUnset(request.department)) {
+      query["Department"] = request.department;
+    }
+
+    if (!Util.isUnset(request.keySize)) {
+      query["KeySize"] = request.keySize;
+    }
+
+    if (!Util.isUnset(request.locality)) {
+      query["Locality"] = request.locality;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    if (!Util.isUnset(request.sans)) {
+      query["Sans"] = request.sans;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCsr",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCsrResponse>(await this.callApi(params, req, runtime), new CreateCsrResponse({}));
+  }
+
+  async createCsr(request: CreateCsrRequest): Promise<CreateCsrResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCsrWithOptions(request, runtime);
+  }
+
+  async createDeploymentJobWithOptions(request: CreateDeploymentJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeploymentJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certIds)) {
+      query["CertIds"] = request.certIds;
+    }
+
+    if (!Util.isUnset(request.contactIds)) {
+      query["ContactIds"] = request.contactIds;
+    }
+
+    if (!Util.isUnset(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!Util.isUnset(request.scheduleTime)) {
+      query["ScheduleTime"] = request.scheduleTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDeploymentJob",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDeploymentJobResponse>(await this.callApi(params, req, runtime), new CreateDeploymentJobResponse({}));
+  }
+
+  async createDeploymentJob(request: CreateDeploymentJobRequest): Promise<CreateDeploymentJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDeploymentJobWithOptions(request, runtime);
+  }
+
   async createWHClientCertificateWithOptions(request: CreateWHClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateWHClientCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2696,6 +4454,64 @@ export default class Client extends OpenApi {
     return await this.deleteCertificateRequestWithOptions(request, runtime);
   }
 
+  async deleteCsrWithOptions(request: DeleteCsrRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCsrResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.csrId)) {
+      query["CsrId"] = request.csrId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCsr",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCsrResponse>(await this.callApi(params, req, runtime), new DeleteCsrResponse({}));
+  }
+
+  async deleteCsr(request: DeleteCsrRequest): Promise<DeleteCsrResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCsrWithOptions(request, runtime);
+  }
+
+  async deleteDeploymentJobWithOptions(request: DeleteDeploymentJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeploymentJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDeploymentJob",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDeploymentJobResponse>(await this.callApi(params, req, runtime), new DeleteDeploymentJobResponse({}));
+  }
+
+  async deleteDeploymentJob(request: DeleteDeploymentJobRequest): Promise<DeleteDeploymentJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDeploymentJobWithOptions(request, runtime);
+  }
+
   async deletePCACertWithOptions(request: DeletePCACertRequest, runtime: $Util.RuntimeOptions): Promise<DeletePCACertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2767,6 +4583,39 @@ export default class Client extends OpenApi {
     return await this.deleteUserCertificateWithOptions(request, runtime);
   }
 
+  async deleteWorkerResourceWithOptions(request: DeleteWorkerResourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWorkerResourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.workerId)) {
+      query["WorkerId"] = request.workerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteWorkerResource",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWorkerResourceResponse>(await this.callApi(params, req, runtime), new DeleteWorkerResourceResponse({}));
+  }
+
+  async deleteWorkerResource(request: DeleteWorkerResourceRequest): Promise<DeleteWorkerResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteWorkerResourceWithOptions(request, runtime);
+  }
+
   /**
     * If you do not complete the verification of the domain name ownership after you submit a certificate application, you can call this operation to obtain the information that is required to complete the verification. You can complete the verification of the domain name ownership based on the data returned. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on the DNS server.
     * The certificate authority (CA) reviews your certificate application only after you complete the verification of the domain name ownership. After the CA approves your certificate application, the CA issues the certificate. If a certificate is issued, you can call this operation to obtain the CA certificate and private key of the certificate.
@@ -2809,6 +4658,35 @@ export default class Client extends OpenApi {
   async describeCertificateState(request: DescribeCertificateStateRequest): Promise<DescribeCertificateStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCertificateStateWithOptions(request, runtime);
+  }
+
+  async describeDeploymentJobStatusWithOptions(request: DescribeDeploymentJobStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeploymentJobStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDeploymentJobStatus",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDeploymentJobStatusResponse>(await this.callApi(params, req, runtime), new DescribeDeploymentJobStatusResponse({}));
+  }
+
+  async describeDeploymentJobStatus(request: DescribeDeploymentJobStatusRequest): Promise<DescribeDeploymentJobStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDeploymentJobStatusWithOptions(request, runtime);
   }
 
   async describePackageStateWithOptions(request: DescribePackageStateRequest, runtime: $Util.RuntimeOptions): Promise<DescribePackageStateResponse> {
@@ -2900,6 +4778,35 @@ export default class Client extends OpenApi {
   async getCertWarehouseQuota(): Promise<GetCertWarehouseQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCertWarehouseQuotaWithOptions(runtime);
+  }
+
+  async getCsrDetailWithOptions(request: GetCsrDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetCsrDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.csrId)) {
+      query["CsrId"] = request.csrId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCsrDetail",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCsrDetailResponse>(await this.callApi(params, req, runtime), new GetCsrDetailResponse({}));
+  }
+
+  async getCsrDetail(request: GetCsrDetailRequest): Promise<GetCsrDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCsrDetailWithOptions(request, runtime);
   }
 
   /**
@@ -3057,6 +4964,195 @@ export default class Client extends OpenApi {
   async listCertWarehouse(request: ListCertWarehouseRequest): Promise<ListCertWarehouseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCertWarehouseWithOptions(request, runtime);
+  }
+
+  async listCloudResourcesWithOptions(request: ListCloudResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cloudName)) {
+      query["CloudName"] = request.cloudName;
+    }
+
+    if (!Util.isUnset(request.cloudProduct)) {
+      query["CloudProduct"] = request.cloudProduct;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.secretId)) {
+      query["SecretId"] = request.secretId;
+    }
+
+    if (!Util.isUnset(request.showSize)) {
+      query["ShowSize"] = request.showSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCloudResources",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCloudResourcesResponse>(await this.callApi(params, req, runtime), new ListCloudResourcesResponse({}));
+  }
+
+  async listCloudResources(request: ListCloudResourcesRequest): Promise<ListCloudResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCloudResourcesWithOptions(request, runtime);
+  }
+
+  async listCsrWithOptions(request: ListCsrRequest, runtime: $Util.RuntimeOptions): Promise<ListCsrResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.keyWord)) {
+      query["KeyWord"] = request.keyWord;
+    }
+
+    if (!Util.isUnset(request.showSize)) {
+      query["ShowSize"] = request.showSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCsr",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCsrResponse>(await this.callApi(params, req, runtime), new ListCsrResponse({}));
+  }
+
+  async listCsr(request: ListCsrRequest): Promise<ListCsrResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCsrWithOptions(request, runtime);
+  }
+
+  async listDeploymentJobWithOptions(request: ListDeploymentJobRequest, runtime: $Util.RuntimeOptions): Promise<ListDeploymentJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!Util.isUnset(request.showSize)) {
+      query["ShowSize"] = request.showSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDeploymentJob",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDeploymentJobResponse>(await this.callApi(params, req, runtime), new ListDeploymentJobResponse({}));
+  }
+
+  async listDeploymentJob(request: ListDeploymentJobRequest): Promise<ListDeploymentJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDeploymentJobWithOptions(request, runtime);
+  }
+
+  async listDeploymentJobCertWithOptions(request: ListDeploymentJobCertRequest, runtime: $Util.RuntimeOptions): Promise<ListDeploymentJobCertResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDeploymentJobCert",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDeploymentJobCertResponse>(await this.callApi(params, req, runtime), new ListDeploymentJobCertResponse({}));
+  }
+
+  async listDeploymentJobCert(request: ListDeploymentJobCertRequest): Promise<ListDeploymentJobCertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDeploymentJobCertWithOptions(request, runtime);
+  }
+
+  async listDeploymentJobResourceWithOptions(request: ListDeploymentJobResourceRequest, runtime: $Util.RuntimeOptions): Promise<ListDeploymentJobResourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDeploymentJobResource",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDeploymentJobResourceResponse>(await this.callApi(params, req, runtime), new ListDeploymentJobResourceResponse({}));
+  }
+
+  async listDeploymentJobResource(request: ListDeploymentJobResourceRequest): Promise<ListDeploymentJobResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDeploymentJobResourceWithOptions(request, runtime);
   }
 
   /**
@@ -3241,6 +5337,195 @@ export default class Client extends OpenApi {
   async sign(request: SignRequest): Promise<SignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.signWithOptions(request, runtime);
+  }
+
+  async updateCsrWithOptions(request: UpdateCsrRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCsrResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.csrId)) {
+      query["CsrId"] = request.csrId;
+    }
+
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCsr",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCsrResponse>(await this.callApi(params, req, runtime), new UpdateCsrResponse({}));
+  }
+
+  async updateCsr(request: UpdateCsrRequest): Promise<UpdateCsrResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCsrWithOptions(request, runtime);
+  }
+
+  async updateDeploymentJobWithOptions(request: UpdateDeploymentJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDeploymentJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certIds)) {
+      query["CertIds"] = request.certIds;
+    }
+
+    if (!Util.isUnset(request.contactIds)) {
+      query["ContactIds"] = request.contactIds;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!Util.isUnset(request.scheduleTime)) {
+      query["ScheduleTime"] = request.scheduleTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDeploymentJob",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDeploymentJobResponse>(await this.callApi(params, req, runtime), new UpdateDeploymentJobResponse({}));
+  }
+
+  async updateDeploymentJob(request: UpdateDeploymentJobRequest): Promise<UpdateDeploymentJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDeploymentJobWithOptions(request, runtime);
+  }
+
+  async updateDeploymentJobStatusWithOptions(request: UpdateDeploymentJobStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDeploymentJobStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDeploymentJobStatus",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDeploymentJobStatusResponse>(await this.callApi(params, req, runtime), new UpdateDeploymentJobStatusResponse({}));
+  }
+
+  async updateDeploymentJobStatus(request: UpdateDeploymentJobStatusRequest): Promise<UpdateDeploymentJobStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDeploymentJobStatusWithOptions(request, runtime);
+  }
+
+  async updateWorkerResourceStatusWithOptions(request: UpdateWorkerResourceStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWorkerResourceStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.workerId)) {
+      query["WorkerId"] = request.workerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateWorkerResourceStatus",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateWorkerResourceStatusResponse>(await this.callApi(params, req, runtime), new UpdateWorkerResourceStatusResponse({}));
+  }
+
+  async updateWorkerResourceStatus(request: UpdateWorkerResourceStatusRequest): Promise<UpdateWorkerResourceStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateWorkerResourceStatusWithOptions(request, runtime);
+  }
+
+  async uploadCsrWithOptions(request: UploadCsrRequest, runtime: $Util.RuntimeOptions): Promise<UploadCsrResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.csr)) {
+      query["Csr"] = request.csr;
+    }
+
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UploadCsr",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadCsrResponse>(await this.callApi(params, req, runtime), new UploadCsrResponse({}));
+  }
+
+  async uploadCsr(request: UploadCsrRequest): Promise<UploadCsrResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uploadCsrWithOptions(request, runtime);
   }
 
   /**
