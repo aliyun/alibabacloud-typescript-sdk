@@ -6540,6 +6540,7 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class MigrateAvailableZoneRequest extends $tea.Model {
+  category?: string;
   DBInstanceId?: string;
   effectiveTime?: string;
   ownerAccount?: string;
@@ -6550,6 +6551,7 @@ export class MigrateAvailableZoneRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
       DBInstanceId: 'DBInstanceId',
       effectiveTime: 'EffectiveTime',
       ownerAccount: 'OwnerAccount',
@@ -6563,6 +6565,7 @@ export class MigrateAvailableZoneRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
       DBInstanceId: 'string',
       effectiveTime: 'string',
       ownerAccount: 'string',
@@ -19277,6 +19280,10 @@ export default class Client extends OpenApi {
   async migrateAvailableZoneWithOptions(request: MigrateAvailableZoneRequest, runtime: $Util.RuntimeOptions): Promise<MigrateAvailableZoneResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
