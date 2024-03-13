@@ -5709,6 +5709,7 @@ export class DescribeDBNodePerformanceRequest extends $tea.Model {
   DBClusterId?: string;
   DBNodeId?: string;
   endTime?: string;
+  interval?: string;
   key?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
@@ -5716,6 +5717,7 @@ export class DescribeDBNodePerformanceRequest extends $tea.Model {
       DBClusterId: 'DBClusterId',
       DBNodeId: 'DBNodeId',
       endTime: 'EndTime',
+      interval: 'Interval',
       key: 'Key',
       startTime: 'StartTime',
     };
@@ -5726,6 +5728,7 @@ export class DescribeDBNodePerformanceRequest extends $tea.Model {
       DBClusterId: 'string',
       DBNodeId: 'string',
       endTime: 'string',
+      interval: 'string',
       key: 'string',
       startTime: 'string',
     };
@@ -5892,6 +5895,7 @@ export class DescribeDBProxyPerformanceRequest extends $tea.Model {
   DBClusterId?: string;
   DBEndpointId?: string;
   endTime?: string;
+  interval?: string;
   key?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
@@ -5899,6 +5903,7 @@ export class DescribeDBProxyPerformanceRequest extends $tea.Model {
       DBClusterId: 'DBClusterId',
       DBEndpointId: 'DBEndpointId',
       endTime: 'EndTime',
+      interval: 'Interval',
       key: 'Key',
       startTime: 'StartTime',
     };
@@ -5909,6 +5914,7 @@ export class DescribeDBProxyPerformanceRequest extends $tea.Model {
       DBClusterId: 'string',
       DBEndpointId: 'string',
       endTime: 'string',
+      interval: 'string',
       key: 'string',
       startTime: 'string',
     };
@@ -9011,6 +9017,7 @@ export class ModifyAccountPasswordRequest extends $tea.Model {
   newAccountPassword?: string;
   ownerAccount?: string;
   ownerId?: number;
+  passwordType?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -9020,6 +9027,7 @@ export class ModifyAccountPasswordRequest extends $tea.Model {
       newAccountPassword: 'NewAccountPassword',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      passwordType: 'PasswordType',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -9032,6 +9040,7 @@ export class ModifyAccountPasswordRequest extends $tea.Model {
       newAccountPassword: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      passwordType: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -20379,6 +20388,10 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
     if (!Util.isUnset(request.key)) {
       query["Key"] = request.key;
     }
@@ -20495,6 +20508,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
     }
 
     if (!Util.isUnset(request.key)) {
@@ -22537,6 +22554,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.passwordType)) {
+      query["PasswordType"] = request.passwordType;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
