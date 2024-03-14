@@ -368,6 +368,72 @@ export class BatchCopyVpcFirewallControlPolicyResponse extends $tea.Model {
   }
 }
 
+export class BatchDeleteVpcFirewallControlPolicyRequest extends $tea.Model {
+  aclUuidList?: string[];
+  vpcFirewallId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclUuidList: 'AclUuidList',
+      vpcFirewallId: 'VpcFirewallId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclUuidList: { 'type': 'array', 'itemType': 'string' },
+      vpcFirewallId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteVpcFirewallControlPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteVpcFirewallControlPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchDeleteVpcFirewallControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchDeleteVpcFirewallControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDownloadTaskRequest extends $tea.Model {
   lang?: string;
   taskData?: string;
@@ -11877,6 +11943,39 @@ export default class Client extends OpenApi {
     return await this.batchCopyVpcFirewallControlPolicyWithOptions(request, runtime);
   }
 
+  async batchDeleteVpcFirewallControlPolicyWithOptions(request: BatchDeleteVpcFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteVpcFirewallControlPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclUuidList)) {
+      query["AclUuidList"] = request.aclUuidList;
+    }
+
+    if (!Util.isUnset(request.vpcFirewallId)) {
+      query["VpcFirewallId"] = request.vpcFirewallId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchDeleteVpcFirewallControlPolicy",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchDeleteVpcFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new BatchDeleteVpcFirewallControlPolicyResponse({}));
+  }
+
+  async batchDeleteVpcFirewallControlPolicy(request: BatchDeleteVpcFirewallControlPolicyRequest): Promise<BatchDeleteVpcFirewallControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchDeleteVpcFirewallControlPolicyWithOptions(request, runtime);
+  }
+
   async createDownloadTaskWithOptions(request: CreateDownloadTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDownloadTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12647,6 +12746,15 @@ export default class Client extends OpenApi {
     return await this.deleteControlPolicyTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to delete file download tasks and delete the files.
+    * **
+    * **Warning** Both tasks and involved files are deleted. You can no longer download the involved files by using the download links. This operation is irreversible. Proceed with caution.
+    *
+    * @param request DeleteDownloadTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDownloadTaskResponse
+   */
   async deleteDownloadTaskWithOptions(request: DeleteDownloadTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDownloadTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12675,6 +12783,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDownloadTaskResponse>(await this.callApi(params, req, runtime), new DeleteDownloadTaskResponse({}));
   }
 
+  /**
+    * You can call this operation to delete file download tasks and delete the files.
+    * **
+    * **Warning** Both tasks and involved files are deleted. You can no longer download the involved files by using the download links. This operation is irreversible. Proceed with caution.
+    *
+    * @param request DeleteDownloadTaskRequest
+    * @return DeleteDownloadTaskResponse
+   */
   async deleteDownloadTask(request: DeleteDownloadTaskRequest): Promise<DeleteDownloadTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDownloadTaskWithOptions(request, runtime);
