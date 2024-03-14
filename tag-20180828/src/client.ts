@@ -65,9 +65,9 @@ export class AttachPolicyResponseBody extends $tea.Model {
 }
 
 export class AttachPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -143,9 +143,9 @@ export class CheckCreatedByEnabledResponseBody extends $tea.Model {
 }
 
 export class CheckCreatedByEnabledResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckCreatedByEnabledResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckCreatedByEnabledResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -218,9 +218,9 @@ export class CloseCreatedByResponseBody extends $tea.Model {
 }
 
 export class CloseCreatedByResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CloseCreatedByResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloseCreatedByResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -287,10 +287,12 @@ export class CreatePolicyRequest extends $tea.Model {
 
 export class CreatePolicyResponseBody extends $tea.Model {
   policyId?: string;
+  policyName?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       policyId: 'PolicyId',
+      policyName: 'PolicyName',
       requestId: 'RequestId',
     };
   }
@@ -298,6 +300,7 @@ export class CreatePolicyResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       policyId: 'string',
+      policyName: 'string',
       requestId: 'string',
     };
   }
@@ -308,9 +311,9 @@ export class CreatePolicyResponseBody extends $tea.Model {
 }
 
 export class CreatePolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -383,9 +386,9 @@ export class CreateTagsResponseBody extends $tea.Model {
 }
 
 export class CreateTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTagsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -458,9 +461,9 @@ export class DeletePolicyResponseBody extends $tea.Model {
 }
 
 export class DeletePolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -536,9 +539,9 @@ export class DeleteTagResponseBody extends $tea.Model {
 }
 
 export class DeleteTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -617,9 +620,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -698,9 +701,9 @@ export class DetachPolicyResponseBody extends $tea.Model {
 }
 
 export class DetachPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -723,6 +726,7 @@ export class DetachPolicyResponse extends $tea.Model {
 }
 
 export class DisablePolicyTypeRequest extends $tea.Model {
+  openType?: string;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -731,6 +735,7 @@ export class DisablePolicyTypeRequest extends $tea.Model {
   userType?: string;
   static names(): { [key: string]: string } {
     return {
+      openType: 'OpenType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -742,6 +747,7 @@ export class DisablePolicyTypeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      openType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -776,9 +782,9 @@ export class DisablePolicyTypeResponseBody extends $tea.Model {
 }
 
 export class DisablePolicyTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisablePolicyTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisablePolicyTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -801,6 +807,7 @@ export class DisablePolicyTypeResponse extends $tea.Model {
 }
 
 export class EnablePolicyTypeRequest extends $tea.Model {
+  openType?: string;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -809,6 +816,7 @@ export class EnablePolicyTypeRequest extends $tea.Model {
   userType?: string;
   static names(): { [key: string]: string } {
     return {
+      openType: 'OpenType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -820,6 +828,7 @@ export class EnablePolicyTypeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      openType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -854,9 +863,9 @@ export class EnablePolicyTypeResponseBody extends $tea.Model {
 }
 
 export class EnablePolicyTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnablePolicyTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnablePolicyTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -938,9 +947,9 @@ export class GenerateConfigRuleReportResponseBody extends $tea.Model {
 }
 
 export class GenerateConfigRuleReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateConfigRuleReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateConfigRuleReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1028,9 +1037,9 @@ export class GetConfigRuleReportResponseBody extends $tea.Model {
 }
 
 export class GetConfigRuleReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetConfigRuleReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConfigRuleReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1109,9 +1118,9 @@ export class GetEffectivePolicyResponseBody extends $tea.Model {
 }
 
 export class GetEffectivePolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetEffectivePolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEffectivePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1187,9 +1196,9 @@ export class GetPolicyResponseBody extends $tea.Model {
 }
 
 export class GetPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1212,6 +1221,7 @@ export class GetPolicyResponse extends $tea.Model {
 }
 
 export class GetPolicyEnableStatusRequest extends $tea.Model {
+  openType?: string;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -1220,6 +1230,7 @@ export class GetPolicyEnableStatusRequest extends $tea.Model {
   userType?: string;
   static names(): { [key: string]: string } {
     return {
+      openType: 'OpenType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -1231,6 +1242,7 @@ export class GetPolicyEnableStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      openType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -1268,9 +1280,9 @@ export class GetPolicyEnableStatusResponseBody extends $tea.Model {
 }
 
 export class GetPolicyEnableStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPolicyEnableStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPolicyEnableStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1367,9 +1379,9 @@ export class ListConfigRulesForTargetResponseBody extends $tea.Model {
 }
 
 export class ListConfigRulesForTargetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListConfigRulesForTargetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConfigRulesForTargetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1460,9 +1472,9 @@ export class ListPoliciesResponseBody extends $tea.Model {
 }
 
 export class ListPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1550,9 +1562,9 @@ export class ListPoliciesForTargetResponseBody extends $tea.Model {
 }
 
 export class ListPoliciesForTargetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPoliciesForTargetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPoliciesForTargetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1646,9 +1658,9 @@ export class ListResourcesByTagResponseBody extends $tea.Model {
 }
 
 export class ListResourcesByTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListResourcesByTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResourcesByTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1742,9 +1754,9 @@ export class ListSupportResourceTypesResponseBody extends $tea.Model {
 }
 
 export class ListSupportResourceTypesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSupportResourceTypesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSupportResourceTypesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1841,9 +1853,9 @@ export class ListTagKeysResponseBody extends $tea.Model {
 }
 
 export class ListTagKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagKeysResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1934,9 +1946,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2033,9 +2045,9 @@ export class ListTagValuesResponseBody extends $tea.Model {
 }
 
 export class ListTagValuesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagValuesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagValuesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2126,9 +2138,9 @@ export class ListTargetsForPolicyResponseBody extends $tea.Model {
 }
 
 export class ListTargetsForPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTargetsForPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTargetsForPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2213,9 +2225,9 @@ export class ModifyPolicyResponseBody extends $tea.Model {
 }
 
 export class ModifyPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2288,9 +2300,9 @@ export class OpenCreatedByResponseBody extends $tea.Model {
 }
 
 export class OpenCreatedByResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OpenCreatedByResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OpenCreatedByResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2369,9 +2381,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2450,9 +2462,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2649,6 +2661,7 @@ export class ListConfigRulesForTargetResponseBodyData extends $tea.Model {
   policyType?: string;
   remediation?: boolean;
   tagKey?: string;
+  tagValue?: string;
   targetId?: string;
   targetType?: string;
   static names(): { [key: string]: string } {
@@ -2658,6 +2671,7 @@ export class ListConfigRulesForTargetResponseBodyData extends $tea.Model {
       policyType: 'PolicyType',
       remediation: 'Remediation',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
       targetId: 'TargetId',
       targetType: 'TargetType',
     };
@@ -2670,6 +2684,7 @@ export class ListConfigRulesForTargetResponseBodyData extends $tea.Model {
       policyType: 'string',
       remediation: 'boolean',
       tagKey: 'string',
+      tagValue: 'string',
       targetId: 'string',
       targetType: 'string',
     };
@@ -2814,10 +2829,12 @@ export class ListResourcesByTagResponseBodyResources extends $tea.Model {
 export class ListSupportResourceTypesResponseBodySupportResourceTypesSupportItems extends $tea.Model {
   support?: boolean;
   supportCode?: string;
+  supportDetails?: { [key: string]: string }[];
   static names(): { [key: string]: string } {
     return {
       support: 'Support',
       supportCode: 'SupportCode',
+      supportDetails: 'SupportDetails',
     };
   }
 
@@ -2825,6 +2842,7 @@ export class ListSupportResourceTypesResponseBodySupportResourceTypesSupportItem
     return {
       support: 'boolean',
       supportCode: 'string',
+      supportDetails: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
     };
   }
 
@@ -3379,6 +3397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to call the API operation to create a tag policy named `test`. In this example, the Tag Policy feature in multi-account mode is used. The tag policy defines that resources to which the `CostCenter:Beijing` or `CostCenter:Shanghai` tag is added are compliant and other resources are not compliant.
     *
     * @param request CreatePolicyRequest
@@ -3442,6 +3461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to call the API operation to create a tag policy named `test`. In this example, the Tag Policy feature in multi-account mode is used. The tag policy defines that resources to which the `CostCenter:Beijing` or `CostCenter:Shanghai` tag is added are compliant and other resources are not compliant.
     *
     * @param request CreatePolicyRequest
@@ -3453,8 +3473,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The region ID.
-    * >  Only `cn-hangzhou` is supported.
+    * ###
+    * A preset tag is a tag that you create in advance and is available for the resources in all regions. You can create preset tags in the stage of tag planning and add them to specific resources in the stage of tag implementation. When you create a preset tag, you can specify only the tag key. You can specify a tag value in the future.
+    * This topic provides an example on how to call the API operation to create a preset tag whose tag key is `Environment` to indicate the business environment.
     *
     * @param request CreateTagsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3501,8 +3522,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The region ID.
-    * >  Only `cn-hangzhou` is supported.
+    * ###
+    * A preset tag is a tag that you create in advance and is available for the resources in all regions. You can create preset tags in the stage of tag planning and add them to specific resources in the stage of tag implementation. When you create a preset tag, you can specify only the tag key. You can specify a tag value in the future.
+    * This topic provides an example on how to call the API operation to create a preset tag whose tag key is `Environment` to indicate the business environment.
     *
     * @param request CreateTagsRequest
     * @return CreateTagsResponse
@@ -3573,8 +3595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The region ID.
-    * >  Only `cn-hangzhou` is supported.
+    * This topic provides an example on how to call the API operation to delete the preset tag whose tag key is `Environment` and tag value is `test`.
     *
     * @param request DeleteTagRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3625,8 +3646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The region ID.
-    * >  Only `cn-hangzhou` is supported.
+    * This topic provides an example on how to call the API operation to delete the preset tag whose tag key is `Environment` and tag value is `test`.
     *
     * @param request DeleteTagRequest
     * @return DeleteTagResponse
@@ -3756,6 +3776,10 @@ export default class Client extends OpenApi {
   async disablePolicyTypeWithOptions(request: DisablePolicyTypeRequest, runtime: $Util.RuntimeOptions): Promise<DisablePolicyTypeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.openType)) {
+      query["OpenType"] = request.openType;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -3805,6 +3829,10 @@ export default class Client extends OpenApi {
   async enablePolicyTypeWithOptions(request: EnablePolicyTypeRequest, runtime: $Util.RuntimeOptions): Promise<EnablePolicyTypeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.openType)) {
+      query["OpenType"] = request.openType;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -4121,6 +4149,10 @@ export default class Client extends OpenApi {
   async getPolicyEnableStatusWithOptions(request: GetPolicyEnableStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyEnableStatusResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.openType)) {
+      query["OpenType"] = request.openType;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -4334,7 +4366,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about common request parameters, see [Common parameters](~~159973~~).
+    * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag policies that are attached to the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag policies that are attached to the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+    * This topic provides an example on how to call the API operation to query the tag policies that are attached to the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag policy is attached to the current logon account.
     *
     * @param request ListPoliciesForTargetRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4393,7 +4426,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about common request parameters, see [Common parameters](~~159973~~).
+    * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag policies that are attached to the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag policies that are attached to the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+    * This topic provides an example on how to call the API operation to query the tag policies that are attached to the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag policy is attached to the current logon account.
     *
     * @param request ListPoliciesForTargetRequest
     * @return ListPoliciesForTargetResponse
@@ -4486,7 +4520,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to call the API operation to query the resource types supported by tags.
+    * ### [](#)Call examples
+    * *   Query a list of resource types supported by TagResources or UntagResources. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22TAG_CONSOLE_SUPPORT%22%7D).
+    * *   Query a list of resource types supported by ListTagResources or ListResourcesByTag. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22%7D).
+    * *   Query a list of resource types that support createdby tags. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22CREATED_BY_TAG_CONSOLE_SUPPORT%22%7D).
     *
     * @param request ListSupportResourceTypesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4553,7 +4590,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to call the API operation to query the resource types supported by tags.
+    * ### [](#)Call examples
+    * *   Query a list of resource types supported by TagResources or UntagResources. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22TAG_CONSOLE_SUPPORT%22%7D).
+    * *   Query a list of resource types supported by ListTagResources or ListResourcesByTag. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22%7D).
+    * *   Query a list of resource types that support createdby tags. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22CREATED_BY_TAG_CONSOLE_SUPPORT%22%7D).
     *
     * @param request ListSupportResourceTypesRequest
     * @return ListSupportResourceTypesResponse
@@ -4650,10 +4690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to call the API operation to query the tags that are added to resources in the cn-hangzhou region. The response shows the following information:
-    * *   The tags `k1:v1` and `k2:v2` are added to the Elastic Compute Service (ECS) instance `i-bp15hr53jws84akg****`.
-    * *   The tags `k1:v1` and `k2:v2` are added to the disk `d-bp16cat8zekjocv4****`.
-    * *   The tags `k1:v1` and `k2:v2` are added to the virtual private cloud (VPC) `vpc-bp19dd90tkt6tz7wu****`.
+    * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](~~171455~~).
     *
     * @param request ListTagResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4720,10 +4757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to call the API operation to query the tags that are added to resources in the cn-hangzhou region. The response shows the following information:
-    * *   The tags `k1:v1` and `k2:v2` are added to the Elastic Compute Service (ECS) instance `i-bp15hr53jws84akg****`.
-    * *   The tags `k1:v1` and `k2:v2` are added to the disk `d-bp16cat8zekjocv4****`.
-    * *   The tags `k1:v1` and `k2:v2` are added to the virtual private cloud (VPC) `vpc-bp19dd90tkt6tz7wu****`.
+    * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](~~171455~~).
     *
     * @param request ListTagResourcesRequest
     * @return ListTagResourcesResponse
@@ -4961,6 +4995,13 @@ export default class Client extends OpenApi {
     return await this.modifyPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * createdby tags can help you analyze costs and bills and manage the costs of cloud resources in an efficient manner. You can identify the creators of resources based on the createdby tags added to the resources. createdby tags are system tags that are provided by Alibaba Cloud and automatically added to resources. The key of createdby tags is `acs:tag:createdby`.
+    *
+    * @param request OpenCreatedByRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OpenCreatedByResponse
+   */
   async openCreatedByWithOptions(request: OpenCreatedByRequest, runtime: $Util.RuntimeOptions): Promise<OpenCreatedByResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5001,6 +5042,12 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenCreatedByResponse>(await this.callApi(params, req, runtime), new OpenCreatedByResponse({}));
   }
 
+  /**
+    * createdby tags can help you analyze costs and bills and manage the costs of cloud resources in an efficient manner. You can identify the creators of resources based on the createdby tags added to the resources. createdby tags are system tags that are provided by Alibaba Cloud and automatically added to resources. The key of createdby tags is `acs:tag:createdby`.
+    *
+    * @param request OpenCreatedByRequest
+    * @return OpenCreatedByResponse
+   */
   async openCreatedBy(request: OpenCreatedByRequest): Promise<OpenCreatedByResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openCreatedByWithOptions(request, runtime);
@@ -5008,7 +5055,7 @@ export default class Client extends OpenApi {
 
   /**
     * Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](~~156983~~).
-    * This topic provides an example on how to call the API operation to add the tags `k1:v1` and `k2:v2` to the virtual private cloud (VPC) `vpc-bp19dd90tkt6tz7wu****` in the `cn-hangzhou` region.
+    * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](~~171455~~).
     *
     * @param request TagResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5064,7 +5111,7 @@ export default class Client extends OpenApi {
 
   /**
     * Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](~~156983~~).
-    * This topic provides an example on how to call the API operation to add the tags `k1:v1` and `k2:v2` to the virtual private cloud (VPC) `vpc-bp19dd90tkt6tz7wu****` in the `cn-hangzhou` region.
+    * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](~~171455~~).
     *
     * @param request TagResourcesRequest
     * @return TagResourcesResponse
@@ -5076,7 +5123,7 @@ export default class Client extends OpenApi {
 
   /**
     * After you remove a tag, the tag is automatically deleted within 24 hours if it is not added to other resources.
-    * This topic provides an example on how to call the API operation to remove the tag whose tag key is `k1` from the virtual private cloud (VPC) `vpc-bp19dd90tkt6tz7wu****` in the `cn-hangzhou` region.
+    * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](~~171455~~).
     *
     * @param request UntagResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5132,7 +5179,7 @@ export default class Client extends OpenApi {
 
   /**
     * After you remove a tag, the tag is automatically deleted within 24 hours if it is not added to other resources.
-    * This topic provides an example on how to call the API operation to remove the tag whose tag key is `k1` from the virtual private cloud (VPC) `vpc-bp19dd90tkt6tz7wu****` in the `cn-hangzhou` region.
+    * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](~~171455~~).
     *
     * @param request UntagResourcesRequest
     * @return UntagResourcesResponse
