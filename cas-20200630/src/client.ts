@@ -1796,6 +1796,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $tea.Model {
   afterDate?: number;
   algorithm?: string;
   beforeDate?: number;
+  caCertChain?: string;
   certIssuedCount?: number;
   certRemainingCount?: number;
   certTotalCount?: number;
@@ -1824,6 +1825,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $tea.Model {
       afterDate: 'AfterDate',
       algorithm: 'Algorithm',
       beforeDate: 'BeforeDate',
+      caCertChain: 'CaCertChain',
       certIssuedCount: 'CertIssuedCount',
       certRemainingCount: 'CertRemainingCount',
       certTotalCount: 'CertTotalCount',
@@ -1855,6 +1857,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $tea.Model {
       afterDate: 'number',
       algorithm: 'string',
       beforeDate: 'number',
+      caCertChain: 'string',
       certIssuedCount: 'number',
       certRemainingCount: 'number',
       certTotalCount: 'number',
@@ -2356,7 +2359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate] operation and an intermediate CA certificate by calling the [CreateSubCACertificate] operation. Only intermediate CA certificates can issue client certificates.
+    * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~CreateRootCACertificate~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~CreateRootCACertificate~~) operation. Only intermediate CA certificates can issue client certificates.
     * ## QPS limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -2453,7 +2456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate] operation and an intermediate CA certificate by calling the [CreateSubCACertificate] operation. Only intermediate CA certificates can issue client certificates.
+    * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~CreateRootCACertificate~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~CreateRootCACertificate~~) operation. Only intermediate CA certificates can issue client certificates.
     * ## QPS limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -2699,7 +2702,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The root CA certificate in the PEM format.
+    * You can call the CreateRootCACertificate operation to create a self-signed root CA certificate. A root CA certificate is the trust anchor in a chain of trust for private certificates that are used within an enterprise. You must create a root CA certificate before you can use the root CA certificate to issue intermediate CA certificates. Then, you can use the intermediate CA certificates to issue client certificates and server certificates.
+    * Before you call this operation, make sure that you have purchased a private root CA instance by using the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](~~208553~~).
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request CreateRootCACertificateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2758,7 +2764,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The root CA certificate in the PEM format.
+    * You can call the CreateRootCACertificate operation to create a self-signed root CA certificate. A root CA certificate is the trust anchor in a chain of trust for private certificates that are used within an enterprise. You must create a root CA certificate before you can use the root CA certificate to issue intermediate CA certificates. Then, you can use the intermediate CA certificates to issue client certificates and server certificates.
+    * Before you call this operation, make sure that you have purchased a private root CA instance by using the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](~~208553~~).
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request CreateRootCACertificateRequest
     * @return CreateRootCACertificateResponse
@@ -2875,9 +2884,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Usage notes
     * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~328093~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~328094~~) operation. Only intermediate CA certificates can be used to issue server certificates.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request CreateServerCertificateWithCsrRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2972,9 +2980,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Usage notes
     * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~328093~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~328094~~) operation. Only intermediate CA certificates can be used to issue server certificates.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request CreateServerCertificateWithCsrRequest
     * @return CreateServerCertificateWithCsrResponse
