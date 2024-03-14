@@ -12253,6 +12253,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   config?: string;
   createTime?: string;
   currency?: string;
+  extendInfos?: { [key: string]: string };
   instanceIDs?: string;
   operator?: string;
   orderId?: string;
@@ -12282,6 +12283,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
       config: 'Config',
       createTime: 'CreateTime',
       currency: 'Currency',
+      extendInfos: 'ExtendInfos',
       instanceIDs: 'InstanceIDs',
       operator: 'Operator',
       orderId: 'OrderId',
@@ -12314,6 +12316,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
       config: 'string',
       createTime: 'string',
       currency: 'string',
+      extendInfos: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       instanceIDs: 'string',
       operator: 'string',
       orderId: 'string',
