@@ -93,9 +93,9 @@ export class CreateApiDestinationResponseBody extends $tea.Model {
 }
 
 export class CreateApiDestinationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateApiDestinationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateApiDestinationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -202,9 +202,9 @@ export class CreateConnectionResponseBody extends $tea.Model {
 }
 
 export class CreateConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -280,9 +280,9 @@ export class CreateEventBusResponseBody extends $tea.Model {
 }
 
 export class CreateEventBusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEventBusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEventBusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -428,9 +428,9 @@ export class CreateEventSourceResponseBody extends $tea.Model {
 }
 
 export class CreateEventSourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEventSourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEventSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -558,9 +558,9 @@ export class CreateEventStreamingResponseBody extends $tea.Model {
 }
 
 export class CreateEventStreamingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEventStreamingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEventStreamingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -682,9 +682,9 @@ export class CreateRuleResponseBody extends $tea.Model {
 }
 
 export class CreateRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -754,9 +754,9 @@ export class CreateServiceLinkedRoleForProductResponseBody extends $tea.Model {
 }
 
 export class CreateServiceLinkedRoleForProductResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateServiceLinkedRoleForProductResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceLinkedRoleForProductResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -823,9 +823,9 @@ export class DeleteApiDestinationResponseBody extends $tea.Model {
 }
 
 export class DeleteApiDestinationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteApiDestinationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteApiDestinationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -892,9 +892,9 @@ export class DeleteConnectionResponseBody extends $tea.Model {
 }
 
 export class DeleteConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -964,9 +964,9 @@ export class DeleteEventBusResponseBody extends $tea.Model {
 }
 
 export class DeleteEventBusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEventBusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEventBusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1036,9 +1036,9 @@ export class DeleteEventSourceResponseBody extends $tea.Model {
 }
 
 export class DeleteEventSourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEventSourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEventSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1080,7 +1080,7 @@ export class DeleteEventStreamingRequest extends $tea.Model {
 }
 
 export class DeleteEventStreamingResponseBody extends $tea.Model {
-  code?: boolean;
+  code?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -1095,7 +1095,7 @@ export class DeleteEventStreamingResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'boolean',
+      code: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -1108,9 +1108,9 @@ export class DeleteEventStreamingResponseBody extends $tea.Model {
 }
 
 export class DeleteEventStreamingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEventStreamingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEventStreamingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1183,9 +1183,9 @@ export class DeleteRuleResponseBody extends $tea.Model {
 }
 
 export class DeleteRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1289,9 +1289,9 @@ export class DeleteTargetsResponseBody extends $tea.Model {
 }
 
 export class DeleteTargetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTargetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTargetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1364,9 +1364,9 @@ export class DisableRuleResponseBody extends $tea.Model {
 }
 
 export class DisableRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1439,9 +1439,9 @@ export class EnableRuleResponseBody extends $tea.Model {
 }
 
 export class EnableRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1511,9 +1511,9 @@ export class GetApiDestinationResponseBody extends $tea.Model {
 }
 
 export class GetApiDestinationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetApiDestinationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetApiDestinationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1586,9 +1586,9 @@ export class GetConnectionResponseBody extends $tea.Model {
 }
 
 export class GetConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1661,9 +1661,9 @@ export class GetEventBusResponseBody extends $tea.Model {
 }
 
 export class GetEventBusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetEventBusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEventBusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1736,9 +1736,9 @@ export class GetEventStreamingResponseBody extends $tea.Model {
 }
 
 export class GetEventStreamingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetEventStreamingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEventStreamingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1814,9 +1814,9 @@ export class GetRuleResponseBody extends $tea.Model {
 }
 
 export class GetRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1870,9 +1870,9 @@ export class ListAliyunOfficialEventSourcesResponseBody extends $tea.Model {
 }
 
 export class ListAliyunOfficialEventSourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAliyunOfficialEventSourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAliyunOfficialEventSourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1951,9 +1951,9 @@ export class ListApiDestinationsResponseBody extends $tea.Model {
 }
 
 export class ListApiDestinationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListApiDestinationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApiDestinationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2029,9 +2029,9 @@ export class ListConnectionsResponseBody extends $tea.Model {
 }
 
 export class ListConnectionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListConnectionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConnectionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2110,9 +2110,9 @@ export class ListEventBusesResponseBody extends $tea.Model {
 }
 
 export class ListEventBusesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEventBusesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEventBusesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2197,9 +2197,9 @@ export class ListEventStreamingsResponseBody extends $tea.Model {
 }
 
 export class ListEventStreamingsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEventStreamingsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEventStreamingsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2281,9 +2281,9 @@ export class ListRulesResponseBody extends $tea.Model {
 }
 
 export class ListRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2368,9 +2368,9 @@ export class ListTargetsResponseBody extends $tea.Model {
 }
 
 export class ListTargetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTargetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTargetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2452,9 +2452,9 @@ export class ListUserDefinedEventSourcesResponseBody extends $tea.Model {
 }
 
 export class ListUserDefinedEventSourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserDefinedEventSourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserDefinedEventSourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2496,7 +2496,7 @@ export class PauseEventStreamingRequest extends $tea.Model {
 }
 
 export class PauseEventStreamingResponseBody extends $tea.Model {
-  code?: boolean;
+  code?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -2511,7 +2511,7 @@ export class PauseEventStreamingResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'boolean',
+      code: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -2524,9 +2524,9 @@ export class PauseEventStreamingResponseBody extends $tea.Model {
 }
 
 export class PauseEventStreamingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PauseEventStreamingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PauseEventStreamingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2630,9 +2630,9 @@ export class PutTargetsResponseBody extends $tea.Model {
 }
 
 export class PutTargetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PutTargetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PutTargetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2711,9 +2711,9 @@ export class QueryEventResponseBody extends $tea.Model {
 }
 
 export class QueryEventResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryEventResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryEventResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2789,9 +2789,9 @@ export class QueryEventTracesResponseBody extends $tea.Model {
 }
 
 export class QueryEventTracesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryEventTracesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryEventTracesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2870,9 +2870,9 @@ export class QueryTracedEventByEventIdResponseBody extends $tea.Model {
 }
 
 export class QueryTracedEventByEventIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTracedEventByEventIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTracedEventByEventIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2966,9 +2966,9 @@ export class QueryTracedEventsResponseBody extends $tea.Model {
 }
 
 export class QueryTracedEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTracedEventsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTracedEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3010,7 +3010,7 @@ export class StartEventStreamingRequest extends $tea.Model {
 }
 
 export class StartEventStreamingResponseBody extends $tea.Model {
-  code?: boolean;
+  code?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -3025,7 +3025,7 @@ export class StartEventStreamingResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'boolean',
+      code: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -3038,9 +3038,9 @@ export class StartEventStreamingResponseBody extends $tea.Model {
 }
 
 export class StartEventStreamingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartEventStreamingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartEventStreamingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3116,9 +3116,9 @@ export class TestEventPatternResponseBody extends $tea.Model {
 }
 
 export class TestEventPatternResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TestEventPatternResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TestEventPatternResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3225,9 +3225,9 @@ export class UpdateApiDestinationResponseBody extends $tea.Model {
 }
 
 export class UpdateApiDestinationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateApiDestinationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateApiDestinationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3331,9 +3331,9 @@ export class UpdateConnectionResponseBody extends $tea.Model {
 }
 
 export class UpdateConnectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateConnectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3406,9 +3406,9 @@ export class UpdateEventBusResponseBody extends $tea.Model {
 }
 
 export class UpdateEventBusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateEventBusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEventBusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3554,9 +3554,9 @@ export class UpdateEventSourceResponseBody extends $tea.Model {
 }
 
 export class UpdateEventSourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateEventSourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEventSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3681,9 +3681,9 @@ export class UpdateEventStreamingResponseBody extends $tea.Model {
 }
 
 export class UpdateEventStreamingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateEventStreamingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEventStreamingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3768,9 +3768,9 @@ export class UpdateRuleResponseBody extends $tea.Model {
 }
 
 export class UpdateRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5236,6 +5236,274 @@ export class CreateEventStreamingRequestSinkSinkMNSParameters extends $tea.Model
   }
 }
 
+export class CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkPrometheusParametersData extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkPrometheusParametersPassword extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkPrometheusParametersURL extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkPrometheusParametersUsername extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkPrometheusParametersVpcId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkPrometheusParameters extends $tea.Model {
+  authorizationType?: CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType;
+  data?: CreateEventStreamingRequestSinkSinkPrometheusParametersData;
+  networkType?: CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType;
+  password?: CreateEventStreamingRequestSinkSinkPrometheusParametersPassword;
+  securityGroupId?: CreateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId;
+  URL?: CreateEventStreamingRequestSinkSinkPrometheusParametersURL;
+  username?: CreateEventStreamingRequestSinkSinkPrometheusParametersUsername;
+  vSwitchId?: CreateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId;
+  vpcId?: CreateEventStreamingRequestSinkSinkPrometheusParametersVpcId;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationType: 'AuthorizationType',
+      data: 'Data',
+      networkType: 'NetworkType',
+      password: 'Password',
+      securityGroupId: 'SecurityGroupId',
+      URL: 'URL',
+      username: 'Username',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationType: CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType,
+      data: CreateEventStreamingRequestSinkSinkPrometheusParametersData,
+      networkType: CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType,
+      password: CreateEventStreamingRequestSinkSinkPrometheusParametersPassword,
+      securityGroupId: CreateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId,
+      URL: CreateEventStreamingRequestSinkSinkPrometheusParametersURL,
+      username: CreateEventStreamingRequestSinkSinkPrometheusParametersUsername,
+      vSwitchId: CreateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId,
+      vpcId: CreateEventStreamingRequestSinkSinkPrometheusParametersVpcId,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventStreamingRequestSinkSinkRabbitMQParametersBody extends $tea.Model {
   form?: string;
   template?: string;
@@ -6074,6 +6342,7 @@ export class CreateEventStreamingRequestSink extends $tea.Model {
   sinkFnfParameters?: CreateEventStreamingRequestSinkSinkFnfParameters;
   sinkKafkaParameters?: CreateEventStreamingRequestSinkSinkKafkaParameters;
   sinkMNSParameters?: CreateEventStreamingRequestSinkSinkMNSParameters;
+  sinkPrometheusParameters?: CreateEventStreamingRequestSinkSinkPrometheusParameters;
   sinkRabbitMQParameters?: CreateEventStreamingRequestSinkSinkRabbitMQParameters;
   sinkRocketMQParameters?: CreateEventStreamingRequestSinkSinkRocketMQParameters;
   sinkSLSParameters?: CreateEventStreamingRequestSinkSinkSLSParameters;
@@ -6084,6 +6353,7 @@ export class CreateEventStreamingRequestSink extends $tea.Model {
       sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
+      sinkPrometheusParameters: 'SinkPrometheusParameters',
       sinkRabbitMQParameters: 'SinkRabbitMQParameters',
       sinkRocketMQParameters: 'SinkRocketMQParameters',
       sinkSLSParameters: 'SinkSLSParameters',
@@ -6097,6 +6367,7 @@ export class CreateEventStreamingRequestSink extends $tea.Model {
       sinkFnfParameters: CreateEventStreamingRequestSinkSinkFnfParameters,
       sinkKafkaParameters: CreateEventStreamingRequestSinkSinkKafkaParameters,
       sinkMNSParameters: CreateEventStreamingRequestSinkSinkMNSParameters,
+      sinkPrometheusParameters: CreateEventStreamingRequestSinkSinkPrometheusParameters,
       sinkRabbitMQParameters: CreateEventStreamingRequestSinkSinkRabbitMQParameters,
       sinkRocketMQParameters: CreateEventStreamingRequestSinkSinkRocketMQParameters,
       sinkSLSParameters: CreateEventStreamingRequestSinkSinkSLSParameters,
@@ -6154,6 +6425,7 @@ export class CreateEventStreamingRequestSourceSourceKafkaParameters extends $tea
   securityGroupId?: string;
   topic?: string;
   vSwitchIds?: string;
+  valueDataType?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6165,6 +6437,7 @@ export class CreateEventStreamingRequestSourceSourceKafkaParameters extends $tea
       securityGroupId: 'SecurityGroupId',
       topic: 'Topic',
       vSwitchIds: 'VSwitchIds',
+      valueDataType: 'ValueDataType',
       vpcId: 'VpcId',
     };
   }
@@ -6179,6 +6452,7 @@ export class CreateEventStreamingRequestSourceSourceKafkaParameters extends $tea
       securityGroupId: 'string',
       topic: 'string',
       vSwitchIds: 'string',
+      valueDataType: 'string',
       vpcId: 'string',
     };
   }
@@ -6214,11 +6488,13 @@ export class CreateEventStreamingRequestSourceSourceMNSParameters extends $tea.M
 }
 
 export class CreateEventStreamingRequestSourceSourceMQTTParameters extends $tea.Model {
+  bodyDataType?: string;
   instanceId?: string;
   regionId?: string;
   topic?: string;
   static names(): { [key: string]: string } {
     return {
+      bodyDataType: 'BodyDataType',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       topic: 'Topic',
@@ -6227,9 +6503,35 @@ export class CreateEventStreamingRequestSourceSourceMQTTParameters extends $tea.
 
   static types(): { [key: string]: any } {
     return {
+      bodyDataType: 'string',
       instanceId: 'string',
       regionId: 'string',
       topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSourceSourcePrometheusParameters extends $tea.Model {
+  clusterId?: string;
+  dataType?: string;
+  labels?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dataType: 'DataType',
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dataType: 'string',
+      labels: 'string',
     };
   }
 
@@ -6381,6 +6683,7 @@ export class CreateEventStreamingRequestSource extends $tea.Model {
   sourceKafkaParameters?: CreateEventStreamingRequestSourceSourceKafkaParameters;
   sourceMNSParameters?: CreateEventStreamingRequestSourceSourceMNSParameters;
   sourceMQTTParameters?: CreateEventStreamingRequestSourceSourceMQTTParameters;
+  sourcePrometheusParameters?: CreateEventStreamingRequestSourceSourcePrometheusParameters;
   sourceRabbitMQParameters?: CreateEventStreamingRequestSourceSourceRabbitMQParameters;
   sourceRocketMQParameters?: CreateEventStreamingRequestSourceSourceRocketMQParameters;
   sourceSLSParameters?: CreateEventStreamingRequestSourceSourceSLSParameters;
@@ -6390,6 +6693,7 @@ export class CreateEventStreamingRequestSource extends $tea.Model {
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
       sourceMQTTParameters: 'SourceMQTTParameters',
+      sourcePrometheusParameters: 'SourcePrometheusParameters',
       sourceRabbitMQParameters: 'SourceRabbitMQParameters',
       sourceRocketMQParameters: 'SourceRocketMQParameters',
       sourceSLSParameters: 'SourceSLSParameters',
@@ -6402,6 +6706,7 @@ export class CreateEventStreamingRequestSource extends $tea.Model {
       sourceKafkaParameters: CreateEventStreamingRequestSourceSourceKafkaParameters,
       sourceMNSParameters: CreateEventStreamingRequestSourceSourceMNSParameters,
       sourceMQTTParameters: CreateEventStreamingRequestSourceSourceMQTTParameters,
+      sourcePrometheusParameters: CreateEventStreamingRequestSourceSourcePrometheusParameters,
       sourceRabbitMQParameters: CreateEventStreamingRequestSourceSourceRabbitMQParameters,
       sourceRocketMQParameters: CreateEventStreamingRequestSourceSourceRocketMQParameters,
       sourceSLSParameters: CreateEventStreamingRequestSourceSourceSLSParameters,
@@ -8341,6 +8646,7 @@ export class GetEventStreamingResponseBodyDataSourceSourceKafkaParameters extend
   securityGroupId?: string;
   topic?: string;
   vSwitchIds?: string;
+  valueDataType?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8352,6 +8658,7 @@ export class GetEventStreamingResponseBodyDataSourceSourceKafkaParameters extend
       securityGroupId: 'SecurityGroupId',
       topic: 'Topic',
       vSwitchIds: 'VSwitchIds',
+      valueDataType: 'ValueDataType',
       vpcId: 'VpcId',
     };
   }
@@ -8366,6 +8673,7 @@ export class GetEventStreamingResponseBodyDataSourceSourceKafkaParameters extend
       securityGroupId: 'string',
       topic: 'string',
       vSwitchIds: 'string',
+      valueDataType: 'string',
       vpcId: 'string',
     };
   }
@@ -8417,6 +8725,31 @@ export class GetEventStreamingResponseBodyDataSourceSourceMQTTParameters extends
       instanceId: 'string',
       regionId: 'string',
       topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters extends $tea.Model {
+  clusterId?: string;
+  dataType?: string;
+  labels?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dataType: 'DataType',
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dataType: 'string',
+      labels: 'string',
     };
   }
 
@@ -8553,6 +8886,7 @@ export class GetEventStreamingResponseBodyDataSource extends $tea.Model {
   sourceKafkaParameters?: GetEventStreamingResponseBodyDataSourceSourceKafkaParameters;
   sourceMNSParameters?: GetEventStreamingResponseBodyDataSourceSourceMNSParameters;
   sourceMQTTParameters?: GetEventStreamingResponseBodyDataSourceSourceMQTTParameters;
+  sourcePrometheusParameters?: GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters;
   sourceRabbitMQParameters?: GetEventStreamingResponseBodyDataSourceSourceRabbitMQParameters;
   sourceRocketMQParameters?: GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters;
   sourceSLSParameters?: GetEventStreamingResponseBodyDataSourceSourceSLSParameters;
@@ -8562,6 +8896,7 @@ export class GetEventStreamingResponseBodyDataSource extends $tea.Model {
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
       sourceMQTTParameters: 'SourceMQTTParameters',
+      sourcePrometheusParameters: 'SourcePrometheusParameters',
       sourceRabbitMQParameters: 'SourceRabbitMQParameters',
       sourceRocketMQParameters: 'SourceRocketMQParameters',
       sourceSLSParameters: 'SourceSLSParameters',
@@ -8574,6 +8909,7 @@ export class GetEventStreamingResponseBodyDataSource extends $tea.Model {
       sourceKafkaParameters: GetEventStreamingResponseBodyDataSourceSourceKafkaParameters,
       sourceMNSParameters: GetEventStreamingResponseBodyDataSourceSourceMNSParameters,
       sourceMQTTParameters: GetEventStreamingResponseBodyDataSourceSourceMQTTParameters,
+      sourcePrometheusParameters: GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters,
       sourceRabbitMQParameters: GetEventStreamingResponseBodyDataSourceSourceRabbitMQParameters,
       sourceRocketMQParameters: GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters,
       sourceSLSParameters: GetEventStreamingResponseBodyDataSourceSourceSLSParameters,
@@ -11496,15 +11832,21 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceList extends 
 
 export class ListUserDefinedEventSourcesResponseBodyData extends $tea.Model {
   eventSourceList?: ListUserDefinedEventSourcesResponseBodyDataEventSourceList[];
+  nextToken?: string;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
       eventSourceList: 'EventSourceList',
+      nextToken: 'NextToken',
+      total: 'Total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       eventSourceList: { 'type': 'array', 'itemType': ListUserDefinedEventSourcesResponseBodyDataEventSourceList },
+      nextToken: 'string',
+      total: 'number',
     };
   }
 
@@ -13011,6 +13353,274 @@ export class UpdateEventStreamingRequestSinkSinkMNSParameters extends $tea.Model
   }
 }
 
+export class UpdateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkPrometheusParametersData extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkPrometheusParametersURL extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkPrometheusParametersUsername extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkPrometheusParametersVpcId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkPrometheusParameters extends $tea.Model {
+  authorizationType?: UpdateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType;
+  data?: UpdateEventStreamingRequestSinkSinkPrometheusParametersData;
+  networkType?: UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType;
+  password?: UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword;
+  securityGroupId?: UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId;
+  URL?: UpdateEventStreamingRequestSinkSinkPrometheusParametersURL;
+  username?: UpdateEventStreamingRequestSinkSinkPrometheusParametersUsername;
+  vSwitchId?: UpdateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId;
+  vpcId?: UpdateEventStreamingRequestSinkSinkPrometheusParametersVpcId;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationType: 'AuthorizationType',
+      data: 'Data',
+      networkType: 'NetworkType',
+      password: 'Password',
+      securityGroupId: 'SecurityGroupId',
+      URL: 'URL',
+      username: 'Username',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationType: UpdateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType,
+      data: UpdateEventStreamingRequestSinkSinkPrometheusParametersData,
+      networkType: UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType,
+      password: UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword,
+      securityGroupId: UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId,
+      URL: UpdateEventStreamingRequestSinkSinkPrometheusParametersURL,
+      username: UpdateEventStreamingRequestSinkSinkPrometheusParametersUsername,
+      vSwitchId: UpdateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId,
+      vpcId: UpdateEventStreamingRequestSinkSinkPrometheusParametersVpcId,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSinkSinkRabbitMQParametersBody extends $tea.Model {
   form?: string;
   template?: string;
@@ -13624,6 +14234,7 @@ export class UpdateEventStreamingRequestSink extends $tea.Model {
   sinkFnfParameters?: UpdateEventStreamingRequestSinkSinkFnfParameters;
   sinkKafkaParameters?: UpdateEventStreamingRequestSinkSinkKafkaParameters;
   sinkMNSParameters?: UpdateEventStreamingRequestSinkSinkMNSParameters;
+  sinkPrometheusParameters?: UpdateEventStreamingRequestSinkSinkPrometheusParameters;
   sinkRabbitMQParameters?: UpdateEventStreamingRequestSinkSinkRabbitMQParameters;
   sinkRocketMQParameters?: UpdateEventStreamingRequestSinkSinkRocketMQParameters;
   sinkSLSParameters?: UpdateEventStreamingRequestSinkSinkSLSParameters;
@@ -13633,6 +14244,7 @@ export class UpdateEventStreamingRequestSink extends $tea.Model {
       sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
+      sinkPrometheusParameters: 'SinkPrometheusParameters',
       sinkRabbitMQParameters: 'SinkRabbitMQParameters',
       sinkRocketMQParameters: 'SinkRocketMQParameters',
       sinkSLSParameters: 'SinkSLSParameters',
@@ -13645,6 +14257,7 @@ export class UpdateEventStreamingRequestSink extends $tea.Model {
       sinkFnfParameters: UpdateEventStreamingRequestSinkSinkFnfParameters,
       sinkKafkaParameters: UpdateEventStreamingRequestSinkSinkKafkaParameters,
       sinkMNSParameters: UpdateEventStreamingRequestSinkSinkMNSParameters,
+      sinkPrometheusParameters: UpdateEventStreamingRequestSinkSinkPrometheusParameters,
       sinkRabbitMQParameters: UpdateEventStreamingRequestSinkSinkRabbitMQParameters,
       sinkRocketMQParameters: UpdateEventStreamingRequestSinkSinkRocketMQParameters,
       sinkSLSParameters: UpdateEventStreamingRequestSinkSinkSLSParameters,
@@ -13702,6 +14315,7 @@ export class UpdateEventStreamingRequestSourceSourceKafkaParameters extends $tea
   securityGroupId?: string;
   topic?: string;
   vSwitchIds?: string;
+  valueDataType?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13713,6 +14327,7 @@ export class UpdateEventStreamingRequestSourceSourceKafkaParameters extends $tea
       securityGroupId: 'SecurityGroupId',
       topic: 'Topic',
       vSwitchIds: 'VSwitchIds',
+      valueDataType: 'ValueDataType',
       vpcId: 'VpcId',
     };
   }
@@ -13727,6 +14342,7 @@ export class UpdateEventStreamingRequestSourceSourceKafkaParameters extends $tea
       securityGroupId: 'string',
       topic: 'string',
       vSwitchIds: 'string',
+      valueDataType: 'string',
       vpcId: 'string',
     };
   }
@@ -13778,6 +14394,31 @@ export class UpdateEventStreamingRequestSourceSourceMQTTParameters extends $tea.
       instanceId: 'string',
       regionId: 'string',
       topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSourceSourcePrometheusParameters extends $tea.Model {
+  clusterId?: string;
+  dataType?: string;
+  labels?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dataType: 'DataType',
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dataType: 'string',
+      labels: 'string',
     };
   }
 
@@ -13902,6 +14543,7 @@ export class UpdateEventStreamingRequestSource extends $tea.Model {
   sourceKafkaParameters?: UpdateEventStreamingRequestSourceSourceKafkaParameters;
   sourceMNSParameters?: UpdateEventStreamingRequestSourceSourceMNSParameters;
   sourceMQTTParameters?: UpdateEventStreamingRequestSourceSourceMQTTParameters;
+  sourcePrometheusParameters?: UpdateEventStreamingRequestSourceSourcePrometheusParameters;
   sourceRabbitMQParameters?: UpdateEventStreamingRequestSourceSourceRabbitMQParameters;
   sourceRocketMQParameters?: UpdateEventStreamingRequestSourceSourceRocketMQParameters;
   sourceSLSParameters?: UpdateEventStreamingRequestSourceSourceSLSParameters;
@@ -13911,6 +14553,7 @@ export class UpdateEventStreamingRequestSource extends $tea.Model {
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
       sourceMQTTParameters: 'SourceMQTTParameters',
+      sourcePrometheusParameters: 'SourcePrometheusParameters',
       sourceRabbitMQParameters: 'SourceRabbitMQParameters',
       sourceRocketMQParameters: 'SourceRocketMQParameters',
       sourceSLSParameters: 'SourceSLSParameters',
@@ -13923,6 +14566,7 @@ export class UpdateEventStreamingRequestSource extends $tea.Model {
       sourceKafkaParameters: UpdateEventStreamingRequestSourceSourceKafkaParameters,
       sourceMNSParameters: UpdateEventStreamingRequestSourceSourceMNSParameters,
       sourceMQTTParameters: UpdateEventStreamingRequestSourceSourceMQTTParameters,
+      sourcePrometheusParameters: UpdateEventStreamingRequestSourceSourcePrometheusParameters,
       sourceRabbitMQParameters: UpdateEventStreamingRequestSourceSourceRabbitMQParameters,
       sourceRocketMQParameters: UpdateEventStreamingRequestSourceSourceRocketMQParameters,
       sourceSLSParameters: UpdateEventStreamingRequestSourceSourceSLSParameters,
