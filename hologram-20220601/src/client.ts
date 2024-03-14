@@ -8,6 +8,75 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ChangeResourceGroupRequest extends $tea.Model {
+  instanceId?: string;
+  newResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'instanceId',
+      newResourceGroupId: 'newResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      newResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequest extends $tea.Model {
   autoPay?: boolean;
   autoRenew?: boolean;
@@ -110,9 +179,9 @@ export class CreateInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -188,9 +257,9 @@ export class DeleteInstanceResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -204,6 +273,162 @@ export class DeleteInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableHiveAccessRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableHiveAccessResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableHiveAccessResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableHiveAccessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableHiveAccessResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableHiveAccessRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableHiveAccessResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableHiveAccessResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableHiveAccessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableHiveAccessResponseBody,
     };
   }
 
@@ -247,9 +472,9 @@ export class GetInstanceResponseBody extends $tea.Model {
 }
 
 export class GetInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -263,6 +488,53 @@ export class GetInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWarehouseDetailResponseBody extends $tea.Model {
+  requestId?: string;
+  warehouseDetail?: GetWarehouseDetailResponseBodyWarehouseDetail;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      warehouseDetail: 'WarehouseDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      warehouseDetail: GetWarehouseDetailResponseBodyWarehouseDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWarehouseDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWarehouseDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWarehouseDetailResponseBody,
     };
   }
 
@@ -331,9 +603,9 @@ export class ListInstancesResponseBody extends $tea.Model {
 }
 
 export class ListInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -347,6 +619,53 @@ export class ListInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWarehousesResponseBody extends $tea.Model {
+  warehouseList?: ListWarehousesResponseBodyWarehouseList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      warehouseList: 'WarehouseList',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      warehouseList: { 'type': 'array', 'itemType': ListWarehousesResponseBodyWarehouseList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWarehousesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWarehousesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWarehousesResponseBody,
     };
   }
 
@@ -412,9 +731,9 @@ export class RenewInstanceResponseBody extends $tea.Model {
 }
 
 export class RenewInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -471,9 +790,9 @@ export class RestartInstanceResponseBody extends $tea.Model {
 }
 
 export class RestartInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RestartInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestartInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -530,9 +849,9 @@ export class ResumeInstanceResponseBody extends $tea.Model {
 }
 
 export class ResumeInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResumeInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResumeInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -617,9 +936,9 @@ export class ScaleInstanceResponseBody extends $tea.Model {
 }
 
 export class ScaleInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ScaleInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ScaleInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -676,9 +995,9 @@ export class StopInstanceResponseBody extends $tea.Model {
 }
 
 export class StopInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -754,9 +1073,9 @@ export class UpdateInstanceNameResponseBody extends $tea.Model {
 }
 
 export class UpdateInstanceNameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateInstanceNameResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -847,9 +1166,9 @@ export class UpdateInstanceNetworkTypeResponseBody extends $tea.Model {
 }
 
 export class UpdateInstanceNetworkTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateInstanceNetworkTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceNetworkTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -970,6 +1289,7 @@ export class GetInstanceResponseBodyInstance extends $tea.Model {
   creationTime?: string;
   disk?: string;
   enableHiveAccess?: string;
+  enableServerless?: boolean;
   endpoints?: GetInstanceResponseBodyInstanceEndpoints[];
   expirationTime?: string;
   gatewayCount?: number;
@@ -1000,6 +1320,7 @@ export class GetInstanceResponseBodyInstance extends $tea.Model {
       creationTime: 'CreationTime',
       disk: 'Disk',
       enableHiveAccess: 'EnableHiveAccess',
+      enableServerless: 'EnableServerless',
       endpoints: 'Endpoints',
       expirationTime: 'ExpirationTime',
       gatewayCount: 'GatewayCount',
@@ -1033,6 +1354,7 @@ export class GetInstanceResponseBodyInstance extends $tea.Model {
       creationTime: 'string',
       disk: 'string',
       enableHiveAccess: 'string',
+      enableServerless: 'boolean',
       endpoints: { 'type': 'array', 'itemType': GetInstanceResponseBodyInstanceEndpoints },
       expirationTime: 'string',
       gatewayCount: 'number',
@@ -1053,6 +1375,65 @@ export class GetInstanceResponseBodyInstance extends $tea.Model {
       tags: { 'type': 'array', 'itemType': GetInstanceResponseBodyInstanceTags },
       version: 'string',
       zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList extends $tea.Model {
+  cpu?: number;
+  id?: number;
+  mem?: number;
+  name?: string;
+  nodeCount?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      id: 'Id',
+      mem: 'Mem',
+      name: 'Name',
+      nodeCount: 'NodeCount',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      id: 'number',
+      mem: 'number',
+      name: 'string',
+      nodeCount: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWarehouseDetailResponseBodyWarehouseDetail extends $tea.Model {
+  remainingCpu?: string;
+  reservedCpu?: string;
+  warehouseList?: GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList[];
+  static names(): { [key: string]: string } {
+    return {
+      remainingCpu: 'RemainingCpu',
+      reservedCpu: 'ReservedCpu',
+      warehouseList: 'WarehouseList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remainingCpu: 'string',
+      reservedCpu: 'string',
+      warehouseList: { 'type': 'array', 'itemType': GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList },
     };
   }
 
@@ -1206,6 +1587,40 @@ export class ListInstancesResponseBodyInstanceList extends $tea.Model {
   }
 }
 
+export class ListWarehousesResponseBodyWarehouseList extends $tea.Model {
+  cpu?: number;
+  id?: number;
+  mem?: number;
+  name?: string;
+  nodeCount?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      id: 'Id',
+      mem: 'Mem',
+      name: 'Name',
+      nodeCount: 'NodeCount',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      id: 'number',
+      mem: 'number',
+      name: 'string',
+      nodeCount: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RenewInstanceResponseBodyData extends $tea.Model {
   code?: string;
   message?: string;
@@ -1283,6 +1698,41 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      body["newResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tag/changeResourceGroup`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.changeResourceGroupWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1485,6 +1935,68 @@ export default class Client extends OpenApi {
     return await this.deleteInstanceWithOptions(instanceId, request, headers, runtime);
   }
 
+  async disableHiveAccessWithOptions(instanceId: string, request: DisableHiveAccessRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableHiveAccessResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableHiveAccess",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(instanceId)}/disableHiveAccess`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableHiveAccessResponse>(await this.callApi(params, req, runtime), new DisableHiveAccessResponse({}));
+  }
+
+  async disableHiveAccess(instanceId: string, request: DisableHiveAccessRequest): Promise<DisableHiveAccessResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableHiveAccessWithOptions(instanceId, request, headers, runtime);
+  }
+
+  async enableHiveAccessWithOptions(instanceId: string, request: EnableHiveAccessRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableHiveAccessResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableHiveAccess",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(instanceId)}/enableHiveAccess`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableHiveAccessResponse>(await this.callApi(params, req, runtime), new EnableHiveAccessResponse({}));
+  }
+
+  async enableHiveAccess(instanceId: string, request: EnableHiveAccessRequest): Promise<EnableHiveAccessResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableHiveAccessWithOptions(instanceId, request, headers, runtime);
+  }
+
   async getInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -1507,6 +2019,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceWithOptions(instanceId, headers, runtime);
+  }
+
+  async getWarehouseDetailWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWarehouseDetailResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWarehouseDetail",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(instanceId)}/getWarehouseDetail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWarehouseDetailResponse>(await this.callApi(params, req, runtime), new GetWarehouseDetailResponse({}));
+  }
+
+  async getWarehouseDetail(instanceId: string): Promise<GetWarehouseDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWarehouseDetailWithOptions(instanceId, headers, runtime);
   }
 
   async listInstancesWithOptions(request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
@@ -1546,6 +2082,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(request, headers, runtime);
+  }
+
+  async listWarehousesWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWarehousesResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWarehouses",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(instanceId)}/listWarehouses`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWarehousesResponse>(await this.callApi(params, req, runtime), new ListWarehousesResponse({}));
+  }
+
+  async listWarehouses(instanceId: string): Promise<ListWarehousesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWarehousesWithOptions(instanceId, headers, runtime);
   }
 
   /**
