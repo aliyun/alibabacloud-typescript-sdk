@@ -6791,6 +6791,90 @@ export class ModifyAccountDescriptionResponse extends $tea.Model {
   }
 }
 
+export class ModifyActiveOperationTasksRequest extends $tea.Model {
+  ids?: string;
+  immediateStart?: number;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  switchTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      immediateStart: 'ImmediateStart',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      switchTime: 'SwitchTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      immediateStart: 'number',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      switchTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
+  ids?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyActiveOperationTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAuditLogFilterRequest extends $tea.Model {
   DBInstanceId?: string;
   filter?: string;
@@ -8886,6 +8970,7 @@ export class ModifyTaskInfoResponse extends $tea.Model {
 }
 
 export class ReleaseNodePrivateNetworkAddressRequest extends $tea.Model {
+  connectionType?: string;
   DBInstanceId?: string;
   networkType?: string;
   nodeId?: string;
@@ -8895,6 +8980,7 @@ export class ReleaseNodePrivateNetworkAddressRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      connectionType: 'ConnectionType',
       DBInstanceId: 'DBInstanceId',
       networkType: 'NetworkType',
       nodeId: 'NodeId',
@@ -8907,6 +8993,7 @@ export class ReleaseNodePrivateNetworkAddressRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      connectionType: 'string',
       DBInstanceId: 'string',
       networkType: 'string',
       nodeId: 'string',
@@ -8967,6 +9054,7 @@ export class ReleaseNodePrivateNetworkAddressResponse extends $tea.Model {
 }
 
 export class ReleasePublicNetworkAddressRequest extends $tea.Model {
+  connectionType?: string;
   DBInstanceId?: string;
   nodeId?: string;
   ownerAccount?: string;
@@ -8975,6 +9063,7 @@ export class ReleasePublicNetworkAddressRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      connectionType: 'ConnectionType',
       DBInstanceId: 'DBInstanceId',
       nodeId: 'NodeId',
       ownerAccount: 'OwnerAccount',
@@ -8986,6 +9075,7 @@ export class ReleasePublicNetworkAddressRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      connectionType: 'string',
       DBInstanceId: 'string',
       nodeId: 'string',
       ownerAccount: 'string',
@@ -19473,6 +19563,59 @@ export default class Client extends OpenApi {
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
   }
 
+  async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!Util.isUnset(request.immediateStart)) {
+      query["ImmediateStart"] = request.immediateStart;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyActiveOperationTasks",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTasksResponse({}));
+  }
+
+  async modifyActiveOperationTasks(request: ModifyActiveOperationTasksRequest): Promise<ModifyActiveOperationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyActiveOperationTasksWithOptions(request, runtime);
+  }
+
   /**
     * *   The instance must be in the running state when you call this operation.
     * *   This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
@@ -21198,6 +21341,10 @@ export default class Client extends OpenApi {
   async releaseNodePrivateNetworkAddressWithOptions(request: ReleaseNodePrivateNetworkAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseNodePrivateNetworkAddressResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.connectionType)) {
+      query["ConnectionType"] = request.connectionType;
+    }
+
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -21258,6 +21405,10 @@ export default class Client extends OpenApi {
   async releasePublicNetworkAddressWithOptions(request: ReleasePublicNetworkAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleasePublicNetworkAddressResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.connectionType)) {
+      query["ConnectionType"] = request.connectionType;
+    }
+
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
