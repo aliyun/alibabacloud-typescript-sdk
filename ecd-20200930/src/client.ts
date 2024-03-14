@@ -6107,6 +6107,99 @@ export class DescribeCustomizedListHeadersResponse extends $tea.Model {
   }
 }
 
+export class DescribeDesktopGroupSessionsRequest extends $tea.Model {
+  endTime?: string;
+  endUserId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  ownType?: number;
+  regionId?: string;
+  sessionStatus?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      endUserId: 'EndUserId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      ownType: 'OwnType',
+      regionId: 'RegionId',
+      sessionStatus: 'SessionStatus',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      endUserId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      ownType: 'number',
+      regionId: 'string',
+      sessionStatus: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDesktopGroupSessionsResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  sessions?: DescribeDesktopGroupSessionsResponseBodySessions[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      sessions: 'Sessions',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      sessions: { 'type': 'array', 'itemType': DescribeDesktopGroupSessionsResponseBodySessions },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDesktopGroupSessionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDesktopGroupSessionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDesktopGroupSessionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDesktopGroupsRequest extends $tea.Model {
   bundleId?: string[];
   desktopGroupId?: string;
@@ -18059,6 +18152,79 @@ export class DescribeCustomizedListHeadersResponseBodyHeaders extends $tea.Model
   }
 }
 
+export class DescribeDesktopGroupSessionsResponseBodySessions extends $tea.Model {
+  clientIp?: string;
+  clientOS?: string;
+  clientVersion?: string;
+  desktopGroupId?: string;
+  desktopGroupName?: string;
+  desktopId?: string;
+  endUserApplyCoordinateTime?: number;
+  endUserId?: string;
+  lastSessionEndTime?: string;
+  lastSessionStartTime?: string;
+  latestConnectionTime?: number;
+  officeSiteId?: string;
+  officeSiteName?: string;
+  osType?: string;
+  ownType?: number;
+  protocolType?: string;
+  sessionIdleTime?: number;
+  sessionStatus?: string;
+  totalConnectionDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientIp: 'ClientIp',
+      clientOS: 'ClientOS',
+      clientVersion: 'ClientVersion',
+      desktopGroupId: 'DesktopGroupId',
+      desktopGroupName: 'DesktopGroupName',
+      desktopId: 'DesktopId',
+      endUserApplyCoordinateTime: 'EndUserApplyCoordinateTime',
+      endUserId: 'EndUserId',
+      lastSessionEndTime: 'LastSessionEndTime',
+      lastSessionStartTime: 'LastSessionStartTime',
+      latestConnectionTime: 'LatestConnectionTime',
+      officeSiteId: 'OfficeSiteId',
+      officeSiteName: 'OfficeSiteName',
+      osType: 'OsType',
+      ownType: 'OwnType',
+      protocolType: 'ProtocolType',
+      sessionIdleTime: 'SessionIdleTime',
+      sessionStatus: 'SessionStatus',
+      totalConnectionDuration: 'TotalConnectionDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientIp: 'string',
+      clientOS: 'string',
+      clientVersion: 'string',
+      desktopGroupId: 'string',
+      desktopGroupName: 'string',
+      desktopId: 'string',
+      endUserApplyCoordinateTime: 'number',
+      endUserId: 'string',
+      lastSessionEndTime: 'string',
+      lastSessionStartTime: 'string',
+      latestConnectionTime: 'number',
+      officeSiteId: 'string',
+      officeSiteName: 'string',
+      osType: 'string',
+      ownType: 'number',
+      protocolType: 'string',
+      sessionIdleTime: 'number',
+      sessionStatus: 'string',
+      totalConnectionDuration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDesktopGroupsResponseBodyDesktopGroupsCountPerStatus extends $tea.Model {
   count?: number;
   status?: string;
@@ -26476,6 +26642,63 @@ export default class Client extends OpenApi {
   async describeCustomizedListHeaders(request: DescribeCustomizedListHeadersRequest): Promise<DescribeCustomizedListHeadersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustomizedListHeadersWithOptions(request, runtime);
+  }
+
+  async describeDesktopGroupSessionsWithOptions(request: DescribeDesktopGroupSessionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopGroupSessionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.endUserId)) {
+      query["EndUserId"] = request.endUserId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownType)) {
+      query["OwnType"] = request.ownType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sessionStatus)) {
+      query["SessionStatus"] = request.sessionStatus;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDesktopGroupSessions",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDesktopGroupSessionsResponse>(await this.callApi(params, req, runtime), new DescribeDesktopGroupSessionsResponse({}));
+  }
+
+  async describeDesktopGroupSessions(request: DescribeDesktopGroupSessionsRequest): Promise<DescribeDesktopGroupSessionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDesktopGroupSessionsWithOptions(request, runtime);
   }
 
   async describeDesktopGroupsWithOptions(request: DescribeDesktopGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopGroupsResponse> {
