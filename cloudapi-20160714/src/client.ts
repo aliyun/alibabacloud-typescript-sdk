@@ -4015,6 +4015,7 @@ export class DescribeApiResponseBody extends $tea.Model {
   serviceParameters?: DescribeApiResponseBodyServiceParameters;
   serviceParametersMap?: DescribeApiResponseBodyServiceParametersMap;
   systemParameters?: DescribeApiResponseBodySystemParameters;
+  tagList?: DescribeApiResponseBodyTagList;
   visibility?: string;
   webSocketApiType?: string;
   static names(): { [key: string]: string } {
@@ -4052,6 +4053,7 @@ export class DescribeApiResponseBody extends $tea.Model {
       serviceParameters: 'ServiceParameters',
       serviceParametersMap: 'ServiceParametersMap',
       systemParameters: 'SystemParameters',
+      tagList: 'TagList',
       visibility: 'Visibility',
       webSocketApiType: 'WebSocketApiType',
     };
@@ -4092,6 +4094,7 @@ export class DescribeApiResponseBody extends $tea.Model {
       serviceParameters: DescribeApiResponseBodyServiceParameters,
       serviceParametersMap: DescribeApiResponseBodyServiceParametersMap,
       systemParameters: DescribeApiResponseBodySystemParameters,
+      tagList: DescribeApiResponseBodyTagList,
       visibility: 'string',
       webSocketApiType: 'string',
     };
@@ -17662,6 +17665,47 @@ export class DescribeApiResponseBodySystemParameters extends $tea.Model {
   }
 }
 
+export class DescribeApiResponseBodyTagListTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiResponseBodyTagList extends $tea.Model {
+  tag?: DescribeApiResponseBodyTagListTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeApiResponseBodyTagListTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApiDocResponseBodyErrorCodeSamplesErrorCodeSample extends $tea.Model {
   code?: string;
   description?: string;
@@ -28060,7 +28104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.****************
+    * *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.
     * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
     * *   When you call this operation as an API provider, the definition of the specified API running in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
     * *   Before you call this operation as an API provider, ensure that the API to be queried is a public one or that your application has been authorized to call the API, because authentication on API callers is required.
@@ -28106,7 +28150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.****************
+    * *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.
     * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
     * *   When you call this operation as an API provider, the definition of the specified API running in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
     * *   Before you call this operation as an API provider, ensure that the API to be queried is a public one or that your application has been authorized to call the API, because authentication on API callers is required.
@@ -32416,7 +32460,7 @@ export default class Client extends OpenApi {
     * *   You can also specify Tag.N.Key to query the visible keys of a specified key in a region.
     * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
     * *   You can query tags of the same type or different types in a single operation.
-    * *   You can query all your user tags and visible system tags.
+    * *   You can query all your user types and visible system tags.
     *
     * @param request ListTagResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -32467,7 +32511,7 @@ export default class Client extends OpenApi {
     * *   You can also specify Tag.N.Key to query the visible keys of a specified key in a region.
     * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
     * *   You can query tags of the same type or different types in a single operation.
-    * *   You can query all your user tags and visible system tags.
+    * *   You can query all your user types and visible system tags.
     *
     * @param request ListTagResourcesRequest
     * @return ListTagResourcesResponse
@@ -32519,24 +32563,12 @@ export default class Client extends OpenApi {
       query["BackendId"] = request.backendId;
     }
 
-    if (!Util.isUnset(request.constantParameters)) {
-      query["ConstantParameters"] = request.constantParameters;
-    }
-
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
     }
 
     if (!Util.isUnset(request.disableInternet)) {
       query["DisableInternet"] = request.disableInternet;
-    }
-
-    if (!Util.isUnset(request.errorCodeSamples)) {
-      query["ErrorCodeSamples"] = request.errorCodeSamples;
-    }
-
-    if (!Util.isUnset(request.failResultSample)) {
-      query["FailResultSample"] = request.failResultSample;
     }
 
     if (!Util.isUnset(request.forceNonceCheck)) {
@@ -32555,20 +32587,8 @@ export default class Client extends OpenApi {
       query["RequestConfig"] = request.requestConfig;
     }
 
-    if (!Util.isUnset(request.requestParameters)) {
-      query["RequestParameters"] = request.requestParameters;
-    }
-
     if (!Util.isUnset(request.resultBodyModel)) {
       query["ResultBodyModel"] = request.resultBodyModel;
-    }
-
-    if (!Util.isUnset(request.resultDescriptions)) {
-      query["ResultDescriptions"] = request.resultDescriptions;
-    }
-
-    if (!Util.isUnset(request.resultSample)) {
-      query["ResultSample"] = request.resultSample;
     }
 
     if (!Util.isUnset(request.resultType)) {
@@ -32583,18 +32603,6 @@ export default class Client extends OpenApi {
       query["ServiceConfig"] = request.serviceConfig;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
-      query["ServiceParameters"] = request.serviceParameters;
-    }
-
-    if (!Util.isUnset(request.serviceParametersMap)) {
-      query["ServiceParametersMap"] = request.serviceParametersMap;
-    }
-
-    if (!Util.isUnset(request.systemParameters)) {
-      query["SystemParameters"] = request.systemParameters;
-    }
-
     if (!Util.isUnset(request.visibility)) {
       query["Visibility"] = request.visibility;
     }
@@ -32603,8 +32611,46 @@ export default class Client extends OpenApi {
       query["WebSocketApiType"] = request.webSocketApiType;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.constantParameters)) {
+      body["ConstantParameters"] = request.constantParameters;
+    }
+
+    if (!Util.isUnset(request.errorCodeSamples)) {
+      body["ErrorCodeSamples"] = request.errorCodeSamples;
+    }
+
+    if (!Util.isUnset(request.failResultSample)) {
+      body["FailResultSample"] = request.failResultSample;
+    }
+
+    if (!Util.isUnset(request.requestParameters)) {
+      body["RequestParameters"] = request.requestParameters;
+    }
+
+    if (!Util.isUnset(request.resultDescriptions)) {
+      body["ResultDescriptions"] = request.resultDescriptions;
+    }
+
+    if (!Util.isUnset(request.resultSample)) {
+      body["ResultSample"] = request.resultSample;
+    }
+
+    if (!Util.isUnset(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    if (!Util.isUnset(request.serviceParametersMap)) {
+      body["ServiceParametersMap"] = request.serviceParametersMap;
+    }
+
+    if (!Util.isUnset(request.systemParameters)) {
+      body["SystemParameters"] = request.systemParameters;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ModifyApi",
