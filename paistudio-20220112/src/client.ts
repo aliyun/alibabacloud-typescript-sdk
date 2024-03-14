@@ -1678,9 +1678,9 @@ export class CreateAlgorithmResponseBody extends $tea.Model {
 }
 
 export class CreateAlgorithmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAlgorithmResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAlgorithmResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1763,9 +1763,9 @@ export class CreateAlgorithmVersionResponseBody extends $tea.Model {
 }
 
 export class CreateAlgorithmVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAlgorithmVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAlgorithmVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1856,9 +1856,9 @@ export class CreateQuotaResponseBody extends $tea.Model {
 }
 
 export class CreateQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1937,9 +1937,9 @@ export class CreateResourceGroupResponseBody extends $tea.Model {
 }
 
 export class CreateResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1968,6 +1968,7 @@ export class CreateTrainingJobRequest extends $tea.Model {
   algorithmVersion?: string;
   codeDir?: Location;
   computeResource?: CreateTrainingJobRequestComputeResource;
+  experimentConfig?: CreateTrainingJobRequestExperimentConfig;
   hyperParameters?: CreateTrainingJobRequestHyperParameters[];
   inputChannels?: CreateTrainingJobRequestInputChannels[];
   labels?: CreateTrainingJobRequestLabels[];
@@ -1987,6 +1988,7 @@ export class CreateTrainingJobRequest extends $tea.Model {
       algorithmVersion: 'AlgorithmVersion',
       codeDir: 'CodeDir',
       computeResource: 'ComputeResource',
+      experimentConfig: 'ExperimentConfig',
       hyperParameters: 'HyperParameters',
       inputChannels: 'InputChannels',
       labels: 'Labels',
@@ -2009,6 +2011,7 @@ export class CreateTrainingJobRequest extends $tea.Model {
       algorithmVersion: 'string',
       codeDir: Location,
       computeResource: CreateTrainingJobRequestComputeResource,
+      experimentConfig: CreateTrainingJobRequestExperimentConfig,
       hyperParameters: { 'type': 'array', 'itemType': CreateTrainingJobRequestHyperParameters },
       inputChannels: { 'type': 'array', 'itemType': CreateTrainingJobRequestInputChannels },
       labels: { 'type': 'array', 'itemType': CreateTrainingJobRequestLabels },
@@ -2051,9 +2054,9 @@ export class CreateTrainingJobResponseBody extends $tea.Model {
 }
 
 export class CreateTrainingJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTrainingJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTrainingJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2098,9 +2101,9 @@ export class DeleteMachineGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteMachineGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteMachineGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMachineGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2145,9 +2148,9 @@ export class DeleteQuotaResponseBody extends $tea.Model {
 }
 
 export class DeleteQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2192,9 +2195,9 @@ export class DeleteResourceGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2239,9 +2242,9 @@ export class DeleteResourceGroupMachineGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteResourceGroupMachineGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteResourceGroupMachineGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteResourceGroupMachineGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2313,9 +2316,9 @@ export class GetAlgorithmResponseBody extends $tea.Model {
 }
 
 export class GetAlgorithmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAlgorithmResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAlgorithmResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2381,9 +2384,9 @@ export class GetAlgorithmVersionResponseBody extends $tea.Model {
 }
 
 export class GetAlgorithmVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAlgorithmVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAlgorithmVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2473,9 +2476,9 @@ export class GetMachineGroupResponseBody extends $tea.Model {
 }
 
 export class GetMachineGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMachineGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMachineGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2554,9 +2557,9 @@ export class GetNodeMetricsResponseBody extends $tea.Model {
 }
 
 export class GetNodeMetricsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetNodeMetricsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNodeMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2661,9 +2664,9 @@ export class GetQuotaResponseBody extends $tea.Model {
 }
 
 export class GetQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2788,9 +2791,9 @@ export class GetResourceGroupResponseBody extends $tea.Model {
 }
 
 export class GetResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2930,9 +2933,9 @@ export class GetResourceGroupMachineGroupResponseBody extends $tea.Model {
 }
 
 export class GetResourceGroupMachineGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetResourceGroupMachineGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourceGroupMachineGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3005,9 +3008,9 @@ export class GetResourceGroupRequestResponseBody extends $tea.Model {
 }
 
 export class GetResourceGroupRequestResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetResourceGroupRequestResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourceGroupRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3077,9 +3080,9 @@ export class GetResourceGroupTotalResponseBody extends $tea.Model {
 }
 
 export class GetResourceGroupTotalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetResourceGroupTotalResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourceGroupTotalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3108,6 +3111,8 @@ export class GetTrainingJobResponseBody extends $tea.Model {
   algorithmSpec?: AlgorithmSpec;
   algorithmVersion?: string;
   computeResource?: GetTrainingJobResponseBodyComputeResource;
+  duration?: number;
+  experimentConfig?: GetTrainingJobResponseBodyExperimentConfig;
   gmtCreateTime?: string;
   gmtModifiedTime?: string;
   hyperParameters?: GetTrainingJobResponseBodyHyperParameters[];
@@ -3142,6 +3147,8 @@ export class GetTrainingJobResponseBody extends $tea.Model {
       algorithmSpec: 'AlgorithmSpec',
       algorithmVersion: 'AlgorithmVersion',
       computeResource: 'ComputeResource',
+      duration: 'Duration',
+      experimentConfig: 'ExperimentConfig',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       hyperParameters: 'HyperParameters',
@@ -3179,6 +3186,8 @@ export class GetTrainingJobResponseBody extends $tea.Model {
       algorithmSpec: AlgorithmSpec,
       algorithmVersion: 'string',
       computeResource: GetTrainingJobResponseBodyComputeResource,
+      duration: 'number',
+      experimentConfig: GetTrainingJobResponseBodyExperimentConfig,
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       hyperParameters: { 'type': 'array', 'itemType': GetTrainingJobResponseBodyHyperParameters },
@@ -3214,9 +3223,9 @@ export class GetTrainingJobResponseBody extends $tea.Model {
 }
 
 export class GetTrainingJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTrainingJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTrainingJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3304,9 +3313,9 @@ export class GetUserViewMetricsResponseBody extends $tea.Model {
 }
 
 export class GetUserViewMetricsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserViewMetricsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserViewMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3376,9 +3385,9 @@ export class ListAlgorithmVersionsResponseBody extends $tea.Model {
 }
 
 export class ListAlgorithmVersionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAlgorithmVersionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAlgorithmVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3460,9 +3469,9 @@ export class ListAlgorithmsResponseBody extends $tea.Model {
 }
 
 export class ListAlgorithmsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAlgorithmsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAlgorithmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3559,9 +3568,9 @@ export class ListQuotasResponseBody extends $tea.Model {
 }
 
 export class ListQuotasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListQuotasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListQuotasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3658,9 +3667,9 @@ export class ListResourceGroupMachineGroupsResponseBody extends $tea.Model {
 }
 
 export class ListResourceGroupMachineGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListResourceGroupMachineGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResourceGroupMachineGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3751,9 +3760,9 @@ export class ListResourceGroupsResponseBody extends $tea.Model {
 }
 
 export class ListResourceGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListResourceGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResourceGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3835,9 +3844,9 @@ export class ListTrainingJobLogsResponseBody extends $tea.Model {
 }
 
 export class ListTrainingJobLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTrainingJobLogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTrainingJobLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3916,9 +3925,9 @@ export class ListTrainingJobMetricsResponseBody extends $tea.Model {
 }
 
 export class ListTrainingJobMetricsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTrainingJobMetricsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTrainingJobMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4082,9 +4091,9 @@ export class ListTrainingJobsResponseBody extends $tea.Model {
 }
 
 export class ListTrainingJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTrainingJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTrainingJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4151,9 +4160,9 @@ export class ScaleQuotaResponseBody extends $tea.Model {
 }
 
 export class ScaleQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ScaleQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ScaleQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4195,9 +4204,9 @@ export class StopTrainingJobResponseBody extends $tea.Model {
 }
 
 export class StopTrainingJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopTrainingJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopTrainingJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4264,9 +4273,9 @@ export class UpdateAlgorithmResponseBody extends $tea.Model {
 }
 
 export class UpdateAlgorithmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAlgorithmResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAlgorithmResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4349,9 +4358,9 @@ export class UpdateAlgorithmVersionResponseBody extends $tea.Model {
 }
 
 export class UpdateAlgorithmVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAlgorithmVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAlgorithmVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4421,9 +4430,9 @@ export class UpdateQuotaResponseBody extends $tea.Model {
 }
 
 export class UpdateQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4496,9 +4505,9 @@ export class UpdateResourceGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4559,9 +4568,9 @@ export class UpdateTrainingJobLabelsResponseBody extends $tea.Model {
 }
 
 export class UpdateTrainingJobLabelsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTrainingJobLabelsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTrainingJobLabelsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4804,6 +4813,25 @@ export class CreateTrainingJobRequestComputeResource extends $tea.Model {
       instanceCount: 'number',
       instanceSpec: CreateTrainingJobRequestComputeResourceInstanceSpec,
       resourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrainingJobRequestExperimentConfig extends $tea.Model {
+  experimentId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      experimentId: 'ExperimentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      experimentId: 'string',
     };
   }
 
@@ -5126,6 +5154,28 @@ export class GetTrainingJobResponseBodyComputeResource extends $tea.Model {
       instanceCount: 'number',
       instanceSpec: GetTrainingJobResponseBodyComputeResourceInstanceSpec,
       resourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrainingJobResponseBodyExperimentConfig extends $tea.Model {
+  experimentId?: string;
+  experimentName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      experimentId: 'ExperimentId',
+      experimentName: 'ExperimentName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      experimentId: 'string',
+      experimentName: 'string',
     };
   }
 
@@ -5642,6 +5692,28 @@ export class ListTrainingJobsResponseBodyTrainingJobsComputeResource extends $te
   }
 }
 
+export class ListTrainingJobsResponseBodyTrainingJobsExperimentConfig extends $tea.Model {
+  experimentId?: string;
+  experimentName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      experimentId: 'ExperimentId',
+      experimentName: 'ExperimentName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      experimentId: 'string',
+      experimentName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTrainingJobsResponseBodyTrainingJobsHyperParameters extends $tea.Model {
   name?: string;
   value?: string;
@@ -5822,6 +5894,7 @@ export class ListTrainingJobsResponseBodyTrainingJobs extends $tea.Model {
   algorithmProvider?: string;
   algorithmVersion?: string;
   computeResource?: ListTrainingJobsResponseBodyTrainingJobsComputeResource;
+  experimentConfig?: ListTrainingJobsResponseBodyTrainingJobsExperimentConfig;
   gmtCreateTime?: string;
   gmtModifiedTime?: string;
   hyperParameters?: ListTrainingJobsResponseBodyTrainingJobsHyperParameters[];
@@ -5847,6 +5920,7 @@ export class ListTrainingJobsResponseBodyTrainingJobs extends $tea.Model {
       algorithmProvider: 'AlgorithmProvider',
       algorithmVersion: 'AlgorithmVersion',
       computeResource: 'ComputeResource',
+      experimentConfig: 'ExperimentConfig',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       hyperParameters: 'HyperParameters',
@@ -5875,6 +5949,7 @@ export class ListTrainingJobsResponseBodyTrainingJobs extends $tea.Model {
       algorithmProvider: 'string',
       algorithmVersion: 'string',
       computeResource: ListTrainingJobsResponseBodyTrainingJobsComputeResource,
+      experimentConfig: ListTrainingJobsResponseBodyTrainingJobsExperimentConfig,
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       hyperParameters: { 'type': 'array', 'itemType': ListTrainingJobsResponseBodyTrainingJobsHyperParameters },
@@ -6188,6 +6263,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.computeResource)) {
       body["ComputeResource"] = request.computeResource;
+    }
+
+    if (!Util.isUnset(request.experimentConfig)) {
+      body["ExperimentConfig"] = request.experimentConfig;
     }
 
     if (!Util.isUnset(request.hyperParameters)) {
