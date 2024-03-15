@@ -460,6 +460,7 @@ export class UpdateTranscriptionPhrasesResponse extends $tea.Model {
 export class CreateTaskRequestInput extends $tea.Model {
   fileUrl?: string;
   format?: string;
+  multipleStreamsEnabled?: boolean;
   progressiveCallbacksEnabled?: boolean;
   sampleRate?: number;
   sourceLanguage?: string;
@@ -469,6 +470,7 @@ export class CreateTaskRequestInput extends $tea.Model {
     return {
       fileUrl: 'FileUrl',
       format: 'Format',
+      multipleStreamsEnabled: 'MultipleStreamsEnabled',
       progressiveCallbacksEnabled: 'ProgressiveCallbacksEnabled',
       sampleRate: 'SampleRate',
       sourceLanguage: 'SourceLanguage',
@@ -481,6 +483,7 @@ export class CreateTaskRequestInput extends $tea.Model {
     return {
       fileUrl: 'string',
       format: 'string',
+      multipleStreamsEnabled: 'boolean',
       progressiveCallbacksEnabled: 'boolean',
       sampleRate: 'number',
       sourceLanguage: 'string',
@@ -580,6 +583,7 @@ export class CreateTaskRequestParametersTranscriptionDiarization extends $tea.Mo
 }
 
 export class CreateTaskRequestParametersTranscription extends $tea.Model {
+  additionalStreamOutputLevel?: number;
   audioEventDetectionEnabled?: boolean;
   diarization?: CreateTaskRequestParametersTranscriptionDiarization;
   diarizationEnabled?: boolean;
@@ -587,6 +591,7 @@ export class CreateTaskRequestParametersTranscription extends $tea.Model {
   phraseId?: string;
   static names(): { [key: string]: string } {
     return {
+      additionalStreamOutputLevel: 'AdditionalStreamOutputLevel',
       audioEventDetectionEnabled: 'AudioEventDetectionEnabled',
       diarization: 'Diarization',
       diarizationEnabled: 'DiarizationEnabled',
@@ -597,6 +602,7 @@ export class CreateTaskRequestParametersTranscription extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      additionalStreamOutputLevel: 'number',
       audioEventDetectionEnabled: 'boolean',
       diarization: CreateTaskRequestParametersTranscriptionDiarization,
       diarizationEnabled: 'boolean',
@@ -611,10 +617,12 @@ export class CreateTaskRequestParametersTranscription extends $tea.Model {
 }
 
 export class CreateTaskRequestParametersTranslation extends $tea.Model {
+  additionalStreamOutputLevel?: number;
   outputLevel?: number;
   targetLanguages?: string[];
   static names(): { [key: string]: string } {
     return {
+      additionalStreamOutputLevel: 'AdditionalStreamOutputLevel',
       outputLevel: 'OutputLevel',
       targetLanguages: 'TargetLanguages',
     };
@@ -622,6 +630,7 @@ export class CreateTaskRequestParametersTranslation extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      additionalStreamOutputLevel: 'number',
       outputLevel: 'number',
       targetLanguages: { 'type': 'array', 'itemType': 'string' },
     };
