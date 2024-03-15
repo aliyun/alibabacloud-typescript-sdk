@@ -8551,6 +8551,7 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
   adjustmentType?: string;
   adjustmentValue?: number;
   metricsTrigger?: MetricsTrigger;
+  minAdjustmentValue?: number;
   ruleName?: string;
   timeTrigger?: TimeTrigger;
   triggerType?: string;
@@ -8560,6 +8561,7 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
       adjustmentType: 'AdjustmentType',
       adjustmentValue: 'AdjustmentValue',
       metricsTrigger: 'MetricsTrigger',
+      minAdjustmentValue: 'MinAdjustmentValue',
       ruleName: 'RuleName',
       timeTrigger: 'TimeTrigger',
       triggerType: 'TriggerType',
@@ -8572,6 +8574,7 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
       adjustmentType: 'string',
       adjustmentValue: 'number',
       metricsTrigger: MetricsTrigger,
+      minAdjustmentValue: 'number',
       ruleName: 'string',
       timeTrigger: TimeTrigger,
       triggerType: 'string',
@@ -25028,13 +25031,6 @@ export default class Client extends OpenApi {
     return await this.getAutoScalingActivityWithOptions(request, runtime);
   }
 
-  /**
-    * 获取弹性伸缩策略信息。
-    *
-    * @param request GetAutoScalingPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetAutoScalingPolicyResponse
-   */
   async getAutoScalingPolicyWithOptions(request: GetAutoScalingPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetAutoScalingPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25067,12 +25063,6 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAutoScalingPolicyResponse>(await this.callApi(params, req, runtime), new GetAutoScalingPolicyResponse({}));
   }
 
-  /**
-    * 获取弹性伸缩策略信息。
-    *
-    * @param request GetAutoScalingPolicyRequest
-    * @return GetAutoScalingPolicyResponse
-   */
   async getAutoScalingPolicy(request: GetAutoScalingPolicyRequest): Promise<GetAutoScalingPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAutoScalingPolicyWithOptions(request, runtime);
