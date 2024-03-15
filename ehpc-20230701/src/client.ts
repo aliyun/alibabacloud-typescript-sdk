@@ -435,15 +435,18 @@ export class CreateJobResponse extends $tea.Model {
 }
 
 export class DeleteJobsRequest extends $tea.Model {
+  executorIds?: string[];
   jobSpec?: DeleteJobsRequestJobSpec[];
   static names(): { [key: string]: string } {
     return {
+      executorIds: 'ExecutorIds',
       jobSpec: 'JobSpec',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      executorIds: { 'type': 'array', 'itemType': 'string' },
       jobSpec: { 'type': 'array', 'itemType': DeleteJobsRequestJobSpec },
     };
   }
@@ -454,15 +457,18 @@ export class DeleteJobsRequest extends $tea.Model {
 }
 
 export class DeleteJobsShrinkRequest extends $tea.Model {
+  executorIdsShrink?: string;
   jobSpecShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      executorIdsShrink: 'ExecutorIds',
       jobSpecShrink: 'JobSpec',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      executorIdsShrink: 'string',
       jobSpecShrink: 'string',
     };
   }
@@ -646,6 +652,118 @@ export class GetJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExecutorsRequest extends $tea.Model {
+  filter?: ListExecutorsRequestFilter;
+  pageNumber?: string;
+  pageSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: ListExecutorsRequestFilter,
+      pageNumber: 'string',
+      pageSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExecutorsShrinkRequest extends $tea.Model {
+  filterShrink?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterShrink: 'Filter',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterShrink: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExecutorsResponseBody extends $tea.Model {
+  executors?: ListExecutorsResponseBodyExecutors[];
+  jobId?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  requestId?: string;
+  taskName?: string;
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executors: 'Executors',
+      jobId: 'JobId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      taskName: 'TaskName',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executors: { 'type': 'array', 'itemType': ListExecutorsResponseBodyExecutors },
+      jobId: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      taskName: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExecutorsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListExecutorsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListExecutorsResponseBody,
     };
   }
 
@@ -1924,6 +2042,86 @@ export class GetJobResponseBodyJobInfo extends $tea.Model {
   }
 }
 
+export class ListExecutorsRequestFilter extends $tea.Model {
+  executorIds?: string[];
+  ipAddresses?: string[];
+  jobName?: string;
+  timeCreatedAfter?: number;
+  timeCreatedBefore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      executorIds: 'ExecutorIds',
+      ipAddresses: 'IpAddresses',
+      jobName: 'JobName',
+      timeCreatedAfter: 'TimeCreatedAfter',
+      timeCreatedBefore: 'TimeCreatedBefore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executorIds: { 'type': 'array', 'itemType': 'string' },
+      ipAddresses: { 'type': 'array', 'itemType': 'string' },
+      jobName: 'string',
+      timeCreatedAfter: 'number',
+      timeCreatedBefore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExecutorsResponseBodyExecutors extends $tea.Model {
+  arrayIndex?: number;
+  createTime?: string;
+  endTime?: string;
+  executorId?: string;
+  hostName?: string[];
+  ipAddress?: string[];
+  jobId?: string;
+  jobName?: string;
+  status?: string;
+  statusReason?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrayIndex: 'ArrayIndex',
+      createTime: 'CreateTime',
+      endTime: 'EndTime',
+      executorId: 'ExecutorId',
+      hostName: 'HostName',
+      ipAddress: 'IpAddress',
+      jobId: 'JobId',
+      jobName: 'JobName',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrayIndex: 'number',
+      createTime: 'string',
+      endTime: 'string',
+      executorId: 'string',
+      hostName: { 'type': 'array', 'itemType': 'string' },
+      ipAddress: { 'type': 'array', 'itemType': 'string' },
+      jobId: 'string',
+      jobName: 'string',
+      status: 'string',
+      statusReason: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListImagesResponseBodyImages extends $tea.Model {
   createTime?: string;
   description?: string;
@@ -2230,11 +2428,19 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new DeleteJobsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.executorIds)) {
+      request.executorIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.executorIds, "ExecutorIds", "json");
+    }
+
     if (!Util.isUnset(tmpReq.jobSpec)) {
       request.jobSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobSpec, "JobSpec", "json");
     }
 
     let query = { };
+    if (!Util.isUnset(request.executorIdsShrink)) {
+      query["ExecutorIds"] = request.executorIdsShrink;
+    }
+
     if (!Util.isUnset(request.jobSpecShrink)) {
       query["JobSpec"] = request.jobSpecShrink;
     }
@@ -2317,6 +2523,49 @@ export default class Client extends OpenApi {
   async getJob(request: GetJobRequest): Promise<GetJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getJobWithOptions(request, runtime);
+  }
+
+  async listExecutorsWithOptions(tmpReq: ListExecutorsRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutorsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListExecutorsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.filterShrink)) {
+      query["Filter"] = request.filterShrink;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListExecutors",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListExecutorsResponse>(await this.callApi(params, req, runtime), new ListExecutorsResponse({}));
+  }
+
+  async listExecutors(request: ListExecutorsRequest): Promise<ListExecutorsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listExecutorsWithOptions(request, runtime);
   }
 
   async listImagesWithOptions(tmpReq: ListImagesRequest, runtime: $Util.RuntimeOptions): Promise<ListImagesResponse> {
