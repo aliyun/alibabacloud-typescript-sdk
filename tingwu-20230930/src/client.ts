@@ -497,6 +497,25 @@ export class CreateTaskRequestInput extends $tea.Model {
   }
 }
 
+export class CreateTaskRequestParametersExtraParams extends $tea.Model {
+  nfixEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      nfixEnabled: 'NfixEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nfixEnabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTaskRequestParametersMeetingAssistance extends $tea.Model {
   types?: string[];
   static names(): { [key: string]: string } {
@@ -643,6 +662,7 @@ export class CreateTaskRequestParametersTranslation extends $tea.Model {
 
 export class CreateTaskRequestParameters extends $tea.Model {
   autoChaptersEnabled?: boolean;
+  extraParams?: CreateTaskRequestParametersExtraParams;
   meetingAssistance?: CreateTaskRequestParametersMeetingAssistance;
   meetingAssistanceEnabled?: boolean;
   pptExtractionEnabled?: boolean;
@@ -656,6 +676,7 @@ export class CreateTaskRequestParameters extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoChaptersEnabled: 'AutoChaptersEnabled',
+      extraParams: 'ExtraParams',
       meetingAssistance: 'MeetingAssistance',
       meetingAssistanceEnabled: 'MeetingAssistanceEnabled',
       pptExtractionEnabled: 'PptExtractionEnabled',
@@ -672,6 +693,7 @@ export class CreateTaskRequestParameters extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoChaptersEnabled: 'boolean',
+      extraParams: CreateTaskRequestParametersExtraParams,
       meetingAssistance: CreateTaskRequestParametersMeetingAssistance,
       meetingAssistanceEnabled: 'boolean',
       pptExtractionEnabled: 'boolean',
@@ -694,11 +716,13 @@ export class CreateTaskResponseBodyData extends $tea.Model {
   meetingJoinUrl?: string;
   taskId?: string;
   taskKey?: string;
+  taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
       meetingJoinUrl: 'MeetingJoinUrl',
       taskId: 'TaskId',
       taskKey: 'TaskKey',
+      taskStatus: 'TaskStatus',
     };
   }
 
@@ -707,6 +731,7 @@ export class CreateTaskResponseBodyData extends $tea.Model {
       meetingJoinUrl: 'string',
       taskId: 'string',
       taskKey: 'string',
+      taskStatus: 'string',
     };
   }
 
