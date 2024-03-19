@@ -3319,6 +3319,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
   environmentName?: string;
   environmentSubType?: string;
   environmentType?: string;
+  feePackage?: string;
   managedType?: string;
   prometheusInstanceId?: string;
   regionId?: string;
@@ -3331,6 +3332,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
       environmentName: 'EnvironmentName',
       environmentSubType: 'EnvironmentSubType',
       environmentType: 'EnvironmentType',
+      feePackage: 'FeePackage',
       managedType: 'ManagedType',
       prometheusInstanceId: 'PrometheusInstanceId',
       regionId: 'RegionId',
@@ -3346,6 +3348,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
       environmentName: 'string',
       environmentSubType: 'string',
       environmentType: 'string',
+      feePackage: 'string',
       managedType: 'string',
       prometheusInstanceId: 'string',
       regionId: 'string',
@@ -19071,12 +19074,14 @@ export class UpdateEnvironmentRequest extends $tea.Model {
   aliyunLang?: string;
   environmentId?: string;
   environmentName?: string;
+  feePackage?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       aliyunLang: 'AliyunLang',
       environmentId: 'EnvironmentId',
       environmentName: 'EnvironmentName',
+      feePackage: 'FeePackage',
       regionId: 'RegionId',
     };
   }
@@ -19086,6 +19091,7 @@ export class UpdateEnvironmentRequest extends $tea.Model {
       aliyunLang: 'string',
       environmentId: 'string',
       environmentName: 'string',
+      feePackage: 'string',
       regionId: 'string',
     };
   }
@@ -22689,6 +22695,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Mod
   checkCert?: boolean;
   connectTimeout?: number;
   method?: string;
+  protocolAlpnProtocol?: number;
   requestBody?: CreateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody;
   requestHeaders?: { [key: string]: string };
   targetUrl?: string;
@@ -22698,6 +22705,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Mod
       checkCert: 'CheckCert',
       connectTimeout: 'ConnectTimeout',
       method: 'Method',
+      protocolAlpnProtocol: 'ProtocolAlpnProtocol',
       requestBody: 'RequestBody',
       requestHeaders: 'RequestHeaders',
       targetUrl: 'TargetUrl',
@@ -22710,6 +22718,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Mod
       checkCert: 'boolean',
       connectTimeout: 'number',
       method: 'string',
+      protocolAlpnProtocol: 'number',
       requestBody: CreateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody,
       requestHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       targetUrl: 'string',
@@ -23761,6 +23770,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
   environmentName?: string;
   environmentSubType?: string;
   environmentType?: string;
+  feePackage?: string;
   grafaDataSourceName?: string;
   grafanaDatasourceUid?: string;
   grafanaFolderTitle?: string;
@@ -23787,6 +23797,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
       environmentName: 'EnvironmentName',
       environmentSubType: 'EnvironmentSubType',
       environmentType: 'EnvironmentType',
+      feePackage: 'FeePackage',
       grafaDataSourceName: 'GrafaDataSourceName',
       grafanaDatasourceUid: 'GrafanaDatasourceUid',
       grafanaFolderTitle: 'GrafanaFolderTitle',
@@ -23816,6 +23827,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
       environmentName: 'string',
       environmentSubType: 'string',
       environmentType: 'string',
+      feePackage: 'string',
       grafaDataSourceName: 'string',
       grafanaDatasourceUid: 'string',
       grafanaFolderTitle: 'string',
@@ -26557,6 +26569,7 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTP extends $t
   checkCert?: boolean;
   connectTimeout?: number;
   method?: string;
+  protocolAlpnProtocol?: number;
   requestBody?: GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTPRequestBody;
   requestHeaders?: { [key: string]: string };
   targetUrl?: string;
@@ -26566,6 +26579,7 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTP extends $t
       checkCert: 'CheckCert',
       connectTimeout: 'ConnectTimeout',
       method: 'Method',
+      protocolAlpnProtocol: 'ProtocolAlpnProtocol',
       requestBody: 'RequestBody',
       requestHeaders: 'RequestHeaders',
       targetUrl: 'TargetUrl',
@@ -26578,6 +26592,7 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTP extends $t
       checkCert: 'boolean',
       connectTimeout: 'number',
       method: 'string',
+      protocolAlpnProtocol: 'number',
       requestBody: GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTPRequestBody,
       requestHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       targetUrl: 'string',
@@ -32500,6 +32515,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Mod
   checkCert?: boolean;
   connectTimeout?: number;
   method?: string;
+  protocolAlpnProtocol?: number;
   requestBody?: UpdateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody;
   requestHeaders?: { [key: string]: string };
   targetUrl?: string;
@@ -32509,6 +32525,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Mod
       checkCert: 'CheckCert',
       connectTimeout: 'ConnectTimeout',
       method: 'Method',
+      protocolAlpnProtocol: 'ProtocolAlpnProtocol',
       requestBody: 'RequestBody',
       requestHeaders: 'RequestHeaders',
       targetUrl: 'TargetUrl',
@@ -32521,6 +32538,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Mod
       checkCert: 'boolean',
       connectTimeout: 'number',
       method: 'string',
+      protocolAlpnProtocol: 'number',
       requestBody: UpdateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody,
       requestHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       targetUrl: 'string',
@@ -34214,6 +34232,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.environmentType)) {
       query["EnvironmentType"] = request.environmentType;
+    }
+
+    if (!Util.isUnset(request.feePackage)) {
+      query["FeePackage"] = request.feePackage;
     }
 
     if (!Util.isUnset(request.managedType)) {
@@ -42651,6 +42673,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.environmentName)) {
       query["EnvironmentName"] = request.environmentName;
+    }
+
+    if (!Util.isUnset(request.feePackage)) {
+      query["FeePackage"] = request.feePackage;
     }
 
     if (!Util.isUnset(request.regionId)) {
