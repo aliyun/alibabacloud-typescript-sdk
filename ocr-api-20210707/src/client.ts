@@ -655,10 +655,12 @@ export class RecognizeBankCardResponse extends $tea.Model {
 }
 
 export class RecognizeBasicRequest extends $tea.Model {
+  needRotate?: boolean;
   url?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
+      needRotate: 'NeedRotate',
       url: 'Url',
       body: 'body',
     };
@@ -666,6 +668,7 @@ export class RecognizeBasicRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      needRotate: 'boolean',
       url: 'string',
       body: 'Readable',
     };
@@ -7686,6 +7689,10 @@ export default class Client extends OpenApi {
   async recognizeBasicWithOptions(request: RecognizeBasicRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBasicResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
     if (!Util.isUnset(request.url)) {
       query["Url"] = request.url;
     }
