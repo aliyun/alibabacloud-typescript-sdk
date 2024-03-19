@@ -861,23 +861,41 @@ export class Permission extends $tea.Model {
 }
 
 export class QueueInfo extends $tea.Model {
+  code?: string;
+  codeType?: string;
+  gmtDequeuedTime?: string;
   gmtEnqueuedTime?: string;
   gmtPositionModifiedTime?: string;
+  name?: string;
   position?: number;
   priority?: number;
   queueStrategy?: string;
   quotaId?: string;
+  reason?: string;
+  resource?: ResourceAmount;
+  status?: string;
+  subStatus?: string;
+  userId?: string;
   workloadId?: string;
   workloadType?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      codeType: 'CodeType',
+      gmtDequeuedTime: 'GmtDequeuedTime',
       gmtEnqueuedTime: 'GmtEnqueuedTime',
       gmtPositionModifiedTime: 'GmtPositionModifiedTime',
+      name: 'Name',
       position: 'Position',
       priority: 'Priority',
       queueStrategy: 'QueueStrategy',
       quotaId: 'QuotaId',
+      reason: 'Reason',
+      resource: 'Resource',
+      status: 'Status',
+      subStatus: 'SubStatus',
+      userId: 'UserId',
       workloadId: 'WorkloadId',
       workloadType: 'WorkloadType',
       workspaceId: 'WorkspaceId',
@@ -886,12 +904,21 @@ export class QueueInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      codeType: 'string',
+      gmtDequeuedTime: 'string',
       gmtEnqueuedTime: 'string',
       gmtPositionModifiedTime: 'string',
+      name: 'string',
       position: 'number',
       priority: 'number',
       queueStrategy: 'string',
       quotaId: 'string',
+      reason: 'string',
+      resource: ResourceAmount,
+      status: 'string',
+      subStatus: 'string',
+      userId: 'string',
       workloadId: 'string',
       workloadType: 'string',
       workspaceId: 'string',
@@ -986,6 +1013,7 @@ export class QuotaConfig extends $tea.Model {
   ACS?: ACS;
   clusterId?: string;
   defaultGPUDriver?: string;
+  resourceSpecs?: WorkspaceSpecs[];
   supportGPUDrivers?: string[];
   supportRDMA?: boolean;
   userVpc?: UserVpc;
@@ -994,6 +1022,7 @@ export class QuotaConfig extends $tea.Model {
       ACS: 'ACS',
       clusterId: 'ClusterId',
       defaultGPUDriver: 'DefaultGPUDriver',
+      resourceSpecs: 'ResourceSpecs',
       supportGPUDrivers: 'SupportGPUDrivers',
       supportRDMA: 'SupportRDMA',
       userVpc: 'UserVpc',
@@ -1005,6 +1034,7 @@ export class QuotaConfig extends $tea.Model {
       ACS: ACS,
       clusterId: 'string',
       defaultGPUDriver: 'string',
+      resourceSpecs: { 'type': 'array', 'itemType': WorkspaceSpecs },
       supportGPUDrivers: { 'type': 'array', 'itemType': 'string' },
       supportRDMA: 'boolean',
       userVpc: UserVpc,
@@ -1618,6 +1648,68 @@ export class WorkspaceIdName extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WorkspaceSpec extends $tea.Model {
+  code?: string;
+  codeType?: string;
+  isGuaranteedValid?: boolean;
+  isOverSoldValid?: boolean;
+  reason?: string;
+  spec?: ResourceAmount;
+  specName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      codeType: 'CodeType',
+      isGuaranteedValid: 'IsGuaranteedValid',
+      isOverSoldValid: 'IsOverSoldValid',
+      reason: 'Reason',
+      spec: 'Spec',
+      specName: 'SpecName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      codeType: 'string',
+      isGuaranteedValid: 'boolean',
+      isOverSoldValid: 'boolean',
+      reason: 'string',
+      spec: ResourceAmount,
+      specName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WorkspaceSpecs extends $tea.Model {
+  product?: string;
+  specs?: WorkspaceSpec[];
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      product: 'Product',
+      specs: 'Specs',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      product: 'string',
+      specs: { 'type': 'array', 'itemType': WorkspaceSpec },
       workspaceId: 'string',
     };
   }
@@ -3548,10 +3640,12 @@ export class ListQuotasRequest extends $tea.Model {
 export class ListQuotasResponseBody extends $tea.Model {
   quotas?: Quota[];
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       quotas: 'Quotas',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -3559,6 +3653,7 @@ export class ListQuotasResponseBody extends $tea.Model {
     return {
       quotas: { 'type': 'array', 'itemType': Quota },
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
