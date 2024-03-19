@@ -1583,13 +1583,53 @@ export class CreateTriggerResponse extends $tea.Model {
   }
 }
 
+export class DeleteAlertContactRequest extends $tea.Model {
+  contactIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      contactIds: 'contact_ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAlertContactShrinkRequest extends $tea.Model {
+  contactIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactIdsShrink: 'contact_ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAlertContactResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
+  body?: DeleteAlertContactResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
@@ -1597,6 +1637,45 @@ export class DeleteAlertContactResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+      body: DeleteAlertContactResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAlertContactGroupRequest extends $tea.Model {
+  contactGroupIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      contactGroupIds: 'contact_group_ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactGroupIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAlertContactGroupShrinkRequest extends $tea.Model {
+  contactGroupIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactGroupIdsShrink: 'contact_group_ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactGroupIdsShrink: 'string',
     };
   }
 
@@ -1608,10 +1687,12 @@ export class DeleteAlertContactResponse extends $tea.Model {
 export class DeleteAlertContactGroupResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
+  body?: DeleteAlertContactGroupResponseBody[];
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
@@ -1619,6 +1700,7 @@ export class DeleteAlertContactGroupResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+      body: { 'type': 'array', 'itemType': DeleteAlertContactGroupResponseBody },
     };
   }
 
@@ -3055,6 +3137,25 @@ export class DescribeClusterNodesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeClusterNodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterResourcesRequest extends $tea.Model {
+  withAddonResources?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      withAddonResources: 'with_addon_resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      withAddonResources: 'boolean',
     };
   }
 
@@ -5266,15 +5367,18 @@ export class ListClusterAddonInstancesResponse extends $tea.Model {
 }
 
 export class ListClusterChecksRequest extends $tea.Model {
+  target?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      target: 'target',
       type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      target: 'string',
       type: 'string',
     };
   }
@@ -6487,10 +6591,12 @@ export class ResumeUpgradeClusterResponse extends $tea.Model {
 
 export class RunClusterCheckRequest extends $tea.Model {
   options?: { [key: string]: string };
+  target?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       options: 'options',
+      target: 'target',
       type: 'type',
     };
   }
@@ -6498,6 +6604,7 @@ export class RunClusterCheckRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       options: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      target: 'string',
       type: 'string',
     };
   }
@@ -6916,6 +7023,28 @@ export class ScanClusterVulsResponse extends $tea.Model {
   }
 }
 
+export class StartAlertRequest extends $tea.Model {
+  alertRuleGroupName?: string;
+  alertRuleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertRuleGroupName: 'alert_rule_group_name',
+      alertRuleName: 'alert_rule_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertRuleGroupName: 'string',
+      alertRuleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartAlertResponseBody extends $tea.Model {
   msg?: string;
   status?: boolean;
@@ -7072,6 +7201,28 @@ export class StartWorkflowResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartWorkflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopAlertRequest extends $tea.Model {
+  alertRuleGroupName?: string;
+  alertRuleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertRuleGroupName: 'alert_rule_group_name',
+      alertRuleName: 'alert_rule_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertRuleGroupName: 'string',
+      alertRuleName: 'string',
     };
   }
 
@@ -7587,6 +7738,50 @@ export class UpdateTemplateResponse extends $tea.Model {
   }
 }
 
+export class UpdateUserPermissionsRequest extends $tea.Model {
+  body?: UpdateUserPermissionsRequestBody[];
+  mode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      mode: 'mode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: { 'type': 'array', 'itemType': UpdateUserPermissionsRequestBody },
+      mode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserPermissionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeClusterRequest extends $tea.Model {
   componentName?: string;
   masterOnly?: boolean;
@@ -7709,6 +7904,8 @@ export class UpgradeClusterAddonsResponse extends $tea.Model {
 export class UpgradeClusterNodepoolRequest extends $tea.Model {
   imageId?: string;
   kubernetesVersion?: string;
+  nodeNames?: string[];
+  rollingPolicy?: UpgradeClusterNodepoolRequestRollingPolicy;
   runtimeType?: string;
   runtimeVersion?: string;
   useReplace?: boolean;
@@ -7716,6 +7913,8 @@ export class UpgradeClusterNodepoolRequest extends $tea.Model {
     return {
       imageId: 'image_id',
       kubernetesVersion: 'kubernetes_version',
+      nodeNames: 'node_names',
+      rollingPolicy: 'rolling_policy',
       runtimeType: 'runtime_type',
       runtimeVersion: 'runtime_version',
       useReplace: 'use_replace',
@@ -7726,6 +7925,8 @@ export class UpgradeClusterNodepoolRequest extends $tea.Model {
     return {
       imageId: 'string',
       kubernetesVersion: 'string',
+      nodeNames: { 'type': 'array', 'itemType': 'string' },
+      rollingPolicy: UpgradeClusterNodepoolRequestRollingPolicy,
       runtimeType: 'string',
       runtimeVersion: 'string',
       useReplace: 'boolean',
@@ -8846,6 +9047,75 @@ export class CreateClusterNodePoolRequestTeeConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       teeEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAlertContactResponseBodyBody extends $tea.Model {
+  status?: boolean;
+  msg?: string;
+  contactId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      msg: 'msg',
+      contactId: 'contact_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'boolean',
+      msg: 'string',
+      contactId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAlertContactResponseBody extends $tea.Model {
+  body?: DeleteAlertContactResponseBodyBody[];
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: { 'type': 'array', 'itemType': DeleteAlertContactResponseBodyBody },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAlertContactGroupResponseBody extends $tea.Model {
+  status?: boolean;
+  msg?: string;
+  contactGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      msg: 'msg',
+      contactGroupId: 'contact_group_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'boolean',
+      msg: 'string',
+      contactGroupId: 'string',
     };
   }
 
@@ -10317,6 +10587,53 @@ export class DescribeClusterResourcesResponseBodyDependencies extends $tea.Model
   }
 }
 
+export class DescribeClusterResourcesResponseBodyAssociatedObject extends $tea.Model {
+  kind?: string;
+  namespace?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      kind: 'kind',
+      namespace: 'namespace',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kind: 'string',
+      namespace: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterResourcesResponseBodyDeleteBehavior extends $tea.Model {
+  deleteByDefault?: boolean;
+  changeable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      deleteByDefault: 'delete_by_default',
+      changeable: 'changeable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteByDefault: 'boolean',
+      changeable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterResourcesResponseBody extends $tea.Model {
   clusterId?: string;
   created?: string;
@@ -10326,6 +10643,10 @@ export class DescribeClusterResourcesResponseBody extends $tea.Model {
   state?: string;
   autoCreate?: number;
   dependencies?: DescribeClusterResourcesResponseBodyDependencies[];
+  associatedObject?: DescribeClusterResourcesResponseBodyAssociatedObject;
+  deleteBehavior?: DescribeClusterResourcesResponseBodyDeleteBehavior;
+  creatorType?: string;
+  extraInfo?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       clusterId: 'cluster_id',
@@ -10336,6 +10657,10 @@ export class DescribeClusterResourcesResponseBody extends $tea.Model {
       state: 'state',
       autoCreate: 'auto_create',
       dependencies: 'dependencies',
+      associatedObject: 'associated_object',
+      deleteBehavior: 'delete_behavior',
+      creatorType: 'creator_type',
+      extraInfo: 'extra_info',
     };
   }
 
@@ -10349,6 +10674,10 @@ export class DescribeClusterResourcesResponseBody extends $tea.Model {
       state: 'string',
       autoCreate: 'number',
       dependencies: { 'type': 'array', 'itemType': DescribeClusterResourcesResponseBodyDependencies },
+      associatedObject: DescribeClusterResourcesResponseBodyAssociatedObject,
+      deleteBehavior: DescribeClusterResourcesResponseBodyDeleteBehavior,
+      creatorType: 'string',
+      extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -12752,6 +13081,40 @@ export class UnInstallClusterAddonsRequestAddons extends $tea.Model {
   }
 }
 
+export class UpdateUserPermissionsRequestBody extends $tea.Model {
+  cluster?: string;
+  isCustom?: boolean;
+  isRamRole?: boolean;
+  namespace?: string;
+  roleName?: string;
+  roleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cluster: 'cluster',
+      isCustom: 'is_custom',
+      isRamRole: 'is_ram_role',
+      namespace: 'namespace',
+      roleName: 'role_name',
+      roleType: 'role_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cluster: 'string',
+      isCustom: 'boolean',
+      isRamRole: 'boolean',
+      namespace: 'string',
+      roleName: 'string',
+      roleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeClusterAddonsRequestBody extends $tea.Model {
   componentName?: string;
   config?: string;
@@ -12775,6 +13138,31 @@ export class UpgradeClusterAddonsRequestBody extends $tea.Model {
       nextVersion: 'string',
       policy: 'string',
       version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeClusterNodepoolRequestRollingPolicy extends $tea.Model {
+  batchInterval?: number;
+  maxParallelism?: number;
+  pausePolicy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchInterval: 'batch_interval',
+      maxParallelism: 'max_parallelism',
+      pausePolicy: 'pause_policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchInterval: 'number',
+      maxParallelism: 'number',
+      pausePolicy: 'string',
     };
   }
 
@@ -13865,9 +14253,22 @@ export default class Client extends OpenApi {
     return await this.createTriggerWithOptions(clusterId, request, headers, runtime);
   }
 
-  async deleteAlertContactWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactResponse> {
+  async deleteAlertContactWithOptions(tmpReq: DeleteAlertContactRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteAlertContactShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.contactIds)) {
+      request.contactIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contactIds, "contact_ids", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.contactIdsShrink)) {
+      query["contact_ids"] = request.contactIdsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DeleteAlertContact",
@@ -13878,20 +14279,33 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "array",
     });
     return $tea.cast<DeleteAlertContactResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactResponse({}));
   }
 
-  async deleteAlertContact(): Promise<DeleteAlertContactResponse> {
+  async deleteAlertContact(request: DeleteAlertContactRequest): Promise<DeleteAlertContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteAlertContactWithOptions(headers, runtime);
+    return await this.deleteAlertContactWithOptions(request, headers, runtime);
   }
 
-  async deleteAlertContactGroupWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactGroupResponse> {
+  async deleteAlertContactGroupWithOptions(tmpReq: DeleteAlertContactGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactGroupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteAlertContactGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.contactGroupIds)) {
+      request.contactGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contactGroupIds, "contact_group_ids", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.contactGroupIdsShrink)) {
+      query["contact_group_ids"] = request.contactGroupIdsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DeleteAlertContactGroup",
@@ -13902,15 +14316,15 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "array",
     });
     return $tea.cast<DeleteAlertContactGroupResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactGroupResponse({}));
   }
 
-  async deleteAlertContactGroup(): Promise<DeleteAlertContactGroupResponse> {
+  async deleteAlertContactGroup(request: DeleteAlertContactGroupRequest): Promise<DeleteAlertContactGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteAlertContactGroupWithOptions(headers, runtime);
+    return await this.deleteAlertContactGroupWithOptions(request, headers, runtime);
   }
 
   async deleteClusterWithOptions(ClusterId: string, tmpReq: DeleteClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
@@ -14797,9 +15211,16 @@ export default class Client extends OpenApi {
     return await this.describeClusterNodesWithOptions(ClusterId, request, headers, runtime);
   }
 
-  async describeClusterResourcesWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterResourcesResponse> {
+  async describeClusterResourcesWithOptions(ClusterId: string, request: DescribeClusterResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterResourcesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.withAddonResources)) {
+      query["with_addon_resources"] = request.withAddonResources;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DescribeClusterResources",
@@ -14815,10 +15236,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterResourcesResponse>(await this.callApi(params, req, runtime), new DescribeClusterResourcesResponse({}));
   }
 
-  async describeClusterResources(ClusterId: string): Promise<DescribeClusterResourcesResponse> {
+  async describeClusterResources(ClusterId: string, request: DescribeClusterResourcesRequest): Promise<DescribeClusterResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterResourcesWithOptions(ClusterId, headers, runtime);
+    return await this.describeClusterResourcesWithOptions(ClusterId, request, headers, runtime);
   }
 
   async describeClusterTasksWithOptions(clusterId: string, request: DescribeClusterTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterTasksResponse> {
@@ -16167,6 +16588,10 @@ export default class Client extends OpenApi {
   async listClusterChecksWithOptions(clusterId: string, request: ListClusterChecksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterChecksResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.target)) {
+      query["target"] = request.target;
+    }
+
     if (!Util.isUnset(request.type)) {
       query["type"] = request.type;
     }
@@ -17085,6 +17510,10 @@ export default class Client extends OpenApi {
       body["options"] = request.options;
     }
 
+    if (!Util.isUnset(request.target)) {
+      body["target"] = request.target;
+    }
+
     if (!Util.isUnset(request.type)) {
       body["type"] = request.type;
     }
@@ -17414,9 +17843,20 @@ export default class Client extends OpenApi {
     return await this.scanClusterVulsWithOptions(clusterId, headers, runtime);
   }
 
-  async startAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartAlertResponse> {
+  async startAlertWithOptions(ClusterId: string, request: StartAlertRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartAlertResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alertRuleGroupName)) {
+      body["alert_rule_group_name"] = request.alertRuleGroupName;
+    }
+
+    if (!Util.isUnset(request.alertRuleName)) {
+      body["alert_rule_name"] = request.alertRuleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "StartAlert",
@@ -17432,10 +17872,10 @@ export default class Client extends OpenApi {
     return $tea.cast<StartAlertResponse>(await this.callApi(params, req, runtime), new StartAlertResponse({}));
   }
 
-  async startAlert(ClusterId: string): Promise<StartAlertResponse> {
+  async startAlert(ClusterId: string, request: StartAlertRequest): Promise<StartAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.startAlertWithOptions(ClusterId, headers, runtime);
+    return await this.startAlertWithOptions(ClusterId, request, headers, runtime);
   }
 
   async startWorkflowWithOptions(request: StartWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartWorkflowResponse> {
@@ -17541,9 +17981,20 @@ export default class Client extends OpenApi {
     return await this.startWorkflowWithOptions(request, headers, runtime);
   }
 
-  async stopAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopAlertResponse> {
+  async stopAlertWithOptions(ClusterId: string, request: StopAlertRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopAlertResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alertRuleGroupName)) {
+      body["alert_rule_group_name"] = request.alertRuleGroupName;
+    }
+
+    if (!Util.isUnset(request.alertRuleName)) {
+      body["alert_rule_name"] = request.alertRuleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "StopAlert",
@@ -17559,10 +18010,10 @@ export default class Client extends OpenApi {
     return $tea.cast<StopAlertResponse>(await this.callApi(params, req, runtime), new StopAlertResponse({}));
   }
 
-  async stopAlert(ClusterId: string): Promise<StopAlertResponse> {
+  async stopAlert(ClusterId: string, request: StopAlertRequest): Promise<StopAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.stopAlertWithOptions(ClusterId, headers, runtime);
+    return await this.stopAlertWithOptions(ClusterId, request, headers, runtime);
   }
 
   async syncClusterNodePoolWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SyncClusterNodePoolResponse> {
@@ -17882,6 +18333,38 @@ export default class Client extends OpenApi {
     return await this.updateTemplateWithOptions(TemplateId, request, headers, runtime);
   }
 
+  async updateUserPermissionsWithOptions(uid: string, request: UpdateUserPermissionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateUserPermissionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.mode)) {
+      query["mode"] = request.mode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: Util.toArray(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateUserPermissions",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/permissions/users/${OpenApiUtil.getEncodeParam(uid)}/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateUserPermissionsResponse>(await this.callApi(params, req, runtime), new UpdateUserPermissionsResponse({}));
+  }
+
+  async updateUserPermissions(uid: string, request: UpdateUserPermissionsRequest): Promise<UpdateUserPermissionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateUserPermissionsWithOptions(uid, request, headers, runtime);
+  }
+
   async upgradeClusterWithOptions(ClusterId: string, request: UpgradeClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeClusterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17968,6 +18451,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.kubernetesVersion)) {
       body["kubernetes_version"] = request.kubernetesVersion;
+    }
+
+    if (!Util.isUnset(request.nodeNames)) {
+      body["node_names"] = request.nodeNames;
+    }
+
+    if (!Util.isUnset(request.rollingPolicy)) {
+      body["rolling_policy"] = request.rollingPolicy;
     }
 
     if (!Util.isUnset(request.runtimeType)) {
