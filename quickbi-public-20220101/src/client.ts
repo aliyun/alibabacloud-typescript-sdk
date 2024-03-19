@@ -2678,6 +2678,134 @@ export class ListFavoriteReportsResponse extends $tea.Model {
   }
 }
 
+export class ListOrganizationRoleUsersRequest extends $tea.Model {
+  keyword?: string;
+  pageNum?: number;
+  pageSize?: number;
+  roleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      roleId: 'RoleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      roleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOrganizationRoleUsersResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListOrganizationRoleUsersResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListOrganizationRoleUsersResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOrganizationRoleUsersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOrganizationRoleUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListOrganizationRoleUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOrganizationRolesResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListOrganizationRolesResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListOrganizationRolesResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOrganizationRolesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOrganizationRolesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListOrganizationRolesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPortalMenuAuthorizationRequest extends $tea.Model {
   dataPortalId?: string;
   static names(): { [key: string]: string } {
@@ -3042,6 +3170,156 @@ export class ListUserGroupsByUserIdResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListUserGroupsByUserIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceRoleUsersRequest extends $tea.Model {
+  keyword?: string;
+  pageNum?: number;
+  pageSize?: number;
+  roleId?: number;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      roleId: 'RoleId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      roleId: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceRoleUsersResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListWorkspaceRoleUsersResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListWorkspaceRoleUsersResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceRoleUsersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWorkspaceRoleUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWorkspaceRoleUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceRolesRequest extends $tea.Model {
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceRolesResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListWorkspaceRolesResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListWorkspaceRolesResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceRolesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWorkspaceRolesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWorkspaceRolesResponseBody,
     };
   }
 
@@ -3842,6 +4120,75 @@ export class QueryEmbeddedStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryEmbeddedStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrganizationRoleConfigRequest extends $tea.Model {
+  roleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      roleId: 'RoleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrganizationRoleConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: QueryOrganizationRoleConfigResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: QueryOrganizationRoleConfigResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrganizationRoleConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryOrganizationRoleConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryOrganizationRoleConfigResponseBody,
     };
   }
 
@@ -5134,6 +5481,75 @@ export class QueryWorksByWorkspaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryWorksByWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryWorkspaceRoleConfigRequest extends $tea.Model {
+  roleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      roleId: 'RoleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryWorkspaceRoleConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: QueryWorkspaceRoleConfigResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: QueryWorkspaceRoleConfigResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryWorkspaceRoleConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryWorkspaceRoleConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryWorkspaceRoleConfigResponseBody,
     };
   }
 
@@ -6813,6 +7229,106 @@ export class ListFavoriteReportsResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListOrganizationRoleUsersResponseBodyResultData extends $tea.Model {
+  nickName?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nickName: 'NickName',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nickName: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOrganizationRoleUsersResponseBodyResult extends $tea.Model {
+  data?: ListOrganizationRoleUsersResponseBodyResultData[];
+  pageNum?: number;
+  pageSize?: number;
+  totalNum?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      totalNum: 'TotalNum',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListOrganizationRoleUsersResponseBodyResultData },
+      pageNum: 'number',
+      pageSize: 'number',
+      totalNum: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOrganizationRolesResponseBodyResultAuthConfigList extends $tea.Model {
+  authKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authKey: 'AuthKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOrganizationRolesResponseBodyResult extends $tea.Model {
+  authConfigList?: ListOrganizationRolesResponseBodyResultAuthConfigList[];
+  isSystemRole?: boolean;
+  roleId?: number;
+  roleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authConfigList: 'AuthConfigList',
+      isSystemRole: 'IsSystemRole',
+      roleId: 'RoleId',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authConfigList: { 'type': 'array', 'itemType': ListOrganizationRolesResponseBodyResultAuthConfigList },
+      isSystemRole: 'boolean',
+      roleId: 'number',
+      roleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPortalMenuAuthorizationResponseBodyResultReceivers extends $tea.Model {
   receiverId?: string;
   receiverType?: number;
@@ -7076,6 +7592,115 @@ export class ListUserGroupsByUserIdResponseBodyResult extends $tea.Model {
       usergroupDesc: 'string',
       usergroupId: 'string',
       usergroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceRoleUsersResponseBodyResultData extends $tea.Model {
+  nickName?: string;
+  userId?: string;
+  workspaceId?: string;
+  workspaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nickName: 'NickName',
+      userId: 'UserId',
+      workspaceId: 'WorkspaceId',
+      workspaceName: 'WorkspaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nickName: 'string',
+      userId: 'string',
+      workspaceId: 'string',
+      workspaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceRoleUsersResponseBodyResult extends $tea.Model {
+  data?: ListWorkspaceRoleUsersResponseBodyResultData[];
+  pageNum?: number;
+  pageSize?: number;
+  totalNum?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      totalNum: 'TotalNum',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListWorkspaceRoleUsersResponseBodyResultData },
+      pageNum: 'number',
+      pageSize: 'number',
+      totalNum: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceRolesResponseBodyResultAuthConfigList extends $tea.Model {
+  actionAuthKeys?: string[];
+  authKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionAuthKeys: 'ActionAuthKeys',
+      authKey: 'AuthKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionAuthKeys: { 'type': 'array', 'itemType': 'string' },
+      authKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceRolesResponseBodyResult extends $tea.Model {
+  authConfigList?: ListWorkspaceRolesResponseBodyResultAuthConfigList[];
+  isSystemRole?: boolean;
+  roleId?: number;
+  roleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authConfigList: 'AuthConfigList',
+      isSystemRole: 'IsSystemRole',
+      roleId: 'RoleId',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authConfigList: { 'type': 'array', 'itemType': ListWorkspaceRolesResponseBodyResultAuthConfigList },
+      isSystemRole: 'boolean',
+      roleId: 'number',
+      roleName: 'string',
     };
   }
 
@@ -7829,6 +8454,53 @@ export class QueryEmbeddedInfoResponseBodyResult extends $tea.Model {
       detail: QueryEmbeddedInfoResponseBodyResultDetail,
       embeddedCount: 'number',
       maxCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrganizationRoleConfigResponseBodyResultAuthConfigList extends $tea.Model {
+  authKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authKey: 'AuthKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrganizationRoleConfigResponseBodyResult extends $tea.Model {
+  authConfigList?: QueryOrganizationRoleConfigResponseBodyResultAuthConfigList[];
+  isSystemRole?: boolean;
+  roleId?: number;
+  roleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authConfigList: 'AuthConfigList',
+      isSystemRole: 'IsSystemRole',
+      roleId: 'RoleId',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authConfigList: { 'type': 'array', 'itemType': QueryOrganizationRoleConfigResponseBodyResultAuthConfigList },
+      isSystemRole: 'boolean',
+      roleId: 'number',
+      roleName: 'string',
     };
   }
 
@@ -8985,6 +9657,56 @@ export class QueryWorksByWorkspaceResponseBodyResult extends $tea.Model {
       pageSize: 'number',
       totalNum: 'number',
       totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryWorkspaceRoleConfigResponseBodyResultAuthConfigList extends $tea.Model {
+  actionAuthKeys?: string[];
+  authKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionAuthKeys: 'ActionAuthKeys',
+      authKey: 'AuthKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionAuthKeys: { 'type': 'array', 'itemType': 'string' },
+      authKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryWorkspaceRoleConfigResponseBodyResult extends $tea.Model {
+  authConfigList?: QueryWorkspaceRoleConfigResponseBodyResultAuthConfigList[];
+  isSystemRole?: boolean;
+  roleId?: number;
+  roleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authConfigList: 'AuthConfigList',
+      isSystemRole: 'IsSystemRole',
+      roleId: 'RoleId',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authConfigList: { 'type': 'array', 'itemType': QueryWorkspaceRoleConfigResponseBodyResultAuthConfigList },
+      isSystemRole: 'boolean',
+      roleId: 'number',
+      roleName: 'string',
     };
   }
 
@@ -10490,6 +11212,68 @@ export default class Client extends OpenApi {
     return await this.listFavoriteReportsWithOptions(request, runtime);
   }
 
+  async listOrganizationRoleUsersWithOptions(request: ListOrganizationRoleUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListOrganizationRoleUsersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.roleId)) {
+      query["RoleId"] = request.roleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListOrganizationRoleUsers",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListOrganizationRoleUsersResponse>(await this.callApi(params, req, runtime), new ListOrganizationRoleUsersResponse({}));
+  }
+
+  async listOrganizationRoleUsers(request: ListOrganizationRoleUsersRequest): Promise<ListOrganizationRoleUsersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listOrganizationRoleUsersWithOptions(request, runtime);
+  }
+
+  async listOrganizationRolesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListOrganizationRolesResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListOrganizationRoles",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListOrganizationRolesResponse>(await this.callApi(params, req, runtime), new ListOrganizationRolesResponse({}));
+  }
+
+  async listOrganizationRoles(): Promise<ListOrganizationRolesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listOrganizationRolesWithOptions(runtime);
+  }
+
   async listPortalMenuAuthorizationWithOptions(request: ListPortalMenuAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<ListPortalMenuAuthorizationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10669,6 +11453,80 @@ export default class Client extends OpenApi {
   async listUserGroupsByUserId(request: ListUserGroupsByUserIdRequest): Promise<ListUserGroupsByUserIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserGroupsByUserIdWithOptions(request, runtime);
+  }
+
+  async listWorkspaceRoleUsersWithOptions(request: ListWorkspaceRoleUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListWorkspaceRoleUsersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.roleId)) {
+      query["RoleId"] = request.roleId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWorkspaceRoleUsers",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWorkspaceRoleUsersResponse>(await this.callApi(params, req, runtime), new ListWorkspaceRoleUsersResponse({}));
+  }
+
+  async listWorkspaceRoleUsers(request: ListWorkspaceRoleUsersRequest): Promise<ListWorkspaceRoleUsersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listWorkspaceRoleUsersWithOptions(request, runtime);
+  }
+
+  async listWorkspaceRolesWithOptions(request: ListWorkspaceRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListWorkspaceRolesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWorkspaceRoles",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWorkspaceRolesResponse>(await this.callApi(params, req, runtime), new ListWorkspaceRolesResponse({}));
+  }
+
+  async listWorkspaceRoles(request: ListWorkspaceRolesRequest): Promise<ListWorkspaceRolesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listWorkspaceRolesWithOptions(request, runtime);
   }
 
   async modifyApiDatasourceParametersWithOptions(request: ModifyApiDatasourceParametersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiDatasourceParametersResponse> {
@@ -11086,6 +11944,35 @@ export default class Client extends OpenApi {
   async queryEmbeddedStatus(request: QueryEmbeddedStatusRequest): Promise<QueryEmbeddedStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEmbeddedStatusWithOptions(request, runtime);
+  }
+
+  async queryOrganizationRoleConfigWithOptions(request: QueryOrganizationRoleConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryOrganizationRoleConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.roleId)) {
+      query["RoleId"] = request.roleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryOrganizationRoleConfig",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryOrganizationRoleConfigResponse>(await this.callApi(params, req, runtime), new QueryOrganizationRoleConfigResponse({}));
+  }
+
+  async queryOrganizationRoleConfig(request: QueryOrganizationRoleConfigRequest): Promise<QueryOrganizationRoleConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryOrganizationRoleConfigWithOptions(request, runtime);
   }
 
   async queryOrganizationWorkspaceListWithOptions(request: QueryOrganizationWorkspaceListRequest, runtime: $Util.RuntimeOptions): Promise<QueryOrganizationWorkspaceListResponse> {
@@ -11676,6 +12563,35 @@ export default class Client extends OpenApi {
   async queryWorksByWorkspace(request: QueryWorksByWorkspaceRequest): Promise<QueryWorksByWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryWorksByWorkspaceWithOptions(request, runtime);
+  }
+
+  async queryWorkspaceRoleConfigWithOptions(request: QueryWorkspaceRoleConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryWorkspaceRoleConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.roleId)) {
+      query["RoleId"] = request.roleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryWorkspaceRoleConfig",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryWorkspaceRoleConfigResponse>(await this.callApi(params, req, runtime), new QueryWorkspaceRoleConfigResponse({}));
+  }
+
+  async queryWorkspaceRoleConfig(request: QueryWorkspaceRoleConfigRequest): Promise<QueryWorkspaceRoleConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryWorkspaceRoleConfigWithOptions(request, runtime);
   }
 
   async queryWorkspaceUserListWithOptions(request: QueryWorkspaceUserListRequest, runtime: $Util.RuntimeOptions): Promise<QueryWorkspaceUserListResponse> {
