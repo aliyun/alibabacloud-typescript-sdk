@@ -7146,6 +7146,78 @@ export class UpdateTableMetaResponse extends $tea.Model {
   }
 }
 
+export class UploadRecommendationDataRequest extends $tea.Model {
+  regionId?: string;
+  content?: UploadRecommendationDataRequestContent[];
+  dataType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      content: 'Content',
+      dataType: 'DataType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      content: { 'type': 'array', 'itemType': UploadRecommendationDataRequestContent },
+      dataType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadRecommendationDataResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadRecommendationDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadRecommendationDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UploadRecommendationDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckInstanceResourcesResponseBodyResources extends $tea.Model {
   status?: string;
   type?: string;
@@ -8491,6 +8563,28 @@ export class UpdateTableMetaRequestFields extends $tea.Model {
       meaning: 'string',
       name: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadRecommendationDataRequestContent extends $tea.Model {
+  fields?: string;
+  operationType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fields: 'Fields',
+      operationType: 'OperationType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fields: 'string',
+      operationType: 'string',
     };
   }
 
@@ -12425,6 +12519,47 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateTableMetaWithOptions(TableMetaId, request, headers, runtime);
+  }
+
+  async uploadRecommendationDataWithOptions(request: UploadRecommendationDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UploadRecommendationDataResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.dataType)) {
+      body["DataType"] = request.dataType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UploadRecommendationData",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recommendationdata/action/upload`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadRecommendationDataResponse>(await this.callApi(params, req, runtime), new UploadRecommendationDataResponse({}));
+  }
+
+  async uploadRecommendationData(request: UploadRecommendationDataRequest): Promise<UploadRecommendationDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.uploadRecommendationDataWithOptions(request, headers, runtime);
   }
 
 }
