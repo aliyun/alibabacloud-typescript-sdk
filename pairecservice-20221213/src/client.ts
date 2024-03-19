@@ -96,9 +96,9 @@ export class BackflowFeatureConsistencyCheckJobDataResponseBody extends $tea.Mod
 }
 
 export class BackflowFeatureConsistencyCheckJobDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BackflowFeatureConsistencyCheckJobDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BackflowFeatureConsistencyCheckJobDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -165,9 +165,9 @@ export class CheckInstanceResourcesResponseBody extends $tea.Model {
 }
 
 export class CheckInstanceResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckInstanceResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckInstanceResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -231,9 +231,9 @@ export class CloneExperimentResponseBody extends $tea.Model {
 }
 
 export class CloneExperimentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CloneExperimentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloneExperimentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -303,9 +303,9 @@ export class CloneExperimentGroupResponseBody extends $tea.Model {
 }
 
 export class CloneExperimentGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CloneExperimentGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloneExperimentGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -369,9 +369,9 @@ export class CloneFeatureConsistencyCheckJobConfigResponseBody extends $tea.Mode
 }
 
 export class CloneFeatureConsistencyCheckJobConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CloneFeatureConsistencyCheckJobConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloneFeatureConsistencyCheckJobConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -441,9 +441,9 @@ export class CloneLaboratoryResponseBody extends $tea.Model {
 }
 
 export class CloneLaboratoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CloneLaboratoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloneLaboratoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -543,9 +543,9 @@ export class CreateABMetricResponseBody extends $tea.Model {
 }
 
 export class CreateABMetricResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateABMetricResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateABMetricResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -624,9 +624,9 @@ export class CreateABMetricGroupResponseBody extends $tea.Model {
 }
 
 export class CreateABMetricGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateABMetricGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateABMetricGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -699,9 +699,9 @@ export class CreateCalculationJobsResponseBody extends $tea.Model {
 }
 
 export class CreateCalculationJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCalculationJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCalculationJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -780,9 +780,9 @@ export class CreateCrowdResponseBody extends $tea.Model {
 }
 
 export class CreateCrowdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCrowdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCrowdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -870,9 +870,9 @@ export class CreateExperimentResponseBody extends $tea.Model {
 }
 
 export class CreateExperimentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateExperimentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateExperimentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -972,9 +972,9 @@ export class CreateExperimentGroupResponseBody extends $tea.Model {
 }
 
 export class CreateExperimentGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateExperimentGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateExperimentGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1047,9 +1047,9 @@ export class CreateFeatureConsistencyCheckJobResponseBody extends $tea.Model {
 }
 
 export class CreateFeatureConsistencyCheckJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFeatureConsistencyCheckJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFeatureConsistencyCheckJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1079,6 +1079,12 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
   featureDisplayExclude?: string;
   featureLandingResourceId?: string;
   featurePriority?: string;
+  featureStoreItemId?: string;
+  featureStoreModelId?: string;
+  featureStoreProjectId?: string;
+  featureStoreProjectName?: string;
+  featureStoreSeqFeatureView?: string;
+  featureStoreUserId?: string;
   fgJarVersion?: string;
   fgJsonFileName?: string;
   generateZip?: boolean;
@@ -1092,6 +1098,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
   sampleRate?: number;
   sceneId?: string;
   serviceId?: string;
+  useFeatureStore?: boolean;
   userIdField?: string;
   userTable?: string;
   userTablePartitionField?: string;
@@ -1106,6 +1113,12 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
       featureDisplayExclude: 'FeatureDisplayExclude',
       featureLandingResourceId: 'FeatureLandingResourceId',
       featurePriority: 'FeaturePriority',
+      featureStoreItemId: 'FeatureStoreItemId',
+      featureStoreModelId: 'FeatureStoreModelId',
+      featureStoreProjectId: 'FeatureStoreProjectId',
+      featureStoreProjectName: 'FeatureStoreProjectName',
+      featureStoreSeqFeatureView: 'FeatureStoreSeqFeatureView',
+      featureStoreUserId: 'FeatureStoreUserId',
       fgJarVersion: 'FgJarVersion',
       fgJsonFileName: 'FgJsonFileName',
       generateZip: 'GenerateZip',
@@ -1119,6 +1132,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
       sampleRate: 'SampleRate',
       sceneId: 'SceneId',
       serviceId: 'ServiceId',
+      useFeatureStore: 'UseFeatureStore',
       userIdField: 'UserIdField',
       userTable: 'UserTable',
       userTablePartitionField: 'UserTablePartitionField',
@@ -1136,6 +1150,12 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
       featureDisplayExclude: 'string',
       featureLandingResourceId: 'string',
       featurePriority: 'string',
+      featureStoreItemId: 'string',
+      featureStoreModelId: 'string',
+      featureStoreProjectId: 'string',
+      featureStoreProjectName: 'string',
+      featureStoreSeqFeatureView: 'string',
+      featureStoreUserId: 'string',
       fgJarVersion: 'string',
       fgJsonFileName: 'string',
       generateZip: 'boolean',
@@ -1149,6 +1169,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
       sampleRate: 'number',
       sceneId: 'string',
       serviceId: 'string',
+      useFeatureStore: 'boolean',
       userIdField: 'string',
       userTable: 'string',
       userTablePartitionField: 'string',
@@ -1185,9 +1206,9 @@ export class CreateFeatureConsistencyCheckJobConfigResponseBody extends $tea.Mod
 }
 
 export class CreateFeatureConsistencyCheckJobConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFeatureConsistencyCheckJobConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFeatureConsistencyCheckJobConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1260,9 +1281,9 @@ export class CreateInstanceResourceResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1359,9 +1380,9 @@ export class CreateLaboratoryResponseBody extends $tea.Model {
 }
 
 export class CreateLaboratoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLaboratoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLaboratoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1434,9 +1455,9 @@ export class CreateLayerResponseBody extends $tea.Model {
 }
 
 export class CreateLayerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateLayerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLayerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1512,9 +1533,9 @@ export class CreateParamResponseBody extends $tea.Model {
 }
 
 export class CreateParamResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateParamResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1587,9 +1608,9 @@ export class CreateSceneResponseBody extends $tea.Model {
 }
 
 export class CreateSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1659,9 +1680,9 @@ export class CreateSubCrowdResponseBody extends $tea.Model {
 }
 
 export class CreateSubCrowdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSubCrowdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSubCrowdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1743,9 +1764,9 @@ export class CreateTableMetaResponseBody extends $tea.Model {
 }
 
 export class CreateTableMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTableMetaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTableMetaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1806,9 +1827,9 @@ export class DeleteABMetricResponseBody extends $tea.Model {
 }
 
 export class DeleteABMetricResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteABMetricResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteABMetricResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1869,9 +1890,9 @@ export class DeleteABMetricGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteABMetricGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteABMetricGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteABMetricGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1932,9 +1953,9 @@ export class DeleteCrowdResponseBody extends $tea.Model {
 }
 
 export class DeleteCrowdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCrowdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCrowdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1995,9 +2016,9 @@ export class DeleteExperimentResponseBody extends $tea.Model {
 }
 
 export class DeleteExperimentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteExperimentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteExperimentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2058,9 +2079,9 @@ export class DeleteExperimentGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteExperimentGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteExperimentGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteExperimentGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2102,9 +2123,9 @@ export class DeleteInstanceResourceResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2165,9 +2186,9 @@ export class DeleteLaboratoryResponseBody extends $tea.Model {
 }
 
 export class DeleteLaboratoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteLaboratoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLaboratoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2228,9 +2249,9 @@ export class DeleteLayerResponseBody extends $tea.Model {
 }
 
 export class DeleteLayerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteLayerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLayerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2291,9 +2312,9 @@ export class DeleteParamResponseBody extends $tea.Model {
 }
 
 export class DeleteParamResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteParamResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2354,9 +2375,9 @@ export class DeleteSceneResponseBody extends $tea.Model {
 }
 
 export class DeleteSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2417,9 +2438,9 @@ export class DeleteSubCrowdResponseBody extends $tea.Model {
 }
 
 export class DeleteSubCrowdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSubCrowdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSubCrowdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2480,9 +2501,9 @@ export class DeleteTableMetaResponseBody extends $tea.Model {
 }
 
 export class DeleteTableMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTableMetaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTableMetaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2585,9 +2606,9 @@ export class GetABMetricResponseBody extends $tea.Model {
 }
 
 export class GetABMetricResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetABMetricResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetABMetricResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2669,9 +2690,9 @@ export class GetABMetricGroupResponseBody extends $tea.Model {
 }
 
 export class GetABMetricGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetABMetricGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetABMetricGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2756,9 +2777,9 @@ export class GetCalculationJobResponseBody extends $tea.Model {
 }
 
 export class GetCalculationJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCalculationJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCalculationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2867,9 +2888,9 @@ export class GetExperimentResponseBody extends $tea.Model {
 }
 
 export class GetExperimentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetExperimentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetExperimentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2978,9 +2999,9 @@ export class GetExperimentGroupResponseBody extends $tea.Model {
 }
 
 export class GetExperimentGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetExperimentGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetExperimentGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3062,9 +3083,9 @@ export class GetFeatureConsistencyCheckJobResponseBody extends $tea.Model {
 }
 
 export class GetFeatureConsistencyCheckJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetFeatureConsistencyCheckJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFeatureConsistencyCheckJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3114,6 +3135,12 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $tea.Model 
   featureLandingResourceId?: string;
   featureLandingResourceUri?: string;
   featurePriority?: string;
+  featureStoreItemId?: string;
+  featureStoreModelId?: string;
+  featureStoreProjectId?: string;
+  featureStoreProjectName?: string;
+  featureStoreSeqFeatureView?: string;
+  featureStoreUserId?: string;
   fgJarVersion?: string;
   fgJsonFileName?: string;
   generateZip?: boolean;
@@ -3136,6 +3163,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $tea.Model 
   serviceId?: string;
   serviceName?: string;
   status?: string;
+  useFeatureStore?: boolean;
   userIdField?: string;
   userTable?: string;
   userTablePartitionField?: string;
@@ -3151,6 +3179,12 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $tea.Model 
       featureLandingResourceId: 'FeatureLandingResourceId',
       featureLandingResourceUri: 'FeatureLandingResourceUri',
       featurePriority: 'FeaturePriority',
+      featureStoreItemId: 'FeatureStoreItemId',
+      featureStoreModelId: 'FeatureStoreModelId',
+      featureStoreProjectId: 'FeatureStoreProjectId',
+      featureStoreProjectName: 'FeatureStoreProjectName',
+      featureStoreSeqFeatureView: 'FeatureStoreSeqFeatureView',
+      featureStoreUserId: 'FeatureStoreUserId',
       fgJarVersion: 'FgJarVersion',
       fgJsonFileName: 'FgJsonFileName',
       generateZip: 'GenerateZip',
@@ -3173,6 +3207,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $tea.Model 
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
       status: 'Status',
+      useFeatureStore: 'UseFeatureStore',
       userIdField: 'UserIdField',
       userTable: 'UserTable',
       userTablePartitionField: 'UserTablePartitionField',
@@ -3191,6 +3226,12 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $tea.Model 
       featureLandingResourceId: 'string',
       featureLandingResourceUri: 'string',
       featurePriority: 'string',
+      featureStoreItemId: 'string',
+      featureStoreModelId: 'string',
+      featureStoreProjectId: 'string',
+      featureStoreProjectName: 'string',
+      featureStoreSeqFeatureView: 'string',
+      featureStoreUserId: 'string',
       fgJarVersion: 'string',
       fgJsonFileName: 'string',
       generateZip: 'boolean',
@@ -3213,6 +3254,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $tea.Model 
       serviceId: 'string',
       serviceName: 'string',
       status: 'string',
+      useFeatureStore: 'boolean',
       userIdField: 'string',
       userTable: 'string',
       userTablePartitionField: 'string',
@@ -3227,9 +3269,9 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $tea.Model 
 }
 
 export class GetFeatureConsistencyCheckJobConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetFeatureConsistencyCheckJobConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFeatureConsistencyCheckJobConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3301,9 +3343,9 @@ export class GetInstanceResponseBody extends $tea.Model {
 }
 
 export class GetInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3369,9 +3411,9 @@ export class GetInstanceResourceResponseBody extends $tea.Model {
 }
 
 export class GetInstanceResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3419,9 +3461,9 @@ export class GetInstanceResourceTableResponseBody extends $tea.Model {
 }
 
 export class GetInstanceResourceTableResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceResourceTableResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceResourceTableResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3521,9 +3563,9 @@ export class GetLaboratoryResponseBody extends $tea.Model {
 }
 
 export class GetLaboratoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLaboratoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLaboratoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3596,9 +3638,9 @@ export class GetLayerResponseBody extends $tea.Model {
 }
 
 export class GetLayerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLayerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLayerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3668,9 +3710,9 @@ export class GetSceneResponseBody extends $tea.Model {
 }
 
 export class GetSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3743,9 +3785,9 @@ export class GetSubCrowdResponseBody extends $tea.Model {
 }
 
 export class GetSubCrowdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSubCrowdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSubCrowdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3788,28 +3830,34 @@ export class GetTableMetaRequest extends $tea.Model {
 
 export class GetTableMetaResponseBody extends $tea.Model {
   canDelete?: boolean;
+  config?: string;
   description?: string;
   fields?: GetTableMetaResponseBodyFields[];
   gmtCreateTime?: string;
+  gmtImportedTime?: string;
   gmtModifiedTime?: string;
   module?: string;
   name?: string;
   requestId?: string;
   resourceId?: string;
+  tableMetaId?: string;
   tableName?: string;
   type?: string;
   url?: string;
   static names(): { [key: string]: string } {
     return {
       canDelete: 'CanDelete',
+      config: 'Config',
       description: 'Description',
       fields: 'Fields',
       gmtCreateTime: 'GmtCreateTime',
+      gmtImportedTime: 'GmtImportedTime',
       gmtModifiedTime: 'GmtModifiedTime',
       module: 'Module',
       name: 'Name',
       requestId: 'RequestId',
       resourceId: 'ResourceId',
+      tableMetaId: 'TableMetaId',
       tableName: 'TableName',
       type: 'Type',
       url: 'Url',
@@ -3819,14 +3867,17 @@ export class GetTableMetaResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       canDelete: 'boolean',
+      config: 'string',
       description: 'string',
       fields: { 'type': 'array', 'itemType': GetTableMetaResponseBodyFields },
       gmtCreateTime: 'string',
+      gmtImportedTime: 'string',
       gmtModifiedTime: 'string',
       module: 'string',
       name: 'string',
       requestId: 'string',
       resourceId: 'string',
+      tableMetaId: 'string',
       tableName: 'string',
       type: 'string',
       url: 'string',
@@ -3839,9 +3890,9 @@ export class GetTableMetaResponseBody extends $tea.Model {
 }
 
 export class GetTableMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTableMetaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTableMetaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3865,27 +3916,33 @@ export class GetTableMetaResponse extends $tea.Model {
 
 export class ListABMetricGroupsRequest extends $tea.Model {
   instanceId?: string;
+  order?: string;
   pageNumber?: number;
   pageSize?: number;
   realtime?: boolean;
   sceneId?: string;
+  sortBy?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       realtime: 'Realtime',
       sceneId: 'SceneId',
+      sortBy: 'SortBy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       realtime: 'boolean',
       sceneId: 'string',
+      sortBy: 'string',
     };
   }
 
@@ -3920,9 +3977,9 @@ export class ListABMetricGroupsResponseBody extends $tea.Model {
 }
 
 export class ListABMetricGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListABMetricGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListABMetricGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4010,9 +4067,9 @@ export class ListABMetricsResponseBody extends $tea.Model {
 }
 
 export class ListABMetricsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListABMetricsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListABMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4091,9 +4148,9 @@ export class ListCalculationJobsResponseBody extends $tea.Model {
 }
 
 export class ListCalculationJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCalculationJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCalculationJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4160,9 +4217,9 @@ export class ListCrowdUsersResponseBody extends $tea.Model {
 }
 
 export class ListCrowdUsersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCrowdUsersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCrowdUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4229,9 +4286,9 @@ export class ListCrowdsResponseBody extends $tea.Model {
 }
 
 export class ListCrowdsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCrowdsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCrowdsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4304,9 +4361,9 @@ export class ListExperimentGroupsResponseBody extends $tea.Model {
 }
 
 export class ListExperimentGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListExperimentGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListExperimentGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4382,9 +4439,9 @@ export class ListExperimentsResponseBody extends $tea.Model {
 }
 
 export class ListExperimentsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListExperimentsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListExperimentsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4463,9 +4520,9 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBody extends $tea.Mode
 }
 
 export class ListFeatureConsistencyCheckJobConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFeatureConsistencyCheckJobConfigsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFeatureConsistencyCheckJobConfigsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4544,9 +4601,9 @@ export class ListFeatureConsistencyCheckJobFeatureReportsResponseBody extends $t
 }
 
 export class ListFeatureConsistencyCheckJobFeatureReportsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFeatureConsistencyCheckJobFeatureReportsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFeatureConsistencyCheckJobFeatureReportsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4641,9 +4698,9 @@ export class ListFeatureConsistencyCheckJobScoreReportsResponseBody extends $tea
 }
 
 export class ListFeatureConsistencyCheckJobScoreReportsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFeatureConsistencyCheckJobScoreReportsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFeatureConsistencyCheckJobScoreReportsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4725,9 +4782,9 @@ export class ListFeatureConsistencyCheckJobsResponseBody extends $tea.Model {
 }
 
 export class ListFeatureConsistencyCheckJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFeatureConsistencyCheckJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFeatureConsistencyCheckJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4800,9 +4857,9 @@ export class ListInstanceResourcesResponseBody extends $tea.Model {
 }
 
 export class ListInstanceResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListInstanceResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstanceResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4884,9 +4941,9 @@ export class ListInstancesResponseBody extends $tea.Model {
 }
 
 export class ListInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4962,9 +5019,9 @@ export class ListLaboratoriesResponseBody extends $tea.Model {
 }
 
 export class ListLaboratoriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListLaboratoriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLaboratoriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5034,9 +5091,9 @@ export class ListLayersResponseBody extends $tea.Model {
 }
 
 export class ListLayersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListLayersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLayersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5118,9 +5175,9 @@ export class ListParamsResponseBody extends $tea.Model {
 }
 
 export class ListParamsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListParamsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListParamsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5190,9 +5247,9 @@ export class ListScenesResponseBody extends $tea.Model {
 }
 
 export class ListScenesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListScenesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListScenesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5259,9 +5316,9 @@ export class ListSubCrowdsResponseBody extends $tea.Model {
 }
 
 export class ListSubCrowdsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSubCrowdsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSubCrowdsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5343,9 +5400,9 @@ export class ListTableMetasResponseBody extends $tea.Model {
 }
 
 export class ListTableMetasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTableMetasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTableMetasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5406,9 +5463,9 @@ export class OfflineExperimentResponseBody extends $tea.Model {
 }
 
 export class OfflineExperimentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OfflineExperimentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OfflineExperimentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5469,9 +5526,9 @@ export class OfflineExperimentGroupResponseBody extends $tea.Model {
 }
 
 export class OfflineExperimentGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OfflineExperimentGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OfflineExperimentGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5532,9 +5589,9 @@ export class OfflineLaboratoryResponseBody extends $tea.Model {
 }
 
 export class OfflineLaboratoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OfflineLaboratoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OfflineLaboratoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5595,9 +5652,9 @@ export class OnlineExperimentResponseBody extends $tea.Model {
 }
 
 export class OnlineExperimentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OnlineExperimentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnlineExperimentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5658,9 +5715,9 @@ export class OnlineExperimentGroupResponseBody extends $tea.Model {
 }
 
 export class OnlineExperimentGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OnlineExperimentGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnlineExperimentGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5721,9 +5778,9 @@ export class OnlineLaboratoryResponseBody extends $tea.Model {
 }
 
 export class OnlineLaboratoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OnlineLaboratoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnlineLaboratoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5784,9 +5841,9 @@ export class PushAllExperimentResponseBody extends $tea.Model {
 }
 
 export class PushAllExperimentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PushAllExperimentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushAllExperimentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5880,9 +5937,9 @@ export class ReportABMetricGroupResponseBody extends $tea.Model {
 }
 
 export class ReportABMetricGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReportABMetricGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReportABMetricGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5970,9 +6027,9 @@ export class SyncFeatureConsistencyCheckJobReplayLogResponseBody extends $tea.Mo
 }
 
 export class SyncFeatureConsistencyCheckJobReplayLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SyncFeatureConsistencyCheckJobReplayLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SyncFeatureConsistencyCheckJobReplayLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6033,9 +6090,9 @@ export class TerminateFeatureConsistencyCheckJobResponseBody extends $tea.Model 
 }
 
 export class TerminateFeatureConsistencyCheckJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TerminateFeatureConsistencyCheckJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TerminateFeatureConsistencyCheckJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6132,9 +6189,9 @@ export class UpdateABMetricResponseBody extends $tea.Model {
 }
 
 export class UpdateABMetricResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateABMetricResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateABMetricResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6210,9 +6267,9 @@ export class UpdateABMetricGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateABMetricGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateABMetricGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateABMetricGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6279,9 +6336,9 @@ export class UpdateCrowdResponseBody extends $tea.Model {
 }
 
 export class UpdateCrowdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateCrowdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCrowdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6363,9 +6420,9 @@ export class UpdateExperimentResponseBody extends $tea.Model {
 }
 
 export class UpdateExperimentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateExperimentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateExperimentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6462,9 +6519,9 @@ export class UpdateExperimentGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateExperimentGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateExperimentGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateExperimentGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6494,10 +6551,17 @@ export class UpdateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
   featureDisplayExclude?: string;
   featureLandingResourceId?: string;
   featurePriority?: string;
+  featureStoreItemId?: string;
+  featureStoreModelId?: string;
+  featureStoreProjectId?: string;
+  featureStoreProjectName?: string;
+  featureStoreSeqFeatureView?: string;
+  featureStoreUserId?: string;
   fgJarVersion?: string;
   fgJsonFileName?: string;
   generateZip?: boolean;
   instanceId?: string;
+  isUseFeatureStore?: boolean;
   itemIdField?: string;
   itemTable?: string;
   itemTablePartitionField?: string;
@@ -6521,10 +6585,17 @@ export class UpdateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
       featureDisplayExclude: 'FeatureDisplayExclude',
       featureLandingResourceId: 'FeatureLandingResourceId',
       featurePriority: 'FeaturePriority',
+      featureStoreItemId: 'FeatureStoreItemId',
+      featureStoreModelId: 'FeatureStoreModelId',
+      featureStoreProjectId: 'FeatureStoreProjectId',
+      featureStoreProjectName: 'FeatureStoreProjectName',
+      featureStoreSeqFeatureView: 'FeatureStoreSeqFeatureView',
+      featureStoreUserId: 'FeatureStoreUserId',
       fgJarVersion: 'FgJarVersion',
       fgJsonFileName: 'FgJsonFileName',
       generateZip: 'GenerateZip',
       instanceId: 'InstanceId',
+      isUseFeatureStore: 'IsUseFeatureStore',
       itemIdField: 'ItemIdField',
       itemTable: 'ItemTable',
       itemTablePartitionField: 'ItemTablePartitionField',
@@ -6551,10 +6622,17 @@ export class UpdateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
       featureDisplayExclude: 'string',
       featureLandingResourceId: 'string',
       featurePriority: 'string',
+      featureStoreItemId: 'string',
+      featureStoreModelId: 'string',
+      featureStoreProjectId: 'string',
+      featureStoreProjectName: 'string',
+      featureStoreSeqFeatureView: 'string',
+      featureStoreUserId: 'string',
       fgJarVersion: 'string',
       fgJsonFileName: 'string',
       generateZip: 'boolean',
       instanceId: 'string',
+      isUseFeatureStore: 'boolean',
       itemIdField: 'string',
       itemTable: 'string',
       itemTablePartitionField: 'string',
@@ -6597,9 +6675,9 @@ export class UpdateFeatureConsistencyCheckJobConfigResponseBody extends $tea.Mod
 }
 
 export class UpdateFeatureConsistencyCheckJobConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateFeatureConsistencyCheckJobConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateFeatureConsistencyCheckJobConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6663,9 +6741,9 @@ export class UpdateInstanceResourceResponseBody extends $tea.Model {
 }
 
 export class UpdateInstanceResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateInstanceResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6756,9 +6834,9 @@ export class UpdateLaboratoryResponseBody extends $tea.Model {
 }
 
 export class UpdateLaboratoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateLaboratoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLaboratoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6825,9 +6903,9 @@ export class UpdateLayerResponseBody extends $tea.Model {
 }
 
 export class UpdateLayerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateLayerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateLayerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6891,9 +6969,9 @@ export class UpdateParamResponseBody extends $tea.Model {
 }
 
 export class UpdateParamResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateParamResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6963,9 +7041,9 @@ export class UpdateSceneResponseBody extends $tea.Model {
 }
 
 export class UpdateSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7044,9 +7122,9 @@ export class UpdateTableMetaResponseBody extends $tea.Model {
 }
 
 export class UpdateTableMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTableMetaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTableMetaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7116,13 +7194,17 @@ export class CreateSceneRequestFlows extends $tea.Model {
 }
 
 export class CreateTableMetaRequestFields extends $tea.Model {
+  dataType?: string;
   isDimensionField?: boolean;
+  isPartitionField?: string;
   meaning?: string;
   name?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      dataType: 'DataType',
       isDimensionField: 'IsDimensionField',
+      isPartitionField: 'IsPartitionField',
       meaning: 'Meaning',
       name: 'Name',
       type: 'Type',
@@ -7131,7 +7213,9 @@ export class CreateTableMetaRequestFields extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataType: 'string',
       isDimensionField: 'boolean',
+      isPartitionField: 'string',
       meaning: 'string',
       name: 'string',
       type: 'string',
@@ -7245,12 +7329,14 @@ export class GetInstanceResponseBodyConfig extends $tea.Model {
 
 export class GetInstanceResourceTableResponseBodyFields extends $tea.Model {
   isDimensionField?: boolean;
+  isPartitionField?: boolean;
   meaning?: string;
   name?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       isDimensionField: 'IsDimensionField',
+      isPartitionField: 'IsPartitionField',
       meaning: 'Meaning',
       name: 'Name',
       type: 'Type',
@@ -7260,6 +7346,7 @@ export class GetInstanceResourceTableResponseBodyFields extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       isDimensionField: 'boolean',
+      isPartitionField: 'boolean',
       meaning: 'string',
       name: 'string',
       type: 'string',
@@ -7646,6 +7733,12 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureLandingResourceId?: string;
   featureLandingResourceUri?: string;
   featurePriority?: string;
+  featureStoreItemId?: string;
+  featureStoreModelId?: string;
+  featureStoreProjectId?: string;
+  featureStoreProjectName?: string;
+  featureStoreSeqFeatureView?: string;
+  featureStoreUserId?: string;
   fgJarVersion?: string;
   fgJsonFileName?: string;
   generateZip?: boolean;
@@ -7667,6 +7760,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   serviceId?: string;
   serviceName?: string;
   status?: string;
+  useFeatureStore?: string;
   userIdField?: string;
   userTable?: string;
   userTablePartitionField?: string;
@@ -7683,6 +7777,12 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
       featureLandingResourceId: 'FeatureLandingResourceId',
       featureLandingResourceUri: 'FeatureLandingResourceUri',
       featurePriority: 'FeaturePriority',
+      featureStoreItemId: 'FeatureStoreItemId',
+      featureStoreModelId: 'FeatureStoreModelId',
+      featureStoreProjectId: 'FeatureStoreProjectId',
+      featureStoreProjectName: 'FeatureStoreProjectName',
+      featureStoreSeqFeatureView: 'FeatureStoreSeqFeatureView',
+      featureStoreUserId: 'FeatureStoreUserId',
       fgJarVersion: 'FgJarVersion',
       fgJsonFileName: 'FgJsonFileName',
       generateZip: 'GenerateZip',
@@ -7704,6 +7804,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
       status: 'Status',
+      useFeatureStore: 'UseFeatureStore',
       userIdField: 'UserIdField',
       userTable: 'UserTable',
       userTablePartitionField: 'UserTablePartitionField',
@@ -7723,6 +7824,12 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
       featureLandingResourceId: 'string',
       featureLandingResourceUri: 'string',
       featurePriority: 'string',
+      featureStoreItemId: 'string',
+      featureStoreModelId: 'string',
+      featureStoreProjectId: 'string',
+      featureStoreProjectName: 'string',
+      featureStoreSeqFeatureView: 'string',
+      featureStoreUserId: 'string',
       fgJarVersion: 'string',
       fgJsonFileName: 'string',
       generateZip: 'boolean',
@@ -7744,6 +7851,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
       serviceId: 'string',
       serviceName: 'string',
       status: 'string',
+      useFeatureStore: 'string',
       userIdField: 'string',
       userTable: 'string',
       userTablePartitionField: 'string',
@@ -8279,6 +8387,7 @@ export class ListTableMetasResponseBodyTableMetasFields extends $tea.Model {
 
 export class ListTableMetasResponseBodyTableMetas extends $tea.Model {
   canDelete?: boolean;
+  config?: string;
   description?: string;
   fields?: ListTableMetasResponseBodyTableMetasFields[];
   gmtCreateTime?: string;
@@ -8294,6 +8403,7 @@ export class ListTableMetasResponseBodyTableMetas extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       canDelete: 'CanDelete',
+      config: 'Config',
       description: 'Description',
       fields: 'Fields',
       gmtCreateTime: 'GmtCreateTime',
@@ -8312,6 +8422,7 @@ export class ListTableMetasResponseBodyTableMetas extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       canDelete: 'boolean',
+      config: 'string',
       description: 'string',
       fields: { 'type': 'array', 'itemType': ListTableMetasResponseBodyTableMetasFields },
       gmtCreateTime: 'string',
@@ -8355,13 +8466,17 @@ export class UpdateSceneRequestFlows extends $tea.Model {
 }
 
 export class UpdateTableMetaRequestFields extends $tea.Model {
+  dataType?: string;
   isDimensionField?: boolean;
+  isPartitionField?: string;
   meaning?: string;
   name?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      dataType: 'DataType',
       isDimensionField: 'IsDimensionField',
+      isPartitionField: 'IsPartitionField',
       meaning: 'Meaning',
       name: 'Name',
       type: 'Type',
@@ -8370,7 +8485,9 @@ export class UpdateTableMetaRequestFields extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataType: 'string',
       isDimensionField: 'boolean',
+      isPartitionField: 'string',
       meaning: 'string',
       name: 'string',
       type: 'string',
@@ -9087,6 +9204,30 @@ export default class Client extends OpenApi {
       body["FeaturePriority"] = request.featurePriority;
     }
 
+    if (!Util.isUnset(request.featureStoreItemId)) {
+      body["FeatureStoreItemId"] = request.featureStoreItemId;
+    }
+
+    if (!Util.isUnset(request.featureStoreModelId)) {
+      body["FeatureStoreModelId"] = request.featureStoreModelId;
+    }
+
+    if (!Util.isUnset(request.featureStoreProjectId)) {
+      body["FeatureStoreProjectId"] = request.featureStoreProjectId;
+    }
+
+    if (!Util.isUnset(request.featureStoreProjectName)) {
+      body["FeatureStoreProjectName"] = request.featureStoreProjectName;
+    }
+
+    if (!Util.isUnset(request.featureStoreSeqFeatureView)) {
+      body["FeatureStoreSeqFeatureView"] = request.featureStoreSeqFeatureView;
+    }
+
+    if (!Util.isUnset(request.featureStoreUserId)) {
+      body["FeatureStoreUserId"] = request.featureStoreUserId;
+    }
+
     if (!Util.isUnset(request.fgJarVersion)) {
       body["FgJarVersion"] = request.fgJarVersion;
     }
@@ -9137,6 +9278,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serviceId)) {
       body["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.useFeatureStore)) {
+      body["UseFeatureStore"] = request.useFeatureStore;
     }
 
     if (!Util.isUnset(request.userIdField)) {
@@ -10344,6 +10489,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -10358,6 +10507,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sceneId)) {
       query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -11872,6 +12025,30 @@ export default class Client extends OpenApi {
       body["FeaturePriority"] = request.featurePriority;
     }
 
+    if (!Util.isUnset(request.featureStoreItemId)) {
+      body["FeatureStoreItemId"] = request.featureStoreItemId;
+    }
+
+    if (!Util.isUnset(request.featureStoreModelId)) {
+      body["FeatureStoreModelId"] = request.featureStoreModelId;
+    }
+
+    if (!Util.isUnset(request.featureStoreProjectId)) {
+      body["FeatureStoreProjectId"] = request.featureStoreProjectId;
+    }
+
+    if (!Util.isUnset(request.featureStoreProjectName)) {
+      body["FeatureStoreProjectName"] = request.featureStoreProjectName;
+    }
+
+    if (!Util.isUnset(request.featureStoreSeqFeatureView)) {
+      body["FeatureStoreSeqFeatureView"] = request.featureStoreSeqFeatureView;
+    }
+
+    if (!Util.isUnset(request.featureStoreUserId)) {
+      body["FeatureStoreUserId"] = request.featureStoreUserId;
+    }
+
     if (!Util.isUnset(request.fgJarVersion)) {
       body["FgJarVersion"] = request.fgJarVersion;
     }
@@ -11886,6 +12063,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.isUseFeatureStore)) {
+      body["IsUseFeatureStore"] = request.isUseFeatureStore;
     }
 
     if (!Util.isUnset(request.itemIdField)) {
