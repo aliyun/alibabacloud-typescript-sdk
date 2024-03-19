@@ -546,6 +546,7 @@ export class DataIngestion extends $tea.Model {
   marker?: string;
   notification?: DataIngestionNotification;
   phase?: string;
+  serviceRole?: string;
   state?: string;
   statistic?: DataIngestionStatistic;
   tags?: { [key: string]: any };
@@ -560,6 +561,7 @@ export class DataIngestion extends $tea.Model {
       marker: 'Marker',
       notification: 'Notification',
       phase: 'Phase',
+      serviceRole: 'ServiceRole',
       state: 'State',
       statistic: 'Statistic',
       tags: 'Tags',
@@ -577,6 +579,7 @@ export class DataIngestion extends $tea.Model {
       marker: 'string',
       notification: DataIngestionNotification,
       phase: 'string',
+      serviceRole: 'string',
       state: 'string',
       statistic: DataIngestionStatistic,
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -8420,6 +8423,175 @@ export class FuzzyQueryResponse extends $tea.Model {
   }
 }
 
+export class GenerateVideoPlaylistRequest extends $tea.Model {
+  credentialConfig?: CredentialConfig;
+  masterURI?: string;
+  notification?: Notification;
+  overwritePolicy?: string;
+  projectName?: string;
+  sourceDuration?: number;
+  sourceStartTime?: number;
+  sourceSubtitles?: GenerateVideoPlaylistRequestSourceSubtitles[];
+  sourceURI?: string;
+  tags?: { [key: string]: string };
+  targets?: GenerateVideoPlaylistRequestTargets[];
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfig: 'CredentialConfig',
+      masterURI: 'MasterURI',
+      notification: 'Notification',
+      overwritePolicy: 'OverwritePolicy',
+      projectName: 'ProjectName',
+      sourceDuration: 'SourceDuration',
+      sourceStartTime: 'SourceStartTime',
+      sourceSubtitles: 'SourceSubtitles',
+      sourceURI: 'SourceURI',
+      tags: 'Tags',
+      targets: 'Targets',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfig: CredentialConfig,
+      masterURI: 'string',
+      notification: Notification,
+      overwritePolicy: 'string',
+      projectName: 'string',
+      sourceDuration: 'number',
+      sourceStartTime: 'number',
+      sourceSubtitles: { 'type': 'array', 'itemType': GenerateVideoPlaylistRequestSourceSubtitles },
+      sourceURI: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      targets: { 'type': 'array', 'itemType': GenerateVideoPlaylistRequestTargets },
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVideoPlaylistShrinkRequest extends $tea.Model {
+  credentialConfigShrink?: string;
+  masterURI?: string;
+  notificationShrink?: string;
+  overwritePolicy?: string;
+  projectName?: string;
+  sourceDuration?: number;
+  sourceStartTime?: number;
+  sourceSubtitlesShrink?: string;
+  sourceURI?: string;
+  tagsShrink?: string;
+  targetsShrink?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfigShrink: 'CredentialConfig',
+      masterURI: 'MasterURI',
+      notificationShrink: 'Notification',
+      overwritePolicy: 'OverwritePolicy',
+      projectName: 'ProjectName',
+      sourceDuration: 'SourceDuration',
+      sourceStartTime: 'SourceStartTime',
+      sourceSubtitlesShrink: 'SourceSubtitles',
+      sourceURI: 'SourceURI',
+      tagsShrink: 'Tags',
+      targetsShrink: 'Targets',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfigShrink: 'string',
+      masterURI: 'string',
+      notificationShrink: 'string',
+      overwritePolicy: 'string',
+      projectName: 'string',
+      sourceDuration: 'number',
+      sourceStartTime: 'number',
+      sourceSubtitlesShrink: 'string',
+      sourceURI: 'string',
+      tagsShrink: 'string',
+      targetsShrink: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVideoPlaylistResponseBody extends $tea.Model {
+  audioPlaylist?: GenerateVideoPlaylistResponseBodyAudioPlaylist[];
+  duration?: number;
+  masterURI?: string;
+  requestId?: string;
+  subtitlePlaylist?: GenerateVideoPlaylistResponseBodySubtitlePlaylist[];
+  token?: string;
+  URI?: string;
+  videoPlaylist?: GenerateVideoPlaylistResponseBodyVideoPlaylist[];
+  static names(): { [key: string]: string } {
+    return {
+      audioPlaylist: 'AudioPlaylist',
+      duration: 'Duration',
+      masterURI: 'MasterURI',
+      requestId: 'RequestId',
+      subtitlePlaylist: 'SubtitlePlaylist',
+      token: 'Token',
+      URI: 'URI',
+      videoPlaylist: 'VideoPlaylist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioPlaylist: { 'type': 'array', 'itemType': GenerateVideoPlaylistResponseBodyAudioPlaylist },
+      duration: 'number',
+      masterURI: 'string',
+      requestId: 'string',
+      subtitlePlaylist: { 'type': 'array', 'itemType': GenerateVideoPlaylistResponseBodySubtitlePlaylist },
+      token: 'string',
+      URI: 'string',
+      videoPlaylist: { 'type': 'array', 'itemType': GenerateVideoPlaylistResponseBodyVideoPlaylist },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVideoPlaylistResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateVideoPlaylistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateVideoPlaylistResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateWebofficeTokenRequest extends $tea.Model {
   cachePreview?: boolean;
   credentialConfig?: CredentialConfig;
@@ -12727,10 +12899,14 @@ export class DataIngestionActions extends $tea.Model {
 
 export class DataIngestionNotification extends $tea.Model {
   endpoint?: string;
+  MNS?: MNS;
+  rocketMQ?: RocketMQ;
   topic?: string;
   static names(): { [key: string]: string } {
     return {
       endpoint: 'Endpoint',
+      MNS: 'MNS',
+      rocketMQ: 'RocketMQ',
       topic: 'Topic',
     };
   }
@@ -12738,6 +12914,8 @@ export class DataIngestionNotification extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endpoint: 'string',
+      MNS: MNS,
+      rocketMQ: RocketMQ,
       topic: 'string',
     };
   }
@@ -12748,10 +12926,12 @@ export class DataIngestionNotification extends $tea.Model {
 }
 
 export class DataIngestionStatistic extends $tea.Model {
+  skipFiles?: number;
   submitFailure?: number;
   submitSuccess?: number;
   static names(): { [key: string]: string } {
     return {
+      skipFiles: 'SkipFiles',
       submitFailure: 'SubmitFailure',
       submitSuccess: 'SubmitSuccess',
     };
@@ -12759,6 +12939,7 @@ export class DataIngestionStatistic extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      skipFiles: 'number',
       submitFailure: 'number',
       submitSuccess: 'number',
     };
@@ -13781,6 +13962,152 @@ export class DetectImageScoreResponseBodyImageScore extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       overallQualityScore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVideoPlaylistRequestSourceSubtitles extends $tea.Model {
+  language?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      language: 'Language',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      language: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVideoPlaylistRequestTargets extends $tea.Model {
+  audio?: TargetAudio;
+  duration?: number;
+  initialSegments?: number[];
+  initialTranscode?: number;
+  subtitle?: TargetSubtitle;
+  tags?: { [key: string]: string };
+  transcodeAhead?: number;
+  URI?: string;
+  video?: TargetVideo;
+  static names(): { [key: string]: string } {
+    return {
+      audio: 'Audio',
+      duration: 'Duration',
+      initialSegments: 'InitialSegments',
+      initialTranscode: 'InitialTranscode',
+      subtitle: 'Subtitle',
+      tags: 'Tags',
+      transcodeAhead: 'TranscodeAhead',
+      URI: 'URI',
+      video: 'Video',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audio: TargetAudio,
+      duration: 'number',
+      initialSegments: { 'type': 'array', 'itemType': 'number' },
+      initialTranscode: 'number',
+      subtitle: TargetSubtitle,
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      transcodeAhead: 'number',
+      URI: 'string',
+      video: TargetVideo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVideoPlaylistResponseBodyAudioPlaylist extends $tea.Model {
+  channels?: number;
+  token?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+      token: 'Token',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: 'number',
+      token: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $tea.Model {
+  index?: number;
+  language?: string;
+  token?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'Index',
+      language: 'Language',
+      token: 'Token',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: 'number',
+      language: 'string',
+      token: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVideoPlaylistResponseBodyVideoPlaylist extends $tea.Model {
+  frameRate?: string;
+  resolution?: string;
+  token?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      frameRate: 'FrameRate',
+      resolution: 'Resolution',
+      token: 'Token',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      frameRate: 'string',
+      resolution: 'string',
+      token: 'string',
+      URI: 'string',
     };
   }
 
@@ -17141,6 +17468,101 @@ export default class Client extends OpenApi {
   async fuzzyQuery(request: FuzzyQueryRequest): Promise<FuzzyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fuzzyQueryWithOptions(request, runtime);
+  }
+
+  async generateVideoPlaylistWithOptions(tmpReq: GenerateVideoPlaylistRequest, runtime: $Util.RuntimeOptions): Promise<GenerateVideoPlaylistResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GenerateVideoPlaylistShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sourceSubtitles)) {
+      request.sourceSubtitlesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceSubtitles, "SourceSubtitles", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.targets)) {
+      request.targetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targets, "Targets", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.masterURI)) {
+      query["MasterURI"] = request.masterURI;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
+    }
+
+    if (!Util.isUnset(request.overwritePolicy)) {
+      query["OverwritePolicy"] = request.overwritePolicy;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceDuration)) {
+      query["SourceDuration"] = request.sourceDuration;
+    }
+
+    if (!Util.isUnset(request.sourceStartTime)) {
+      query["SourceStartTime"] = request.sourceStartTime;
+    }
+
+    if (!Util.isUnset(request.sourceSubtitlesShrink)) {
+      query["SourceSubtitles"] = request.sourceSubtitlesShrink;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.targetsShrink)) {
+      query["Targets"] = request.targetsShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateVideoPlaylist",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateVideoPlaylistResponse>(await this.callApi(params, req, runtime), new GenerateVideoPlaylistResponse({}));
+  }
+
+  async generateVideoPlaylist(request: GenerateVideoPlaylistRequest): Promise<GenerateVideoPlaylistResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateVideoPlaylistWithOptions(request, runtime);
   }
 
   async generateWebofficeTokenWithOptions(tmpReq: GenerateWebofficeTokenRequest, runtime: $Util.RuntimeOptions): Promise<GenerateWebofficeTokenResponse> {
