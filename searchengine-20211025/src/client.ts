@@ -130,9 +130,9 @@ export class BuildIndexResponseBody extends $tea.Model {
 }
 
 export class BuildIndexResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BuildIndexResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BuildIndexResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -208,9 +208,9 @@ export class CreateClusterResponseBody extends $tea.Model {
 }
 
 export class CreateClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -292,9 +292,9 @@ export class CreateDataSourceResponseBody extends $tea.Model {
 }
 
 export class CreateDataSourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDataSourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -379,9 +379,9 @@ export class CreateIndexResponseBody extends $tea.Model {
 }
 
 export class CreateIndexResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateIndexResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIndexResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -451,9 +451,9 @@ export class CreateInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -498,9 +498,9 @@ export class DeleteAdvanceConfigResponseBody extends $tea.Model {
 }
 
 export class DeleteAdvanceConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAdvanceConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAdvanceConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -545,9 +545,9 @@ export class DeleteDataSourceResponseBody extends $tea.Model {
 }
 
 export class DeleteDataSourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDataSourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDataSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -614,9 +614,9 @@ export class DeleteIndexResponseBody extends $tea.Model {
 }
 
 export class DeleteIndexResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteIndexResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIndexResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -661,9 +661,9 @@ export class DeleteIndexVersionResponseBody extends $tea.Model {
 }
 
 export class DeleteIndexVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteIndexVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIndexVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -708,9 +708,9 @@ export class DeleteInstanceResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -755,9 +755,9 @@ export class ForceSwitchResponseBody extends $tea.Model {
 }
 
 export class ForceSwitchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ForceSwitchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ForceSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -821,9 +821,9 @@ export class GetAdvanceConfigResponseBody extends $tea.Model {
 }
 
 export class GetAdvanceConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAdvanceConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAdvanceConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -887,9 +887,9 @@ export class GetAdvanceConfigFileResponseBody extends $tea.Model {
 }
 
 export class GetAdvanceConfigFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAdvanceConfigFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAdvanceConfigFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -934,9 +934,9 @@ export class GetClusterResponseBody extends $tea.Model {
 }
 
 export class GetClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -981,9 +981,9 @@ export class GetClusterRunTimeInfoResponseBody extends $tea.Model {
 }
 
 export class GetClusterRunTimeInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetClusterRunTimeInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClusterRunTimeInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1028,9 +1028,9 @@ export class GetDataSourceResponseBody extends $tea.Model {
 }
 
 export class GetDataSourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDataSourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1075,9 +1075,9 @@ export class GetDataSourceDeployResponseBody extends $tea.Model {
 }
 
 export class GetDataSourceDeployResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDataSourceDeployResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataSourceDeployResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1122,9 +1122,9 @@ export class GetDeployGraphResponseBody extends $tea.Model {
 }
 
 export class GetDeployGraphResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDeployGraphResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDeployGraphResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1188,9 +1188,9 @@ export class GetFileResponseBody extends $tea.Model {
 }
 
 export class GetFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1235,9 +1235,9 @@ export class GetIndexResponseBody extends $tea.Model {
 }
 
 export class GetIndexResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetIndexResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIndexResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1282,9 +1282,9 @@ export class GetIndexVersionResponseBody extends $tea.Model {
 }
 
 export class GetIndexVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetIndexVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIndexVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1329,9 +1329,9 @@ export class GetInstanceResponseBody extends $tea.Model {
 }
 
 export class GetInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1401,9 +1401,9 @@ export class GetNodeConfigResponseBody extends $tea.Model {
 }
 
 export class GetNodeConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetNodeConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNodeConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1467,9 +1467,9 @@ export class ListAdvanceConfigDirResponseBody extends $tea.Model {
 }
 
 export class ListAdvanceConfigDirResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAdvanceConfigDirResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAdvanceConfigDirResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1539,9 +1539,9 @@ export class ListAdvanceConfigsResponseBody extends $tea.Model {
 }
 
 export class ListAdvanceConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAdvanceConfigsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAdvanceConfigsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1586,9 +1586,9 @@ export class ListClusterNamesResponseBody extends $tea.Model {
 }
 
 export class ListClusterNamesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListClusterNamesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListClusterNamesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1633,9 +1633,9 @@ export class ListClusterTasksResponseBody extends $tea.Model {
 }
 
 export class ListClusterTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListClusterTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListClusterTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1680,9 +1680,9 @@ export class ListClustersResponseBody extends $tea.Model {
 }
 
 export class ListClustersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListClustersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListClustersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1727,9 +1727,9 @@ export class ListDataSourceSchemasResponseBody extends $tea.Model {
 }
 
 export class ListDataSourceSchemasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDataSourceSchemasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataSourceSchemasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1774,9 +1774,9 @@ export class ListDataSourceTasksResponseBody extends $tea.Model {
 }
 
 export class ListDataSourceTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDataSourceTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataSourceTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1821,9 +1821,9 @@ export class ListDataSourcesResponseBody extends $tea.Model {
 }
 
 export class ListDataSourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDataSourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataSourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1890,9 +1890,9 @@ export class ListDateSourceGenerationsResponseBody extends $tea.Model {
 }
 
 export class ListDateSourceGenerationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDateSourceGenerationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDateSourceGenerationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1956,9 +1956,9 @@ export class ListIndexesResponseBody extends $tea.Model {
 }
 
 export class ListIndexesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListIndexesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIndexesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2022,9 +2022,9 @@ export class ListInstanceSpecsResponseBody extends $tea.Model {
 }
 
 export class ListInstanceSpecsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListInstanceSpecsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstanceSpecsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2146,9 +2146,9 @@ export class ListInstancesResponseBody extends $tea.Model {
 }
 
 export class ListInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2212,9 +2212,9 @@ export class ListOnlineConfigsResponseBody extends $tea.Model {
 }
 
 export class ListOnlineConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListOnlineConfigsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOnlineConfigsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2278,9 +2278,9 @@ export class ListQueryResultResponseBody extends $tea.Model {
 }
 
 export class ListQueryResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListQueryResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListQueryResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2350,9 +2350,9 @@ export class ModifyAdvanceConfigFileResponseBody extends $tea.Model {
 }
 
 export class ModifyAdvanceConfigFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAdvanceConfigFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAdvanceConfigFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2416,9 +2416,9 @@ export class ModifyClusterDescResponseBody extends $tea.Model {
 }
 
 export class ModifyClusterDescResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyClusterDescResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyClusterDescResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2506,9 +2506,9 @@ export class ModifyClusterOfflineConfigResponseBody extends $tea.Model {
 }
 
 export class ModifyClusterOfflineConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyClusterOfflineConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyClusterOfflineConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2575,9 +2575,9 @@ export class ModifyClusterOnlineConfigResponseBody extends $tea.Model {
 }
 
 export class ModifyClusterOnlineConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyClusterOnlineConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyClusterOnlineConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2644,9 +2644,9 @@ export class ModifyDataSourceResponseBody extends $tea.Model {
 }
 
 export class ModifyDataSourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDataSourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDataSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2716,9 +2716,9 @@ export class ModifyFileResponseBody extends $tea.Model {
 }
 
 export class ModifyFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2791,9 +2791,9 @@ export class ModifyIndexPartitionResponseBody extends $tea.Model {
 }
 
 export class ModifyIndexPartitionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyIndexPartitionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyIndexPartitionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2857,9 +2857,9 @@ export class ModifyIndexVersionResponseBody extends $tea.Model {
 }
 
 export class ModifyIndexVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyIndexVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyIndexVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2885,6 +2885,7 @@ export class ModifyNodeConfigRequest extends $tea.Model {
   active?: boolean;
   dataDuplicateNumber?: number;
   dataFragmentNumber?: number;
+  flowRatio?: number;
   minServicePercent?: number;
   published?: boolean;
   clusterName?: string;
@@ -2896,6 +2897,7 @@ export class ModifyNodeConfigRequest extends $tea.Model {
       active: 'active',
       dataDuplicateNumber: 'dataDuplicateNumber',
       dataFragmentNumber: 'dataFragmentNumber',
+      flowRatio: 'flowRatio',
       minServicePercent: 'minServicePercent',
       published: 'published',
       clusterName: 'clusterName',
@@ -2910,6 +2912,7 @@ export class ModifyNodeConfigRequest extends $tea.Model {
       active: 'boolean',
       dataDuplicateNumber: 'number',
       dataFragmentNumber: 'number',
+      flowRatio: 'number',
       minServicePercent: 'number',
       published: 'boolean',
       clusterName: 'string',
@@ -2947,9 +2950,9 @@ export class ModifyNodeConfigResponseBody extends $tea.Model {
 }
 
 export class ModifyNodeConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyNodeConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyNodeConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3013,9 +3016,9 @@ export class ModifyOnlineConfigResponseBody extends $tea.Model {
 }
 
 export class ModifyOnlineConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyOnlineConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyOnlineConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3082,9 +3085,9 @@ export class ModifyPasswordResponseBody extends $tea.Model {
 }
 
 export class ModifyPasswordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPasswordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3148,9 +3151,9 @@ export class PublishAdvanceConfigResponseBody extends $tea.Model {
 }
 
 export class PublishAdvanceConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PublishAdvanceConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PublishAdvanceConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3214,9 +3217,9 @@ export class PublishIndexVersionResponseBody extends $tea.Model {
 }
 
 export class PublishIndexVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PublishIndexVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PublishIndexVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3289,9 +3292,9 @@ export class RecoverIndexResponseBody extends $tea.Model {
 }
 
 export class RecoverIndexResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RecoverIndexResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RecoverIndexResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3336,9 +3339,9 @@ export class RemoveClusterResponseBody extends $tea.Model {
 }
 
 export class RemoveClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3383,9 +3386,9 @@ export class StopTaskResponseBody extends $tea.Model {
 }
 
 export class StopTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3455,9 +3458,9 @@ export class UpdateInstanceResponseBody extends $tea.Model {
 }
 
 export class UpdateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3610,16 +3613,24 @@ export class CreateDataSourceRequestSaroConfig extends $tea.Model {
 export class CreateIndexRequestDataSourceInfoConfig extends $tea.Model {
   accessKey?: string;
   accessSecret?: string;
+  bucket?: string;
   endpoint?: string;
+  namespace?: string;
+  ossPath?: string;
   partition?: string;
+  path?: string;
   project?: string;
   table?: string;
   static names(): { [key: string]: string } {
     return {
       accessKey: 'accessKey',
       accessSecret: 'accessSecret',
+      bucket: 'bucket',
       endpoint: 'endpoint',
+      namespace: 'namespace',
+      ossPath: 'ossPath',
       partition: 'partition',
+      path: 'path',
       project: 'project',
       table: 'table',
     };
@@ -3629,10 +3640,36 @@ export class CreateIndexRequestDataSourceInfoConfig extends $tea.Model {
     return {
       accessKey: 'string',
       accessSecret: 'string',
+      bucket: 'string',
       endpoint: 'string',
+      namespace: 'string',
+      ossPath: 'string',
       partition: 'string',
+      path: 'string',
       project: 'string',
       table: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndexRequestDataSourceInfoSaroConfig extends $tea.Model {
+  namespace?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespace: 'namespace',
+      tableName: 'tableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespace: 'string',
+      tableName: 'string',
     };
   }
 
@@ -3644,13 +3681,21 @@ export class CreateIndexRequestDataSourceInfoConfig extends $tea.Model {
 export class CreateIndexRequestDataSourceInfo extends $tea.Model {
   autoBuildIndex?: boolean;
   config?: CreateIndexRequestDataSourceInfoConfig;
+  dataTimeSec?: number;
+  domain?: string;
+  name?: string;
   processPartitionCount?: number;
+  saroConfig?: CreateIndexRequestDataSourceInfoSaroConfig;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       autoBuildIndex: 'autoBuildIndex',
       config: 'config',
+      dataTimeSec: 'dataTimeSec',
+      domain: 'domain',
+      name: 'name',
       processPartitionCount: 'processPartitionCount',
+      saroConfig: 'saroConfig',
       type: 'type',
     };
   }
@@ -3659,7 +3704,11 @@ export class CreateIndexRequestDataSourceInfo extends $tea.Model {
     return {
       autoBuildIndex: 'boolean',
       config: CreateIndexRequestDataSourceInfoConfig,
+      dataTimeSec: 'number',
+      domain: 'string',
+      name: 'string',
       processPartitionCount: 'number',
+      saroConfig: CreateIndexRequestDataSourceInfoSaroConfig,
       type: 'string',
     };
   }
@@ -5039,6 +5088,7 @@ export class GetNodeConfigResponseBodyResult extends $tea.Model {
   active?: boolean;
   dataDuplicateNumber?: number;
   dataFragmentNumber?: number;
+  flowRatio?: number;
   minServicePercent?: number;
   published?: boolean;
   static names(): { [key: string]: string } {
@@ -5046,6 +5096,7 @@ export class GetNodeConfigResponseBodyResult extends $tea.Model {
       active: 'active',
       dataDuplicateNumber: 'dataDuplicateNumber',
       dataFragmentNumber: 'dataFragmentNumber',
+      flowRatio: 'flowRatio',
       minServicePercent: 'minServicePercent',
       published: 'published',
     };
@@ -5056,6 +5107,7 @@ export class GetNodeConfigResponseBodyResult extends $tea.Model {
       active: 'boolean',
       dataDuplicateNumber: 'number',
       dataFragmentNumber: 'number',
+      flowRatio: 'number',
       minServicePercent: 'number',
       published: 'boolean',
     };
@@ -6305,14 +6357,6 @@ export default class Client extends OpenApi {
     return await this.createClusterWithOptions(instanceId, request, headers, runtime);
   }
 
-  /**
-    * The result returned
-    *
-    * @param request CreateDataSourceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDataSourceResponse
-   */
   async createDataSourceWithOptions(instanceId: string, request: CreateDataSourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDataSourceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6364,12 +6408,6 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDataSourceResponse>(await this.callApi(params, req, runtime), new CreateDataSourceResponse({}));
   }
 
-  /**
-    * The result returned
-    *
-    * @param request CreateDataSourceRequest
-    * @return CreateDataSourceResponse
-   */
   async createDataSource(instanceId: string, request: CreateDataSourceRequest): Promise<CreateDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -6609,7 +6647,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The information about the index
+    * ## Method
+    *     DELETE
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx
     *
     * @param request DeleteIndexRequest
     * @param headers map
@@ -6646,7 +6687,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The information about the index
+    * ## Method
+    *     DELETE
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx
     *
     * @param request DeleteIndexRequest
     * @return DeleteIndexResponse
@@ -6658,7 +6702,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The result
+    * ## Method
+    *     DELETE
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -6683,7 +6730,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The result
+    * ## Method
+    *     DELETE
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}
     *
     * @return DeleteIndexVersionResponse
    */
@@ -6694,7 +6744,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The result returned
+    * ### Method
+    * `DELETE`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}`
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -6719,7 +6772,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The result returned
+    * ### Method
+    * `DELETE`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}`
     *
     * @return DeleteInstanceResponse
    */
@@ -6830,6 +6886,17 @@ export default class Client extends OpenApi {
     return await this.getAdvanceConfigWithOptions(instanceId, configName, request, headers, runtime);
   }
 
+  /**
+    * ## Method
+    *     GET
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+    *
+    * @param request GetAdvanceConfigFileRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAdvanceConfigFileResponse
+   */
   async getAdvanceConfigFileWithOptions(instanceId: string, configName: string, request: GetAdvanceConfigFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAdvanceConfigFileResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6855,6 +6922,15 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAdvanceConfigFileResponse>(await this.callApi(params, req, runtime), new GetAdvanceConfigFileResponse({}));
   }
 
+  /**
+    * ## Method
+    *     GET
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+    *
+    * @param request GetAdvanceConfigFileRequest
+    * @return GetAdvanceConfigFileResponse
+   */
   async getAdvanceConfigFile(instanceId: string, configName: string, request: GetAdvanceConfigFileRequest): Promise<GetAdvanceConfigFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -6903,6 +6979,16 @@ export default class Client extends OpenApi {
     return await this.getClusterWithOptions(instanceId, clusterName, headers, runtime);
   }
 
+  /**
+    * ### Method
+    * GET
+    * ### URI
+    * /openapi/ha3/instances/{instanceId}/cluster-run-time-info
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetClusterRunTimeInfoResponse
+   */
   async getClusterRunTimeInfoWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterRunTimeInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6921,12 +7007,30 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClusterRunTimeInfoResponse>(await this.callApi(params, req, runtime), new GetClusterRunTimeInfoResponse({}));
   }
 
+  /**
+    * ### Method
+    * GET
+    * ### URI
+    * /openapi/ha3/instances/{instanceId}/cluster-run-time-info
+    *
+    * @return GetClusterRunTimeInfoResponse
+   */
   async getClusterRunTimeInfo(instanceId: string): Promise<GetClusterRunTimeInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getClusterRunTimeInfoWithOptions(instanceId, headers, runtime);
   }
 
+  /**
+    * ### Method
+    * `GET`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetDataSourceResponse
+   */
   async getDataSourceWithOptions(instanceId: string, dataSourceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDataSourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6945,6 +7049,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataSourceResponse>(await this.callApi(params, req, runtime), new GetDataSourceResponse({}));
   }
 
+  /**
+    * ### Method
+    * `GET`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+    *
+    * @return GetDataSourceResponse
+   */
   async getDataSource(instanceId: string, dataSourceName: string): Promise<GetDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -6976,9 +7088,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Sample requests
+    * ## Method
+    * GET
+    * ## URI
     * ```java
-    * GET /openapi/ha3/instances/{instanceId}/deploy-graph
+    * /openapi/ha3/instances/{instanceId}/deploy-graph
     * ```
     *
     * @param headers map
@@ -7004,9 +7118,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Sample requests
+    * ## Method
+    * GET
+    * ## URI
     * ```java
-    * GET /openapi/ha3/instances/{instanceId}/deploy-graph
+    * /openapi/ha3/instances/{instanceId}/deploy-graph
     * ```
     *
     * @return GetDeployGraphResponse
@@ -7017,6 +7133,17 @@ export default class Client extends OpenApi {
     return await this.getDeployGraphWithOptions(instanceId, headers, runtime);
   }
 
+  /**
+    * ## Method
+    *     GET
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+    *
+    * @param request GetFileRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetFileResponse
+   */
   async getFileWithOptions(instanceId: string, indexName: string, versionName: string, request: GetFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFileResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7042,6 +7169,15 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileResponse>(await this.callApi(params, req, runtime), new GetFileResponse({}));
   }
 
+  /**
+    * ## Method
+    *     GET
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+    *
+    * @param request GetFileRequest
+    * @return GetFileResponse
+   */
   async getFile(instanceId: string, indexName: string, versionName: string, request: GetFileRequest): Promise<GetFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7073,9 +7209,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Examples
-    * Sample requests
-    *     GET  /openapi/ha3/instances/ha3_instance_id_1/clusters/cluster1/index-version
+    * ## Method
+    *     GET
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -7100,9 +7237,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Examples
-    * Sample requests
-    *     GET  /openapi/ha3/instances/ha3_instance_id_1/clusters/cluster1/index-version
+    * ## Method
+    *     GET
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
     *
     * @return GetIndexVersionResponse
    */
@@ -7113,7 +7251,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The billing method.
+    * ### Method
+    * `GET`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}`
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -7138,7 +7279,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The billing method.
+    * ### Method
+    * `GET`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}`
     *
     * @return GetInstanceResponse
    */
@@ -7188,8 +7332,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Sample requests
-    * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
+    * ## Method
+    * `GET`
+    * ## URI
+    * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
     *
     * @param request ListAdvanceConfigDirRequest
     * @param headers map
@@ -7222,8 +7368,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Sample requests
-    * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
+    * ## Method
+    * `GET`
+    * ## URI
+    * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
     *
     * @param request ListAdvanceConfigDirRequest
     * @return ListAdvanceConfigDirResponse
@@ -7235,7 +7383,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * http
+    * ## Sample requests
+    * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
     *
     * @param request ListAdvanceConfigsRequest
     * @param headers map
@@ -7276,7 +7425,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * http
+    * ## Sample requests
+    * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
     *
     * @param request ListAdvanceConfigsRequest
     * @return ListAdvanceConfigsResponse
@@ -7288,10 +7438,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Sample requests
-    * ```java
-    * GET /openapi/ha3/instances/ha3_instance_name/cluster-names
-    * ```
+    * ### Method
+    * GET
+    * ### URI
+    * /openapi/ha3/instances/{instanceId}/cluster-names
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -7316,10 +7466,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Sample requests
-    * ```java
-    * GET /openapi/ha3/instances/ha3_instance_name/cluster-names
-    * ```
+    * ### Method
+    * GET
+    * ### URI
+    * /openapi/ha3/instances/{instanceId}/cluster-names
     *
     * @return ListClusterNamesResponse
    */
@@ -7329,6 +7479,20 @@ export default class Client extends OpenApi {
     return await this.listClusterNamesWithOptions(headers, runtime);
   }
 
+  /**
+    * ### Method
+    * ```java
+    * GET
+    * ```
+    * ### URI
+    * ```java
+    * /openapi/ha3/instances/{instanceId}/cluster-tasks
+    * ```
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListClusterTasksResponse
+   */
   async listClusterTasksWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterTasksResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7347,6 +7511,18 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterTasksResponse>(await this.callApi(params, req, runtime), new ListClusterTasksResponse({}));
   }
 
+  /**
+    * ### Method
+    * ```java
+    * GET
+    * ```
+    * ### URI
+    * ```java
+    * /openapi/ha3/instances/{instanceId}/cluster-tasks
+    * ```
+    *
+    * @return ListClusterTasksResponse
+   */
   async listClusterTasks(instanceId: string): Promise<ListClusterTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7354,7 +7530,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * http
+    * ### Method
+    * ```java
+    * GET
+    * ```
+    * ### URI
+    * ```java
+    * /openapi/ha3/instances/{instanceId}/clusters
+    * ```
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -7379,7 +7562,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * http
+    * ### Method
+    * ```java
+    * GET
+    * ```
+    * ### URI
+    * ```java
+    * /openapi/ha3/instances/{instanceId}/clusters
+    * ```
     *
     * @return ListClustersResponse
    */
@@ -7390,7 +7580,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Obtains the schema information of a specified data source.
+    * ## Method
+    * `GET`
+    * ## URI
+    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -7415,7 +7608,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Obtains the schema information of a specified data source.
+    * ## Method
+    * `GET`
+    * ## URI
+    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`
     *
     * @return ListDataSourceSchemasResponse
    */
@@ -7425,6 +7621,20 @@ export default class Client extends OpenApi {
     return await this.listDataSourceSchemasWithOptions(instanceId, dataSourceName, headers, runtime);
   }
 
+  /**
+    * ### Method
+    * ```java
+    * GET
+    * ```
+    * ### URI
+    * ```java
+    * /openapi/ha3/instances/{instanceId}/data-source-tasks
+    * ```
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDataSourceTasksResponse
+   */
   async listDataSourceTasksWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataSourceTasksResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7443,12 +7653,34 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataSourceTasksResponse>(await this.callApi(params, req, runtime), new ListDataSourceTasksResponse({}));
   }
 
+  /**
+    * ### Method
+    * ```java
+    * GET
+    * ```
+    * ### URI
+    * ```java
+    * /openapi/ha3/instances/{instanceId}/data-source-tasks
+    * ```
+    *
+    * @return ListDataSourceTasksResponse
+   */
   async listDataSourceTasks(instanceId: string): Promise<ListDataSourceTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDataSourceTasksWithOptions(instanceId, headers, runtime);
   }
 
+  /**
+    * ## Method
+    * `GET`
+    * ## URI
+    * `/openapi/ha3/instances/{instanceId}/data-sources`
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDataSourcesResponse
+   */
   async listDataSourcesWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataSourcesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7467,6 +7699,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataSourcesResponse>(await this.callApi(params, req, runtime), new ListDataSourcesResponse({}));
   }
 
+  /**
+    * ## Method
+    * `GET`
+    * ## URI
+    * `/openapi/ha3/instances/{instanceId}/data-sources`
+    *
+    * @return ListDataSourcesResponse
+   */
   async listDataSources(instanceId: string): Promise<ListDataSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7528,6 +7768,17 @@ export default class Client extends OpenApi {
     return await this.listDateSourceGenerationsWithOptions(instanceId, dataSourceName, request, headers, runtime);
   }
 
+  /**
+    * ## Method
+    *     GET
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/indexes
+    *
+    * @param request ListIndexesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListIndexesResponse
+   */
   async listIndexesWithOptions(instanceId: string, request: ListIndexesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndexesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7553,6 +7804,15 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIndexesResponse>(await this.callApi(params, req, runtime), new ListIndexesResponse({}));
   }
 
+  /**
+    * ## Method
+    *     GET
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/indexes
+    *
+    * @param request ListIndexesRequest
+    * @return ListIndexesResponse
+   */
   async listIndexes(instanceId: string, request: ListIndexesRequest): Promise<ListIndexesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7611,7 +7871,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether an overdue payment is involved
+    * ### Method
+    * `GET`
+    * ### URI
+    * `/openapi/[code]/instances`
     *
     * @param tmpReq ListInstancesRequest
     * @param headers map
@@ -7674,7 +7937,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether an overdue payment is involved
+    * ### Method
+    * `GET`
+    * ### URI
+    * `/openapi/[code]/instances`
     *
     * @param request ListInstancesRequest
     * @return ListInstancesResponse
@@ -7686,9 +7952,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * \\### Sample requests
+    * ### Method
     * ```java
-    * GET  /openapi/ha3/instances/ha-test1/node/ihome_searcher/online-configs?domain=pre_ea120
+    * GET
+    * ```
+    * ### URI
+    * ```java
+    * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
     * ```
     *
     * @param request ListOnlineConfigsRequest
@@ -7722,9 +7992,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * \\### Sample requests
+    * ### Method
     * ```java
-    * GET  /openapi/ha3/instances/ha-test1/node/ihome_searcher/online-configs?domain=pre_ea120
+    * GET
+    * ```
+    * ### URI
+    * ```java
+    * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
     * ```
     *
     * @param request ListOnlineConfigsRequest
@@ -7737,7 +8011,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the instance
+    * ### Method
+    * `GET`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
     *
     * @param request ListQueryResultRequest
     * @param headers map
@@ -7774,7 +8051,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the instance
+    * ### Method
+    * `GET`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
     *
     * @param request ListQueryResultRequest
     * @return ListQueryResultResponse
@@ -7900,7 +8180,6 @@ export default class Client extends OpenApi {
   /**
     * ## Request syntax
     *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
-    *     ...
     *
     * @param request ModifyClusterOfflineConfigRequest
     * @param headers map
@@ -7967,7 +8246,6 @@ export default class Client extends OpenApi {
   /**
     * ## Request syntax
     *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
-    *     ...
     *
     * @param request ModifyClusterOfflineConfigRequest
     * @return ModifyClusterOfflineConfigResponse
@@ -8034,7 +8312,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The result returned
+    * ## Method
+    * `PUT`
+    * ## URI
+    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
     *
     * @param request ModifyDataSourceRequest
     * @param headers map
@@ -8073,7 +8354,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The result returned
+    * ## Method
+    * `PUT`
+    * ## URI
+    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
     *
     * @param request ModifyDataSourceRequest
     * @return ModifyDataSourceResponse
@@ -8085,14 +8369,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ~~~
-    * PUT
-    * ~~~
-    * ### URI
-    * ~~~
-    * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
-    * ~~~
+    * ## Method
+    *     PUT
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
     *
     * @param request ModifyFileRequest
     * @param headers map
@@ -8135,14 +8415,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Method
-    * ~~~
-    * PUT
-    * ~~~
-    * ### URI
-    * ~~~
-    * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
-    * ~~~
+    * ## Method
+    *     PUT
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
     *
     * @param request ModifyFileRequest
     * @return ModifyFileResponse
@@ -8154,7 +8430,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The information about each index.
+    * ### Method
+    * `PUT`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}/index-partition`
     *
     * @param request ModifyIndexPartitionRequest
     * @param headers map
@@ -8199,7 +8478,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The information about each index.
+    * ### Method
+    * `PUT`
+    * ### URI
+    * `/openapi/ha3/instances/{instanceId}/index-partition`
     *
     * @param request ModifyIndexPartitionRequest
     * @return ModifyIndexPartitionResponse
@@ -8258,13 +8540,13 @@ export default class Client extends OpenApi {
 
   /**
     * ### Method
-    *  ~~~
+    * ```java
     * PUT
-    * ~~~
+    * ```
     * ### URI
-    * ~~~
+    * ```java
     * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
-    * ~~~
+    * ```
     *
     * @param request ModifyNodeConfigRequest
     * @param headers map
@@ -8303,6 +8585,10 @@ export default class Client extends OpenApi {
       body["dataFragmentNumber"] = request.dataFragmentNumber;
     }
 
+    if (!Util.isUnset(request.flowRatio)) {
+      body["flowRatio"] = request.flowRatio;
+    }
+
     if (!Util.isUnset(request.minServicePercent)) {
       body["minServicePercent"] = request.minServicePercent;
     }
@@ -8332,13 +8618,13 @@ export default class Client extends OpenApi {
 
   /**
     * ### Method
-    *  ~~~
+    * ```java
     * PUT
-    * ~~~
+    * ```
     * ### URI
-    * ~~~
+    * ```java
     * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
-    * ~~~
+    * ```
     *
     * @param request ModifyNodeConfigRequest
     * @return ModifyNodeConfigResponse
@@ -8523,7 +8809,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The information about the index
+    * ## Method
+    *     POST
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
     *
     * @param request PublishIndexVersionRequest
     * @param headers map
@@ -8556,7 +8845,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The information about the index
+    * ## Method
+    *     POST
+    * ## URI
+    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
     *
     * @param request PublishIndexVersionRequest
     * @return PublishIndexVersionResponse
@@ -8631,7 +8923,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The result
+    * ### Method
+    * ```java
+    * DELETE
+    * ```
+    * ### URI
+    * ```java
+    * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
+    * ```
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -8656,7 +8955,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The result
+    * ### Method
+    * ```java
+    * DELETE
+    * ```
+    * ### URI
+    * ```java
+    * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
+    * ```
     *
     * @return RemoveClusterResponse
    */
@@ -8667,7 +8973,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The information about the index
+    * ### Method
+    * ```java
+    * PUT
+    * ```
+    * ### URI
+    * ```java
+    * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
+    * ```
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -8692,7 +9005,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The information about the index
+    * ### Method
+    * ```java
+    * PUT
+    * ```
+    * ### URI
+    * ```java
+    * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
+    * ```
     *
     * @return StopTaskResponse
    */
