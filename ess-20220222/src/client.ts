@@ -1366,6 +1366,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
   keyPairName?: string;
   loadBalancerWeight?: number;
   memory?: number;
+  networkInterfaces?: CreateScalingConfigurationRequestNetworkInterfaces[];
   ownerAccount?: string;
   ownerId?: number;
   password?: string;
@@ -1423,6 +1424,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
       keyPairName: 'KeyPairName',
       loadBalancerWeight: 'LoadBalancerWeight',
       memory: 'Memory',
+      networkInterfaces: 'NetworkInterfaces',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       password: 'Password',
@@ -1483,6 +1485,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
       keyPairName: 'string',
       loadBalancerWeight: 'number',
       memory: 'number',
+      networkInterfaces: { 'type': 'array', 'itemType': CreateScalingConfigurationRequestNetworkInterfaces },
       ownerAccount: 'string',
       ownerId: 'number',
       password: 'string',
@@ -1547,6 +1550,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
   keyPairName?: string;
   loadBalancerWeight?: number;
   memory?: number;
+  networkInterfaces?: CreateScalingConfigurationShrinkRequestNetworkInterfaces[];
   ownerAccount?: string;
   ownerId?: number;
   password?: string;
@@ -1604,6 +1608,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
       keyPairName: 'KeyPairName',
       loadBalancerWeight: 'LoadBalancerWeight',
       memory: 'Memory',
+      networkInterfaces: 'NetworkInterfaces',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       password: 'Password',
@@ -1664,6 +1669,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
       keyPairName: 'string',
       loadBalancerWeight: 'number',
       memory: 'number',
+      networkInterfaces: { 'type': 'array', 'itemType': CreateScalingConfigurationShrinkRequestNetworkInterfaces },
       ownerAccount: 'string',
       ownerId: 'number',
       password: 'string',
@@ -6440,6 +6446,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
   keyPairName?: string;
   loadBalancerWeight?: number;
   memory?: number;
+  networkInterfaces?: ModifyScalingConfigurationRequestNetworkInterfaces[];
   override?: boolean;
   ownerAccount?: string;
   ownerId?: number;
@@ -6493,6 +6500,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
       keyPairName: 'KeyPairName',
       loadBalancerWeight: 'LoadBalancerWeight',
       memory: 'Memory',
+      networkInterfaces: 'NetworkInterfaces',
       override: 'Override',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -6549,6 +6557,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
       keyPairName: 'string',
       loadBalancerWeight: 'number',
       memory: 'number',
+      networkInterfaces: { 'type': 'array', 'itemType': ModifyScalingConfigurationRequestNetworkInterfaces },
       override: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -6609,6 +6618,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
   keyPairName?: string;
   loadBalancerWeight?: number;
   memory?: number;
+  networkInterfaces?: ModifyScalingConfigurationShrinkRequestNetworkInterfaces[];
   override?: boolean;
   ownerAccount?: string;
   ownerId?: number;
@@ -6662,6 +6672,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
       keyPairName: 'KeyPairName',
       loadBalancerWeight: 'LoadBalancerWeight',
       memory: 'Memory',
+      networkInterfaces: 'NetworkInterfaces',
       override: 'Override',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -6718,6 +6729,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
       keyPairName: 'string',
       loadBalancerWeight: 'number',
       memory: 'number',
+      networkInterfaces: { 'type': 'array', 'itemType': ModifyScalingConfigurationShrinkRequestNetworkInterfaces },
       override: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -9628,6 +9640,34 @@ export class CreateScalingConfigurationRequestInstanceTypeOverrides extends $tea
   }
 }
 
+export class CreateScalingConfigurationRequestNetworkInterfaces extends $tea.Model {
+  instanceType?: string;
+  ipv6AddressCount?: number;
+  networkInterfaceTrafficMode?: string;
+  securityGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      ipv6AddressCount: 'Ipv6AddressCount',
+      networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
+      securityGroupIds: 'SecurityGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      ipv6AddressCount: 'number',
+      networkInterfaceTrafficMode: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScalingConfigurationRequestSpotPriceLimits extends $tea.Model {
   instanceType?: string;
   priceLimit?: number;
@@ -9871,6 +9911,34 @@ export class CreateScalingConfigurationShrinkRequestInstanceTypeOverrides extend
     return {
       instanceType: 'string',
       weightedCapacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScalingConfigurationShrinkRequestNetworkInterfaces extends $tea.Model {
+  instanceType?: string;
+  ipv6AddressCount?: number;
+  networkInterfaceTrafficMode?: string;
+  securityGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      ipv6AddressCount: 'Ipv6AddressCount',
+      networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
+      securityGroupIds: 'SecurityGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      ipv6AddressCount: 'number',
+      networkInterfaceTrafficMode: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -12240,6 +12308,34 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   }
 }
 
+export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces extends $tea.Model {
+  instanceType?: string;
+  ipv6AddressCount?: number;
+  networkInterfaceTrafficMode?: string;
+  securityGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      ipv6AddressCount: 'Ipv6AddressCount',
+      networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
+      securityGroupIds: 'SecurityGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      ipv6AddressCount: 'number',
+      networkInterfaceTrafficMode: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSchedulerOptions extends $tea.Model {
   managedPrivateSpaceId?: string;
   static names(): { [key: string]: string } {
@@ -12335,6 +12431,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   lifecycleState?: string;
   loadBalancerWeight?: number;
   memory?: number;
+  networkInterfaces?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces[];
   passwordInherit?: boolean;
   privatePoolOptions_id?: string;
   privatePoolOptions_matchCriteria?: string;
@@ -12403,6 +12500,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       lifecycleState: 'LifecycleState',
       loadBalancerWeight: 'LoadBalancerWeight',
       memory: 'Memory',
+      networkInterfaces: 'NetworkInterfaces',
       passwordInherit: 'PasswordInherit',
       privatePoolOptions_id: 'PrivatePoolOptions.Id',
       privatePoolOptions_matchCriteria: 'PrivatePoolOptions.MatchCriteria',
@@ -12474,6 +12572,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       lifecycleState: 'string',
       loadBalancerWeight: 'number',
       memory: 'number',
+      networkInterfaces: { 'type': 'array', 'itemType': DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces },
       passwordInherit: 'boolean',
       privatePoolOptions_id: 'string',
       privatePoolOptions_matchCriteria: 'string',
@@ -15034,6 +15133,34 @@ export class ModifyScalingConfigurationRequestInstanceTypeOverrides extends $tea
   }
 }
 
+export class ModifyScalingConfigurationRequestNetworkInterfaces extends $tea.Model {
+  instanceType?: string;
+  ipv6AddressCount?: number;
+  networkInterfaceTrafficMode?: string;
+  securityGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      ipv6AddressCount: 'Ipv6AddressCount',
+      networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
+      securityGroupIds: 'SecurityGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      ipv6AddressCount: 'number',
+      networkInterfaceTrafficMode: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyScalingConfigurationRequestSpotPriceLimits extends $tea.Model {
   instanceType?: string;
   priceLimit?: number;
@@ -15277,6 +15404,34 @@ export class ModifyScalingConfigurationShrinkRequestInstanceTypeOverrides extend
     return {
       instanceType: 'string',
       weightedCapacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyScalingConfigurationShrinkRequestNetworkInterfaces extends $tea.Model {
+  instanceType?: string;
+  ipv6AddressCount?: number;
+  networkInterfaceTrafficMode?: string;
+  securityGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      ipv6AddressCount: 'Ipv6AddressCount',
+      networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
+      securityGroupIds: 'SecurityGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      ipv6AddressCount: 'number',
+      networkInterfaceTrafficMode: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -16877,6 +17032,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.memory)) {
       query["Memory"] = request.memory;
+    }
+
+    if (!Util.isUnset(request.networkInterfaces)) {
+      query["NetworkInterfaces"] = request.networkInterfaces;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -20616,6 +20775,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.memory)) {
       query["Memory"] = request.memory;
+    }
+
+    if (!Util.isUnset(request.networkInterfaces)) {
+      query["NetworkInterfaces"] = request.networkInterfaces;
     }
 
     if (!Util.isUnset(request.override)) {
