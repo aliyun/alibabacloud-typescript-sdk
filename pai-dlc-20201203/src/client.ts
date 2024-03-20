@@ -377,22 +377,32 @@ export class DebuggerResult extends $tea.Model {
 export class EcsSpec extends $tea.Model {
   acceleratorType?: string;
   cpu?: number;
+  defaultGPUDriver?: string;
   gpu?: number;
   gpuType?: string;
   instanceType?: string;
   isAvailable?: boolean;
   memory?: number;
+  nonProtectSpotDiscount?: number;
+  paymentTypes?: string[];
   resourceType?: string;
+  spotStockStatus?: string;
+  supportedGPUDrivers?: string[];
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
       cpu: 'Cpu',
+      defaultGPUDriver: 'DefaultGPUDriver',
       gpu: 'Gpu',
       gpuType: 'GpuType',
       instanceType: 'InstanceType',
       isAvailable: 'IsAvailable',
       memory: 'Memory',
+      nonProtectSpotDiscount: 'NonProtectSpotDiscount',
+      paymentTypes: 'PaymentTypes',
       resourceType: 'ResourceType',
+      spotStockStatus: 'SpotStockStatus',
+      supportedGPUDrivers: 'SupportedGPUDrivers',
     };
   }
 
@@ -400,12 +410,17 @@ export class EcsSpec extends $tea.Model {
     return {
       acceleratorType: 'string',
       cpu: 'number',
+      defaultGPUDriver: 'string',
       gpu: 'number',
       gpuType: 'string',
       instanceType: 'string',
       isAvailable: 'boolean',
       memory: 'number',
+      nonProtectSpotDiscount: 'number',
+      paymentTypes: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
+      spotStockStatus: 'string',
+      supportedGPUDrivers: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -968,6 +983,7 @@ export class JobSpec extends $tea.Model {
   imageConfig?: ImageConfig;
   podCount?: number;
   resourceConfig?: ResourceConfig;
+  spotSpec?: SpotSpec;
   type?: string;
   useSpotInstance?: boolean;
   static names(): { [key: string]: string } {
@@ -978,6 +994,7 @@ export class JobSpec extends $tea.Model {
       imageConfig: 'ImageConfig',
       podCount: 'PodCount',
       resourceConfig: 'ResourceConfig',
+      spotSpec: 'SpotSpec',
       type: 'Type',
       useSpotInstance: 'UseSpotInstance',
     };
@@ -991,6 +1008,7 @@ export class JobSpec extends $tea.Model {
       imageConfig: ImageConfig,
       podCount: 'number',
       resourceConfig: ResourceConfig,
+      spotSpec: SpotSpec,
       type: 'string',
       useSpotInstance: 'boolean',
     };
@@ -1453,6 +1471,28 @@ export class SmartCache extends $tea.Model {
   }
 }
 
+export class SpotSpec extends $tea.Model {
+  spotDiscountLimit?: number;
+  spotStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spotDiscountLimit: 'SpotDiscountLimit',
+      spotStrategy: 'SpotStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spotDiscountLimit: 'number',
+      spotStrategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StatusTransitionItem extends $tea.Model {
   endTime?: string;
   reasonCode?: string;
@@ -1681,9 +1721,9 @@ export class CreateJobResponseBody extends $tea.Model {
 }
 
 export class CreateJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1795,9 +1835,9 @@ export class CreateTensorboardResponseBody extends $tea.Model {
 }
 
 export class CreateTensorboardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTensorboardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTensorboardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1842,9 +1882,9 @@ export class DeleteJobResponseBody extends $tea.Model {
 }
 
 export class DeleteJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1908,9 +1948,9 @@ export class DeleteTensorboardResponseBody extends $tea.Model {
 }
 
 export class DeleteTensorboardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTensorboardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTensorboardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2082,9 +2122,9 @@ export class GetJobResponseBody extends $tea.Model {
 }
 
 export class GetJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2157,9 +2197,9 @@ export class GetJobEventsResponseBody extends $tea.Model {
 }
 
 export class GetJobEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJobEventsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2238,9 +2278,9 @@ export class GetJobMetricsResponseBody extends $tea.Model {
 }
 
 export class GetJobMetricsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJobMetricsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2313,9 +2353,9 @@ export class GetJobSanityCheckResultResponseBody extends $tea.Model {
 }
 
 export class GetJobSanityCheckResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJobSanityCheckResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobSanityCheckResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2397,9 +2437,9 @@ export class GetPodEventsResponseBody extends $tea.Model {
 }
 
 export class GetPodEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPodEventsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPodEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2484,9 +2524,9 @@ export class GetPodLogsResponseBody extends $tea.Model {
 }
 
 export class GetPodLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPodLogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPodLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2534,9 +2574,9 @@ export class GetTensorboardRequest extends $tea.Model {
 }
 
 export class GetTensorboardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Tensorboard;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Tensorboard;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2600,9 +2640,9 @@ export class GetTensorboardSharedUrlResponseBody extends $tea.Model {
 }
 
 export class GetTensorboardSharedUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTensorboardSharedUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTensorboardSharedUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2672,9 +2712,9 @@ export class GetTokenResponseBody extends $tea.Model {
 }
 
 export class GetTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2741,9 +2781,9 @@ export class GetWebTerminalResponseBody extends $tea.Model {
 }
 
 export class GetWebTerminalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetWebTerminalResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWebTerminalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2828,9 +2868,9 @@ export class ListEcsSpecsResponseBody extends $tea.Model {
 }
 
 export class ListEcsSpecsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEcsSpecsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEcsSpecsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2897,9 +2937,9 @@ export class ListJobSanityCheckResultsResponseBody extends $tea.Model {
 }
 
 export class ListJobSanityCheckResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListJobSanityCheckResultsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListJobSanityCheckResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3099,9 +3139,9 @@ export class ListJobsResponseBody extends $tea.Model {
 }
 
 export class ListJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3210,9 +3250,9 @@ export class ListTensorboardsResponseBody extends $tea.Model {
 }
 
 export class ListTensorboardsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTensorboardsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTensorboardsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3276,9 +3316,9 @@ export class StartTensorboardResponseBody extends $tea.Model {
 }
 
 export class StartTensorboardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartTensorboardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartTensorboardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3323,9 +3363,9 @@ export class StopJobResponseBody extends $tea.Model {
 }
 
 export class StopJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3389,9 +3429,9 @@ export class StopTensorboardResponseBody extends $tea.Model {
 }
 
 export class StopTensorboardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopTensorboardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopTensorboardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3455,9 +3495,9 @@ export class UpdateJobResponseBody extends $tea.Model {
 }
 
 export class UpdateJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3524,9 +3564,9 @@ export class UpdateTensorboardResponseBody extends $tea.Model {
 }
 
 export class UpdateTensorboardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTensorboardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTensorboardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
