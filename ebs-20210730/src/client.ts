@@ -916,6 +916,72 @@ export class CreateEnterpriseSnapshotPolicyResponse extends $tea.Model {
   }
 }
 
+export class DeleteDiskRequest extends $tea.Model {
+  diskId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskId: 'DiskId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDiskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDiskReplicaGroupRequest extends $tea.Model {
   clientToken?: string;
   regionId?: string;
@@ -1858,6 +1924,117 @@ export class DescribeDiskReplicaPairsResponse extends $tea.Model {
   }
 }
 
+export class DescribeDisksRequest extends $tea.Model {
+  category?: string;
+  diskIds?: string;
+  diskName?: string;
+  maxResults?: number;
+  nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  status?: string;
+  tag?: DescribeDisksRequestTag[];
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      diskIds: 'DiskIds',
+      diskName: 'DiskName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      tag: 'Tag',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      diskIds: 'string',
+      diskName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeDisksRequestTag },
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDisksResponseBody extends $tea.Model {
+  data?: DescribeDisksResponseBodyData[];
+  nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeDisksResponseBodyData },
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDisksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDisksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDisksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEnterpriseSnapshotPolicyRequest extends $tea.Model {
   clientToken?: string;
   diskIds?: string[];
@@ -2358,6 +2535,81 @@ export class DescribeReplicaGroupDrillsResponse extends $tea.Model {
   }
 }
 
+export class DescribeSolutionInstanceConfigurationRequest extends $tea.Model {
+  clientToken?: string;
+  parameters?: DescribeSolutionInstanceConfigurationRequestParameters[];
+  regionId?: string;
+  solutionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      solutionId: 'SolutionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      parameters: { 'type': 'array', 'itemType': DescribeSolutionInstanceConfigurationRequestParameters },
+      regionId: 'string',
+      solutionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSolutionInstanceConfigurationResponseBody extends $tea.Model {
+  data?: { [key: string]: any }[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSolutionInstanceConfigurationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSolutionInstanceConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSolutionInstanceConfigurationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FailoverDiskReplicaGroupRequest extends $tea.Model {
   clientToken?: string;
   regionId?: string;
@@ -2488,6 +2740,75 @@ export class FailoverDiskReplicaPairResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FailoverDiskReplicaPairResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiskRequest extends $tea.Model {
+  diskId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskId: 'DiskId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiskResponseBody extends $tea.Model {
+  disk?: GetDiskResponseBodyDisk;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disk: 'Disk',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disk: GetDiskResponseBodyDisk,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDiskResponseBody,
     };
   }
 
@@ -2817,6 +3138,78 @@ export class ModifyDiskReplicaPairResponse extends $tea.Model {
   }
 }
 
+export class QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest extends $tea.Model {
+  clientToken?: string;
+  qosRequestId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      qosRequestId: 'QosRequestId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      qosRequestId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDedicatedBlockStorageClusterDiskThroughputStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDedicatedBlockStorageClusterDiskThroughputStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDedicatedBlockStorageClusterDiskThroughputStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDedicatedBlockStorageClusterInventoryDataRequest extends $tea.Model {
   clientToken?: string;
   dbscId?: string;
@@ -3118,6 +3511,78 @@ export class ReprotectDiskReplicaPairResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReprotectDiskReplicaPairResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDedicatedBlockStorageClusterDiskThroughputRequest extends $tea.Model {
+  bps?: number;
+  clientToken?: string;
+  diskId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bps: 'Bps',
+      clientToken: 'ClientToken',
+      diskId: 'DiskId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bps: 'number',
+      clientToken: 'string',
+      diskId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDedicatedBlockStorageClusterDiskThroughputResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDedicatedBlockStorageClusterDiskThroughputResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetDedicatedBlockStorageClusterDiskThroughputResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetDedicatedBlockStorageClusterDiskThroughputResponseBody,
     };
   }
 
@@ -4629,10 +5094,14 @@ export class DescribeDiskMonitorDataResponseBodyMonitorData extends $tea.Model {
   diskId?: string;
   IOPSPercent?: number;
   readBPS?: number;
+  readBlockSize?: number;
   readIOPS?: number;
+  readLatency?: number;
   timestamp?: string;
   writeBPS?: number;
+  writeBlockSize?: number;
   writeIOPS?: number;
+  writeLatency?: number;
   static names(): { [key: string]: string } {
     return {
       BPSPercent: 'BPSPercent',
@@ -4640,10 +5109,14 @@ export class DescribeDiskMonitorDataResponseBodyMonitorData extends $tea.Model {
       diskId: 'DiskId',
       IOPSPercent: 'IOPSPercent',
       readBPS: 'ReadBPS',
+      readBlockSize: 'ReadBlockSize',
       readIOPS: 'ReadIOPS',
+      readLatency: 'ReadLatency',
       timestamp: 'Timestamp',
       writeBPS: 'WriteBPS',
+      writeBlockSize: 'WriteBlockSize',
       writeIOPS: 'WriteIOPS',
+      writeLatency: 'WriteLatency',
     };
   }
 
@@ -4654,10 +5127,14 @@ export class DescribeDiskMonitorDataResponseBodyMonitorData extends $tea.Model {
       diskId: 'string',
       IOPSPercent: 'number',
       readBPS: 'number',
+      readBlockSize: 'number',
       readIOPS: 'number',
+      readLatency: 'number',
       timestamp: 'string',
       writeBPS: 'number',
+      writeBlockSize: 'number',
       writeIOPS: 'number',
+      writeLatency: 'number',
     };
   }
 
@@ -4941,6 +5418,235 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
       status: 'string',
       statusMessage: 'string',
       tags: { 'type': 'array', 'itemType': DescribeDiskReplicaPairsResponseBodyReplicaPairsTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDisksRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDisksResponseBodyDataAccessAuthorizationEcs extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDisksResponseBodyDataAccessAuthorizationPod extends $tea.Model {
+  clusterId?: string;
+  podId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      podId: 'PodId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      podId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDisksResponseBodyDataAccessAuthorization extends $tea.Model {
+  accessToken?: string;
+  ecs?: DescribeDisksResponseBodyDataAccessAuthorizationEcs;
+  pod?: DescribeDisksResponseBodyDataAccessAuthorizationPod;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      ecs: 'Ecs',
+      pod: 'Pod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      ecs: DescribeDisksResponseBodyDataAccessAuthorizationEcs,
+      pod: DescribeDisksResponseBodyDataAccessAuthorizationPod,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDisksResponseBodyDataAttachments extends $tea.Model {
+  attachedTime?: string;
+  instanceId?: string;
+  namespaceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attachedTime: 'AttachedTime',
+      instanceId: 'InstanceId',
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachedTime: 'string',
+      instanceId: 'string',
+      namespaceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDisksResponseBodyDataTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDisksResponseBodyData extends $tea.Model {
+  accessAuthorization?: DescribeDisksResponseBodyDataAccessAuthorization[];
+  attachedTime?: string;
+  attachments?: DescribeDisksResponseBodyDataAttachments[];
+  burstingEnabled?: boolean;
+  category?: string;
+  creationTime?: string;
+  description?: string;
+  detachedTime?: string;
+  deviceNguid?: string;
+  diskId?: string;
+  diskName?: string;
+  encrypted?: boolean;
+  iops?: number;
+  iopsRead?: number;
+  iopsWrite?: number;
+  kmsKeyId?: string;
+  modifyAt?: string;
+  performanceLevel?: string;
+  provisionedIops?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  size?: number;
+  status?: string;
+  tags?: DescribeDisksResponseBodyDataTags[];
+  throughput?: number;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessAuthorization: 'AccessAuthorization',
+      attachedTime: 'AttachedTime',
+      attachments: 'Attachments',
+      burstingEnabled: 'BurstingEnabled',
+      category: 'Category',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      detachedTime: 'DetachedTime',
+      deviceNguid: 'DeviceNguid',
+      diskId: 'DiskId',
+      diskName: 'DiskName',
+      encrypted: 'Encrypted',
+      iops: 'Iops',
+      iopsRead: 'IopsRead',
+      iopsWrite: 'IopsWrite',
+      kmsKeyId: 'KmsKeyId',
+      modifyAt: 'ModifyAt',
+      performanceLevel: 'PerformanceLevel',
+      provisionedIops: 'ProvisionedIops',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      size: 'Size',
+      status: 'Status',
+      tags: 'Tags',
+      throughput: 'Throughput',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessAuthorization: { 'type': 'array', 'itemType': DescribeDisksResponseBodyDataAccessAuthorization },
+      attachedTime: 'string',
+      attachments: { 'type': 'array', 'itemType': DescribeDisksResponseBodyDataAttachments },
+      burstingEnabled: 'boolean',
+      category: 'string',
+      creationTime: 'string',
+      description: 'string',
+      detachedTime: 'string',
+      deviceNguid: 'string',
+      diskId: 'string',
+      diskName: 'string',
+      encrypted: 'boolean',
+      iops: 'number',
+      iopsRead: 'number',
+      iopsWrite: 'number',
+      kmsKeyId: 'string',
+      modifyAt: 'string',
+      performanceLevel: 'string',
+      provisionedIops: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      size: 'number',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeDisksResponseBodyDataTags },
+      throughput: 'number',
+      zoneId: 'string',
     };
   }
 
@@ -5377,6 +6083,235 @@ export class DescribeReplicaGroupDrillsResponseBodyDrills extends $tea.Model {
       startAt: 'number',
       status: 'string',
       statusMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSolutionInstanceConfigurationRequestParameters extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiskResponseBodyDiskAccessAuthorizationEcs extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiskResponseBodyDiskAccessAuthorizationPod extends $tea.Model {
+  clusterId?: string;
+  podId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      podId: 'PodId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      podId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiskResponseBodyDiskAccessAuthorization extends $tea.Model {
+  accessToken?: string;
+  ecs?: GetDiskResponseBodyDiskAccessAuthorizationEcs;
+  pod?: GetDiskResponseBodyDiskAccessAuthorizationPod;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      ecs: 'Ecs',
+      pod: 'Pod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      ecs: GetDiskResponseBodyDiskAccessAuthorizationEcs,
+      pod: GetDiskResponseBodyDiskAccessAuthorizationPod,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiskResponseBodyDiskAttachments extends $tea.Model {
+  attachedTime?: string;
+  instanceId?: string;
+  namespaceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attachedTime: 'AttachedTime',
+      instanceId: 'InstanceId',
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachedTime: 'string',
+      instanceId: 'string',
+      namespaceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiskResponseBodyDiskTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiskResponseBodyDisk extends $tea.Model {
+  accessAuthorization?: GetDiskResponseBodyDiskAccessAuthorization[];
+  attachedTime?: string;
+  attachments?: GetDiskResponseBodyDiskAttachments[];
+  burstingEnabled?: boolean;
+  category?: string;
+  creationTime?: string;
+  description?: string;
+  detachedTime?: string;
+  deviceNguid?: string;
+  diskId?: string;
+  diskName?: string;
+  encrypted?: boolean;
+  iops?: number;
+  iopsRead?: number;
+  iopsWrite?: number;
+  kmsKeyId?: string;
+  modifyAt?: string;
+  performanceLevel?: string;
+  provisionedIops?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  size?: number;
+  status?: string;
+  tags?: GetDiskResponseBodyDiskTags[];
+  throughput?: number;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessAuthorization: 'AccessAuthorization',
+      attachedTime: 'AttachedTime',
+      attachments: 'Attachments',
+      burstingEnabled: 'BurstingEnabled',
+      category: 'Category',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      detachedTime: 'DetachedTime',
+      deviceNguid: 'DeviceNguid',
+      diskId: 'DiskId',
+      diskName: 'DiskName',
+      encrypted: 'Encrypted',
+      iops: 'Iops',
+      iopsRead: 'IopsRead',
+      iopsWrite: 'IopsWrite',
+      kmsKeyId: 'KmsKeyId',
+      modifyAt: 'ModifyAt',
+      performanceLevel: 'PerformanceLevel',
+      provisionedIops: 'ProvisionedIops',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      size: 'Size',
+      status: 'Status',
+      tags: 'Tags',
+      throughput: 'Throughput',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessAuthorization: { 'type': 'array', 'itemType': GetDiskResponseBodyDiskAccessAuthorization },
+      attachedTime: 'string',
+      attachments: { 'type': 'array', 'itemType': GetDiskResponseBodyDiskAttachments },
+      burstingEnabled: 'boolean',
+      category: 'string',
+      creationTime: 'string',
+      description: 'string',
+      detachedTime: 'string',
+      deviceNguid: 'string',
+      diskId: 'string',
+      diskName: 'string',
+      encrypted: 'boolean',
+      iops: 'number',
+      iopsRead: 'number',
+      iopsWrite: 'number',
+      kmsKeyId: 'string',
+      modifyAt: 'string',
+      performanceLevel: 'string',
+      provisionedIops: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      size: 'number',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': GetDiskResponseBodyDiskTags },
+      throughput: 'number',
+      zoneId: 'string',
     };
   }
 
@@ -6365,6 +7300,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * Currently, this API is only available for use with ACS resource hosting and is not yet open for direct invocation.
+    *
+    * @param request DeleteDiskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDiskResponse
+   */
+  async deleteDiskWithOptions(request: DeleteDiskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDisk",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDiskResponse>(await this.callApi(params, req, runtime), new DeleteDiskResponse({}));
+  }
+
+  /**
+    * Currently, this API is only available for use with ACS resource hosting and is not yet open for direct invocation.
+    *
+    * @param request DeleteDiskRequest
+    * @return DeleteDiskResponse
+   */
+  async deleteDisk(request: DeleteDiskRequest): Promise<DeleteDiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDiskWithOptions(request, runtime);
+  }
+
+  /**
     * ## [](#)Usage notes
     * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
     * *   Before you can delete a replication pair-consistent group, make sure that no replication pairs exist in the group.
@@ -7072,6 +8053,79 @@ export default class Client extends OpenApi {
     return await this.describeDiskReplicaPairsWithOptions(request, runtime);
   }
 
+  async describeDisksWithOptions(request: DescribeDisksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDisksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.diskIds)) {
+      query["DiskIds"] = request.diskIds;
+    }
+
+    if (!Util.isUnset(request.diskName)) {
+      query["DiskName"] = request.diskName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDisks",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDisksResponse>(await this.callApi(params, req, runtime), new DescribeDisksResponse({}));
+  }
+
+  async describeDisks(request: DescribeDisksRequest): Promise<DescribeDisksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDisksWithOptions(request, runtime);
+  }
+
   async describeEnterpriseSnapshotPolicyWithOptions(request: DescribeEnterpriseSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnterpriseSnapshotPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7364,6 +8418,47 @@ export default class Client extends OpenApi {
     return await this.describeReplicaGroupDrillsWithOptions(request, runtime);
   }
 
+  async describeSolutionInstanceConfigurationWithOptions(request: DescribeSolutionInstanceConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSolutionInstanceConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.solutionId)) {
+      query["SolutionId"] = request.solutionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSolutionInstanceConfiguration",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSolutionInstanceConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeSolutionInstanceConfigurationResponse({}));
+  }
+
+  async describeSolutionInstanceConfiguration(request: DescribeSolutionInstanceConfigurationRequest): Promise<DescribeSolutionInstanceConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSolutionInstanceConfigurationWithOptions(request, runtime);
+  }
+
   /**
     * ## [](#)Usage notes
     * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
@@ -7476,6 +8571,39 @@ export default class Client extends OpenApi {
   async failoverDiskReplicaPair(request: FailoverDiskReplicaPairRequest): Promise<FailoverDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.failoverDiskReplicaPairWithOptions(request, runtime);
+  }
+
+  async getDiskWithOptions(request: GetDiskRequest, runtime: $Util.RuntimeOptions): Promise<GetDiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDisk",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDiskResponse>(await this.callApi(params, req, runtime), new GetDiskResponse({}));
+  }
+
+  async getDisk(request: GetDiskRequest): Promise<GetDiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDiskWithOptions(request, runtime);
   }
 
   /**
@@ -7744,6 +8872,45 @@ export default class Client extends OpenApi {
     return await this.modifyDiskReplicaPairWithOptions(request, runtime);
   }
 
+  async queryDedicatedBlockStorageClusterDiskThroughputStatusWithOptions(request: QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.qosRequestId)) {
+      body["QosRequestId"] = request.qosRequestId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDedicatedBlockStorageClusterDiskThroughputStatus",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse>(await this.callApi(params, req, runtime), new QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse({}));
+  }
+
+  async queryDedicatedBlockStorageClusterDiskThroughputStatus(request: QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest): Promise<QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDedicatedBlockStorageClusterDiskThroughputStatusWithOptions(request, runtime);
+  }
+
   /**
     * Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
     *
@@ -7992,6 +9159,49 @@ export default class Client extends OpenApi {
   async reprotectDiskReplicaPair(request: ReprotectDiskReplicaPairRequest): Promise<ReprotectDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reprotectDiskReplicaPairWithOptions(request, runtime);
+  }
+
+  async setDedicatedBlockStorageClusterDiskThroughputWithOptions(request: SetDedicatedBlockStorageClusterDiskThroughputRequest, runtime: $Util.RuntimeOptions): Promise<SetDedicatedBlockStorageClusterDiskThroughputResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bps)) {
+      body["Bps"] = request.bps;
+    }
+
+    if (!Util.isUnset(request.diskId)) {
+      body["DiskId"] = request.diskId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetDedicatedBlockStorageClusterDiskThroughput",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDedicatedBlockStorageClusterDiskThroughputResponse>(await this.callApi(params, req, runtime), new SetDedicatedBlockStorageClusterDiskThroughputResponse({}));
+  }
+
+  async setDedicatedBlockStorageClusterDiskThroughput(request: SetDedicatedBlockStorageClusterDiskThroughputRequest): Promise<SetDedicatedBlockStorageClusterDiskThroughputResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setDedicatedBlockStorageClusterDiskThroughputWithOptions(request, runtime);
   }
 
   /**
