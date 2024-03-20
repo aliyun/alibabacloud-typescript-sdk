@@ -457,9 +457,11 @@ export class CreatePrePayOrderRequest extends $tea.Model {
   deployType?: number;
   diskSize?: number;
   diskType?: string;
+  duration?: number;
   eipMax?: number;
   ioMax?: number;
   ioMaxSpec?: string;
+  paidType?: number;
   partitionNum?: number;
   regionId?: string;
   resourceGroupId?: string;
@@ -472,9 +474,11 @@ export class CreatePrePayOrderRequest extends $tea.Model {
       deployType: 'DeployType',
       diskSize: 'DiskSize',
       diskType: 'DiskType',
+      duration: 'Duration',
       eipMax: 'EipMax',
       ioMax: 'IoMax',
       ioMaxSpec: 'IoMaxSpec',
+      paidType: 'PaidType',
       partitionNum: 'PartitionNum',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -490,9 +494,11 @@ export class CreatePrePayOrderRequest extends $tea.Model {
       deployType: 'number',
       diskSize: 'number',
       diskType: 'string',
+      duration: 'number',
       eipMax: 'number',
       ioMax: 'number',
       ioMaxSpec: 'string',
+      paidType: 'number',
       partitionNum: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -512,9 +518,11 @@ export class CreatePrePayOrderShrinkRequest extends $tea.Model {
   deployType?: number;
   diskSize?: number;
   diskType?: string;
+  duration?: number;
   eipMax?: number;
   ioMax?: number;
   ioMaxSpec?: string;
+  paidType?: number;
   partitionNum?: number;
   regionId?: string;
   resourceGroupId?: string;
@@ -527,9 +535,11 @@ export class CreatePrePayOrderShrinkRequest extends $tea.Model {
       deployType: 'DeployType',
       diskSize: 'DiskSize',
       diskType: 'DiskType',
+      duration: 'Duration',
       eipMax: 'EipMax',
       ioMax: 'IoMax',
       ioMaxSpec: 'IoMaxSpec',
+      paidType: 'PaidType',
       partitionNum: 'PartitionNum',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -545,9 +555,11 @@ export class CreatePrePayOrderShrinkRequest extends $tea.Model {
       deployType: 'number',
       diskSize: 'number',
       diskType: 'string',
+      duration: 'number',
       eipMax: 'number',
       ioMax: 'number',
       ioMaxSpec: 'string',
+      paidType: 'number',
       partitionNum: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -1688,12 +1700,16 @@ export class GetAllowedIpListResponse extends $tea.Model {
 
 export class GetConsumerListRequest extends $tea.Model {
   consumerId?: string;
+  currentPage?: number;
   instanceId?: string;
+  pageSize?: number;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       consumerId: 'ConsumerId',
+      currentPage: 'CurrentPage',
       instanceId: 'InstanceId',
+      pageSize: 'PageSize',
       regionId: 'RegionId',
     };
   }
@@ -1701,7 +1717,9 @@ export class GetConsumerListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       consumerId: 'string',
+      currentPage: 'number',
       instanceId: 'string',
+      pageSize: 'number',
       regionId: 'string',
     };
   }
@@ -1714,16 +1732,22 @@ export class GetConsumerListRequest extends $tea.Model {
 export class GetConsumerListResponseBody extends $tea.Model {
   code?: number;
   consumerList?: GetConsumerListResponseBodyConsumerList;
+  currentPage?: number;
   message?: string;
+  pageSize?: number;
   requestId?: string;
   success?: boolean;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       consumerList: 'ConsumerList',
+      currentPage: 'CurrentPage',
       message: 'Message',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       success: 'Success',
+      total: 'Total',
     };
   }
 
@@ -1731,9 +1755,12 @@ export class GetConsumerListResponseBody extends $tea.Model {
     return {
       code: 'number',
       consumerList: GetConsumerListResponseBodyConsumerList,
+      currentPage: 'number',
       message: 'string',
+      pageSize: 'number',
       requestId: 'string',
       success: 'boolean',
+      total: 'number',
     };
   }
 
@@ -5661,6 +5688,10 @@ export default class Client extends OpenApi {
       query["DiskType"] = request.diskType;
     }
 
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
     if (!Util.isUnset(request.eipMax)) {
       query["EipMax"] = request.eipMax;
     }
@@ -5671,6 +5702,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ioMaxSpec)) {
       query["IoMaxSpec"] = request.ioMaxSpec;
+    }
+
+    if (!Util.isUnset(request.paidType)) {
+      query["PaidType"] = request.paidType;
     }
 
     if (!Util.isUnset(request.partitionNum)) {
@@ -6285,8 +6320,16 @@ export default class Client extends OpenApi {
       query["ConsumerId"] = request.consumerId;
     }
 
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.regionId)) {
