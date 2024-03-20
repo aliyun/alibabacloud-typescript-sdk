@@ -13621,6 +13621,105 @@ export class DescribeInstanceLinkedWhitelistTemplateResponse extends $tea.Model 
   }
 }
 
+export class DescribeKmsAssociateResourcesRequest extends $tea.Model {
+  clientToken?: string;
+  kmsResourceId?: string;
+  kmsResourceRegionId?: string;
+  kmsResourceType?: string;
+  kmsResourceUser?: string;
+  ownerAccount?: string;
+  ownerId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      kmsResourceId: 'KmsResourceId',
+      kmsResourceRegionId: 'KmsResourceRegionId',
+      kmsResourceType: 'KmsResourceType',
+      kmsResourceUser: 'KmsResourceUser',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      kmsResourceId: 'string',
+      kmsResourceRegionId: 'string',
+      kmsResourceType: 'string',
+      kmsResourceUser: 'string',
+      ownerAccount: 'string',
+      ownerId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeKmsAssociateResourcesResponseBody extends $tea.Model {
+  associateDBInstances?: DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances[];
+  associateStatus?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      associateDBInstances: 'AssociateDBInstances',
+      associateStatus: 'AssociateStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      associateDBInstances: { 'type': 'array', 'itemType': DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances },
+      associateStatus: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeKmsAssociateResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeKmsAssociateResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeKmsAssociateResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLocalAvailableRecoveryTimeRequest extends $tea.Model {
   DBInstanceId?: string;
   ownerId?: number;
@@ -21537,6 +21636,7 @@ export class ModifyDBInstanceProxyConfigurationResponse extends $tea.Model {
 export class ModifyDBInstanceSSLRequest extends $tea.Model {
   ACL?: string;
   CAType?: string;
+  certificate?: string;
   clientCACert?: string;
   clientCAEnabled?: number;
   clientCertRevocationList?: string;
@@ -21546,6 +21646,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
   forceEncryption?: string;
   ownerAccount?: string;
   ownerId?: number;
+  passWord?: string;
   replicationACL?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -21557,6 +21658,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
     return {
       ACL: 'ACL',
       CAType: 'CAType',
+      certificate: 'Certificate',
       clientCACert: 'ClientCACert',
       clientCAEnabled: 'ClientCAEnabled',
       clientCertRevocationList: 'ClientCertRevocationList',
@@ -21566,6 +21668,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
       forceEncryption: 'ForceEncryption',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      passWord: 'PassWord',
       replicationACL: 'ReplicationACL',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -21580,6 +21683,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
     return {
       ACL: 'string',
       CAType: 'string',
+      certificate: 'string',
       clientCACert: 'string',
       clientCAEnabled: 'number',
       clientCertRevocationList: 'string',
@@ -21589,6 +21693,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
       forceEncryption: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      passWord: 'string',
       replicationACL: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -33400,6 +33505,34 @@ export class DescribeInstanceLinkedWhitelistTemplateResponseBodyData extends $te
   }
 }
 
+export class DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances extends $tea.Model {
+  DBInstanceName?: string;
+  engine?: string;
+  keyUsedBy?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      engine: 'Engine',
+      keyUsedBy: 'KeyUsedBy',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      engine: 'string',
+      keyUsedBy: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLogBackupFilesResponseBodyItemsBinLogFile extends $tea.Model {
   downloadLink?: string;
   fileSize?: number;
@@ -39586,10 +39719,10 @@ export default class Client extends OpenApi {
 
   /**
     * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
+    * *   MySQL
+    * *   PostgreSQL
     * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](~~418274~~)
     *
@@ -39663,10 +39796,10 @@ export default class Client extends OpenApi {
 
   /**
     * ### [](#)Supported database engines
-    * *   RDS MySQL
-    * *   RDS PostgreSQL
+    * *   MySQL
+    * *   PostgreSQL
     * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](~~418274~~)
     *
@@ -45922,7 +46055,7 @@ export default class Client extends OpenApi {
 
   /**
     * @deprecated : DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
-    * This operation is phased out. Use the DescribeDBInstances operation instead.
+    * >  The DescribeDBInstancesAsCsv operation is phased out. You can call the DescribeDBInstances operation.
     *
     * @param request DescribeDBInstancesAsCsvRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -45983,7 +46116,7 @@ export default class Client extends OpenApi {
 
   /**
     * @deprecated : DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
-    * This operation is phased out. Use the DescribeDBInstances operation instead.
+    * >  The DescribeDBInstancesAsCsv operation is phased out. You can call the DescribeDBInstances operation.
     *
     * @param request DescribeDBInstancesAsCsvRequest
     * @return DescribeDBInstancesAsCsvResponse
@@ -48203,6 +48336,75 @@ export default class Client extends OpenApi {
   async describeInstanceLinkedWhitelistTemplate(request: DescribeInstanceLinkedWhitelistTemplateRequest): Promise<DescribeInstanceLinkedWhitelistTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceLinkedWhitelistTemplateWithOptions(request, runtime);
+  }
+
+  async describeKmsAssociateResourcesWithOptions(request: DescribeKmsAssociateResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKmsAssociateResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.kmsResourceId)) {
+      query["KmsResourceId"] = request.kmsResourceId;
+    }
+
+    if (!Util.isUnset(request.kmsResourceRegionId)) {
+      query["KmsResourceRegionId"] = request.kmsResourceRegionId;
+    }
+
+    if (!Util.isUnset(request.kmsResourceType)) {
+      query["KmsResourceType"] = request.kmsResourceType;
+    }
+
+    if (!Util.isUnset(request.kmsResourceUser)) {
+      query["KmsResourceUser"] = request.kmsResourceUser;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeKmsAssociateResources",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeKmsAssociateResourcesResponse>(await this.callApi(params, req, runtime), new DescribeKmsAssociateResourcesResponse({}));
+  }
+
+  async describeKmsAssociateResources(request: DescribeKmsAssociateResourcesRequest): Promise<DescribeKmsAssociateResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeKmsAssociateResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -54764,6 +54966,10 @@ export default class Client extends OpenApi {
       query["CAType"] = request.CAType;
     }
 
+    if (!Util.isUnset(request.certificate)) {
+      query["Certificate"] = request.certificate;
+    }
+
     if (!Util.isUnset(request.clientCACert)) {
       query["ClientCACert"] = request.clientCACert;
     }
@@ -54798,6 +55004,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.passWord)) {
+      query["PassWord"] = request.passWord;
     }
 
     if (!Util.isUnset(request.replicationACL)) {
