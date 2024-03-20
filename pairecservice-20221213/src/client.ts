@@ -897,6 +897,7 @@ export class CreateExperimentResponse extends $tea.Model {
 export class CreateExperimentGroupRequest extends $tea.Model {
   config?: string;
   crowdId?: string;
+  crowdTargetType?: string;
   debugCrowdId?: string;
   debugUsers?: string;
   description?: string;
@@ -907,11 +908,13 @@ export class CreateExperimentGroupRequest extends $tea.Model {
   layerId?: string;
   name?: string;
   needAA?: boolean;
+  randomFlow?: number;
   reservedBuckets?: string;
   static names(): { [key: string]: string } {
     return {
       config: 'Config',
       crowdId: 'CrowdId',
+      crowdTargetType: 'CrowdTargetType',
       debugCrowdId: 'DebugCrowdId',
       debugUsers: 'DebugUsers',
       description: 'Description',
@@ -922,6 +925,7 @@ export class CreateExperimentGroupRequest extends $tea.Model {
       layerId: 'LayerId',
       name: 'Name',
       needAA: 'NeedAA',
+      randomFlow: 'RandomFlow',
       reservedBuckets: 'ReservedBuckets',
     };
   }
@@ -930,6 +934,7 @@ export class CreateExperimentGroupRequest extends $tea.Model {
     return {
       config: 'string',
       crowdId: 'string',
+      crowdTargetType: 'string',
       debugCrowdId: 'string',
       debugUsers: 'string',
       description: 'string',
@@ -940,6 +945,7 @@ export class CreateExperimentGroupRequest extends $tea.Model {
       layerId: 'string',
       name: 'string',
       needAA: 'boolean',
+      randomFlow: 'number',
       reservedBuckets: 'string',
     };
   }
@@ -2934,17 +2940,20 @@ export class GetExperimentGroupRequest extends $tea.Model {
 export class GetExperimentGroupResponseBody extends $tea.Model {
   config?: string;
   crowdId?: string;
+  crowdTargetType?: string;
   debugCrowdId?: string;
   debugUsers?: string;
   description?: string;
   distributionTimeDuration?: number;
   distributionType?: string;
   filter?: string;
+  holdingBuckets?: string;
   laboratoryId?: string;
   layerId?: string;
   name?: string;
   needAA?: boolean;
   owner?: string;
+  randomFlow?: number;
   requestId?: string;
   reservedBuckets?: string;
   sceneId?: string;
@@ -2953,17 +2962,20 @@ export class GetExperimentGroupResponseBody extends $tea.Model {
     return {
       config: 'Config',
       crowdId: 'CrowdId',
+      crowdTargetType: 'CrowdTargetType',
       debugCrowdId: 'DebugCrowdId',
       debugUsers: 'DebugUsers',
       description: 'Description',
       distributionTimeDuration: 'DistributionTimeDuration',
       distributionType: 'DistributionType',
       filter: 'Filter',
+      holdingBuckets: 'HoldingBuckets',
       laboratoryId: 'LaboratoryId',
       layerId: 'LayerId',
       name: 'Name',
       needAA: 'NeedAA',
       owner: 'Owner',
+      randomFlow: 'RandomFlow',
       requestId: 'RequestId',
       reservedBuckets: 'ReservedBuckets',
       sceneId: 'SceneId',
@@ -2975,17 +2987,20 @@ export class GetExperimentGroupResponseBody extends $tea.Model {
     return {
       config: 'string',
       crowdId: 'string',
+      crowdTargetType: 'string',
       debugCrowdId: 'string',
       debugUsers: 'string',
       description: 'string',
       distributionTimeDuration: 'number',
       distributionType: 'string',
       filter: 'string',
+      holdingBuckets: 'string',
       laboratoryId: 'string',
       layerId: 'string',
       name: 'string',
       needAA: 'boolean',
       owner: 'string',
+      randomFlow: 'number',
       requestId: 'string',
       reservedBuckets: 'string',
       sceneId: 'string',
@@ -3608,16 +3623,20 @@ export class GetLayerRequest extends $tea.Model {
 
 export class GetLayerResponseBody extends $tea.Model {
   description?: string;
+  gmtCreateTime?: string;
   laboratoryId?: string;
   name?: string;
   requestId?: string;
+  residualFlow?: number;
   sceneId?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      gmtCreateTime: 'GmtCreateTime',
       laboratoryId: 'LaboratoryId',
       name: 'Name',
       requestId: 'RequestId',
+      residualFlow: 'ResidualFlow',
       sceneId: 'SceneId',
     };
   }
@@ -3625,9 +3644,11 @@ export class GetLayerResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      gmtCreateTime: 'string',
       laboratoryId: 'string',
       name: 'string',
       requestId: 'string',
+      residualFlow: 'number',
       sceneId: 'string',
     };
   }
@@ -4313,11 +4334,13 @@ export class ListCrowdsResponse extends $tea.Model {
 export class ListExperimentGroupsRequest extends $tea.Model {
   instanceId?: string;
   layerId?: string;
+  regionId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       layerId: 'LayerId',
+      regionId: 'RegionId',
       status: 'Status',
     };
   }
@@ -4326,6 +4349,7 @@ export class ListExperimentGroupsRequest extends $tea.Model {
     return {
       instanceId: 'string',
       layerId: 'string',
+      regionId: 'string',
       status: 'string',
     };
   }
@@ -6447,6 +6471,7 @@ export class UpdateExperimentResponse extends $tea.Model {
 export class UpdateExperimentGroupRequest extends $tea.Model {
   config?: string;
   crowdId?: string;
+  crowdTargetType?: string;
   debugCrowdId?: string;
   debugUsers?: string;
   description?: string;
@@ -6457,11 +6482,13 @@ export class UpdateExperimentGroupRequest extends $tea.Model {
   layerId?: string;
   name?: string;
   needAA?: boolean;
+  randomFlow?: number;
   reservcedBuckets?: string;
   static names(): { [key: string]: string } {
     return {
       config: 'Config',
       crowdId: 'CrowdId',
+      crowdTargetType: 'CrowdTargetType',
       debugCrowdId: 'DebugCrowdId',
       debugUsers: 'DebugUsers',
       description: 'Description',
@@ -6472,6 +6499,7 @@ export class UpdateExperimentGroupRequest extends $tea.Model {
       layerId: 'LayerId',
       name: 'Name',
       needAA: 'NeedAA',
+      randomFlow: 'RandomFlow',
       reservcedBuckets: 'ReservcedBuckets',
     };
   }
@@ -6480,6 +6508,7 @@ export class UpdateExperimentGroupRequest extends $tea.Model {
     return {
       config: 'string',
       crowdId: 'string',
+      crowdTargetType: 'string',
       debugCrowdId: 'string',
       debugUsers: 'string',
       description: 'string',
@@ -6490,6 +6519,7 @@ export class UpdateExperimentGroupRequest extends $tea.Model {
       layerId: 'string',
       name: 'string',
       needAA: 'boolean',
+      randomFlow: 'number',
       reservcedBuckets: 'string',
     };
   }
@@ -7664,6 +7694,7 @@ export class ListCrowdsResponseBodyCrowds extends $tea.Model {
 export class ListExperimentGroupsResponseBodyExperimentGroups extends $tea.Model {
   config?: string;
   crowdId?: string;
+  crowdTargetType?: string;
   debugCrowdId?: string;
   debugUsers?: string;
   description?: string;
@@ -7671,11 +7702,13 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $tea.Model
   distributionType?: string;
   experimentGroupId?: string;
   filter?: string;
+  holdingBuckets?: string;
   laboratoryId?: string;
   layerId?: string;
   name?: string;
   needAA?: boolean;
   owner?: string;
+  randomFlow?: number;
   reservedBuckets?: string;
   sceneId?: string;
   status?: string;
@@ -7683,6 +7716,7 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $tea.Model
     return {
       config: 'Config',
       crowdId: 'CrowdId',
+      crowdTargetType: 'CrowdTargetType',
       debugCrowdId: 'DebugCrowdId',
       debugUsers: 'DebugUsers',
       description: 'Description',
@@ -7690,11 +7724,13 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $tea.Model
       distributionType: 'DistributionType',
       experimentGroupId: 'ExperimentGroupId',
       filter: 'Filter',
+      holdingBuckets: 'HoldingBuckets',
       laboratoryId: 'LaboratoryId',
       layerId: 'LayerId',
       name: 'Name',
       needAA: 'NeedAA',
       owner: 'Owner',
+      randomFlow: 'RandomFlow',
       reservedBuckets: 'ReservedBuckets',
       sceneId: 'SceneId',
       status: 'Status',
@@ -7705,6 +7741,7 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $tea.Model
     return {
       config: 'string',
       crowdId: 'string',
+      crowdTargetType: 'string',
       debugCrowdId: 'string',
       debugUsers: 'string',
       description: 'string',
@@ -7712,11 +7749,13 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $tea.Model
       distributionType: 'string',
       experimentGroupId: 'string',
       filter: 'string',
+      holdingBuckets: 'string',
       laboratoryId: 'string',
       layerId: 'string',
       name: 'string',
       needAA: 'boolean',
       owner: 'string',
+      randomFlow: 'number',
       reservedBuckets: 'string',
       sceneId: 'string',
       status: 'string',
@@ -8288,16 +8327,20 @@ export class ListLaboratoriesResponseBodyLaboratories extends $tea.Model {
 
 export class ListLayersResponseBodyLayers extends $tea.Model {
   description?: string;
+  gmtCreateTime?: string;
   laboratoryId?: string;
   layerId?: string;
   name?: string;
+  residualFlow?: number;
   sceneId?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      gmtCreateTime: 'GmtCreateTime',
       laboratoryId: 'LaboratoryId',
       layerId: 'LayerId',
       name: 'Name',
+      residualFlow: 'ResidualFlow',
       sceneId: 'SceneId',
     };
   }
@@ -8305,9 +8348,11 @@ export class ListLayersResponseBodyLayers extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      gmtCreateTime: 'string',
       laboratoryId: 'string',
       layerId: 'string',
       name: 'string',
+      residualFlow: 'number',
       sceneId: 'string',
     };
   }
@@ -9156,6 +9201,10 @@ export default class Client extends OpenApi {
       body["CrowdId"] = request.crowdId;
     }
 
+    if (!Util.isUnset(request.crowdTargetType)) {
+      body["CrowdTargetType"] = request.crowdTargetType;
+    }
+
     if (!Util.isUnset(request.debugCrowdId)) {
       body["DebugCrowdId"] = request.debugCrowdId;
     }
@@ -9194,6 +9243,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.needAA)) {
       body["NeedAA"] = request.needAA;
+    }
+
+    if (!Util.isUnset(request.randomFlow)) {
+      body["RandomFlow"] = request.randomFlow;
     }
 
     if (!Util.isUnset(request.reservedBuckets)) {
@@ -10810,6 +10863,10 @@ export default class Client extends OpenApi {
       query["LayerId"] = request.layerId;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
     }
@@ -12020,6 +12077,10 @@ export default class Client extends OpenApi {
       body["CrowdId"] = request.crowdId;
     }
 
+    if (!Util.isUnset(request.crowdTargetType)) {
+      body["CrowdTargetType"] = request.crowdTargetType;
+    }
+
     if (!Util.isUnset(request.debugCrowdId)) {
       body["DebugCrowdId"] = request.debugCrowdId;
     }
@@ -12058,6 +12119,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.needAA)) {
       body["NeedAA"] = request.needAA;
+    }
+
+    if (!Util.isUnset(request.randomFlow)) {
+      body["RandomFlow"] = request.randomFlow;
     }
 
     if (!Util.isUnset(request.reservcedBuckets)) {
