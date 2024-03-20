@@ -3216,6 +3216,7 @@ export class QueryDomainGroupListResponse extends $tea.Model {
 }
 
 export class QueryDomainListRequest extends $tea.Model {
+  ccompany?: string;
   domainGroupId?: string;
   domainName?: string;
   endExpirationDate?: number;
@@ -3234,6 +3235,7 @@ export class QueryDomainListRequest extends $tea.Model {
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
+      ccompany: 'Ccompany',
       domainGroupId: 'DomainGroupId',
       domainName: 'DomainName',
       endExpirationDate: 'EndExpirationDate',
@@ -3255,6 +3257,7 @@ export class QueryDomainListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ccompany: 'string',
       domainGroupId: 'string',
       domainName: 'string',
       endExpirationDate: 'number',
@@ -12170,6 +12173,7 @@ export class QueryDomainListResponseBodyDataDomainTag extends $tea.Model {
 }
 
 export class QueryDomainListResponseBodyDataDomain extends $tea.Model {
+  ccompany?: string;
   domainAuditStatus?: string;
   domainGroupId?: string;
   domainGroupName?: string;
@@ -12191,6 +12195,7 @@ export class QueryDomainListResponseBodyDataDomain extends $tea.Model {
   tag?: QueryDomainListResponseBodyDataDomainTag;
   static names(): { [key: string]: string } {
     return {
+      ccompany: 'Ccompany',
       domainAuditStatus: 'DomainAuditStatus',
       domainGroupId: 'DomainGroupId',
       domainGroupName: 'DomainGroupName',
@@ -12215,6 +12220,7 @@ export class QueryDomainListResponseBodyDataDomain extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ccompany: 'string',
       domainAuditStatus: 'string',
       domainGroupId: 'string',
       domainGroupName: 'string',
@@ -15712,6 +15718,10 @@ export default class Client extends OpenApi {
   async queryDomainListWithOptions(request: QueryDomainListRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainListResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.ccompany)) {
+      query["Ccompany"] = request.ccompany;
+    }
+
     if (!Util.isUnset(request.domainGroupId)) {
       query["DomainGroupId"] = request.domainGroupId;
     }
@@ -19439,6 +19449,13 @@ export default class Client extends OpenApi {
     return await this.saveTaskForUpdatingRegistrantInfoByRegistrantProfileIDWithOptions(request, runtime);
   }
 
+  /**
+    * If you have a large number of domain names, a slow response may occur when you call an API operation to query domain names. In this case, you can call this operation to query domain names more quickly. When you call this operation for the first time, specify the request parameters except ScrollId. A scroll ID is returned without other data. In the second request, use the scroll ID obtained from the previous response. In subsequent requests, the newly specified request parameters do not take effect, and the request parameters that are specified in the first request prevail.
+    *
+    * @param request ScrollDomainListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ScrollDomainListResponse
+   */
   async scrollDomainListWithOptions(request: ScrollDomainListRequest, runtime: $Util.RuntimeOptions): Promise<ScrollDomainListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19551,6 +19568,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ScrollDomainListResponse>(await this.callApi(params, req, runtime), new ScrollDomainListResponse({}));
   }
 
+  /**
+    * If you have a large number of domain names, a slow response may occur when you call an API operation to query domain names. In this case, you can call this operation to query domain names more quickly. When you call this operation for the first time, specify the request parameters except ScrollId. A scroll ID is returned without other data. In the second request, use the scroll ID obtained from the previous response. In subsequent requests, the newly specified request parameters do not take effect, and the request parameters that are specified in the first request prevail.
+    *
+    * @param request ScrollDomainListRequest
+    * @return ScrollDomainListResponse
+   */
   async scrollDomainList(request: ScrollDomainListRequest): Promise<ScrollDomainListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.scrollDomainListWithOptions(request, runtime);
