@@ -907,172 +907,6 @@ export class CreateOmsMysqlDataSourceResponse extends $tea.Model {
   }
 }
 
-export class CreateOmsOpenAPIProjectRequest extends $tea.Model {
-  businessName?: string;
-  destConfig?: CreateOmsOpenAPIProjectRequestDestConfig;
-  labelIds?: string[];
-  pageNumber?: number;
-  pageSize?: number;
-  projectName?: string;
-  sourceConfig?: CreateOmsOpenAPIProjectRequestSourceConfig;
-  transferMapping?: CreateOmsOpenAPIProjectRequestTransferMapping;
-  transferStepConfig?: CreateOmsOpenAPIProjectRequestTransferStepConfig;
-  workerGradeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      businessName: 'BusinessName',
-      destConfig: 'DestConfig',
-      labelIds: 'LabelIds',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectName: 'ProjectName',
-      sourceConfig: 'SourceConfig',
-      transferMapping: 'TransferMapping',
-      transferStepConfig: 'TransferStepConfig',
-      workerGradeId: 'WorkerGradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      businessName: 'string',
-      destConfig: CreateOmsOpenAPIProjectRequestDestConfig,
-      labelIds: { 'type': 'array', 'itemType': 'string' },
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectName: 'string',
-      sourceConfig: CreateOmsOpenAPIProjectRequestSourceConfig,
-      transferMapping: CreateOmsOpenAPIProjectRequestTransferMapping,
-      transferStepConfig: CreateOmsOpenAPIProjectRequestTransferStepConfig,
-      workerGradeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOmsOpenAPIProjectShrinkRequest extends $tea.Model {
-  businessName?: string;
-  destConfigShrink?: string;
-  labelIdsShrink?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  projectName?: string;
-  sourceConfigShrink?: string;
-  transferMappingShrink?: string;
-  transferStepConfigShrink?: string;
-  workerGradeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      businessName: 'BusinessName',
-      destConfigShrink: 'DestConfig',
-      labelIdsShrink: 'LabelIds',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectName: 'ProjectName',
-      sourceConfigShrink: 'SourceConfig',
-      transferMappingShrink: 'TransferMapping',
-      transferStepConfigShrink: 'TransferStepConfig',
-      workerGradeId: 'WorkerGradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      businessName: 'string',
-      destConfigShrink: 'string',
-      labelIdsShrink: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectName: 'string',
-      sourceConfigShrink: 'string',
-      transferMappingShrink: 'string',
-      transferStepConfigShrink: 'string',
-      workerGradeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOmsOpenAPIProjectResponseBody extends $tea.Model {
-  advice?: string;
-  code?: string;
-  cost?: string;
-  data?: string;
-  errorDetail?: CreateOmsOpenAPIProjectResponseBodyErrorDetail;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      advice: 'Advice',
-      code: 'Code',
-      cost: 'Cost',
-      data: 'Data',
-      errorDetail: 'ErrorDetail',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      advice: 'string',
-      code: 'string',
-      cost: 'string',
-      data: 'string',
-      errorDetail: CreateOmsOpenAPIProjectResponseBodyErrorDetail,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOmsOpenAPIProjectResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateOmsOpenAPIProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateOmsOpenAPIProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateProjectRequest extends $tea.Model {
   commonTransferConfig?: CreateProjectRequestCommonTransferConfig;
   enableFullTransfer?: boolean;
@@ -1081,6 +915,7 @@ export class CreateProjectRequest extends $tea.Model {
   enableReverseIncrTransfer?: boolean;
   enableStructTransfer?: boolean;
   fullTransferConfig?: CreateProjectRequestFullTransferConfig;
+  id?: string;
   incrTransferConfig?: CreateProjectRequestIncrTransferConfig;
   labelIds?: string[];
   name?: string;
@@ -1101,6 +936,7 @@ export class CreateProjectRequest extends $tea.Model {
       enableReverseIncrTransfer: 'EnableReverseIncrTransfer',
       enableStructTransfer: 'EnableStructTransfer',
       fullTransferConfig: 'FullTransferConfig',
+      id: 'Id',
       incrTransferConfig: 'IncrTransferConfig',
       labelIds: 'LabelIds',
       name: 'Name',
@@ -1124,6 +960,7 @@ export class CreateProjectRequest extends $tea.Model {
       enableReverseIncrTransfer: 'boolean',
       enableStructTransfer: 'boolean',
       fullTransferConfig: CreateProjectRequestFullTransferConfig,
+      id: 'string',
       incrTransferConfig: CreateProjectRequestIncrTransferConfig,
       labelIds: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
@@ -1151,6 +988,7 @@ export class CreateProjectShrinkRequest extends $tea.Model {
   enableReverseIncrTransfer?: boolean;
   enableStructTransfer?: boolean;
   fullTransferConfigShrink?: string;
+  id?: string;
   incrTransferConfigShrink?: string;
   labelIdsShrink?: string;
   name?: string;
@@ -1171,6 +1009,7 @@ export class CreateProjectShrinkRequest extends $tea.Model {
       enableReverseIncrTransfer: 'EnableReverseIncrTransfer',
       enableStructTransfer: 'EnableStructTransfer',
       fullTransferConfigShrink: 'FullTransferConfig',
+      id: 'Id',
       incrTransferConfigShrink: 'IncrTransferConfig',
       labelIdsShrink: 'LabelIds',
       name: 'Name',
@@ -1194,6 +1033,7 @@ export class CreateProjectShrinkRequest extends $tea.Model {
       enableReverseIncrTransfer: 'boolean',
       enableStructTransfer: 'boolean',
       fullTransferConfigShrink: 'string',
+      id: 'string',
       incrTransferConfigShrink: 'string',
       labelIdsShrink: 'string',
       name: 'string',
@@ -2153,108 +1993,6 @@ export class DeleteInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteOmsOpenAPIProjectRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  projectId?: string;
-  workerGradeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-      workerGradeId: 'WorkerGradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'string',
-      workerGradeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteOmsOpenAPIProjectResponseBody extends $tea.Model {
-  advice?: string;
-  code?: string;
-  cost?: string;
-  data?: boolean;
-  errorDetail?: DeleteOmsOpenAPIProjectResponseBodyErrorDetail;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      advice: 'Advice',
-      code: 'Code',
-      cost: 'Cost',
-      data: 'Data',
-      errorDetail: 'ErrorDetail',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      advice: 'string',
-      code: 'string',
-      cost: 'string',
-      data: 'boolean',
-      errorDetail: DeleteOmsOpenAPIProjectResponseBodyErrorDetail,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteOmsOpenAPIProjectResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteOmsOpenAPIProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteOmsOpenAPIProjectResponseBody,
     };
   }
 
@@ -4767,210 +4505,6 @@ export class DescribeOasTopSQLListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeOasTopSQLListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  projectId?: string;
-  workerGradeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-      workerGradeId: 'WorkerGradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'string',
-      workerGradeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBody extends $tea.Model {
-  advice?: string;
-  code?: string;
-  cost?: string;
-  data?: DescribeOmsOpenAPIProjectResponseBodyData;
-  errorDetail?: DescribeOmsOpenAPIProjectResponseBodyErrorDetail;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      advice: 'Advice',
-      code: 'Code',
-      cost: 'Cost',
-      data: 'Data',
-      errorDetail: 'ErrorDetail',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      advice: 'string',
-      code: 'string',
-      cost: 'string',
-      data: DescribeOmsOpenAPIProjectResponseBodyData,
-      errorDetail: DescribeOmsOpenAPIProjectResponseBodyErrorDetail,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeOmsOpenAPIProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeOmsOpenAPIProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectStepsRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  projectId?: string;
-  workerGradeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-      workerGradeId: 'WorkerGradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'string',
-      workerGradeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectStepsResponseBody extends $tea.Model {
-  advice?: string;
-  code?: string;
-  cost?: string;
-  data?: DescribeOmsOpenAPIProjectStepsResponseBodyData[];
-  errorDetail?: DescribeOmsOpenAPIProjectStepsResponseBodyErrorDetail;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      advice: 'Advice',
-      code: 'Code',
-      cost: 'Cost',
-      data: 'Data',
-      errorDetail: 'ErrorDetail',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      advice: 'string',
-      code: 'string',
-      cost: 'string',
-      data: { 'type': 'array', 'itemType': DescribeOmsOpenAPIProjectStepsResponseBodyData },
-      errorDetail: DescribeOmsOpenAPIProjectStepsResponseBodyErrorDetail,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectStepsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeOmsOpenAPIProjectStepsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeOmsOpenAPIProjectStepsResponseBody,
     };
   }
 
@@ -8148,6 +7682,7 @@ export class ListProjectModifyRecordsResponse extends $tea.Model {
 
 export class ListProjectsRequest extends $tea.Model {
   labelIds?: string[];
+  needRelatedInfo?: boolean;
   order?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -8161,6 +7696,7 @@ export class ListProjectsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       labelIds: 'LabelIds',
+      needRelatedInfo: 'NeedRelatedInfo',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -8177,6 +7713,7 @@ export class ListProjectsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       labelIds: { 'type': 'array', 'itemType': 'string' },
+      needRelatedInfo: 'boolean',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -8197,6 +7734,7 @@ export class ListProjectsRequest extends $tea.Model {
 
 export class ListProjectsShrinkRequest extends $tea.Model {
   labelIdsShrink?: string;
+  needRelatedInfo?: boolean;
   order?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -8210,6 +7748,7 @@ export class ListProjectsShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       labelIdsShrink: 'LabelIds',
+      needRelatedInfo: 'NeedRelatedInfo',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -8226,6 +7765,7 @@ export class ListProjectsShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       labelIdsShrink: 'string',
+      needRelatedInfo: 'boolean',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -9807,108 +9347,6 @@ export class ModifyTenantUserStatusResponse extends $tea.Model {
   }
 }
 
-export class ReleaseOmsOpenAPIProjectRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  projectId?: string;
-  workerGradeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-      workerGradeId: 'WorkerGradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'string',
-      workerGradeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseOmsOpenAPIProjectResponseBody extends $tea.Model {
-  advice?: string;
-  code?: string;
-  cost?: string;
-  data?: boolean;
-  errorDetail?: ReleaseOmsOpenAPIProjectResponseBodyErrorDetail;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      advice: 'Advice',
-      code: 'Code',
-      cost: 'Cost',
-      data: 'Data',
-      errorDetail: 'ErrorDetail',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      advice: 'string',
-      code: 'string',
-      cost: 'string',
-      data: 'boolean',
-      errorDetail: ReleaseOmsOpenAPIProjectResponseBodyErrorDetail,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseOmsOpenAPIProjectResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReleaseOmsOpenAPIProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReleaseOmsOpenAPIProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ReleaseProjectRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -10087,210 +9525,6 @@ export class ReleaseWorkerInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReleaseWorkerInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetOmsOpenAPIProjectRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  projectId?: string;
-  workerGradeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-      workerGradeId: 'WorkerGradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'string',
-      workerGradeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetOmsOpenAPIProjectResponseBody extends $tea.Model {
-  advice?: string;
-  code?: string;
-  cost?: string;
-  data?: boolean;
-  errorDetail?: ResetOmsOpenAPIProjectResponseBodyErrorDetail;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      advice: 'Advice',
-      code: 'Code',
-      cost: 'Cost',
-      data: 'Data',
-      errorDetail: 'ErrorDetail',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      advice: 'string',
-      code: 'string',
-      cost: 'string',
-      data: 'boolean',
-      errorDetail: ResetOmsOpenAPIProjectResponseBodyErrorDetail,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetOmsOpenAPIProjectResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ResetOmsOpenAPIProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ResetOmsOpenAPIProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResumeOmsOpenAPIProjectRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  projectId?: string;
-  workerGradeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-      workerGradeId: 'WorkerGradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'string',
-      workerGradeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResumeOmsOpenAPIProjectResponseBody extends $tea.Model {
-  advice?: string;
-  code?: string;
-  cost?: string;
-  data?: boolean;
-  errorDetail?: ResumeOmsOpenAPIProjectResponseBodyErrorDetail;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      advice: 'Advice',
-      code: 'Code',
-      cost: 'Cost',
-      data: 'Data',
-      errorDetail: 'ErrorDetail',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      advice: 'string',
-      code: 'string',
-      cost: 'string',
-      data: 'boolean',
-      errorDetail: ResumeOmsOpenAPIProjectResponseBodyErrorDetail,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResumeOmsOpenAPIProjectResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ResumeOmsOpenAPIProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ResumeOmsOpenAPIProjectResponseBody,
     };
   }
 
@@ -10485,376 +9719,6 @@ export class RetryProjectModifyRecordsResponse extends $tea.Model {
   }
 }
 
-export class SearchOmsOpenAPIMonitorMetricRequest extends $tea.Model {
-  beginTime?: number;
-  endTime?: number;
-  maxPointNum?: number;
-  metric?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  projectId?: string;
-  workerGradeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      beginTime: 'BeginTime',
-      endTime: 'EndTime',
-      maxPointNum: 'MaxPointNum',
-      metric: 'Metric',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-      workerGradeId: 'WorkerGradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginTime: 'number',
-      endTime: 'number',
-      maxPointNum: 'number',
-      metric: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'string',
-      workerGradeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIMonitorMetricResponseBody extends $tea.Model {
-  advice?: string;
-  code?: string;
-  cost?: string;
-  data?: SearchOmsOpenAPIMonitorMetricResponseBodyData[];
-  errorDetail?: SearchOmsOpenAPIMonitorMetricResponseBodyErrorDetail;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      advice: 'Advice',
-      code: 'Code',
-      cost: 'Cost',
-      data: 'Data',
-      errorDetail: 'ErrorDetail',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      advice: 'string',
-      code: 'string',
-      cost: 'string',
-      data: { 'type': 'array', 'itemType': SearchOmsOpenAPIMonitorMetricResponseBodyData },
-      errorDetail: SearchOmsOpenAPIMonitorMetricResponseBodyErrorDetail,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIMonitorMetricResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SearchOmsOpenAPIMonitorMetricResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SearchOmsOpenAPIMonitorMetricResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsRequest extends $tea.Model {
-  destDbTypes?: string[];
-  labelIds?: string[];
-  pageNumber?: number;
-  pageSize?: number;
-  searchKey?: string;
-  sourceDbTypes?: string[];
-  statusList?: string[];
-  workerGradeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destDbTypes: 'DestDbTypes',
-      labelIds: 'LabelIds',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      searchKey: 'SearchKey',
-      sourceDbTypes: 'SourceDbTypes',
-      statusList: 'StatusList',
-      workerGradeId: 'WorkerGradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destDbTypes: { 'type': 'array', 'itemType': 'string' },
-      labelIds: { 'type': 'array', 'itemType': 'string' },
-      pageNumber: 'number',
-      pageSize: 'number',
-      searchKey: 'string',
-      sourceDbTypes: { 'type': 'array', 'itemType': 'string' },
-      statusList: { 'type': 'array', 'itemType': 'string' },
-      workerGradeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsShrinkRequest extends $tea.Model {
-  destDbTypesShrink?: string;
-  labelIdsShrink?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  searchKey?: string;
-  sourceDbTypesShrink?: string;
-  statusListShrink?: string;
-  workerGradeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destDbTypesShrink: 'DestDbTypes',
-      labelIdsShrink: 'LabelIds',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      searchKey: 'SearchKey',
-      sourceDbTypesShrink: 'SourceDbTypes',
-      statusListShrink: 'StatusList',
-      workerGradeId: 'WorkerGradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destDbTypesShrink: 'string',
-      labelIdsShrink: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      searchKey: 'string',
-      sourceDbTypesShrink: 'string',
-      statusListShrink: 'string',
-      workerGradeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBody extends $tea.Model {
-  advice?: string;
-  code?: string;
-  cost?: string;
-  data?: SearchOmsOpenAPIProjectsResponseBodyData[];
-  errorDetail?: SearchOmsOpenAPIProjectsResponseBodyErrorDetail;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      advice: 'Advice',
-      code: 'Code',
-      cost: 'Cost',
-      data: 'Data',
-      errorDetail: 'ErrorDetail',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      advice: 'string',
-      code: 'string',
-      cost: 'string',
-      data: { 'type': 'array', 'itemType': SearchOmsOpenAPIProjectsResponseBodyData },
-      errorDetail: SearchOmsOpenAPIProjectsResponseBodyErrorDetail,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SearchOmsOpenAPIProjectsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SearchOmsOpenAPIProjectsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartOmsOpenAPIProjectRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  projectId?: string;
-  workerGradeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-      workerGradeId: 'WorkerGradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'string',
-      workerGradeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartOmsOpenAPIProjectResponseBody extends $tea.Model {
-  advice?: string;
-  code?: string;
-  cost?: string;
-  data?: boolean;
-  errorDetail?: StartOmsOpenAPIProjectResponseBodyErrorDetail;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      advice: 'Advice',
-      code: 'Code',
-      cost: 'Cost',
-      data: 'Data',
-      errorDetail: 'ErrorDetail',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      advice: 'string',
-      code: 'string',
-      cost: 'string',
-      data: 'boolean',
-      errorDetail: StartOmsOpenAPIProjectResponseBodyErrorDetail,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartOmsOpenAPIProjectResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartOmsOpenAPIProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartOmsOpenAPIProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class StartProjectRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -11033,108 +9897,6 @@ export class StartProjectsByLabelResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartProjectsByLabelResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopOmsOpenAPIProjectRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  projectId?: string;
-  workerGradeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-      workerGradeId: 'WorkerGradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'string',
-      workerGradeId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopOmsOpenAPIProjectResponseBody extends $tea.Model {
-  advice?: string;
-  code?: string;
-  cost?: string;
-  data?: boolean;
-  errorDetail?: StopOmsOpenAPIProjectResponseBodyErrorDetail;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      advice: 'Advice',
-      code: 'Code',
-      cost: 'Cost',
-      data: 'Data',
-      errorDetail: 'ErrorDetail',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      advice: 'string',
-      code: 'string',
-      cost: 'string',
-      data: 'boolean',
-      errorDetail: StopOmsOpenAPIProjectResponseBodyErrorDetail,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopOmsOpenAPIProjectResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopOmsOpenAPIProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopOmsOpenAPIProjectResponseBody,
     };
   }
 
@@ -11845,321 +10607,6 @@ export class CreateOmsMysqlDataSourceResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endpointId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOmsOpenAPIProjectRequestDestConfig extends $tea.Model {
-  enableMsgTrace?: boolean;
-  endpointId?: string;
-  endpointType?: string;
-  msgTags?: string;
-  partition?: number;
-  partitionMode?: string;
-  producerGroup?: string;
-  sendMsgTimeout?: number;
-  sequenceEnable?: boolean;
-  sequenceStartTimestamp?: number;
-  serializerType?: string;
-  topicType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enableMsgTrace: 'EnableMsgTrace',
-      endpointId: 'EndpointId',
-      endpointType: 'EndpointType',
-      msgTags: 'MsgTags',
-      partition: 'Partition',
-      partitionMode: 'PartitionMode',
-      producerGroup: 'ProducerGroup',
-      sendMsgTimeout: 'SendMsgTimeout',
-      sequenceEnable: 'SequenceEnable',
-      sequenceStartTimestamp: 'SequenceStartTimestamp',
-      serializerType: 'SerializerType',
-      topicType: 'TopicType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableMsgTrace: 'boolean',
-      endpointId: 'string',
-      endpointType: 'string',
-      msgTags: 'string',
-      partition: 'number',
-      partitionMode: 'string',
-      producerGroup: 'string',
-      sendMsgTimeout: 'number',
-      sequenceEnable: 'boolean',
-      sequenceStartTimestamp: 'number',
-      serializerType: 'string',
-      topicType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOmsOpenAPIProjectRequestSourceConfig extends $tea.Model {
-  enableMsgTrace?: boolean;
-  endpointId?: string;
-  endpointType?: string;
-  msgTags?: string;
-  partition?: number;
-  partitionMode?: string;
-  producerGroup?: string;
-  sendMsgTimeout?: number;
-  sequenceEnable?: boolean;
-  sequenceStartTimestamp?: number;
-  serializerType?: string;
-  topicType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enableMsgTrace: 'EnableMsgTrace',
-      endpointId: 'EndpointId',
-      endpointType: 'EndpointType',
-      msgTags: 'MsgTags',
-      partition: 'Partition',
-      partitionMode: 'PartitionMode',
-      producerGroup: 'ProducerGroup',
-      sendMsgTimeout: 'SendMsgTimeout',
-      sequenceEnable: 'SequenceEnable',
-      sequenceStartTimestamp: 'SequenceStartTimestamp',
-      serializerType: 'SerializerType',
-      topicType: 'TopicType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableMsgTrace: 'boolean',
-      endpointId: 'string',
-      endpointType: 'string',
-      msgTags: 'string',
-      partition: 'number',
-      partitionMode: 'string',
-      producerGroup: 'string',
-      sendMsgTimeout: 'number',
-      sequenceEnable: 'boolean',
-      sequenceStartTimestamp: 'number',
-      serializerType: 'string',
-      topicType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOmsOpenAPIProjectRequestTransferMappingDatabasesTablesAdbTableSchema extends $tea.Model {
-  distributedKeys?: string[];
-  partitionLifeCycle?: number;
-  partitionStatement?: string;
-  primaryKeys?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      distributedKeys: 'DistributedKeys',
-      partitionLifeCycle: 'PartitionLifeCycle',
-      partitionStatement: 'PartitionStatement',
-      primaryKeys: 'PrimaryKeys',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      distributedKeys: { 'type': 'array', 'itemType': 'string' },
-      partitionLifeCycle: 'number',
-      partitionStatement: 'string',
-      primaryKeys: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOmsOpenAPIProjectRequestTransferMappingDatabasesTables extends $tea.Model {
-  adbTableSchema?: CreateOmsOpenAPIProjectRequestTransferMappingDatabasesTablesAdbTableSchema;
-  filterColumns?: string[];
-  mappedName?: string;
-  shardColumns?: string[];
-  tableId?: string;
-  tableName?: string;
-  type?: string;
-  whereClause?: string;
-  static names(): { [key: string]: string } {
-    return {
-      adbTableSchema: 'AdbTableSchema',
-      filterColumns: 'FilterColumns',
-      mappedName: 'MappedName',
-      shardColumns: 'ShardColumns',
-      tableId: 'TableId',
-      tableName: 'TableName',
-      type: 'Type',
-      whereClause: 'WhereClause',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adbTableSchema: CreateOmsOpenAPIProjectRequestTransferMappingDatabasesTablesAdbTableSchema,
-      filterColumns: { 'type': 'array', 'itemType': 'string' },
-      mappedName: 'string',
-      shardColumns: { 'type': 'array', 'itemType': 'string' },
-      tableId: 'string',
-      tableName: 'string',
-      type: 'string',
-      whereClause: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOmsOpenAPIProjectRequestTransferMappingDatabases extends $tea.Model {
-  databaseId?: string;
-  databaseName?: string;
-  mappedName?: string;
-  tables?: CreateOmsOpenAPIProjectRequestTransferMappingDatabasesTables[];
-  tenantName?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      databaseId: 'DatabaseId',
-      databaseName: 'DatabaseName',
-      mappedName: 'MappedName',
-      tables: 'Tables',
-      tenantName: 'TenantName',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      databaseId: 'string',
-      databaseName: 'string',
-      mappedName: 'string',
-      tables: { 'type': 'array', 'itemType': CreateOmsOpenAPIProjectRequestTransferMappingDatabasesTables },
-      tenantName: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOmsOpenAPIProjectRequestTransferMapping extends $tea.Model {
-  databases?: CreateOmsOpenAPIProjectRequestTransferMappingDatabases[];
-  mode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      databases: 'Databases',
-      mode: 'Mode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      databases: { 'type': 'array', 'itemType': CreateOmsOpenAPIProjectRequestTransferMappingDatabases },
-      mode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOmsOpenAPIProjectRequestTransferStepConfigIncrSyncStepTransferConfig extends $tea.Model {
-  recordTypeList?: string[];
-  startTimestamp?: number;
-  storeLogKeptHour?: number;
-  storeTransactionEnabled?: boolean;
-  transferStepType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      recordTypeList: 'RecordTypeList',
-      startTimestamp: 'StartTimestamp',
-      storeLogKeptHour: 'StoreLogKeptHour',
-      storeTransactionEnabled: 'StoreTransactionEnabled',
-      transferStepType: 'TransferStepType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      recordTypeList: { 'type': 'array', 'itemType': 'string' },
-      startTimestamp: 'number',
-      storeLogKeptHour: 'number',
-      storeTransactionEnabled: 'boolean',
-      transferStepType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOmsOpenAPIProjectRequestTransferStepConfig extends $tea.Model {
-  enableFullSync?: boolean;
-  enableIncrSync?: boolean;
-  enableStructSync?: boolean;
-  incrSyncStepTransferConfig?: CreateOmsOpenAPIProjectRequestTransferStepConfigIncrSyncStepTransferConfig;
-  static names(): { [key: string]: string } {
-    return {
-      enableFullSync: 'EnableFullSync',
-      enableIncrSync: 'EnableIncrSync',
-      enableStructSync: 'EnableStructSync',
-      incrSyncStepTransferConfig: 'IncrSyncStepTransferConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableFullSync: 'boolean',
-      enableIncrSync: 'boolean',
-      enableStructSync: 'boolean',
-      incrSyncStepTransferConfig: CreateOmsOpenAPIProjectRequestTransferStepConfigIncrSyncStepTransferConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOmsOpenAPIProjectResponseBodyErrorDetail extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
     };
   }
 
@@ -13600,34 +12047,6 @@ export class DeleteInstancesResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dryRunResult: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteOmsOpenAPIProjectResponseBodyErrorDetail extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
     };
   }
 
@@ -17401,859 +15820,6 @@ export class DescribeOasTopSQLListResponseBodyData extends $tea.Model {
   }
 }
 
-export class DescribeOmsOpenAPIProjectResponseBodyDataDestConfig extends $tea.Model {
-  enableMsgTrace?: boolean;
-  endpointId?: string;
-  endpointType?: string;
-  msgTags?: string;
-  partition?: number;
-  partitionMode?: string;
-  producerGroup?: string;
-  sendMsgTimeout?: number;
-  sequenceEnable?: boolean;
-  sequenceStartTimestamp?: number;
-  serializerType?: string;
-  topicType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enableMsgTrace: 'EnableMsgTrace',
-      endpointId: 'EndpointId',
-      endpointType: 'EndpointType',
-      msgTags: 'MsgTags',
-      partition: 'Partition',
-      partitionMode: 'PartitionMode',
-      producerGroup: 'ProducerGroup',
-      sendMsgTimeout: 'SendMsgTimeout',
-      sequenceEnable: 'SequenceEnable',
-      sequenceStartTimestamp: 'SequenceStartTimestamp',
-      serializerType: 'SerializerType',
-      topicType: 'TopicType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableMsgTrace: 'boolean',
-      endpointId: 'string',
-      endpointType: 'string',
-      msgTags: 'string',
-      partition: 'number',
-      partitionMode: 'string',
-      producerGroup: 'string',
-      sendMsgTimeout: 'number',
-      sequenceEnable: 'boolean',
-      sequenceStartTimestamp: 'number',
-      serializerType: 'string',
-      topicType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyDataLabels extends $tea.Model {
-  count?: number;
-  creator?: string;
-  id?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      creator: 'Creator',
-      id: 'Id',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      creator: 'string',
-      id: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyDataSourceConfig extends $tea.Model {
-  enableMsgTrace?: boolean;
-  endpointId?: string;
-  endpointType?: string;
-  msgTags?: string;
-  partition?: number;
-  partitionMode?: string;
-  producerGroup?: string;
-  sendMsgTimeout?: number;
-  sequenceEnable?: boolean;
-  sequenceStartTimestamp?: number;
-  serializerType?: string;
-  topicType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enableMsgTrace: 'EnableMsgTrace',
-      endpointId: 'EndpointId',
-      endpointType: 'EndpointType',
-      msgTags: 'MsgTags',
-      partition: 'Partition',
-      partitionMode: 'PartitionMode',
-      producerGroup: 'ProducerGroup',
-      sendMsgTimeout: 'SendMsgTimeout',
-      sequenceEnable: 'SequenceEnable',
-      sequenceStartTimestamp: 'SequenceStartTimestamp',
-      serializerType: 'SerializerType',
-      topicType: 'TopicType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableMsgTrace: 'boolean',
-      endpointId: 'string',
-      endpointType: 'string',
-      msgTags: 'string',
-      partition: 'number',
-      partitionMode: 'string',
-      producerGroup: 'string',
-      sendMsgTimeout: 'number',
-      sequenceEnable: 'boolean',
-      sequenceStartTimestamp: 'number',
-      serializerType: 'string',
-      topicType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyDataStepsExtraInfoErrorDetails extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyDataStepsExtraInfo extends $tea.Model {
-  errorCode?: string;
-  errorDetails?: DescribeOmsOpenAPIProjectResponseBodyDataStepsExtraInfoErrorDetails[];
-  errorMsg?: string;
-  errorParam?: { [key: string]: string };
-  failedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorDetails: 'ErrorDetails',
-      errorMsg: 'ErrorMsg',
-      errorParam: 'ErrorParam',
-      failedTime: 'FailedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorDetails: { 'type': 'array', 'itemType': DescribeOmsOpenAPIProjectResponseBodyDataStepsExtraInfoErrorDetails },
-      errorMsg: 'string',
-      errorParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      failedTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyDataStepsStepInfoConnectorFullProgressOverview extends $tea.Model {
-  estimatedRemainingTimeOfSec?: number;
-  estimatedTotalCount?: number;
-  finishedCount?: number;
-  progress?: number;
-  static names(): { [key: string]: string } {
-    return {
-      estimatedRemainingTimeOfSec: 'EstimatedRemainingTimeOfSec',
-      estimatedTotalCount: 'EstimatedTotalCount',
-      finishedCount: 'FinishedCount',
-      progress: 'Progress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      estimatedRemainingTimeOfSec: 'number',
-      estimatedTotalCount: 'number',
-      finishedCount: 'number',
-      progress: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyDataStepsStepInfo extends $tea.Model {
-  capacity?: number;
-  checkpoint?: string;
-  connectorFullProgressOverview?: DescribeOmsOpenAPIProjectResponseBodyDataStepsStepInfoConnectorFullProgressOverview;
-  deployId?: string;
-  dstIops?: number;
-  dstRps?: number;
-  dstRpsRef?: number;
-  dstRt?: number;
-  dstRtRef?: number;
-  gmt?: number;
-  inconsistencies?: number;
-  incrTimestampCheckpoint?: number;
-  jobId?: string;
-  processedRecords?: number;
-  skipped?: boolean;
-  srcIops?: number;
-  srcIopsRef?: number;
-  srcRps?: number;
-  srcRpsRef?: number;
-  srcRt?: number;
-  srcRtRef?: number;
-  validated?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      capacity: 'Capacity',
-      checkpoint: 'Checkpoint',
-      connectorFullProgressOverview: 'ConnectorFullProgressOverview',
-      deployId: 'DeployId',
-      dstIops: 'DstIops',
-      dstRps: 'DstRps',
-      dstRpsRef: 'DstRpsRef',
-      dstRt: 'DstRt',
-      dstRtRef: 'DstRtRef',
-      gmt: 'Gmt',
-      inconsistencies: 'Inconsistencies',
-      incrTimestampCheckpoint: 'IncrTimestampCheckpoint',
-      jobId: 'JobId',
-      processedRecords: 'ProcessedRecords',
-      skipped: 'Skipped',
-      srcIops: 'SrcIops',
-      srcIopsRef: 'SrcIopsRef',
-      srcRps: 'SrcRps',
-      srcRpsRef: 'SrcRpsRef',
-      srcRt: 'SrcRt',
-      srcRtRef: 'SrcRtRef',
-      validated: 'Validated',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      capacity: 'number',
-      checkpoint: 'string',
-      connectorFullProgressOverview: DescribeOmsOpenAPIProjectResponseBodyDataStepsStepInfoConnectorFullProgressOverview,
-      deployId: 'string',
-      dstIops: 'number',
-      dstRps: 'number',
-      dstRpsRef: 'number',
-      dstRt: 'number',
-      dstRtRef: 'number',
-      gmt: 'number',
-      inconsistencies: 'number',
-      incrTimestampCheckpoint: 'number',
-      jobId: 'string',
-      processedRecords: 'number',
-      skipped: 'boolean',
-      srcIops: 'number',
-      srcIopsRef: 'number',
-      srcRps: 'number',
-      srcRpsRef: 'number',
-      srcRt: 'number',
-      srcRtRef: 'number',
-      validated: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyDataSteps extends $tea.Model {
-  estimatedRemainingSeconds?: number;
-  extraInfo?: DescribeOmsOpenAPIProjectResponseBodyDataStepsExtraInfo;
-  finishTime?: string;
-  interactive?: boolean;
-  startTime?: string;
-  stepDescription?: string;
-  stepInfo?: DescribeOmsOpenAPIProjectResponseBodyDataStepsStepInfo;
-  stepName?: string;
-  stepOrder?: number;
-  stepProgress?: number;
-  stepStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      estimatedRemainingSeconds: 'EstimatedRemainingSeconds',
-      extraInfo: 'ExtraInfo',
-      finishTime: 'FinishTime',
-      interactive: 'Interactive',
-      startTime: 'StartTime',
-      stepDescription: 'StepDescription',
-      stepInfo: 'StepInfo',
-      stepName: 'StepName',
-      stepOrder: 'StepOrder',
-      stepProgress: 'StepProgress',
-      stepStatus: 'StepStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      estimatedRemainingSeconds: 'number',
-      extraInfo: DescribeOmsOpenAPIProjectResponseBodyDataStepsExtraInfo,
-      finishTime: 'string',
-      interactive: 'boolean',
-      startTime: 'string',
-      stepDescription: 'string',
-      stepInfo: DescribeOmsOpenAPIProjectResponseBodyDataStepsStepInfo,
-      stepName: 'string',
-      stepOrder: 'number',
-      stepProgress: 'number',
-      stepStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyDataTransferMappingDatabasesTablesAdbTableSchema extends $tea.Model {
-  distributedKeys?: string[];
-  partitionLifeCycle?: number;
-  partitionStatement?: string;
-  primaryKeys?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      distributedKeys: 'DistributedKeys',
-      partitionLifeCycle: 'PartitionLifeCycle',
-      partitionStatement: 'PartitionStatement',
-      primaryKeys: 'PrimaryKeys',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      distributedKeys: { 'type': 'array', 'itemType': 'string' },
-      partitionLifeCycle: 'number',
-      partitionStatement: 'string',
-      primaryKeys: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyDataTransferMappingDatabasesTables extends $tea.Model {
-  adbTableSchema?: DescribeOmsOpenAPIProjectResponseBodyDataTransferMappingDatabasesTablesAdbTableSchema;
-  filterColumns?: string[];
-  mappedName?: string;
-  shardColumns?: string[];
-  tableId?: string;
-  tableName?: string;
-  type?: string;
-  whereClause?: string;
-  static names(): { [key: string]: string } {
-    return {
-      adbTableSchema: 'AdbTableSchema',
-      filterColumns: 'FilterColumns',
-      mappedName: 'MappedName',
-      shardColumns: 'ShardColumns',
-      tableId: 'TableId',
-      tableName: 'TableName',
-      type: 'Type',
-      whereClause: 'WhereClause',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adbTableSchema: DescribeOmsOpenAPIProjectResponseBodyDataTransferMappingDatabasesTablesAdbTableSchema,
-      filterColumns: { 'type': 'array', 'itemType': 'string' },
-      mappedName: 'string',
-      shardColumns: { 'type': 'array', 'itemType': 'string' },
-      tableId: 'string',
-      tableName: 'string',
-      type: 'string',
-      whereClause: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyDataTransferMappingDatabases extends $tea.Model {
-  databaseId?: string;
-  databaseName?: string;
-  mappedName?: string;
-  tables?: DescribeOmsOpenAPIProjectResponseBodyDataTransferMappingDatabasesTables[];
-  tenantName?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      databaseId: 'DatabaseId',
-      databaseName: 'DatabaseName',
-      mappedName: 'MappedName',
-      tables: 'Tables',
-      tenantName: 'TenantName',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      databaseId: 'string',
-      databaseName: 'string',
-      mappedName: 'string',
-      tables: { 'type': 'array', 'itemType': DescribeOmsOpenAPIProjectResponseBodyDataTransferMappingDatabasesTables },
-      tenantName: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyDataTransferMapping extends $tea.Model {
-  databases?: DescribeOmsOpenAPIProjectResponseBodyDataTransferMappingDatabases[];
-  mode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      databases: 'Databases',
-      mode: 'Mode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      databases: { 'type': 'array', 'itemType': DescribeOmsOpenAPIProjectResponseBodyDataTransferMappingDatabases },
-      mode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyDataTransferStepConfigIncrSyncStepTransferConfig extends $tea.Model {
-  recordTypeList?: string[];
-  startTimestamp?: number;
-  storeLogKeptHour?: number;
-  storeTransactionEnabled?: boolean;
-  transferStepType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      recordTypeList: 'RecordTypeList',
-      startTimestamp: 'StartTimestamp',
-      storeLogKeptHour: 'StoreLogKeptHour',
-      storeTransactionEnabled: 'StoreTransactionEnabled',
-      transferStepType: 'TransferStepType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      recordTypeList: { 'type': 'array', 'itemType': 'string' },
-      startTimestamp: 'number',
-      storeLogKeptHour: 'number',
-      storeTransactionEnabled: 'boolean',
-      transferStepType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyDataTransferStepConfig extends $tea.Model {
-  enableFullSync?: boolean;
-  enableIncrSync?: boolean;
-  enableStructSync?: boolean;
-  incrSyncStepTransferConfig?: DescribeOmsOpenAPIProjectResponseBodyDataTransferStepConfigIncrSyncStepTransferConfig;
-  static names(): { [key: string]: string } {
-    return {
-      enableFullSync: 'EnableFullSync',
-      enableIncrSync: 'EnableIncrSync',
-      enableStructSync: 'EnableStructSync',
-      incrSyncStepTransferConfig: 'IncrSyncStepTransferConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableFullSync: 'boolean',
-      enableIncrSync: 'boolean',
-      enableStructSync: 'boolean',
-      incrSyncStepTransferConfig: DescribeOmsOpenAPIProjectResponseBodyDataTransferStepConfigIncrSyncStepTransferConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyData extends $tea.Model {
-  businessName?: string;
-  destConfig?: DescribeOmsOpenAPIProjectResponseBodyDataDestConfig;
-  labels?: DescribeOmsOpenAPIProjectResponseBodyDataLabels[];
-  projectId?: string;
-  projectName?: string;
-  projectOwner?: string;
-  sourceConfig?: DescribeOmsOpenAPIProjectResponseBodyDataSourceConfig;
-  steps?: DescribeOmsOpenAPIProjectResponseBodyDataSteps[];
-  transferMapping?: DescribeOmsOpenAPIProjectResponseBodyDataTransferMapping;
-  transferStepConfig?: DescribeOmsOpenAPIProjectResponseBodyDataTransferStepConfig;
-  static names(): { [key: string]: string } {
-    return {
-      businessName: 'BusinessName',
-      destConfig: 'DestConfig',
-      labels: 'Labels',
-      projectId: 'ProjectId',
-      projectName: 'ProjectName',
-      projectOwner: 'ProjectOwner',
-      sourceConfig: 'SourceConfig',
-      steps: 'Steps',
-      transferMapping: 'TransferMapping',
-      transferStepConfig: 'TransferStepConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      businessName: 'string',
-      destConfig: DescribeOmsOpenAPIProjectResponseBodyDataDestConfig,
-      labels: { 'type': 'array', 'itemType': DescribeOmsOpenAPIProjectResponseBodyDataLabels },
-      projectId: 'string',
-      projectName: 'string',
-      projectOwner: 'string',
-      sourceConfig: DescribeOmsOpenAPIProjectResponseBodyDataSourceConfig,
-      steps: { 'type': 'array', 'itemType': DescribeOmsOpenAPIProjectResponseBodyDataSteps },
-      transferMapping: DescribeOmsOpenAPIProjectResponseBodyDataTransferMapping,
-      transferStepConfig: DescribeOmsOpenAPIProjectResponseBodyDataTransferStepConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectResponseBodyErrorDetail extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectStepsResponseBodyDataExtraInfoErrorDetails extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectStepsResponseBodyDataExtraInfo extends $tea.Model {
-  errorCode?: string;
-  errorDetails?: DescribeOmsOpenAPIProjectStepsResponseBodyDataExtraInfoErrorDetails[];
-  errorMsg?: string;
-  errorParam?: { [key: string]: string };
-  failedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorDetails: 'ErrorDetails',
-      errorMsg: 'ErrorMsg',
-      errorParam: 'ErrorParam',
-      failedTime: 'FailedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorDetails: { 'type': 'array', 'itemType': DescribeOmsOpenAPIProjectStepsResponseBodyDataExtraInfoErrorDetails },
-      errorMsg: 'string',
-      errorParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      failedTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectStepsResponseBodyDataStepInfoConnectorFullProgressOverview extends $tea.Model {
-  estimatedRemainingTimeOfSec?: number;
-  estimatedTotalCount?: number;
-  finishedCount?: number;
-  progress?: number;
-  static names(): { [key: string]: string } {
-    return {
-      estimatedRemainingTimeOfSec: 'EstimatedRemainingTimeOfSec',
-      estimatedTotalCount: 'EstimatedTotalCount',
-      finishedCount: 'FinishedCount',
-      progress: 'Progress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      estimatedRemainingTimeOfSec: 'number',
-      estimatedTotalCount: 'number',
-      finishedCount: 'number',
-      progress: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectStepsResponseBodyDataStepInfo extends $tea.Model {
-  capacity?: number;
-  checkpoint?: string;
-  connectorFullProgressOverview?: DescribeOmsOpenAPIProjectStepsResponseBodyDataStepInfoConnectorFullProgressOverview;
-  deployId?: string;
-  dstIops?: number;
-  dstRps?: number;
-  dstRpsRef?: number;
-  dstRt?: number;
-  dstRtRef?: number;
-  gmt?: number;
-  inconsistencies?: number;
-  incrTimestampCheckpoint?: number;
-  jobId?: string;
-  processedRecords?: number;
-  skipped?: boolean;
-  srcIops?: number;
-  srcIopsRef?: number;
-  srcRps?: number;
-  srcRpsRef?: number;
-  srcRt?: number;
-  srcRtRef?: number;
-  validated?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      capacity: 'Capacity',
-      checkpoint: 'Checkpoint',
-      connectorFullProgressOverview: 'ConnectorFullProgressOverview',
-      deployId: 'DeployId',
-      dstIops: 'DstIops',
-      dstRps: 'DstRps',
-      dstRpsRef: 'DstRpsRef',
-      dstRt: 'DstRt',
-      dstRtRef: 'DstRtRef',
-      gmt: 'Gmt',
-      inconsistencies: 'Inconsistencies',
-      incrTimestampCheckpoint: 'IncrTimestampCheckpoint',
-      jobId: 'JobId',
-      processedRecords: 'ProcessedRecords',
-      skipped: 'Skipped',
-      srcIops: 'SrcIops',
-      srcIopsRef: 'SrcIopsRef',
-      srcRps: 'SrcRps',
-      srcRpsRef: 'SrcRpsRef',
-      srcRt: 'SrcRt',
-      srcRtRef: 'SrcRtRef',
-      validated: 'Validated',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      capacity: 'number',
-      checkpoint: 'string',
-      connectorFullProgressOverview: DescribeOmsOpenAPIProjectStepsResponseBodyDataStepInfoConnectorFullProgressOverview,
-      deployId: 'string',
-      dstIops: 'number',
-      dstRps: 'number',
-      dstRpsRef: 'number',
-      dstRt: 'number',
-      dstRtRef: 'number',
-      gmt: 'number',
-      inconsistencies: 'number',
-      incrTimestampCheckpoint: 'number',
-      jobId: 'string',
-      processedRecords: 'number',
-      skipped: 'boolean',
-      srcIops: 'number',
-      srcIopsRef: 'number',
-      srcRps: 'number',
-      srcRpsRef: 'number',
-      srcRt: 'number',
-      srcRtRef: 'number',
-      validated: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectStepsResponseBodyData extends $tea.Model {
-  estimatedRemainingSeconds?: number;
-  extraInfo?: DescribeOmsOpenAPIProjectStepsResponseBodyDataExtraInfo;
-  finishTime?: string;
-  interactive?: boolean;
-  startTime?: string;
-  stepDescription?: string;
-  stepInfo?: DescribeOmsOpenAPIProjectStepsResponseBodyDataStepInfo;
-  stepName?: string;
-  stepOrder?: number;
-  stepProgress?: number;
-  stepStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      estimatedRemainingSeconds: 'EstimatedRemainingSeconds',
-      extraInfo: 'ExtraInfo',
-      finishTime: 'FinishTime',
-      interactive: 'Interactive',
-      startTime: 'StartTime',
-      stepDescription: 'StepDescription',
-      stepInfo: 'StepInfo',
-      stepName: 'StepName',
-      stepOrder: 'StepOrder',
-      stepProgress: 'StepProgress',
-      stepStatus: 'StepStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      estimatedRemainingSeconds: 'number',
-      extraInfo: DescribeOmsOpenAPIProjectStepsResponseBodyDataExtraInfo,
-      finishTime: 'string',
-      interactive: 'boolean',
-      startTime: 'string',
-      stepDescription: 'string',
-      stepInfo: DescribeOmsOpenAPIProjectStepsResponseBodyDataStepInfo,
-      stepName: 'string',
-      stepOrder: 'number',
-      stepProgress: 'number',
-      stepStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOmsOpenAPIProjectStepsResponseBodyErrorDetail extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeOutlineBindingResponseBodyOutlineBinding extends $tea.Model {
   bindIndex?: string;
   bindPlan?: string;
@@ -19564,6 +17130,64 @@ export class DescribeProjectResponseBodyDataTransferMapping extends $tea.Model {
   }
 }
 
+export class DescribeProjectResponseBodyDataWorkerGradeInfo extends $tea.Model {
+  autoRenewal?: boolean;
+  chargeType?: string;
+  destRegion?: string;
+  destType?: string;
+  endTime?: string;
+  expired?: boolean;
+  gmtCreate?: string;
+  grade?: string;
+  id?: string;
+  name?: string;
+  sourceRegion?: string;
+  sourceType?: string;
+  spec?: string;
+  specName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenewal: 'AutoRenewal',
+      chargeType: 'ChargeType',
+      destRegion: 'DestRegion',
+      destType: 'DestType',
+      endTime: 'EndTime',
+      expired: 'Expired',
+      gmtCreate: 'GmtCreate',
+      grade: 'Grade',
+      id: 'Id',
+      name: 'Name',
+      sourceRegion: 'SourceRegion',
+      sourceType: 'SourceType',
+      spec: 'Spec',
+      specName: 'SpecName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenewal: 'boolean',
+      chargeType: 'string',
+      destRegion: 'string',
+      destType: 'string',
+      endTime: 'string',
+      expired: 'boolean',
+      gmtCreate: 'string',
+      grade: 'string',
+      id: 'string',
+      name: 'string',
+      sourceRegion: 'string',
+      sourceType: 'string',
+      spec: 'string',
+      specName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeProjectResponseBodyData extends $tea.Model {
   alarmStats?: DescribeProjectResponseBodyDataAlarmStats;
   commonTransferConfig?: DescribeProjectResponseBodyDataCommonTransferConfig;
@@ -19599,6 +17223,7 @@ export class DescribeProjectResponseBodyData extends $tea.Model {
   transferMapping?: DescribeProjectResponseBodyDataTransferMapping;
   type?: string;
   workerGradeId?: string;
+  workerGradeInfo?: DescribeProjectResponseBodyDataWorkerGradeInfo;
   static names(): { [key: string]: string } {
     return {
       alarmStats: 'AlarmStats',
@@ -19635,6 +17260,7 @@ export class DescribeProjectResponseBodyData extends $tea.Model {
       transferMapping: 'TransferMapping',
       type: 'Type',
       workerGradeId: 'WorkerGradeId',
+      workerGradeInfo: 'WorkerGradeInfo',
     };
   }
 
@@ -19674,6 +17300,7 @@ export class DescribeProjectResponseBodyData extends $tea.Model {
       transferMapping: DescribeProjectResponseBodyDataTransferMapping,
       type: 'string',
       workerGradeId: 'string',
+      workerGradeInfo: DescribeProjectResponseBodyDataWorkerGradeInfo,
     };
   }
 
@@ -24926,6 +22553,64 @@ export class ListProjectsResponseBodyDataTransferMapping extends $tea.Model {
   }
 }
 
+export class ListProjectsResponseBodyDataWorkerGradeInfo extends $tea.Model {
+  autoRenewal?: boolean;
+  chargeType?: string;
+  destRegion?: string;
+  destType?: string;
+  endTime?: string;
+  expired?: boolean;
+  gmtCreate?: string;
+  grade?: string;
+  id?: string;
+  name?: string;
+  sourceRegion?: string;
+  sourceType?: string;
+  spec?: string;
+  specName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenewal: 'AutoRenewal',
+      chargeType: 'ChargeType',
+      destRegion: 'DestRegion',
+      destType: 'DestType',
+      endTime: 'EndTime',
+      expired: 'Expired',
+      gmtCreate: 'GmtCreate',
+      grade: 'Grade',
+      id: 'Id',
+      name: 'Name',
+      sourceRegion: 'SourceRegion',
+      sourceType: 'SourceType',
+      spec: 'Spec',
+      specName: 'SpecName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenewal: 'boolean',
+      chargeType: 'string',
+      destRegion: 'string',
+      destType: 'string',
+      endTime: 'string',
+      expired: 'boolean',
+      gmtCreate: 'string',
+      grade: 'string',
+      id: 'string',
+      name: 'string',
+      sourceRegion: 'string',
+      sourceType: 'string',
+      spec: 'string',
+      specName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListProjectsResponseBodyData extends $tea.Model {
   alarmStats?: ListProjectsResponseBodyDataAlarmStats;
   commonTransferConfig?: ListProjectsResponseBodyDataCommonTransferConfig;
@@ -24961,6 +22646,7 @@ export class ListProjectsResponseBodyData extends $tea.Model {
   transferMapping?: ListProjectsResponseBodyDataTransferMapping;
   type?: string;
   workerGradeId?: string;
+  workerGradeInfo?: ListProjectsResponseBodyDataWorkerGradeInfo;
   static names(): { [key: string]: string } {
     return {
       alarmStats: 'AlarmStats',
@@ -24997,6 +22683,7 @@ export class ListProjectsResponseBodyData extends $tea.Model {
       transferMapping: 'TransferMapping',
       type: 'Type',
       workerGradeId: 'WorkerGradeId',
+      workerGradeInfo: 'WorkerGradeInfo',
     };
   }
 
@@ -25036,6 +22723,7 @@ export class ListProjectsResponseBodyData extends $tea.Model {
       transferMapping: ListProjectsResponseBodyDataTransferMapping,
       type: 'string',
       workerGradeId: 'string',
+      workerGradeInfo: ListProjectsResponseBodyDataWorkerGradeInfo,
     };
   }
 
@@ -25466,34 +23154,6 @@ export class ModifyTenantUserStatusResponseBodyTenantUser extends $tea.Model {
   }
 }
 
-export class ReleaseOmsOpenAPIProjectResponseBodyErrorDetail extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ReleaseProjectResponseBodyErrorDetail extends $tea.Model {
   code?: string;
   extraContext?: { [key: string]: any };
@@ -25604,62 +23264,6 @@ export class ReleaseWorkerInstanceResponseBodyErrorDetail extends $tea.Model {
   }
 }
 
-export class ResetOmsOpenAPIProjectResponseBodyErrorDetail extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResumeOmsOpenAPIProjectResponseBodyErrorDetail extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ResumeProjectResponseBodyErrorDetail extends $tea.Model {
   code?: string;
   extraContext?: { [key: string]: any };
@@ -25762,716 +23366,6 @@ export class RetryProjectModifyRecordsResponseBodyErrorDetail extends $tea.Model
       reasonMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       reasonMcmsKey: 'string',
       upstreamErrorDetail: 'any',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIMonitorMetricResponseBodyDataDataPoints extends $tea.Model {
-  timestamp?: number;
-  value?: number;
-  static names(): { [key: string]: string } {
-    return {
-      timestamp: 'Timestamp',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timestamp: 'number',
-      value: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIMonitorMetricResponseBodyData extends $tea.Model {
-  dataPoints?: SearchOmsOpenAPIMonitorMetricResponseBodyDataDataPoints[];
-  metric?: string;
-  tags?: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      dataPoints: 'DataPoints',
-      metric: 'Metric',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataPoints: { 'type': 'array', 'itemType': SearchOmsOpenAPIMonitorMetricResponseBodyDataDataPoints },
-      metric: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIMonitorMetricResponseBodyErrorDetail extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataDestConfig extends $tea.Model {
-  enableMsgTrace?: boolean;
-  endpointId?: string;
-  endpointType?: string;
-  msgTags?: string;
-  partition?: number;
-  partitionMode?: string;
-  producerGroup?: string;
-  sendMsgTimeout?: number;
-  sequenceEnable?: boolean;
-  sequenceStartTimestamp?: number;
-  serializerType?: string;
-  topicType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enableMsgTrace: 'EnableMsgTrace',
-      endpointId: 'EndpointId',
-      endpointType: 'EndpointType',
-      msgTags: 'MsgTags',
-      partition: 'Partition',
-      partitionMode: 'PartitionMode',
-      producerGroup: 'ProducerGroup',
-      sendMsgTimeout: 'SendMsgTimeout',
-      sequenceEnable: 'SequenceEnable',
-      sequenceStartTimestamp: 'SequenceStartTimestamp',
-      serializerType: 'SerializerType',
-      topicType: 'TopicType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableMsgTrace: 'boolean',
-      endpointId: 'string',
-      endpointType: 'string',
-      msgTags: 'string',
-      partition: 'number',
-      partitionMode: 'string',
-      producerGroup: 'string',
-      sendMsgTimeout: 'number',
-      sequenceEnable: 'boolean',
-      sequenceStartTimestamp: 'number',
-      serializerType: 'string',
-      topicType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataLabels extends $tea.Model {
-  count?: number;
-  creator?: string;
-  id?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      creator: 'Creator',
-      id: 'Id',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      creator: 'string',
-      id: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataSourceConfig extends $tea.Model {
-  enableMsgTrace?: boolean;
-  endpointId?: string;
-  endpointType?: string;
-  msgTags?: string;
-  partition?: number;
-  partitionMode?: string;
-  producerGroup?: string;
-  sendMsgTimeout?: number;
-  sequenceEnable?: boolean;
-  sequenceStartTimestamp?: number;
-  serializerType?: string;
-  topicType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enableMsgTrace: 'EnableMsgTrace',
-      endpointId: 'EndpointId',
-      endpointType: 'EndpointType',
-      msgTags: 'MsgTags',
-      partition: 'Partition',
-      partitionMode: 'PartitionMode',
-      producerGroup: 'ProducerGroup',
-      sendMsgTimeout: 'SendMsgTimeout',
-      sequenceEnable: 'SequenceEnable',
-      sequenceStartTimestamp: 'SequenceStartTimestamp',
-      serializerType: 'SerializerType',
-      topicType: 'TopicType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableMsgTrace: 'boolean',
-      endpointId: 'string',
-      endpointType: 'string',
-      msgTags: 'string',
-      partition: 'number',
-      partitionMode: 'string',
-      producerGroup: 'string',
-      sendMsgTimeout: 'number',
-      sequenceEnable: 'boolean',
-      sequenceStartTimestamp: 'number',
-      serializerType: 'string',
-      topicType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataStepsExtraInfoErrorDetails extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataStepsExtraInfo extends $tea.Model {
-  errorCode?: string;
-  errorDetails?: SearchOmsOpenAPIProjectsResponseBodyDataStepsExtraInfoErrorDetails[];
-  errorMsg?: string;
-  errorParam?: { [key: string]: string };
-  failedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorDetails: 'ErrorDetails',
-      errorMsg: 'ErrorMsg',
-      errorParam: 'ErrorParam',
-      failedTime: 'FailedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorDetails: { 'type': 'array', 'itemType': SearchOmsOpenAPIProjectsResponseBodyDataStepsExtraInfoErrorDetails },
-      errorMsg: 'string',
-      errorParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      failedTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataStepsStepInfoConnectorFullProgressOverview extends $tea.Model {
-  estimatedRemainingTimeOfSec?: number;
-  estimatedTotalCount?: number;
-  finishedCount?: number;
-  progress?: number;
-  static names(): { [key: string]: string } {
-    return {
-      estimatedRemainingTimeOfSec: 'EstimatedRemainingTimeOfSec',
-      estimatedTotalCount: 'EstimatedTotalCount',
-      finishedCount: 'FinishedCount',
-      progress: 'Progress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      estimatedRemainingTimeOfSec: 'number',
-      estimatedTotalCount: 'number',
-      finishedCount: 'number',
-      progress: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataStepsStepInfo extends $tea.Model {
-  capacity?: number;
-  checkpoint?: string;
-  connectorFullProgressOverview?: SearchOmsOpenAPIProjectsResponseBodyDataStepsStepInfoConnectorFullProgressOverview;
-  deployId?: string;
-  dstIops?: number;
-  dstRps?: number;
-  dstRpsRef?: number;
-  dstRt?: number;
-  dstRtRef?: number;
-  gmt?: number;
-  inconsistencies?: number;
-  incrTimestampCheckpoint?: number;
-  jobId?: string;
-  processedRecords?: number;
-  skipped?: boolean;
-  srcIops?: number;
-  srcIopsRef?: number;
-  srcRps?: number;
-  srcRpsRef?: number;
-  srcRt?: number;
-  srcRtRef?: number;
-  validated?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      capacity: 'Capacity',
-      checkpoint: 'Checkpoint',
-      connectorFullProgressOverview: 'ConnectorFullProgressOverview',
-      deployId: 'DeployId',
-      dstIops: 'DstIops',
-      dstRps: 'DstRps',
-      dstRpsRef: 'DstRpsRef',
-      dstRt: 'DstRt',
-      dstRtRef: 'DstRtRef',
-      gmt: 'Gmt',
-      inconsistencies: 'Inconsistencies',
-      incrTimestampCheckpoint: 'IncrTimestampCheckpoint',
-      jobId: 'JobId',
-      processedRecords: 'ProcessedRecords',
-      skipped: 'Skipped',
-      srcIops: 'SrcIops',
-      srcIopsRef: 'SrcIopsRef',
-      srcRps: 'SrcRps',
-      srcRpsRef: 'SrcRpsRef',
-      srcRt: 'SrcRt',
-      srcRtRef: 'SrcRtRef',
-      validated: 'Validated',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      capacity: 'number',
-      checkpoint: 'string',
-      connectorFullProgressOverview: SearchOmsOpenAPIProjectsResponseBodyDataStepsStepInfoConnectorFullProgressOverview,
-      deployId: 'string',
-      dstIops: 'number',
-      dstRps: 'number',
-      dstRpsRef: 'number',
-      dstRt: 'number',
-      dstRtRef: 'number',
-      gmt: 'number',
-      inconsistencies: 'number',
-      incrTimestampCheckpoint: 'number',
-      jobId: 'string',
-      processedRecords: 'number',
-      skipped: 'boolean',
-      srcIops: 'number',
-      srcIopsRef: 'number',
-      srcRps: 'number',
-      srcRpsRef: 'number',
-      srcRt: 'number',
-      srcRtRef: 'number',
-      validated: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataSteps extends $tea.Model {
-  estimatedRemainingSeconds?: number;
-  extraInfo?: SearchOmsOpenAPIProjectsResponseBodyDataStepsExtraInfo;
-  finishTime?: string;
-  interactive?: boolean;
-  startTime?: string;
-  stepDescription?: string;
-  stepInfo?: SearchOmsOpenAPIProjectsResponseBodyDataStepsStepInfo;
-  stepName?: string;
-  stepOrder?: number;
-  stepProgress?: number;
-  stepStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      estimatedRemainingSeconds: 'EstimatedRemainingSeconds',
-      extraInfo: 'ExtraInfo',
-      finishTime: 'FinishTime',
-      interactive: 'Interactive',
-      startTime: 'StartTime',
-      stepDescription: 'StepDescription',
-      stepInfo: 'StepInfo',
-      stepName: 'StepName',
-      stepOrder: 'StepOrder',
-      stepProgress: 'StepProgress',
-      stepStatus: 'StepStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      estimatedRemainingSeconds: 'number',
-      extraInfo: SearchOmsOpenAPIProjectsResponseBodyDataStepsExtraInfo,
-      finishTime: 'string',
-      interactive: 'boolean',
-      startTime: 'string',
-      stepDescription: 'string',
-      stepInfo: SearchOmsOpenAPIProjectsResponseBodyDataStepsStepInfo,
-      stepName: 'string',
-      stepOrder: 'number',
-      stepProgress: 'number',
-      stepStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataTransferMappingDatabasesTablesAdbTableSchema extends $tea.Model {
-  distributedKeys?: string[];
-  partitionLifeCycle?: number;
-  partitionStatement?: string;
-  primaryKeys?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      distributedKeys: 'DistributedKeys',
-      partitionLifeCycle: 'PartitionLifeCycle',
-      partitionStatement: 'PartitionStatement',
-      primaryKeys: 'PrimaryKeys',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      distributedKeys: { 'type': 'array', 'itemType': 'string' },
-      partitionLifeCycle: 'number',
-      partitionStatement: 'string',
-      primaryKeys: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataTransferMappingDatabasesTables extends $tea.Model {
-  adbTableSchema?: SearchOmsOpenAPIProjectsResponseBodyDataTransferMappingDatabasesTablesAdbTableSchema;
-  filterColumns?: string[];
-  mappedName?: string;
-  shardColumns?: string[];
-  tableId?: string;
-  tableName?: string;
-  type?: string;
-  whereClause?: string;
-  static names(): { [key: string]: string } {
-    return {
-      adbTableSchema: 'AdbTableSchema',
-      filterColumns: 'FilterColumns',
-      mappedName: 'MappedName',
-      shardColumns: 'ShardColumns',
-      tableId: 'TableId',
-      tableName: 'TableName',
-      type: 'Type',
-      whereClause: 'WhereClause',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adbTableSchema: SearchOmsOpenAPIProjectsResponseBodyDataTransferMappingDatabasesTablesAdbTableSchema,
-      filterColumns: { 'type': 'array', 'itemType': 'string' },
-      mappedName: 'string',
-      shardColumns: { 'type': 'array', 'itemType': 'string' },
-      tableId: 'string',
-      tableName: 'string',
-      type: 'string',
-      whereClause: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataTransferMappingDatabases extends $tea.Model {
-  databaseId?: string;
-  databaseName?: string;
-  mappedName?: string;
-  tables?: SearchOmsOpenAPIProjectsResponseBodyDataTransferMappingDatabasesTables[];
-  tenantName?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      databaseId: 'DatabaseId',
-      databaseName: 'DatabaseName',
-      mappedName: 'MappedName',
-      tables: 'Tables',
-      tenantName: 'TenantName',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      databaseId: 'string',
-      databaseName: 'string',
-      mappedName: 'string',
-      tables: { 'type': 'array', 'itemType': SearchOmsOpenAPIProjectsResponseBodyDataTransferMappingDatabasesTables },
-      tenantName: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataTransferMapping extends $tea.Model {
-  databases?: SearchOmsOpenAPIProjectsResponseBodyDataTransferMappingDatabases[];
-  mode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      databases: 'Databases',
-      mode: 'Mode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      databases: { 'type': 'array', 'itemType': SearchOmsOpenAPIProjectsResponseBodyDataTransferMappingDatabases },
-      mode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataTransferStepConfigIncrSyncStepTransferConfig extends $tea.Model {
-  recordTypeList?: string[];
-  startTimestamp?: number;
-  storeLogKeptHour?: number;
-  storeTransactionEnabled?: boolean;
-  transferStepType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      recordTypeList: 'RecordTypeList',
-      startTimestamp: 'StartTimestamp',
-      storeLogKeptHour: 'StoreLogKeptHour',
-      storeTransactionEnabled: 'StoreTransactionEnabled',
-      transferStepType: 'TransferStepType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      recordTypeList: { 'type': 'array', 'itemType': 'string' },
-      startTimestamp: 'number',
-      storeLogKeptHour: 'number',
-      storeTransactionEnabled: 'boolean',
-      transferStepType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyDataTransferStepConfig extends $tea.Model {
-  enableFullSync?: boolean;
-  enableIncrSync?: boolean;
-  enableStructSync?: boolean;
-  incrSyncStepTransferConfig?: SearchOmsOpenAPIProjectsResponseBodyDataTransferStepConfigIncrSyncStepTransferConfig;
-  static names(): { [key: string]: string } {
-    return {
-      enableFullSync: 'EnableFullSync',
-      enableIncrSync: 'EnableIncrSync',
-      enableStructSync: 'EnableStructSync',
-      incrSyncStepTransferConfig: 'IncrSyncStepTransferConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableFullSync: 'boolean',
-      enableIncrSync: 'boolean',
-      enableStructSync: 'boolean',
-      incrSyncStepTransferConfig: SearchOmsOpenAPIProjectsResponseBodyDataTransferStepConfigIncrSyncStepTransferConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyData extends $tea.Model {
-  businessName?: string;
-  destConfig?: SearchOmsOpenAPIProjectsResponseBodyDataDestConfig;
-  labels?: SearchOmsOpenAPIProjectsResponseBodyDataLabels[];
-  projectId?: string;
-  projectName?: string;
-  projectOwner?: string;
-  sourceConfig?: SearchOmsOpenAPIProjectsResponseBodyDataSourceConfig;
-  steps?: SearchOmsOpenAPIProjectsResponseBodyDataSteps[];
-  transferMapping?: SearchOmsOpenAPIProjectsResponseBodyDataTransferMapping;
-  transferStepConfig?: SearchOmsOpenAPIProjectsResponseBodyDataTransferStepConfig;
-  static names(): { [key: string]: string } {
-    return {
-      businessName: 'BusinessName',
-      destConfig: 'DestConfig',
-      labels: 'Labels',
-      projectId: 'ProjectId',
-      projectName: 'ProjectName',
-      projectOwner: 'ProjectOwner',
-      sourceConfig: 'SourceConfig',
-      steps: 'Steps',
-      transferMapping: 'TransferMapping',
-      transferStepConfig: 'TransferStepConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      businessName: 'string',
-      destConfig: SearchOmsOpenAPIProjectsResponseBodyDataDestConfig,
-      labels: { 'type': 'array', 'itemType': SearchOmsOpenAPIProjectsResponseBodyDataLabels },
-      projectId: 'string',
-      projectName: 'string',
-      projectOwner: 'string',
-      sourceConfig: SearchOmsOpenAPIProjectsResponseBodyDataSourceConfig,
-      steps: { 'type': 'array', 'itemType': SearchOmsOpenAPIProjectsResponseBodyDataSteps },
-      transferMapping: SearchOmsOpenAPIProjectsResponseBodyDataTransferMapping,
-      transferStepConfig: SearchOmsOpenAPIProjectsResponseBodyDataTransferStepConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchOmsOpenAPIProjectsResponseBodyErrorDetail extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartOmsOpenAPIProjectResponseBodyErrorDetail extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
     };
   }
 
@@ -26607,34 +23501,6 @@ export class StartProjectsByLabelResponseBodyErrorDetail extends $tea.Model {
       reasonMcmsContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       reasonMcmsKey: 'string',
       upstreamErrorDetail: 'any',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopOmsOpenAPIProjectResponseBodyErrorDetail extends $tea.Model {
-  code?: string;
-  level?: string;
-  message?: string;
-  proposal?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      level: 'Level',
-      message: 'Message',
-      proposal: 'Proposal',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      level: 'string',
-      message: 'string',
-      proposal: 'string',
     };
   }
 
@@ -27359,93 +24225,6 @@ export default class Client extends OpenApi {
     return await this.createOmsMysqlDataSourceWithOptions(request, runtime);
   }
 
-  async createOmsOpenAPIProjectWithOptions(tmpReq: CreateOmsOpenAPIProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateOmsOpenAPIProjectResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateOmsOpenAPIProjectShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.destConfig)) {
-      request.destConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.destConfig, "DestConfig", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.labelIds)) {
-      request.labelIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelIds, "LabelIds", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.sourceConfig)) {
-      request.sourceConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceConfig, "SourceConfig", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.transferMapping)) {
-      request.transferMappingShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transferMapping, "TransferMapping", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.transferStepConfig)) {
-      request.transferStepConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transferStepConfig, "TransferStepConfig", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.businessName)) {
-      body["BusinessName"] = request.businessName;
-    }
-
-    if (!Util.isUnset(request.destConfigShrink)) {
-      body["DestConfig"] = request.destConfigShrink;
-    }
-
-    if (!Util.isUnset(request.labelIdsShrink)) {
-      body["LabelIds"] = request.labelIdsShrink;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      body["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.sourceConfigShrink)) {
-      body["SourceConfig"] = request.sourceConfigShrink;
-    }
-
-    if (!Util.isUnset(request.transferMappingShrink)) {
-      body["TransferMapping"] = request.transferMappingShrink;
-    }
-
-    if (!Util.isUnset(request.transferStepConfigShrink)) {
-      body["TransferStepConfig"] = request.transferStepConfigShrink;
-    }
-
-    if (!Util.isUnset(request.workerGradeId)) {
-      body["WorkerGradeId"] = request.workerGradeId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateOmsOpenAPIProject",
-      version: "2019-09-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateOmsOpenAPIProjectResponse>(await this.callApi(params, req, runtime), new CreateOmsOpenAPIProjectResponse({}));
-  }
-
-  async createOmsOpenAPIProject(request: CreateOmsOpenAPIProjectRequest): Promise<CreateOmsOpenAPIProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createOmsOpenAPIProjectWithOptions(request, runtime);
-  }
-
   async createProjectWithOptions(tmpReq: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateProjectShrinkRequest({ });
@@ -27501,6 +24280,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fullTransferConfigShrink)) {
       body["FullTransferConfig"] = request.fullTransferConfigShrink;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
     }
 
     if (!Util.isUnset(request.incrTransferConfigShrink)) {
@@ -28036,47 +24819,6 @@ export default class Client extends OpenApi {
   async deleteInstances(request: DeleteInstancesRequest): Promise<DeleteInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstancesWithOptions(request, runtime);
-  }
-
-  async deleteOmsOpenAPIProjectWithOptions(request: DeleteOmsOpenAPIProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOmsOpenAPIProjectResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      body["ProjectId"] = request.projectId;
-    }
-
-    if (!Util.isUnset(request.workerGradeId)) {
-      body["WorkerGradeId"] = request.workerGradeId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteOmsOpenAPIProject",
-      version: "2019-09-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteOmsOpenAPIProjectResponse>(await this.callApi(params, req, runtime), new DeleteOmsOpenAPIProjectResponse({}));
-  }
-
-  async deleteOmsOpenAPIProject(request: DeleteOmsOpenAPIProjectRequest): Promise<DeleteOmsOpenAPIProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteOmsOpenAPIProjectWithOptions(request, runtime);
   }
 
   async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
@@ -29519,88 +26261,6 @@ export default class Client extends OpenApi {
   async describeOasTopSQLList(request: DescribeOasTopSQLListRequest): Promise<DescribeOasTopSQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOasTopSQLListWithOptions(request, runtime);
-  }
-
-  async describeOmsOpenAPIProjectWithOptions(request: DescribeOmsOpenAPIProjectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOmsOpenAPIProjectResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      body["ProjectId"] = request.projectId;
-    }
-
-    if (!Util.isUnset(request.workerGradeId)) {
-      body["WorkerGradeId"] = request.workerGradeId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeOmsOpenAPIProject",
-      version: "2019-09-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeOmsOpenAPIProjectResponse>(await this.callApi(params, req, runtime), new DescribeOmsOpenAPIProjectResponse({}));
-  }
-
-  async describeOmsOpenAPIProject(request: DescribeOmsOpenAPIProjectRequest): Promise<DescribeOmsOpenAPIProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeOmsOpenAPIProjectWithOptions(request, runtime);
-  }
-
-  async describeOmsOpenAPIProjectStepsWithOptions(request: DescribeOmsOpenAPIProjectStepsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOmsOpenAPIProjectStepsResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      body["ProjectId"] = request.projectId;
-    }
-
-    if (!Util.isUnset(request.workerGradeId)) {
-      body["WorkerGradeId"] = request.workerGradeId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeOmsOpenAPIProjectSteps",
-      version: "2019-09-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeOmsOpenAPIProjectStepsResponse>(await this.callApi(params, req, runtime), new DescribeOmsOpenAPIProjectStepsResponse({}));
-  }
-
-  async describeOmsOpenAPIProjectSteps(request: DescribeOmsOpenAPIProjectStepsRequest): Promise<DescribeOmsOpenAPIProjectStepsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeOmsOpenAPIProjectStepsWithOptions(request, runtime);
   }
 
   async describeOutlineBindingWithOptions(request: DescribeOutlineBindingRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOutlineBindingResponse> {
@@ -31144,6 +27804,10 @@ export default class Client extends OpenApi {
       body["LabelIds"] = request.labelIdsShrink;
     }
 
+    if (!Util.isUnset(request.needRelatedInfo)) {
+      body["NeedRelatedInfo"] = request.needRelatedInfo;
+    }
+
     if (!Util.isUnset(request.order)) {
       body["Order"] = request.order;
     }
@@ -32015,47 +28679,6 @@ export default class Client extends OpenApi {
     return await this.modifyTenantUserStatusWithOptions(request, runtime);
   }
 
-  async releaseOmsOpenAPIProjectWithOptions(request: ReleaseOmsOpenAPIProjectRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseOmsOpenAPIProjectResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      body["ProjectId"] = request.projectId;
-    }
-
-    if (!Util.isUnset(request.workerGradeId)) {
-      body["WorkerGradeId"] = request.workerGradeId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ReleaseOmsOpenAPIProject",
-      version: "2019-09-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ReleaseOmsOpenAPIProjectResponse>(await this.callApi(params, req, runtime), new ReleaseOmsOpenAPIProjectResponse({}));
-  }
-
-  async releaseOmsOpenAPIProject(request: ReleaseOmsOpenAPIProjectRequest): Promise<ReleaseOmsOpenAPIProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.releaseOmsOpenAPIProjectWithOptions(request, runtime);
-  }
-
   async releaseProjectWithOptions(request: ReleaseProjectRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -32112,88 +28735,6 @@ export default class Client extends OpenApi {
   async releaseWorkerInstance(request: ReleaseWorkerInstanceRequest): Promise<ReleaseWorkerInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseWorkerInstanceWithOptions(request, runtime);
-  }
-
-  async resetOmsOpenAPIProjectWithOptions(request: ResetOmsOpenAPIProjectRequest, runtime: $Util.RuntimeOptions): Promise<ResetOmsOpenAPIProjectResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      body["ProjectId"] = request.projectId;
-    }
-
-    if (!Util.isUnset(request.workerGradeId)) {
-      body["WorkerGradeId"] = request.workerGradeId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ResetOmsOpenAPIProject",
-      version: "2019-09-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ResetOmsOpenAPIProjectResponse>(await this.callApi(params, req, runtime), new ResetOmsOpenAPIProjectResponse({}));
-  }
-
-  async resetOmsOpenAPIProject(request: ResetOmsOpenAPIProjectRequest): Promise<ResetOmsOpenAPIProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.resetOmsOpenAPIProjectWithOptions(request, runtime);
-  }
-
-  async resumeOmsOpenAPIProjectWithOptions(request: ResumeOmsOpenAPIProjectRequest, runtime: $Util.RuntimeOptions): Promise<ResumeOmsOpenAPIProjectResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      body["ProjectId"] = request.projectId;
-    }
-
-    if (!Util.isUnset(request.workerGradeId)) {
-      body["WorkerGradeId"] = request.workerGradeId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ResumeOmsOpenAPIProject",
-      version: "2019-09-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ResumeOmsOpenAPIProjectResponse>(await this.callApi(params, req, runtime), new ResumeOmsOpenAPIProjectResponse({}));
-  }
-
-  async resumeOmsOpenAPIProject(request: ResumeOmsOpenAPIProjectRequest): Promise<ResumeOmsOpenAPIProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.resumeOmsOpenAPIProjectWithOptions(request, runtime);
   }
 
   async resumeProjectWithOptions(request: ResumeProjectRequest, runtime: $Util.RuntimeOptions): Promise<ResumeProjectResponse> {
@@ -32254,179 +28795,6 @@ export default class Client extends OpenApi {
     return await this.retryProjectModifyRecordsWithOptions(request, runtime);
   }
 
-  async searchOmsOpenAPIMonitorMetricWithOptions(request: SearchOmsOpenAPIMonitorMetricRequest, runtime: $Util.RuntimeOptions): Promise<SearchOmsOpenAPIMonitorMetricResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.beginTime)) {
-      body["BeginTime"] = request.beginTime;
-    }
-
-    if (!Util.isUnset(request.endTime)) {
-      body["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.maxPointNum)) {
-      body["MaxPointNum"] = request.maxPointNum;
-    }
-
-    if (!Util.isUnset(request.metric)) {
-      body["Metric"] = request.metric;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      body["ProjectId"] = request.projectId;
-    }
-
-    if (!Util.isUnset(request.workerGradeId)) {
-      body["WorkerGradeId"] = request.workerGradeId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "SearchOmsOpenAPIMonitorMetric",
-      version: "2019-09-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SearchOmsOpenAPIMonitorMetricResponse>(await this.callApi(params, req, runtime), new SearchOmsOpenAPIMonitorMetricResponse({}));
-  }
-
-  async searchOmsOpenAPIMonitorMetric(request: SearchOmsOpenAPIMonitorMetricRequest): Promise<SearchOmsOpenAPIMonitorMetricResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.searchOmsOpenAPIMonitorMetricWithOptions(request, runtime);
-  }
-
-  async searchOmsOpenAPIProjectsWithOptions(tmpReq: SearchOmsOpenAPIProjectsRequest, runtime: $Util.RuntimeOptions): Promise<SearchOmsOpenAPIProjectsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new SearchOmsOpenAPIProjectsShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.destDbTypes)) {
-      request.destDbTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.destDbTypes, "DestDbTypes", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.labelIds)) {
-      request.labelIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelIds, "LabelIds", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.sourceDbTypes)) {
-      request.sourceDbTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceDbTypes, "SourceDbTypes", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.statusList)) {
-      request.statusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statusList, "StatusList", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.destDbTypesShrink)) {
-      body["DestDbTypes"] = request.destDbTypesShrink;
-    }
-
-    if (!Util.isUnset(request.labelIdsShrink)) {
-      body["LabelIds"] = request.labelIdsShrink;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.searchKey)) {
-      body["SearchKey"] = request.searchKey;
-    }
-
-    if (!Util.isUnset(request.sourceDbTypesShrink)) {
-      body["SourceDbTypes"] = request.sourceDbTypesShrink;
-    }
-
-    if (!Util.isUnset(request.statusListShrink)) {
-      body["StatusList"] = request.statusListShrink;
-    }
-
-    if (!Util.isUnset(request.workerGradeId)) {
-      body["WorkerGradeId"] = request.workerGradeId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "SearchOmsOpenAPIProjects",
-      version: "2019-09-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SearchOmsOpenAPIProjectsResponse>(await this.callApi(params, req, runtime), new SearchOmsOpenAPIProjectsResponse({}));
-  }
-
-  async searchOmsOpenAPIProjects(request: SearchOmsOpenAPIProjectsRequest): Promise<SearchOmsOpenAPIProjectsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.searchOmsOpenAPIProjectsWithOptions(request, runtime);
-  }
-
-  async startOmsOpenAPIProjectWithOptions(request: StartOmsOpenAPIProjectRequest, runtime: $Util.RuntimeOptions): Promise<StartOmsOpenAPIProjectResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      body["ProjectId"] = request.projectId;
-    }
-
-    if (!Util.isUnset(request.workerGradeId)) {
-      body["WorkerGradeId"] = request.workerGradeId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "StartOmsOpenAPIProject",
-      version: "2019-09-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<StartOmsOpenAPIProjectResponse>(await this.callApi(params, req, runtime), new StartOmsOpenAPIProjectResponse({}));
-  }
-
-  async startOmsOpenAPIProject(request: StartOmsOpenAPIProjectRequest): Promise<StartOmsOpenAPIProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.startOmsOpenAPIProjectWithOptions(request, runtime);
-  }
-
   async startProjectWithOptions(request: StartProjectRequest, runtime: $Util.RuntimeOptions): Promise<StartProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -32483,47 +28851,6 @@ export default class Client extends OpenApi {
   async startProjectsByLabel(request: StartProjectsByLabelRequest): Promise<StartProjectsByLabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startProjectsByLabelWithOptions(request, runtime);
-  }
-
-  async stopOmsOpenAPIProjectWithOptions(request: StopOmsOpenAPIProjectRequest, runtime: $Util.RuntimeOptions): Promise<StopOmsOpenAPIProjectResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      body["ProjectId"] = request.projectId;
-    }
-
-    if (!Util.isUnset(request.workerGradeId)) {
-      body["WorkerGradeId"] = request.workerGradeId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "StopOmsOpenAPIProject",
-      version: "2019-09-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<StopOmsOpenAPIProjectResponse>(await this.callApi(params, req, runtime), new StopOmsOpenAPIProjectResponse({}));
-  }
-
-  async stopOmsOpenAPIProject(request: StopOmsOpenAPIProjectRequest): Promise<StopOmsOpenAPIProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.stopOmsOpenAPIProjectWithOptions(request, runtime);
   }
 
   async stopProjectWithOptions(request: StopProjectRequest, runtime: $Util.RuntimeOptions): Promise<StopProjectResponse> {
