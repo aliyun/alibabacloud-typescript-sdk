@@ -104,9 +104,9 @@ export class CreateAndAnalyzeNetworkPathResponseBody extends $tea.Model {
 }
 
 export class CreateAndAnalyzeNetworkPathResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAndAnalyzeNetworkPathResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAndAnalyzeNetworkPathResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -209,9 +209,9 @@ export class CreateNetworkPathResponseBody extends $tea.Model {
 }
 
 export class CreateNetworkPathResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateNetworkPathResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNetworkPathResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -281,9 +281,9 @@ export class CreateNetworkReachableAnalysisResponseBody extends $tea.Model {
 }
 
 export class CreateNetworkReachableAnalysisResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateNetworkReachableAnalysisResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNetworkReachableAnalysisResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -350,15 +350,18 @@ export class DeleteNetworkPathShrinkRequest extends $tea.Model {
 }
 
 export class DeleteNetworkPathResponseBody extends $tea.Model {
+  data?: boolean;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      data: 'Data',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      data: 'boolean',
       requestId: 'string',
     };
   }
@@ -369,9 +372,9 @@ export class DeleteNetworkPathResponseBody extends $tea.Model {
 }
 
 export class DeleteNetworkPathResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteNetworkPathResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNetworkPathResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -438,15 +441,18 @@ export class DeleteNetworkReachableAnalysisShrinkRequest extends $tea.Model {
 }
 
 export class DeleteNetworkReachableAnalysisResponseBody extends $tea.Model {
+  data?: boolean;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      data: 'Data',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      data: 'boolean',
       requestId: 'string',
     };
   }
@@ -457,9 +463,9 @@ export class DeleteNetworkReachableAnalysisResponseBody extends $tea.Model {
 }
 
 export class DeleteNetworkReachableAnalysisResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteNetworkReachableAnalysisResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNetworkReachableAnalysisResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -662,9 +668,9 @@ export class GetInternetTupleResponseBody extends $tea.Model {
 }
 
 export class GetInternetTupleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInternetTupleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInternetTupleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -749,9 +755,9 @@ export class GetNatTopNResponseBody extends $tea.Model {
 }
 
 export class GetNatTopNResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetNatTopNResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNatTopNResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -839,9 +845,9 @@ export class GetNetworkReachableAnalysisResponseBody extends $tea.Model {
 }
 
 export class GetNetworkReachableAnalysisResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetNetworkReachableAnalysisResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNetworkReachableAnalysisResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1026,9 +1032,9 @@ export class GetTransitRouterFlowTopNResponseBody extends $tea.Model {
 }
 
 export class GetTransitRouterFlowTopNResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTransitRouterFlowTopNResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTransitRouterFlowTopNResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1213,9 +1219,9 @@ export class GetVbrFlowTopNResponseBody extends $tea.Model {
 }
 
 export class GetVbrFlowTopNResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVbrFlowTopNResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVbrFlowTopNResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
