@@ -65,9 +65,9 @@ export class ApproveFotaUpdateResponseBody extends $tea.Model {
 }
 
 export class ApproveFotaUpdateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ApproveFotaUpdateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApproveFotaUpdateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -152,9 +152,9 @@ export class ChangePasswordResponseBody extends $tea.Model {
 }
 
 export class ChangePasswordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangePasswordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangePasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -230,9 +230,9 @@ export class DeleteFingerPrintTemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteFingerPrintTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFingerPrintTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFingerPrintTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -302,9 +302,9 @@ export class DescribeDirectoriesResponseBody extends $tea.Model {
 }
 
 export class DescribeDirectoriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDirectoriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDirectoriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -377,9 +377,9 @@ export class DescribeFingerPrintTemplatesResponseBody extends $tea.Model {
 }
 
 export class DescribeFingerPrintTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFingerPrintTemplatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFingerPrintTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -500,9 +500,9 @@ export class DescribeGlobalDesktopsResponseBody extends $tea.Model {
 }
 
 export class DescribeGlobalDesktopsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeGlobalDesktopsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeGlobalDesktopsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -572,9 +572,9 @@ export class DescribeOfficeSitesResponseBody extends $tea.Model {
 }
 
 export class DescribeOfficeSitesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeOfficeSitesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOfficeSitesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -641,9 +641,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -731,9 +731,9 @@ export class DescribeSnapshotsResponseBody extends $tea.Model {
 }
 
 export class DescribeSnapshotsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSnapshotsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSnapshotsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -815,9 +815,9 @@ export class EncryptPasswordResponseBody extends $tea.Model {
 }
 
 export class EncryptPasswordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EncryptPasswordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EncryptPasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -893,9 +893,9 @@ export class GetCloudDriveServiceMountTokenResponseBody extends $tea.Model {
 }
 
 export class GetCloudDriveServiceMountTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCloudDriveServiceMountTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCloudDriveServiceMountTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -909,6 +909,123 @@ export class GetCloudDriveServiceMountTokenResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCloudDriveServiceMountTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionTicketRequest extends $tea.Model {
+  clientId?: string;
+  clientOS?: string;
+  clientType?: string;
+  clientVersion?: string;
+  commandContent?: string;
+  desktopId?: string;
+  loginToken?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  sessionId?: string;
+  taskId?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      clientOS: 'ClientOS',
+      clientType: 'ClientType',
+      clientVersion: 'ClientVersion',
+      commandContent: 'CommandContent',
+      desktopId: 'DesktopId',
+      loginToken: 'LoginToken',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      clientOS: 'string',
+      clientType: 'string',
+      clientVersion: 'string',
+      commandContent: 'string',
+      desktopId: 'string',
+      loginToken: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      sessionId: 'string',
+      taskId: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionTicketResponseBody extends $tea.Model {
+  requestId?: string;
+  taskCode?: string;
+  taskId?: string;
+  taskMessage?: string;
+  taskStatus?: string;
+  ticket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskCode: 'TaskCode',
+      taskId: 'TaskId',
+      taskMessage: 'TaskMessage',
+      taskStatus: 'TaskStatus',
+      ticket: 'Ticket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskCode: 'string',
+      taskId: 'string',
+      taskMessage: 'string',
+      taskStatus: 'string',
+      ticket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConnectionTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetConnectionTicketResponseBody,
     };
   }
 
@@ -1049,9 +1166,9 @@ export class GetLoginTokenResponseBody extends $tea.Model {
 }
 
 export class GetLoginTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLoginTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLoginTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1127,9 +1244,9 @@ export class IsKeepAliveResponseBody extends $tea.Model {
 }
 
 export class IsKeepAliveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: IsKeepAliveResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: IsKeepAliveResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1151,6 +1268,78 @@ export class IsKeepAliveResponse extends $tea.Model {
   }
 }
 
+export class QueryEdsAgentReportConfigRequest extends $tea.Model {
+  aliUid?: number;
+  desktopId?: string;
+  ecsInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      desktopId: 'DesktopId',
+      ecsInstanceId: 'EcsInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'number',
+      desktopId: 'string',
+      ecsInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEdsAgentReportConfigResponseBody extends $tea.Model {
+  data?: QueryEdsAgentReportConfigResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: QueryEdsAgentReportConfigResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEdsAgentReportConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryEdsAgentReportConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryEdsAgentReportConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RebootDesktopsRequest extends $tea.Model {
   clientId?: string;
   clientOS?: string;
@@ -1160,6 +1349,7 @@ export class RebootDesktopsRequest extends $tea.Model {
   loginToken?: string;
   regionId?: string;
   sessionId?: string;
+  sessionToken?: string;
   static names(): { [key: string]: string } {
     return {
       clientId: 'ClientId',
@@ -1170,6 +1360,7 @@ export class RebootDesktopsRequest extends $tea.Model {
       loginToken: 'LoginToken',
       regionId: 'RegionId',
       sessionId: 'SessionId',
+      sessionToken: 'SessionToken',
     };
   }
 
@@ -1183,6 +1374,7 @@ export class RebootDesktopsRequest extends $tea.Model {
       loginToken: 'string',
       regionId: 'string',
       sessionId: 'string',
+      sessionToken: 'string',
     };
   }
 
@@ -1211,9 +1403,9 @@ export class RebootDesktopsResponseBody extends $tea.Model {
 }
 
 export class RebootDesktopsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RebootDesktopsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RebootDesktopsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1295,9 +1487,9 @@ export class RefreshLoginTokenResponseBody extends $tea.Model {
 }
 
 export class RefreshLoginTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefreshLoginTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefreshLoginTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1311,6 +1503,78 @@ export class RefreshLoginTokenResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RefreshLoginTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReportEdsAgentInfoRequest extends $tea.Model {
+  aliUid?: number;
+  desktopId?: string;
+  ecsInstanceId?: string;
+  edsAgentInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      desktopId: 'DesktopId',
+      ecsInstanceId: 'EcsInstanceId',
+      edsAgentInfo: 'EdsAgentInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'number',
+      desktopId: 'string',
+      ecsInstanceId: 'string',
+      edsAgentInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReportEdsAgentInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReportEdsAgentInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReportEdsAgentInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReportEdsAgentInfoResponseBody,
     };
   }
 
@@ -1373,9 +1637,9 @@ export class ReportSessionStatusResponseBody extends $tea.Model {
 }
 
 export class ReportSessionStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReportSessionStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReportSessionStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1454,9 +1718,9 @@ export class ResetPasswordResponseBody extends $tea.Model {
 }
 
 export class ResetPasswordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetPasswordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetPasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1529,9 +1793,9 @@ export class ResetSnapshotResponseBody extends $tea.Model {
 }
 
 export class ResetSnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetSnapshotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetSnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1613,9 +1877,9 @@ export class SendTokenCodeResponseBody extends $tea.Model {
 }
 
 export class SendTokenCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendTokenCodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendTokenCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1709,9 +1973,9 @@ export class SetFingerPrintTemplateResponseBody extends $tea.Model {
 }
 
 export class SetFingerPrintTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetFingerPrintTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetFingerPrintTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1790,9 +2054,9 @@ export class SetFingerPrintTemplateDescriptionResponseBody extends $tea.Model {
 }
 
 export class SetFingerPrintTemplateDescriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetFingerPrintTemplateDescriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetFingerPrintTemplateDescriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1874,9 +2138,9 @@ export class StartDesktopsResponseBody extends $tea.Model {
 }
 
 export class StartDesktopsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartDesktopsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartDesktopsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1958,9 +2222,9 @@ export class StartRecordContentResponseBody extends $tea.Model {
 }
 
 export class StartRecordContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartRecordContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartRecordContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1991,6 +2255,7 @@ export class StopDesktopsRequest extends $tea.Model {
   loginToken?: string;
   regionId?: string;
   sessionId?: string;
+  sessionToken?: string;
   static names(): { [key: string]: string } {
     return {
       clientId: 'ClientId',
@@ -2001,6 +2266,7 @@ export class StopDesktopsRequest extends $tea.Model {
       loginToken: 'LoginToken',
       regionId: 'RegionId',
       sessionId: 'SessionId',
+      sessionToken: 'SessionToken',
     };
   }
 
@@ -2014,6 +2280,7 @@ export class StopDesktopsRequest extends $tea.Model {
       loginToken: 'string',
       regionId: 'string',
       sessionId: 'string',
+      sessionToken: 'string',
     };
   }
 
@@ -2042,9 +2309,9 @@ export class StopDesktopsResponseBody extends $tea.Model {
 }
 
 export class StopDesktopsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopDesktopsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDesktopsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2123,9 +2390,9 @@ export class StopRecordContentResponseBody extends $tea.Model {
 }
 
 export class StopRecordContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopRecordContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopRecordContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2204,9 +2471,9 @@ export class UnbindUserDesktopResponseBody extends $tea.Model {
 }
 
 export class UnbindUserDesktopResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnbindUserDesktopResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindUserDesktopResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2288,9 +2555,9 @@ export class VerifyCredentialResponseBody extends $tea.Model {
 }
 
 export class VerifyCredentialResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VerifyCredentialResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VerifyCredentialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2403,16 +2670,22 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsClients extends $tea.Mode
 }
 
 export class DescribeGlobalDesktopsResponseBodyDesktopsDesktopTimers extends $tea.Model {
+  allowClientSetting?: boolean;
   cronExpression?: string;
   enforce?: boolean;
+  executionTime?: string;
   interval?: number;
+  operationType?: string;
   resetType?: string;
   timerType?: string;
   static names(): { [key: string]: string } {
     return {
+      allowClientSetting: 'AllowClientSetting',
       cronExpression: 'CronExpression',
       enforce: 'Enforce',
+      executionTime: 'ExecutionTime',
       interval: 'Interval',
+      operationType: 'OperationType',
       resetType: 'ResetType',
       timerType: 'TimerType',
     };
@@ -2420,9 +2693,12 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsDesktopTimers extends $te
 
   static types(): { [key: string]: any } {
     return {
+      allowClientSetting: 'boolean',
       cronExpression: 'string',
       enforce: 'boolean',
+      executionTime: 'string',
       interval: 'number',
+      operationType: 'string',
       resetType: 'string',
       timerType: 'string',
     };
@@ -2465,6 +2741,8 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $tea.M
   newAppVersion?: string;
   project?: string;
   releaseNote?: string;
+  releaseNoteEn?: string;
+  releaseNoteJp?: string;
   size?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2474,6 +2752,8 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $tea.M
       newAppVersion: 'NewAppVersion',
       project: 'Project',
       releaseNote: 'ReleaseNote',
+      releaseNoteEn: 'ReleaseNoteEn',
+      releaseNoteJp: 'ReleaseNoteJp',
       size: 'Size',
     };
   }
@@ -2486,6 +2766,8 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $tea.M
       newAppVersion: 'string',
       project: 'string',
       releaseNote: 'string',
+      releaseNoteEn: 'string',
+      releaseNoteJp: 'string',
       size: 'string',
     };
   }
@@ -2536,6 +2818,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $tea.Model {
   expiredTime?: string;
   fotaUpdate?: DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate;
   gpuMemory?: number;
+  hibernationBeta?: boolean;
   hostName?: string;
   imageId?: string;
   lastStartTime?: string;
@@ -2544,11 +2827,14 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $tea.Model {
   memory?: number;
   networkInterfaceIp?: string;
   officeSiteId?: string;
+  os?: string;
   osType?: string;
+  platform?: string;
   policyGroupId?: string;
   protocolType?: string;
   realDesktopId?: string;
   regionId?: string;
+  sessionType?: string;
   sessions?: DescribeGlobalDesktopsResponseBodyDesktopsSessions[];
   supportHibernation?: boolean;
   userCustomName?: string;
@@ -2572,6 +2858,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $tea.Model {
       expiredTime: 'ExpiredTime',
       fotaUpdate: 'FotaUpdate',
       gpuMemory: 'GpuMemory',
+      hibernationBeta: 'HibernationBeta',
       hostName: 'HostName',
       imageId: 'ImageId',
       lastStartTime: 'LastStartTime',
@@ -2580,11 +2867,14 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $tea.Model {
       memory: 'Memory',
       networkInterfaceIp: 'NetworkInterfaceIp',
       officeSiteId: 'OfficeSiteId',
+      os: 'Os',
       osType: 'OsType',
+      platform: 'Platform',
       policyGroupId: 'PolicyGroupId',
       protocolType: 'ProtocolType',
       realDesktopId: 'RealDesktopId',
       regionId: 'RegionId',
+      sessionType: 'SessionType',
       sessions: 'Sessions',
       supportHibernation: 'SupportHibernation',
       userCustomName: 'UserCustomName',
@@ -2611,6 +2901,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $tea.Model {
       expiredTime: 'string',
       fotaUpdate: DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate,
       gpuMemory: 'number',
+      hibernationBeta: 'boolean',
       hostName: 'string',
       imageId: 'string',
       lastStartTime: 'string',
@@ -2619,11 +2910,14 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $tea.Model {
       memory: 'number',
       networkInterfaceIp: 'string',
       officeSiteId: 'string',
+      os: 'string',
       osType: 'string',
+      platform: 'string',
       policyGroupId: 'string',
       protocolType: 'string',
       realDesktopId: 'string',
       regionId: 'string',
+      sessionType: 'string',
       sessions: { 'type': 'array', 'itemType': DescribeGlobalDesktopsResponseBodyDesktopsSessions },
       supportHibernation: 'boolean',
       userCustomName: 'string',
@@ -2766,6 +3060,25 @@ export class GetCloudDriveServiceMountTokenResponseBodyToken extends $tea.Model 
       token: 'string',
       totalSize: 'number',
       usedSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEdsAgentReportConfigResponseBodyData extends $tea.Model {
+  config?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
     };
   }
 
@@ -3361,6 +3674,87 @@ export default class Client extends OpenApi {
     return await this.getCloudDriveServiceMountTokenWithOptions(request, runtime);
   }
 
+  async getConnectionTicketWithOptions(request: GetConnectionTicketRequest, runtime: $Util.RuntimeOptions): Promise<GetConnectionTicketResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.clientOS)) {
+      query["ClientOS"] = request.clientOS;
+    }
+
+    if (!Util.isUnset(request.clientType)) {
+      query["ClientType"] = request.clientType;
+    }
+
+    if (!Util.isUnset(request.clientVersion)) {
+      query["ClientVersion"] = request.clientVersion;
+    }
+
+    if (!Util.isUnset(request.commandContent)) {
+      query["CommandContent"] = request.commandContent;
+    }
+
+    if (!Util.isUnset(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!Util.isUnset(request.loginToken)) {
+      query["LoginToken"] = request.loginToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetConnectionTicket",
+      version: "2020-10-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
+  }
+
+  async getConnectionTicket(request: GetConnectionTicketRequest): Promise<GetConnectionTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getConnectionTicketWithOptions(request, runtime);
+  }
+
   async getLoginTokenWithOptions(request: GetLoginTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3495,6 +3889,43 @@ export default class Client extends OpenApi {
     return await this.isKeepAliveWithOptions(request, runtime);
   }
 
+  async queryEdsAgentReportConfigWithOptions(request: QueryEdsAgentReportConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryEdsAgentReportConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliUid)) {
+      query["AliUid"] = request.aliUid;
+    }
+
+    if (!Util.isUnset(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!Util.isUnset(request.ecsInstanceId)) {
+      query["EcsInstanceId"] = request.ecsInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryEdsAgentReportConfig",
+      version: "2020-10-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryEdsAgentReportConfigResponse>(await this.callApi(params, req, runtime), new QueryEdsAgentReportConfigResponse({}));
+  }
+
+  async queryEdsAgentReportConfig(request: QueryEdsAgentReportConfigRequest): Promise<QueryEdsAgentReportConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryEdsAgentReportConfigWithOptions(request, runtime);
+  }
+
   async rebootDesktopsWithOptions(request: RebootDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<RebootDesktopsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3528,6 +3959,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sessionId)) {
       query["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.sessionToken)) {
+      query["SessionToken"] = request.sessionToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -3603,6 +4038,47 @@ export default class Client extends OpenApi {
   async refreshLoginToken(request: RefreshLoginTokenRequest): Promise<RefreshLoginTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshLoginTokenWithOptions(request, runtime);
+  }
+
+  async reportEdsAgentInfoWithOptions(request: ReportEdsAgentInfoRequest, runtime: $Util.RuntimeOptions): Promise<ReportEdsAgentInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliUid)) {
+      query["AliUid"] = request.aliUid;
+    }
+
+    if (!Util.isUnset(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!Util.isUnset(request.ecsInstanceId)) {
+      query["EcsInstanceId"] = request.ecsInstanceId;
+    }
+
+    if (!Util.isUnset(request.edsAgentInfo)) {
+      query["EdsAgentInfo"] = request.edsAgentInfo;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReportEdsAgentInfo",
+      version: "2020-10-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReportEdsAgentInfoResponse>(await this.callApi(params, req, runtime), new ReportEdsAgentInfoResponse({}));
+  }
+
+  async reportEdsAgentInfo(request: ReportEdsAgentInfoRequest): Promise<ReportEdsAgentInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.reportEdsAgentInfoWithOptions(request, runtime);
   }
 
   async reportSessionStatusWithOptions(request: ReportSessionStatusRequest, runtime: $Util.RuntimeOptions): Promise<ReportSessionStatusResponse> {
@@ -4055,7 +4531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the region.
+    * The cloud desktops that you want to stop by calling this operation must be in the Running state. If the call is successful, the cloud desktops enter the Stopped state.
     *
     * @param request StopDesktopsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4096,6 +4572,10 @@ export default class Client extends OpenApi {
       query["SessionId"] = request.sessionId;
     }
 
+    if (!Util.isUnset(request.sessionToken)) {
+      query["SessionToken"] = request.sessionToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4114,7 +4594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the region.
+    * The cloud desktops that you want to stop by calling this operation must be in the Running state. If the call is successful, the cloud desktops enter the Stopped state.
     *
     * @param request StopDesktopsRequest
     * @return StopDesktopsResponse
