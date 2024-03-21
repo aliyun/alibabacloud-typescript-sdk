@@ -17893,6 +17893,7 @@ export class DescribeApiGroupRequestTag extends $tea.Model {
 }
 
 export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $tea.Model {
+  bindStageAlias?: string;
   bindStageName?: string;
   certificateId?: string;
   certificateName?: string;
@@ -17909,6 +17910,7 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $tea.Mo
   wildcardDomainPatterns?: string;
   static names(): { [key: string]: string } {
     return {
+      bindStageAlias: 'BindStageAlias',
       bindStageName: 'BindStageName',
       certificateId: 'CertificateId',
       certificateName: 'CertificateName',
@@ -17928,6 +17930,7 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
+      bindStageAlias: 'string',
       bindStageName: 'string',
       certificateId: 'string',
       certificateName: 'string',
@@ -19628,6 +19631,7 @@ export class DescribeApisByAppResponseBodyAppApiRelationInfosAppApiRelationInfo 
   operator?: string;
   path?: string;
   regionId?: string;
+  stageAlias?: string;
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19643,6 +19647,7 @@ export class DescribeApisByAppResponseBodyAppApiRelationInfosAppApiRelationInfo 
       operator: 'Operator',
       path: 'Path',
       regionId: 'RegionId',
+      stageAlias: 'StageAlias',
       stageName: 'StageName',
     };
   }
@@ -19661,6 +19666,7 @@ export class DescribeApisByAppResponseBodyAppApiRelationInfosAppApiRelationInfo 
       operator: 'string',
       path: 'string',
       regionId: 'string',
+      stageAlias: 'string',
       stageName: 'string',
     };
   }
@@ -20316,6 +20322,7 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp exten
   authorizedTime?: string;
   description?: string;
   operator?: string;
+  stageAlias?: string;
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20326,6 +20333,7 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp exten
       authorizedTime: 'AuthorizedTime',
       description: 'Description',
       operator: 'Operator',
+      stageAlias: 'StageAlias',
       stageName: 'StageName',
     };
   }
@@ -20339,6 +20347,7 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp exten
       authorizedTime: 'string',
       description: 'string',
       operator: 'string',
+      stageAlias: 'string',
       stageName: 'string',
     };
   }
@@ -22001,6 +22010,7 @@ export class DescribeHistoryApisResponseBodyApiHisItemsApiHisItem extends $tea.M
   groupName?: string;
   historyVersion?: string;
   regionId?: string;
+  stageAlias?: string;
   stageName?: string;
   status?: string;
   static names(): { [key: string]: string } {
@@ -22013,6 +22023,7 @@ export class DescribeHistoryApisResponseBodyApiHisItemsApiHisItem extends $tea.M
       groupName: 'GroupName',
       historyVersion: 'HistoryVersion',
       regionId: 'RegionId',
+      stageAlias: 'StageAlias',
       stageName: 'StageName',
       status: 'Status',
     };
@@ -22028,6 +22039,7 @@ export class DescribeHistoryApisResponseBodyApiHisItemsApiHisItem extends $tea.M
       groupName: 'string',
       historyVersion: 'string',
       regionId: 'string',
+      stageAlias: 'string',
       stageName: 'string',
       status: 'string',
     };
@@ -22660,6 +22672,25 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInter
   }
 }
 
+export class DescribeInstancesResponseBodyInstancesInstanceAttributePrivateDnsList extends $tea.Model {
+  privateDns?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      privateDns: 'PrivateDns',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privateDns: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $tea.Model {
   aclId?: string;
   aclName?: string;
@@ -22691,6 +22722,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
   maintainEndTime?: string;
   maintainStartTime?: string;
   networkInterfaceAttributes?: DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes;
+  privateDnsList?: DescribeInstancesResponseBodyInstancesInstanceAttributePrivateDnsList;
   regionId?: string;
   status?: string;
   supportIpv6?: boolean;
@@ -22734,6 +22766,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       maintainEndTime: 'MaintainEndTime',
       maintainStartTime: 'MaintainStartTime',
       networkInterfaceAttributes: 'NetworkInterfaceAttributes',
+      privateDnsList: 'PrivateDnsList',
       regionId: 'RegionId',
       status: 'Status',
       supportIpv6: 'SupportIpv6',
@@ -22780,6 +22813,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       maintainEndTime: 'string',
       maintainStartTime: 'string',
       networkInterfaceAttributes: DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes,
+      privateDnsList: DescribeInstancesResponseBodyInstancesInstanceAttributePrivateDnsList,
       regionId: 'string',
       status: 'string',
       supportIpv6: 'boolean',
@@ -23105,6 +23139,7 @@ export class DescribePluginApisResponseBodyApiSummarysApiPluginSummary extends $
   method?: string;
   path?: string;
   regionId?: string;
+  stageAlias?: string;
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23116,6 +23151,7 @@ export class DescribePluginApisResponseBodyApiSummarysApiPluginSummary extends $
       method: 'Method',
       path: 'Path',
       regionId: 'RegionId',
+      stageAlias: 'StageAlias',
       stageName: 'StageName',
     };
   }
@@ -23130,6 +23166,7 @@ export class DescribePluginApisResponseBodyApiSummarysApiPluginSummary extends $
       method: 'string',
       path: 'string',
       regionId: 'string',
+      stageAlias: 'string',
       stageName: 'string',
     };
   }
