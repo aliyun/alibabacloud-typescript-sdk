@@ -1427,6 +1427,150 @@ export class DescribeCallListResponse extends $tea.Model {
   }
 }
 
+export class DescribeChannelRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelResponseBody extends $tea.Model {
+  channel?: DescribeChannelResponseBodyChannel;
+  channelExist?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'Channel',
+      channelExist: 'ChannelExist',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: DescribeChannelResponseBodyChannel,
+      channelExist: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeChannelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelAllUsersRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelAllUsersResponseBody extends $tea.Model {
+  channelExist?: boolean;
+  requestId?: string;
+  users?: DescribeChannelAllUsersResponseBodyUsers[];
+  static names(): { [key: string]: string } {
+    return {
+      channelExist: 'ChannelExist',
+      requestId: 'RequestId',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelExist: 'boolean',
+      requestId: 'string',
+      users: { 'type': 'array', 'itemType': DescribeChannelAllUsersResponseBodyUsers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelAllUsersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeChannelAllUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeChannelAllUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeChannelAreaDistributionStatDataRequest extends $tea.Model {
   appId?: string;
   channelId?: string;
@@ -1821,6 +1965,84 @@ export class DescribeChannelTopPubUserListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeChannelTopPubUserListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelUserRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelUserResponseBody extends $tea.Model {
+  channelExist?: boolean;
+  inChannel?: boolean;
+  requestId?: string;
+  sessions?: DescribeChannelUserResponseBodySessions[];
+  static names(): { [key: string]: string } {
+    return {
+      channelExist: 'ChannelExist',
+      inChannel: 'InChannel',
+      requestId: 'RequestId',
+      sessions: 'Sessions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelExist: 'boolean',
+      inChannel: 'boolean',
+      requestId: 'string',
+      sessions: { 'type': 'array', 'itemType': DescribeChannelUserResponseBodySessions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelUserResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeChannelUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeChannelUserResponseBody,
     };
   }
 
@@ -4557,6 +4779,159 @@ export class RemoveTerminalsResponse extends $tea.Model {
   }
 }
 
+export class RemoveUsersRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  users?: RemoveUsersRequestUsers[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      users: { 'type': 'array', 'itemType': RemoveUsersRequestUsers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveUsersResponseBody extends $tea.Model {
+  requestId?: string;
+  users?: RemoveUsersResponseBodyUsers[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      users: { 'type': 'array', 'itemType': RemoveUsersResponseBodyUsers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveUsersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  panes?: StartCloudRecordRequestPanes[];
+  storageConfig?: StartCloudRecordRequestStorageConfig;
+  taskId?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      panes: 'Panes',
+      storageConfig: 'StorageConfig',
+      taskId: 'TaskId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      panes: { 'type': 'array', 'itemType': StartCloudRecordRequestPanes },
+      storageConfig: StartCloudRecordRequestStorageConfig,
+      taskId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartCloudRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartCloudRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartMPUTaskRequest extends $tea.Model {
   appId?: string;
   backgroundColor?: number;
@@ -4827,6 +5202,225 @@ export class StartRecordTaskResponse extends $tea.Model {
   }
 }
 
+export class StartStreamingOutRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  panes?: StartStreamingOutRequestPanes[];
+  taskId?: string;
+  templateId?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      panes: 'Panes',
+      taskId: 'TaskId',
+      templateId: 'TemplateId',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      panes: { 'type': 'array', 'itemType': StartStreamingOutRequestPanes },
+      taskId: 'string',
+      templateId: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartStreamingOutResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartStreamingOutResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopChannelRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopChannelResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopChannelResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopChannelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCloudRecordRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCloudRecordResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCloudRecordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopCloudRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopCloudRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopMPUTaskRequest extends $tea.Model {
   appId?: string;
   ownerId?: number;
@@ -4957,6 +5551,78 @@ export class StopRecordTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopRecordTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopStreamingOutRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopStreamingOutResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopStreamingOutResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopStreamingOutResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopStreamingOutResponseBody,
     };
   }
 
@@ -5521,13 +6187,11 @@ export class AddRecordTemplateRequestWatermarks extends $tea.Model {
 }
 
 export class CreateAppStreamingOutTemplateRequestStreamingOutTemplate extends $tea.Model {
-  enableVad?: boolean;
   layoutIds?: string[];
   mediaEncode?: number;
   name?: string;
   static names(): { [key: string]: string } {
     return {
-      enableVad: 'EnableVad',
       layoutIds: 'LayoutIds',
       mediaEncode: 'MediaEncode',
       name: 'Name',
@@ -5536,7 +6200,6 @@ export class CreateAppStreamingOutTemplateRequestStreamingOutTemplate extends $t
 
   static types(): { [key: string]: any } {
     return {
-      enableVad: 'boolean',
       layoutIds: { 'type': 'array', 'itemType': 'string' },
       mediaEncode: 'number',
       name: 'string',
@@ -5628,7 +6291,6 @@ export class DescribeAppStreamingOutTemplatesRequestCondition extends $tea.Model
 
 export class DescribeAppStreamingOutTemplatesResponseBodyTemplates extends $tea.Model {
   createTime?: string;
-  enableVad?: boolean;
   layoutIds?: string[];
   mediaEncode?: number;
   name?: string;
@@ -5636,7 +6298,6 @@ export class DescribeAppStreamingOutTemplatesResponseBodyTemplates extends $tea.
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
-      enableVad: 'EnableVad',
       layoutIds: 'LayoutIds',
       mediaEncode: 'MediaEncode',
       name: 'Name',
@@ -5647,7 +6308,6 @@ export class DescribeAppStreamingOutTemplatesResponseBodyTemplates extends $tea.
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
-      enableVad: 'boolean',
       layoutIds: { 'type': 'array', 'itemType': 'string' },
       mediaEncode: 'number',
       name: 'string',
@@ -5987,6 +6647,47 @@ export class DescribeCallListResponseBodyCallList extends $tea.Model {
   }
 }
 
+export class DescribeChannelResponseBodyChannel extends $tea.Model {
+  channelId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      channelId: 'ChannelId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelAllUsersResponseBodyUsers extends $tea.Model {
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeChannelAreaDistributionStatDataResponseBodyAreaStatList extends $tea.Model {
   areaName?: string;
   callUserCount?: number;
@@ -6224,6 +6925,31 @@ export class DescribeChannelTopPubUserListResponseBodyTopPubUserDetailList exten
       location: 'string',
       onlineDuration: 'number',
       onlinePeriods: { 'type': 'array', 'itemType': DescribeChannelTopPubUserListResponseBodyTopPubUserDetailListOnlinePeriods },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelUserResponseBodySessions extends $tea.Model {
+  joined?: number;
+  sessionId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      joined: 'Joined',
+      sessionId: 'SessionId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      joined: 'number',
+      sessionId: 'string',
       userId: 'string',
     };
   }
@@ -8229,14 +8955,12 @@ export class DescribeUserInfoInChannelResponseBodyProperty extends $tea.Model {
 }
 
 export class ModifyAppStreamingOutTemplateRequestStreamingOutTemplate extends $tea.Model {
-  enableVad?: boolean;
   layoutIds?: string[];
   mediaEncode?: number;
   name?: string;
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      enableVad: 'EnableVad',
       layoutIds: 'LayoutIds',
       mediaEncode: 'MediaEncode',
       name: 'Name',
@@ -8246,7 +8970,6 @@ export class ModifyAppStreamingOutTemplateRequestStreamingOutTemplate extends $t
 
   static types(): { [key: string]: any } {
     return {
-      enableVad: 'boolean',
       layoutIds: { 'type': 'array', 'itemType': 'string' },
       mediaEncode: 'number',
       name: 'string',
@@ -8332,6 +9055,103 @@ export class RemoveTerminalsResponseBodyTerminals extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       terminal: { 'type': 'array', 'itemType': RemoveTerminalsResponseBodyTerminalsTerminal },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveUsersRequestUsers extends $tea.Model {
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveUsersResponseBodyUsers extends $tea.Model {
+  code?: number;
+  message?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestPanes extends $tea.Model {
+  paneId?: number;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paneId: 'PaneId',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paneId: 'number',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestStorageConfig extends $tea.Model {
+  accessKey?: string;
+  bucket?: string;
+  region?: number;
+  secretKey?: string;
+  vendor?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      bucket: 'Bucket',
+      region: 'Region',
+      secretKey: 'SecretKey',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      bucket: 'string',
+      region: 'number',
+      secretKey: 'string',
+      vendor: 'number',
     };
   }
 
@@ -8711,6 +9531,28 @@ export class StartRecordTaskRequestUserPanes extends $tea.Model {
       sourceType: 'string',
       texts: { 'type': 'array', 'itemType': StartRecordTaskRequestUserPanesTexts },
       userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutRequestPanes extends $tea.Model {
+  paneId?: string;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paneId: 'PaneId',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paneId: 'string',
+      sourceType: 'string',
     };
   }
 
@@ -10016,6 +10858,72 @@ export default class Client extends OpenApi {
     return await this.describeCallListWithOptions(request, runtime);
   }
 
+  async describeChannelWithOptions(request: DescribeChannelRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeChannel",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeChannelResponse>(await this.callApi(params, req, runtime), new DescribeChannelResponse({}));
+  }
+
+  async describeChannel(request: DescribeChannelRequest): Promise<DescribeChannelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeChannelWithOptions(request, runtime);
+  }
+
+  async describeChannelAllUsersWithOptions(request: DescribeChannelAllUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelAllUsersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeChannelAllUsers",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeChannelAllUsersResponse>(await this.callApi(params, req, runtime), new DescribeChannelAllUsersResponse({}));
+  }
+
+  async describeChannelAllUsers(request: DescribeChannelAllUsersRequest): Promise<DescribeChannelAllUsersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeChannelAllUsersWithOptions(request, runtime);
+  }
+
   async describeChannelAreaDistributionStatDataWithOptions(request: DescribeChannelAreaDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelAreaDistributionStatDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10235,6 +11143,43 @@ export default class Client extends OpenApi {
   async describeChannelTopPubUserList(request: DescribeChannelTopPubUserListRequest): Promise<DescribeChannelTopPubUserListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChannelTopPubUserListWithOptions(request, runtime);
+  }
+
+  async describeChannelUserWithOptions(request: DescribeChannelUserRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelUserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeChannelUser",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeChannelUserResponse>(await this.callApi(params, req, runtime), new DescribeChannelUserResponse({}));
+  }
+
+  async describeChannelUser(request: DescribeChannelUserRequest): Promise<DescribeChannelUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeChannelUserWithOptions(request, runtime);
   }
 
   async describeChannelUserMetricsWithOptions(request: DescribeChannelUserMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelUserMetricsResponse> {
@@ -11729,6 +12674,92 @@ export default class Client extends OpenApi {
     return await this.removeTerminalsWithOptions(request, runtime);
   }
 
+  async removeUsersWithOptions(request: RemoveUsersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUsersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.users)) {
+      query["Users"] = request.users;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveUsers",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveUsersResponse>(await this.callApi(params, req, runtime), new RemoveUsersResponse({}));
+  }
+
+  async removeUsers(request: RemoveUsersRequest): Promise<RemoveUsersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeUsersWithOptions(request, runtime);
+  }
+
+  async startCloudRecordWithOptions(request: StartCloudRecordRequest, runtime: $Util.RuntimeOptions): Promise<StartCloudRecordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.panes)) {
+      query["Panes"] = request.panes;
+    }
+
+    if (!Util.isUnset(request.storageConfig)) {
+      query["StorageConfig"] = request.storageConfig;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartCloudRecord",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartCloudRecordResponse>(await this.callApi(params, req, runtime), new StartCloudRecordResponse({}));
+  }
+
+  async startCloudRecord(request: StartCloudRecordRequest): Promise<StartCloudRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startCloudRecordWithOptions(request, runtime);
+  }
+
   async startMPUTaskWithOptions(request: StartMPUTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartMPUTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11986,6 +13017,125 @@ export default class Client extends OpenApi {
     return await this.startRecordTaskWithOptions(request, runtime);
   }
 
+  async startStreamingOutWithOptions(request: StartStreamingOutRequest, runtime: $Util.RuntimeOptions): Promise<StartStreamingOutResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.panes)) {
+      query["Panes"] = request.panes;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartStreamingOut",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartStreamingOutResponse>(await this.callApi(params, req, runtime), new StartStreamingOutResponse({}));
+  }
+
+  async startStreamingOut(request: StartStreamingOutRequest): Promise<StartStreamingOutResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startStreamingOutWithOptions(request, runtime);
+  }
+
+  async stopChannelWithOptions(request: StopChannelRequest, runtime: $Util.RuntimeOptions): Promise<StopChannelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopChannel",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopChannelResponse>(await this.callApi(params, req, runtime), new StopChannelResponse({}));
+  }
+
+  async stopChannel(request: StopChannelRequest): Promise<StopChannelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopChannelWithOptions(request, runtime);
+  }
+
+  async stopCloudRecordWithOptions(request: StopCloudRecordRequest, runtime: $Util.RuntimeOptions): Promise<StopCloudRecordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopCloudRecord",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopCloudRecordResponse>(await this.callApi(params, req, runtime), new StopCloudRecordResponse({}));
+  }
+
+  async stopCloudRecord(request: StopCloudRecordRequest): Promise<StopCloudRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopCloudRecordWithOptions(request, runtime);
+  }
+
   async stopMPUTaskWithOptions(request: StopMPUTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopMPUTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12058,6 +13208,43 @@ export default class Client extends OpenApi {
   async stopRecordTask(request: StopRecordTaskRequest): Promise<StopRecordTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopRecordTaskWithOptions(request, runtime);
+  }
+
+  async stopStreamingOutWithOptions(request: StopStreamingOutRequest, runtime: $Util.RuntimeOptions): Promise<StopStreamingOutResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopStreamingOut",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopStreamingOutResponse>(await this.callApi(params, req, runtime), new StopStreamingOutResponse({}));
+  }
+
+  async stopStreamingOut(request: StopStreamingOutRequest): Promise<StopStreamingOutResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopStreamingOutWithOptions(request, runtime);
   }
 
   async updateAutoLiveStreamRuleWithOptions(request: UpdateAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAutoLiveStreamRuleResponse> {
