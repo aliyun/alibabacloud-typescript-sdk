@@ -1244,6 +1244,31 @@ export class ListProvisionConfigsOutput extends $tea.Model {
   }
 }
 
+export class ListTagResourcesOutput extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: TagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': TagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTaggedResourcesOutput extends $tea.Model {
   nextToken?: string;
   resources?: Resource[];
@@ -1813,6 +1838,56 @@ export class TLSConfig extends $tea.Model {
   }
 }
 
+export class Tag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResource extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourceInput extends $tea.Model {
   resourceArn?: string;
   tags?: { [key: string]: string };
@@ -1827,6 +1902,31 @@ export class TagResourceInput extends $tea.Model {
     return {
       resourceArn: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesInput extends $tea.Model {
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: Tag[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': Tag },
     };
   }
 
@@ -2235,9 +2335,9 @@ export class CreateAliasRequest extends $tea.Model {
 }
 
 export class CreateAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Alias;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Alias;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2279,9 +2379,9 @@ export class CreateCustomDomainRequest extends $tea.Model {
 }
 
 export class CreateCustomDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CustomDomain;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CustomDomain;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2323,9 +2423,9 @@ export class CreateFunctionRequest extends $tea.Model {
 }
 
 export class CreateFunctionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Function;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Function;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2367,9 +2467,9 @@ export class CreateLayerVersionRequest extends $tea.Model {
 }
 
 export class CreateLayerVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Layer;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Layer;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2411,9 +2511,9 @@ export class CreateTriggerRequest extends $tea.Model {
 }
 
 export class CreateTriggerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Trigger;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Trigger;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2455,8 +2555,8 @@ export class CreateVpcBindingRequest extends $tea.Model {
 }
 
 export class CreateVpcBindingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2477,8 +2577,8 @@ export class CreateVpcBindingResponse extends $tea.Model {
 }
 
 export class DeleteAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2518,8 +2618,8 @@ export class DeleteAsyncInvokeConfigRequest extends $tea.Model {
 }
 
 export class DeleteAsyncInvokeConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2540,8 +2640,8 @@ export class DeleteAsyncInvokeConfigResponse extends $tea.Model {
 }
 
 export class DeleteConcurrencyConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2562,8 +2662,8 @@ export class DeleteConcurrencyConfigResponse extends $tea.Model {
 }
 
 export class DeleteCustomDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2584,8 +2684,8 @@ export class DeleteCustomDomainResponse extends $tea.Model {
 }
 
 export class DeleteFunctionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2606,8 +2706,8 @@ export class DeleteFunctionResponse extends $tea.Model {
 }
 
 export class DeleteFunctionVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2628,8 +2728,8 @@ export class DeleteFunctionVersionResponse extends $tea.Model {
 }
 
 export class DeleteLayerVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2669,8 +2769,8 @@ export class DeleteProvisionConfigRequest extends $tea.Model {
 }
 
 export class DeleteProvisionConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2691,8 +2791,8 @@ export class DeleteProvisionConfigResponse extends $tea.Model {
 }
 
 export class DeleteTriggerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2713,8 +2813,8 @@ export class DeleteTriggerResponse extends $tea.Model {
 }
 
 export class DeleteVpcBindingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2735,9 +2835,9 @@ export class DeleteVpcBindingResponse extends $tea.Model {
 }
 
 export class GetAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Alias;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Alias;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2779,9 +2879,9 @@ export class GetAsyncInvokeConfigRequest extends $tea.Model {
 }
 
 export class GetAsyncInvokeConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AsyncConfig;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AsyncConfig;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2804,9 +2904,9 @@ export class GetAsyncInvokeConfigResponse extends $tea.Model {
 }
 
 export class GetConcurrencyConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConcurrencyConfig;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConcurrencyConfig;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2829,9 +2929,9 @@ export class GetConcurrencyConfigResponse extends $tea.Model {
 }
 
 export class GetCustomDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CustomDomain;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CustomDomain;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2873,9 +2973,9 @@ export class GetFunctionRequest extends $tea.Model {
 }
 
 export class GetFunctionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Function;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Function;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2917,9 +3017,9 @@ export class GetFunctionCodeRequest extends $tea.Model {
 }
 
 export class GetFunctionCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OutputFuncCode;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OutputFuncCode;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2942,9 +3042,9 @@ export class GetFunctionCodeResponse extends $tea.Model {
 }
 
 export class GetLayerVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Layer;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Layer;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2967,9 +3067,9 @@ export class GetLayerVersionResponse extends $tea.Model {
 }
 
 export class GetLayerVersionByArnResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Layer;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Layer;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3011,9 +3111,9 @@ export class GetProvisionConfigRequest extends $tea.Model {
 }
 
 export class GetProvisionConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ProvisionConfig;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ProvisionConfig;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3055,9 +3155,9 @@ export class GetResourceTagsRequest extends $tea.Model {
 }
 
 export class GetResourceTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetResourceTagsOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourceTagsOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3080,9 +3180,9 @@ export class GetResourceTagsResponse extends $tea.Model {
 }
 
 export class GetTriggerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Trigger;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Trigger;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3152,9 +3252,9 @@ export class InvokeFunctionRequest extends $tea.Model {
 }
 
 export class InvokeFunctionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Readable;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3202,9 +3302,9 @@ export class ListAliasesRequest extends $tea.Model {
 }
 
 export class ListAliasesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAliasesOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAliasesOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3252,9 +3352,9 @@ export class ListAsyncInvokeConfigsRequest extends $tea.Model {
 }
 
 export class ListAsyncInvokeConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAsyncInvokeConfigOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAsyncInvokeConfigOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3302,9 +3402,9 @@ export class ListConcurrencyConfigsRequest extends $tea.Model {
 }
 
 export class ListConcurrencyConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListConcurrencyConfigsOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConcurrencyConfigsOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3352,9 +3452,9 @@ export class ListCustomDomainsRequest extends $tea.Model {
 }
 
 export class ListCustomDomainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCustomDomainOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomDomainOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3402,9 +3502,9 @@ export class ListFunctionVersionsRequest extends $tea.Model {
 }
 
 export class ListFunctionVersionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVersionsOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVersionsOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3452,9 +3552,9 @@ export class ListFunctionsRequest extends $tea.Model {
 }
 
 export class ListFunctionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFunctionsOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFunctionsOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3499,9 +3599,9 @@ export class ListInstancesRequest extends $tea.Model {
 }
 
 export class ListInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListInstancesOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3546,9 +3646,9 @@ export class ListLayerVersionsRequest extends $tea.Model {
 }
 
 export class ListLayerVersionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListLayerVersionOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLayerVersionOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3602,9 +3702,9 @@ export class ListLayersRequest extends $tea.Model {
 }
 
 export class ListLayersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListLayersOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLayersOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3652,9 +3752,9 @@ export class ListProvisionConfigsRequest extends $tea.Model {
 }
 
 export class ListProvisionConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProvisionConfigsOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProvisionConfigsOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3668,6 +3768,93 @@ export class ListProvisionConfigsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListProvisionConfigsOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $tea.Model {
+  limit?: number;
+  nextToken?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'Limit',
+      nextToken: 'NextToken',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      nextToken: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesShrinkRequest extends $tea.Model {
+  limit?: number;
+  nextToken?: string;
+  resourceIdShrink?: string;
+  resourceType?: string;
+  tagShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'Limit',
+      nextToken: 'NextToken',
+      resourceIdShrink: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagShrink: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      nextToken: 'string',
+      resourceIdShrink: 'string',
+      resourceType: 'string',
+      tagShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesOutput,
     };
   }
 
@@ -3702,9 +3889,9 @@ export class ListTaggedResourcesRequest extends $tea.Model {
 }
 
 export class ListTaggedResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTaggedResourcesOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTaggedResourcesOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3752,9 +3939,9 @@ export class ListTriggersRequest extends $tea.Model {
 }
 
 export class ListTriggersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTriggersOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTriggersOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3777,9 +3964,9 @@ export class ListTriggersResponse extends $tea.Model {
 }
 
 export class ListVpcBindingsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVpcBindingsOutput;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpcBindingsOutput;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3821,9 +4008,9 @@ export class PublishFunctionVersionRequest extends $tea.Model {
 }
 
 export class PublishFunctionVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Version;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Version;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3868,9 +4055,9 @@ export class PutAsyncInvokeConfigRequest extends $tea.Model {
 }
 
 export class PutAsyncInvokeConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AsyncConfig;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AsyncConfig;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3912,9 +4099,9 @@ export class PutConcurrencyConfigRequest extends $tea.Model {
 }
 
 export class PutConcurrencyConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConcurrencyConfig;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConcurrencyConfig;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3956,8 +4143,8 @@ export class PutLayerACLRequest extends $tea.Model {
 }
 
 export class PutLayerACLResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4000,9 +4187,9 @@ export class PutProvisionConfigRequest extends $tea.Model {
 }
 
 export class PutProvisionConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ProvisionConfig;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ProvisionConfig;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4044,8 +4231,49 @@ export class TagResourceRequest extends $tea.Model {
 }
 
 export class TagResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $tea.Model {
+  body?: TagResourcesInput;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: TagResourcesInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4091,8 +4319,86 @@ export class UntagResourceRequest extends $tea.Model {
 }
 
 export class UntagResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
+  resourceId?: string[];
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesShrinkRequest extends $tea.Model {
+  all?: boolean;
+  resourceIdShrink?: string;
+  resourceType?: string;
+  tagKeyShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      resourceIdShrink: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKeyShrink: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      resourceIdShrink: 'string',
+      resourceType: 'string',
+      tagKeyShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4132,9 +4438,9 @@ export class UpdateAliasRequest extends $tea.Model {
 }
 
 export class UpdateAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Alias;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Alias;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4176,9 +4482,9 @@ export class UpdateCustomDomainRequest extends $tea.Model {
 }
 
 export class UpdateCustomDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CustomDomain;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CustomDomain;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4220,9 +4526,9 @@ export class UpdateFunctionRequest extends $tea.Model {
 }
 
 export class UpdateFunctionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Function;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Function;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4264,9 +4570,9 @@ export class UpdateTriggerRequest extends $tea.Model {
 }
 
 export class UpdateTriggerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Trigger;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Trigger;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4280,6 +4586,28 @@ export class UpdateTriggerResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Trigger,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -4311,14 +4639,6 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  /**
-    * 创建函数别名。
-    *
-    * @param request CreateAliasRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAliasResponse
-   */
   async createAliasWithOptions(functionName: string, request: CreateAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAliasResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -4339,26 +4659,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAliasResponse>(await this.callApi(params, req, runtime), new CreateAliasResponse({}));
   }
 
-  /**
-    * 创建函数别名。
-    *
-    * @param request CreateAliasRequest
-    * @return CreateAliasResponse
-   */
   async createAlias(functionName: string, request: CreateAliasRequest): Promise<CreateAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createAliasWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 创建自定义域名。
-    *
-    * @param request CreateCustomDomainRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateCustomDomainResponse
-   */
   async createCustomDomainWithOptions(request: CreateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCustomDomainResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -4379,26 +4685,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCustomDomainResponse>(await this.callApi(params, req, runtime), new CreateCustomDomainResponse({}));
   }
 
-  /**
-    * 创建自定义域名。
-    *
-    * @param request CreateCustomDomainRequest
-    * @return CreateCustomDomainResponse
-   */
   async createCustomDomain(request: CreateCustomDomainRequest): Promise<CreateCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createCustomDomainWithOptions(request, headers, runtime);
   }
 
-  /**
-    * 创建函数。
-    *
-    * @param request CreateFunctionRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateFunctionResponse
-   */
   async createFunctionWithOptions(request: CreateFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFunctionResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -4419,26 +4711,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFunctionResponse>(await this.callApi(params, req, runtime), new CreateFunctionResponse({}));
   }
 
-  /**
-    * 创建函数。
-    *
-    * @param request CreateFunctionRequest
-    * @return CreateFunctionResponse
-   */
   async createFunction(request: CreateFunctionRequest): Promise<CreateFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createFunctionWithOptions(request, headers, runtime);
   }
 
-  /**
-    * 创建层版本。
-    *
-    * @param request CreateLayerVersionRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLayerVersionResponse
-   */
   async createLayerVersionWithOptions(layerName: string, request: CreateLayerVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLayerVersionResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -4459,26 +4737,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLayerVersionResponse>(await this.callApi(params, req, runtime), new CreateLayerVersionResponse({}));
   }
 
-  /**
-    * 创建层版本。
-    *
-    * @param request CreateLayerVersionRequest
-    * @return CreateLayerVersionResponse
-   */
   async createLayerVersion(layerName: string, request: CreateLayerVersionRequest): Promise<CreateLayerVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createLayerVersionWithOptions(layerName, request, headers, runtime);
   }
 
-  /**
-    * 创建函数触发器。
-    *
-    * @param request CreateTriggerRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateTriggerResponse
-   */
   async createTriggerWithOptions(functionName: string, request: CreateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -4499,26 +4763,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
   }
 
-  /**
-    * 创建函数触发器。
-    *
-    * @param request CreateTriggerRequest
-    * @return CreateTriggerResponse
-   */
   async createTrigger(functionName: string, request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTriggerWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 创建VPC绑定。
-    *
-    * @param request CreateVpcBindingRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVpcBindingResponse
-   */
   async createVpcBindingWithOptions(functionName: string, request: CreateVpcBindingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVpcBindingResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -4539,25 +4789,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpcBindingResponse>(await this.callApi(params, req, runtime), new CreateVpcBindingResponse({}));
   }
 
-  /**
-    * 创建VPC绑定。
-    *
-    * @param request CreateVpcBindingRequest
-    * @return CreateVpcBindingResponse
-   */
   async createVpcBinding(functionName: string, request: CreateVpcBindingRequest): Promise<CreateVpcBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createVpcBindingWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 删除函数别名。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAliasResponse
-   */
   async deleteAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAliasResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4576,25 +4813,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAliasResponse>(await this.callApi(params, req, runtime), new DeleteAliasResponse({}));
   }
 
-  /**
-    * 删除函数别名。
-    *
-    * @return DeleteAliasResponse
-   */
   async deleteAlias(functionName: string, aliasName: string): Promise<DeleteAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAliasWithOptions(functionName, aliasName, headers, runtime);
   }
 
-  /**
-    * 删除函数异步调用配置。
-    *
-    * @param request DeleteAsyncInvokeConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAsyncInvokeConfigResponse
-   */
   async deleteAsyncInvokeConfigWithOptions(functionName: string, request: DeleteAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAsyncInvokeConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4620,25 +4844,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new DeleteAsyncInvokeConfigResponse({}));
   }
 
-  /**
-    * 删除函数异步调用配置。
-    *
-    * @param request DeleteAsyncInvokeConfigRequest
-    * @return DeleteAsyncInvokeConfigResponse
-   */
   async deleteAsyncInvokeConfig(functionName: string, request: DeleteAsyncInvokeConfigRequest): Promise<DeleteAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 删除函数并发度配置。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteConcurrencyConfigResponse
-   */
   async deleteConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConcurrencyConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4657,24 +4868,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new DeleteConcurrencyConfigResponse({}));
   }
 
-  /**
-    * 删除函数并发度配置。
-    *
-    * @return DeleteConcurrencyConfigResponse
-   */
   async deleteConcurrencyConfig(functionName: string): Promise<DeleteConcurrencyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteConcurrencyConfigWithOptions(functionName, headers, runtime);
   }
 
-  /**
-    * 删除自定义域名。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteCustomDomainResponse
-   */
   async deleteCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCustomDomainResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4693,24 +4892,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCustomDomainResponse>(await this.callApi(params, req, runtime), new DeleteCustomDomainResponse({}));
   }
 
-  /**
-    * 删除自定义域名。
-    *
-    * @return DeleteCustomDomainResponse
-   */
   async deleteCustomDomain(domainName: string): Promise<DeleteCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteCustomDomainWithOptions(domainName, headers, runtime);
   }
 
-  /**
-    * 删除函数。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteFunctionResponse
-   */
   async deleteFunctionWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4729,24 +4916,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFunctionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionResponse({}));
   }
 
-  /**
-    * 删除函数。
-    *
-    * @return DeleteFunctionResponse
-   */
   async deleteFunction(functionName: string): Promise<DeleteFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteFunctionWithOptions(functionName, headers, runtime);
   }
 
-  /**
-    * 删除函数版本。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteFunctionVersionResponse
-   */
   async deleteFunctionVersionWithOptions(functionName: string, versionId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4765,24 +4940,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFunctionVersionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionVersionResponse({}));
   }
 
-  /**
-    * 删除函数版本。
-    *
-    * @return DeleteFunctionVersionResponse
-   */
   async deleteFunctionVersion(functionName: string, versionId: string): Promise<DeleteFunctionVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteFunctionVersionWithOptions(functionName, versionId, headers, runtime);
   }
 
-  /**
-    * 删除层版本。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteLayerVersionResponse
-   */
   async deleteLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLayerVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4801,25 +4964,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLayerVersionResponse>(await this.callApi(params, req, runtime), new DeleteLayerVersionResponse({}));
   }
 
-  /**
-    * 删除层版本。
-    *
-    * @return DeleteLayerVersionResponse
-   */
   async deleteLayerVersion(layerName: string, version: string): Promise<DeleteLayerVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteLayerVersionWithOptions(layerName, version, headers, runtime);
   }
 
-  /**
-    * 删除函数预留配置。
-    *
-    * @param request DeleteProvisionConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteProvisionConfigResponse
-   */
   async deleteProvisionConfigWithOptions(functionName: string, request: DeleteProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProvisionConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4845,25 +4995,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProvisionConfigResponse>(await this.callApi(params, req, runtime), new DeleteProvisionConfigResponse({}));
   }
 
-  /**
-    * 删除函数预留配置。
-    *
-    * @param request DeleteProvisionConfigRequest
-    * @return DeleteProvisionConfigResponse
-   */
   async deleteProvisionConfig(functionName: string, request: DeleteProvisionConfigRequest): Promise<DeleteProvisionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteProvisionConfigWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 删除函数触发器。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTriggerResponse
-   */
   async deleteTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTriggerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4882,24 +5019,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTriggerResponse>(await this.callApi(params, req, runtime), new DeleteTriggerResponse({}));
   }
 
-  /**
-    * 删除函数触发器。
-    *
-    * @return DeleteTriggerResponse
-   */
   async deleteTrigger(functionName: string, triggerName: string): Promise<DeleteTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTriggerWithOptions(functionName, triggerName, headers, runtime);
   }
 
-  /**
-    * 删除VPC绑定。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVpcBindingResponse
-   */
   async deleteVpcBindingWithOptions(functionName: string, vpcId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVpcBindingResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4918,24 +5043,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcBindingResponse>(await this.callApi(params, req, runtime), new DeleteVpcBindingResponse({}));
   }
 
-  /**
-    * 删除VPC绑定。
-    *
-    * @return DeleteVpcBindingResponse
-   */
   async deleteVpcBinding(functionName: string, vpcId: string): Promise<DeleteVpcBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteVpcBindingWithOptions(functionName, vpcId, headers, runtime);
   }
 
-  /**
-    * 获取函数别名信息。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetAliasResponse
-   */
   async getAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAliasResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4954,25 +5067,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAliasResponse>(await this.callApi(params, req, runtime), new GetAliasResponse({}));
   }
 
-  /**
-    * 获取函数别名信息。
-    *
-    * @return GetAliasResponse
-   */
   async getAlias(functionName: string, aliasName: string): Promise<GetAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAliasWithOptions(functionName, aliasName, headers, runtime);
   }
 
-  /**
-    * 获取函数异步调用配置。
-    *
-    * @param request GetAsyncInvokeConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetAsyncInvokeConfigResponse
-   */
   async getAsyncInvokeConfigWithOptions(functionName: string, request: GetAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAsyncInvokeConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4998,25 +5098,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new GetAsyncInvokeConfigResponse({}));
   }
 
-  /**
-    * 获取函数异步调用配置。
-    *
-    * @param request GetAsyncInvokeConfigRequest
-    * @return GetAsyncInvokeConfigResponse
-   */
   async getAsyncInvokeConfig(functionName: string, request: GetAsyncInvokeConfigRequest): Promise<GetAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 获取函数并发度配置。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetConcurrencyConfigResponse
-   */
   async getConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConcurrencyConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5035,24 +5122,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new GetConcurrencyConfigResponse({}));
   }
 
-  /**
-    * 获取函数并发度配置。
-    *
-    * @return GetConcurrencyConfigResponse
-   */
   async getConcurrencyConfig(functionName: string): Promise<GetConcurrencyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getConcurrencyConfigWithOptions(functionName, headers, runtime);
   }
 
-  /**
-    * 获取自定义域名。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetCustomDomainResponse
-   */
   async getCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCustomDomainResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5071,25 +5146,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCustomDomainResponse>(await this.callApi(params, req, runtime), new GetCustomDomainResponse({}));
   }
 
-  /**
-    * 获取自定义域名。
-    *
-    * @return GetCustomDomainResponse
-   */
   async getCustomDomain(domainName: string): Promise<GetCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCustomDomainWithOptions(domainName, headers, runtime);
   }
 
-  /**
-    * 获取函数信息。
-    *
-    * @param request GetFunctionRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetFunctionResponse
-   */
   async getFunctionWithOptions(functionName: string, request: GetFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5115,26 +5177,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFunctionResponse>(await this.callApi(params, req, runtime), new GetFunctionResponse({}));
   }
 
-  /**
-    * 获取函数信息。
-    *
-    * @param request GetFunctionRequest
-    * @return GetFunctionResponse
-   */
   async getFunction(functionName: string, request: GetFunctionRequest): Promise<GetFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFunctionWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 获取函数代码。
-    *
-    * @param request GetFunctionCodeRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetFunctionCodeResponse
-   */
   async getFunctionCodeWithOptions(functionName: string, request: GetFunctionCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionCodeResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5160,25 +5208,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFunctionCodeResponse>(await this.callApi(params, req, runtime), new GetFunctionCodeResponse({}));
   }
 
-  /**
-    * 获取函数代码。
-    *
-    * @param request GetFunctionCodeRequest
-    * @return GetFunctionCodeResponse
-   */
   async getFunctionCode(functionName: string, request: GetFunctionCodeRequest): Promise<GetFunctionCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFunctionCodeWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 获取层版本。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetLayerVersionResponse
-   */
   async getLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5197,24 +5232,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLayerVersionResponse>(await this.callApi(params, req, runtime), new GetLayerVersionResponse({}));
   }
 
-  /**
-    * 获取层版本。
-    *
-    * @return GetLayerVersionResponse
-   */
   async getLayerVersion(layerName: string, version: string): Promise<GetLayerVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLayerVersionWithOptions(layerName, version, headers, runtime);
   }
 
-  /**
-    * 根据资源标识获取层版本。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetLayerVersionByArnResponse
-   */
   async getLayerVersionByArnWithOptions(arn: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionByArnResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5233,25 +5256,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLayerVersionByArnResponse>(await this.callApi(params, req, runtime), new GetLayerVersionByArnResponse({}));
   }
 
-  /**
-    * 根据资源标识获取层版本。
-    *
-    * @return GetLayerVersionByArnResponse
-   */
   async getLayerVersionByArn(arn: string): Promise<GetLayerVersionByArnResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLayerVersionByArnWithOptions(arn, headers, runtime);
   }
 
-  /**
-    * 获取函数预留配置。
-    *
-    * @param request GetProvisionConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetProvisionConfigResponse
-   */
   async getProvisionConfigWithOptions(functionName: string, request: GetProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProvisionConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5277,12 +5287,6 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProvisionConfigResponse>(await this.callApi(params, req, runtime), new GetProvisionConfigResponse({}));
   }
 
-  /**
-    * 获取函数预留配置。
-    *
-    * @param request GetProvisionConfigRequest
-    * @return GetProvisionConfigResponse
-   */
   async getProvisionConfig(functionName: string, request: GetProvisionConfigRequest): Promise<GetProvisionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5290,13 +5294,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取资源标签。
+    * @deprecated
     *
     * @param request GetResourceTagsRequest
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
     * @return GetResourceTagsResponse
    */
+  // Deprecated
   async getResourceTagsWithOptions(request: GetResourceTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceTagsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5323,24 +5328,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取资源标签。
+    * @deprecated
     *
     * @param request GetResourceTagsRequest
     * @return GetResourceTagsResponse
    */
+  // Deprecated
   async getResourceTags(request: GetResourceTagsRequest): Promise<GetResourceTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getResourceTagsWithOptions(request, headers, runtime);
   }
 
-  /**
-    * 获取函数触发器。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetTriggerResponse
-   */
   async getTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTriggerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5359,25 +5358,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTriggerResponse>(await this.callApi(params, req, runtime), new GetTriggerResponse({}));
   }
 
-  /**
-    * 获取函数触发器。
-    *
-    * @return GetTriggerResponse
-   */
   async getTrigger(functionName: string, triggerName: string): Promise<GetTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTriggerWithOptions(functionName, triggerName, headers, runtime);
   }
 
-  /**
-    * 调用函数。
-    *
-    * @param request InvokeFunctionRequest
-    * @param headers InvokeFunctionHeaders
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return InvokeFunctionResponse
-   */
   async invokeFunctionWithOptions(functionName: string, request: InvokeFunctionRequest, headers: InvokeFunctionHeaders, runtime: $Util.RuntimeOptions): Promise<InvokeFunctionResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5435,26 +5421,12 @@ export default class Client extends OpenApi {
     return res;
   }
 
-  /**
-    * 调用函数。
-    *
-    * @param request InvokeFunctionRequest
-    * @return InvokeFunctionResponse
-   */
   async invokeFunction(functionName: string, request: InvokeFunctionRequest): Promise<InvokeFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InvokeFunctionHeaders({ });
     return await this.invokeFunctionWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 列出函数别名。
-    *
-    * @param request ListAliasesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListAliasesResponse
-   */
   async listAliasesWithOptions(functionName: string, request: ListAliasesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAliasesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5488,26 +5460,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAliasesResponse>(await this.callApi(params, req, runtime), new ListAliasesResponse({}));
   }
 
-  /**
-    * 列出函数别名。
-    *
-    * @param request ListAliasesRequest
-    * @return ListAliasesResponse
-   */
   async listAliases(functionName: string, request: ListAliasesRequest): Promise<ListAliasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAliasesWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 列出函数异步调用配置。
-    *
-    * @param request ListAsyncInvokeConfigsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListAsyncInvokeConfigsResponse
-   */
   async listAsyncInvokeConfigsWithOptions(request: ListAsyncInvokeConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAsyncInvokeConfigsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5541,26 +5499,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAsyncInvokeConfigsResponse>(await this.callApi(params, req, runtime), new ListAsyncInvokeConfigsResponse({}));
   }
 
-  /**
-    * 列出函数异步调用配置。
-    *
-    * @param request ListAsyncInvokeConfigsRequest
-    * @return ListAsyncInvokeConfigsResponse
-   */
   async listAsyncInvokeConfigs(request: ListAsyncInvokeConfigsRequest): Promise<ListAsyncInvokeConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAsyncInvokeConfigsWithOptions(request, headers, runtime);
   }
 
-  /**
-    * 列出函数并发度配置。
-    *
-    * @param request ListConcurrencyConfigsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListConcurrencyConfigsResponse
-   */
   async listConcurrencyConfigsWithOptions(request: ListConcurrencyConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConcurrencyConfigsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5594,26 +5538,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConcurrencyConfigsResponse>(await this.callApi(params, req, runtime), new ListConcurrencyConfigsResponse({}));
   }
 
-  /**
-    * 列出函数并发度配置。
-    *
-    * @param request ListConcurrencyConfigsRequest
-    * @return ListConcurrencyConfigsResponse
-   */
   async listConcurrencyConfigs(request: ListConcurrencyConfigsRequest): Promise<ListConcurrencyConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConcurrencyConfigsWithOptions(request, headers, runtime);
   }
 
-  /**
-    * 列出自定义域名。
-    *
-    * @param request ListCustomDomainsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListCustomDomainsResponse
-   */
   async listCustomDomainsWithOptions(request: ListCustomDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCustomDomainsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5647,26 +5577,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCustomDomainsResponse>(await this.callApi(params, req, runtime), new ListCustomDomainsResponse({}));
   }
 
-  /**
-    * 列出自定义域名。
-    *
-    * @param request ListCustomDomainsRequest
-    * @return ListCustomDomainsResponse
-   */
   async listCustomDomains(request: ListCustomDomainsRequest): Promise<ListCustomDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCustomDomainsWithOptions(request, headers, runtime);
   }
 
-  /**
-    * 列出函数版本。
-    *
-    * @param request ListFunctionVersionsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListFunctionVersionsResponse
-   */
   async listFunctionVersionsWithOptions(functionName: string, request: ListFunctionVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionVersionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5700,26 +5616,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFunctionVersionsResponse>(await this.callApi(params, req, runtime), new ListFunctionVersionsResponse({}));
   }
 
-  /**
-    * 列出函数版本。
-    *
-    * @param request ListFunctionVersionsRequest
-    * @return ListFunctionVersionsResponse
-   */
   async listFunctionVersions(functionName: string, request: ListFunctionVersionsRequest): Promise<ListFunctionVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFunctionVersionsWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 列出函数。
-    *
-    * @param request ListFunctionsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListFunctionsResponse
-   */
   async listFunctionsWithOptions(request: ListFunctionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5753,26 +5655,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
   }
 
-  /**
-    * 列出函数。
-    *
-    * @param request ListFunctionsRequest
-    * @return ListFunctionsResponse
-   */
   async listFunctions(request: ListFunctionsRequest): Promise<ListFunctionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFunctionsWithOptions(request, headers, runtime);
   }
 
-  /**
-    * 列出函数实例。
-    *
-    * @param request ListInstancesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListInstancesResponse
-   */
   async listInstancesWithOptions(functionName: string, request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5802,26 +5690,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
-  /**
-    * 列出函数实例。
-    *
-    * @param request ListInstancesRequest
-    * @return ListInstancesResponse
-   */
   async listInstances(functionName: string, request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 列出层版本。
-    *
-    * @param request ListLayerVersionsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListLayerVersionsResponse
-   */
   async listLayerVersionsWithOptions(layerName: string, request: ListLayerVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayerVersionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5851,26 +5725,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLayerVersionsResponse>(await this.callApi(params, req, runtime), new ListLayerVersionsResponse({}));
   }
 
-  /**
-    * 列出层版本。
-    *
-    * @param request ListLayerVersionsRequest
-    * @return ListLayerVersionsResponse
-   */
   async listLayerVersions(layerName: string, request: ListLayerVersionsRequest): Promise<ListLayerVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLayerVersionsWithOptions(layerName, request, headers, runtime);
   }
 
-  /**
-    * 列出层。
-    *
-    * @param request ListLayersRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListLayersResponse
-   */
   async listLayersWithOptions(request: ListLayersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5912,26 +5772,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLayersResponse>(await this.callApi(params, req, runtime), new ListLayersResponse({}));
   }
 
-  /**
-    * 列出层。
-    *
-    * @param request ListLayersRequest
-    * @return ListLayersResponse
-   */
   async listLayers(request: ListLayersRequest): Promise<ListLayersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLayersWithOptions(request, headers, runtime);
   }
 
-  /**
-    * 列出函数预留配置。
-    *
-    * @param request ListProvisionConfigsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListProvisionConfigsResponse
-   */
   async listProvisionConfigsWithOptions(request: ListProvisionConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProvisionConfigsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5965,26 +5811,78 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProvisionConfigsResponse>(await this.callApi(params, req, runtime), new ListProvisionConfigsResponse({}));
   }
 
-  /**
-    * 列出函数预留配置。
-    *
-    * @param request ListProvisionConfigsRequest
-    * @return ListProvisionConfigsResponse
-   */
   async listProvisionConfigs(request: ListProvisionConfigsRequest): Promise<ListProvisionConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProvisionConfigsWithOptions(request, headers, runtime);
   }
 
+  async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListTagResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.resourceId)) {
+      request.resourceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceId, "ResourceId", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceIdShrink)) {
+      query["ResourceId"] = request.resourceIdShrink;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/tags-v2`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTagResourcesWithOptions(request, headers, runtime);
+  }
+
   /**
-    * 列出具有标签的资源。
+    * @deprecated
     *
     * @param request ListTaggedResourcesRequest
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
     * @return ListTaggedResourcesResponse
    */
+  // Deprecated
   async listTaggedResourcesWithOptions(request: ListTaggedResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTaggedResourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6019,25 +5917,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出具有标签的资源。
+    * @deprecated
     *
     * @param request ListTaggedResourcesRequest
     * @return ListTaggedResourcesResponse
    */
+  // Deprecated
   async listTaggedResources(request: ListTaggedResourcesRequest): Promise<ListTaggedResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTaggedResourcesWithOptions(request, headers, runtime);
   }
 
-  /**
-    * 列出函数触发器。
-    *
-    * @param request ListTriggersRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTriggersResponse
-   */
   async listTriggersWithOptions(functionName: string, request: ListTriggersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTriggersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6071,25 +5962,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTriggersResponse>(await this.callApi(params, req, runtime), new ListTriggersResponse({}));
   }
 
-  /**
-    * 列出函数触发器。
-    *
-    * @param request ListTriggersRequest
-    * @return ListTriggersResponse
-   */
   async listTriggers(functionName: string, request: ListTriggersRequest): Promise<ListTriggersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTriggersWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 列出VPC绑定配置。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListVpcBindingsResponse
-   */
   async listVpcBindingsWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVpcBindingsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6108,25 +5986,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcBindingsResponse>(await this.callApi(params, req, runtime), new ListVpcBindingsResponse({}));
   }
 
-  /**
-    * 列出VPC绑定配置。
-    *
-    * @return ListVpcBindingsResponse
-   */
   async listVpcBindings(functionName: string): Promise<ListVpcBindingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listVpcBindingsWithOptions(functionName, headers, runtime);
   }
 
-  /**
-    * 发布函数版本。
-    *
-    * @param request PublishFunctionVersionRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PublishFunctionVersionResponse
-   */
   async publishFunctionVersionWithOptions(functionName: string, request: PublishFunctionVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishFunctionVersionResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6147,26 +6012,12 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishFunctionVersionResponse>(await this.callApi(params, req, runtime), new PublishFunctionVersionResponse({}));
   }
 
-  /**
-    * 发布函数版本。
-    *
-    * @param request PublishFunctionVersionRequest
-    * @return PublishFunctionVersionResponse
-   */
   async publishFunctionVersion(functionName: string, request: PublishFunctionVersionRequest): Promise<PublishFunctionVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.publishFunctionVersionWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 设置函数异步调用配置。
-    *
-    * @param request PutAsyncInvokeConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PutAsyncInvokeConfigResponse
-   */
   async putAsyncInvokeConfigWithOptions(functionName: string, request: PutAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutAsyncInvokeConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6193,26 +6044,12 @@ export default class Client extends OpenApi {
     return $tea.cast<PutAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new PutAsyncInvokeConfigResponse({}));
   }
 
-  /**
-    * 设置函数异步调用配置。
-    *
-    * @param request PutAsyncInvokeConfigRequest
-    * @return PutAsyncInvokeConfigResponse
-   */
   async putAsyncInvokeConfig(functionName: string, request: PutAsyncInvokeConfigRequest): Promise<PutAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 设置函数并发度配置。
-    *
-    * @param request PutConcurrencyConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PutConcurrencyConfigResponse
-   */
   async putConcurrencyConfigWithOptions(functionName: string, request: PutConcurrencyConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutConcurrencyConfigResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6233,26 +6070,12 @@ export default class Client extends OpenApi {
     return $tea.cast<PutConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new PutConcurrencyConfigResponse({}));
   }
 
-  /**
-    * 设置函数并发度配置。
-    *
-    * @param request PutConcurrencyConfigRequest
-    * @return PutConcurrencyConfigResponse
-   */
   async putConcurrencyConfig(functionName: string, request: PutConcurrencyConfigRequest): Promise<PutConcurrencyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putConcurrencyConfigWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 设置层的访问权限。
-    *
-    * @param request PutLayerACLRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PutLayerACLResponse
-   */
   async putLayerACLWithOptions(layerName: string, request: PutLayerACLRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutLayerACLResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6278,26 +6101,12 @@ export default class Client extends OpenApi {
     return $tea.cast<PutLayerACLResponse>(await this.callApi(params, req, runtime), new PutLayerACLResponse({}));
   }
 
-  /**
-    * 设置层的访问权限。
-    *
-    * @param request PutLayerACLRequest
-    * @return PutLayerACLResponse
-   */
   async putLayerACL(layerName: string, request: PutLayerACLRequest): Promise<PutLayerACLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putLayerACLWithOptions(layerName, request, headers, runtime);
   }
 
-  /**
-    * 设置函数预留配置。
-    *
-    * @param request PutProvisionConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PutProvisionConfigResponse
-   */
   async putProvisionConfigWithOptions(functionName: string, request: PutProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutProvisionConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6324,12 +6133,6 @@ export default class Client extends OpenApi {
     return $tea.cast<PutProvisionConfigResponse>(await this.callApi(params, req, runtime), new PutProvisionConfigResponse({}));
   }
 
-  /**
-    * 设置函数预留配置。
-    *
-    * @param request PutProvisionConfigRequest
-    * @return PutProvisionConfigResponse
-   */
   async putProvisionConfig(functionName: string, request: PutProvisionConfigRequest): Promise<PutProvisionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -6337,13 +6140,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 设置资源标签。
+    * @deprecated
     *
     * @param request TagResourceRequest
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
     * @return TagResourceResponse
    */
+  // Deprecated
   async tagResourceWithOptions(request: TagResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourceResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6365,25 +6169,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 设置资源标签。
+    * @deprecated
     *
     * @param request TagResourceRequest
     * @return TagResourceResponse
    */
+  // Deprecated
   async tagResource(request: TagResourceRequest): Promise<TagResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.tagResourceWithOptions(request, headers, runtime);
   }
 
+  async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/tags-v2`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.tagResourcesWithOptions(request, headers, runtime);
+  }
+
   /**
-    * 删除资源标签。
+    * @deprecated
     *
     * @param request UntagResourceRequest
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
     * @return UntagResourceResponse
    */
+  // Deprecated
   async untagResourceWithOptions(request: UntagResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6418,25 +6250,71 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除资源标签。
+    * @deprecated
     *
     * @param request UntagResourceRequest
     * @return UntagResourceResponse
    */
+  // Deprecated
   async untagResource(request: UntagResourceRequest): Promise<UntagResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.untagResourceWithOptions(request, headers, runtime);
   }
 
-  /**
-    * 更新函数别名。
-    *
-    * @param request UpdateAliasRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateAliasResponse
-   */
+  async untagResourcesWithOptions(tmpReq: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UntagResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.resourceId)) {
+      request.resourceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceId, "ResourceId", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tagKey)) {
+      request.tagKeyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagKey, "TagKey", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.resourceIdShrink)) {
+      query["ResourceId"] = request.resourceIdShrink;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKeyShrink)) {
+      query["TagKey"] = request.tagKeyShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/tags-v2`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.untagResourcesWithOptions(request, headers, runtime);
+  }
+
   async updateAliasWithOptions(functionName: string, aliasName: string, request: UpdateAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAliasResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6457,26 +6335,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAliasResponse>(await this.callApi(params, req, runtime), new UpdateAliasResponse({}));
   }
 
-  /**
-    * 更新函数别名。
-    *
-    * @param request UpdateAliasRequest
-    * @return UpdateAliasResponse
-   */
   async updateAlias(functionName: string, aliasName: string, request: UpdateAliasRequest): Promise<UpdateAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAliasWithOptions(functionName, aliasName, request, headers, runtime);
   }
 
-  /**
-    * 更新自定义域名。
-    *
-    * @param request UpdateCustomDomainRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateCustomDomainResponse
-   */
   async updateCustomDomainWithOptions(domainName: string, request: UpdateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCustomDomainResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6497,26 +6361,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCustomDomainResponse>(await this.callApi(params, req, runtime), new UpdateCustomDomainResponse({}));
   }
 
-  /**
-    * 更新自定义域名。
-    *
-    * @param request UpdateCustomDomainRequest
-    * @return UpdateCustomDomainResponse
-   */
   async updateCustomDomain(domainName: string, request: UpdateCustomDomainRequest): Promise<UpdateCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateCustomDomainWithOptions(domainName, request, headers, runtime);
   }
 
-  /**
-    * 更新函数。
-    *
-    * @param request UpdateFunctionRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateFunctionResponse
-   */
   async updateFunctionWithOptions(functionName: string, request: UpdateFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFunctionResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6537,26 +6387,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFunctionResponse>(await this.callApi(params, req, runtime), new UpdateFunctionResponse({}));
   }
 
-  /**
-    * 更新函数。
-    *
-    * @param request UpdateFunctionRequest
-    * @return UpdateFunctionResponse
-   */
   async updateFunction(functionName: string, request: UpdateFunctionRequest): Promise<UpdateFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateFunctionWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * 更新函数触发器。
-    *
-    * @param request UpdateTriggerRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateTriggerResponse
-   */
   async updateTriggerWithOptions(functionName: string, triggerName: string, request: UpdateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTriggerResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6577,12 +6413,6 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTriggerResponse>(await this.callApi(params, req, runtime), new UpdateTriggerResponse({}));
   }
 
-  /**
-    * 更新函数触发器。
-    *
-    * @param request UpdateTriggerRequest
-    * @return UpdateTriggerResponse
-   */
   async updateTrigger(functionName: string, triggerName: string, request: UpdateTriggerRequest): Promise<UpdateTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
