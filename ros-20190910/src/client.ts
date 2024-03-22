@@ -398,11 +398,13 @@ export class CreateChangeSetResponse extends $tea.Model {
 export class CreateDiagnosticRequest extends $tea.Model {
   diagnosticKey?: string;
   diagnosticType?: string;
+  lang?: string;
   product?: string;
   static names(): { [key: string]: string } {
     return {
       diagnosticKey: 'DiagnosticKey',
       diagnosticType: 'DiagnosticType',
+      lang: 'Lang',
       product: 'Product',
     };
   }
@@ -411,6 +413,7 @@ export class CreateDiagnosticRequest extends $tea.Model {
     return {
       diagnosticKey: 'string',
       diagnosticType: 'string',
+      lang: 'string',
       product: 'string',
     };
   }
@@ -2972,6 +2975,7 @@ export class GetStackResponseBody extends $tea.Model {
   requestId?: string;
   resourceGroupId?: string;
   resourceProgress?: GetStackResponseBodyResourceProgress;
+  rollbackFailedRootReason?: string;
   rootStackId?: string;
   serviceManaged?: boolean;
   serviceName?: string;
@@ -3011,6 +3015,7 @@ export class GetStackResponseBody extends $tea.Model {
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       resourceProgress: 'ResourceProgress',
+      rollbackFailedRootReason: 'RollbackFailedRootReason',
       rootStackId: 'RootStackId',
       serviceManaged: 'ServiceManaged',
       serviceName: 'ServiceName',
@@ -3053,6 +3058,7 @@ export class GetStackResponseBody extends $tea.Model {
       requestId: 'string',
       resourceGroupId: 'string',
       resourceProgress: GetStackResponseBodyResourceProgress,
+      rollbackFailedRootReason: 'string',
       rootStackId: 'string',
       serviceManaged: 'boolean',
       serviceName: 'string',
@@ -3332,12 +3338,14 @@ export class GetStackGroupOperationResponse extends $tea.Model {
 }
 
 export class GetStackInstanceRequest extends $tea.Model {
+  outputOption?: string;
   regionId?: string;
   stackGroupName?: string;
   stackInstanceAccountId?: string;
   stackInstanceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
+      outputOption: 'OutputOption',
       regionId: 'RegionId',
       stackGroupName: 'StackGroupName',
       stackInstanceAccountId: 'StackInstanceAccountId',
@@ -3347,6 +3355,7 @@ export class GetStackInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      outputOption: 'string',
       regionId: 'string',
       stackGroupName: 'string',
       stackInstanceAccountId: 'string',
@@ -9407,6 +9416,7 @@ export class GetStackInstanceResponseBodyStackInstanceParameterOverrides extends
 export class GetStackInstanceResponseBodyStackInstance extends $tea.Model {
   accountId?: string;
   driftDetectionTime?: string;
+  outputs?: { [key: string]: any }[];
   parameterOverrides?: GetStackInstanceResponseBodyStackInstanceParameterOverrides[];
   rdFolderId?: string;
   regionId?: string;
@@ -9420,6 +9430,7 @@ export class GetStackInstanceResponseBodyStackInstance extends $tea.Model {
     return {
       accountId: 'AccountId',
       driftDetectionTime: 'DriftDetectionTime',
+      outputs: 'Outputs',
       parameterOverrides: 'ParameterOverrides',
       rdFolderId: 'RdFolderId',
       regionId: 'RegionId',
@@ -9436,6 +9447,7 @@ export class GetStackInstanceResponseBodyStackInstance extends $tea.Model {
     return {
       accountId: 'string',
       driftDetectionTime: 'string',
+      outputs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       parameterOverrides: { 'type': 'array', 'itemType': GetStackInstanceResponseBodyStackInstanceParameterOverrides },
       rdFolderId: 'string',
       regionId: 'string',
@@ -12223,6 +12235,10 @@ export default class Client extends OpenApi {
       query["DiagnosticType"] = request.diagnosticType;
     }
 
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     if (!Util.isUnset(request.product)) {
       query["Product"] = request.product;
     }
@@ -13800,7 +13816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` is queried. The stack is deployed in the China (Hangzhou) region.
+    * In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
     *
     * @param request GetStackRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -13851,7 +13867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` is queried. The stack is deployed in the China (Hangzhou) region.
+    * In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
     *
     * @param request GetStackRequest
     * @return GetStackResponse
@@ -14013,6 +14029,10 @@ export default class Client extends OpenApi {
   async getStackInstanceWithOptions(request: GetStackInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetStackInstanceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.outputOption)) {
+      query["OutputOption"] = request.outputOption;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
