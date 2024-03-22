@@ -849,7 +849,7 @@ export class DescribeExpressConnectRouterResponse extends $tea.Model {
 }
 
 export class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends $tea.Model {
-  associatonId?: string;
+  associationId?: string;
   clientToken?: string;
   dryRun?: boolean;
   ecrId?: string;
@@ -857,7 +857,7 @@ export class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends $te
   instanceType?: string;
   static names(): { [key: string]: string } {
     return {
-      associatonId: 'AssociatonId',
+      associationId: 'AssociationId',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       ecrId: 'EcrId',
@@ -868,7 +868,7 @@ export class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends $te
 
   static types(): { [key: string]: any } {
     return {
-      associatonId: 'string',
+      associationId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
       ecrId: 'string',
@@ -3511,8 +3511,8 @@ export default class Client extends OpenApi {
   async describeExpressConnectRouterAllowedPrefixHistoryWithOptions(request: DescribeExpressConnectRouterAllowedPrefixHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectRouterAllowedPrefixHistoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.associatonId)) {
-      body["AssociatonId"] = request.associatonId;
+    if (!Util.isUnset(request.associationId)) {
+      body["AssociationId"] = request.associationId;
     }
 
     if (!Util.isUnset(request.clientToken)) {
