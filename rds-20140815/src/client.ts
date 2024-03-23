@@ -28205,10 +28205,12 @@ export class CreateDBInstanceEndpointAddressResponseBodyData extends $tea.Model 
 
 export class CreateDBNodesRequestDBNode extends $tea.Model {
   classCode?: string;
+  vswId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       classCode: 'classCode',
+      vswId: 'vswId',
       zoneId: 'zoneId',
     };
   }
@@ -28216,6 +28218,7 @@ export class CreateDBNodesRequestDBNode extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       classCode: 'string',
+      vswId: 'string',
       zoneId: 'string',
     };
   }
@@ -28421,10 +28424,12 @@ export class CreateGadInstanceMemberResponseBodyResult extends $tea.Model {
 
 export class CreateOrderForCreateDBNodesRequestDBNode extends $tea.Model {
   classCode?: string;
+  vswId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       classCode: 'classCode',
+      vswId: 'vswId',
       zoneId: 'zoneId',
     };
   }
@@ -28432,6 +28437,7 @@ export class CreateOrderForCreateDBNodesRequestDBNode extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       classCode: 'string',
+      vswId: 'string',
       zoneId: 'string',
     };
   }
@@ -36888,10 +36894,12 @@ export class ModifyWhitelistTemplateResponseBodyData extends $tea.Model {
 
 export class PreCheckCreateOrderForCreateDBNodesRequestDBNode extends $tea.Model {
   classCode?: string;
+  vswId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       classCode: 'classCode',
+      vswId: 'vswId',
       zoneId: 'zoneId',
     };
   }
@@ -36899,6 +36907,7 @@ export class PreCheckCreateOrderForCreateDBNodesRequestDBNode extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       classCode: 'string',
+      vswId: 'string',
       zoneId: 'string',
     };
   }
